@@ -21,6 +21,7 @@
 ;; for other development
 (el-get-bundle haml-mode)
 (el-get-bundle handlebars-mode)
+(el-get-bundle pug-mode)
 
 ;; keybinds
 
