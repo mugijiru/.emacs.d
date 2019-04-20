@@ -18,6 +18,9 @@
 (el-get-bundle ember-mode)
 (el-get-bundle vue-mode)
 
+;; for other development
+(el-get-bundle haml-mode)
+
 ;; keybinds
 
 (if (eq window-system 'ns)
