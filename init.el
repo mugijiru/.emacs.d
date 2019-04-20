@@ -13,7 +13,9 @@
 
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
 
+;; for JS
 (el-get-bundle js2-mode)
+(el-get-bundle ember-mode)
 
 (setq custom-file (expand-file-name "~/.emacs.d/custom.el"))
 (load custom-file)
