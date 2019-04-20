@@ -25,6 +25,10 @@
 (el-get-bundle yaml-mode)
 (el-get-bundle markdown-mode)
 
+;; for file actions
+(require 'uniquify) ;; includes Emacs
+(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+
 (el-get-bundle helm)
 (require 'helm-config)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
