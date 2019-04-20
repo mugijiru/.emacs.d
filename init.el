@@ -29,6 +29,10 @@
 (require 'uniquify) ;; includes Emacs
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
+(ido-mode 1) ;; includes Emacs
+(setq ido-enable-flex-matching t)
+
+
 (el-get-bundle helm)
 (require 'helm-config)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
