@@ -20,6 +20,7 @@
 
 ;; for other development
 (el-get-bundle haml-mode)
+(el-get-bundle handlebars-mode)
 
 ;; keybinds
 
