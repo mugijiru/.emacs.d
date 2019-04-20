@@ -15,3 +15,5 @@
 
 (el-get-bundle js2-mode)
 
+(setq custom-file (expand-file-name "~/.emacs.d/custom.el"))
+(load custom-file)
