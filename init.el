@@ -25,6 +25,13 @@
 (el-get-bundle yaml-mode)
 (el-get-bundle markdown-mode)
 
+(el-get-bundle helm)
+(require 'helm-config)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(global-set-key (kbd "C-;") 'helm-for-files)
+(global-set-key (kbd "M-x") 'helm-M-x)
+
+
 ;; keybinds
 
 (if (eq window-system 'ns)
