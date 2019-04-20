@@ -16,6 +16,7 @@
 ;; for JS
 (el-get-bundle js2-mode)
 (el-get-bundle ember-mode)
+(el-get-bundle vue-mode)
 
 (setq custom-file (expand-file-name "~/.emacs.d/custom.el"))
 (load custom-file)
