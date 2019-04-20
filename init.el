@@ -1,6 +1,6 @@
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
 			 ("melpa" . "https://melpa.org/packages/")))
-(package-initialize)
+;; (package-initialize)
 
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
