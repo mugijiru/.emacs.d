@@ -18,5 +18,23 @@
 (el-get-bundle ember-mode)
 (el-get-bundle vue-mode)
 
+;; keybinds
+
+(if (eq window-system 'ns)
+    (progn
+          (setq ns-alternate-modifier (quote super)) ;; option  => super 
+          (setq ns-command-modifier (quote meta))))  ;; command => meta
+
+;; C-h を backspace に
+(keyboard-translate ?\C-h ?\C-?)
+(global-set-key "\C-h" nil)
+
+;; M-g rをstring-replaceに割り当て
+(global-set-key (kbd "M-g r") 'replace-string)
+
+;; Shift+矢印でwindow移動
+(windmove-default-keybindings)
+
+
 (setq custom-file (expand-file-name "~/.emacs.d/custom.el"))
 (load custom-file)
