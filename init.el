@@ -50,6 +50,13 @@
 
 ;; for japanese
 (el-get-bundle ddskk)
+(el-get-bundle migemo)
+(load "migemo")
+(setq migemo-dictionary "/usr/local/share/migemo/utf-8/migemo-dict")
+(setq migemo-command "/usr/local/bin/cmigemo")
+(setq migemo-options '("-q" "--emacs"))
+(setq migemo-coding-system 'utf-8-unix)
+(migemo-init)
 
 ;; keybinds
 
