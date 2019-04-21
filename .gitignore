@@ -1,6 +1,8 @@
-*~
-el-get
-
 # auto generated dirs
+el-get
 elpa
 url
+
+# auto generated files
+recentf
+*~
