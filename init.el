@@ -13,6 +13,12 @@
 
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
 
+;; for exec path
+;; use .bashrc setted path
+(el-get-bundle exec-path-from-shell)
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
 ;; for JS
 (el-get-bundle js2-mode)
 (el-get-bundle ember-mode)
