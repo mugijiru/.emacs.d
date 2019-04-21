@@ -48,6 +48,8 @@
 (global-set-key (kbd "C-;") 'helm-for-files)
 (global-set-key (kbd "M-x") 'helm-M-x)
 
+;; for japanese
+(el-get-bundle ddskk)
 
 ;; keybinds
 
