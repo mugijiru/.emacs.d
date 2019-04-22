@@ -115,6 +115,12 @@
 ;; Shift+矢印でwindow移動
 (windmove-default-keybindings)
 
+;; ¥ ではなく \ になるように調整
+(define-key global-map [?¥] [?\\])
+(define-key global-map [?\C-¥] [?\C-\\])
+(define-key global-map [?\M-¥] [?\M-\\])
+(define-key global-map [?\C-\M-¥] [?\C-\M-\\])
+
 ;; sticky control
 (el-get-bundle sticky-control)
 (sticky-control-set-key 'sticky-control-key 44)
