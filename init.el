@@ -31,6 +31,11 @@
 (el-get-bundle yaml-mode)
 (el-get-bundle markdown-mode)
 
+;; プログラミング一般
+(require 'whitespace)
+(global-whitespace-mode 1)
+
+
 ;; for file actions
 (require 'uniquify) ;; includes Emacs
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
