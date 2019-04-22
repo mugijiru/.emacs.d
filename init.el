@@ -115,6 +115,26 @@
 ;; Shift+矢印でwindow移動
 (windmove-default-keybindings)
 
+;; sticky control
+(el-get-bundle sticky-control)
+(sticky-control-set-key 'sticky-control-key 44)
+(setq sticky-control-shortcuts
+      '((?c . "\C-c")
+        (?g . "\C-g")
+        (?k . "\C-k")
+        (?a . "\C-a")
+        (?e . "\C-e")
+        (?n . "\C-n")
+        (?o . "\C-o")
+        (?p . "\C-p")
+        (?j . "\C-j")
+        (?f . "\C-f")
+        (?b . "\C-b")
+        (?x . "\C-x")
+        (?r . "\C-r")
+        (?s . "\C-s")))
+
+(sticky-control-mode)
 
 (setq custom-file (expand-file-name "~/.emacs.d/custom.el"))
 (load custom-file)

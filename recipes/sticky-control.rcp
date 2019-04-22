@@ -1,0 +1,5 @@
+(:name sticky-control
+       :description "save your left little finger"
+       :type http
+       :url "http://www.cs.toronto.edu/~ryanjohn/sticky-control.el"
+       :features "sticky-control")
