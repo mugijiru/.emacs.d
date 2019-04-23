@@ -62,6 +62,7 @@
 (el-get-bundle git-gutter-fringe)
 (global-git-gutter-mode t)
 (el-get-bundle company-mode)
+(el-get-bundle multiple-cursors)
 
 ;; for file actions
 (require 'uniquify) ;; includes Emacs
@@ -140,6 +141,12 @@
 (define-key global-map [?\C-¥] [?\C-\\])
 (define-key global-map [?\M-¥] [?\M-\\])
 (define-key global-map [?\C-\M-¥] [?\C-\M-\\])
+
+; multiple-cursors
+(global-set-key (kbd "C-:") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 ;; sticky control
 (el-get-bundle sticky-control)
