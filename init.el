@@ -19,6 +19,16 @@
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
+;; helm 系の設定は他の部分への影響も大きそうなので先に持って来た
+(el-get-bundle helm)
+(el-get-bundle helm-descbinds)
+(require 'helm-config)
+(helm-descbinds-mode)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(global-set-key (kbd "C-;") 'helm-for-files)
+(global-set-key (kbd "M-x") 'helm-M-x)
+
+
 ;; for Ruby
 (el-get-bundle rbenv)
 (global-rbenv-mode)
@@ -93,13 +103,6 @@
 
 (el-get-bundle emacs-w3m)
 
-(el-get-bundle helm)
-(el-get-bundle helm-descbinds)
-(require 'helm-config)
-(helm-descbinds-mode)
-(global-set-key (kbd "M-y") 'helm-show-kill-ring)
-(global-set-key (kbd "C-;") 'helm-for-files)
-(global-set-key (kbd "M-x") 'helm-M-x)
 
 
 ;; for japanese
