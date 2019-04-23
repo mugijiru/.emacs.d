@@ -189,6 +189,7 @@
                 (lambda ()
                   (set-frame-parameter nil 'fullscreen 'fullboth))))
 
+(el-get-bundle molokai-theme)
 
 (setq custom-file (expand-file-name "~/.emacs.d/custom.el"))
 (load custom-file)
