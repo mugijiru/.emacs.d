@@ -61,6 +61,7 @@
 (el-get-bundle helm-projectile)
 (el-get-bundle git-gutter-fringe)
 (global-git-gutter-mode t)
+(el-get-bundle company-mode)
 
 ;; for file actions
 (require 'uniquify) ;; includes Emacs
