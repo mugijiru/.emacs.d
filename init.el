@@ -19,6 +19,14 @@
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
+;; for Ruby
+(el-get-bundle rbenv)
+(global-rbenv-mode)
+(el-get-bundle enh-ruby-mode)
+
+;; for Rails
+(el-get-bundle projectile-rails)
+
 ;; for JS
 (el-get-bundle js2-mode)
 (el-get-bundle ember-mode)
@@ -39,6 +47,8 @@
 (global-whitespace-mode 1)
 (el-get-bundle flycheck)
 (show-paren-mode 1) ;; http://syohex.hatenablog.com/entry/20110331/1301584188
+(el-get-bundle projectile)
+(el-get-bundle helm-projectile)
 
 ;; for file actions
 (require 'uniquify) ;; includes Emacs
