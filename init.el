@@ -38,6 +38,7 @@
 (require 'whitespace)
 (global-whitespace-mode 1)
 
+(show-paren-mode 1) ;; http://syohex.hatenablog.com/entry/20110331/1301584188
 
 ;; for file actions
 (require 'uniquify) ;; includes Emacs
