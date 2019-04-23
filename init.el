@@ -59,6 +59,8 @@
 (show-paren-mode 1) ;; http://syohex.hatenablog.com/entry/20110331/1301584188
 (el-get-bundle projectile)
 (el-get-bundle helm-projectile)
+(el-get-bundle git-gutter-fringe)
+(global-git-gutter-mode t)
 
 ;; for file actions
 (require 'uniquify) ;; includes Emacs
