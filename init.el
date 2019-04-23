@@ -161,5 +161,12 @@
 
 (sticky-control-mode)
 
+;; fullscreen
+(if (eq window-system 'ns)
+    (add-hook 'window-setup-hook
+                (lambda ()
+                  (set-frame-parameter nil 'fullscreen 'fullboth))))
+
+
 (setq custom-file (expand-file-name "~/.emacs.d/custom.el"))
 (load custom-file)
