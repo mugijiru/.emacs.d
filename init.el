@@ -111,6 +111,20 @@
 
 ;; for japanese
 (el-get-bundle ddskk)
+(add-hook 'skk-load-hook
+          (lambda ()
+            ;; コード中では自動的に英字にする。
+            (require 'context-skk)
+
+            ;; 半角で入力したい文字
+            (setq skk-rom-kana-rule-list
+                  (nconc skk-rom-kana-rule-list
+                         '((";" nil nil)
+                           (":" nil nil)
+                           ("?" nil nil)
+                           ("!" nil nil))))))
+(setq skk-sticky-key ";")
+
 (el-get-bundle migemo)
 (load "migemo")
 (setq migemo-dictionary "/usr/local/share/migemo/utf-8/migemo-dict")
