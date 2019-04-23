@@ -84,10 +84,13 @@
 (el-get-bundle emacs-w3m)
 
 (el-get-bundle helm)
+(el-get-bundle helm-descbinds)
 (require 'helm-config)
+(helm-descbinds-mode)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-;") 'helm-for-files)
 (global-set-key (kbd "M-x") 'helm-M-x)
+
 
 ;; for japanese
 (el-get-bundle ddskk)
