@@ -9,12 +9,10 @@
 ;; for JS
 
 (el-get-bundle ember-mode)
-(el-get-bundle vue-mode)
 
 ;; for other development
 (el-get-bundle haml-mode)
 (el-get-bundle handlebars-mode)
-(el-get-bundle pug-mode)
 (el-get-bundle yaml-mode)
 (el-get-bundle markdown-mode)
 
