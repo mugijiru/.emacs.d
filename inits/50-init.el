@@ -7,7 +7,6 @@
 
 
 
-(el-get-bundle seesaa-blog-mode) ;; for seesaa blog. dependent org-mdoe
 
 (el-get-bundle emacs-w3m)
 (el-get-bundle scratch-log)
