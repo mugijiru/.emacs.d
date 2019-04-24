@@ -16,13 +16,6 @@
 (el-get-bundle init-loader)
 (init-loader-load)
 
-;; for exec path
-;; use .bashrc setted path
-(el-get-bundle exec-path-from-shell)
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
-
-
 ;; helm 系の設定は他の部分への影響も大きそうなので先に持って来た
 (el-get-bundle helm)
 (el-get-bundle helm-descbinds)
