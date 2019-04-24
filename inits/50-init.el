@@ -1,5 +1,4 @@
 ;; for other development
-(el-get-bundle yaml-mode)
 (el-get-bundle markdown-mode)
 
 ;; プログラミング一般
