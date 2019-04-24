@@ -6,13 +6,8 @@
 ;; for Rails
 (el-get-bundle projectile-rails)
 
-;; for JS
-
-(el-get-bundle ember-mode)
-
 ;; for other development
 (el-get-bundle haml-mode)
-(el-get-bundle handlebars-mode)
 (el-get-bundle yaml-mode)
 (el-get-bundle markdown-mode)
 
