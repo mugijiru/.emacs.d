@@ -1,8 +1,4 @@
-;; for Rails
-(el-get-bundle projectile-rails)
-
 ;; for other development
-(el-get-bundle haml-mode)
 (el-get-bundle yaml-mode)
 (el-get-bundle markdown-mode)
 
