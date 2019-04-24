@@ -5,8 +5,6 @@
 
 ;; for file actions
 
-(ido-mode 1) ;; includes Emacs
-(setq ido-enable-flex-matching t)
 
 ;; for other edit
 (el-get-bundle org-mode) ;; from Git. because melpa cannot resolve dependencies.
