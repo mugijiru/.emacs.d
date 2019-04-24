@@ -176,24 +176,3 @@
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-;") 'helm-for-files)
 (global-set-key (kbd "M-x") 'helm-M-x)
-
-;; sticky control
-(el-get-bundle sticky-control)
-(sticky-control-set-key 'sticky-control-key 44)
-(setq sticky-control-shortcuts
-      '((?c . "\C-c")
-        (?g . "\C-g")
-        (?k . "\C-k")
-        (?a . "\C-a")
-        (?e . "\C-e")
-        (?n . "\C-n")
-        (?o . "\C-o")
-        (?p . "\C-p")
-        (?j . "\C-j")
-        (?f . "\C-f")
-        (?b . "\C-b")
-        (?x . "\C-x")
-        (?r . "\C-r")
-        (?s . "\C-s")))
-
-(sticky-control-mode)
