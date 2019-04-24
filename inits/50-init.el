@@ -4,8 +4,6 @@
 (el-get-bundle multiple-cursors)
 
 ;; for file actions
-(require 'uniquify) ;; includes Emacs
-(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
 (ido-mode 1) ;; includes Emacs
 (setq ido-enable-flex-matching t)
