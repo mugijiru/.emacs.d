@@ -1,6 +1,3 @@
-;; for other development
-(el-get-bundle markdown-mode)
-
 ;; プログラミング一般
 
 (el-get-bundle flycheck)
