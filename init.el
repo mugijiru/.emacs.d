@@ -21,9 +21,6 @@
 (el-get-bundle helm-descbinds)
 (require 'helm-config)
 (helm-descbinds-mode)
-(global-set-key (kbd "M-y") 'helm-show-kill-ring)
-(global-set-key (kbd "C-;") 'helm-for-files)
-(global-set-key (kbd "M-x") 'helm-M-x)
 
 
 ;; for Ruby
@@ -187,11 +184,16 @@
 (define-key global-map [?\M-¥] [?\M-\\])
 (define-key global-map [?\C-\M-¥] [?\C-\M-\\])
 
-; multiple-cursors
+;; multiple-cursors
 (global-set-key (kbd "C-:") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
+;; helm
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(global-set-key (kbd "C-;") 'helm-for-files)
+(global-set-key (kbd "M-x") 'helm-M-x)
 
 ;; sticky control
 (el-get-bundle sticky-control)
