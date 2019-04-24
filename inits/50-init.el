@@ -1,8 +1,3 @@
-;; for Ruby
-(el-get-bundle rbenv)
-(global-rbenv-mode)
-(el-get-bundle enh-ruby-mode)
-
 ;; for Rails
 (el-get-bundle projectile-rails)
 
