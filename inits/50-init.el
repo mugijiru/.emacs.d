@@ -18,9 +18,6 @@
 (el-get-bundle ember-mode)
 (el-get-bundle vue-mode)
 
-;; for Emacs Lisp
-(el-get-bundle paredit)
-
 ;; for other development
 (el-get-bundle haml-mode)
 (el-get-bundle handlebars-mode)
