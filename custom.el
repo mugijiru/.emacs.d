@@ -17,10 +17,12 @@
    "/Users/n_uehara/.emacs.d/el-get/plantuml-mode/plantuml.jar")
  '(package-selected-packages
    (quote
-    (highlight-indent-guides rainbow-mode molokai-theme xml-rpc vue-html-mode ssass-mode edit-indirect ember-mode)))
+    (zoom highlight-indent-guides rainbow-mode molokai-theme xml-rpc vue-html-mode ssass-mode edit-indirect ember-mode)))
  '(recentf-auto-cleanup (quote never))
  '(recentf-max-saved-items 500)
- '(safe-local-variable-values (quote ((flycheck-stylelintrc . ".stylelintrc.yml")))))
+ '(safe-local-variable-values (quote ((flycheck-stylelintrc . ".stylelintrc.yml"))))
+ '(zoom-mode t nil (zoom))
+ '(zoom-size (quote (0.618 . 0.618))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
