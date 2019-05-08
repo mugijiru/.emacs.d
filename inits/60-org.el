@@ -1,8 +1,7 @@
+(el-get-bundle org-mode) ;; from Git. because melpa cannot resolve dependencies.
 (el-get-bundle org-export-blocks-format-plantuml)
 (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
 
-;; for other edit
-(el-get-bundle org-mode) ;; from Git. because melpa cannot resolve dependencies.
 ;; フッターなくしたり
 (setq org-export-html-footnotes-section "")
 (setq org-export-html-footnote-format "")
