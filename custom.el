@@ -6,6 +6,7 @@
  '(custom-safe-themes
    (quote
     ("11e57648ab04915568e558b77541d0e94e69d09c9c54c06075938b6abc0189d8" default)))
+ '(helm-locate-command "mdfind %s %s")
  '(org-modules
    (quote
     (ol-bbdb ol-bibtex ol-docview ol-eww ol-gnus ol-info ol-irc ol-mhe ol-rmail org-tempo ol-w3m)))
