@@ -15,6 +15,7 @@
    (quote
     (highlight-indent-guides rainbow-mode molokai-theme xml-rpc vue-html-mode ssass-mode edit-indirect ember-mode)))
  '(recentf-auto-cleanup (quote never))
+ '(recentf-max-saved-items 500)
  '(safe-local-variable-values (quote ((flycheck-stylelintrc . ".stylelintrc.yml")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
