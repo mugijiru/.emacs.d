@@ -6,6 +6,7 @@
  '(custom-safe-themes
    (quote
     ("11e57648ab04915568e558b77541d0e94e69d09c9c54c06075938b6abc0189d8" default)))
+ '(global-yascroll-bar-mode t)
  '(helm-for-files-preferred-list
    (quote
     (helm-source-buffers-list helm-source-recentf helm-source-bookmarks helm-source-projectile-files-list helm-source-file-cache helm-source-files-in-current-dir helm-source-locate)))
@@ -21,6 +22,8 @@
  '(recentf-auto-cleanup (quote never))
  '(recentf-max-saved-items 500)
  '(safe-local-variable-values (quote ((flycheck-stylelintrc . ".stylelintrc.yml"))))
+ '(scroll-bar-mode nil)
+ '(yascroll:delay-to-hide nil)
  '(zoom-mode t nil (zoom))
  '(zoom-size (quote (0.618 . 0.618))))
 (custom-set-faces
