@@ -1,0 +1,7 @@
+(defun my/replace-var (point mark)
+  (interactive "r")
+  (let* ((str (buffer-substring point mark))
+         (cmd (concat "fetch-color-var '" str "'"))
+         (response (shell-command-to-string cmd)))
+    (delete-region point mark)
+    (insert response)))
