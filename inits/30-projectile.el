@@ -1,5 +1,10 @@
 (el-get-bundle projectile)
 
+(el-get-bundle helm-projectile)
+(helm-projectile-on)
+
+(projectile-mode)
+
 ;; 無視するディレクトリ
 (add-to-list 'projectile-globally-ignored-directories "tmp")
 (add-to-list 'projectile-globally-ignored-directories ".tmp")
@@ -13,8 +18,3 @@
 (add-to-list 'projectile-globally-ignored-files "gems.tags")
 (add-to-list 'projectile-globally-ignored-files "project.tags")
 (add-to-list 'projectile-globally-ignored-files "manifest.json")
-
-(el-get-bundle helm-projectile)
-(helm-projectile-on)
-
-(projectile-mode)
