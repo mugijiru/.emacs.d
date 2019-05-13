@@ -25,7 +25,7 @@
    "/Users/n_uehara/.emacs.d/el-get/plantuml-mode/plantuml.jar")
  '(package-selected-packages
    (quote
-    (hide-mode-line persp-mode oauth2 zoom highlight-indent-guides rainbow-mode molokai-theme xml-rpc vue-html-mode ssass-mode edit-indirect ember-mode)))
+    (hide-mode-line oauth2 zoom highlight-indent-guides rainbow-mode molokai-theme xml-rpc vue-html-mode ssass-mode edit-indirect ember-mode)))
  '(projectile-mode-line-prefix "")
  '(pug-tab-width 2)
  '(recentf-auto-cleanup (quote never))
