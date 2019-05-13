@@ -1,3 +1,5 @@
+(define-auto-insert "\\.vue$" "template.vue")
+
 (el-get-bundle vue-mode)
 (el-get-bundle pug-mode)
 (defun my/css-mode-hook ()
