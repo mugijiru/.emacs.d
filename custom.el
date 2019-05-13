@@ -3,6 +3,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(column-number-mode t)
  '(css-indent-offset 2)
  '(custom-safe-themes
    (quote
@@ -15,6 +16,7 @@
  '(helm-locate-command "mdfind %s %s")
  '(indent-tabs-mode nil)
  '(js-indent-level 2)
+ '(line-number-mode nil)
  '(org-modules
    (quote
     (ol-bbdb ol-bibtex ol-docview ol-eww ol-gnus ol-info ol-irc ol-mhe ol-rmail org-tempo ol-w3m)))
