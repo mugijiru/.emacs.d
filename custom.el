@@ -7,6 +7,7 @@
  '(custom-safe-themes
    (quote
     ("11e57648ab04915568e558b77541d0e94e69d09c9c54c06075938b6abc0189d8" default)))
+ '(el-get-notify-type (quote message))
  '(global-yascroll-bar-mode t)
  '(helm-for-files-preferred-list
    (quote
@@ -21,7 +22,8 @@
    "/Users/n_uehara/.emacs.d/el-get/plantuml-mode/plantuml.jar")
  '(package-selected-packages
    (quote
-    (zoom highlight-indent-guides rainbow-mode molokai-theme xml-rpc vue-html-mode ssass-mode edit-indirect ember-mode)))
+    (hide-mode-line persp-mode oauth2 zoom highlight-indent-guides rainbow-mode molokai-theme xml-rpc vue-html-mode ssass-mode edit-indirect ember-mode)))
+ '(projectile-mode-line-prefix "")
  '(pug-tab-width 2)
  '(recentf-auto-cleanup (quote never))
  '(recentf-max-saved-items 500)
