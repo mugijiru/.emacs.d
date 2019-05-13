@@ -32,3 +32,6 @@
 
 ;; zoom-window
 (global-set-key (kbd "C-x 1") 'zoom-window-zoom)
+
+;; neotree
+(global-set-key [f8] 'neotree-toggle)
