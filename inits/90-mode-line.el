@@ -1,3 +1,7 @@
+;; 一部のモードでは mode-line を表示しないようにする
+(el-get-bundle hide-mode-line)
+(add-hook 'neotree-mode-hook #'hide-mode-line-mode)
+
 (el-get-bundle diminish)
 (require 'diminish)
 
