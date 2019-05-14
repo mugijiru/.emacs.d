@@ -10,6 +10,9 @@
 ;; M-g rをstring-replaceに割り当て
 (global-set-key (kbd "M-g r") 'replace-string)
 
+;; C-\ で skk が有効になるように
+(global-set-key (kbd "C-\\") 'skk-mode)
+
 ;; Shift+矢印でwindow移動
 (windmove-default-keybindings)
 
