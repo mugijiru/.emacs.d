@@ -5,10 +5,11 @@
 
 (with-eval-after-load 'enh-ruby-mode
   (setq enh-ruby-add-encoding-comment-on-save nil)
-  (setq enh-ruby-deep-indent-paren nil)
+  (setq enh-ruby-deep-indent-paren nil) ;; 有効にするとインデントが気持ち悪いのでOFF
   (setq enh-ruby-bounce-deep-indent t))
 
 (defun my/enh-ruby-mode-hook ()
   (display-line-numbers-mode 1))
 
 (add-hook 'enh-ruby-mode-hook 'my/enh-ruby-mode-hook)
+(add-to-list 'context-skk-programming-mode 'enh-ruby-mode)
