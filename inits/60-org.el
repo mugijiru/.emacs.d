@@ -54,3 +54,7 @@
       `(("c" "同期カレンダーにエントリー" entry
          (file+headline ,org-capture-ical-file "Schedule")
          "** TODO %?\n\t")))
+
+(el-get-bundle org-gcal)
+(require 'org-gcal)
+(load "my-org-gcal-config")
