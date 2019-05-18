@@ -38,3 +38,9 @@
 
 ;; neotree
 (global-set-key [f8] 'neotree-toggle)
+
+;; org-mode
+(setq my/org-mode-prefix-key "C-c o ")
+(global-set-key (kbd (concat my/org-mode-prefix-key "a")) 'org-agenda)
+(global-set-key (kbd (concat my/org-mode-prefix-key "c")) 'org-capture)
+(global-set-key (kbd (concat my/org-mode-prefix-key "l")) 'org-store-link)
