@@ -2,6 +2,8 @@
 (el-get-bundle org-export-blocks-format-plantuml)
 (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))
 
+(setq org-directory (expand-file-name "~/Documents/org/"))
+
 ;; フッターなくしたり
 (setq org-export-html-footnotes-section "")
 (setq org-export-html-footnote-format "")
@@ -31,3 +33,24 @@
 
 ;; デフォは日本語設定
 (setq org-export-default-language "ja")
+
+;; org-agenda
+;; (setq org-agenda-files
+;;       '("~/Documents/org/org-ical.org"
+;;         "~/Documents/org/next.org"
+;;         "~/Documents/org/work.org"
+;;         "~/Documents/org/google-calendar.org"
+;;         "~/Documents/org/research.org"))
+(setq org-agenda-files
+      '("~/Documents/org/org-ical.org"
+        "~/Documents/org/google-calendar.org"
+))
+
+;; org-capture
+(defvar org-capture-ical-file (concat org-directory "org-ical.org"))
+(setq org-capture-ical-file (concat org-directory "org-ical.org"))
+
+(setq org-capture-templates
+      `(("c" "同期カレンダーにエントリー" entry
+         (file+headline ,org-capture-ical-file "Schedule")
+         "** TODO %?\n\t")))
