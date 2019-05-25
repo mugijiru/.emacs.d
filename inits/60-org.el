@@ -34,25 +34,38 @@
 ;; デフォは日本語設定
 (setq org-export-default-language "ja")
 
-;; org-agenda
-;; (setq org-agenda-files
-;;       '("~/Documents/org/org-ical.org"
-;;         "~/Documents/org/next.org"
-;;         "~/Documents/org/work.org"
-;;         "~/Documents/org/google-calendar.org"
-;;         "~/Documents/org/research.org"))
-(setq org-agenda-files
-      '("~/Documents/org/org-ical.org"
-        "~/Documents/org/google-calendar.org"
-))
+
+(setq org-todo-keywords
+      '((sequence "TODO" "DOING(!)" "REVIEW" "|" "DONE" "SOMEDAY(s)")))
 
 ;; org-capture
-(defvar org-capture-ical-file (concat org-directory "org-ical.org"))
-(setq org-capture-ical-file (concat org-directory "org-ical.org"))
+(defvar org-capture-ical-file (concat org-directory "ical.org"))
+(setq org-capture-ical-file (concat org-directory "ical.org"))
+
+;; タスク管理系
+(setq my/org-tasks-directory (concat org-directory "tasks/"))
+(setq my/org-capture-review-file (concat my/org-tasks-directory "review.org"))
+(setq my/org-capture-develop-file (concat my/org-tasks-directory "develop.org"))
+(setq my/org-capture-research-file (concat my/org-tasks-directory "research.org"))
+
+(setq org-agenda-files
+      '("~/Documents/org/ical.org"
+        "~/Documents/org/tasks/review.org"
+        "~/Documents/org/tasks/develop.org"
+        "~/Documents/org/tasks/research.org"))
 
 (setq org-capture-templates
       `(("c" "同期カレンダーにエントリー" entry
          (file+headline ,org-capture-ical-file "Schedule")
+         "** TODO %?\n\t")
+        ("r" "レビューにエントリー" entry
+         (file+headline ,my/org-capture-review-file "Review")
+         "** TODO %?\n\t")
+        ("R" "調査にエントリー" entry
+         (file+headline ,my/org-capture-research-file "Review")
+         "** TODO %?\n\t")
+        ("d" "開発タスクにエントリー" entry
+         (file+headline ,my/org-capture-develop-file "Develop")
          "** TODO %?\n\t")))
 
 (el-get-bundle org-gcal)
