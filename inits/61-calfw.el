@@ -6,5 +6,3 @@
 (el-get-bundle calfw-org)
 (require 'calfw)
 (require 'calfw-org)
-
-(setq cfw:org-icalendars '("~/Documents/org/org-ical.org" "~/Documents/org/google-calendar.org"))
