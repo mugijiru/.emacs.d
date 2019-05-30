@@ -18,3 +18,6 @@
                            (":" nil nil)
                            ("?" nil nil)
                            ("!" nil nil))))))
+
+;; AquaSKKのL辞書をつかうようにする
+(setq skk-large-jisyo (expand-file-name "~/Library/Application Support/AquaSKK/SKK-JISYO.L"))
