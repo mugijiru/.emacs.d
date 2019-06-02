@@ -1,0 +1,4 @@
+(:name esa
+       :description "Interface to esa.io (\( ⁰⊖⁰)/)"
+       :type github
+       :pkgname "nabinno/esa.el")
