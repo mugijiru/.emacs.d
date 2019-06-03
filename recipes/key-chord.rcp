@@ -1,0 +1,4 @@
+(:name esa
+       :description "bind commands to combinations of key-strokes"
+       :type github
+       :pkgname "zk-phi/key-chord")
