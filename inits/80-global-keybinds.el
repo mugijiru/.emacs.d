@@ -13,6 +13,9 @@
 ;; C-\ で skk が有効になるように
 (global-set-key (kbd "C-\\") 'skk-mode)
 
+;; C-s で helm-swoop を代わりに使うことにした
+(global-set-key (kbd "C-s") 'helm-swoop)
+
 ;; Shift+矢印でwindow移動
 (windmove-default-keybindings)
 
