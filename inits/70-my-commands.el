@@ -5,3 +5,8 @@
          (response (shell-command-to-string cmd)))
     (delete-region point mark)
     (insert response)))
+
+(setq my/org-document-dir (expand-file-name "~/Documents/org/"))
+(defun my/create-org-document ()
+  (interactive)
+  (find-file-other-window my/org-document-dir))
