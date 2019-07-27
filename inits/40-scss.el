@@ -7,6 +7,6 @@
   (setq flycheck-checker 'scss-stylelint)
 
   (company-mode 1)
-
+  (display-line-numbers-mode 1)
   (rainbow-mode))
 (add-hook 'scss-mode-hook 'my/scss-mode-hook)

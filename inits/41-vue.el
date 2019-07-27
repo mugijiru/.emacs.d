@@ -8,6 +8,7 @@
   (rainbow-mode 1))
 
 (defun my/vue-mode-hook ()
+  (display-line-numbers-mode t)
   (flycheck-mode 1))
 
 (add-hook 'css-mode-hook 'my/css-mode-hook)
