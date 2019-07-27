@@ -1,4 +1,6 @@
 (el-get-bundle paredit)
 (defun my/emacs-lisp-mode-hook ()
+  (display-line-numbers-mode 1)
+  (company-mode 1)
   (paredit-mode 1))
 (add-hook 'emacs-lisp-mode-hook 'my/emacs-lisp-mode-hook)
