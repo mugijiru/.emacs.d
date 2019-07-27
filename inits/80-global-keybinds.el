@@ -14,7 +14,7 @@
 (global-set-key (kbd "C-\\") 'skk-mode)
 
 ;; C-s で helm-swoop を代わりに使うことにした
-(global-set-key (kbd "C-s") 'helm-swoop)
+(global-set-key (kbd "C-s") 'helm-swoop-without-pre-input)
 
 ;; Shift+矢印でwindow移動
 (windmove-default-keybindings)
