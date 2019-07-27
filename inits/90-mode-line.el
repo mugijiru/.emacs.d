@@ -2,6 +2,11 @@
 (el-get-bundle hide-mode-line)
 (add-hook 'neotree-mode-hook #'hide-mode-line-mode)
 
+(el-get-bundle smart-mode-line)
+(defvar sml/no-confirm-load-theme t)
+(defvar sml/theme 'dark)
+(sml/setup)
+
 (el-get-bundle diminish)
 (require 'diminish)
 
