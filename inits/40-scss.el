@@ -6,6 +6,9 @@
   (make-local-variable 'flycheck-checker)
   (setq flycheck-checker 'scss-stylelint)
 
+  (lsp)
+  (lsp-ui-mode -1) ;; lsp-ui が有効だと画面上でガチャガチャ height とかの説明をしてうざいので
+
   (company-mode 1)
   (display-line-numbers-mode 1)
   (rainbow-mode))
