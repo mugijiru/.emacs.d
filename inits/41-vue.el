@@ -9,6 +9,9 @@
 
 (defun my/vue-mode-hook ()
   (display-line-numbers-mode t)
+
+  (lsp)
+
   (flycheck-mode 1))
 
 (add-hook 'css-mode-hook 'my/css-mode-hook)
