@@ -2,6 +2,9 @@
 (el-get-bundle hide-mode-line)
 (add-hook 'neotree-mode-hook #'hide-mode-line-mode)
 
+;; 日時を modeline で表示
+(display-time-mode 1)
+
 ;; (el-get-bundle smart-mode-line)
 ;; (defvar sml/no-confirm-load-theme t)
 ;; (defvar sml/theme 'dark)
