@@ -22,7 +22,8 @@
  '(org-modules
    (quote
     (ol-bbdb ol-bibtex ol-docview ol-eww ol-gnus ol-info ol-irc ol-mhe ol-rmail org-tempo ol-w3m)))
- '(org-plantuml-jar-path (expand-file-name "~/.emacs.d/el-get/plantuml-mode/plantuml.jar"))
+ '(org-plantuml-jar-path
+   (expand-file-name "~/.emacs.d/el-get/plantuml-mode/plantuml.jar"))
  '(package-selected-packages
    (quote
     (dumb-jump gnuplot calfw-org hide-mode-line oauth2 zoom highlight-indent-guides rainbow-mode molokai-theme xml-rpc vue-html-mode ssass-mode edit-indirect ember-mode)))
@@ -30,6 +31,7 @@
  '(pug-tab-width 2)
  '(recentf-auto-cleanup (quote never))
  '(recentf-max-saved-items 500)
+ '(rspec-use-opts-file-when-available nil)
  '(safe-local-variable-values (quote ((flycheck-stylelintrc . ".stylelintrc.yml"))))
  '(scroll-bar-mode nil)
  '(yascroll:delay-to-hide nil)
