@@ -1,4 +1,5 @@
 (el-get-bundle hydra)
+(el-get-bundle pretty-hydra)
 
 (defhydra dumb-jump-hydra (:color blue :columns 3)
     "Dumb Jump"
