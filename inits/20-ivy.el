@@ -50,4 +50,9 @@
           (ivy-rich-switch-buffer-project (:width 15 :face success))
           (ivy-rich-switch-buffer-path (:width (lambda (x) (ivy-rich-switch-buffer-shorten-path x (ivy-rich-minibuffer-width 0.3))))))
          :predicate
-         (lambda (cand) (get-buffer cand)))))
+         (lambda (cand) (get-buffer cand)))
+        counsel-M-x
+        (:columns
+         ((counsel-M-x-transformer (:width 40))  ; thr original transformer
+          (ivy-rich-counsel-function-docstring (:face font-lock-doc-face))))  ; return the docstring of the command
+        ))
