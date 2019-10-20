@@ -16,6 +16,9 @@
    (quote
     (helm-source-buffers-list helm-source-recentf helm-source-bookmarks helm-source-projectile-files-list helm-source-file-cache helm-source-files-in-current-dir helm-source-locate)))
  '(helm-locate-command "mdfind %s %s")
+ '(helm-posframe-height 20)
+ '(helm-posframe-poshandler (quote posframe-poshandler-frame-center))
+ '(helm-posframe-width 100)
  '(indent-tabs-mode nil)
  '(js-indent-level 2)
  '(line-number-mode nil)
