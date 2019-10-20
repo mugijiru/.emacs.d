@@ -14,6 +14,9 @@
   ;; ESC連打でミニバッファを閉じる
   (define-key ivy-minibuffer-map (kbd "<escape>") 'minibuffer-keyboard-quit)
 
+  ;; (index/総数) 表示で何番目の候補かわかりやすくする
+  (setq ivy-count-format "(%d/%d) ")
+
   ;; アクティベート
   (ivy-mode 1))
 
