@@ -1,5 +1,23 @@
 (el-get-bundle hydra)
 (el-get-bundle pretty-hydra)
+(el-get-bundle major-mode-hydra)
+
+(major-mode-hydra-define enh-ruby-mode (:quit-key "q")
+  ("Enh Ruby"
+   (("{" enh-ruby-toggle-block "Toggle block")
+    ("e" enh-ruby-insert-end "Insert end"))
+
+   "RSpec"
+   (("s" rspec-verify "Run associated spec")
+    ("m" rspec-verify-method "Run method spec")
+    ("r" rspec-rerun "Rerun")
+    ("l" rspec-run-last-failed "Run last failed"))
+
+   "REPL"
+   (("i" inf-ruby "inf-ruby"))
+
+   "Other"
+   (("j" dumb-jump-go "Dumb Jump"))))
 
 (pretty-hydra-define dumb-jump-pretty-hydra
   (:foreign-keys warn :title "Dumb jump" :quit-key "q" :color blue)
