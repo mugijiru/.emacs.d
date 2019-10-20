@@ -11,6 +11,22 @@
     ("l" dumb-jump-quick-look "Quick look")
     ("b" dumb-jump-back "Back"))
 
+(pretty-hydra-define dumb-jump-pretty-hydra
+  (:foreign-keys warn :title "Dumb jump" :quit-key "q" :color blue)
+  ("Go"
+   (("j" dumb-jump-go "Jump")
+    ("o" dumb-jump-go-other-window "Other window"))
+
+   "External"
+   (("e" dumb-jump-go-prefer-external "Go external")
+    ("x" dumb-jump-go-prefer-external-other-window "Go external other window"))
+
+   "Lock"
+   (("l" dumb-jump-quick-look "Quick look"))
+
+   "Other"
+   (("b" dumb-jump-back "Back"))))
+
 (defhydra hydra-usefull-commands (:color teal)
   "
      ^File^                ^Edit^              ^Search^        ^Other^
