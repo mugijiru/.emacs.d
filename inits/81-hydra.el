@@ -1,4 +1,11 @@
 (el-get-bundle hydra)
+
+;; hydra-posframe
+;; https://github.com/Ladicle/hydra-posframe
+;; 画面真ん中に表示されて便利
+(el-get-bundle hydra-posframe)
+(add-hook 'after-init-hook 'hydra-postframe-enable)
+
 (el-get-bundle pretty-hydra)
 (el-get-bundle major-mode-hydra)
 
