@@ -20,7 +20,7 @@
    (("j" dumb-jump-go "Dumb Jump"))))
 
 (pretty-hydra-define dumb-jump-pretty-hydra
-  (:foreign-keys warn :title "Dumb jump" :quit-key "q" :color blue)
+  (:foreign-keys warn :title "Dumb jump" :quit-key "q" :color blue :separator "-")
   ("Go"
    (("j" dumb-jump-go "Jump")
     ("o" dumb-jump-go-other-window "Other window"))
@@ -35,7 +35,7 @@
    "Other"
    (("b" dumb-jump-back "Back"))))
 
-(pretty-hydra-define pretty-hydra-usefull-commands (:color teal :foreign-key warn :title "Usefull commands" :quit-key "q")
+(pretty-hydra-define pretty-hydra-usefull-commands (:separator "-" :color teal :foreign-key warn :title "Usefull commands" :quit-key "q")
   ("File"
    (("p" helm-projectile-switch-project "Switch Project")
     ("r" helm-projectile-recentf "Recentf")
@@ -60,7 +60,7 @@
     ("P" my/open-review-requested-pr "Open Requested PR")
     ("D" delete-other-windows "Delete Other Windows"))))
 
-(pretty-hydra-define pretty-hydra-projectile-rails-find (:color blue :foreign-keys warn :title "Projectile Rails" :quit-key "q")
+(pretty-hydra-define pretty-hydra-projectile-rails-find (:separator "-" :color blue :foreign-keys warn :title "Projectile Rails" :quit-key "q")
   ("Current"
    (("M" projectile-rails-find-current-model      "current model")
     ("V" projectile-rails-find-current-view       "current view")
