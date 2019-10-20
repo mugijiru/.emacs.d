@@ -51,4 +51,4 @@
 (global-set-key (kbd (concat my/org-mode-prefix-key "l")) 'org-store-link)
 
 ;; with keychord
-(key-chord-define-global "jk" 'hydra-usefull-commands/body)
+(key-chord-define-global "jk" 'pretty-hydra-usefull-commands/body)

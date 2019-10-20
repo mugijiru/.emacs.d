@@ -17,33 +17,30 @@
    "Other"
    (("b" dumb-jump-back "Back"))))
 
-(defhydra hydra-usefull-commands (:color teal)
-  "
-     ^File^                ^Edit^              ^Search^        ^Other^
-------------------------------------------------------------------------------------------
-  _p_: switch-project    _v_: repalce var      _g_: grep       _c_: calendar
-  _r_: recent file       _a_: align regexp     _j_: dumb jump  _P_: open-requested-pr
-  _d_: dir               _+_: 文字拡大         ^ ^             _D_: delete-other-windows
-  _f_: find file         _-_: 文字縮小         ^ ^             _q_: cancel
+(pretty-hydra-define pretty-hydra-usefull-commands (:color teal :foreign-key warn :title "Usefull commands" :quit-key "q")
+  ("File"
+   (("p" helm-projectile-switch-project "Switch Project")
+    ("r" helm-projectile-recentf "Recentf")
+    ("d" helm-projectile-find-dir "Find dir")
+    ("f" helm-projectile-find-file "Find file"))
 
-"
-  ("p" helm-projectile-switch-project)
-  ("r" helm-projectile-recentf)
-  ("d" helm-projectile-find-dir)
-  ("f" helm-projectile-find-file)
+   "Edit"
+   (("v" my/replace-var "Replace var")
+    ("a" align-regexp "Align regexp"))
 
-  ("v" my/replace-var)
-  ("a" align-regexp)
-  ("+" text-scale-increase)
-  ("-" text-scale-decrease)
+   "Scale"
+   (("+" text-scale-increase "Increase")
+    ("-" text-scale-decrease "Decrease")
+    ("0" text-scale-adjust   "Adjust"))
 
-  ("g" helm-projectile-ag)
-  ("j" dumb-jump-pretty-hydra/body)
+   "Search"
+   (("g" helm-projectile-ag "grep")
+    ("j" dumb-jump-pretty-hydra/body "Dumb jump"))
 
-  ("c" my/open-user-calendar)
-  ("P" my/open-review-requested-pr)
-  ("D" delete-other-windows)
-  ("q"   nil "cancel" :color blue))
+   "Other"
+   (("c" my/open-user-calendar "Calendar")
+    ("P" my/open-review-requested-pr "Open Requested PR")
+    ("D" delete-other-windows "Delete Other Windows"))))
 
 (pretty-hydra-define pretty-hydra-projectile-rails-find (:color blue :foreign-keys warn :title "Projectile Rails" :quit-key "q")
   ("Current"
