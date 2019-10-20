@@ -1,5 +1,6 @@
 (el-get-bundle hydra)
 (el-get-bundle pretty-hydra)
+(el-get-bundle major-mode-hydra)
 
 (pretty-hydra-define dumb-jump-pretty-hydra
   (:foreign-keys warn :title "Dumb jump" :quit-key "q" :color blue)
