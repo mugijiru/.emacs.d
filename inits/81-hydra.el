@@ -1,16 +1,6 @@
 (el-get-bundle hydra)
 (el-get-bundle pretty-hydra)
 
-(defhydra dumb-jump-hydra (:color blue :columns 3)
-    "Dumb Jump"
-    ("j" dumb-jump-go "Go")
-    ("o" dumb-jump-go-other-window "Other window")
-    ("e" dumb-jump-go-prefer-external "Go external")
-    ("x" dumb-jump-go-prefer-external-other-window "Go external other window")
-    ("i" dumb-jump-go-prompt "Prompt")
-    ("l" dumb-jump-quick-look "Quick look")
-    ("b" dumb-jump-back "Back"))
-
 (pretty-hydra-define dumb-jump-pretty-hydra
   (:foreign-keys warn :title "Dumb jump" :quit-key "q" :color blue)
   ("Go"
@@ -48,7 +38,7 @@
   ("-" text-scale-decrease)
 
   ("g" helm-projectile-ag)
-  ("j" dumb-jump-hydra/body)
+  ("j" dumb-jump-pretty-hydra/body)
 
   ("c" my/open-user-calendar)
   ("P" my/open-review-requested-pr)
