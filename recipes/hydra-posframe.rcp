@@ -1,0 +1,4 @@
+(:name hydra-posframe
+       :description "a hydra extension which shows hydra hints on posframe."
+       :type github
+       :pkgname "Ladicle/hydra-posframe")
