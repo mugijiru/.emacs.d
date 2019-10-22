@@ -36,11 +36,13 @@
 (global-set-key (kbd "C-;") 'helm-for-files)
 ;; (global-set-key (kbd "M-x") 'helm-M-x)
 ;; (global-set-key (kbd "C-x b") 'helm-mini)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
+;; (global-set-key (kbd "C-x C-f") 'helm-find-files)
 
 ;; ivy
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "C-x b") 'counsel-switch-buffer)
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+
 ;; zoom-window
 (global-set-key (kbd "C-x 1") 'zoom-window-zoom)
 
