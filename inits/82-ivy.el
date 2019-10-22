@@ -64,6 +64,9 @@
           (all-the-icons-icon-for-mode 'fundamental-mode)
         icon))))
 
+;; yank-pop の区切りを変更。ちょっと長めにしている
+(setq counsel-yank-pop-separator "\n--------------------\n")
+
 (setq ivy-rich-display-transformers-list
       '(ivy-switch-buffer
         (:columns
