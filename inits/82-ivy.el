@@ -64,7 +64,7 @@
           (all-the-icons-icon-for-mode 'fundamental-mode)
         icon))))
 
-(setq ivy-rich--display-transformers-list
+(setq ivy-rich-display-transformers-list
       '(ivy-switch-buffer
         (:columns
          ((ivy-rich-switch-buffer-icon :width 2)
