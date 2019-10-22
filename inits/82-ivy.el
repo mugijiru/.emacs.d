@@ -28,7 +28,32 @@
 (ivy-posframe-mode 1)
 
 (el-get-bundle Yevgnen/ivy-rich)
-(ivy-rich-mode 1)
+
+;; https://ladicle.com/post/config/#ivy
+;; に書かれている関数を丸コピしてきた
+(defun ivy-rich-file-icon (candidate)
+  "Display file icons in `ivy-rich'."
+  (when (display-graphic-p)
+    (let ((icon (if (file-directory-p candidate)
+                    (cond
+                     ((and (fboundp 'tramp-tramp-file-p)
+                           (tramp-tramp-file-p default-directory))
+                      (all-the-icons-octicon "file-directory"))
+                     ((file-symlink-p candidate)
+                      (all-the-icons-octicon "file-symlink-directory"))
+                     ((all-the-icons-dir-is-submodule candidate)
+                      (all-the-icons-octicon "file-submodule"))
+                     ((file-exists-p (format "%s/.git" candidate))
+                      (all-the-icons-octicon "repo"))
+                     (t (let ((matcher (all-the-icons-match-to-alist candidate all-the-icons-dir-icon-alist)))
+                          (apply (car matcher) (list (cadr matcher))))))
+                  (all-the-icons-icon-for-file candidate))))
+      (unless (symbolp icon)
+        (propertize icon
+                    'face `(
+                            :height 1.1
+                            :family ,(all-the-icons-icon-family icon)
+                            ))))))
 
 ;; https://github.com/Yevgnen/ivy-rich#1312-add-icons-for-ivy-switch-buffer
 (defun ivy-rich-switch-buffer-icon (candidate)
