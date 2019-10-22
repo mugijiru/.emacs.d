@@ -13,8 +13,8 @@
 ;; C-\ で skk が有効になるように
 (global-set-key (kbd "C-\\") 'skk-mode)
 
-;; C-s で helm-swoop を代わりに使うことにした
-(global-set-key (kbd "C-s") 'helm-swoop-without-pre-input)
+;; C-s で swiper を代わりに使うことにした
+(global-set-key (kbd "C-s") 'swiper)
 
 ;; Shift+矢印でwindow移動
 (windmove-default-keybindings)
@@ -32,11 +32,17 @@
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 ;; helm
-(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+;; (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-;") 'helm-for-files)
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-x b") 'helm-mini)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
+;; (global-set-key (kbd "M-x") 'helm-M-x)
+;; (global-set-key (kbd "C-x b") 'helm-mini)
+;; (global-set-key (kbd "C-x C-f") 'helm-find-files)
+
+;; ivy
+(global-set-key (kbd "M-x") 'counsel-M-x)
+(global-set-key (kbd "M-y") 'counsel-yank-pop)
+(global-set-key (kbd "C-x b") 'counsel-switch-buffer)
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
 
 ;; zoom-window
 (global-set-key (kbd "C-x 1") 'zoom-window-zoom)
