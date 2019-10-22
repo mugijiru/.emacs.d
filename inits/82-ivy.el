@@ -80,4 +80,14 @@
         (:columns
          ((counsel-M-x-transformer (:width 40))  ; thr original transformer
           (ivy-rich-counsel-function-docstring (:face font-lock-doc-face))))  ; return the docstring of the command
+        counsel-find-file
+        (:columns
+         ((ivy-rich-file-icon)
+          (ivy-rich-candidate)))
+        counsel-recentf
+        (:columns
+         ((ivy-rich-file-icon)
+          (ivy-rich-candidate (:width 110))))
         ))
+
+(ivy-rich-mode 1)
