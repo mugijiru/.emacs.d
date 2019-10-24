@@ -76,3 +76,30 @@
 (el-get-bundle org-gcal)
 (require 'org-gcal)
 (load "my-org-gcal-config")
+
+(with-eval-after-load 'major-mode-hydra
+  (major-mode-hydra-define org-mode (:quit-key "q")
+    ("Insert"
+     (("l" org-insert-link "Link")
+      ("t" org-insert-todo-heading "Todo")
+      ("h" org-insert-heading-respect-content "Heading")
+      ("S" org-insert-structure-template "Snippet"))
+
+     "Edit"
+     (("a" org-archive-subtree "Archive"))
+
+     "Task"
+     (("s" org-schedule "Schedule")
+      ("d" org-deadline "Deadline")
+      ("T" org-todo "Change state"))
+
+     "Clock"
+     (("i" org-clock-in "In")
+      ("o" org-clock-out "Out")
+      ("C" org-clock-display "Display"))
+
+     "Babel"
+     (("e" org-babel-confirm-evaluate "Eval"))
+
+     "Agenda"
+     (("," org-cycle-agenda-files "Cycle")))))
