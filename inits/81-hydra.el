@@ -45,7 +45,7 @@
 (pretty-hydra-define pretty-hydra-usefull-commands (:separator "-" :color teal :foreign-key warn :title "Usefull commands" :quit-key "q")
   ("File"
    (("p" counsel-projectile-switch-project "Switch Project")
-    ("r" helm-projectile-recentf "Recentf")
+    ("r" projectile-recentf "Recentf")
     ("d" counsel-projectile-find-dir "Find dir")
     ("f" counsel-projectile-find-file "Find file"))
 
