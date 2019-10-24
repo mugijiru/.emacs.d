@@ -44,10 +44,10 @@
 
 (pretty-hydra-define pretty-hydra-usefull-commands (:separator "-" :color teal :foreign-key warn :title "Usefull commands" :quit-key "q")
   ("File"
-   (("p" helm-projectile-switch-project "Switch Project")
-    ("r" helm-projectile-recentf "Recentf")
-    ("d" helm-projectile-find-dir "Find dir")
-    ("f" helm-projectile-find-file "Find file"))
+   (("p" counsel-projectile-switch-project "Switch Project")
+    ("r" projectile-recentf "Recentf")
+    ("d" counsel-projectile-find-dir "Find dir")
+    ("f" counsel-projectile-find-file "Find file"))
 
    "Edit"
    (("v" my/replace-var "Replace var")
@@ -59,7 +59,7 @@
     ("0" text-scale-adjust   "Adjust"))
 
    "Search"
-   (("g" helm-projectile-ag "grep")
+   (("g" counsel-projectile-ag "grep")
     ("j" dumb-jump-pretty-hydra/body "Dumb jump"))
 
    "Other"
