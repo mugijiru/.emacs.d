@@ -20,3 +20,4 @@
 (add-to-list 'projectile-globally-ignored-files "manifest.json")
 
 (setq projectile-completion-system 'ivy)
+(el-get-bundle counsel-projectile)
