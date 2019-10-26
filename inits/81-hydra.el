@@ -44,20 +44,18 @@
 
 (pretty-hydra-define google-this-pretty-hydra
   (:foreign-keys warn :title "Google" :quit-key "q" :color blue :separator "-")
-  ("Search"
-   (("RET" google-this-search               "Search")
-    ("n"   google-this-noconfirm            "No Confirm")
-    ("g"   google-this-lucky-search         "Lucky")
-    ("i"   google-this-lucky-and-insert-url "Insert URL"))
+  ("Current"
+   (("SPC" google-this-noconfirm "No Confirm")
+    ("RET" google-this           "Auto")
+    ("w"   google-this-word      "Word")
+    ("l"   google-this-line      "Line")
+    ("s"   google-this-symbol    "Symbol")
+    ("r"   google-this-region    "Region")
+    ("e"   google-this-error     "Error"))
 
-   "Current"
-   (("t" google-this        "Auto")
-    ("a" google-this-ray    "Auto Select")
-    ("w" google-this-word   "Word")
-    ("l" google-this-line   "Line")
-    ("s" google-this-symbol "Symbol")
-    (" " google-this-region "Region")
-    ("e" google-this-error  "Error"))
+   "Feeling Lucky"
+   (("L"   google-this-lucky-search         "Lucky")
+    ("i"   google-this-lucky-and-insert-url "Insert URL"))
 
    "Tool"
    (("W" google-this-forecast "Weather"))))
