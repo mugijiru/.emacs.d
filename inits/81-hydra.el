@@ -9,23 +9,6 @@
 (el-get-bundle pretty-hydra)
 (el-get-bundle major-mode-hydra)
 
-(major-mode-hydra-define enh-ruby-mode (:quit-key "q")
-  ("Enh Ruby"
-   (("{" enh-ruby-toggle-block "Toggle block")
-    ("e" enh-ruby-insert-end "Insert end"))
-
-   "RSpec"
-   (("s" rspec-verify "Run associated spec")
-    ("m" rspec-verify-method "Run method spec")
-    ("r" rspec-rerun "Rerun")
-    ("l" rspec-run-last-failed "Run last failed"))
-
-   "REPL"
-   (("i" inf-ruby "inf-ruby"))
-
-   "Other"
-   (("j" dumb-jump-go "Dumb Jump"))))
-
 (pretty-hydra-define pretty-hydra-usefull-commands (:separator "-" :color teal :foreign-key warn :title "Usefull commands" :quit-key "q")
   ("File"
    (("p" counsel-projectile-switch-project "Switch Project")
