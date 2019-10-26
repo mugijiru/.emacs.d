@@ -26,22 +26,6 @@
    "Other"
    (("j" dumb-jump-go "Dumb Jump"))))
 
-(pretty-hydra-define dumb-jump-pretty-hydra
-  (:foreign-keys warn :title "Dumb jump" :quit-key "q" :color blue :separator "-")
-  ("Go"
-   (("j" dumb-jump-go "Jump")
-    ("o" dumb-jump-go-other-window "Other window"))
-
-   "External"
-   (("e" dumb-jump-go-prefer-external "Go external")
-    ("x" dumb-jump-go-prefer-external-other-window "Go external other window"))
-
-   "Lock"
-   (("l" dumb-jump-quick-look "Quick look"))
-
-   "Other"
-   (("b" dumb-jump-back "Back"))))
-
 (pretty-hydra-define pretty-hydra-usefull-commands (:separator "-" :color teal :foreign-key warn :title "Usefull commands" :quit-key "q")
   ("File"
    (("p" counsel-projectile-switch-project "Switch Project")
