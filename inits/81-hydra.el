@@ -38,5 +38,3 @@
    (("c" my/open-user-calendar "Calendar")
     ("P" my/open-review-requested-pr "Open Requested PR")
     ("D" delete-other-windows "Delete Other Windows"))))
-
-(define-key projectile-rails-mode-map (kbd "C-c r") 'pretty-hydra-projectile-rails-find/body)
