@@ -15,3 +15,21 @@
 
 (add-hook 'enh-ruby-mode-hook 'my/enh-ruby-mode-hook)
 (add-to-list 'context-skk-programming-mode 'enh-ruby-mode)
+
+(with-eval-after-load 'major-mode-hydra
+  (major-mode-hydra-define enh-ruby-mode (:quit-key "q")
+    ("Enh Ruby"
+     (("{" enh-ruby-toggle-block "Toggle block")
+      ("e" enh-ruby-insert-end "Insert end"))
+
+     "RSpec"
+     (("s" rspec-verify "Run associated spec")
+      ("m" rspec-verify-method "Run method spec")
+      ("r" rspec-rerun "Rerun")
+      ("l" rspec-run-last-failed "Run last failed"))
+
+     "REPL"
+     (("i" inf-ruby "inf-ruby"))
+
+     "Other"
+     (("j" dumb-jump-go "Dumb Jump")))))
