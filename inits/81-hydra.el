@@ -42,6 +42,24 @@
    "Other"
    (("b" dumb-jump-back "Back"))))
 
+(pretty-hydra-define google-this-pretty-hydra
+  (:foreign-keys warn :title "Google" :quit-key "q" :color blue :separator "-")
+  ("Current"
+   (("SPC" google-this-noconfirm "No Confirm")
+    ("RET" google-this           "Auto")
+    ("w"   google-this-word      "Word")
+    ("l"   google-this-line      "Line")
+    ("s"   google-this-symbol    "Symbol")
+    ("r"   google-this-region    "Region")
+    ("e"   google-this-error     "Error"))
+
+   "Feeling Lucky"
+   (("L"   google-this-lucky-search         "Lucky")
+    ("i"   google-this-lucky-and-insert-url "Insert URL"))
+
+   "Tool"
+   (("W" google-this-forecast "Weather"))))
+
 (pretty-hydra-define pretty-hydra-usefull-commands (:separator "-" :color teal :foreign-key warn :title "Usefull commands" :quit-key "q")
   ("File"
    (("p" counsel-projectile-switch-project "Switch Project")
@@ -64,7 +82,8 @@
 
    "Tool"
    (("t" google-translate-at-point "Translate")
-    ("T" google-translate-at-point-reverse "Translate Reverse"))
+    ("T" google-translate-at-point-reverse "Translate Reverse")
+    ("/" google-this-pretty-hydra/body "Google"))
 
    "Other"
    (("c" my/open-user-calendar "Calendar")
