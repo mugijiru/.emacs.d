@@ -95,6 +95,7 @@
     ("r" projectile-rails-find-rake-task "Rake task")
     ("i" projectile-rails-find-initializer "Initializer")
     ("l" projectile-rails-find-lib "Lib")
-    ("p" projectile-rails-find-spec "Spec"))))
+    ("p" projectile-rails-find-spec "Spec")
+    ("t" projectile-rails-find-locale "Translation"))))
 
 (define-key projectile-rails-mode-map (kbd "C-c r") 'pretty-hydra-projectile-rails-find/body)
