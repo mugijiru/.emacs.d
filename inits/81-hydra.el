@@ -62,6 +62,10 @@
    (("g" counsel-projectile-ag "grep")
     ("j" dumb-jump-pretty-hydra/body "Dumb jump"))
 
+   "Tool"
+   (("t" google-translate-at-point "Translate")
+    ("T" google-translate-at-point-reverse "Translate Reverse"))
+
    "Other"
    (("c" my/open-user-calendar "Calendar")
     ("P" my/open-review-requested-pr "Open Requested PR")
