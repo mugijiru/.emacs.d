@@ -84,7 +84,8 @@
 
    "Tool"
    (("t" google-translate-at-point "Translate")
-    ("T" google-translate-at-point-reverse "Translate Reverse"))
+    ("T" google-translate-at-point-reverse "Translate Reverse")
+    ("/" google-this-pretty-hydra/body "Google"))
 
    "Other"
    (("c" my/open-user-calendar "Calendar")
