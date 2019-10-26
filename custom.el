@@ -12,6 +12,7 @@
     ("11e57648ab04915568e558b77541d0e94e69d09c9c54c06075938b6abc0189d8" default)))
  '(el-get-notify-type (quote message))
  '(global-yascroll-bar-mode t)
+ '(google-this-keybind "")
  '(google-translate-default-source-language "en")
  '(google-translate-default-target-language "ja")
  '(google-translate-output-destination nil)
