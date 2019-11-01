@@ -103,3 +103,18 @@
 
      "Agenda"
      (("," org-cycle-agenda-files "Cycle")))))
+
+(with-eval-after-load 'pretty-hydra
+  (pretty-hydra-define global-org-hydra (:separator "-" :color teal :foreign-key warn :title "Global org commands" :quit-key "q")
+    ("Main"
+     (("a" org-agenda "Agenda")
+      ("c" org-capture "Capture")
+      ("l" org-store-link "Store link"))
+     "Clock"
+     (("i" org-clock-in  "In")
+      ("o" org-clock-out "Out")
+      ("r" org-clock-in-last "Restart")
+      ("x" org-clock-cancel "Cancel")
+      ("j" org-clock-goto "Goto")
+      ("d" org-clock-display "Display")
+      ("r" org-clock-report "Report")))))

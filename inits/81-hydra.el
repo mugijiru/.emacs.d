@@ -30,7 +30,8 @@
     ("j" dumb-jump-pretty-hydra/body "Dumb jump"))
 
    "Tool"
-   (("t" google-translate-at-point "Translate")
+   (("o" global-org-hydra/body "Org")
+    ("t" google-translate-at-point "Translate")
     ("T" google-translate-at-point-reverse "Translate Reverse")
     ("/" google-this-pretty-hydra/body "Google"))
 
