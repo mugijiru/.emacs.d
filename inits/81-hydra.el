@@ -28,8 +28,8 @@
     ("-" text-scale-decrease "Decrease")
     ("0" text-scale-adjust   "Adjust"))
 
-   "Search"
-   (("g" counsel-projectile-ag "grep")
+   "Code"
+   (("g" counsel-projectile-ag "Grep")
     ("j" dumb-jump-pretty-hydra/body "Dumb jump"))
 
    "Tool"
