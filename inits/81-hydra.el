@@ -9,7 +9,7 @@
 (el-get-bundle pretty-hydra)
 (el-get-bundle major-mode-hydra)
 
-(pretty-hydra-define pretty-hydra-usefull-commands (:separator "-" :color teal :foreign-key warn :title "Usefull commands" :quit-key "q")
+(pretty-hydra-define pretty-hydra-usefull-commands (:separator "-" :color teal :foreign-key warn :title (concat (all-the-icons-material "build") " Usefull commands") :quit-key "q")
   ("File"
    (("p" counsel-projectile-switch-project "Switch Project")
     ("r" projectile-recentf "Recentf")
