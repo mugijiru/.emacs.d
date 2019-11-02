@@ -56,8 +56,5 @@
 (global-set-key (kbd (concat my/org-mode-prefix-key "c")) 'org-capture)
 (global-set-key (kbd (concat my/org-mode-prefix-key "l")) 'org-store-link)
 
-;; major-mode-hydra
-(global-set-key (kbd "C-c SPC") #'major-mode-hydra)
-
 ;; with keychord
 (key-chord-define-global "jk" 'pretty-hydra-usefull-commands/body)
