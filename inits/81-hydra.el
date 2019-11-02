@@ -35,7 +35,8 @@
 
    "View"
    (("Z" toggle-frame-fullscreen "Fullscreen")
-    ("D" delete-other-windows "Only This Win"))
+    ("D" delete-other-windows "Only This Win")
+    ("N" neotree-toggle "Neotree"))
 
    "Scale"
    (("+" text-scale-increase "Increase")
