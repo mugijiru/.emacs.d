@@ -20,19 +20,22 @@
    (("v" my/replace-var "Replace var")
     ("a" align-regexp "Align regexp"))
 
+   "View"
+   (("Z" toggle-frame-fullscreen "Toggle fullscreen"))
+
    "Scale"
    (("+" text-scale-increase "Increase")
     ("-" text-scale-decrease "Decrease")
     ("0" text-scale-adjust   "Adjust"))
 
-   "Search"
-   (("g" counsel-projectile-ag "grep")
+   "Code"
+   (("g" counsel-projectile-ag "Grep")
     ("j" dumb-jump-pretty-hydra/body "Dumb jump"))
 
    "Tool"
    (("o" global-org-hydra/body "Org")
-    ("t" google-translate-at-point "Translate")
-    ("T" google-translate-at-point-reverse "Translate Reverse")
+    ("t" google-translate-at-point "EN => JP")
+    ("T" google-translate-at-point-reverse "JP => EN")
     ("/" google-this-pretty-hydra/body "Google"))
 
    "Other"
