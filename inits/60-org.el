@@ -52,12 +52,11 @@
 (setq my/org-capture-review-file (concat my/org-tasks-directory "review.org"))
 (setq my/org-capture-develop-file (concat my/org-tasks-directory "develop.org"))
 (setq my/org-capture-research-file (concat my/org-tasks-directory "research.org"))
+(setq my/org-capture-management-file (concat my/org-tasks-directory "management.org"))
 
 (setq org-agenda-files
       '("~/Documents/org/ical.org"
-        "~/Documents/org/tasks/review.org"
-        "~/Documents/org/tasks/develop.org"
-        "~/Documents/org/tasks/research.org"))
+        "~/Documents/org/tasks/"))
 
 (setq org-capture-templates
       `(("c" "同期カレンダーにエントリー" entry
@@ -67,10 +66,13 @@
          (file+headline ,my/org-capture-review-file "Review")
          "** TODO %?\n\t")
         ("R" "調査にエントリー" entry
-         (file+headline ,my/org-capture-research-file "Review")
+         (file+headline ,my/org-capture-research-file "Research")
          "** TODO %?\n\t")
         ("d" "開発タスクにエントリー" entry
          (file+headline ,my/org-capture-develop-file "Develop")
+         "** TODO %?\n\t")
+        ("m" "管理系タスクにエントリー" entry
+         (file+headline ,my/org-capture-management-file "Management")
          "** TODO %?\n\t")))
 
 (el-get-bundle org-gcal)
