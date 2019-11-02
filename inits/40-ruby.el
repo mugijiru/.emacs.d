@@ -17,7 +17,7 @@
 (add-to-list 'context-skk-programming-mode 'enh-ruby-mode)
 
 (with-eval-after-load 'major-mode-hydra
-  (major-mode-hydra-define enh-ruby-mode (:quit-key "q")
+  (major-mode-hydra-define enh-ruby-mode (:quit-key "q" :title (concat (all-the-icons-alltheicon "ruby-alt") " Ruby commands"))
     ("Enh Ruby"
      (("{" enh-ruby-toggle-block "Toggle block")
       ("e" enh-ruby-insert-end "Insert end"))
