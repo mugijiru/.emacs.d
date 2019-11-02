@@ -68,7 +68,7 @@
          (file+headline ,my/org-capture-review-file "Review")
          "** TODO %?\n\t")
         ("R" "調査にエントリー" entry
-         (file+headline ,my/org-capture-research-file "Review")
+         (file+headline ,my/org-capture-research-file "Research")
          "** TODO %?\n\t")
         ("d" "開発タスクにエントリー" entry
          (file+headline ,my/org-capture-develop-file "Develop")
