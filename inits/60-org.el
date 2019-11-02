@@ -80,7 +80,7 @@
 (load "my-org-gcal-config")
 
 (with-eval-after-load 'major-mode-hydra
-  (major-mode-hydra-define org-mode (:quit-key "q")
+  (major-mode-hydra-define org-mode (:quit-key "q" :title (concat (all-the-icons-fileicon "org") " Org commands"))
     ("Insert"
      (("l" org-insert-link "Link")
       ("t" org-insert-todo-heading "Todo")
