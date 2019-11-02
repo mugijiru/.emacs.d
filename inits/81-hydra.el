@@ -13,34 +13,34 @@
   ("File"
    (("p" counsel-projectile-switch-project "Switch Project")
     ("r" projectile-recentf "Recentf")
-    ("d" counsel-projectile-find-dir "Find dir")
-    ("f" counsel-projectile-find-file "Find file"))
+    ("d" counsel-projectile-find-dir "Find Dir")
+    ("f" counsel-projectile-find-file "Find File"))
 
    "Edit"
-   (("v" my/replace-var "Replace var")
+   (("v" my/replace-var "Replace Var")
     ("a" align-regexp "Align regexp"))
-
-   "View"
-   (("Z" toggle-frame-fullscreen "Toggle fullscreen"))
-
-   "Scale"
-   (("+" text-scale-increase "Increase")
-    ("-" text-scale-decrease "Decrease")
-    ("0" text-scale-adjust   "Adjust"))
 
    "Code"
    (("g" counsel-projectile-ag "Grep")
     ("j" dumb-jump-pretty-hydra/body "Dumb jump"))
 
    "Tool"
-   (("o" global-org-hydra/body "Org")
+   (("c" my/open-user-calendar "Calendar")
+    ("o" global-org-hydra/body "Org")
+    ("/" google-this-pretty-hydra/body "Google")
+    ("SPC" major-mode-hydra "Hydra(Major)")
     ("t" google-translate-at-point "EN => JP")
-    ("T" google-translate-at-point-reverse "JP => EN")
-    ("/" google-this-pretty-hydra/body "Google"))
+    ("T" google-translate-at-point-reverse "JP => EN"))
+
+   "View"
+   (("Z" toggle-frame-fullscreen "Fullscreen")
+    ("D" delete-other-windows "Only This Win"))
+
+   "Scale"
+   (("+" text-scale-increase "Increase")
+    ("-" text-scale-decrease "Decrease")
+    ("0" text-scale-adjust   "Adjust"))
 
    "Other"
-   (("c" my/open-user-calendar "Calendar")
-    ("SPC" major-mode-hydra "Hydra(Major)")
-    ("P" my/open-review-requested-pr "Open Requested PR")
-    ("B" counsel-descbinds "Describe Keybind")
-    ("D" delete-other-windows "Delete Other Windows"))))
+   (("P" my/open-review-requested-pr "Open Requested PR")
+    ("B" counsel-descbinds "Describe Keybind"))))
