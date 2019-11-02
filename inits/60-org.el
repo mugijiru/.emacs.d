@@ -56,9 +56,7 @@
 
 (setq org-agenda-files
       '("~/Documents/org/ical.org"
-        "~/Documents/org/tasks/review.org"
-        "~/Documents/org/tasks/develop.org"
-        "~/Documents/org/tasks/research.org"))
+        "~/Documents/org/tasks/"))
 
 (setq org-capture-templates
       `(("c" "同期カレンダーにエントリー" entry
