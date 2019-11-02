@@ -80,7 +80,7 @@
 (load "my-org-gcal-config")
 
 (with-eval-after-load 'major-mode-hydra
-  (major-mode-hydra-define org-mode (:quit-key "q")
+  (major-mode-hydra-define org-mode (:quit-key "q" :title (concat (all-the-icons-fileicon "org") " Org commands"))
     ("Insert"
      (("l" org-insert-link "Link")
       ("t" org-insert-todo-heading "Todo")
@@ -107,7 +107,13 @@
      (("," org-cycle-agenda-files "Cycle")))))
 
 (with-eval-after-load 'pretty-hydra
-  (pretty-hydra-define global-org-hydra (:separator "-" :color teal :foreign-key warn :title "Global org commands" :quit-key "q")
+  (pretty-hydra-define
+    global-org-hydra
+    (:separator "-"
+                :color teal
+                :foreign-key warn
+                :title (concat (all-the-icons-fileicon "org") " Global Org commands")
+                :quit-key "q")
     ("Main"
      (("a" org-agenda "Agenda")
       ("c" org-capture "Capture")
