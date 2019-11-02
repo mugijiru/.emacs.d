@@ -34,8 +34,8 @@
 
    "Tool"
    (("o" global-org-hydra/body "Org")
-    ("t" google-translate-at-point "Translate")
-    ("T" google-translate-at-point-reverse "Translate Reverse")
+    ("t" google-translate-at-point "EN => JP")
+    ("T" google-translate-at-point-reverse "JP => EN")
     ("/" google-this-pretty-hydra/body "Google"))
 
    "Other"
