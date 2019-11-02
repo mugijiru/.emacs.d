@@ -20,6 +20,9 @@
    (("v" my/replace-var "Replace var")
     ("a" align-regexp "Align regexp"))
 
+   "View"
+   (("Z" toggle-frame-fullscreen "Toggle fullscreen"))
+
    "Scale"
    (("+" text-scale-increase "Increase")
     ("-" text-scale-decrease "Decrease")
