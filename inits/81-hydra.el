@@ -18,7 +18,8 @@
 
    "Edit"
    (("v" my/replace-var "Replace Var")
-    ("a" align-regexp "Align regexp"))
+    ("a" align-regexp "Align Regexp")
+    ("V" my/toggle-view-mode "Readonly"))
 
    "Code"
    (("g" counsel-projectile-ag "Grep")
