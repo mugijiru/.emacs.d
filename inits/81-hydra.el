@@ -39,4 +39,5 @@
    (("c" my/open-user-calendar "Calendar")
     ("SPC" major-mode-hydra "Hydra(Major)")
     ("P" my/open-review-requested-pr "Open Requested PR")
+    ("B" counsel-descbinds "Describe Keybind")
     ("D" delete-other-windows "Delete Other Windows"))))
