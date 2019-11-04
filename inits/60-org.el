@@ -79,6 +79,13 @@
          (file+headline ,my/org-capture-management-file "Management")
          "** TODO %?\n\t")))
 
+(setq org-clock-clocktable-default-properties
+      '(:maxlevel 2
+                 :lang "ja"
+                 :scope agenda
+                 :block today
+                 :level 4))
+
 (el-get-bundle org-gcal)
 (require 'org-gcal)
 (load "my-org-gcal-config")
