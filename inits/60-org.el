@@ -52,6 +52,7 @@
 (setq my/org-capture-review-file (concat my/org-tasks-directory "review.org"))
 (setq my/org-capture-develop-file (concat my/org-tasks-directory "develop.org"))
 (setq my/org-capture-research-file (concat my/org-tasks-directory "research.org"))
+(setq my/org-capture-interrupted-file (concat my/org-tasks-directory "interrupted.org"))
 (setq my/org-capture-management-file (concat my/org-tasks-directory "management.org"))
 
 (setq org-agenda-files
@@ -71,6 +72,9 @@
         ("d" "開発タスクにエントリー" entry
          (file+headline ,my/org-capture-develop-file "Develop")
          "** TODO %?\n\t")
+        ("i" "割り込みタスクにエントリー" entry ;; 参考: http://grugrut.hatenablog.jp/entry/2016/03/13/085417
+         (file+headline ,my/org-capture-interrupted-file "Interrupted")
+         "** %?\n\t" :clock-in t :clock-resume t)
         ("m" "管理系タスクにエントリー" entry
          (file+headline ,my/org-capture-management-file "Management")
          "** TODO %?\n\t")))
