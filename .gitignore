@@ -7,6 +7,11 @@ secret
 org-gcal
 
 # auto generated files
+.authinfo.gpg
+.lsp-session-v1
+.mc-lists.el
+bookmarks
+forge-database.sqlite
 ido.last
 recentf
 kkcrc
