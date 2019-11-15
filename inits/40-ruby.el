@@ -25,6 +25,10 @@
      (("{" enh-ruby-toggle-block "Toggle block")
       ("e" enh-ruby-insert-end "Insert end"))
 
+     "LSP"
+     (("i" lsp-ui-imenu "Imenu")
+      ("f" lsp-ui-flycheck-list "Flycheck list"))
+
      "RSpec"
      (("s" rspec-verify "Run associated spec")
       ("m" rspec-verify-method "Run method spec")
@@ -32,7 +36,7 @@
       ("l" rspec-run-last-failed "Run last failed"))
 
      "REPL"
-     (("i" inf-ruby "inf-ruby"))
+     (("I" inf-ruby "inf-ruby"))
 
      "Other"
      (("j" dumb-jump-go "Dumb Jump")))))
