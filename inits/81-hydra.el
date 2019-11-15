@@ -23,7 +23,8 @@
 
    "Code"
    (("g" counsel-projectile-ag "Grep")
-    ("j" dumb-jump-pretty-hydra/body "Dumb jump"))
+    ("j" dumb-jump-pretty-hydra/body "Dumb jump")
+    ("i" counsel-imenu "imenu"))
 
    "Tool"
    (("c" my/open-user-calendar "Calendar")
