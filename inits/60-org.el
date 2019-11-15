@@ -90,6 +90,14 @@
 (require 'org-gcal)
 (load "my-org-gcal-config")
 
+(el-get-bundle async)
+(el-get-bundle ob-async)
+(require 'ob-async)
+(add-hook 'ob-async-pre-execute-src-block-hook
+      '(lambda ()
+         (setq org-plantuml-jar-path "~/.emacs.d/el-get/plantuml-mode/plantuml.jar")))
+(add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images) ;; org-babel-execute 後に画像を再表示
+
 (with-eval-after-load 'major-mode-hydra
   (major-mode-hydra-define org-mode (:quit-key "q" :title (concat (all-the-icons-fileicon "org") " Org commands"))
     ("Insert"
