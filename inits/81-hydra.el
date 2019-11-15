@@ -14,7 +14,8 @@
    (("p" counsel-projectile-switch-project "Switch Project")
     ("r" projectile-recentf "Recentf")
     ("d" counsel-projectile-find-dir "Find Dir")
-    ("f" counsel-projectile-find-file "Find File"))
+    ("f" counsel-projectile-find-file "Find File")
+    ("l" counsel-locate "Locate"))
 
    "Edit"
    (("v" my/replace-var "Replace Var")

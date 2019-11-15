@@ -6,6 +6,7 @@
  '(auth-sources (quote ("~/.emacs.d/.authinfo.gpg")))
  '(auto-insert-directory "~/.emacs.d/insert/")
  '(column-number-mode t)
+ '(counsel-locate-cmd (quote counsel-locate-cmd-mdfind))
  '(css-indent-offset 2)
  '(custom-safe-themes
    (quote
