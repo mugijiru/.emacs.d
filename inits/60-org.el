@@ -50,6 +50,7 @@
 ;; タスク管理系
 (setq my/org-tasks-directory (concat org-directory "tasks/"))
 (setq my/org-capture-review-file (concat my/org-tasks-directory "review.org"))
+(setq my/org-capture-env-file (concat my/org-tasks-directory "env.org"))
 (setq my/org-capture-develop-file (concat my/org-tasks-directory "develop.org"))
 (setq my/org-capture-research-file (concat my/org-tasks-directory "research.org"))
 (setq my/org-capture-interrupted-file (concat my/org-tasks-directory "interrupted.org"))
@@ -62,6 +63,9 @@
 (setq org-capture-templates
       `(("c" "同期カレンダーにエントリー" entry
          (file+headline ,org-capture-ical-file "Schedule")
+         "** TODO %?\n\t")
+        ("e" "環境問題にエントリー" entry
+         (file+headline ,my/org-capture-env-file "Environment")
          "** TODO %?\n\t")
         ("r" "レビューにエントリー" entry
          (file+headline ,my/org-capture-review-file "Review")
