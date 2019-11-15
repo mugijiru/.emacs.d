@@ -33,7 +33,7 @@
    (expand-file-name "~/.emacs.d/el-get/plantuml-mode/plantuml.jar"))
  '(package-selected-packages
    (quote
-    (ivy dumb-jump gnuplot calfw-org hide-mode-line oauth2 zoom highlight-indent-guides rainbow-mode molokai-theme xml-rpc vue-html-mode ssass-mode edit-indirect ember-mode)))
+    (async gnu-elpa-keyring-update ivy dumb-jump gnuplot calfw-org hide-mode-line oauth2 zoom highlight-indent-guides rainbow-mode molokai-theme xml-rpc vue-html-mode ssass-mode edit-indirect ember-mode)))
  '(projectile-mode-line-prefix "")
  '(pug-tab-width 2)
  '(recentf-auto-cleanup (quote never))
