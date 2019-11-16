@@ -18,8 +18,7 @@
     ("l" counsel-locate "Locate"))
 
    "Edit"
-   (("v" my/replace-var "Replace Var")
-    ("a" align-regexp "Align Regexp")
+   (("a" align-regexp "Align Regexp")
     ("V" my/toggle-view-mode "Readonly"))
 
    "Code"
