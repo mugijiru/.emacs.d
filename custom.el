@@ -27,6 +27,7 @@
  '(js-indent-level 2)
  '(line-number-mode nil)
  '(major-mode-hydra-separator "=")
+ '(org-confirm-babel-evaluate nil)
  '(org-modules
    (quote
     (ol-bbdb ol-bibtex ol-docview ol-eww ol-gnus ol-info ol-irc ol-mhe ol-rmail org-tempo ol-w3m)))
