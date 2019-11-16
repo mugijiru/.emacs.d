@@ -14,3 +14,8 @@
   (display-line-numbers-mode 1)
   (rainbow-mode))
 (add-hook 'scss-mode-hook 'my/scss-mode-hook)
+
+(with-eval-after-load 'major-mode-hydra
+  (major-mode-hydra-define scss-mode (:quit-key "q" :title (concat (all-the-icons-alltheicon "css3") " CSS"))
+    ("Edit"
+     (("v" my/replace-var "replace-var")))))
