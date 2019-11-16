@@ -21,3 +21,6 @@
 
 ;; AquaSKKのL辞書をつかうようにする
 (setq skk-large-jisyo (expand-file-name "~/Library/Application Support/AquaSKK/SKK-JISYO.L"))
+
+(el-get-bundle conao3/ddskk-posframe.el)
+(ddskk-posframe-mode 1)
