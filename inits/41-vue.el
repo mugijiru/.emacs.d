@@ -16,3 +16,8 @@
 
 (add-hook 'css-mode-hook 'my/css-mode-hook)
 (add-hook 'vue-mode-hook 'my/vue-mode-hook)
+
+(with-eval-after-load 'major-mode-hydra
+  (major-mode-hydra-define css-mode (:quit-key "q" :title (concat (all-the-icons-alltheicon "css3") " CSS"))
+    ("Edit"
+     (("v" my/replace-var "replace-var")))))
