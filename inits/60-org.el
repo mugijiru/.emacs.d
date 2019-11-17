@@ -149,3 +149,23 @@
       ("j" org-clock-goto "Goto")
       ("d" org-clock-display "Display")
       ("r" org-clock-report "Report")))))
+
+(load "my-notify-slack-config")
+(defun my/notify-slack (channel text)
+  (start-process "my/org-clock-slack-notifier" "*my/org-clock-slack-notifier*" "my-slack-notifier" channel text))
+
+(defun my/notify-slack-times (text)
+  (my/notify-slack my/notify-slack-times-channel text))
+
+(defun my/org-clock-in-hook ()
+  (let* ((task org-clock-current-task)
+         (message (format "開始: %s" task)))
+    (my/notify-slack-times message)))
+
+(defun my/org-clock-out-hook ()
+  (let* ((task org-clock-current-task)
+         (message (format "終了: %s" task)))
+    (my/notify-slack-times message)))
+
+(setq org-clock-in-hook 'my/org-clock-in-hook)
+(setq org-clock-out-hook 'my/org-clock-out-hook)
