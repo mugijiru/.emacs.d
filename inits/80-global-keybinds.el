@@ -16,6 +16,9 @@
 ;; C-s で swiper を代わりに使うことにした
 (global-set-key (kbd "C-s") 'swiper)
 
+;; C-x o で ace-window を起動するようにした
+(global-set-key (kbd "C-x o") 'ace-window)
+
 ;; Shift+矢印でwindow移動
 (windmove-default-keybindings)
 
