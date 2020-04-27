@@ -32,5 +32,10 @@
       ("i" projectile-rails-find-initializer "Initializer")
       ("l" projectile-rails-find-lib "Lib")
       ("p" projectile-rails-find-spec "Spec")
-      ("t" projectile-rails-find-locale "Translation"))))
+      ("t" projectile-rails-find-locale "Translation"))
+
+     "Single Files"
+     (("R" projectile-rails-goto-routes "routes.rb")
+      ("G" projectile-rails-goto-gemfile "Gemfile")
+      ("D" projectile-rails-goto-schema "schema.rb"))))
   (define-key projectile-rails-mode-map (kbd "C-c r") 'pretty-hydra-projectile-rails-find/body))
