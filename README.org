@@ -1,0 +1,37 @@
+* mugijiru/.emacs.d
+
+  業務などで使ってる Emacs の設定
+
+** 必須要件
+
+   - Mac OS X
+   - Homebrew
+   - https://github.com/railwaycat/homebrew-emacsmacport
+
+** 初期設定
+
+   #+begin_example
+   $ brew tap railwaycat/emacsmacport
+   $ brew install emacs-mac --with-dbus --with-imagemagick --with-modern-icon
+   #+end_example
+
+** 使い方
+
+   #+begin_example
+   $ hub clone mugijiru/.emacs.d ~/.emacs.d
+   #+end_example
+
+   で clone してきて Emacs を起動したら動くはず
+
+** 設定用に使っているパッケージ
+
+   - init-loader
+   - el-get
+
+** 構成
+
+   - init.el :: おなじみの初期化ファイル
+   - inits/??-*.el :: init-loader に読ませる設定
+   - recipes/*.el :: 自前で定義した el-get 用のレシピ
+   - custom.el :: Emacs 上で customize した値を収めるファイル
+   - insert/*. :: 新規ファイル作成時のテンプレート
