@@ -41,7 +41,7 @@
 
 
 (setq org-todo-keywords
-      '((sequence "TODO" "DOING(!)" "REVIEW" "|" "DONE" "SOMEDAY(s)")))
+      '((sequence "TODO" "DOING(!)" "WAIT" "|" "DONE" "SOMEDAY(s)")))
 
 ;; org-capture
 (defvar org-capture-ical-file (concat org-directory "ical.org"))
@@ -55,13 +55,17 @@
 (setq my/org-capture-research-file (concat my/org-tasks-directory "research.org"))
 (setq my/org-capture-interrupted-file (concat my/org-tasks-directory "interrupted.org"))
 (setq my/org-capture-management-file (concat my/org-tasks-directory "management.org"))
+(setq my/org-capture-gtd-file (concat my/org-tasks-directory "gtd.org"))
 
 (setq org-agenda-files
       '("~/Documents/org/ical.org"
         "~/Documents/org/tasks/"))
 
 (setq org-capture-templates
-      `(("c" "同期カレンダーにエントリー" entry
+      `(("g" "GTDにエントリー" entry
+         (file+headline ,my/org-capture-gtd-file "Inbox")
+         "** TODO %?\n\t")
+        ("c" "同期カレンダーにエントリー" entry
          (file+headline ,org-capture-ical-file "Schedule")
          "** TODO %?\n\t")
         ("e" "環境問題にエントリー" entry
