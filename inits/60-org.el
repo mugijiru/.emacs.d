@@ -143,6 +143,7 @@
      (("a" org-agenda "Agenda")
       ("c" org-capture "Capture")
       ("l" org-store-link "Store link")
+      ("t" my/org-tags-view-only-todo "Tagged Todo")
       ("C" my/open-user-calendar "Calendar"))
      "Clock"
      (("i" org-clock-in  "In")
@@ -152,6 +153,10 @@
       ("j" org-clock-goto "Goto")
       ("d" org-clock-display "Display")
       ("r" org-clock-report "Report")))))
+
+(defun my/org-tags-view-only-todo ()
+  (interactive)
+  (org-tags-view t))
 
 (load "my-notify-slack-config")
 (defun my/notify-slack (channel text)
