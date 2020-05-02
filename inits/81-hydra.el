@@ -27,7 +27,7 @@
     ("i" counsel-imenu "imenu"))
 
    "Tool"
-   (("c" my/open-user-calendar "Calendar")
+   (("c" org-capture "Capture")
     ("o" global-org-hydra/body "Org")
     ("/" google-this-pretty-hydra/body "Google")
     ("SPC" major-mode-hydra "Hydra(Major)")
