@@ -142,7 +142,8 @@
     ("Main"
      (("a" org-agenda "Agenda")
       ("c" org-capture "Capture")
-      ("l" org-store-link "Store link"))
+      ("l" org-store-link "Store link")
+      ("C" my/open-user-calendar "Calendar"))
      "Clock"
      (("i" org-clock-in  "In")
       ("o" org-clock-out "Out")
