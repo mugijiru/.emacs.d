@@ -98,7 +98,6 @@
 (require 'org-gcal)
 (load "my-org-gcal-config")
 
-(el-get-bundle async)
 (el-get-bundle ob-async)
 (require 'ob-async)
 (add-hook 'ob-async-pre-execute-src-block-hook
