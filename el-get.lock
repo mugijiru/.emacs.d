@@ -1,0 +1,4 @@
+(setq el-get-lock-package-versions
+      '((org-mode :checksum "66810d2121aa1d936238fc53cc155e6eda425313")))
+(setq el-get-lock-locked-packages 'nil)
+(setq el-get-lock-unlocked-packages 'nil)
