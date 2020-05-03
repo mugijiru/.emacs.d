@@ -1,4 +1,4 @@
-(el-get-bundle org-mode) ;; from Git. because melpa cannot resolve dependencies.
+(el-get-bundle org-mode :checkout "release_9.3.6") ;; from Git. because melpa cannot resolve dependencies.
 (el-get-bundle org-export-blocks-format-plantuml)
 (org-babel-do-load-languages 'org-babel-load-languages
                              '((plantuml . t)
