@@ -5,7 +5,7 @@
 (defun my/css-mode-hook ()
   ;; (make-local-variable 'flycheck-checker)
   ;; (setq flycheck-checker 'css-stylelint)
-  (setq-local 'flycheck-checker 'css-stylelint)
+  (setq-local flycheck-checker 'css-stylelint)
   (rainbow-mode 1))
 
 (defun my/vue-mode-hook ()
