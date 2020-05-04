@@ -22,6 +22,10 @@
 ;; Shift+矢印でwindow移動
 (windmove-default-keybindings)
 
+;; undo-fu
+(global-set-key (kbd "C-/") 'undo-fu-only-undo)
+(global-set-key (kbd "C-M-/") 'undo-fu-only-redo)
+
 ;; ¥ ではなく \ になるように調整
 (define-key global-map [?¥] [?\\])
 (define-key global-map [?\C-¥] [?\C-\\])
