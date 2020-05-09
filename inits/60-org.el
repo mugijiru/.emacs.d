@@ -112,6 +112,9 @@
       ("h" org-insert-heading-respect-content "Heading")
       ("S" org-insert-structure-template "Snippet"))
 
+     "Narrow"
+     (("S" org-toggle-narrow-to-subtree "Toggle Subtree"))
+
      "Edit"
      (("a" org-archive-subtree "Archive"))
 
@@ -145,8 +148,6 @@
       ("l" org-store-link "Store link")
       ("t" my/org-tags-view-only-todo "Tagged Todo")
       ("C" my/open-user-calendar "Calendar"))
-     "Narrow"
-     (("S" org-toggle-narrow-to-subtree "Toggle Subtree"))
      "Clock"
      (("i" org-clock-in  "In")
       ("o" org-clock-out "Out")
