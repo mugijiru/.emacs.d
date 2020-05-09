@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((undo-fu :checksum "0ce9ac36144e80316fff50bfe1bc5dd7e5e7ded6")
+      '((org-trello :checksum "9f77459541eaea14069baf116dc51ba82eea80b4")
+        (undo-fu :checksum "0ce9ac36144e80316fff50bfe1bc5dd7e5e7ded6")
         (emacs-todoist :checksum "b1fba9f3600e6cfe129efae304b96a7f6dc66e1a")
         (org-mode :checksum "66810d2121aa1d936238fc53cc155e6eda425313")))
 (setq el-get-lock-locked-packages 'nil)
