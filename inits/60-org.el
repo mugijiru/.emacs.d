@@ -115,6 +115,9 @@
      "Edit"
      (("a" org-archive-subtree "Archive"))
 
+     "View"
+     (("N" org-toggle-narrow-to-subtree "Toggle Subtree"))
+
      "Task"
      (("s" org-schedule "Schedule")
       ("d" org-deadline "Deadline")
