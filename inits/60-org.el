@@ -112,11 +112,11 @@
       ("h" org-insert-heading-respect-content "Heading")
       ("S" org-insert-structure-template "Snippet"))
 
-     "Narrow"
-     (("S" org-toggle-narrow-to-subtree "Toggle Subtree"))
-
      "Edit"
      (("a" org-archive-subtree "Archive"))
+
+     "View"
+     (("N" org-toggle-narrow-to-subtree "Toggle Subtree"))
 
      "Task"
      (("s" org-schedule "Schedule")
