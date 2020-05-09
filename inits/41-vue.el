@@ -3,8 +3,8 @@
 (el-get-bundle vue-mode)
 (el-get-bundle pug-mode)
 (defun my/css-mode-hook ()
-  ;; (make-local-variable 'flycheck-checker)
-  ;; (setq flycheck-checker 'css-stylelint)
+  ;; vue-mode では scss は css-mode が適用される
+  ;; https://github.com/AdamNiederer/vue-mode/blob/031edd1f97db6e7d8d6c295c0e6d58dd128b9e71/vue-mode.el#L63
   (setq-local flycheck-checker 'css-stylelint)
   (rainbow-mode 1))
 
