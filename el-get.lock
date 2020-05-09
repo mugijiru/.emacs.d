@@ -1,5 +1,7 @@
 (setq el-get-lock-package-versions
-      '((org-trello :checksum "9f77459541eaea14069baf116dc51ba82eea80b4")
+      '((dashboard :checksum "bf38867ae80902d58207974b4a2bba4249324599")
+        (page-break-lines :checksum "314b397910b3d16bb7cbcc25098696348e678080")
+        (org-trello :checksum "9f77459541eaea14069baf116dc51ba82eea80b4")
         (undo-fu :checksum "0ce9ac36144e80316fff50bfe1bc5dd7e5e7ded6")
         (emacs-todoist :checksum "b1fba9f3600e6cfe129efae304b96a7f6dc66e1a")
         (org-mode :checksum "66810d2121aa1d936238fc53cc155e6eda425313")))
