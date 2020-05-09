@@ -39,6 +39,10 @@
 ;; デフォは日本語設定
 (setq org-export-default-language "ja")
 
+;; org-mode のリンク先が xlsx の時に numbers を開くようにした
+;; default は内部的には open コマンドが使われる
+(add-to-list 'org-file-apps '("\\.xlsx?\\'" . default))
+
 (setq org-todo-keywords
       '((sequence "TODO" "DOING(!)" "WAIT" "|" "DONE" "SOMEDAY(s)")))
 
