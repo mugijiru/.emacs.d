@@ -44,6 +44,9 @@
     ("-" text-scale-decrease "Decrease")
     ("0" text-scale-adjust   "Adjust"))
 
+   "Describe"
+   (("B" counsel-descbinds "Keybind")
+    ("F" counsel-describe-function "Function"))
+
    "Other"
-   (("P" my/open-review-requested-pr "Open Requested PR")
-    ("B" counsel-descbinds "Describe Keybind"))))
+   (("P" my/open-review-requested-pr "Open Requested PR"))))
