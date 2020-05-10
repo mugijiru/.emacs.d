@@ -60,6 +60,9 @@
 (setq my/org-capture-management-file (concat my/org-tasks-directory "management.org"))
 (setq my/org-capture-gtd-file (concat my/org-tasks-directory "gtd.org"))
 
+;; org-agenda の週の始まりを日曜日に
+(setq org-agenda-start-on-weekday 0)
+
 (setq org-agenda-files
       '("~/Documents/org/ical.org"
         "~/Documents/org/tasks/"))
