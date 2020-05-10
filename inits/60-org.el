@@ -111,6 +111,12 @@
          (setq org-plantuml-jar-path "~/.emacs.d/el-get/plantuml-mode/plantuml.jar")))
 (add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images) ;; org-babel-execute 後に画像を再表示
 
+(defun my/org-clock-toggle-display ()
+  (interactive)
+  (if org-clock-overlays
+      (org-clock-remove-overlays)
+    (org-clock-display)))
+
 (with-eval-after-load 'major-mode-hydra
   (major-mode-hydra-define org-mode (:quit-key "q" :title (concat (all-the-icons-fileicon "org") " Org commands"))
     ("Insert"
@@ -123,7 +129,8 @@
      (("a" org-archive-subtree "Archive"))
 
      "View"
-     (("N" org-toggle-narrow-to-subtree "Toggle Subtree"))
+     (("N" org-toggle-narrow-to-subtree "Toggle Subtree")
+      ("D" my/org-clock-toggle-display "Toggle Display"))
 
      "Task"
      (("s" org-schedule "Schedule")
@@ -161,7 +168,6 @@
       ("r" org-clock-in-last "Restart")
       ("x" org-clock-cancel "Cancel")
       ("j" org-clock-goto "Goto")
-      ("d" org-clock-display "Display")
       ("r" org-clock-report "Report")))))
 
 (defun my/org-tags-view-only-todo ()
