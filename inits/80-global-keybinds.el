@@ -65,3 +65,6 @@
 
 ;; with keychord
 (key-chord-define-global "jk" 'pretty-hydra-usefull-commands/body)
+
+;; Don't ask yes or no.
+(defalias 'yes-or-no-p 'y-or-n-p)
