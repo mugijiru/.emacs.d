@@ -139,8 +139,7 @@
 
      "Clock"
      (("i" org-clock-in "In")
-      ("o" org-clock-out "Out")
-      ("C" org-clock-display "Display"))
+      ("o" org-clock-out "Out"))
 
      "Babel"
      (("e" org-babel-confirm-evaluate "Eval"))
