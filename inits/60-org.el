@@ -139,8 +139,7 @@
 
      "Clock"
      (("i" org-clock-in "In")
-      ("o" org-clock-out "Out")
-      ("C" org-clock-display "Display"))
+      ("o" org-clock-out "Out"))
 
      "Babel"
      (("e" org-babel-confirm-evaluate "Eval"))
@@ -161,6 +160,7 @@
       ("c" org-capture "Capture")
       ("l" org-store-link "Store link")
       ("t" my/org-tags-view-only-todo "Tagged Todo")
+      ("F" org-gcal-fetch "Fetch Calendar")
       ("C" my/open-user-calendar "Calendar"))
      "Clock"
      (("i" org-clock-in  "In")
