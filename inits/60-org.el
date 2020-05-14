@@ -160,6 +160,7 @@
       ("c" org-capture "Capture")
       ("l" org-store-link "Store link")
       ("t" my/org-tags-view-only-todo "Tagged Todo")
+      ("F" org-gcal-fetch "Fetch Calendar")
       ("C" my/open-user-calendar "Calendar"))
      "Clock"
      (("i" org-clock-in  "In")
