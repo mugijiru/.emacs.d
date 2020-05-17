@@ -3,6 +3,9 @@
   (org-trello-sync-buffer t))
 
 (defun my/org-trello-mode-hook ()
+  ;; (make-local-variable 'major-mode-hydras/org-mode/keymap)
+  ;; (make-local-variable 'major-mode-hydras/org-mode/body)
+
   (major-mode-hydra-define+ org-mode (:quit-key "q" :title (concat (all-the-icons-faicon "trello") " Org & trello"))
     ("Hoge"
      (("i" org-trello-install-board-metadata "Board metadata")
