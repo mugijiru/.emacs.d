@@ -144,6 +144,12 @@
      "Babel"
      (("e" org-babel-confirm-evaluate "Eval"))
 
+     "Trello"
+     (("K" org-trello-mode "On/Off" :toggle org-trello-mode)
+      ("k" (if org-trello-mode
+               (org-trello-hydra/body)
+             (message "org-trello-mode is not enabled")) "Menu"))
+
      "Agenda"
      (("," org-cycle-agenda-files "Cycle")))))
 
