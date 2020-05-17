@@ -2,17 +2,21 @@
 (defun my/org-trello-fetch-buffer ()
   (org-trello-sync-buffer t))
 
-(defun my/org-trello-mode-hook ()
-  ;; (make-local-variable 'major-mode-hydras/org-mode/keymap)
-  ;; (make-local-variable 'major-mode-hydras/org-mode/body)
-
-  (major-mode-hydra-define+ org-mode (:quit-key "q" :title (concat (all-the-icons-faicon "trello") " Org & trello"))
-    ("Hoge"
+(with-eval-after-load 'pretty-hydra
+  (pretty-hydra-define
+    org-trello-hydra
+    (:separator "-"
+                :color teal
+                :foreign-key warn
+                :title (concat (all-the-icons-faicon "trello") "  Org Trello commands")
+                :quit-key "q")
+    ("Install"
      (("i" org-trello-install-board-metadata "Board metadata")
-      ("I" org-trello-install-key-and-token "Setup")
+      ("I" org-trello-install-key-and-token "Setup"))
 
-      ("V" org-trello-version "Version")
-      ("s" my/org-trello-fetch-buffer "← Trello")
-      ("S" org-trello-sync-buffer "→ Trello")))))
+     "Sync"
+     (("s" my/org-trello-fetch-buffer "← Trello")
+      ("S" org-trello-sync-buffer "→ Trello"))
 
-(add-hook 'org-trello-mode-hook 'my/org-trello-mode-hook)
+     "Other"
+     (("V" org-trello-version "Version")))))

@@ -144,6 +144,10 @@
      "Babel"
      (("e" org-babel-confirm-evaluate "Eval"))
 
+     "Trello"
+     (("K" org-trello-mode "On/Off" :toggle org-trello-mode)
+      ("k" org-trello-hydra/body "Menu"))
+
      "Agenda"
      (("," org-cycle-agenda-files "Cycle")))))
 
