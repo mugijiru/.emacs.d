@@ -48,7 +48,6 @@
 
    "View"
    (("D" delete-other-windows "Only This Win")
-    ("N" neotree-toggle "Neotree")
     ("W" window-control-hydra/body "Window Control"))
 
    "Scale"
@@ -59,6 +58,7 @@
    "Toggle"
    (("z" zoom-mode "zoom-mode" :toggle zoom-mode)
     ("Z" toggle-frame-fullscreen "Fullscreen" :toggle (frame-parameter nil 'fullscreen))
+    ("N" neotree-toggle "Neotree" :toggle (neo-global--window-exists-p))
     ("E" toggle-debug-on-error "Debug on error" :toggle debug-on-error))
 
    "Describe"
