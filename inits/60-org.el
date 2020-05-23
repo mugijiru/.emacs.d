@@ -105,26 +105,27 @@
 (with-eval-after-load 'major-mode-hydra
   (major-mode-hydra-define org-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-fileicon "org") " Org commands"))
     ("Insert"
-     (("l" org-insert-link "Link")
-      ("t" org-insert-todo-heading "Todo")
-      ("h" org-insert-heading-respect-content "Heading")
-      ("S" org-insert-structure-template "Snippet"))
+     (("l" org-insert-link                     "Link")
+      ("t" org-insert-todo-heading             "Todo")
+      ("h" org-insert-heading-respect-content  "Heading")
+      ("S" org-insert-structure-template       "Snippet"))
 
      "Edit"
-     (("a" org-archive-subtree "Archive"))
+     (("a" org-archive-subtree  "Archive")
+      ("Q" org-set-tags-command "Tag"))
 
      "View"
      (("N" org-toggle-narrow-to-subtree "Toggle Subtree")
-      ("D" my/org-clock-toggle-display "Toggle Display"))
+      ("D" my/org-clock-toggle-display  "Toggle Display"))
 
      "Task"
      (("s" org-schedule "Schedule")
       ("d" org-deadline "Deadline")
-      ("T" org-todo "Change state"))
+      ("T" org-todo     "Change state"))
 
      "Clock"
-     (("i" org-clock-in "In")
-      ("o" org-clock-out "Out"))
+     (("i" org-clock-in   "In")
+      ("o" org-clock-out  "Out"))
 
      "Babel"
      (("e" org-babel-confirm-evaluate "Eval"))
