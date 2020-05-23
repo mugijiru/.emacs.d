@@ -56,7 +56,7 @@
     ("F" counsel-describe-function "Function"))
 
    "Tool"
-   (("c" org-capture "Capture")
+   (("c" counsel-org-capture "Capture")
     ("o" global-org-hydra/body "Org")
     ("@" all-the-icons-hydra/body "All the icons")
     ("e" el-get-hydra/body "el-get")
