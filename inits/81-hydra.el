@@ -29,6 +29,7 @@
    "Tool"
    (("c" org-capture "Capture")
     ("o" global-org-hydra/body "Org")
+    ("@" all-the-icons-hydra/body "All the icons")
     ("/" google-this-pretty-hydra/body "Google")
     ("SPC" major-mode-hydra "Hydra(Major)")
     ("t" google-translate-at-point "EN => JP")
