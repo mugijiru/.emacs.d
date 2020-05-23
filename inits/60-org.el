@@ -111,7 +111,8 @@
       ("S" org-insert-structure-template "Snippet"))
 
      "Edit"
-     (("a" org-archive-subtree "Archive"))
+     (("a" org-archive-subtree "Archive")
+      ("Q" org-set-tags-command "Tag"))
 
      "View"
      (("N" org-toggle-narrow-to-subtree "Toggle Subtree")
