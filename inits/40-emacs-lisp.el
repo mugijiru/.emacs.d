@@ -5,8 +5,22 @@
   (paredit-mode 1))
 (add-hook 'emacs-lisp-mode-hook 'my/emacs-lisp-mode-hook)
 
+(defun my/insert-all-the-icons-code (family)
+  (let* ((candidates (all-the-icons--read-candidates-for-family family))
+         (prompt     (format "%s Icon: " (funcall (all-the-icons--family-name family))))
+         (selection  (completing-read prompt candidates nil t)))
+    (insert "(all-the-icons-" (symbol-name family) " \"" selection "\")")))
+
 (with-eval-after-load 'major-mode-hydra
   (major-mode-hydra-define emacs-lisp-mode (:quit-key "q" :title (concat (all-the-icons-fileicon "elisp") " Emacs Lisp"))
     ("Describe"
      (("F" counsel-describe-function "Function")
-      ("V" counsel-describe-variable "Variable")))))
+      ("V" counsel-describe-variable "Variable"))
+
+     "Insert Icon Code"
+     (("@a" (my/insert-all-the-icons-code 'alltheicon)  "All the icons")
+      ("@f" (my/insert-all-the-icons-code 'fileicon)    "File icons")
+      ("@F" (my/insert-all-the-icons-code 'faicon)      "FontAwesome")
+      ("@m" (my/insert-all-the-icons-code 'material)    "Material")
+      ("@o" (my/insert-all-the-icons-code 'octicon)     "Octicon")
+      ("@w" (my/insert-all-the-icons-code 'wicon)       "Weather")))))
