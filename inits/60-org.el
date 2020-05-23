@@ -149,7 +149,7 @@
                 :quit-key "q")
     ("Main"
      (("a" org-agenda "Agenda")
-      ("c" org-capture "Capture")
+      ("c" counsel-org-capture "Capture")
       ("l" org-store-link "Store link")
       ("t" my/org-tags-view-only-todo "Tagged Todo")
       ("F" org-gcal-fetch "Fetch Calendar")
