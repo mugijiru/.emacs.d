@@ -79,7 +79,7 @@
          "** TODO %?\n\t")))
 
 (setq org-clock-clocktable-default-properties
-      '(:maxlevel 4
+      '(:maxlevel 10
                  :lang "ja"
                  :scope agenda
                  :block today
