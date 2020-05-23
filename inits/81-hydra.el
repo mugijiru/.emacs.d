@@ -47,8 +47,7 @@
     ("T" google-translate-at-point-reverse "JP => EN"))
 
    "View"
-   (("Z" toggle-frame-fullscreen "Fullscreen")
-    ("D" delete-other-windows "Only This Win")
+   (("D" delete-other-windows "Only This Win")
     ("N" neotree-toggle "Neotree")
     ("W" window-control-hydra/body "Window Control"))
 
@@ -56,6 +55,11 @@
    (("+" text-scale-increase "Increase")
     ("-" text-scale-decrease "Decrease")
     ("0" text-scale-adjust   "Adjust"))
+
+   "Toggle"
+   (("z" zoom-mode "zoom-mode" :toggle zoom-mode)
+    ("Z" toggle-frame-fullscreen "Fullscreen" :toggle (frame-parameter nil 'fullscreen))
+    ("E" toggle-debug-on-error "Debug on error" :toggle debug-on-error))
 
    "Describe"
    (("B" counsel-descbinds "Keybind")
