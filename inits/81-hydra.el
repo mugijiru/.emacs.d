@@ -9,6 +9,16 @@
 (el-get-bundle pretty-hydra)
 (el-get-bundle major-mode-hydra)
 
+(pretty-hydra-define el-get-hydra (:separator "-" :title "el-get" :quit-key "q")
+  ("Management"
+   (("u" el-get-update "Update")
+    ("s" el-get-self-update "Self Update")
+    ("A" el-get-update-all "Update All")
+    ("r" el-get-reload "Reload")
+    ("R" el-get-reinstall "Re-install")
+    ("U" el-get-remove "Uninstall")
+    ("f" el-get-find-recipe-file "Find recipe"))))
+
 (pretty-hydra-define pretty-hydra-usefull-commands (:separator "-" :color teal :foreign-key warn :title (concat (all-the-icons-material "build") " Usefull commands") :quit-key "q")
   ("File"
    (("p" counsel-projectile-switch-project "Switch Project")
@@ -30,6 +40,7 @@
    (("c" org-capture "Capture")
     ("o" global-org-hydra/body "Org")
     ("@" all-the-icons-hydra/body "All the icons")
+    ("e" el-get-hydra/body "el-get")
     ("/" google-this-pretty-hydra/body "Google")
     ("SPC" major-mode-hydra "Hydra(Major)")
     ("t" google-translate-at-point "EN => JP")
