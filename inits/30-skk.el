@@ -19,6 +19,8 @@
                            ("?" nil nil)
                            ("!" nil nil))))))
 
+(setq skk-extra-jisyo-file-list (list '("~/.emacs.d/skk-jisyo/SKK-JISYO.lisp" . japanese-iso-8bit-unix)))
+
 ;; AquaSKKのL辞書をつかうようにする
 (setq skk-large-jisyo (expand-file-name "~/Library/Application Support/AquaSKK/SKK-JISYO.L"))
 
