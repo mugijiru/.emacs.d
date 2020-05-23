@@ -71,26 +71,11 @@
       `(("g" "GTDにエントリー" entry
          (file+headline ,my/org-capture-gtd-file "Inbox")
          "** TODO %?\n\t")
-        ("c" "同期カレンダーにエントリー" entry
-         (file+headline ,org-capture-ical-file "Schedule")
-         "** TODO %?\n\t")
-        ("e" "環境問題にエントリー" entry
-         (file+headline ,my/org-capture-env-file "Environment")
-         "** TODO %?\n\t")
-        ("r" "レビューにエントリー" entry
-         (file+headline ,my/org-capture-review-file "Review")
-         "** TODO %?\n\t")
-        ("R" "調査にエントリー" entry
-         (file+headline ,my/org-capture-research-file "Research")
-         "** TODO %?\n\t")
-        ("d" "開発タスクにエントリー" entry
-         (file+headline ,my/org-capture-develop-file "Develop")
-         "** TODO %?\n\t")
         ("i" "割り込みタスクにエントリー" entry ;; 参考: http://grugrut.hatenablog.jp/entry/2016/03/13/085417
          (file+headline ,my/org-capture-interrupted-file "Interrupted")
          "** %?\n\t" :clock-in t :clock-resume t)
-        ("m" "管理系タスクにエントリー" entry
-         (file+headline ,my/org-capture-management-file "Management")
+        ("c" "同期カレンダーにエントリー" entry
+         (file+headline ,org-capture-ical-file "Schedule")
          "** TODO %?\n\t")))
 
 (setq org-clock-clocktable-default-properties
