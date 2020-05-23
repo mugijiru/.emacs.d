@@ -36,16 +36,6 @@
     ("j" dumb-jump-pretty-hydra/body "Dumb jump")
     ("i" counsel-imenu "imenu"))
 
-   "Tool"
-   (("c" org-capture "Capture")
-    ("o" global-org-hydra/body "Org")
-    ("@" all-the-icons-hydra/body "All the icons")
-    ("e" el-get-hydra/body "el-get")
-    ("/" google-this-pretty-hydra/body "Google")
-    ("SPC" major-mode-hydra "Hydra(Major)")
-    ("t" google-translate-at-point "EN => JP")
-    ("T" google-translate-at-point-reverse "JP => EN"))
-
    "View"
    (("D" delete-other-windows "Only This Win")
     ("W" window-control-hydra/body "Window Control"))
@@ -64,6 +54,16 @@
    "Describe"
    (("B" counsel-descbinds "Keybind")
     ("F" counsel-describe-function "Function"))
+
+   "Tool"
+   (("c" org-capture "Capture")
+    ("o" global-org-hydra/body "Org")
+    ("@" all-the-icons-hydra/body "All the icons")
+    ("e" el-get-hydra/body "el-get")
+    ("/" google-this-pretty-hydra/body "Google")
+    ("SPC" major-mode-hydra "Hydra(Major)")
+    ("t" google-translate-at-point "EN => JP")
+    ("T" google-translate-at-point-reverse "JP => EN"))
 
    "Other"
    (("P" my/open-review-requested-pr "Open Requested PR"))))
