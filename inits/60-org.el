@@ -103,7 +103,7 @@
     (org-clock-display)))
 
 (with-eval-after-load 'major-mode-hydra
-  (major-mode-hydra-define org-mode (:quit-key "q" :title (concat (all-the-icons-fileicon "org") " Org commands"))
+  (major-mode-hydra-define org-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-fileicon "org") " Org commands"))
     ("Insert"
      (("l" org-insert-link "Link")
       ("t" org-insert-todo-heading "Todo")
