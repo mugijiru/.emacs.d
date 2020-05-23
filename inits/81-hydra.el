@@ -38,7 +38,8 @@
    "View"
    (("Z" toggle-frame-fullscreen "Fullscreen")
     ("D" delete-other-windows "Only This Win")
-    ("N" neotree-toggle "Neotree"))
+    ("N" neotree-toggle "Neotree")
+    ("W" window-control-hydra/body "Window Control"))
 
    "Scale"
    (("+" text-scale-increase "Increase")
