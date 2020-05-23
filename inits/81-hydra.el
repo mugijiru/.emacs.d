@@ -63,7 +63,5 @@
     ("/" google-this-pretty-hydra/body "Google")
     ("SPC" major-mode-hydra "Hydra(Major)")
     ("t" google-translate-at-point "EN => JP")
-    ("T" google-translate-at-point-reverse "JP => EN"))
-
-   "Other"
-   (("P" my/open-review-requested-pr "Open Requested PR"))))
+    ("T" google-translate-at-point-reverse "JP => EN")
+    ("P" my/open-review-requested-pr "Open Requested PR"))))
