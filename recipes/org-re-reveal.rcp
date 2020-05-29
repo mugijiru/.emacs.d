@@ -1,0 +1,5 @@
+(:name org-re-reveal
+       :website "https://gitlab.com/oer/org-re-reveal"
+       :description "Org export to reveal.js presentations"
+       :type git
+       :url "https://gitlab.com/oer/org-re-reveal.git")
