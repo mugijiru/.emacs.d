@@ -106,7 +106,7 @@
   (major-mode-hydra-define org-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-fileicon "org") " Org commands"))
     ("Insert"
      (("l" org-insert-link                     "Link")
-      ("t" org-insert-todo-heading             "Todo")
+      ("T" org-insert-todo-heading             "Todo")
       ("h" org-insert-heading-respect-content  "Heading")
       ("S" org-insert-structure-template       "Snippet"))
 
@@ -121,7 +121,7 @@
      "Task"
      (("s" org-schedule "Schedule")
       ("d" org-deadline "Deadline")
-      ("T" org-todo     "Change state"))
+      ("t" org-todo     "Change state"))
 
      "Clock"
      (("i" org-clock-in   "In")
