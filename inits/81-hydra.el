@@ -53,7 +53,8 @@
 
    "Describe"
    (("B" counsel-descbinds "Keybind")
-    ("F" counsel-describe-function "Function"))
+    ("F" counsel-describe-function "Function")
+    ("M" describe-minor-mode "Minor mode"))
 
    "Tool"
    (("c" counsel-org-capture "Capture")
