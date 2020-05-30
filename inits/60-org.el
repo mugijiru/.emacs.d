@@ -102,6 +102,15 @@
       (org-clock-remove-overlays)
     (org-clock-display)))
 
+(defun my/org-todo ()
+  (interactive)
+  (ivy-read "Org todo: "
+            org-todo-keywords-for-agenda
+            :require-match t
+            :sort nil
+            :action (lambda (keyword)
+                      (org-todo keyword))))
+
 (with-eval-after-load 'major-mode-hydra
   (major-mode-hydra-define org-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-fileicon "org") " Org commands"))
     ("Insert"
@@ -121,7 +130,7 @@
      "Task"
      (("s" org-schedule "Schedule")
       ("d" org-deadline "Deadline")
-      ("t" org-todo     "Change state"))
+      ("t" my/org-todo  "Change state"))
 
      "Clock"
      (("i" org-clock-in   "In")
