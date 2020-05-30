@@ -29,7 +29,7 @@
 
    "Edit"
    (("a" align-regexp "Align Regexp")
-    ("V" my/toggle-view-mode "Readonly"))
+    ("v" my/toggle-view-mode "Readonly"))
 
    "Code"
    (("g" counsel-projectile-ag "Grep")
@@ -53,15 +53,18 @@
 
    "Describe"
    (("B" counsel-descbinds "Keybind")
-    ("F" counsel-describe-function "Function"))
+    ("F" counsel-describe-function "Function")
+    ("V" counsel-describe-variable "Variable")
+    ("M" describe-minor-mode "Minor mode"))
 
    "Tool"
-   (("c" counsel-org-capture "Capture")
-    ("o" global-org-hydra/body "Org")
-    ("@" all-the-icons-hydra/body "All the icons")
-    ("e" el-get-hydra/body "el-get")
-    ("/" google-this-pretty-hydra/body "Google")
-    ("SPC" major-mode-hydra "Hydra(Major)")
-    ("t" google-translate-at-point "EN => JP")
-    ("T" google-translate-at-point-reverse "JP => EN")
-    ("P" my/open-review-requested-pr "Open Requested PR"))))
+   (("SPC" major-mode-hydra "Hydra(Major)")
+    ("c"   counsel-org-capture "Capture")
+    ("o"   global-org-hydra/body "Org")
+    ("m"   magit-status "Magit")
+    ("@"   all-the-icons-hydra/body "All the icons")
+    ("e"   el-get-hydra/body "el-get")
+    ("/"   google-this-pretty-hydra/body "Google")
+    ("t"   google-translate-at-point "EN => JP")
+    ("T"   google-translate-at-point-reverse "JP => EN")
+    ("P"   my/open-review-requested-pr "Open Requested PR"))))
