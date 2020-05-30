@@ -12,7 +12,7 @@
     (insert "(all-the-icons-" (symbol-name family) " \"" selection "\")")))
 
 (with-eval-after-load 'major-mode-hydra
-  (major-mode-hydra-define emacs-lisp-mode (:quit-key "q" :title (concat (all-the-icons-fileicon "elisp") " Emacs Lisp"))
+  (major-mode-hydra-define emacs-lisp-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-fileicon "elisp") " Emacs Lisp"))
     ("Describe"
      (("F" counsel-describe-function "Function")
       ("V" counsel-describe-variable "Variable"))
