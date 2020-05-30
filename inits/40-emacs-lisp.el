@@ -18,9 +18,9 @@
       ("V" counsel-describe-variable "Variable"))
 
      "Insert Icon Code"
-     (("@a" (my/insert-all-the-icons-code 'alltheicon)  "All the icons")
-      ("@f" (my/insert-all-the-icons-code 'fileicon)    "File icons")
-      ("@F" (my/insert-all-the-icons-code 'faicon)      "FontAwesome")
-      ("@m" (my/insert-all-the-icons-code 'material)    "Material")
-      ("@o" (my/insert-all-the-icons-code 'octicon)     "Octicon")
-      ("@w" (my/insert-all-the-icons-code 'wicon)       "Weather")))))
+     (("@a" (my/insert-all-the-icons-code 'alltheicon) "All the icons")
+      ("@f" (my/insert-all-the-icons-code 'fileicon)   "File icons")
+      ("@F" (my/insert-all-the-icons-code 'faicon)     "FontAwesome")
+      ("@m" (my/insert-all-the-icons-code 'material)   "Material")
+      ("@o" (my/insert-all-the-icons-code 'octicon)    "Octicon")
+      ("@w" (my/insert-all-the-icons-code 'wicon)      "Weather")))))
