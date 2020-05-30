@@ -29,7 +29,7 @@
 
    "Edit"
    (("a" align-regexp "Align Regexp")
-    ("V" my/toggle-view-mode "Readonly"))
+    ("v" my/toggle-view-mode "Readonly"))
 
    "Code"
    (("g" counsel-projectile-ag "Grep")
@@ -54,6 +54,7 @@
    "Describe"
    (("B" counsel-descbinds "Keybind")
     ("F" counsel-describe-function "Function")
+    ("V" counsel-describe-variable "Variable")
     ("M" describe-minor-mode "Minor mode"))
 
    "Tool"
