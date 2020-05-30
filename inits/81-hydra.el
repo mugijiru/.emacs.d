@@ -62,6 +62,7 @@
     ("c"   counsel-org-capture "Capture")
     ("o"   global-org-hydra/body "Org")
     ("m"   magit-status "Magit")
+    ("A"   counsel-osx-app "macOS App")
     ("@"   all-the-icons-hydra/body "All the icons")
     ("e"   el-get-hydra/body "el-get")
     ("/"   google-this-pretty-hydra/body "Google")

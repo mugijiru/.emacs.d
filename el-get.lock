@@ -1,5 +1,7 @@
 (setq el-get-lock-package-versions
       '((frame-cmds :checksum "1279ebaddcbf15bf2a2eae548d13ad33632a97b4")
+      '((counsel-osx-app :checksum "b1c54cbc033c4939966910d85ce035503079e108")
+        (frame-cmds :checksum "1279ebaddcbf15bf2a2eae548d13ad33632a97b4")
         (frame-fns :checksum "251f37fe805af7a8b3e0e5af9af76263f663a366")
         (el-get :checksum "f3873bebdb6ee713d16e323ee14786549b5cf7f0")
         (dashboard :checksum "bf38867ae80902d58207974b4a2bba4249324599")
