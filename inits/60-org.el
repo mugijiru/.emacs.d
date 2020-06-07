@@ -130,7 +130,8 @@
      "Task"
      (("s" org-schedule "Schedule")
       ("d" org-deadline "Deadline")
-      ("t" my/org-todo  "Change state"))
+      ("t" my/org-todo  "Change state")
+      ("c" org-toggle-checkbox "Toggle checkbox"))
 
      "Clock"
      (("i" org-clock-in   "In")
