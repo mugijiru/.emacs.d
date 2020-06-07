@@ -136,6 +136,21 @@
      (("i" org-clock-in   "In")
       ("o" org-clock-out  "Out"))
 
+     "Beamer"
+     (("bt" org-beamer-mode "On/Off" :toggle org-beamer-mode)
+      ("bs" (if org-beamer-mode
+                (org-beamer-select-environment)
+              (message "org-beamder-mode is not enabled")) "Select env")
+      ("bp" (if org-beamer-mode
+                (org-beamer-export-to-pdf)
+              (message "org-beamder-mode is not enabled")) "to PDF")
+      ("bl" (if org-beamer-mode
+                (org-beamer-export-to-latex)
+              (message "org-beamder-mode is not enabled")) "to LaTeX")
+      ("bL" (if org-beamer-mode
+                (org-beamer-export-as-latex)
+              (message "org-beamder-mode is not enabled")) "as LaTeX"))
+
      "Babel"
      (("e" org-babel-confirm-evaluate "Eval"))
 
