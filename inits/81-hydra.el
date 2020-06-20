@@ -28,8 +28,7 @@
     ("l" counsel-locate "Locate"))
 
    "Edit"
-   (("a" align-regexp "Align Regexp")
-    ("v" my/toggle-view-mode "Readonly"))
+   (("a" align-regexp "Align Regexp"))
 
    "Code"
    (("g" counsel-projectile-ag "Grep")
@@ -46,10 +45,12 @@
     ("0" text-scale-adjust   "Adjust"))
 
    "Toggle"
-   (("z" zoom-mode "zoom-mode" :toggle zoom-mode)
-    ("Z" toggle-frame-fullscreen "Fullscreen" :toggle (frame-parameter nil 'fullscreen))
-    ("N" neotree-toggle "Neotree" :toggle (neo-global--window-exists-p))
-    ("E" toggle-debug-on-error "Debug on error" :toggle debug-on-error))
+   (("z" zoom-mode                 "zoom-mode"      :toggle zoom-mode)
+    ("Z" toggle-frame-fullscreen   "Fullscreen"     :toggle (frame-parameter nil 'fullscreen))
+    ("N" neotree-toggle            "Neotree"        :toggle (neo-global--window-exists-p))
+    ("v" my/toggle-view-mode       "Readonly"       :toggle view-mode)
+    ("L" display-line-numbers-mode "Line Number"    :toggle display-line-numbers-mode)
+    ("E" toggle-debug-on-error     "Debug on error" :toggle debug-on-error))
 
    "Describe"
    (("B" counsel-descbinds "Keybind")
