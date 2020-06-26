@@ -47,7 +47,7 @@
    "Toggle"
    (("z" zoom-mode                 "zoom-mode"      :toggle zoom-mode)
     ("Z" toggle-frame-fullscreen   "Fullscreen"     :toggle (frame-parameter nil 'fullscreen))
-    ("N" neotree-toggle            "Neotree"        :toggle (neo-global--window-exists-p))
+    ("N" neotree-toggle            "Neotree"        :toggle (if (fboundp 'neo-global--window-exists-p) (neo-global--window-exists-p) nil))
     ("v" my/toggle-view-mode       "Readonly"       :toggle view-mode)
     ("L" display-line-numbers-mode "Line Number"    :toggle display-line-numbers-mode)
     ("E" toggle-debug-on-error     "Debug on error" :toggle debug-on-error))
