@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((request :checksum "912525c772984c6af0fd84acd6699ee43d91037a")
+      '((zoom :checksum "578295532fb1c4ad2a2e95894e65cce02f812b54")
+        (request :checksum "912525c772984c6af0fd84acd6699ee43d91037a")
         (helm :checksum "68a4a19b75913a4402bcdc97539dac687e3f8c9a")
         (avy :checksum "cf95ba9582121a1c2249e3c5efdc51acd566d190")
         (all-the-icons :checksum "f996fafa5b2ea072d0ad1df9cd98acc75820f530")
