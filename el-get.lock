@@ -55,6 +55,7 @@
         (major-mode-hydra\.el :checksum "20362323f66883c1336ffe70be24f91509addf54")
         (magit :checksum "7118a9af4f002d6cdc8762b16c45e1ba307dcc8a")
         (markdown-mode :checksum "115f77df9755c6a453f3e5d9623ff885d207ea82")
+        (pkg-info :checksum "76ba7415480687d05a4353b27fea2ae02b8d9d61")
         (memoize :checksum "9a561268ffb550b257a08710489a95cd087998b6")
         (migemo :checksum "f42832c8ac462ecbec9a16eb781194f876fba64a")
         (multiple-cursors :checksum "5ffb19af48bf8a76ddc9f81745be052f050bddef")
