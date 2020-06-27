@@ -2,6 +2,7 @@
       '((avy :checksum "cf95ba9582121a1c2249e3c5efdc51acd566d190")
         (all-the-icons :checksum "f996fafa5b2ea072d0ad1df9cd98acc75820f530")
         (alert :checksum "b5ef49bbb871867ac03d2943a720576336cd7025")
+        (calfw :checksum "03abce97620a4a7f7ec5f911e669da9031ab9088")
         (ace-window :checksum "edbbb1b77c3fb939e4d9057443bc1897321d0095")
         (pcsv :checksum "798e0933f8d0818beb17aebf3b1056bbf74e03d0")
         (google-translate :checksum "dc118de511c433750d4c98b9dd67350118c04fd6")
