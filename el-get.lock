@@ -25,6 +25,7 @@
         (esqlite :checksum "bc4047e09b8f6c34802db86095cd465935670dce")
         (exec-path-from-shell :checksum "3cfedb8791397ed50ee66bc0a7cbee5b9d78245c")
         (f :checksum "8191672377816a1975414cc1f116fd3b94b30bd0")
+        (flex-autopair :checksum "4bb757f2556a4a51828e2fed8fb81e31e83052cb")
         (ace-window :checksum "edbbb1b77c3fb939e4d9057443bc1897321d0095")
         (pcsv :checksum "798e0933f8d0818beb17aebf3b1056bbf74e03d0")
         (google-translate :checksum "dc118de511c433750d4c98b9dd67350118c04fd6")
