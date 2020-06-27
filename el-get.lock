@@ -86,6 +86,7 @@
         (wakatime-mode :checksum "2531cb58287770883ba534d20b3288955c4d6ef3")
         (websocket :checksum "5be01c6d1a8e87d001916fc40a77d779826fcacf")
         (with-editor :checksum "ff23166feb857e3cfee96cb1c9ef416a224a7e20")
+        (yaml-mode :checksum "40067a10ac1360f0b9533f0bbbb2eea128e2574d")
         (ace-window :checksum "edbbb1b77c3fb939e4d9057443bc1897321d0095")
         (pcsv :checksum "798e0933f8d0818beb17aebf3b1056bbf74e03d0")
         (google-translate :checksum "dc118de511c433750d4c98b9dd67350118c04fd6")
