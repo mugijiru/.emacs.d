@@ -66,6 +66,7 @@
         (plantuml-mode :checksum "e9c8e76ff25013e05ab83de9462bbcdd74e27237")
         (popup :checksum "80829dd46381754639fb764da11c67235fe63282")
         (posframe :checksum "d75dc1547a6a1cc2b385c736880eee77d7981aec")
+        (prescient\.el :checksum "12ad508c447625918b4d0d93214a6f92f77d5dad")
         (ace-window :checksum "edbbb1b77c3fb939e4d9057443bc1897321d0095")
         (pcsv :checksum "798e0933f8d0818beb17aebf3b1056bbf74e03d0")
         (google-translate :checksum "dc118de511c433750d4c98b9dd67350118c04fd6")
