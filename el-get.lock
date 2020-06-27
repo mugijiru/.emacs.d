@@ -5,6 +5,7 @@
         (calfw :checksum "03abce97620a4a7f7ec5f911e669da9031ab9088")
         (circe :checksum "e4af7143bd32907d0bf922bee53a96399f0376fa")
         (closql :checksum "7db24ab416925214b364ffe6bb36e367c43d5d35")
+        (company-lsp :checksum "f921ffa0cdc542c21dc3dd85f2c93df4288e83bd")
         (ace-window :checksum "edbbb1b77c3fb939e4d9057443bc1897321d0095")
         (pcsv :checksum "798e0933f8d0818beb17aebf3b1056bbf74e03d0")
         (google-translate :checksum "dc118de511c433750d4c98b9dd67350118c04fd6")
