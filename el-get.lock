@@ -17,6 +17,7 @@
         (eldoc-eval :checksum "a67fe3637378dcb6c5f9e140acc8131f0d2346b3")
         (emacs-async :checksum "35ab78afb9ec4929552f43c6bab09bbd7da3842a")
         (emacs-neotree :checksum "c2420a4b344a9337760981c451783f0ff9df8bbf")
+        (emacsql :checksum "d5c37d905d133a3887bc582e4a0126671816beaa")
         (ace-window :checksum "edbbb1b77c3fb939e4d9057443bc1897321d0095")
         (pcsv :checksum "798e0933f8d0818beb17aebf3b1056bbf74e03d0")
         (google-translate :checksum "dc118de511c433750d4c98b9dd67350118c04fd6")
