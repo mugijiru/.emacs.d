@@ -19,6 +19,7 @@
         (emacs-neotree :checksum "c2420a4b344a9337760981c451783f0ff9df8bbf")
         (emacsql :checksum "d5c37d905d133a3887bc582e4a0126671816beaa")
         (emojify :checksum "a16199dcf9b4688839eba00f1e356d9beac46cfe")
+        (enh-ruby-mode :checksum "f334c42986e93c60fba144d732becfcbdb13bb7d")
         (ace-window :checksum "edbbb1b77c3fb939e4d9057443bc1897321d0095")
         (pcsv :checksum "798e0933f8d0818beb17aebf3b1056bbf74e03d0")
         (google-translate :checksum "dc118de511c433750d4c98b9dd67350118c04fd6")
