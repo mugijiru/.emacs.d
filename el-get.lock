@@ -83,6 +83,7 @@
         (transient :checksum "629c963e1f17715b56848a5bbd9017896fa49bdf")
         (treepy :checksum "b40e6b09eb9be45da67b8c9e4990a5a0d7a2a09d")
         (twittering-mode :checksum "114891e8fdb4f06b1326a6cf795e49c205cf9e29")
+        (wakatime-mode :checksum "2531cb58287770883ba534d20b3288955c4d6ef3")
         (ace-window :checksum "edbbb1b77c3fb939e4d9057443bc1897321d0095")
         (pcsv :checksum "798e0933f8d0818beb17aebf3b1056bbf74e03d0")
         (google-translate :checksum "dc118de511c433750d4c98b9dd67350118c04fd6")
