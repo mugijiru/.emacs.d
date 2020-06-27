@@ -38,6 +38,7 @@
         (haml-mode :checksum "bf5b6c11b1206759d2b28af48765e04882dd1fc4")
         (handlebars-mode :checksum "81f6b73fea8f397807781a1b51568397af21a6ef")
         (helm-ag :checksum "2fc02c4ead29bf0db06fd70740cc7c364cb650ac")
+        (helm-descbinds :checksum "b72515982396b6e336ad7beb6767e95a80fca192")
         (ace-window :checksum "edbbb1b77c3fb939e4d9057443bc1897321d0095")
         (pcsv :checksum "798e0933f8d0818beb17aebf3b1056bbf74e03d0")
         (google-translate :checksum "dc118de511c433750d4c98b9dd67350118c04fd6")
