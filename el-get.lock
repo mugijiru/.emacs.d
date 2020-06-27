@@ -80,6 +80,7 @@
         (smart-mode-line :checksum "999be065b195f2eddb4e1b629f99038d832d44b7")
         (spinner :checksum "4b335260edcdd8dcee0811d7048bb08274e941f1")
         (swiper :checksum "1ad457d8e76c431783d2efb866ef51b8c14e7c82")
+        (transient :checksum "629c963e1f17715b56848a5bbd9017896fa49bdf")
         (ace-window :checksum "edbbb1b77c3fb939e4d9057443bc1897321d0095")
         (pcsv :checksum "798e0933f8d0818beb17aebf3b1056bbf74e03d0")
         (google-translate :checksum "dc118de511c433750d4c98b9dd67350118c04fd6")
