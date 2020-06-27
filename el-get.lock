@@ -43,6 +43,7 @@
         (hexmode--xml-rpc :checksum "8f624f8b964e9145acb504e4457c9510e87dd93c")
         (ht :checksum "5650a8cd190badb49d28d21e72a2f55c9380de7b")
         (hydra :checksum "9936d1c6a83f8844c6e301c023c0be6394b3aa50")
+        (hydra-posframe :checksum "d02452f10e071f28d1e1e35e8b2ea6a41451da2e")
         (ace-window :checksum "edbbb1b77c3fb939e4d9057443bc1897321d0095")
         (pcsv :checksum "798e0933f8d0818beb17aebf3b1056bbf74e03d0")
         (google-translate :checksum "dc118de511c433750d4c98b9dd67350118c04fd6")
