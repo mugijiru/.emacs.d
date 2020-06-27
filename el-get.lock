@@ -40,6 +40,7 @@
         (helm-ag :checksum "2fc02c4ead29bf0db06fd70740cc7c364cb650ac")
         (helm-descbinds :checksum "b72515982396b6e336ad7beb6767e95a80fca192")
         (helm-projectile :checksum "38d72b6b661234088bae9f3c2b3c18228a3c0564")
+        (hexmode--xml-rpc :checksum "8f624f8b964e9145acb504e4457c9510e87dd93c")
         (ace-window :checksum "edbbb1b77c3fb939e4d9057443bc1897321d0095")
         (pcsv :checksum "798e0933f8d0818beb17aebf3b1056bbf74e03d0")
         (google-translate :checksum "dc118de511c433750d4c98b9dd67350118c04fd6")
