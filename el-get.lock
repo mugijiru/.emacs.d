@@ -78,6 +78,7 @@
         (seesaa-blog-mode :checksum "2d30491f95cdeea19970222700ed2bc99e1cc561")
         (shrink-path :checksum "9d06c453d1537df46a4b703a29213cc7f7857aa0")
         (smart-mode-line :checksum "999be065b195f2eddb4e1b629f99038d832d44b7")
+        (spinner :checksum "4b335260edcdd8dcee0811d7048bb08274e941f1")
         (ace-window :checksum "edbbb1b77c3fb939e4d9057443bc1897321d0095")
         (pcsv :checksum "798e0933f8d0818beb17aebf3b1056bbf74e03d0")
         (google-translate :checksum "dc118de511c433750d4c98b9dd67350118c04fd6")
