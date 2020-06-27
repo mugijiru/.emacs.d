@@ -45,6 +45,7 @@
         (hydra :checksum "9936d1c6a83f8844c6e301c023c0be6394b3aa50")
         (hydra-posframe :checksum "d02452f10e071f28d1e1e35e8b2ea6a41451da2e")
         (inf-ruby :checksum "fd8d392fefd1d99eb58fc597d537d0d7df29c334")
+        (init-loader :checksum "5d3cea1004c11ff96b33020e337b03b925c67c42")
         (major-mode-hydra\.el :checksum "20362323f66883c1336ffe70be24f91509addf54")
         (ace-window :checksum "edbbb1b77c3fb939e4d9057443bc1897321d0095")
         (pcsv :checksum "798e0933f8d0818beb17aebf3b1056bbf74e03d0")
