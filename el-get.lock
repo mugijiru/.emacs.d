@@ -50,6 +50,7 @@
         (js2-mode :checksum "999c0e7d96f4d5be0950b6506d732dc3d7c53635")
         (jump :checksum "e4f1372cf22e811faca52fc86bdd5d817498a4d8")
         (key-chord :checksum "4949dbd3a5ca9b6161c00d6212f8666218cdc6ef")
+        (lsp-mode :checksum "ec441a1761c9a071b8648f2fd2673043df968d4c")
         (major-mode-hydra\.el :checksum "20362323f66883c1336ffe70be24f91509addf54")
         (ace-window :checksum "edbbb1b77c3fb939e4d9057443bc1897321d0095")
         (pcsv :checksum "798e0933f8d0818beb17aebf3b1056bbf74e03d0")
