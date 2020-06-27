@@ -67,6 +67,7 @@
         (popup :checksum "80829dd46381754639fb764da11c67235fe63282")
         (posframe :checksum "d75dc1547a6a1cc2b385c736880eee77d7981aec")
         (prescient\.el :checksum "12ad508c447625918b4d0d93214a6f92f77d5dad")
+        (projectile :checksum "fd85829ef2bdb8b2c183ea1b3ccfd50925824d78")
         (ace-window :checksum "edbbb1b77c3fb939e4d9057443bc1897321d0095")
         (pcsv :checksum "798e0933f8d0818beb17aebf3b1056bbf74e03d0")
         (google-translate :checksum "dc118de511c433750d4c98b9dd67350118c04fd6")
