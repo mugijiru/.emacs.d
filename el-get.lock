@@ -64,6 +64,7 @@
         (paredit :checksum "acbe10fdd85d2e91831adf70b6a828bc7e900da0")
         (pkg-info :checksum "76ba7415480687d05a4353b27fea2ae02b8d9d61")
         (plantuml-mode :checksum "e9c8e76ff25013e05ab83de9462bbcdd74e27237")
+        (popup :checksum "80829dd46381754639fb764da11c67235fe63282")
         (ace-window :checksum "edbbb1b77c3fb939e4d9057443bc1897321d0095")
         (pcsv :checksum "798e0933f8d0818beb17aebf3b1056bbf74e03d0")
         (google-translate :checksum "dc118de511c433750d4c98b9dd67350118c04fd6")
