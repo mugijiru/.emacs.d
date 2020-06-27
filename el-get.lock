@@ -21,6 +21,7 @@
         (emojify :checksum "a16199dcf9b4688839eba00f1e356d9beac46cfe")
         (enh-ruby-mode :checksum "f334c42986e93c60fba144d732becfcbdb13bb7d")
         (epl :checksum "78ab7a85c08222cd15582a298a364774e3282ce6")
+        (esa :checksum "417e0ac55abe9b17e0b7165d0df26bc018aff42e")
         (ace-window :checksum "edbbb1b77c3fb939e4d9057443bc1897321d0095")
         (pcsv :checksum "798e0933f8d0818beb17aebf3b1056bbf74e03d0")
         (google-translate :checksum "dc118de511c433750d4c98b9dd67350118c04fd6")
