@@ -6,8 +6,7 @@
 (el-get-bundle hydra-posframe)
 (add-hook 'after-init-hook 'hydra-posframe-enable)
 
-(el-get-bundle pretty-hydra)
-(el-get-bundle major-mode-hydra)
+(el-get-bundle jerrypnz/major-mode-hydra.el)
 
 (pretty-hydra-define el-get-hydra (:separator "-" :title "el-get" :quit-key "q")
   ("Management"
