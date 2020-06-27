@@ -9,6 +9,7 @@
         (company-mode :checksum "ad6ff0eecca99dc5ac8b6a8a6174df7d2ad88ae7")
         (counsel-projectile :checksum "ace17b9a3243e934314860f161f0ed71e4922730")
         (dash :checksum "77f3bf40c9c85386a50f2dab3dc950513f6f88bd")
+        (ddskk :checksum "ad61579af269291b4446f4bab0a58522cc454f1c")
         (ace-window :checksum "edbbb1b77c3fb939e4d9057443bc1897321d0095")
         (pcsv :checksum "798e0933f8d0818beb17aebf3b1056bbf74e03d0")
         (google-translate :checksum "dc118de511c433750d4c98b9dd67350118c04fd6")
