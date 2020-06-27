@@ -33,6 +33,7 @@
         (git-gutter :checksum "00c05264af046b5ce248e5b0bc42f117d9c27a09")
         (git-gutter-fringe :checksum "16226caab44174301f1659f7bf8cc67a76153445")
         (google-this :checksum "8a2e3ca5da6a8c89bfe99a21486c6c7db125dc84")
+        (graphql :checksum "e2b309689f4faf9225f290080f836e988c5a576d")
         (ace-window :checksum "edbbb1b77c3fb939e4d9057443bc1897321d0095")
         (pcsv :checksum "798e0933f8d0818beb17aebf3b1056bbf74e03d0")
         (google-translate :checksum "dc118de511c433750d4c98b9dd67350118c04fd6")
