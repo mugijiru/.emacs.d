@@ -1,5 +1,5 @@
 ;; 一部のモードでは mode-line を表示しないようにする
-(el-get-bundle hide-mode-line)
+(el-get-bundle hlissner/emacs-hide-mode-line)
 (add-hook 'neotree-mode-hook #'hide-mode-line-mode)
 
 ;; 日時を modeline で表示
