@@ -1,2 +1,3 @@
-(el-get-bundle scratch-log)
+(el-get-bundle mori-dev/scratch-log)
+
 (require 'scratch-log) ;; TODO: require 以外の方法で処理できないか?

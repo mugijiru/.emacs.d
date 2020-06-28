@@ -1,0 +1,5 @@
+(:name vue-mode
+       :description "Major mode for vue component based on mmm-mode"
+       :type github
+       :pkgname "AdamNiederer/vue-mode"
+       :depends (ssass-mode mmm-mode edit-indirect vue-html-mode))

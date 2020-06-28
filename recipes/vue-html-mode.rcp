@@ -1,0 +1,4 @@
+(:name vue-html-mode
+       :description "Major mode for editing Vue.js templates"
+       :type github
+       :pkgname "AdamNiederer/vue-html-mode")
