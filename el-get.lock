@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((vue-mode :checksum "031edd1f97db6e7d8d6c295c0e6d58dd128b9e71")
+      '((tempbuf :checksum "5222c25acc2e60539af0f4d30e2e263ec56c43fc")
+        (vue-mode :checksum "031edd1f97db6e7d8d6c295c0e6d58dd128b9e71")
         (mmm-mode :checksum "8aed53f9aec4bcb9faf5f2b080e863f51d775905")
         (ssass-mode :checksum "96f557887ad97a0066a60c54f92b7234b8407016")
         (edit-indirect :checksum "935ded353b9ed3da67bc61abf245c21b58d88864")
