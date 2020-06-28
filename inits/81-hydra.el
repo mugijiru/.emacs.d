@@ -8,7 +8,7 @@
 
 (el-get-bundle jerrypnz/major-mode-hydra.el)
 
-(pretty-hydra-define el-get-hydra (:separator "-" :title "el-get" :quit-key "q")
+(pretty-hydra-define el-get-hydra (:separator "-" :title "el-get" :foreign-key warn :quit-key "q")
   ("Management"
    (("u" el-get-update "Update")
     ("s" el-get-self-update "Self Update")
@@ -16,7 +16,11 @@
     ("r" el-get-reload "Reload")
     ("R" el-get-reinstall "Re-install")
     ("U" el-get-remove "Uninstall")
-    ("f" el-get-find-recipe-file "Find recipe"))))
+    ("f" el-get-find-recipe-file "Find recipe"))
+
+   "Lock"
+   (("C" el-get-lock-checkout "Checkout")
+    ("U" el-get-lock-unlock "Unlock"))))
 
 (pretty-hydra-define pretty-hydra-usefull-commands (:separator "-" :color teal :foreign-key warn :title (concat (all-the-icons-material "build") " Usefull commands") :quit-key "q")
   ("File"
