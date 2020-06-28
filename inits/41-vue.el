@@ -1,7 +1,7 @@
 (define-auto-insert "\\.vue$" "template.vue")
 
 (el-get-bundle vue-mode)
-(el-get-bundle pug-mode)
+(el-get-bundle hlissner/emacs-pug-mode)
 (defun my/css-mode-hook ()
   ;; vue-mode では scss は css-mode が適用される
   ;; https://github.com/AdamNiederer/vue-mode/blob/031edd1f97db6e7d8d6c295c0e6d58dd128b9e71/vue-mode.el#L63
