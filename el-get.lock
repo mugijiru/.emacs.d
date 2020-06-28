@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((org-export-blocks-format-plantuml :checksum "9d8b93ae4f30e61ef6dbbf6d24118aa577c501ec")
+      '((highlight-indent-guides :checksum "3a080a7469d06a1cde8a0abaebfa66b553b1c965")
+        (org-export-blocks-format-plantuml :checksum "9d8b93ae4f30e61ef6dbbf6d24118aa577c501ec")
         (ruby-end :checksum "a136f75abb6d5577ce40d61dfeb778c2e9bb09c0")
         (scratch-log :checksum "1168f7f16d36ca0f4ddf2bb98881f8db62cc5dc0")
         (tempbuf :checksum "5222c25acc2e60539af0f4d30e2e263ec56c43fc")
