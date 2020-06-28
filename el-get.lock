@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((ember-mode :checksum "a587c423041b2fcb065fd5b6a03b2899b764e462")
+      '((dumb-jump :checksum "260054500d4731c36574b6cbc519de29fdd22f43")
+        (ember-mode :checksum "a587c423041b2fcb065fd5b6a03b2899b764e462")
         (font-lock+ :checksum "829cf337e9ec10116f6ec47e759fc72b7a8dda48")
         (emacs-hide-mode-line :checksum "88888825b5b27b300683e662fa3be88d954b1cea")
         (highlight-indent-guides :checksum "3a080a7469d06a1cde8a0abaebfa66b553b1c965")
