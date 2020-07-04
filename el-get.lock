@@ -120,7 +120,7 @@
         (el-get :checksum "f3873bebdb6ee713d16e323ee14786549b5cf7f0")
         (dashboard :checksum "bf38867ae80902d58207974b4a2bba4249324599")
         (page-break-lines :checksum "314b397910b3d16bb7cbcc25098696348e678080")
-        (org-trello :checksum "9f77459541eaea14069baf116dc51ba82eea80b4")
+        (org-trello :checksum "56c519a00c6e3c8f6923cd0460342089d58c41c9")
         (undo-fu :checksum "0ce9ac36144e80316fff50bfe1bc5dd7e5e7ded6")
         (emacs-todoist :checksum "b3f003603111b7e31b94c354cf4c83c8208c01c3")
         (org-mode :checksum "66810d2121aa1d936238fc53cc155e6eda425313")))
