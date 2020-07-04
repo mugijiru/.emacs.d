@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((ivy-rich :checksum "10970130b41c6ef9570893cdab8dfbe720e2b1a9")
+      '((htmlize :checksum "86f22f211e9230857197c42a9823d3f05381deed")
+        (ivy-rich :checksum "10970130b41c6ef9570893cdab8dfbe720e2b1a9")
         (emacs-neotree-dev :checksum "98fe21334affaffe2334bf7c987edaf1980d2d0b")
         (color-theme-molokai :checksum "04a44f21184b6a26caae4f2c92db9019d883309c")
         (helm-posframe :checksum "b107e64eedef6292c49d590f30d320c29b64190b")
