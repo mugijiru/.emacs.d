@@ -1,1 +1,1 @@
-(el-get-bundle d12frosted/counsel-osx-app)
+(el-get-bundle counsel-osx-app)
