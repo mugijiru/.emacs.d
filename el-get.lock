@@ -5,7 +5,7 @@
         (helm-posframe :checksum "b107e64eedef6292c49d590f30d320c29b64190b")
         (gnuplot-mode :checksum "f0001c30010b2899e36d7d89046322467e923088")
         (ivy-posframe :checksum "51d753544ea35c035c45420c3075933a2fe83ffd")
-        (dumb-jump :checksum "260054500d4731c36574b6cbc519de29fdd22f43")
+        (dumb-jump :checksum "05531ade2d0d78aa7e99598d69f29201b8d4614d")
         (ember-mode :checksum "a587c423041b2fcb065fd5b6a03b2899b764e462")
         (font-lock+ :checksum "829cf337e9ec10116f6ec47e759fc72b7a8dda48")
         (emacs-hide-mode-line :checksum "88888825b5b27b300683e662fa3be88d954b1cea")
