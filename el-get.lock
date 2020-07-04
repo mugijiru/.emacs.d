@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((color-theme-molokai :checksum "04a44f21184b6a26caae4f2c92db9019d883309c")
+      '((emacs-neotree-dev :checksum "98fe21334affaffe2334bf7c987edaf1980d2d0b")
+        (color-theme-molokai :checksum "04a44f21184b6a26caae4f2c92db9019d883309c")
         (helm-posframe :checksum "b107e64eedef6292c49d590f30d320c29b64190b")
         (gnuplot-mode :checksum "f0001c30010b2899e36d7d89046322467e923088")
         (ivy-posframe :checksum "51d753544ea35c035c45420c3075933a2fe83ffd")
@@ -38,7 +39,6 @@
         (el-get-lock :checksum "df8cfe55441695865a64b97946750b6413a40425")
         (eldoc-eval :checksum "a67fe3637378dcb6c5f9e140acc8131f0d2346b3")
         (emacs-async :checksum "35ab78afb9ec4929552f43c6bab09bbd7da3842a")
-        (emacs-neotree :checksum "5e1271655170f4cdc6849258e383c548a4e6e3d0")
         (emacsql :checksum "d5c37d905d133a3887bc582e4a0126671816beaa")
         (emojify :checksum "a16199dcf9b4688839eba00f1e356d9beac46cfe")
         (enh-ruby-mode :checksum "f334c42986e93c60fba144d732becfcbdb13bb7d")
