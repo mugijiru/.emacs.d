@@ -83,7 +83,7 @@
         (multiple-cursors :checksum "5ffb19af48bf8a76ddc9f81745be052f050bddef")
         (ob-async :checksum "80a30b96a007d419ece12c976a81804ede340311")
         (org-gcal :checksum "bdc704842da000a1cffb8f155ef3887c5e1d0446")
-        (org-tree-slide :checksum "7bf09a02bd2d8f1ccfcb5209bfb18fbe02d1f44e")
+        (org-tree-slide :checksum "7126a4365072a32898f169ead8fb59265dabc605")
         (paredit :checksum "acbe10fdd85d2e91831adf70b6a828bc7e900da0")
         (pkg-info :checksum "76ba7415480687d05a4353b27fea2ae02b8d9d61")
         (plantuml-mode :checksum "e9c8e76ff25013e05ab83de9462bbcdd74e27237")
