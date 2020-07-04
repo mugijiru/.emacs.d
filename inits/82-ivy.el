@@ -23,11 +23,11 @@
 (counsel-mode 1)
 
 ;; posframe を使って中央表示
-(el-get-bundle tumashu/ivy-posframe)
+(el-get-bundle ivy-posframe)
 (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
 (ivy-posframe-mode 1)
 
-(el-get-bundle Yevgnen/ivy-rich)
+(el-get-bundle ivy-rich)
 
 ;; https://ladicle.com/post/config/#ivy
 ;; に書かれている関数を丸コピしてきた
