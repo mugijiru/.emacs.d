@@ -59,7 +59,7 @@
         (graphql :checksum "e2b309689f4faf9225f290080f836e988c5a576d")
         (haml-mode :checksum "bf5b6c11b1206759d2b28af48765e04882dd1fc4")
         (handlebars-mode :checksum "81f6b73fea8f397807781a1b51568397af21a6ef")
-        (helm-ag :checksum "2fc02c4ead29bf0db06fd70740cc7c364cb650ac")
+        (helm-ag :checksum "08aaab53b8876caba619f956945a8152ece47182")
         (helm-descbinds :checksum "b72515982396b6e336ad7beb6767e95a80fca192")
         (helm-projectile :checksum "2f3a2a03d6cb9419c25b432637aa11c8d2f9f3b7")
         (hexmode--xml-rpc :checksum "8f624f8b964e9145acb504e4457c9510e87dd93c")
