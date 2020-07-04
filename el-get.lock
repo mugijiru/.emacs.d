@@ -61,7 +61,7 @@
         (handlebars-mode :checksum "81f6b73fea8f397807781a1b51568397af21a6ef")
         (helm-ag :checksum "2fc02c4ead29bf0db06fd70740cc7c364cb650ac")
         (helm-descbinds :checksum "b72515982396b6e336ad7beb6767e95a80fca192")
-        (helm-projectile :checksum "38d72b6b661234088bae9f3c2b3c18228a3c0564")
+        (helm-projectile :checksum "2f3a2a03d6cb9419c25b432637aa11c8d2f9f3b7")
         (hexmode--xml-rpc :checksum "8f624f8b964e9145acb504e4457c9510e87dd93c")
         (ht :checksum "5650a8cd190badb49d28d21e72a2f55c9380de7b")
         (hydra :checksum "9936d1c6a83f8844c6e301c023c0be6394b3aa50")
