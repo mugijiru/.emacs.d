@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((emacs-neotree-dev :checksum "98fe21334affaffe2334bf7c987edaf1980d2d0b")
+      '((ivy-rich :checksum "10970130b41c6ef9570893cdab8dfbe720e2b1a9")
+        (emacs-neotree-dev :checksum "98fe21334affaffe2334bf7c987edaf1980d2d0b")
         (color-theme-molokai :checksum "04a44f21184b6a26caae4f2c92db9019d883309c")
         (helm-posframe :checksum "b107e64eedef6292c49d590f30d320c29b64190b")
         (gnuplot-mode :checksum "f0001c30010b2899e36d7d89046322467e923088")
