@@ -113,7 +113,7 @@
         (zoom-window :checksum "ab14a365f3e496b07f5efc20992f9094ec166f06")
         (ace-window :checksum "c7cb315c14e36fded5ac4096e158497ae974bec9")
         (pcsv :checksum "798e0933f8d0818beb17aebf3b1056bbf74e03d0")
-        (google-translate :checksum "dc118de511c433750d4c98b9dd67350118c04fd6")
+        (google-translate :checksum "40897a35b94549a1e1910d612b74b2d5dd4f7db3")
         (counsel-osx-app :checksum "b1c54cbc033c4939966910d85ce035503079e108")
         (frame-cmds :checksum "1279ebaddcbf15bf2a2eae548d13ad33632a97b4")
         (frame-fns :checksum "251f37fe805af7a8b3e0e5af9af76263f663a366")
