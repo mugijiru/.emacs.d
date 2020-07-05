@@ -27,7 +27,7 @@
         (all-the-icons :checksum "ed8e44de4fa601309d2bba902c3b37cb73e4daa0")
         (alert :checksum "7046393272686c7a1a9b3e7f7b1d825d2e5250a6")
         (calfw :checksum "03abce97620a4a7f7ec5f911e669da9031ab9088")
-        (circe :checksum "e4af7143bd32907d0bf922bee53a96399f0376fa")
+        (circe :checksum "323a7e5245df4e9eb5c7af053a4c100af68134e7")
         (closql :checksum "e074a6ddb17a2109c15ca6a2d84e4bc3071a1147")
         (company-lsp :checksum "f921ffa0cdc542c21dc3dd85f2c93df4288e83bd")
         (company-mode :checksum "ad6ff0eecca99dc5ac8b6a8a6174df7d2ad88ae7")
