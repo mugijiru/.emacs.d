@@ -107,7 +107,7 @@
         (wakatime-mode :checksum "2531cb58287770883ba534d20b3288955c4d6ef3")
         (websocket :checksum "5be01c6d1a8e87d001916fc40a77d779826fcacf")
         (with-editor :checksum "ff23166feb857e3cfee96cb1c9ef416a224a7e20")
-        (yaml-mode :checksum "40067a10ac1360f0b9533f0bbbb2eea128e2574d")
+        (yaml-mode :checksum "34648f2502f52f4744d62758fa381fa35db1da49")
         (yascroll :checksum "fe4494e5f4faf2832e665c7de0fed99cdbb39478")
         (yasnippet :checksum "e45e3de357fbd4289fcfa3dd26aaa7be357fb0b8")
         (zoom-window :checksum "ab14a365f3e496b07f5efc20992f9094ec166f06")
