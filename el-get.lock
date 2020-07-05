@@ -49,7 +49,7 @@
         (exec-path-from-shell :checksum "e1f14450f172d29a0024806404dfe4b70bfcd371")
         (f :checksum "8191672377816a1975414cc1f116fd3b94b30bd0")
         (flex-autopair :checksum "4bb757f2556a4a51828e2fed8fb81e31e83052cb")
-        (flycheck :checksum "bd8a93240aee78e90c83a54ab3799ff4d02f9f15")
+        (flycheck :checksum "c02cd773dded0215f9417ec04dfe8dabda63ef43")
         (forge :checksum "237d71da64b90b3d4da5fe35588546567a5c1c81")
         (fringe-helper :checksum "ef4a9c023bae18ec1ddd7265f1f2d6d2e775efdd")
         (ghub :checksum "3f53691bf8475e92b3cb8f779dc745ade0e247ed")
