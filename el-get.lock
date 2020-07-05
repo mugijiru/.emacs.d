@@ -9,7 +9,7 @@
         (ember-mode :checksum "a587c423041b2fcb065fd5b6a03b2899b764e462")
         (font-lock+ :checksum "829cf337e9ec10116f6ec47e759fc72b7a8dda48")
         (emacs-hide-mode-line :checksum "88888825b5b27b300683e662fa3be88d954b1cea")
-        (highlight-indent-guides :checksum "3a080a7469d06a1cde8a0abaebfa66b553b1c965")
+        (highlight-indent-guides :checksum "11bd2d30d56f273223f64f8f3eb5fc8565245959")
         (org-export-blocks-format-plantuml :checksum "9d8b93ae4f30e61ef6dbbf6d24118aa577c501ec")
         (ruby-end :checksum "a136f75abb6d5577ce40d61dfeb778c2e9bb09c0")
         (scratch-log :checksum "1168f7f16d36ca0f4ddf2bb98881f8db62cc5dc0")
