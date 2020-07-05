@@ -101,7 +101,7 @@
         (smart-mode-line :checksum "999be065b195f2eddb4e1b629f99038d832d44b7")
         (spinner :checksum "4b335260edcdd8dcee0811d7048bb08274e941f1")
         (swiper :checksum "d951004c7f3ebf98d55fc5a80a3471ec95b6db05")
-        (transient :checksum "629c963e1f17715b56848a5bbd9017896fa49bdf")
+        (transient :checksum "73694be44a802cac89bfe0798e2a4aeb79e39ead")
         (treepy :checksum "306f7031d26e4ebfc9ff36614acdc6993f3e23c3")
         (twittering-mode :checksum "114891e8fdb4f06b1326a6cf795e49c205cf9e29")
         (wakatime-mode :checksum "2531cb58287770883ba534d20b3288955c4d6ef3")
