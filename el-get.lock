@@ -28,7 +28,7 @@
         (alert :checksum "b5ef49bbb871867ac03d2943a720576336cd7025")
         (calfw :checksum "03abce97620a4a7f7ec5f911e669da9031ab9088")
         (circe :checksum "e4af7143bd32907d0bf922bee53a96399f0376fa")
-        (closql :checksum "7db24ab416925214b364ffe6bb36e367c43d5d35")
+        (closql :checksum "e074a6ddb17a2109c15ca6a2d84e4bc3071a1147")
         (company-lsp :checksum "f921ffa0cdc542c21dc3dd85f2c93df4288e83bd")
         (company-mode :checksum "ad6ff0eecca99dc5ac8b6a8a6174df7d2ad88ae7")
         (counsel-projectile :checksum "77392cbbc42e98fc137b43f1db1b111ba6e2dd75")
