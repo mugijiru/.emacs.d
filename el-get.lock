@@ -64,7 +64,7 @@
         (helm-projectile :checksum "2f3a2a03d6cb9419c25b432637aa11c8d2f9f3b7")
         (hexmode--xml-rpc :checksum "8f624f8b964e9145acb504e4457c9510e87dd93c")
         (ht :checksum "5650a8cd190badb49d28d21e72a2f55c9380de7b")
-        (hydra :checksum "9936d1c6a83f8844c6e301c023c0be6394b3aa50")
+        (hydra :checksum "8a9124f80b6919ad5288172b3e9f46c5332763ca")
         (hydra-posframe :checksum "d02452f10e071f28d1e1e35e8b2ea6a41451da2e")
         (inf-ruby :checksum "fd8d392fefd1d99eb58fc597d537d0d7df29c334")
         (init-loader :checksum "5d3cea1004c11ff96b33020e337b03b925c67c42")
