@@ -15,7 +15,7 @@
         (scratch-log :checksum "1168f7f16d36ca0f4ddf2bb98881f8db62cc5dc0")
         (tempbuf :checksum "5222c25acc2e60539af0f4d30e2e263ec56c43fc")
         (vue-mode :checksum "031edd1f97db6e7d8d6c295c0e6d58dd128b9e71")
-        (mmm-mode :checksum "8aed53f9aec4bcb9faf5f2b080e863f51d775905")
+        (mmm-mode :checksum "b45a864379ed29309625db617d82227de5170ad5")
         (ssass-mode :checksum "96f557887ad97a0066a60c54f92b7234b8407016")
         (edit-indirect :checksum "935ded353b9ed3da67bc61abf245c21b58d88864")
         (vue-html-mode :checksum "1514939804bad558584feeb6298b38d22eadf64e")
