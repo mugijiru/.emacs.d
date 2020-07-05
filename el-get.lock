@@ -86,7 +86,7 @@
         (paredit :checksum "8330a41e8188fe18d3fa805bb9aa529f015318e8")
         (pkg-info :checksum "76ba7415480687d05a4353b27fea2ae02b8d9d61")
         (plantuml-mode :checksum "e9c8e76ff25013e05ab83de9462bbcdd74e27237")
-        (popup :checksum "80829dd46381754639fb764da11c67235fe63282")
+        (popup :checksum "9d104d4bbbcb37bbc9d9ce762e74d41174683f86")
         (posframe :checksum "922e4d239f7a083213d856de67a9686a091b1e27")
         (prescient\.el :checksum "3ab7605d997fb8337bf5ded2ad960b98ac0e1fd7")
         (projectile :checksum "40df970f662deb48106757611906c837273dc510")
