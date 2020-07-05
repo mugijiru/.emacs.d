@@ -25,7 +25,7 @@
         (helm :checksum "cd485aa60edbd4d669442e7ea729802a480da674")
         (avy :checksum "cf95ba9582121a1c2249e3c5efdc51acd566d190")
         (all-the-icons :checksum "ed8e44de4fa601309d2bba902c3b37cb73e4daa0")
-        (alert :checksum "b5ef49bbb871867ac03d2943a720576336cd7025")
+        (alert :checksum "7046393272686c7a1a9b3e7f7b1d825d2e5250a6")
         (calfw :checksum "03abce97620a4a7f7ec5f911e669da9031ab9088")
         (circe :checksum "e4af7143bd32907d0bf922bee53a96399f0376fa")
         (closql :checksum "e074a6ddb17a2109c15ca6a2d84e4bc3071a1147")
