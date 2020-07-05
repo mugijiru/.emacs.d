@@ -99,7 +99,7 @@
         (seesaa-blog-mode :checksum "2d30491f95cdeea19970222700ed2bc99e1cc561")
         (shrink-path :checksum "c14882c8599aec79a6e8ef2d06454254bb3e1e41")
         (smart-mode-line :checksum "999be065b195f2eddb4e1b629f99038d832d44b7")
-        (spinner :checksum "4b335260edcdd8dcee0811d7048bb08274e941f1")
+        (spinner :checksum "d15e7a7b6395be69acda9d6464acc81d3e2ad07d")
         (swiper :checksum "d951004c7f3ebf98d55fc5a80a3471ec95b6db05")
         (transient :checksum "73694be44a802cac89bfe0798e2a4aeb79e39ead")
         (treepy :checksum "306f7031d26e4ebfc9ff36614acdc6993f3e23c3")
