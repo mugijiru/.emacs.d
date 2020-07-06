@@ -30,7 +30,7 @@
         (circe :checksum "323a7e5245df4e9eb5c7af053a4c100af68134e7")
         (closql :checksum "e074a6ddb17a2109c15ca6a2d84e4bc3071a1147")
         (company-lsp :checksum "f921ffa0cdc542c21dc3dd85f2c93df4288e83bd")
-        (company-mode :checksum "ad6ff0eecca99dc5ac8b6a8a6174df7d2ad88ae7")
+        (company-mode :checksum "1f56bec0ba7ce336eb8661b4d34e4b024d7dd04c")
         (counsel-projectile :checksum "77392cbbc42e98fc137b43f1db1b111ba6e2dd75")
         (dash :checksum "732d92eac56023a4fb4a5dc3d9d4e274ebf44bf9")
         (ddskk :checksum "ad61579af269291b4446f4bab0a58522cc454f1c")
