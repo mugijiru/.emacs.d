@@ -95,7 +95,7 @@
         (rbenv :checksum "2ea1a5bdc1266caef1dd77700f2c8f42429b03f1")
         (rich-minority :checksum "a03e693f6f9232cf75363aaaf1cb041f21675c19")
         (rspec-mode :checksum "f1029cad2a8d9fd096e9a0f1ae9e7d7e2c8bd1ec")
-        (s :checksum "03410e6a7a2b11e47e1fea3b7d9899c7df26435e")
+        (s :checksum "43ba8b563bee3426cead0e6d4ddc09398e1a349d")
         (seesaa-blog-mode :checksum "2d30491f95cdeea19970222700ed2bc99e1cc561")
         (shrink-path :checksum "c14882c8599aec79a6e8ef2d06454254bb3e1e41")
         (smart-mode-line :checksum "999be065b195f2eddb4e1b629f99038d832d44b7")
