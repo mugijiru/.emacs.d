@@ -63,7 +63,7 @@
         (helm-descbinds :checksum "b72515982396b6e336ad7beb6767e95a80fca192")
         (helm-projectile :checksum "2f3a2a03d6cb9419c25b432637aa11c8d2f9f3b7")
         (hexmode--xml-rpc :checksum "8f624f8b964e9145acb504e4457c9510e87dd93c")
-        (ht :checksum "5650a8cd190badb49d28d21e72a2f55c9380de7b")
+        (ht :checksum "fff8c43f0e03d5b98deb9f988522b839ce2ca253")
         (hydra :checksum "8a9124f80b6919ad5288172b3e9f46c5332763ca")
         (hydra-posframe :checksum "d02452f10e071f28d1e1e35e8b2ea6a41451da2e")
         (inf-ruby :checksum "f3c927c1b917a20ce6b2228d480db43171aadd9b")
