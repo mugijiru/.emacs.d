@@ -23,7 +23,7 @@
         (zoom :checksum "a54324344eca49cfb11626446e1ebe239cba6557")
         (request :checksum "912525c772984c6af0fd84acd6699ee43d91037a")
         (helm :checksum "cd485aa60edbd4d669442e7ea729802a480da674")
-        (avy :checksum "cf95ba9582121a1c2249e3c5efdc51acd566d190")
+        (avy :checksum "bbf1e7339eba06784dfe86643bb0fbddf5bb0342")
         (all-the-icons :checksum "ed8e44de4fa601309d2bba902c3b37cb73e4daa0")
         (alert :checksum "7046393272686c7a1a9b3e7f7b1d825d2e5250a6")
         (calfw :checksum "03abce97620a4a7f7ec5f911e669da9031ab9088")
