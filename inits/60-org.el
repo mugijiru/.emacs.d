@@ -85,6 +85,7 @@
                  :block today
                  :level 4))
 
+(el-get-bundle persist) ;; org-gcal に必要
 (el-get-bundle org-gcal)
 (require 'org-gcal)
 (load "my-org-gcal-config")
