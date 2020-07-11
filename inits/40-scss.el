@@ -10,6 +10,7 @@
 
   ;; lsp-ui とかより後に設定しないと上書きされるのでここに移動した
   (setq-local flycheck-checker 'scss-stylelint)
+  (setq-local flycheck-check-syntax-automatically '(save new-line idle-change))
 
   (company-mode 1)
   (display-line-numbers-mode 1)
