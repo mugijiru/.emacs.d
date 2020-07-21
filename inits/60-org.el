@@ -173,7 +173,9 @@
       ("r" org-clock-in-last "Restart")
       ("x" org-clock-cancel "Cancel")
       ("j" org-clock-goto "Goto")
-      ("r" org-clock-report "Report")))))
+      ("r" org-clock-report "Report"))
+     "Pomodoro"
+     (("p" org-pomodoro "Pomodoro")))))
 
 (defun my/org-tags-view-only-todo ()
   (interactive)
