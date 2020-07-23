@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((org-ql :checksum "6633dbb276d51767c3f401d0f68ef99e7b9364b6")
+      '((org-pomodoro :checksum "aa07c11318f91219336197e62c47bc7a3d090479")
+        (org-ql :checksum "6633dbb276d51767c3f401d0f68ef99e7b9364b6")
         (org-super-agenda :checksum "dd0d104c269fab9ebe5af7009bc1dd2a3a8f3c12")
         (ts :checksum "df48734ef046547c1aa0de0f4c07d11964ef1f7f")
         (ov :checksum "c5b9aa4e1b00d702eb2caedd61c69a22a5fa1fab")

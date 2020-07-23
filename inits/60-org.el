@@ -46,6 +46,8 @@
 (setq org-todo-keywords
       '((sequence "TODO" "DOING(!)" "WAIT" "|" "DONE" "SOMEDAY(s)")))
 
+(el-get-bundle org-pomodoro)
+
 ;; org-capture
 (defvar org-capture-ical-file (concat org-directory "ical.org"))
 (setq org-capture-ical-file (concat org-directory "ical.org"))
@@ -171,7 +173,9 @@
       ("r" org-clock-in-last "Restart")
       ("x" org-clock-cancel "Cancel")
       ("j" org-clock-goto "Goto")
-      ("r" org-clock-report "Report")))))
+      ("r" org-clock-report "Report"))
+     "Pomodoro"
+     (("p" org-pomodoro "Pomodoro")))))
 
 (defun my/org-tags-view-only-todo ()
   (interactive)
