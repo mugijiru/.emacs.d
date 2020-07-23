@@ -54,12 +54,7 @@
 
 ;; タスク管理系
 (setq my/org-tasks-directory (concat org-directory "tasks/"))
-(setq my/org-capture-review-file (concat my/org-tasks-directory "review.org"))
-(setq my/org-capture-env-file (concat my/org-tasks-directory "env.org"))
-(setq my/org-capture-develop-file (concat my/org-tasks-directory "develop.org"))
-(setq my/org-capture-research-file (concat my/org-tasks-directory "research.org"))
 (setq my/org-capture-interrupted-file (concat my/org-tasks-directory "interrupted.org"))
-(setq my/org-capture-management-file (concat my/org-tasks-directory "management.org"))
 (setq my/org-capture-gtd-file (concat my/org-tasks-directory "gtd.org"))
 
 ;; org-agenda の週の始まりを日曜日に
