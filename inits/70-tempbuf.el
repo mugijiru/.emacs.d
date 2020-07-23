@@ -1,6 +1,9 @@
 (el-get-bundle tempbuf)
 
-(setq my/tempbuf-ignore-files '("~/Documents/org/tasks/gtd.org" "~/Documents/org/tasks/interrupted.org"))
+(setq my/tempbuf-ignore-files '("~/Documents/org/tasks/gtd.org"
+                                "~/Documents/org/tasks/interrupted.org"
+                                "~/Documents/org/tasks/next-actions.org"
+                                ))
 
 (defun my/find-file-tempbuf-hook ()
   (let ((ignore-file-names (mapcar 'expand-file-name my/tempbuf-ignore-files)))
