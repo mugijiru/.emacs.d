@@ -115,6 +115,7 @@
      (("l" org-insert-link                     "Link")
       ("T" org-insert-todo-heading             "Todo")
       ("h" org-insert-heading-respect-content  "Heading")
+      ("P" org-set-property                    "Property")
       ("S" org-insert-structure-template       "Snippet"))
 
      "Edit"
