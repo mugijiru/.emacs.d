@@ -13,6 +13,7 @@
   (company-mode 1)
   (lsp)
   (lsp-ui-mode 1)
+  (lsp-headerline-breadcrumb-mode 1)
   (company-lsp 1)
   (display-line-numbers-mode 1))
 

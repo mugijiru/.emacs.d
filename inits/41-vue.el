@@ -12,6 +12,7 @@
   (display-line-numbers-mode t)
 
   (lsp)
+  (lsp-headerline-breadcrumb-mode 1)
 
   (flycheck-mode 1))
 
