@@ -85,7 +85,7 @@
 (el-get-bundle persist) ;; org-gcal に必要
 (el-get-bundle org-gcal)
 (require 'org-gcal)
-(load "my-org-gcal-config")
+(my/load-config "my-org-gcal-config")
 
 (el-get-bundle ob-async)
 (require 'ob-async)
@@ -177,7 +177,7 @@
   (interactive)
   (org-tags-view t))
 
-(load "my-notify-slack-config")
+(my/load-config "my-notify-slack-config")
 (defun my/notify-slack (channel text)
   (start-process "my/org-clock-slack-notifier" "*my/org-clock-slack-notifier*" "my-slack-notifier" channel text))
 

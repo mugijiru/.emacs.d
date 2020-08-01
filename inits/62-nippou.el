@@ -1,4 +1,5 @@
-(load "my-nippou-config")
+(my/load-config "my-nippou-config")
+
 (defun my/org-nippou-targets ()
       (-concat (my/org-nippou-files) my/org-nippou-additional-files))
 

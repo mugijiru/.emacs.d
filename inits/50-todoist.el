@@ -1,2 +1,2 @@
 (el-get-bundle  abrochard/emacs-todoist)
-(load "my-todoist-config")
+(my/load-config "my-todoist-config")

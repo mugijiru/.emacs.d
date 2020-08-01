@@ -1,2 +1,2 @@
 (el-get-bundle esa)
-(load "my-esa-config")
+(my/load-config "my-esa-config")
