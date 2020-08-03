@@ -173,6 +173,8 @@
      "Pomodoro"
      (("p" org-pomodoro "Pomodoro")))))
 
+(setq org-refile-targets `((,(concat org-directory "tasks/projects.org") :level . 2)))
+
 (defun my/org-tags-view-only-todo ()
   (interactive)
   (org-tags-view t))
