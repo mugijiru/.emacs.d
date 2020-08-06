@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+# name: daily_tasks
+# key: daily
+# --
+
+**** $0
+***** 会議など
+      :PROPERTIES:
+      :agenda-group: 06_会議など
+      :END:
+
+***** 日次タスク
+****** タスク確認など
+****** Inbox 処理
+****** 明日の予定確認など
+***** その他
+****** 昼休み
+***** Reports
+***** 日報
