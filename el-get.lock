@@ -38,7 +38,6 @@
         (calfw :checksum "03abce97620a4a7f7ec5f911e669da9031ab9088")
         (circe :checksum "89aac22259e5d09ae1183e0df163338fe491e9e7")
         (closql :checksum "c864c1fadfea4a05fff29cb60891b7a32ac88c78")
-        (company-lsp :checksum "f921ffa0cdc542c21dc3dd85f2c93df4288e83bd")
         (company-mode :checksum "57a6554db750567917f1192463e2503787f9b883")
         (counsel-projectile :checksum "77392cbbc42e98fc137b43f1db1b111ba6e2dd75")
         (dash :checksum "b92ab5a39b987e4fe69317b9d9fda452300baf20")
