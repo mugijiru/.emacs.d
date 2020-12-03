@@ -78,7 +78,7 @@
 (setq org-clock-clocktable-default-properties
       '(:maxlevel 10
                  :lang "ja"
-                 :scope agenda
+                 :scope agenda-with-archives
                  :block today
                  :level 4))
 
@@ -120,6 +120,7 @@
 
      "Edit"
      (("a" org-archive-subtree  "Archive")
+      ("r" org-refile           "Refile")
       ("Q" org-set-tags-command "Tag"))
 
      "View"
@@ -133,8 +134,9 @@
       ("c" org-toggle-checkbox "Toggle checkbox"))
 
      "Clock"
-     (("i" org-clock-in   "In")
-      ("o" org-clock-out  "Out"))
+     (("i" org-clock-in  "In")
+      ("o" org-clock-out "Out")
+      ("p" org-pomodoro  "Pomodoro"))
 
      "Babel"
      (("e" org-babel-confirm-evaluate "Eval"))
