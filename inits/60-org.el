@@ -120,6 +120,7 @@
 
      "Edit"
      (("a" org-archive-subtree  "Archive")
+      ("r" org-refile           "Refile")
       ("Q" org-set-tags-command "Tag"))
 
      "View"
