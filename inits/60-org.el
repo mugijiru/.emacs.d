@@ -134,8 +134,9 @@
       ("c" org-toggle-checkbox "Toggle checkbox"))
 
      "Clock"
-     (("i" org-clock-in   "In")
-      ("o" org-clock-out  "Out"))
+     (("i" org-clock-in  "In")
+      ("o" org-clock-out "Out")
+      ("p" org-pomodoro  "Pomodoro"))
 
      "Babel"
      (("e" org-babel-confirm-evaluate "Eval"))
