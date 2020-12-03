@@ -78,7 +78,7 @@
 (setq org-clock-clocktable-default-properties
       '(:maxlevel 10
                  :lang "ja"
-                 :scope agenda
+                 :scope agenda-with-archives
                  :block today
                  :level 4))
 
