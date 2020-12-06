@@ -4,7 +4,6 @@
         (org-super-agenda :checksum "ac7f2ef05c161b10390141b6863b431dc9360edc")
         (ts :checksum "df48734ef046547c1aa0de0f4c07d11964ef1f7f")
         (ov :checksum "c5b9aa4e1b00d702eb2caedd61c69a22a5fa1fab")
-        (peg :checksum "d944cde67d43941af85efbc3e3649cd5edc51a5b")
         (diminish :checksum "73669b69e5f9a0c9261c5b53624329d0e24d1ed8")
         (open-junk-file :checksum "f87b93ec26e92dc747da43499d0cbf5ab70fd8c2")
         (htmlize :checksum "49205105898ba8993b5253beec55d8bddd820a70")
