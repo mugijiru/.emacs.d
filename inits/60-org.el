@@ -186,7 +186,9 @@
 
 (setq org-refile-targets `((,(concat org-directory "tasks/projects.org") :level . 2)
                            (,(concat org-directory "tasks/pointers.org") :level . 1)
-                           (,(concat org-directory "tasks/next-actions.org") :level . 1)))
+                           (,(concat org-directory "work/scrum/impediments.org") :level . 3)
+                           (,(concat org-directory "tasks/next-actions.org") :level . 1)
+                           (,(concat org-directory "tasks/daily-logs.org") :level . 5)))
 
 (defun my/org-tags-view-only-todo ()
   (interactive)
