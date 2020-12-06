@@ -56,6 +56,9 @@
 (setq my/org-tasks-directory (concat org-directory "tasks/"))
 (setq my/org-capture-interrupted-file (concat my/org-tasks-directory "interrupted.org"))
 (setq my/org-capture-gtd-file (concat my/org-tasks-directory "gtd.org"))
+(setq my/org-capture-impediments-file (concat org-directory "work/scrum/impediments.org"))
+(setq my/org-capture-memo-file (concat org-directory "memo.org"))
+
 
 ;; org-agenda の週の始まりを日曜日に
 (setq org-agenda-start-on-weekday 0)
@@ -65,12 +68,18 @@
         "~/Documents/org/tasks/"))
 
 (setq org-capture-templates
-      `(("g" "GTDにエントリー" entry
+      `(("g" "GTD Inbox にエントリー" entry
          (file+headline ,my/org-capture-gtd-file "Inbox")
          "** TODO %?\n\t")
+        ("m" "Memoにエントリー" entry
+         (file+headline ,my/org-capture-memo-file "未分類")
+         "***  %?\n\t")
         ("i" "割り込みタスクにエントリー" entry ;; 参考: http://grugrut.hatenablog.jp/entry/2016/03/13/085417
          (file+headline ,my/org-capture-interrupted-file "Interrupted")
          "** %?\n\t" :clock-in t :clock-resume t)
+        ("I" "障害リストにエントリー" entry
+         (file+headline ,my/org-capture-impediments-file "Impediments")
+         "** TODO %?\n\t")
         ("c" "同期カレンダーにエントリー" entry
          (file+headline ,org-capture-ical-file "Schedule")
          "** TODO %?\n\t")))
