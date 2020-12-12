@@ -24,7 +24,7 @@
 
 (pretty-hydra-define pretty-hydra-usefull-commands (:separator "-" :color teal :foreign-key warn :title (concat (all-the-icons-material "build") " Usefull commands") :quit-key "q")
   ("File"
-   (("p" counsel-projectile-switch-project "Switch Project")
+   (("p" (counsel-projectile-switch-project 'neotree-dir) "Switch Project")
     ("r" projectile-recentf "Recentf")
     ("d" counsel-projectile-find-dir "Find Dir")
     ("f" counsel-projectile-find-file "Find File")
