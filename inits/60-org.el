@@ -44,7 +44,10 @@
 (add-to-list 'org-file-apps '("\\.xlsx?\\'" . default))
 
 (setq org-todo-keywords
-      '((sequence "TODO" "DOING(!)" "WAIT" "|" "DONE" "SOMEDAY(s)")))
+      '((sequence "TODO" "DOING(!)" "WAIT" "|" "DONE(!)" "SOMEDAY(s)")))
+
+;; DONEの時刻を記録
+(setq org-log-done 'time)
 
 (el-get-bundle org-pomodoro)
 
