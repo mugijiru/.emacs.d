@@ -9,12 +9,15 @@
 (el-get-bundle jerrypnz/major-mode-hydra.el)
 
 (pretty-hydra-define el-get-hydra (:separator "-" :title "el-get" :foreign-key warn :quit-key "q" :exit t)
-  ("Management"
-   (("u" el-get-update            "Update")
-    ("s" el-get-self-update       "Self Update")
+  ("Install"
+   (("i" el-get-install   "Install")
+    ("I" el-get-reinstall "Re-install"))
+
+   "Update"
+   (("s" el-get-self-update       "Self Update")
+    ("u" el-get-update            "Update")
     ("A" el-get-update-all        "Update All")
     ("r" el-get-reload            "Reload")
-    ("R" el-get-reinstall         "Re-install")
     ("U" el-get-remove            "Uninstall")
     ("f" el-get-find-recipe-file  "Find recipe"))
 
