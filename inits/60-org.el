@@ -141,15 +141,16 @@
       ("D" my/org-clock-toggle-display  "Toggle Display"))
 
      "Task"
-     (("s" org-schedule "Schedule")
-      ("d" org-deadline "Deadline")
-      ("t" my/org-todo  "Change state")
-      ("c" org-toggle-checkbox "Toggle checkbox"))
+     (("s" org-schedule         "Schedule")
+      ("d" org-deadline         "Deadline")
+      ("t" my/org-todo          "Change state")
+      ("c" org-toggle-checkbox  "Toggle checkbox"))
 
      "Clock"
-     (("i" org-clock-in  "In")
-      ("o" org-clock-out "Out")
-      ("p" org-pomodoro  "Pomodoro"))
+     (("i" org-clock-in      "In")
+      ("o" org-clock-out     "Out")
+      ("R" org-clock-report  "Report")
+      ("p" org-pomodoro      "Pomodoro"))
 
      "Babel"
      (("e" org-babel-confirm-evaluate "Eval"))
@@ -175,17 +176,18 @@
      (("a" org-agenda "Agenda")
       ("c" counsel-org-capture "Capture")
       ("l" org-store-link "Store link")
-      ("t" my/org-tags-view-only-todo "Tagged Todo")
-      ("F" org-gcal-fetch "Fetch Calendar")
+      ("t" my/org-tags-view-only-todo "Tagged Todo"))
+
+     "Calendar"
+     (("F" org-gcal-fetch "Fetch Calendar")
       ("C" my/open-user-calendar "Calendar"))
 
      "Clock"
-     (("i" org-clock-in  "In")
-      ("o" org-clock-out "Out")
-      ("r" org-clock-in-last "Restart")
-      ("x" org-clock-cancel "Cancel")
-      ("j" org-clock-goto "Goto")
-      ("r" org-clock-report "Report"))
+     (("i" org-clock-in       "In")
+      ("o" org-clock-out      "Out")
+      ("r" org-clock-in-last  "Restart")
+      ("x" org-clock-cancel   "Cancel")
+      ("j" org-clock-goto     "Goto"))
 
      "Search"
      (("H" org-search-view "Heading"))
