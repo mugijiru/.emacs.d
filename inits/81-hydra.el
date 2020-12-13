@@ -8,7 +8,7 @@
 
 (el-get-bundle jerrypnz/major-mode-hydra.el)
 
-(pretty-hydra-define el-get-hydra (:separator "-" :title "el-get" :foreign-key warn :quit-key "q")
+(pretty-hydra-define el-get-hydra (:separator "-" :title "el-get" :foreign-key warn :quit-key "q" :exit t)
   ("Management"
    (("u" el-get-update "Update")
     ("s" el-get-self-update "Self Update")
