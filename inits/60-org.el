@@ -154,9 +154,6 @@
      "Babel"
      (("e" org-babel-confirm-evaluate "Eval"))
 
-     "Search"
-     (("H" org-search-view "Heading"))
-
      "Trello"
      (("K" org-trello-mode "On/Off" :toggle org-trello-mode)
       ("k" (if org-trello-mode
@@ -181,6 +178,7 @@
       ("t" my/org-tags-view-only-todo "Tagged Todo")
       ("F" org-gcal-fetch "Fetch Calendar")
       ("C" my/open-user-calendar "Calendar"))
+
      "Clock"
      (("i" org-clock-in  "In")
       ("o" org-clock-out "Out")
@@ -188,6 +186,10 @@
       ("x" org-clock-cancel "Cancel")
       ("j" org-clock-goto "Goto")
       ("r" org-clock-report "Report"))
+
+     "Search"
+     (("H" org-search-view "Heading"))
+
      "Pomodoro"
      (("p" org-pomodoro "Pomodoro")))))
 
