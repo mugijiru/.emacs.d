@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: pretty-hydra
+# key: pretty-hydra
+# --
+
+(pretty-hydra-define $0 (:separator "-" :title "$1" :foreign-key warn :quit-key "q" :exit t)
+  ("[Group 1]"
+   (("[KEY]" [command] "[Description]"))
+    ("[KEY]" [command] "[Description]"))
+
+   "[Group 2]"
+   (("[KEY]" [command] "[Description]"))
+    ("[KEY]" [command] "[Description]"))))
