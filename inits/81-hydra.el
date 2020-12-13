@@ -22,6 +22,25 @@
    (("C" el-get-lock-checkout "Checkout")
     ("U" el-get-lock-unlock "Unlock"))))
 
+(pretty-hydra-define
+  toggle-hydra
+  (:separator "-"
+              :title (concat (all-the-icons-faicon "toggle-on") " Toggle Switches")
+              :foreign-key warn
+              :quit-key "q"
+              :exit t)
+  ("View"
+   (("z" zoom-mode                 "zoom-mode"      :toggle zoom-mode)
+    ("Z" toggle-frame-fullscreen   "Fullscreen"     :toggle (frame-parameter nil 'fullscreen))
+    ("b" display-battery-mode      "Battery"        :toggle display-battery-mode)
+    ("L" display-line-numbers-mode "Line Number"    :toggle display-line-numbers-mode)
+    ("N" neotree-toggle            "Neotree"        :toggle (if (fboundp 'neo-global--window-exists-p) (neo-global--window-exists-p) nil)))
+
+   "Behavior"
+   (("S" my/notify-slack-toggle    "Notify Slack"   :toggle my/notify-slack-enable-p)
+    ("v" my/toggle-view-mode       "Readonly"       :toggle view-mode)
+    ("E" toggle-debug-on-error     "Debug on error" :toggle debug-on-error))))
+
 (pretty-hydra-define pretty-hydra-usefull-commands (:separator "-" :color teal :foreign-key warn :title (concat (all-the-icons-material "build") " Usefull commands") :quit-key "q")
   ("File"
    (("p" (counsel-projectile-switch-project 'neotree-dir) "Switch Project")
@@ -47,15 +66,6 @@
     ("-" text-scale-decrease "Decrease")
     ("0" text-scale-adjust   "Adjust"))
 
-   "Toggle"
-   (("z" zoom-mode                 "zoom-mode"      :toggle zoom-mode)
-    ("Z" toggle-frame-fullscreen   "Fullscreen"     :toggle (frame-parameter nil 'fullscreen))
-    ("N" neotree-toggle            "Neotree"        :toggle (if (fboundp 'neo-global--window-exists-p) (neo-global--window-exists-p) nil))
-    ("v" my/toggle-view-mode       "Readonly"       :toggle view-mode)
-    ("b" display-battery-mode      "Battery"        :toggle display-battery-mode)
-    ("L" display-line-numbers-mode "Line Number"    :toggle display-line-numbers-mode)
-    ("E" toggle-debug-on-error     "Debug on error" :toggle debug-on-error))
-
    "Describe"
    (("B" counsel-descbinds "Keybind")
     ("F" counsel-describe-function "Function")
@@ -64,6 +74,7 @@
 
    "Tool"
    (("SPC" major-mode-hydra "Hydra(Major)")
+    ("s"   toggle-hydra/body "Toggle switches")
     ("c"   counsel-org-capture "Capture")
     ("o"   global-org-hydra/body "Org")
     ("m"   magit-status "Magit")
