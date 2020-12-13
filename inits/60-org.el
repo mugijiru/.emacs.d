@@ -154,6 +154,9 @@
      "Babel"
      (("e" org-babel-confirm-evaluate "Eval"))
 
+     "Search"
+     (("H" org-search-view "Heading"))
+
      "Trello"
      (("K" org-trello-mode "On/Off" :toggle org-trello-mode)
       ("k" (if org-trello-mode
