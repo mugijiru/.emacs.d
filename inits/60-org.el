@@ -59,6 +59,7 @@
 (setq my/org-capture-pointers-file (concat my/org-tasks-directory "pointers.org"))
 (setq my/org-capture-impediments-file (concat org-directory "work/scrum/impediments.org"))
 (setq my/org-capture-memo-file (concat org-directory "memo.org"))
+(setq my/org-capture-2020-summary-file (concat org-directory "private/2020_summary.org"))
 
 
 ;; org-agenda の週の始まりを日曜日に
@@ -84,6 +85,9 @@
         ("I" "障害リストにエントリー" entry
          (file+headline ,my/org-capture-impediments-file "Impediments")
          "** TODO %?\n\t")
+        ("R" "2020ふりかえりにエントリー" entry
+         (file+headline ,my/org-capture-2020-summary-file "Timeline")
+         "** %?\n\t")
         ("c" "同期カレンダーにエントリー" entry
          (file+headline ,org-capture-ical-file "Schedule")
          "** TODO %?\n\t")))
@@ -199,6 +203,7 @@
                            (,(concat org-directory "tasks/pointers.org") :level . 1)
                            (,(concat org-directory "work/scrum/impediments.org") :level . 3)
                            (,(concat org-directory "tasks/next-actions.org") :level . 1)
+                           (,(concat org-directory "private/2020_summary.org") :level . 2)
                            (,(concat org-directory "tasks/daily-logs.org") :level . 5)))
 
 (defun my/org-tags-view-only-todo ()
