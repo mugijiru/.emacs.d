@@ -59,7 +59,7 @@
  '(org-html-doctype "html5")
  '(org-modules
    (quote
-    (ol-bbdb ol-bibtex ol-docview ol-eww ol-gnus ol-info ol-irc ol-mhe ol-rmail org-tempo ol-w3m)))
+    (ol-bbdb ol-bibtex ol-docview ol-eww ol-gnus org-habit ol-info ol-irc ol-mhe ol-rmail org-tempo ol-w3m)))
  '(org-plantuml-jar-path
    (expand-file-name "~/.emacs.d/el-get/plantuml-mode/plantuml.jar"))
  '(package-selected-packages
