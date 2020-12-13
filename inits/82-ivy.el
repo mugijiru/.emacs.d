@@ -94,3 +94,18 @@
         ))
 
 (ivy-rich-mode 1)
+
+;; https://www.yewton.net/2020/05/21/migemo-ivy/
+;; 関数名などは書き換えてる
+(defun my/ivy-migemo-re-builder (str)
+  (let* ((sep " \\|\\^\\|\\.\\|\\*")
+         (splitted (--map (s-join "" it)
+                          (--partition-by (s-matches-p " \\|\\^\\|\\.\\|\\*" it)
+                                          (s-split "" str t)))))
+    (s-join "" (--map (cond ((s-equals? it " ") ".*?")
+                            ((s-matches? sep it) it)
+                            (t (migemo-get-pattern it)))
+                      splitted))))
+
+(setq ivy-re-builders-alist '((t . ivy--regex-plus)
+                              (swiper . my/ivy-migemo-re-builder)))
