@@ -15,10 +15,10 @@
     ("D" el-get-remove    "Uninstall"))
 
    "Update"
-   (("s" el-get-self-update       "Self Update")
-    ("u" el-get-update            "Update")
-    ("A" el-get-update-all        "Update All")
-    ("r" el-get-reload            "Reload"))
+   (("s" el-get-self-update  "Self Update")
+    ("u" el-get-update       "Update")
+    ("A" el-get-update-all   "Update All")
+    ("r" el-get-reload       "Reload"))
 
    "Recipe"
    (("f" el-get-find-recipe-file  "Find recipe"))
