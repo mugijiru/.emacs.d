@@ -234,7 +234,10 @@
 (defun my/org-clock-in-hook ()
   (let* ((task org-clock-current-task)
          (message (format "開始: %s" task)))
-    (my/notify-slack-times message)))
+    (my/notify-slack-times message))
+
+  (if (org-clocking-p)
+      (org-todo "DOING")))
 
 (defun my/org-clock-out-hook ()
   (let* ((task org-clock-current-task)
