@@ -50,6 +50,7 @@
 (setq org-log-done 'time)
 
 (el-get-bundle org-pomodoro)
+(setq org-pomodoro-play-sounds nil)
 
 ;; org-capture
 (defvar org-capture-ical-file (concat org-directory "ical.org"))
