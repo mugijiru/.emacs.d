@@ -10,10 +10,7 @@
 
 (defun my/vue-mode-hook ()
   (display-line-numbers-mode t)
-
   (lsp)
-  (lsp-headerline-breadcrumb-mode 1)
-
   (flycheck-mode 1))
 
 (add-hook 'css-mode-hook 'my/css-mode-hook)

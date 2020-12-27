@@ -7,7 +7,6 @@
   (setq-local lsp-prefer-flymake nil) ;; flycheck が有効にならなくなるのを防ぐ
   (lsp)
   (lsp-ui-mode -1) ;; lsp-ui が有効だと画面上でガチャガチャ height とかの説明をしてうざいので
-  (lsp-headerline-breadcrumb-mode 1)
 
   ;; lsp-ui とかより後に設定しないと上書きされるのでここに移動した
   (setq-local flycheck-checker 'scss-stylelint)
