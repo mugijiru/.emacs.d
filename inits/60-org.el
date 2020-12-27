@@ -96,6 +96,9 @@
         ("s" "SQL エントリー" entry
          (file+headline ,my/org-capture-sql-file "SQL")
          "** %?\n\t")
+        ("b" "Blogネタにエントリー" entry
+         (file+headline ,my/org-capture-memo-file "Blogネタ")
+         "** %?\n\t")
         ("c" "同期カレンダーにエントリー" entry
          (file+headline ,org-capture-ical-file "Schedule")
          "** TODO %?\n\t")))
