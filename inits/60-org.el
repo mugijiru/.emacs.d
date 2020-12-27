@@ -63,6 +63,7 @@
 (setq my/org-capture-pointers-file (concat my/org-tasks-directory "pointers.org"))
 (setq my/org-capture-impediments-file (concat org-directory "work/scrum/impediments.org"))
 (setq my/org-capture-memo-file (concat org-directory "memo.org"))
+(setq my/org-capture-sql-file (concat org-directory "work/sql.org"))
 (setq my/org-capture-2020-summary-file (concat org-directory "private/2020_summary.org"))
 
 
@@ -91,6 +92,9 @@
          "** TODO %?\n\t")
         ("R" "2020ふりかえりにエントリー" entry
          (file+headline ,my/org-capture-2020-summary-file "Timeline")
+         "** %?\n\t")
+        ("s" "SQL エントリー" entry
+         (file+headline ,my/org-capture-sql-file "SQL")
          "** %?\n\t")
         ("c" "同期カレンダーにエントリー" entry
          (file+headline ,org-capture-ical-file "Schedule")
