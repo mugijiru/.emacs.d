@@ -222,6 +222,7 @@
                            (,(concat org-directory "work/scrum/impediments.org") :level . 3)
                            (,(concat org-directory "tasks/next-actions.org") :level . 1)
                            (,(concat org-directory "private/2020_summary.org") :level . 2)
+                           (,(concat org-directory "tasks/someday.org") :level . 1)
                            (,(concat org-directory "tasks/daily-logs.org") :level . 3)))
 
 (defun my/org-tags-view-only-todo ()
