@@ -3,14 +3,14 @@
 # key: daily
 # --
 
-**** `(format-time-string "%d")`
-***** 会議など
-      :PROPERTIES:
-      :agenda-group: 06_会議など
-      :END:
-***** 今日の作業 today
-****** PR レビュー
-***** その他
-****** 昼休み
-***** Reports
-***** 日報
+** `(format-time-string "%Y-%m-%d")`
+*** 会議など
+    :PROPERTIES:
+    :agenda-group: 06_会議など
+    :END:
+*** 今日の作業 today
+**** PR レビュー
+*** その他
+**** 昼休み
+*** Reports
+*** 日報
