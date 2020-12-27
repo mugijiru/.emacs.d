@@ -72,6 +72,8 @@
  '(rspec-use-opts-file-when-available nil)
  '(safe-local-variable-values (quote ((flycheck-stylelintrc . ".stylelintrc.yml"))))
  '(scroll-bar-mode nil)
+ '(wakatime-cli-path (expand-file-name "~/.anyenv/envs/pyenv/shims/wakatime"))
+ '(wakatime-python-bin nil)
  '(yascroll:delay-to-hide nil)
  '(zoom-mode t nil (zoom))
  '(zoom-size (quote (0.618 . 0.618))))
