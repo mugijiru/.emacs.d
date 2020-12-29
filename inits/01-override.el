@@ -1,4 +1,4 @@
-;; posframe が最初に空行があると最後お行を表示しないため
+;; posframe が最初に空行があると最後の行を表示しないため
 ;; 一時的にこちらを直してみている
 (with-eval-after-load 'pretty-hydra
   (defun pretty-hydra--maybe-add-title (title docstring)
