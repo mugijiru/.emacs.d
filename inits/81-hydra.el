@@ -46,6 +46,28 @@
     ("v" my/toggle-view-mode       "Readonly"       :toggle view-mode)
     ("E" toggle-debug-on-error     "Debug on error" :toggle debug-on-error))))
 
+(pretty-hydra-define
+  subtools-hydra
+  (:separator "-"
+              :color teal
+              :foreign-key warn
+              :title (concat (all-the-icons-material "build") " Sub tools")
+              :quit-key "q"
+              :exit t)
+  ("Translation"
+   (("t" google-translate-at-point "EN => JP")
+    ("T" google-translate-at-point-reverse "JP => EN"))
+
+   "Describe"
+   (("b" counsel-descbinds "Keybind")
+    ("f" counsel-describe-function "Function")
+    ("v" counsel-describe-variable "Variable")
+    ("m" describe-minor-mode "Minor mode"))
+
+   ;; ("P"   my/open-review-requested-pr "Open Requested PR")
+   "Other"
+   (("@"   all-the-icons-hydra/body "List icons"))))
+
 (pretty-hydra-define pretty-hydra-usefull-commands (:separator "-" :color teal :foreign-key warn :title (concat (all-the-icons-material "build") " Usefull commands") :quit-key "q")
   ("File"
    (("p" (counsel-projectile-switch-project 'neotree-dir) "Switch Project")
