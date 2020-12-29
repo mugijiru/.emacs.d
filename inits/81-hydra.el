@@ -68,6 +68,12 @@
    "Other"
    (("@"   all-the-icons-hydra/body "List icons"))))
 
+(pretty-hydra-define text-scale-hydra (:separator "-" :title (concat (all-the-icons-material "text_fields") " Text Scale") :exit nil :quit-key "q")
+  ("Scale"
+   (("+" text-scale-increase "Increase")
+    ("-" text-scale-decrease "Decrease")
+    ("0" text-scale-adjust   "Adjust"))))
+
 (pretty-hydra-define pretty-hydra-usefull-commands (:separator "-" :color teal :foreign-key warn :title (concat (all-the-icons-material "build") " Usefull commands") :quit-key "q")
   ("File"
    (("p" (counsel-projectile-switch-project 'neotree-dir) "Switch Project")
