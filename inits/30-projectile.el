@@ -24,7 +24,7 @@
 
 (with-eval-after-load 'pretty-hydra
   (pretty-hydra-define
-    projectile-hydra (:separator "-" :title "Projectile" :foreaign-key warn :quit-key "q" :exit t)
+    projectile-hydra (:separator "-" :title "Projectile" :foreign-key warn :quit-key "q" :exit t)
     ("File"
      (("f" counsel-projectile-find-file "Find File")
       ("d" counsel-projectile-find-dir "Find Dir")
