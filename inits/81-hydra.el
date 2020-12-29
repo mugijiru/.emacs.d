@@ -91,6 +91,7 @@
    (("g" counsel-projectile-ag       "Grep")
     ("j" dumb-jump-pretty-hydra/body "Dumb jump")
     ("i" counsel-imenu               "imenu")
+    ("y" yasnippet-hydra/body        "Yasnippet")
     ("m" magit-status                "Magit"))
 
    "View"
