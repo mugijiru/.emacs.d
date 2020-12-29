@@ -76,45 +76,33 @@
 
 (pretty-hydra-define pretty-hydra-usefull-commands (:separator "-" :color teal :foreign-key warn :title (concat (all-the-icons-material "build") " Usefull commands") :quit-key "q")
   ("File"
-   (("p" (counsel-projectile-switch-project 'neotree-dir) "Switch Project")
-    ("r" projectile-recentf "Recentf")
-    ("d" counsel-projectile-find-dir "Find Dir")
-    ("f" counsel-projectile-find-file "Find File")
-    ("l" counsel-locate "Locate"))
+   (("p" projectile-hydra/body "Projectile")
+    ("f" counsel-find-file     "Find File")
+    ("d" counsel-find-dir      "Find Dir")
+    ("r" counsel-recentf       "Recentf")
+    ("l" counsel-locate        "Locate")
+    ("A" counsel-osx-app       "macOS App"))
 
    "Edit"
-   (("a" align-regexp "Align Regexp"))
+   (("a" align-regexp "Align Regexp")
+    (";" comment-dwim "Comment"))
 
    "Code"
-   (("g" counsel-projectile-ag "Grep")
+   (("g" counsel-projectile-ag       "Grep")
     ("j" dumb-jump-pretty-hydra/body "Dumb jump")
-    ("i" counsel-imenu "imenu"))
+    ("i" counsel-imenu               "imenu")
+    ("m" magit-status                "Magit"))
 
    "View"
-   (("D" delete-other-windows "Only This Win")
-    ("W" window-control-hydra/body "Window Control"))
-
-   "Scale"
-   (("+" text-scale-increase "Increase")
-    ("-" text-scale-decrease "Decrease")
-    ("0" text-scale-adjust   "Adjust"))
-
-   "Describe"
-   (("B" counsel-descbinds "Keybind")
-    ("F" counsel-describe-function "Function")
-    ("V" counsel-describe-variable "Variable")
-    ("M" describe-minor-mode "Minor mode"))
+   (("D" delete-other-windows      "Only This Win")
+    ("W" window-control-hydra/body "Window Control")
+    ("+" text-scale-hydra/body     "Text Scale"))
 
    "Tool"
-   (("SPC" major-mode-hydra "Hydra(Major)")
-    ("s"   toggle-hydra/body "Toggle switches")
-    ("c"   counsel-org-capture "Capture")
-    ("o"   global-org-hydra/body "Org")
-    ("m"   magit-status "Magit")
-    ("A"   counsel-osx-app "macOS App")
-    ("@"   all-the-icons-hydra/body "All the icons")
-    ("e"   el-get-hydra/body "el-get")
+   (("SPC" major-mode-hydra              "Hydra(Major)")
+    ("s"   toggle-hydra/body             "Toggle switches")
+    ("c"   counsel-org-capture           "Capture")
+    ("o"   global-org-hydra/body         "Org")
+    ("e"   el-get-hydra/body             "el-get")
     ("/"   google-this-pretty-hydra/body "Google")
-    ("t"   google-translate-at-point "EN => JP")
-    ("T"   google-translate-at-point-reverse "JP => EN")
-    ("P"   my/open-review-requested-pr "Open Requested PR"))))
+    ("t"   subtools-hydra/body           "Sub Tools"))))
