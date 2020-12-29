@@ -21,3 +21,14 @@
 
 (setq projectile-completion-system 'ivy)
 (el-get-bundle counsel-projectile)
+
+(with-eval-after-load 'pretty-hydra
+  (pretty-hydra-define
+    projectile-hydra (:separator "-" :title "Projectile" :foreaign-key warn :quit-key "q" :exit t)
+    ("File"
+     (("f" counsel-projectile-find-file "Find File")
+      ("d" counsel-projectile-find-dir "Find Dir")
+      ("r" projectile-recentf "Recentf"))
+
+     "Other"
+     (("p" (counsel-projectile-switch-project 'neotree-dir) "Switch Project")))))
