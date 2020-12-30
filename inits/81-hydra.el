@@ -92,6 +92,7 @@
     ("j" dumb-jump-pretty-hydra/body "Dumb jump")
     ("i" counsel-imenu               "imenu")
     ("y" yasnippet-hydra/body        "Yasnippet")
+    ("B" browse-at-remote            "Browse")
     ("m" magit-status                "Magit"))
 
    "View"
