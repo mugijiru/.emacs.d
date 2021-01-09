@@ -75,9 +75,9 @@
         "~/Documents/org/tasks/"))
 
 (setq org-capture-templates
-      `(("g" "GTD Inbox にエントリー" entry
-         (file+headline ,my/org-capture-gtd-file "Inbox")
-         "** TODO %?\n\t")
+      `(("g" "Inbox にエントリー" entry
+         (file ,my/org-capture-inbox-file)
+         "* TODO %?\n\t")
         ("m" "Memoにエントリー" entry
          (file+headline ,my/org-capture-memo-file "未分類")
          "*** %?\n\t")
