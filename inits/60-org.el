@@ -161,6 +161,7 @@
 
      "View"
      (("N" org-toggle-narrow-to-subtree "Toggle Subtree")
+      ("C" org-columns "Columns")
       ("D" my/org-clock-toggle-display  "Toggle Display"))
 
      "Task"
