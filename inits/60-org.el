@@ -57,13 +57,13 @@
 (setq org-capture-ical-file (concat org-directory "ical.org"))
 
 ;; タスク管理系
-(setq my/org-tasks-directory (concat org-directory "tasks/"))
-(setq my/org-capture-interrupted-file (concat my/org-tasks-directory "interrupted.org"))
-(setq my/org-capture-gtd-file (concat my/org-tasks-directory "gtd.org"))
-(setq my/org-capture-pointers-file (concat my/org-tasks-directory "pointers.org"))
-(setq my/org-capture-impediments-file (concat org-directory "work/scrum/impediments.org"))
-(setq my/org-capture-memo-file (concat org-directory "memo.org"))
-(setq my/org-capture-sql-file (concat org-directory "work/sql.org"))
+(setq my/org-tasks-directory           (concat org-directory "tasks/"))
+(setq my/org-capture-interrupted-file  (concat my/org-tasks-directory "interrupted.org"))
+(setq my/org-capture-inbox-file        (concat my/org-tasks-directory "inbox.org"))
+(setq my/org-capture-pointers-file     (concat my/org-tasks-directory "pointers.org"))
+(setq my/org-capture-impediments-file  (concat org-directory "work/scrum/impediments.org"))
+(setq my/org-capture-memo-file         (concat org-directory "memo.org"))
+(setq my/org-capture-sql-file          (concat org-directory "work/sql.org"))
 (setq my/org-capture-2020-summary-file (concat org-directory "private/2020_summary.org"))
 
 
