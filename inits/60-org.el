@@ -1,4 +1,5 @@
 (el-get-bundle org-mode :checkout "release_9.3.6") ;; from Git. because melpa cannot resolve dependencies.
+(el-get-bundle org-super-agenda)
 (el-get-bundle org-export-blocks-format-plantuml)
 (org-babel-do-load-languages 'org-babel-load-languages
                              '((plantuml . t)
@@ -6,7 +7,6 @@
                                (emacs-lisp . t)
                                (shell . t)
                                (ruby . t)))
-
 (setq org-directory (expand-file-name "~/Documents/org/"))
 
 ;; フッターなくしたり
@@ -75,6 +75,125 @@
       '("~/Documents/org/ical.org"
         "~/Documents/org/tasks/"))
 
+;; agenda に時間の区切りを入れない
+(setq org-agenda-use-time-grid nil)
+(setq org-agenda-block-separator "------------------------------")
+(org-super-agenda-mode 1)
+
+(setq org-agenda-custom-commands
+'(("h" . "Habits")
+  ("hs" "Weekday Start"
+   ((tags "Weekday&Start|Daily"
+          ((org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+                                      (:name "今日の作業" :scheduled today)
+                                      (:discard (:anything t))))))))
+  ("hf" "Weekday Finish"
+   ((tags "Weekday&Finish")))
+  ("hw" "Weekly"
+   ((tags "Weekly")))
+  ("hh" "Holiday"
+   ((tags "Weekend|Holiday|Daily"
+          ((org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+                                      (:name "今日の作業" :scheduled today)
+                                      (:discard (:anything t))))))))
+  ("d" "Today"
+   ((agenda "会議など"
+            ((org-agenda-span 'day)
+             (org-agenda-files my/org-agenda-calendar-files)))
+    (tags-todo "-Weekday-Daily-Holiday-Weekly-Weekend"
+               ((org-agenda-prefix-format " ")
+                (org-agenda-overriding-header "今日の作業")
+                (org-habit-show-habits nil)
+                (org-agenda-span 'day)
+                (org-agenda-todo-keyword-format "-")
+                (org-overriding-columns-format "%25ITEM %TODO")
+                (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
+                (org-super-agenda-groups '((:name "仕掛かり中" :todo "DOING")
+                                           (:name "TODO" :todo "TODO")
+                                           (:name "待ち" :todo "WAIT")
+                                           (:discard (:anything t))))))
+    (tags-todo "Weekday|Daily"
+               ((org-agenda-overriding-header "")
+                (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
+                (org-super-agenda-groups '((:name "習慣" :scheduled today)
+                                           (:discard (:anything t))))))))
+  ("D" "Holiday"
+   ((tags-todo "-Weekday-Daily-Holiday-Weekly-Weekend"
+               ((org-agenda-prefix-format " ")
+                (org-agenda-overriding-header "今日の作業")
+                (org-habit-show-habits nil)
+                (org-agenda-span 'day)
+                (org-agenda-todo-keyword-format "-")
+                (org-overriding-columns-format "%25ITEM %TODO")
+                (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
+                (org-super-agenda-groups '((:name "仕掛かり中" :todo "DOING")
+                                           (:name "TODO" :todo "TODO")
+                                           (:name "待ち" :todo "WAIT")
+                                           (:discard (:anything t))))))
+    (tags-todo "Holiday|Weekend|Daily"
+               ((org-agenda-overriding-header "")
+                (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
+                (org-super-agenda-groups '((:name "習慣" :scheduled today)
+                                           (:discard (:anything t))))))))
+  ("p" . "Projects")
+  ("pp" "Projects"
+   ((todo "DOING" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))
+    (todo "TODO"  ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
+  ("pP" "Projects without Env"
+   ((tags-todo "-Emacs-org-Env" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
+  ("P" "Pointers"
+   ((todo "DOING" ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))
+    (todo "TODO"  ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))))
+  ("X" "Finished"
+   ((todo "DONE"    ((org-agenda-files '("~/Documents/org/tasks/projects.org"
+                                         "~/Documents/org/tasks/inbox.org"
+                                         "~/Documents/org/tasks/next-actions.org"))))
+    (todo "SOMEDAY" ((org-agenda-files '("~/Documents/org/tasks/projects.org"
+                                         "~/Documents/org/tasks/inbox.org"
+                                         "~/Documents/org/tasks/next-actions.org"))))))
+
+  ("z" "日報"
+   ((agenda "" ((org-agenda-span 'day)
+                (org-agenda-overriding-header "")
+                (org-habit-show-habits nil)
+                (org-agenda-format-date "## %Y/%m/%d (%a) 日報")
+                (org-agenda-prefix-format " %?-12t")
+                (org-agenda-files my/org-agenda-calendar-files)
+                (org-super-agenda-groups
+                 '((:name "会議など" :time-grid t)
+                   (:discard (:anything t))))))
+    (todo "DONE" ((org-agenda-prefix-format " ")
+                  (org-agenda-overriding-header "対応済")
+                  (org-habit-show-habits nil)
+                  (org-agenda-span 'day)
+                  (org-agenda-todo-keyword-format "-")
+                  (org-overriding-columns-format "%25ITEM %TODO")
+                  (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
+                  (org-super-agenda-groups (append
+                                            (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DONE")))) my/nippou-categories)
+                                            '((:discard (:anything t :name "discard")))))))
+    (alltodo "" ((org-agenda-prefix-format " ")
+                 (org-agenda-overriding-header "仕掛かり中")
+                 (org-habit-show-habits nil)
+                 (org-agenda-span 'day)
+                 (org-agenda-todo-keyword-format "-")
+                 (org-overriding-columns-format "%25ITEM %TODO")
+                 (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
+                 (org-super-agenda-groups (append
+                                           (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) my/nippou-categories)
+                                           '((:discard (:anything t :name "discard")))))))))
+
+  ("H" "HouseWork" ((tags "HouseWork")))
+  ("E" . "Emacs")
+  ("EO" "org"
+   ((tags-todo "+org"
+               ((org-agenda-files '("~/Documents/org/tasks/projects.org"
+                                    "~/Documents/org/tasks/inbox.org"))))))
+  ("EE" "without org"
+   ((tags-todo "+Emacs-org"
+               ((org-agenda-files '("~/Documents/org/tasks/projects.org"
+                                    "~/Documents/org/tasks/inbox.org"))))))))
+
 (setq org-capture-templates
       `(("g" "Inbox にエントリー" entry
          (file ,my/org-capture-inbox-file)
@@ -109,7 +228,6 @@
         ("c" "同期カレンダーにエントリー" entry
          (file+headline ,org-capture-ical-file "Schedule")
          "** TODO %?\n\t")))
-
 
 (setq org-clock-clocktable-default-properties
       '(:maxlevel 10
