@@ -48,6 +48,7 @@
 
 ;; DONEの時刻を記録
 (setq org-log-done 'time)
+(setq org-log-into-drawer "LOGBOOK")
 
 (el-get-bundle org-pomodoro)
 (setq org-pomodoro-play-sounds nil)
