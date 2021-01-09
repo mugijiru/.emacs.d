@@ -172,6 +172,7 @@
      "Clock"
      (("i" org-clock-in      "In")
       ("o" org-clock-out     "Out")
+      ("E" org-set-effort    "Effort")
       ("R" org-clock-report  "Report")
       ("p" org-pomodoro      "Pomodoro"))
 
