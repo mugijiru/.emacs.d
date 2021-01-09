@@ -152,6 +152,8 @@
       ("T" org-insert-todo-heading             "Todo")
       ("h" org-insert-heading-respect-content  "Heading")
       ("P" org-set-property                    "Property")
+      ("." org-time-stamp                      "Timestamp")
+      ("!" org-time-stamp-inactive             "Timestamp(inactive)")
       ("S" org-insert-structure-template       "Snippet"))
 
      "Edit"
