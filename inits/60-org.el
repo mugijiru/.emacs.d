@@ -187,7 +187,7 @@
     (todo "DOING" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))
     (todo "TODO"  ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
   ("pP" "Projects without Env"
-   ((tags-todo "-Emacs-org-Env" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
+   ((tags-todo "-Emacs-org-Env-Hugo" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
   ("P" "Pointers"
    ((todo "DOING" ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))
     (todo "TODO"  ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))))
