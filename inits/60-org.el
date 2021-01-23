@@ -65,6 +65,7 @@
 (setq my/org-capture-impediments-file  (concat org-directory "work/scrum/impediments.org"))
 (setq my/org-capture-memo-file         (concat org-directory "memo.org"))
 (setq my/org-capture-sql-file          (concat org-directory "work/sql.org"))
+(setq my/org-capture-shopping-file     (concat my/org-tasks-directory "shopping.org"))
 (setq my/org-capture-2020-summary-file (concat org-directory "private/2020_summary.org"))
 
 
@@ -147,9 +148,11 @@
   ("X" "Finished"
    ((todo "DONE"    ((org-agenda-files '("~/Documents/org/tasks/projects.org"
                                          "~/Documents/org/tasks/inbox.org"
+                                         "~/Documents/org/tasks/shopping.org"
                                          "~/Documents/org/tasks/next-actions.org"))))
     (todo "SOMEDAY" ((org-agenda-files '("~/Documents/org/tasks/projects.org"
                                          "~/Documents/org/tasks/inbox.org"
+                                         "~/Documents/org/tasks/shopping.org"
                                          "~/Documents/org/tasks/next-actions.org"))))))
 
   ("z" "日報"
@@ -216,6 +219,9 @@
         ("s" "SQL エントリー" entry
          (file+headline ,my/org-capture-sql-file "SQL")
          "** %?\n\t")
+        ("S" "買い物リストエントリー" entry
+         (file ,my/org-capture-shopping-file)
+         "* TODO %?\n\t")
         ("b" "Blogネタにエントリー" entry
          (file+headline ,my/org-capture-memo-file "Blogネタ")
          "** %?\n\t")
@@ -348,6 +354,7 @@
                            (,(concat org-directory "tasks/next-actions.org") :regexp . "today")
                            (,(concat org-directory "tasks/next-actions.org") :regexp . "C-")
                            (,(concat org-directory "private/2020_summary.org") :level . 2)
+                           (,(concat org-directory "tasks/shopping.org") :level . 1)
                            (,(concat org-directory "tasks/someday.org") :level . 1)))
 
 (defun my/org-tags-view-only-todo ()
