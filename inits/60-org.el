@@ -143,7 +143,7 @@
   ("D" "Holiday"
    ((tags-todo "-Weekday-Daily-Holiday-Weekly-Weekend"
                ((org-agenda-prefix-format " ")
-                (org-agenda-overriding-header "今日の作業")
+                (org-agenda-overriding-header "休日の作業")
                 (org-habit-show-habits nil)
                 (org-agenda-span 'day)
                 (org-agenda-todo-keyword-format "-")
