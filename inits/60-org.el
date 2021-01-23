@@ -72,6 +72,9 @@
 ;; org-agenda の週の始まりを日曜日に
 (setq org-agenda-start-on-weekday 0)
 
+;; org-agenda のデフォルト表示を1日単位にする
+(setq org-agenda-span 'day)
+
 (setq org-agenda-files
       '("~/Documents/org/ical.org"
         "~/Documents/org/tasks/"))
@@ -89,9 +92,15 @@
                                       (:name "今日の作業" :scheduled today)
                                       (:discard (:anything t))))))))
   ("hf" "Weekday Finish"
-   ((tags "Weekday&Finish")))
+   ((tags "Weekday&Finish"
+          ((org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+                                      (:name "今日の作業" :scheduled today)
+                                      (:discard (:anything t))))))))
   ("hw" "Weekly"
-   ((tags "Weekly")))
+   ((tags "Weekly"
+          ((org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+                                      (:name "今週の作業" :scheduled today)
+                                      (:discard (:anything t))))))))
   ("hh" "Holiday"
    ((tags "Weekend|Holiday|Daily"
           ((org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
@@ -113,6 +122,19 @@
                                            (:name "TODO" :todo "TODO")
                                            (:name "待ち" :todo "WAIT")
                                            (:discard (:anything t))))))
+    (alltodo ""
+               ((org-agenda-prefix-format " ")
+                (org-agenda-overriding-header "予定作業")
+                (org-habit-show-habits nil)
+                (org-agenda-span 'day)
+                (org-agenda-todo-keyword-format "-")
+                (org-overriding-columns-format "%25ITEM %TODO")
+                (org-agenda-files '("~/Documents/org/tasks/projects.org"))
+                (org-super-agenda-groups '((:name "〆切が過ぎてる作業" :deadline past)
+                                           (:name "予定が過ぎてる作業" :scheduled past)
+                                           (:name "今日〆切の作業" :deadline today)
+                                           (:name "今日予定の作業" :scheduled today)
+                                           (:discard (:anything t))))))
     (tags-todo "Weekday|Daily"
                ((org-agenda-overriding-header "")
                 (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
@@ -121,7 +143,7 @@
   ("D" "Holiday"
    ((tags-todo "-Weekday-Daily-Holiday-Weekly-Weekend"
                ((org-agenda-prefix-format " ")
-                (org-agenda-overriding-header "今日の作業")
+                (org-agenda-overriding-header "休日の作業")
                 (org-habit-show-habits nil)
                 (org-agenda-span 'day)
                 (org-agenda-todo-keyword-format "-")
@@ -132,16 +154,40 @@
                                            (:name "待ち" :todo "WAIT")
                                            (:discard (:anything t))))))
     (tags-todo "Holiday|Weekend|Daily"
-               ((org-agenda-overriding-header "")
+               ((org-agenda-overriding-header "習慣")
                 (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
-                (org-super-agenda-groups '((:name "習慣" :scheduled today)
+                (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+                                           (:name "今日予定の作業" :scheduled today)
                                            (:discard (:anything t))))))))
   ("p" . "Projects")
   ("pp" "Projects"
-   ((todo "DOING" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))
+   ((alltodo "" ((org-agenda-prefix-format " ")
+                 (org-agenda-overriding-header "今日のタスク")
+                 (org-habit-show-habits nil)
+                 (org-agenda-span 'day)
+                 (org-agenda-todo-keyword-format "-")
+                 (org-overriding-columns-format "%25ITEM %TODO")
+                 (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
+                 (org-super-agenda-groups (append
+                                           (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) my/nippou-categories)
+                                           '((:name "その他" :scheduled nil)
+                                             (:discard (:anything t)))))))
+    (alltodo "" ((org-agenda-prefix-format " ")
+                 (org-agenda-overriding-header "予定に入ってる作業")
+                 (org-habit-show-habits nil)
+                 (org-agenda-span 'day)
+                 (org-agenda-todo-keyword-format "-")
+                 (org-overriding-columns-format "%25ITEM %TODO")
+                 (org-agenda-files '("~/Documents/org/tasks/projects.org"))
+                 (org-super-agenda-groups '((:name "〆切が過ぎてる作業" :deadline past)
+                                            (:name "予定が過ぎてる作業" :scheduled past)
+                                            (:name "今日〆切の作業" :deadline today)
+                                            (:name "今日予定の作業" :scheduled today)
+                                            (:discard (:anything t))))))
+    (todo "DOING" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))
     (todo "TODO"  ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
   ("pP" "Projects without Env"
-   ((tags-todo "-Emacs-org-Env" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
+   ((tags-todo "-Emacs-org-Env-Hugo" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
   ("P" "Pointers"
    ((todo "DOING" ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))
     (todo "TODO"  ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))))
@@ -216,7 +262,7 @@
         ("R" "2020ふりかえりにエントリー" entry
          (file+headline ,my/org-capture-2020-summary-file "Timeline")
          "** %?\n\t")
-        ("s" "SQL エントリー" entry
+        ("s" "SQL にエントリー" entry
          (file+headline ,my/org-capture-sql-file "SQL")
          "** %?\n\t")
         ("S" "買い物リストエントリー" entry
