@@ -216,7 +216,7 @@
         ("R" "2020ふりかえりにエントリー" entry
          (file+headline ,my/org-capture-2020-summary-file "Timeline")
          "** %?\n\t")
-        ("s" "SQL エントリー" entry
+        ("s" "SQL にエントリー" entry
          (file+headline ,my/org-capture-sql-file "SQL")
          "** %?\n\t")
         ("S" "買い物リストエントリー" entry
