@@ -72,6 +72,9 @@
 ;; org-agenda の週の始まりを日曜日に
 (setq org-agenda-start-on-weekday 0)
 
+;; org-agenda のデフォルト表示を1日単位にする
+(setq org-agenda-span 'day)
+
 (setq org-agenda-files
       '("~/Documents/org/ical.org"
         "~/Documents/org/tasks/"))
