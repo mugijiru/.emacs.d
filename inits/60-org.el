@@ -154,9 +154,10 @@
                                            (:name "待ち" :todo "WAIT")
                                            (:discard (:anything t))))))
     (tags-todo "Holiday|Weekend|Daily"
-               ((org-agenda-overriding-header "")
+               ((org-agenda-overriding-header "習慣")
                 (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
-                (org-super-agenda-groups '((:name "習慣" :scheduled today)
+                (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+                                           (:name "今日予定の作業" :scheduled today)
                                            (:discard (:anything t))))))))
   ("p" . "Projects")
   ("pp" "Projects"
