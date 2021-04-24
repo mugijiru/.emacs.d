@@ -241,7 +241,8 @@
                   (org-habit-show-habits nil)
                   (org-agenda-span 'day)
                   (org-agenda-todo-keyword-format "-")
-                  (org-overriding-columns-format "%25ITEM %TODO")
+                  ;; (org-overriding-columns-format "%25ITEM %TODO %CATEGORY")
+                  (org-columns-default-format-for-agenda "%25ITEM %TODO %3PRIORITY")
                   (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
                   (org-super-agenda-groups (append
                                             (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DONE")))) my/nippou-categories)
