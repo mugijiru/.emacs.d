@@ -259,13 +259,17 @@
                                            '((:discard (:anything t :name "discard")))))))))
 
   ("H" "HouseWork" ((tags "HouseWork")))
-  ("E" . "Emacs")
+  ("E" . "Env")
   ("EO" "org"
    ((tags-todo "+org"
                ((org-agenda-files '("~/Documents/org/tasks/projects.org"
                                     "~/Documents/org/tasks/inbox.org"))))))
-  ("EE" "without org"
+  ("EE" "Emacs without org"
    ((tags-todo "+Emacs-org"
+               ((org-agenda-files '("~/Documents/org/tasks/projects.org"
+                                    "~/Documents/org/tasks/inbox.org"))))))
+  ("Ee" "without Emacs"
+   ((tags-todo "+Env-Emacs-org"
                ((org-agenda-files '("~/Documents/org/tasks/projects.org"
                                     "~/Documents/org/tasks/inbox.org"))))))))
 
