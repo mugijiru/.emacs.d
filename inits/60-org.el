@@ -323,7 +323,7 @@
 (require 'ob-async)
 (add-hook 'ob-async-pre-execute-src-block-hook
       '(lambda ()
-         (setq org-plantuml-jar-path "~/.emacs.d/el-get/plantuml-mode/plantuml.jar")))
+         (setq org-plantuml-jar-path "~/bin/plantuml.jar")))
 (add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images) ;; org-babel-execute 後に画像を再表示
 
 (defun my/org-clock-toggle-display ()
