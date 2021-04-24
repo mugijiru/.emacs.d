@@ -135,10 +135,12 @@
                                            (:name "今日〆切の作業" :deadline today)
                                            (:name "今日予定の作業" :scheduled today)
                                            (:discard (:anything t))))))
-    (tags-todo "Weekday|Daily"
-               ((org-agenda-overriding-header "")
+    (tags-todo "Weekday|Daily|Weekly"
+               ((org-agenda-overriding-header "習慣")
+                (org-habit-show-habits t)
                 (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
-                (org-super-agenda-groups '((:name "習慣" :scheduled today)
+                (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+                                           (:name "今日予定" :scheduled today)
                                            (:discard (:anything t))))))))
   ("D" "Holiday"
    ((tags-todo "-Weekday-Daily-Holiday-Weekly-Weekend"
