@@ -135,10 +135,12 @@
                                            (:name "今日〆切の作業" :deadline today)
                                            (:name "今日予定の作業" :scheduled today)
                                            (:discard (:anything t))))))
-    (tags-todo "Weekday|Daily"
-               ((org-agenda-overriding-header "")
+    (tags-todo "Weekday|Daily|Weekly"
+               ((org-agenda-overriding-header "習慣")
+                (org-habit-show-habits t)
                 (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
-                (org-super-agenda-groups '((:name "習慣" :scheduled today)
+                (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+                                           (:name "今日予定" :scheduled today)
                                            (:discard (:anything t))))))))
   ("D" "Holiday"
    ((tags-todo "-Weekday-Daily-Holiday-Weekly-Weekend"
@@ -187,7 +189,30 @@
     (todo "DOING" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))
     (todo "TODO"  ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
   ("pP" "Projects without Env"
-   ((tags-todo "-Emacs-org-Env-Hugo" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
+   ((alltodo "" ((org-agenda-prefix-format " ")
+                 (org-agenda-overriding-header "今日のタスク")
+                 (org-habit-show-habits nil)
+                 (org-agenda-span 'day)
+                 (org-agenda-todo-keyword-format "-")
+                 (org-overriding-columns-format "%25ITEM %TODO")
+                 (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
+                 (org-super-agenda-groups (append
+                                           (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) my/nippou-categories)
+                                           '((:name "その他" :scheduled nil)
+                                             (:discard (:anything t)))))))
+    (alltodo "" ((org-agenda-prefix-format " ")
+                 (org-agenda-overriding-header "予定に入ってる作業")
+                 (org-habit-show-habits nil)
+                 (org-agenda-span 'day)
+                 (org-agenda-todo-keyword-format "-")
+                 (org-overriding-columns-format "%25ITEM %TODO")
+                 (org-agenda-files '("~/Documents/org/tasks/projects.org"))
+                 (org-super-agenda-groups '((:name "〆切が過ぎてる作業" :deadline past)
+                                            (:name "予定が過ぎてる作業" :scheduled past)
+                                            (:name "今日〆切の作業" :deadline today)
+                                            (:name "今日予定の作業" :scheduled today)
+                                            (:discard (:anything t))))))
+    (tags-todo "-Emacs-org-Env-Hugo" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
   ("P" "Pointers"
    ((todo "DOING" ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))
     (todo "TODO"  ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))))
@@ -216,7 +241,8 @@
                   (org-habit-show-habits nil)
                   (org-agenda-span 'day)
                   (org-agenda-todo-keyword-format "-")
-                  (org-overriding-columns-format "%25ITEM %TODO")
+                  ;; (org-overriding-columns-format "%25ITEM %TODO %CATEGORY")
+                  (org-columns-default-format-for-agenda "%25ITEM %TODO %3PRIORITY")
                   (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
                   (org-super-agenda-groups (append
                                             (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DONE")))) my/nippou-categories)
@@ -233,13 +259,17 @@
                                            '((:discard (:anything t :name "discard")))))))))
 
   ("H" "HouseWork" ((tags "HouseWork")))
-  ("E" . "Emacs")
+  ("E" . "Env")
   ("EO" "org"
    ((tags-todo "+org"
                ((org-agenda-files '("~/Documents/org/tasks/projects.org"
                                     "~/Documents/org/tasks/inbox.org"))))))
-  ("EE" "without org"
+  ("EE" "Emacs without org"
    ((tags-todo "+Emacs-org"
+               ((org-agenda-files '("~/Documents/org/tasks/projects.org"
+                                    "~/Documents/org/tasks/inbox.org"))))))
+  ("Ee" "without Emacs"
+   ((tags-todo "+Env-Emacs-org"
                ((org-agenda-files '("~/Documents/org/tasks/projects.org"
                                     "~/Documents/org/tasks/inbox.org"))))))))
 
@@ -297,7 +327,7 @@
 (require 'ob-async)
 (add-hook 'ob-async-pre-execute-src-block-hook
       '(lambda ()
-         (setq org-plantuml-jar-path "~/.emacs.d/el-get/plantuml-mode/plantuml.jar")))
+         (setq org-plantuml-jar-path "~/bin/plantuml.jar")))
 (add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images) ;; org-babel-execute 後に画像を再表示
 
 (defun my/org-clock-toggle-display ()
