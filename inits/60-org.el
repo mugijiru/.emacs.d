@@ -330,21 +330,6 @@
          (setq org-plantuml-jar-path "~/bin/plantuml.jar")))
 (add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images) ;; org-babel-execute 後に画像を再表示
 
-(defun my/org-clock-toggle-display ()
-  (interactive)
-  (if org-clock-overlays
-      (org-clock-remove-overlays)
-    (org-clock-display)))
-
-(defun my/org-todo ()
-  (interactive)
-  (ivy-read "Org todo: "
-            org-todo-keywords-for-agenda
-            :require-match t
-            :sort nil
-            :action (lambda (keyword)
-                      (org-todo keyword))))
-
 (with-eval-after-load 'major-mode-hydra
   (major-mode-hydra-define org-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-fileicon "org") " Org commands"))
     ("Insert"
@@ -432,10 +417,6 @@
                            (,(concat org-directory "private/2020_summary.org") :level . 2)
                            (,(concat org-directory "tasks/shopping.org") :level . 1)
                            (,(concat org-directory "tasks/someday.org") :level . 1)))
-
-(defun my/org-tags-view-only-todo ()
-  (interactive)
-  (org-tags-view t))
 
 (defun my/org-clock-in-hook ()
   (let* ((task org-clock-current-task)
