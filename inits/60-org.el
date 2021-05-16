@@ -437,23 +437,6 @@
   (interactive)
   (org-tags-view t))
 
-(my/load-config "my-notify-slack-config")
-
-(setq my/notify-slack-enable-p t)
-
-(defun my/notify-slack-toggle ()
-  (interactive)
-  (if my/notify-slack-enable-p
-      (setq my/notify-slack-enable-p nil)
-    (setq my/notify-slack-enable-p t)))
-
-(defun my/notify-slack (channel text)
-  (start-process "my/org-clock-slack-notifier" "*my/org-clock-slack-notifier*" "my-slack-notifier" channel text))
-
-(defun my/notify-slack-times (text)
-  (if my/notify-slack-enable-p
-      (my/notify-slack my/notify-slack-times-channel text)))
-
 (defun my/org-clock-in-hook ()
   (let* ((task org-clock-current-task)
          (message (format "開始: %s" task)))
