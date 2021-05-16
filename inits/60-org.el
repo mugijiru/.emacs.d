@@ -171,7 +171,7 @@
                  (org-overriding-columns-format "%25ITEM %TODO")
                  (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
                  (org-super-agenda-groups (append
-                                           (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) my/nippou-categories)
+                                           (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
                                            '((:name "その他" :scheduled nil)
                                              (:discard (:anything t)))))))
     (alltodo "" ((org-agenda-prefix-format " ")
@@ -197,7 +197,7 @@
                  (org-overriding-columns-format "%25ITEM %TODO")
                  (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
                  (org-super-agenda-groups (append
-                                           (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) my/nippou-categories)
+                                           (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
                                            '((:name "その他" :scheduled nil)
                                              (:discard (:anything t)))))))
     (alltodo "" ((org-agenda-prefix-format " ")
@@ -245,7 +245,7 @@
                   (org-columns-default-format-for-agenda "%25ITEM %TODO %3PRIORITY")
                   (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
                   (org-super-agenda-groups (append
-                                            (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DONE")))) my/nippou-categories)
+                                            (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DONE")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
                                             '((:discard (:anything t :name "discard")))))))
     (alltodo "" ((org-agenda-prefix-format " ")
                  (org-agenda-overriding-header "仕掛かり中")
@@ -255,7 +255,7 @@
                  (org-overriding-columns-format "%25ITEM %TODO")
                  (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
                  (org-super-agenda-groups (append
-                                           (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) my/nippou-categories)
+                                           (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
                                            '((:discard (:anything t :name "discard")))))))))
 
   ("H" "HouseWork" ((tags "HouseWork")))
