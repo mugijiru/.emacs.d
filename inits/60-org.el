@@ -23,21 +23,8 @@
 (el-get-bundle org-pomodoro)
 (setq org-pomodoro-play-sounds nil)
 
-;; org-capture
-(defvar org-capture-ical-file (concat org-directory "ical.org"))
-(setq org-capture-ical-file (concat org-directory "ical.org"))
-
 ;; タスク管理系
 (setq my/org-tasks-directory           (concat org-directory "tasks/"))
-(setq my/org-capture-interrupted-file  (concat my/org-tasks-directory "interrupted.org"))
-(setq my/org-capture-inbox-file        (concat my/org-tasks-directory "inbox.org"))
-(setq my/org-capture-pointers-file     (concat my/org-tasks-directory "pointers.org"))
-(setq my/org-capture-impediments-file  (concat org-directory "work/scrum/impediments.org"))
-(setq my/org-capture-memo-file         (concat org-directory "memo.org"))
-(setq my/org-capture-sql-file          (concat org-directory "work/sql.org"))
-(setq my/org-capture-shopping-file     (concat my/org-tasks-directory "shopping.org"))
-(setq my/org-capture-2020-summary-file (concat org-directory "private/2020_summary.org"))
-
 
 ;; org-agenda の週の始まりを日曜日に
 (setq org-agenda-start-on-weekday 0)
@@ -242,44 +229,6 @@
    ((tags-todo "+Env-Emacs-org"
                ((org-agenda-files '("~/Documents/org/tasks/projects.org"
                                     "~/Documents/org/tasks/inbox.org"))))))))
-
-(setq org-capture-templates
-      `(("g" "Inbox にエントリー" entry
-         (file ,my/org-capture-inbox-file)
-         "* TODO %?\n\t")
-        ("m" "Memoにエントリー" entry
-         (file+headline ,my/org-capture-memo-file "未分類")
-         "*** %?\n\t")
-        ("p" "Pointersにエントリー" entry
-         (file+headline ,my/org-capture-pointers-file "Pointers")
-         "** %?\n\t")
-        ("i" "割り込みタスクにエントリー" entry ;; 参考: http://grugrut.hatenablog.jp/entry/2016/03/13/085417
-         (file+headline ,my/org-capture-interrupted-file "Interrupted")
-         "** %?\n\t" :clock-in t :clock-resume t)
-        ("I" "障害リストにエントリー" entry
-         (file+headline ,my/org-capture-impediments-file "Impediments")
-         "** TODO %?\n\t")
-        ("R" "2020ふりかえりにエントリー" entry
-         (file+headline ,my/org-capture-2020-summary-file "Timeline")
-         "** %?\n\t")
-        ("s" "SQL にエントリー" entry
-         (file+headline ,my/org-capture-sql-file "SQL")
-         "** %?\n\t")
-        ("S" "買い物リストエントリー" entry
-         (file ,my/org-capture-shopping-file)
-         "* TODO %?\n\t")
-        ("b" "Blogネタにエントリー" entry
-         (file+headline ,my/org-capture-memo-file "Blogネタ")
-         "** %?\n\t")
-        ("P" "Protocol" entry
-         (file+headline ,my/org-capture-pointers-file "Pointers")
-         "** %?\n   #+BEGIN_QUOTE\n   %i\n   #+END_QUOTE\n\n   Source: %u, [[%:link][%:description]]\n")
-        ("L" "Protocol Link" entry
-         (file+headline ,my/org-capture-pointers-file "Pointers")
-         "** %:description\n   %:link\n   %?\n   Captured On: %U")
-        ("c" "同期カレンダーにエントリー" entry
-         (file+headline ,org-capture-ical-file "Schedule")
-         "** TODO %?\n\t")))
 
 (setq org-clock-clocktable-default-properties
       '(:maxlevel 10
