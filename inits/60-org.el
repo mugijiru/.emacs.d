@@ -20,9 +20,6 @@
 (setq org-log-done 'time)
 (setq org-log-into-drawer "LOGBOOK")
 
-(el-get-bundle org-pomodoro)
-(setq org-pomodoro-play-sounds nil)
-
 ;; タスク管理系
 (setq my/org-tasks-directory           (concat org-directory "tasks/"))
 
@@ -230,13 +227,6 @@
                ((org-agenda-files '("~/Documents/org/tasks/projects.org"
                                     "~/Documents/org/tasks/inbox.org"))))))))
 
-(setq org-clock-clocktable-default-properties
-      '(:maxlevel 10
-                 :lang "ja"
-                 :scope agenda-with-archives
-                 :block today
-                 :level 4))
-
 
 (el-get-bundle ob-async)
 (require 'ob-async)
@@ -244,19 +234,3 @@
       '(lambda ()
          (setq org-plantuml-jar-path "~/bin/plantuml.jar")))
 (add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images) ;; org-babel-execute 後に画像を再表示
-
-(defun my/org-clock-in-hook ()
-  (let* ((task org-clock-current-task)
-         (message (format "開始: %s" task)))
-    (my/notify-slack-times message))
-
-  (if (org-clocking-p)
-      (org-todo "DOING")))
-
-(defun my/org-clock-out-hook ()
-  (let* ((task org-clock-current-task)
-         (message (format "終了: %s" task)))
-    (my/notify-slack-times message)))
-
-(setq org-clock-in-hook 'my/org-clock-in-hook)
-(setq org-clock-out-hook 'my/org-clock-out-hook)
