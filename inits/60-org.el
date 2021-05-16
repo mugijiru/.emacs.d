@@ -288,10 +288,6 @@
                  :block today
                  :level 4))
 
-(el-get-bundle persist) ;; org-gcal に必要
-(el-get-bundle org-gcal)
-(require 'org-gcal)
-(my/load-config "my-org-gcal-config")
 
 (el-get-bundle ob-async)
 (require 'ob-async)
