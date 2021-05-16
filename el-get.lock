@@ -1,7 +1,7 @@
 (setq el-get-lock-package-versions
       '((emacs-neotree :checksum "5e1271655170f4cdc6849258e383c548a4e6e3d0")
         (company-lsp :checksum "f921ffa0cdc542c21dc3dd85f2c93df4288e83bd")
-        (emacs-w3m :checksum "a395147050674ff88f03a6ac354a84ccbdc23f1e")
+        (emacs-w3m :checksum "2f95627b93dd49023b1d982329b4ccf8b7854109")
         (browse-at-remote :checksum "e02ad2189c87da33f80bf4967a968772ce3e4431")
         (ox-hugo :checksum "be7fbd9f164d8937b2628719e21e8e6b4827e638")
         (sticky-control :checksum "25e15e41174725600626b8dc13852aced691bd3b")
