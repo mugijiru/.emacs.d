@@ -6,6 +6,8 @@ emojis
 secret
 skk-jisyo
 org-gcal
+.cache
+transient
 
 # auto generated files
 .authinfo.gpg
