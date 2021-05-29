@@ -40,6 +40,9 @@
    (quote
     ("11e57648ab04915568e558b77541d0e94e69d09c9c54c06075938b6abc0189d8" default)))
  '(el-get-notify-type (quote message))
+ '(emojify-download-emojis-p t)
+ '(global-emojify-mode t)
+ '(global-emojify-mode-line-mode t)
  '(global-yascroll-bar-mode t)
  '(google-this-browse-url-function (quote w3m-browse-url))
  '(google-this-keybind "")
