@@ -13,10 +13,15 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Use Emacs
-      uses: purcell/setup-emacs@master
-      with:
-        version: '26.3'
+    # - name: Use Emacs
+    #   uses: purcell/setup-emacs@master
+    #   with:
+    #     version: '26.3'
+
+    - name: Setup Emacs
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y dbus-x11 emacs
 
     - name: update packages
       run: emacs --batch --load="./init.el" --funcall="el-get-update-all"
