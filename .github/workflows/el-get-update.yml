@@ -1,0 +1,48 @@
+name: el-get update
+
+on:
+  schedule:
+    - cron: '0 0 * * 6'
+  workflow_dispatch:
+  push:
+
+jobs:
+  el-get-update:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Emacs
+      uses: purcell/setup-emacs@master
+      with:
+        version: '26.3'
+
+    - name: update packages
+      run: emacs --batch --load="./init.el" --funcall="el-get-update-all"
+
+    - name: Detect el-get.lock diff
+      run: |
+        git diff --exit-code --quiet el-get.lock || git add el-get.lock && echo 'found_update=1' >> $GITHUB_ENV
+
+    - if: env.found_update == 1
+      name: Get timestamp
+      run: |
+        echo "UPDATE_TIMESTAMP=$(date +%Y-%m-%d-%H%M%S)" >> $GITHUB_ENV
+
+    - if: env.found_update == 1
+      name: Set branch name
+      run: |
+        echo "BRANCH_NAME=el-get-update-$(echo "${{ env.UPDATE_TIMESTAMP }}")" >> $GITHUB_ENV
+
+    - if: env.found_update == 1
+      name: Create PR
+      uses: peter-evans/create-pull-request@v3
+      env:
+        BRANCH_NAME: el-get-update-${{ env.UPDATE_TIMESTAMP }}
+        PR_TITLE: el-get update ${{ env.UPDATE_TIMESTAMP }}
+      with:
+        token: ${{ secrets.CI_DISPATCH_TOKEN }}
+        branch: ${{ env.BRANCH_NAME }}
+        commit-message: el-get update
+        title: ${{ env.PR_TITLE }}
