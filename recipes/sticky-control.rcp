@@ -1,5 +1,5 @@
 (:name sticky-control
        :description "save your left little finger"
        :type http
-       :url "http://www.cs.toronto.edu/~ryanjohn/sticky-control.el"
+       :url "https://raw.githubusercontent.com/martialboniou/emacs-revival/master/sticky-control.el"
        :features "sticky-control")
