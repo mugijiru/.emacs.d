@@ -16,7 +16,9 @@ org-todo-keywords-for-agenda ではなく
 "
   (interactive)
   (ivy-read "Org todo: "
-            org-todo-keywords-for-agenda
+            (mapcar (lambda (element)
+                      (replace-regexp-in-string "\(.+\)" "" element))
+                    (--remove (string= "|" it) (cdar org-todo-keywords)))
             :require-match t
             :sort nil
             :action (lambda (keyword)
