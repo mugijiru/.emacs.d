@@ -25,3 +25,14 @@ org-todo-keywords-for-agenda ではなく
 (defun my/org-tags-view-only-todo ()
   (interactive)
   (org-tags-view t))
+
+(defun my/open-calendar ()
+  (interactive)
+  (ivy-read "Calendar: "
+            my/calendar-targets
+            :require-match t
+            :sort nil
+            :action (lambda (target)
+                      (progn
+                        (setq cfw:org-icalendars `(,(concat org-directory target ".org")))
+                        (cfw:open-org-calendar)))))

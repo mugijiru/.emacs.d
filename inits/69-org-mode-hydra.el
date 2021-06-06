@@ -60,7 +60,7 @@
 
      "Calendar"
      (("F" org-gcal-fetch "Fetch Calendar")
-      ("C" my/open-user-calendar "Calendar"))
+      ("C" my/open-calendar "Calendar"))
 
      "Clock"
      (("i" org-clock-in       "In")
