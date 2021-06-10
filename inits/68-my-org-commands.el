@@ -8,12 +8,7 @@ Hydra から利用するために定義している。"
 
 (defun my/org-todo ()
   "ivy で TODO ステータスを切り替えるためのコマンド
-Hydra から利用するために定義している。
-
-現在リストをうまく取得できないため活用できていない。
-org-todo-keywords-for-agenda ではなく
-別の方法でリストを取得する必要がありそう
-"
+Hydra から利用するために定義している。"
   (interactive)
   (ivy-read "Org todo: "
             (mapcar (lambda (element)
