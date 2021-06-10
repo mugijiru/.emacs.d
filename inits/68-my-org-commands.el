@@ -8,9 +8,11 @@ Hydra から利用するために定義している。"
 
 (defun my/org-todo-keyword-strings ()
   "org-todo-keywords から装飾を省いた文字列のリストを返す関数"
-  (mapcar (lambda (element)
-            (replace-regexp-in-string "\(.+\)" "" element))
-          (cl-remove-if (lambda (elm) (string= "|" elm)) (cl-rest (cl-first org-todo-keywords)))))
+  (let* ((keywords (cl-rest (cl-first org-todo-keywords)))
+         (without-delimiter (cl-remove-if (lambda (elm) (string= "|" elm)) keywords)))
+    (mapcar (lambda (element)
+              (replace-regexp-in-string "\(.+\)" "" element))
+            without-delimiter)))
 
 (defun my/org-todo ()
   "ivy で TODO ステータスを切り替えるためのコマンド
