@@ -2,7 +2,6 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/el-get/org-mode"))
 (require 'ert)
 (require 'org)
-(require 'dash)
 
 (load (expand-file-name "~/.emacs.d/inits/68-my-org-commands.el"))
 

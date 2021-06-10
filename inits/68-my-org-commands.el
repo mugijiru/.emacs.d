@@ -10,7 +10,7 @@ Hydra から利用するために定義している。"
   "org-todo-keywords から装飾を省いた文字列のリストを返す関数"
   (mapcar (lambda (element)
             (replace-regexp-in-string "\(.+\)" "" element))
-          (--remove (string= "|" it) (cl-rest (cl-first org-todo-keywords)))))
+          (cl-remove-if (lambda (elm) (string= "|" elm)) (cl-rest (cl-first org-todo-keywords)))))
 
 (defun my/org-todo ()
   "ivy で TODO ステータスを切り替えるためのコマンド
