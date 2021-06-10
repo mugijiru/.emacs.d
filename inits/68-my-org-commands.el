@@ -9,7 +9,8 @@ Hydra から利用するために定義している。"
 (defun my/org-todo-keyword-strings ()
   "org-todo-keywords から装飾を省いた文字列のリストを返す関数"
   (let* ((keywords (cl-rest (cl-first org-todo-keywords)))
-         (without-delimiter (cl-remove-if (lambda (elm) (string= "|" elm)) keywords)))
+         (without-delimiter (cl-remove-if (lambda (elm) (string= "|" elm))
+                                          keywords)))
     (mapcar (lambda (element)
               (replace-regexp-in-string "\(.+\)" "" element))
             without-delimiter)))
