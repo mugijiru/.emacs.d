@@ -6,14 +6,18 @@ Hydra から利用するために定義している。"
       (org-clock-remove-overlays)
     (org-clock-display)))
 
+(defun my/org-todo-keyword-strings ()
+  "org-todo-keywords から装飾を省いた文字列のリストを返す関数"
+  (mapcar (lambda (element)
+            (replace-regexp-in-string "\(.+\)" "" element))
+          (--remove (string= "|" it) (cdar org-todo-keywords))))
+
 (defun my/org-todo ()
   "ivy で TODO ステータスを切り替えるためのコマンド
 Hydra から利用するために定義している。"
   (interactive)
   (ivy-read "Org todo: "
-            (mapcar (lambda (element)
-                      (replace-regexp-in-string "\(.+\)" "" element))
-                    (--remove (string= "|" it) (cdar org-todo-keywords)))
+            (my/org-todo-keyword-strings)
             :require-match t
             :sort nil
             :action (lambda (keyword)
