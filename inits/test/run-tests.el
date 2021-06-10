@@ -3,4 +3,5 @@
 (load "68-my-org-commands")
 
 (if noninteractive
-    (ert-run-tests-batch-and-exit))
+    (let ((ert-quiet t))
+      (ert-run-tests-batch-and-exit)))
