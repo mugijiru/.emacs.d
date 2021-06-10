@@ -6,19 +6,21 @@ Hydra から利用するために定義している。"
       (org-clock-remove-overlays)
     (org-clock-display)))
 
+(defun my/org-todo-keyword-strings ()
+  "org-todo-keywords から装飾を省いた文字列のリストを返す関数"
+  (let* ((keywords (cl-rest (cl-first org-todo-keywords)))
+         (without-delimiter (cl-remove-if (lambda (elm) (string= "|" elm))
+                                          keywords)))
+    (mapcar (lambda (element)
+              (replace-regexp-in-string "\(.+\)" "" element))
+            without-delimiter)))
+
 (defun my/org-todo ()
   "ivy で TODO ステータスを切り替えるためのコマンド
-Hydra から利用するために定義している。
-
-現在リストをうまく取得できないため活用できていない。
-org-todo-keywords-for-agenda ではなく
-別の方法でリストを取得する必要がありそう
-"
+Hydra から利用するために定義している。"
   (interactive)
   (ivy-read "Org todo: "
-            (mapcar (lambda (element)
-                      (replace-regexp-in-string "\(.+\)" "" element))
-                    (--remove (string= "|" it) (cdar org-todo-keywords)))
+            (my/org-todo-keyword-strings)
             :require-match t
             :sort nil
             :action (lambda (keyword)
