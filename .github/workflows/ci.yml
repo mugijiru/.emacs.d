@@ -22,4 +22,4 @@ jobs:
 
     - name: Run tests
       run: |
-        emacs -Q --batch -l inits/test/*-test.el -l inits/test/run-tests.el
+        emacs -Q --batch --eval "(setq user-emacs-directory \"$(pwd)\")" -l inits/test/*-test.el -l inits/test/run-tests.el
