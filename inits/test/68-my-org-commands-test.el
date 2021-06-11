@@ -1,6 +1,6 @@
 (require 'ert)
 
-(load (expand-file-name (concat user-emacs-directory "inits/68-my-org-commands.el")))
+(load (expand-file-name (concat user-emacs-directory "/inits/68-my-org-commands.el")))
 
 (ert-deftest test:my/org-todo-keyword-strings ()
   "Test of `my/org-todo-keyword-strings'."
