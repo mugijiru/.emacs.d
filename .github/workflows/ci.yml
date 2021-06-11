@@ -1,0 +1,25 @@
+name: test
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        emacs_version:
+          # XXX Emacs 26.1's make install doesn't install emacs-module.h
+          # - 26.1
+          - 26.3
+          - 27.1
+
+    steps:
+    - uses: purcell/setup-emacs@master
+      with:
+        version: ${{ matrix.emacs_version }}
+
+    - uses: actions/checkout@v2
+
+    - name: Run tests
+      run: |
+        emacs -Q --batch -l inits/test/*-test.el -l inits/test/run-tests.el
