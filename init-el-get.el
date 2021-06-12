@@ -164,4 +164,6 @@
     (loop for package in my/el-get-auto-update-targets
           do
           (message (concat "update package " package))
-          (el-get-update package))))
+          (el-get-lock-checkout package)
+          (el-get-update package)
+          )))
