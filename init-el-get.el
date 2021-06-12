@@ -16,26 +16,26 @@
 
 
 ;; 自動アップデートの対象リスト
-;; (setq my/el-get-auto-update-targets
-;;       '(
-;;         "smartparens"
-;;         ;; "mocker\.el"
-;;         ;; "with-simulated-input"
-;;         "flycheck-pos-tip"
-;;         ;; "pos-tip"
-;;         "emacs-neotree"
-;;         "company-lsp"
-;;         "emacs-w3m"
-;;         "browse-at-remote"
-;;         "ox-hugo"
-;;         "sticky-control"
-;;         "org-pomodoro"
-;;         "org-ql"
-;;         "org-super-agenda"
-;;         "ts"
-;;         "ov"
-;;         "diminish"
-;;         "open-junk-file"
+(setq my/el-get-auto-update-targets
+      '(
+        "smartparens"
+        ;; "mocker\.el"
+        ;; "with-simulated-input"
+        "flycheck-pos-tip"
+        ;; "pos-tip"
+        "emacs-neotree"
+        "company-lsp"
+        "emacs-w3m"
+        "browse-at-remote"
+        ;; "ox-hugo"
+        ;; "sticky-control"
+        ;; "org-pomodoro"
+        ;; "org-ql"
+        ;; "org-super-agenda"
+        ;; "ts"
+        ;; "ov"
+        ;; "diminish"
+        ;; "open-junk-file"
 ;;         "htmlize"
 ;;         "ivy-rich"
 ;;         "emacs-neotree-dev"
@@ -159,10 +159,11 @@
 ;;         ;; "undo-fu"
 ;;         ;; "emacs-todoist"
 ;;         ;; "org-mode"
-;;         ))
+        ))
 
-(setq my/el-get-auto-update-targets '())
-
+;; (mapcar (lambda (package-with-version)
+;;                 (car package-with-version))
+;;               el-get-lock-package-versions)
 
 (defun my/el-get-auto-update ()
   (let* ((el-get-default-process-sync t))
