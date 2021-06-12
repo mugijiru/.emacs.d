@@ -8,10 +8,9 @@ jobs:
     strategy:
       matrix:
         emacs_version:
-          # XXX Emacs 26.1's make install doesn't install emacs-module.h
-          # - 26.1
           - 26.3
           - 27.1
+          - 27.2
 
     steps:
     - uses: purcell/setup-emacs@master
