@@ -1,6 +1,8 @@
 (defun my/emacs-lisp-mode-hook ()
   (display-line-numbers-mode 1)
-  (company-mode 1))
+  (company-mode 1)
+  (smartparens-mode 1)
+  (turn-on-smartparens-strict-mode)))
 (add-hook 'emacs-lisp-mode-hook 'my/emacs-lisp-mode-hook)
 
 (defun my/insert-all-the-icons-code (family)
