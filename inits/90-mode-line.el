@@ -36,7 +36,6 @@
 ;; minor-mode
 ;; (my/diminish "helm" 'helm-mode ":helmet-with-cross:")
 ;; (my/diminish "git-gutter" 'git-gutter-mode (all-the-icons-octicon "git-compare"))
-;; (my/diminish "paredit" 'paredit-mode "()")
 ;; (my/diminish "yasnippet" 'yas-minor-mode " Ys")
 ;; (my/diminish "whitespace" 'whitespace-mode "◽")
 ;; (my/diminish "whitespace" 'global-whitespace-mode "◽")
