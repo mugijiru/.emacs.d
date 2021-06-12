@@ -20,7 +20,7 @@
         ;; "mocker\.el"
         ;; "with-simulated-input"
         "flycheck-pos-tip"
-        "pos-tip"
+        ;; "pos-tip"
         "emacs-neotree"
         "company-lsp"
         "emacs-w3m"
