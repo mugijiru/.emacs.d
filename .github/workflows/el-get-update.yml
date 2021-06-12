@@ -24,7 +24,7 @@ jobs:
         sudo apt-get install -y dbus-x11 emacs
 
     - name: update packages
-      run: emacs -Q --batch --eval "(setq user-emacs-directory \"$(pwd)/\")" -l init-el-get.el -f my/el-get-auto-update
+      run: emacs -Q --batch --eval "(setq user-emacs-directory \"$(pwd)/\")" -l init.el -f my/el-get-auto-update
 
     - name: Detect el-get.lock diff
       run: |
