@@ -13,6 +13,7 @@
   (company-mode 1)
   (lsp)
   (lsp-ui-mode 1)
+  (turn-on-smartparens-strict-mode)
   (display-line-numbers-mode 1))
 
 (add-hook 'enh-ruby-mode-hook 'my/enh-ruby-mode-hook)
