@@ -4,6 +4,7 @@
   (setq flycheck-disabled-checkers '(javascript-standard javascript-jshint))
 
   (company-mode 1)
+  (turn-on-smartparens-strict-mode)
 
   (setq js2-basic-offset 2))
 (add-to-list 'auto-mode-alist '("\\.es6$" . js2-mode))
