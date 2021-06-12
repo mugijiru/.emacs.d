@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((mocker\.el :checksum "5b01b3cc51388faf1ba823683c3600790099c84c")
+      '((smartparens :checksum "911cc896a0f2eb8b5fbdd6fc8331523ad9889a3a")
+        (mocker\.el :checksum "5b01b3cc51388faf1ba823683c3600790099c84c")
         (with-simulated-input :checksum "0f43fe46d4ab098c18a90b9df18cb96bab8e4a35")
         (flycheck-pos-tip :checksum "dc57beac0e59669926ad720c7af38b27c3a30467")
         (pos-tip :checksum "179cc126b363f72ca12fab1e0dc462ce0ee79742")
