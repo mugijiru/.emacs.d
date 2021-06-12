@@ -75,7 +75,7 @@
         "eldoc-eval"
         "emacs-async"
         "emacsql"
-        "emojify"
+        ;; "emojify"
         "enh-ruby-mode"
         "epl"
         "esa"
