@@ -162,4 +162,6 @@
 (defun my/el-get-auto-update ()
   (let* ((el-get-default-process-sync t))
     (loop for package in my/el-get-auto-update-targets
-          do (el-get-update package))))
+          do
+          (message (concat "update package " package))
+          (el-get-update package))))
