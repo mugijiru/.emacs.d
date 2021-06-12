@@ -22,7 +22,7 @@
         ;; "mocker\.el"
         ;; "with-simulated-input"
         ;; "flycheck-pos-tip"
-        ;; ;; "pos-tip"
+        ;; ;; ;; "pos-tip"
         ;; "emacs-neotree"
         ;; "company-lsp"
         ;; "emacs-w3m"
@@ -167,6 +167,8 @@
 
 (defun my/el-get-auto-update ()
   (let* ((el-get-default-process-sync t))
+    (el-get-lock-checkout "el-get")
+    (sit-for 10) ;; el-get がなんか読み込まれてるので待ってみる
     (loop for package in my/el-get-auto-update-targets
           do
           (message (concat "update package " package))
