@@ -102,9 +102,22 @@
   暫定的にここに置いているが設定と近い方が良さそうなので
   いずれドキュメント内の位置を移動しそう。
 
+** run-tests
+
+   読み込んだテストをまるっとテストするためのコードをとりあえず置いている。
+
+   #+begin_src emacs-lisp :tangle inits/test/run-tests.el
+  (if noninteractive
+      (let ((ert-quiet t))
+        (ert-run-tests-batch-and-exit)))
+   #+end_src
+
+   後述の [[*テストライブラリの読み込み][テストライブラリの読み込み]] などはここで担うべきかとも考えるが
+   今はテストファイルが1つしかないので気にしないことにする。
+
 ** 68-my-org-commands-test
 
-   org-mode 用に定義したコマンドのテストコード
+   org-mode 用に定義したコマンドや関数のテストコード
 
 *** Setup
 **** テストライブラリの読み込み
