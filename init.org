@@ -206,6 +206,43 @@
       | h   | 隠しファイルを表示したり隠したり           |
       |-----+--------------------------------------------|
 
+** Molokai Theme
+
+   今使ってるテーマは Molokai なのです。
+   https://github.com/alloy-d/color-theme-molokai
+
+   元々は monokai を使っていたけど、何かの理由で乗り換えた。
+   テーマの形式が古かったとかそんな理由だった気がする。
+
+   ファイルは 90-theme.el と init-loader 的にも大分後ろの方で設定している。
+   早い内にテーマを読み込むと行儀の悪い何かに上書きされるとか、そんな理由だったはず。
+
+*** インストール
+
+    el-get-lock で lock できるようにしたかったから、
+    MELPA からではなく GitHub から入れるようにしている。
+
+    #+begin_src emacs-lisp :tangle inits/90-theme.el
+    (el-get-bundle alloy-d/color-theme-molokai)
+    #+end_src
+
+    まあ lock が目的というより、今使ってる revision がわかるようにしたいってだけなんだけど
+
+*** パスを通す
+
+    パスを通すことで使えるようにする
+
+    #+begin_src emacs-lisp :tangle inits/90-theme.el
+    (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/el-get/color-theme-molokai"))
+    #+end_src
+
+*** 読み込んで適用する
+
+    最後に、そのテーマを使えるようにする
+
+    #+begin_src emacs-lisp :tangle inits/90-theme.el
+    (load-theme 'molokai t)
+    #+end_src
 
 * フレームワーク系
 ** Ember.js 用の設定
