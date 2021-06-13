@@ -6,6 +6,90 @@
 
   本当は全部やりたいけどまずは小さく少しずつ
 
+* キーバインド系
+** sticky-control
+
+   指定したキーを2回叩いたら
+   Control が押されてるような状態になってしてくれるプラグイン。
+
+   その2回の間隔はデフォルトだと 0.5 秒以内となっている。
+   そのため、そのキーを押して 0.5 秒が経過したら、普通にそのキーが押されたことになる
+
+   さらに ~sticky-control-shortcuts~ に指定されてる一部のキーについては
+   sticky 用のキーを押した直後に shortcuts のキーを押すと
+   Control を押している状態でそのキーを押したことになる。
+
+   例えば私は ~,~ を sticky 用のキーにしていて
+   shortcuts に ~c~ を入れているので
+   ~,c~ と素早くタイプをすればそれだけで ~C-c~ が押された状態になる。
+
+*** インストール
+
+    まずは el-get-bundle でインストール。
+
+    #+begin_src emacs-lisp :tangle inits/80-sticky-control.el
+    (el-get-bundle sticky-control)
+    #+end_src
+
+    ちなみにレシピは公式ではなかったので
+    とりあえず自分の環境で使えるように自作レシピを置いている。
+
+    #+begin_src emacs-lisp :tangle recipes/sticky-control.rcp
+    (:name sticky-control
+           :description "save your left little finger"
+           :type http
+           :url "https://raw.githubusercontent.com/martialboniou/emacs-revival/master/sticky-control.el"
+           :features "sticky-control")
+    #+end_src
+
+    元々は http://www.cs.toronto.edu/~ryanjohn/sticky-control.el にあったのだけど
+    最近そこからは取得できなくなったので
+    https://github.com/martialboniou/emacs-revival/blob/master/sticky-control.el
+    から取得して利用している
+
+*** 設定
+
+    まずは「2回叩いたら Control を押している状態になる」キーを指定する。
+
+    #+begin_src emacs-lisp :tangle inits/80-sticky-control.el
+    (sticky-control-set-key 'sticky-control-key ?,)
+    #+end_src
+
+    私は ~,~ を sticky-control のキーにしているのでこの指定。
+
+    そして次に ~sticky-control-shortuts~ の指定。
+    ここに指定しておくと、
+    例えば ~,c~ と素早くタイプすることで ~C-c~ が入力された状態とすることができる。
+
+    #+begin_src emacs-lisp :tangle inits/80-sticky-control.el
+    (setq sticky-control-shortcuts
+          '((?c . "\C-c")
+            (?g . "\C-g")
+            (?k . "\C-k")
+            (?a . "\C-a")
+            (?e . "\C-e")
+            (?n . "\C-n")
+            (?o . "\C-o")
+            (?p . "\C-p")
+            (?j . "\C-j")
+            (?f . "\C-f")
+            (?b . "\C-b")
+            (?x . "\C-x")
+            (?r . "\C-r")
+            (?s . "\C-s")))
+    #+end_src
+
+    結構な数を指定しているけど、普段そんなに使えているわけでもない。
+    まあ、大体 Control を押しながら使いそうなところは押さえてあるので
+    何も考えずとも使えるようにしてある。
+
+*** 有効化
+    最後に有効化
+
+    #+begin_src emacs-lisp :tangle inits/80-sticky-control.el
+    (sticky-control-mode)
+    #+end_src
+
 * フレームワーク系
 ** Ember.js 用の設定
 
@@ -91,7 +175,7 @@
 
    具体的な使用例は [[*test:my/org-todo][test:my/org-todo]] で示す。
 
-   #+begin_src emacs-lisp :tangle 99-with-simulated-input.el
+   #+begin_src emacs-lisp :tangle inits/99-with-simulated-input.el
    (el-get-bundle DarwinAwardWinner/with-simulated-input)
    #+end_src
 
