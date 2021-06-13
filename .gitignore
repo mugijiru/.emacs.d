@@ -13,6 +13,7 @@ transient
 .authinfo.gpg
 .lsp-session-v1
 .mc-lists.el
+.org-generic-id-locations
 bookmarks
 forge-database.sqlite
 ido.last
