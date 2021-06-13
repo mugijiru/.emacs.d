@@ -12,7 +12,9 @@
       :init
       ;; optional packages if you want to use :hydra, :el-get, :blackout,,,
       ;; (leaf hydra :ensure t)
-      ;; (leaf el-get :ensure t)
+      (leaf el-get
+        :ensure t
+        :config (add-to-list 'el-get-recipe-path "~/.emacs.d/recipes"))
       (leaf blackout :ensure t)
 
       :config
