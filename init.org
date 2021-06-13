@@ -1,0 +1,51 @@
+* これは何?
+
+  麦汁さんの Emacs の設定ファイルの一部。
+
+  一部の設定はこのファイルで記載しているコードブロックを export している。
+
+  本当は全部やりたいけどまずは小さく少しずつ
+
+* フレームワーク系
+** Ember.js 用の設定
+
+   Ember.js 用の Emacs の拡張としては
+   ~ember-mode~ と ~handlebars-mode~ が存在する
+
+*** ember-mode
+
+    https://github.com/madnificent/ember-mode
+
+    Ember.js アプリケーションのファイルナビゲーションや生成を行ってくれるモード。
+    実は麦汁さんは使えてない。
+
+    インストールするだけではダメで、
+    ember-mode を明示的に起動しないといけない。
+
+    そのためには dir-locals を使うとか
+    projectile なんかがやってるように
+    フォルダ構成から判定させるみたいなことが必要そう。だるい。
+
+    というわけで死蔵中。
+
+    ついでにいうとキーバインドもだるい系なので
+    使う時は Hydra を用意した方が良さそう
+
+    #+begin_src emacs-lisp :tangle inits/40-ember.el
+    (el-get-bundle madnificent/ember-mode)
+    #+end_src
+
+*** handlebars-mode
+
+    https://github.com/danielevans/handlebars-mode
+
+    Handlebars を書くためのモード。
+
+    syntax highlight と、いくつかの編集機能を備えている。
+    が、今のところ麦汁さんは syntax highlight しか使えてない。
+
+    編集コマンドは [[https://github.com/jerrypnz/major-mode-hydra.el][major-mode-hydra]] で使えるようにしてあげれば良さそう
+
+    #+begin_src emacs-lisp :tangle inits/40-ember.el
+    (el-get-bundle handlebars-mode)
+    #+end_src

@@ -33,7 +33,8 @@
       ("p" org-pomodoro      "Pomodoro"))
 
      "Babel"
-     (("e" org-babel-confirm-evaluate "Eval"))
+     (("e" org-babel-confirm-evaluate "Eval")
+      ("x" org-babel-tangle "Export SRC"))
 
      "Trello"
      (("K" org-trello-mode "On/Off" :toggle org-trello-mode)
