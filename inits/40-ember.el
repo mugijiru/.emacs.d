@@ -1,2 +1,2 @@
-(el-get-bundle madnificent/ember-mode)
-(el-get-bundle handlebars-mode)
+(leaf ember-mode :ensure t)
+(leaf handlebars-mode :ensure t)
