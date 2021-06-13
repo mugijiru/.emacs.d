@@ -8,8 +8,7 @@
     ("Nav"
      (("u"   neotree-select-up-node   "Up")
       ("g"   neotree-refresh          "Refresh")
-      ("q"   neotree-hide             "Hide")
-      )
+      ("Q"   neotree-hide             "Hide"))
 
      "File"
      (("a"   neo-open-file-ace-window "Ace")
