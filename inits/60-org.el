@@ -2,9 +2,11 @@
 (el-get-bundle org-export-blocks-format-plantuml)
 (org-babel-do-load-languages 'org-babel-load-languages
                              '((plantuml . t)
+                               (sql . t)
                                (gnuplot . t)
                                (emacs-lisp . t)
                                (shell . t)
+                               (js . t)
                                (ruby . t)))
 (setq org-directory (expand-file-name "~/Documents/org/"))
 
