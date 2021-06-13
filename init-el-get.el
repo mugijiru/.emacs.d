@@ -10,5 +10,9 @@
 ;; (add-to-list 'el-get-recipe-path "~/.emacs.d/recipes")
 
 ;; el-get のバージョンロック機構の導入
-(el-get-bundle tarao/el-get-lock)
-(el-get-lock)
+;; (el-get-bundle tarao/el-get-lock)
+;; (el-get-lock)
+
+(leaf tarao/el-get-lock
+  :el-get t
+  :config (el-get-lock))
