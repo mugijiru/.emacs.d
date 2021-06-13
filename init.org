@@ -47,17 +47,15 @@
     https://github.com/martialboniou/emacs-revival/blob/master/sticky-control.el
     から取得して利用している
 
-*** 設定                                                        :improvement:
+*** 設定
 
     まずは「2回叩いたら Control を押している状態になる」キーを指定する。
 
     #+begin_src emacs-lisp :tangle inits/80-sticky-control.el
-    (sticky-control-set-key 'sticky-control-key 44)
+    (sticky-control-set-key 'sticky-control-key ?,)
     #+end_src
 
     私は ~,~ を sticky-control のキーにしているのでこの指定。
-    ~44~ というマジックナンバーが出て来るのはよくないので
-    どこかで修正したいですね。
 
     そして次に ~sticky-control-shortuts~ の指定。
     ここに指定しておくと、
