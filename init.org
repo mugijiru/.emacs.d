@@ -102,6 +102,25 @@
   暫定的にここに置いているが設定と近い方が良さそうなので
   いずれドキュメント内の位置を移動しそう。
 
+** 実行方法
+
+   テストする時は以下のように叩いたら動く。
+
+   #+begin_src sh
+   emacs -Q --batch -l ~/.emacs.d/inits/test/*-test.el -l ~/.emacs.d/inits/test/run-tests.el
+   #+end_src
+
+   今まで ~.emacs.d~ にいる状態でしか叩いたことないので
+   他の場所にいる時に実行しても大丈夫かはわからない。
+
+   単体でテストしたい時は
+
+   #+begin_example
+   -l ~/.emacs.d/inits/test/*-test.el
+   #+end_example
+
+   の部分を書き換えたらいいんじゃないかな。やったことないけど。
+
 ** run-tests
 
    読み込んだテストをまるっとテストするためのコードをとりあえず置いている。
