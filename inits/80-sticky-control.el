@@ -1,5 +1,7 @@
 (el-get-bundle sticky-control)
+
 (sticky-control-set-key 'sticky-control-key 44)
+
 (setq sticky-control-shortcuts
       '((?c . "\C-c")
         (?g . "\C-g")
