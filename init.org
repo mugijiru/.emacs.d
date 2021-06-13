@@ -175,7 +175,7 @@
 
    具体的な使用例は [[*test:my/org-todo][test:my/org-todo]] で示す。
 
-   #+begin_src emacs-lisp :tangle 99-with-simulated-input.el
+   #+begin_src emacs-lisp :tangle inits/99-with-simulated-input.el
    (el-get-bundle DarwinAwardWinner/with-simulated-input)
    #+end_src
 
