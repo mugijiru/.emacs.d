@@ -12,7 +12,7 @@
    Ember.js 用の Emacs の拡張としては
    ~ember-mode~ と ~handlebars-mode~ が存在する
 
-*** ember-mode
+*** ember-mode                                                       :unused:
 
     https://github.com/madnificent/ember-mode
 
@@ -35,7 +35,7 @@
     (el-get-bundle madnificent/ember-mode)
     #+end_src
 
-*** handlebars-mode
+*** handlebars-mode                                             :improvement:
 
     https://github.com/danielevans/handlebars-mode
 
