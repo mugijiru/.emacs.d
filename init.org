@@ -12,7 +12,7 @@
    Ember.js 用の Emacs の拡張としては
    ~ember-mode~ と ~handlebars-mode~ が存在する
 
-*** ember-mode
+*** ember-mode                                                       :unused:
 
     https://github.com/madnificent/ember-mode
 
@@ -35,7 +35,7 @@
     (el-get-bundle madnificent/ember-mode)
     #+end_src
 
-*** handlebars-mode
+*** handlebars-mode                                             :improvement:
 
     https://github.com/danielevans/handlebars-mode
 
@@ -49,3 +49,198 @@
     #+begin_src emacs-lisp :tangle inits/40-ember.el
     (el-get-bundle handlebars-mode)
     #+end_src
+
+* 設定ファイルのテスト関係プラグイン
+
+** mocker.el                                                         :unused:
+
+   https://github.com/sigma/mocker.el
+
+   Emacs Lisp のテストで使う Mock ライブラリ。
+
+   使おうと思って導入したけど、
+   自分のやりたいことはちょっと違ったので死蔵中
+
+   便利そうなのでとりあえず置いといている。
+
+   #+begin_src emacs-lisp :tangle inits/99-mocker.el
+   (el-get-bundle sigma/mocker.el)
+   #+end_src
+
+** with-simulated-input.el
+
+   https://github.com/DarwinAwardWinner/with-simulated-input
+
+   入力をシミュレートするためのプラグイン。
+
+   公式のドキュメントにあるように
+
+   #+begin_src emacs-lisp
+   (with-simulated-input
+       "hello SPC world RET"
+     (read-string "Say hello to the world: "))
+   #+end_src
+
+   を評価すると
+   read-string に対して「hello world」を入力したことになるので
+   echo エリアに「hello world」と表示される。
+
+   これで何が嬉しいかというと
+   Emacs Lisp でやっていることはインタラクティブな部分が大きいので
+   そういった要素をテストできるようになる。
+
+   具体的な使用例は [[*test:my/org-todo][test:my/org-todo]] で示す。
+
+   #+begin_src emacs-lisp :tangle 99-with-simulated-input.el
+   (el-get-bundle DarwinAwardWinner/with-simulated-input)
+   #+end_src
+
+* テストコード
+
+  一部のコマンドなどの設定を書き始めているので設けたセクション。
+
+  暫定的にここに置いているが設定と近い方が良さそうなので
+  いずれドキュメント内の位置を移動しそう。
+
+** 実行方法
+
+   テストする時は以下のように叩いたら動く。
+
+   #+begin_src sh
+   emacs -Q --batch -l ~/.emacs.d/inits/test/*-test.el -l ~/.emacs.d/inits/test/run-tests.el
+   #+end_src
+
+   今まで ~.emacs.d~ にいる状態でしか叩いたことないので
+   他の場所にいる時に実行しても大丈夫かはわからない。
+
+   単体でテストしたい時は
+
+   #+begin_example
+   -l ~/.emacs.d/inits/test/*-test.el
+   #+end_example
+
+   の部分を書き換えたらいいんじゃないかな。やったことないけど。
+
+** run-tests
+
+   読み込んだテストをまるっとテストするためのコードをとりあえず置いている。
+
+   #+begin_src emacs-lisp :tangle inits/test/run-tests.el
+  (if noninteractive
+      (let ((ert-quiet t))
+        (ert-run-tests-batch-and-exit)))
+   #+end_src
+
+   後述の [[*テストライブラリの読み込み][テストライブラリの読み込み]] などはここで担うべきかとも考えるが
+   今はテストファイルが1つしかないので気にしないことにする。
+
+** 68-my-org-commands-test
+
+   org-mode 用に定義したコマンドや関数のテストコード
+
+*** Setup
+**** テストライブラリの読み込み
+
+     標準でついてくる ert を採用しているのでそれを読み込んでいる。
+
+     #+begin_src emacs-lisp :tangle inits/test/68-my-org-commands-test.el
+     (require 'ert)
+     #+end_src
+
+**** el-get の設定の読み込み
+
+     プラグイン管理には el-get を利用しているので
+     その設定ファイルを読み込んでいる。
+
+     #+begin_src emacs-lisp :tangle inits/test/68-my-org-commands-test.el
+     ;; プラグイン読み込みの前準備
+     (load (expand-file-name (concat user-emacs-directory "/init-el-get.el")))
+     #+end_src
+
+**** テスト補助のプラグイン読み込み
+***** with-simulated-input
+
+      上で説明しているが、
+      入力をシミュレートするためのプラグインをテストで利用しているので
+      ここで読み込んでいる。
+
+      #+begin_src emacs-lisp :tangle inits/test/68-my-org-commands-test.el
+      ;; 入力シミュレート用のプラグイン
+      (load (expand-file-name (concat user-emacs-directory "/inits/99-with-simulated-input")))
+      #+end_src
+
+**** 依存プラグインの読み込み                                   :improvement:
+
+     テスト対象が依存しているプラグインを読み込んでいる。
+     本来は init.el などの設定ファイルを全部読み込んだ状態でテストをした方が良さそうだが
+     現状だとその状態で GitHub Actions で動かせる方法がわからないので
+     一旦個別に読み込むようにしている。
+
+***** swiper
+
+      ivy-read を使った機能のテストをするので読み込んでいる。
+
+      #+begin_src emacs-lisp :tangle inits/test/68-my-org-commands-test.el
+      (el-get-bundle abo-abo/swiper)
+      #+end_src
+
+**** テスト対象の読み込み
+
+     テストしたいファイルをここで読んでる。
+
+     #+begin_src emacs-lisp :tangle inits/test/68-my-org-commands-test.el
+     ;; テスト対象の読み込み
+     (load (expand-file-name (concat user-emacs-directory "/inits/68-my-org-commands.el")))
+     #+end_src
+
+*** ert-deftest
+**** test:my/org-todo-keyword-strings
+
+     ~org-todo-keywords~ から "|" という区切りを除外したり
+     "(s)" とかのような高速アクセスのためのキーワードは
+     ivy で選択する時には邪魔なので除外したい、ということを表現したテスト。
+
+     #+begin_src emacs-lisp :tangle inits/test/68-my-org-commands-test.el
+     (ert-deftest test:my/org-todo-keyword-strings ()
+       "Test of `my/org-todo-keyword-strings'."
+       (let ((org-todo-keywords '((sequence "TODO" "DOING(!)" "WAIT" "|" "DONE(!)" "SOMEDAY(s)"))))
+         (should (equal '("TODO" "DOING" "WAIT" "DONE" "SOMEDAY")
+                        (my/org-todo-keyword-strings)))))
+     #+end_src
+
+     なお、ここでテストしている関数では
+     TODO キーワードを ivy で扱いやすいように整えているだけで
+     実際の選択は別の関数が担っている
+
+**** test:my/org-todo
+
+     org-todo を ivy で選択する関数のテストを書いている。
+
+     #+begin_src emacs-lisp :tangle inits/test/68-my-org-commands-test.el
+     (ert-deftest test:my/org-todo ()
+       "Test of `my/org-todo'."
+       (let ((org-todo-keywords '((sequence "TODO" "DOING(!)" "WAIT" "|" "DONE(!)" "SOMEDAY(s)")))
+             (result))
+         ;; org-mode を読まずに済むように org-todo を差し替えてテストしている
+         (cl-letf (((symbol-function 'org-todo)
+                    (lambda (keyword)
+                      (setq result keyword))))
+           (with-simulated-input "DOI RET" (my/org-todo))
+           (should (equal "DOING" result)))))
+     #+end_src
+
+     ポイントは cl-letf を使って、内部で叩いている関数 ~org-todo~ を一時的に
+
+     #+begin_src emacs-lisp
+     (lambda (keyword)
+       (setq result keyword))
+     #+end_src
+
+     に差し替えているところ。
+
+     org-mode を呼び出さずに代わりの関数に差し替えているので
+     テストがしやすくなっている。Stub 的なやつかな。
+
+     何度も使うならこの差し替え処理自体をテストヘルパーにしても良いかもしれない。
+
+     また ivy で選択するので with-simulated-input を使って入力操作を代替している。便利。

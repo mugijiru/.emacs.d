@@ -1,7 +1,9 @@
 (require 'ert)
 
-;; 外部ライブラリの設定
+;; プラグイン読み込みの前準備
 (load (expand-file-name (concat user-emacs-directory "/init-el-get.el")))
+
+;; 入力シミュレート用のプラグイン
 (load (expand-file-name (concat user-emacs-directory "/inits/99-with-simulated-input")))
 
 (el-get-bundle abo-abo/swiper)
