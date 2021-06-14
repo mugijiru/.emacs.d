@@ -98,7 +98,8 @@
    "View"
    (("D" delete-other-windows      "Only This Win")
     ("W" window-control-hydra/body "Window Control")
-    ("+" text-scale-hydra/body     "Text Scale"))
+    ("+" text-scale-hydra/body     "Text Scale")
+    ("w" ace-swap-window           "Swap Window"))
 
    "Tool"
    (("SPC" major-mode-hydra              "Hydra(Major)")
