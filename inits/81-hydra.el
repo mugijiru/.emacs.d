@@ -88,8 +88,9 @@
     (";" comment-dwim "Comment"))
 
    "Code"
-   (("g" counsel-projectile-ag       "Grep")
+   (("G" counsel-projectile-ag       "Grep")
     ("j" dumb-jump-pretty-hydra/body "Dumb jump")
+    ("g" avy-hydra/body)
     ("i" counsel-imenu               "imenu")
     ("y" yasnippet-hydra/body        "Yasnippet")
     ("B" browse-at-remote            "Browse")
