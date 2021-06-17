@@ -15,4 +15,7 @@
       ("W" avy-goto-word-0 "Word 0"))
 
      "Line"
-     (("l" avy-goto-line "Line")))))
+     (("l" avy-goto-line "Line"))
+
+     "Other"
+     (("r" avy-resume "Resume")))))

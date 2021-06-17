@@ -127,7 +127,10 @@
           ("W" avy-goto-word-0 "Word 0"))
 
          "Line"
-         (("l" avy-goto-line "Line")))))
+         (("l" avy-goto-line "Line"))
+
+         "Other"
+         (("r" avy-resume "Resume")))))
     #+end_src
 
 
@@ -140,6 +143,7 @@
     | w   | 1文字絞り込んで単語先頭に移動 |
     | W   | 絞り込みなしの単語移動        |
     | l   | 列移動                        |
+    | r   | 繰り返し同じコマンドを実行    |
     |-----+-------------------------------|
 
 * UI 系
