@@ -1,4 +1,5 @@
 (el-get-bundle avy)
+
 (setq avy-style 'pre)
 
 (with-eval-after-load 'pretty-hydra

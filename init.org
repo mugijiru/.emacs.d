@@ -90,6 +90,46 @@
     (sticky-control-mode)
     #+end_src
 
+* ナビゲーション系
+** avy
+
+   https://github.com/abo-abo/avy
+   好きな文字とか単語の場所にジャンプするためのパッケージ。
+*** インストール
+
+    #+begin_src emacs-lisp :tangle inits/50-avy.el
+    (el-get-bundle avy)
+    #+end_src
+*** 設定
+
+    文字の上に重なると元の文字列がよくわからなくなるので、
+    移動先の文字の前に表示するようにしている
+
+    #+begin_src emacs-lisp :tangle inits/50-avy.el
+    (setq avy-style 'pre)
+    #+end_src
+*** キーバインド
+
+    グローバルなキーバインドを汚染したくなかったので
+    ひとまず Hydra を定義している。
+
+    #+begin_src emacs-lisp :tangle inits/50-avy.el
+    (with-eval-after-load 'pretty-hydra
+      (pretty-hydra-define avy-hydra
+        (:separator "-" :title "avy" :foreign-key warn :quit-key "q" :exit t)
+        ("Char"
+         (("c" avy-goto-char       "Char")
+          ("C" avy-goto-char-2     "Char 2")
+          ("x" avy-goto-char-timer "Char Timer"))
+
+         "Word"
+         (("w" avy-goto-word-1 "Word")
+          ("W" avy-goto-word-0 "Word 0"))
+
+         "Line"
+         (("l" avy-goto-line "Line")))))
+    #+end_src
+
 * UI 系
 ** Neotree                                                      :replacement:
 
@@ -205,7 +245,6 @@
       | z   | Neotree のサイズを大きくしたり小さくしたり |
       | h   | 隠しファイルを表示したり隠したり           |
       |-----+--------------------------------------------|
-
 
 * フレームワーク系
 ** Ember.js 用の設定
