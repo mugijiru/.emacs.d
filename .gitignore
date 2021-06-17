@@ -8,12 +8,17 @@ skk-jisyo
 org-gcal
 .cache
 transient
+.trello
+backup
+persist
+request
 
 # auto generated files
 .authinfo.gpg
 .lsp-session-v1
 .mc-lists.el
 .org-generic-id-locations
+.org-id-locations
 bookmarks
 forge-database.sqlite
 ido.last
@@ -25,3 +30,4 @@ projectile-bookmarks.eld
 projectile.cache
 places
 history
+rake.cache
