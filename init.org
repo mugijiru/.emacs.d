@@ -35,6 +35,36 @@
     (run-with-idle-timer 60.0 t #'garbage-collect)
     #+end_src
 
+* 編集系
+** auto-insert
+   ファイルを新規作成した時に
+   ファイル名に応じたテンプレートを挿入する機能。
+   Emacs が標準で持ってるライブラリなのでインストールは不要
+
+*** 設定
+
+    Emacs の設定は .emacs.d の中に閉じ込めたいので
+    auto-insert のテンプレートも ~~/.emacs.d/insert~ に閉じ込める設定にしている。
+
+    #+begin_src emacs-lisp :tangle inits/20-auto-insert.el
+    (custom-set-variables '(auto-insert-directory "~/.emacs.d/insert/"))
+    #+end_src
+
+*** 有効化
+
+    あとは単に有効化している。
+
+    #+begin_src emacs-lisp :tangle inits/20-auto-insert.el
+    (auto-insert-mode 1)
+    #+end_src
+
+*** 他の設定
+
+    ファイル名を正規表現でマッチさせてテンプレートが選択されるので
+    各言語やフレームワーク毎に設定を入れることにしている。
+
+    実際は今のところ inits/41-vue.el でのみ追加設定を入れている。
+
 * キーバインド系
 ** sticky-control
 
