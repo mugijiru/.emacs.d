@@ -1,27 +1,84 @@
-* これは何?
+#+TODO: TODO(t) | DONE(o)
+#+HUGO_BASE_DIR: ./hugo/
+#+HUGO_SECTION: ./
+#+title: 麦汁三昧
+#+author: mugijiru
+#+chapter: true
+#+toc: headlines 2
+#+HUGO_LEVEL_OFFSET: 1
 
-  麦汁さんの Emacs の設定ファイルの一部。
+* Top
+  :PROPERTIES:
+  :END:
 
-  一部の設定はこのファイルで記載しているコードブロックを export している。
+** 麦汁's Emacs Config
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: _index
+   :END:
 
-  本当は全部やりたいけどまずは小さく少しずつ
+   ここは @mugijiru の Emacs の設定ファイルの一部を解説しているページです。
 
-* 基本設定系
+   https://github.com/mugijiru/.emacs.d/blob/master/init.org から
+   ox-hugo を使ってWebサイトに仕立て上げています。
+
+*** 動作確認環境
+
+    以下の環境で使用しています。が、動作を保証するものではありません。
+
+    - macOS :: [[https://github.com/railwaycat/homebrew-emacsmacport][emacsmacport]] で用意されている Emacs
+    - Ubuntu 20.04 LTS :: apt で手に入る Emacs 26.3
+
+*** 注意点
+
+    まだ全ての設定を init.org に記載できていない上に
+    init.org からの出力設定も済ませていないので
+    極一部の設定ファイルのみの解説となります。
+
+* 基本設定
+  :PROPERTIES:
+  :EXPORT_HUGO_SECTION: basics
+  :END:
+
+** 基本設定
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: _index
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>1. </b>" :weight 1 :disableToc true
+   :END:
+   #+TOC: nil
+   #+OPTIONS: toc:nil
+
+   Emacs の基本動作に関わる部分をここでは設定している
+
+   - [[*ガベージコレクション][ガベージコレクション]] :: メモリの開放関係の設定
+
 ** ガベージコレクション
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: gcmh
+   :END:
 
-   ガベージコレクションには gcmh というのを利用してみている。
+*** 概要
+    ガベージコレクションには gcmh というのを利用してみている。
 
-   https://github.com/emacsmirror/gcmh
+    https://github.com/emacsmirror/gcmh
 
-   普段は GC を控えめにしながら
-   操作してない間に GC が走るような作りになっている。便利そう。
+    普段は GC を控えめにしながら
+    操作してない間に GC が走るような作りになっている。便利そう。
 
-   #+begin_src emacs-lisp :tangle inits/00-gc.el
-   (el-get-bundle gcmh)
-   #+end_src
+*** インストール
+    #+begin_src emacs-lisp :tangle inits/00-gc.el
+    (el-get-bundle gcmh)
+    #+end_src
 
-*** 使わなくなったコード
+    これだけで有効化もされる。
 
+*** その他
+
+    以前の設定も折り畳んで残しておく
+
+    #+begin_details
+    #+begin_summary
+    使わなくなったコード
+    #+end_summary
     gcmh を入れる前に設定していたコード。
     gcmh を入れたらこれよりもいい感じに対応してくれそうなので入れ替えた。
 
@@ -34,6 +91,8 @@
     ;; Run GC every 60 seconds if emacs is idle.
     (run-with-idle-timer 60.0 t #'garbage-collect)
     #+end_src
+    #+end_details
+
 
 * 編集系
 ** auto-insert
@@ -65,22 +124,39 @@
 
     実際は今のところ inits/41-vue.el でのみ追加設定を入れている。
 
-* キーバインド系
+* キーバインド
+   :PROPERTIES:
+   :EXPORT_HUGO_SECTION: keybinds
+   :END:
+** キーバインド
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: _index
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>2. </b>" :weight 2 :disableToc true
+   :END:
+
+   ここでは全体に関わるキーバインド系の設定を記載している。
+
+   - [[*sticky-control][sticky-control]] :: Control の入力を sticky にしてくれるやつ
+
 ** sticky-control
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: sticky-control
+   :END:
 
-   指定したキーを2回叩いたら
-   Control が押されてるような状態になってしてくれるプラグイン。
+*** 概要
+    指定したキーを2回叩いたら
+    Control が押されてるような状態にしてくれるプラグイン。
 
-   その2回の間隔はデフォルトだと 0.5 秒以内となっている。
-   そのため、そのキーを押して 0.5 秒が経過したら、普通にそのキーが押されたことになる
+    その2回の間隔はデフォルトだと 0.5 秒以内となっている。
+    そのため、そのキーを押して 0.5 秒が経過したら、普通にそのキーが押されたことになる
 
-   さらに ~sticky-control-shortcuts~ に指定されてる一部のキーについては
-   sticky 用のキーを押した直後に shortcuts のキーを押すと
-   Control を押している状態でそのキーを押したことになる。
+    さらに ~sticky-control-shortcuts~ に指定されてる一部のキーについては
+    sticky 用のキーを押した直後に shortcuts のキーを押すと
+    Control を押している状態でそのキーを押したことになる。
 
-   例えば私は ~,~ を sticky 用のキーにしていて
-   shortcuts に ~c~ を入れているので
-   ~,c~ と素早くタイプをすればそれだけで ~C-c~ が押された状態になる。
+    例えば私は ~,~ を sticky 用のキーにしていて
+    shortcuts に ~c~ を入れているので
+    ~,c~ と素早くタイプをすればそれだけで ~C-c~ が押された状態になる。
 
 *** インストール
 
@@ -558,3 +634,8 @@
      何度も使うならこの差し替え処理自体をテストヘルパーにしても良いかもしれない。
 
      また ivy で選択するので with-simulated-input を使って入力操作を代替している。便利。
+* Footnotes
+* COMMENT Local Variables                          :ARCHIVE:
+# Local Variables:
+# eval: (org-hugo-auto-export-mode)
+# End:

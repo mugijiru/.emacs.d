@@ -1,0 +1,34 @@
+baseURL = "https://mugijiru.github.io/.emacs.d/"
+languageCode = "ja-JP"
+title = "麦汁's Emacs Config"
+theme = "hugo-theme-learn"
+publishDir = "../docs"
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+# For search functionality
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+
+[params]
+    author = "麦汁"
+    description = "麦汁の Emacs 設定解説ページ"
+    keywords = "developer,emacs"
+
+    enableGitInfo = false
+
+[[menu.shortcuts]]
+name = "<i class='fab fa-github'></i> Github repo"
+url = "https://github.com/mugijiru/.emacs.d"
+weight = 10
+
+[[menu.shortcuts]]
+name = "<i class='fab fa-twitter'></i> Twitter"
+url = "https://twitter.com/mugijiru"
+weight = 10
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-home'></i> 麦汁三昧に戻る"
+url = "https://mugijiru.github.io/"
+weight = 10
