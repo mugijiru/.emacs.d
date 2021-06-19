@@ -115,22 +115,39 @@
 
     実際は今のところ inits/41-vue.el でのみ追加設定を入れている。
 
-* キーバインド系
+* キーバインド
+   :PROPERTIES:
+   :EXPORT_HUGO_SECTION: keybinds
+   :END:
+** キーバインド
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: _index
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>2. </b>" :weight 2 :disableToc true
+   :END:
+
+   ここでは全体に関わるキーバインド系の設定を記載している。
+
+   - [[*sticky-control][sticky-control]] :: Control の入力を sticky にしてくれるやつ
+
 ** sticky-control
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: sticky-control
+   :END:
 
-   指定したキーを2回叩いたら
-   Control が押されてるような状態になってしてくれるプラグイン。
+*** Description
+    指定したキーを2回叩いたら
+    Control が押されてるような状態にしてくれるプラグイン。
 
-   その2回の間隔はデフォルトだと 0.5 秒以内となっている。
-   そのため、そのキーを押して 0.5 秒が経過したら、普通にそのキーが押されたことになる
+    その2回の間隔はデフォルトだと 0.5 秒以内となっている。
+    そのため、そのキーを押して 0.5 秒が経過したら、普通にそのキーが押されたことになる
 
-   さらに ~sticky-control-shortcuts~ に指定されてる一部のキーについては
-   sticky 用のキーを押した直後に shortcuts のキーを押すと
-   Control を押している状態でそのキーを押したことになる。
+    さらに ~sticky-control-shortcuts~ に指定されてる一部のキーについては
+    sticky 用のキーを押した直後に shortcuts のキーを押すと
+    Control を押している状態でそのキーを押したことになる。
 
-   例えば私は ~,~ を sticky 用のキーにしていて
-   shortcuts に ~c~ を入れているので
-   ~,c~ と素早くタイプをすればそれだけで ~C-c~ が押された状態になる。
+    例えば私は ~,~ を sticky 用のキーにしていて
+    shortcuts に ~c~ を入れているので
+    ~,c~ と素早くタイプをすればそれだけで ~C-c~ が押された状態になる。
 
 *** インストール
 
