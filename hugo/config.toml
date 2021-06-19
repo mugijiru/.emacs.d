@@ -1,3 +1,16 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+baseURL = "https://mugijiru.github.io/.emacs.d/"
+languageCode = "ja-JP"
+title = "麦汁's Emacs Config"
+theme = "hugo-theme-learn"
+publishDir = "../docs"
+
+# For search functionality
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+
+[params]
+    author = "麦汁"
+    description = "麦汁の Emacs 設定解説ページ"
+    keywords = "developer,emacs"
+
+    enableGitInfo = false
