@@ -992,6 +992,11 @@
    (setq lsp-ui-doc-alignment 'window)
    #+end_src
 
+** posframe
+
+   #+begin_src emacs-lisp :tangle inits/20-posframe.el
+   (el-get-bundle posframe)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
