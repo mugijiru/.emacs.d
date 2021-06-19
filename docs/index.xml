@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>麦汁&#39;s Emacs Config</title>
+    <link>https://mugijiru.github.io/.emacs.d/</link>
+    <description>Recent content on 麦汁&#39;s Emacs Config</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>sticky-control</title>
+      <link>https://mugijiru.github.io/.emacs.d/keybinds/sticky-control/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/keybinds/sticky-control/</guid>
+      <description>概要 指定したキーを2回叩いたら Control が押されてるような状態にしてくれるプラグイン。
+その2回の間隔はデフォルトだと 0.5 秒以内となっている。そのため、そのキーを押して 0.5 秒が経過したら、普通にそのキーが押されたことになる
+さらに sticky-control-shortcuts に指定されてる一部のキーについては sticky 用のキーを押した直後に shortcuts のキーを押すと Control を押している状態でそのキーを押したことになる。
+例えば私は , を sticky 用のキーにしていて shortcuts に c を入れているので ,c と素早くタイプをすればそれだけで C-c が押された状態になる。
+インストール まずは el-get-bundle でインストール。
+(el-get-bundle sticky-control) ちなみにレシピは公式ではなかったのでとりあえず自分の環境で使えるように自作レシピを置いている。
+(:name sticky-control :description &amp;#34;save your left little finger&amp;#34; :type http :url &amp;#34;https://raw.githubusercontent.com/martialboniou/emacs-revival/master/sticky-control.el&amp;#34; :features &amp;#34;sticky-control&amp;#34;) 元々は http://www.cs.toronto.edu/~ryanjohn/sticky-control.el にあったのだけど最近そこからは取得できなくなったので https://github.com/martialboniou/emacs-revival/blob/master/sticky-control.el から取得して利用している
+設定 まずは「2回叩いたら Control を押している状態になる」キーを指定する。
+(sticky-control-set-key &amp;#39;sticky-control-key ?,) 私は , を sticky-control のキーにしているのでこの指定。
+そして次に sticky-control-shortuts の指定。ここに指定しておくと、例えば ,c と素早くタイプすることで C-c が入力された状態とすることができる。</description>
+    </item>
+    
+    <item>
+      <title>ガベージコレクション</title>
+      <link>https://mugijiru.github.io/.emacs.d/basics/gcmh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/basics/gcmh/</guid>
+      <description>概要 ガベージコレクションには gcmh というのを利用してみている。
+https://github.com/emacsmirror/gcmh
+普段は GC を控えめにしながら操作してない間に GC が走るような作りになっている。便利そう。
+インストール (el-get-bundle gcmh) これだけで有効化もされる。
+その他 以前の設定も折り畳んで残しておく
+  使わなくなったコード  gcmh を入れる前に設定していたコード。 gcmh を入れたらこれよりもいい感じに対応してくれそうなので入れ替えた。
+;; https://gist.github.com/garaemon/8851900ef27d8cb28200ac8d92ebacdf ;; Increase threshold to fire garbage collection (setq gc-cons-threshold 1073741824) (setq garbage-collection-messages t) ;; Run GC every 60 seconds if emacs is idle. (run-with-idle-timer 60.0 t #&amp;#39;garbage-collect) 
+ </description>
+    </item>
+    
+  </channel>
+</rss>

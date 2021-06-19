@@ -1,0 +1,50 @@
+[
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/basics/",
+	"title": "基本設定",
+	"tags": [],
+	"description": "",
+	"content": "Emacs の基本動作に関わる部分をここでは設定している\n ガベージコレクション メモリの開放関係の設定  "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/keybinds/",
+	"title": "キーバインド",
+	"tags": [],
+	"description": "",
+	"content": "ここでは全体に関わるキーバインド系の設定を記載している。\n sticky-control Control の入力を sticky にしてくれるやつ  "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/keybinds/sticky-control/",
+	"title": "sticky-control",
+	"tags": [],
+	"description": "",
+	"content": "概要 指定したキーを2回叩いたら Control が押されてるような状態にしてくれるプラグイン。\nその2回の間隔はデフォルトだと 0.5 秒以内となっている。そのため、そのキーを押して 0.5 秒が経過したら、普通にそのキーが押されたことになる\nさらに sticky-control-shortcuts に指定されてる一部のキーについては sticky 用のキーを押した直後に shortcuts のキーを押すと Control を押している状態でそのキーを押したことになる。\n例えば私は , を sticky 用のキーにしていて shortcuts に c を入れているので ,c と素早くタイプをすればそれだけで C-c が押された状態になる。\nインストール まずは el-get-bundle でインストール。\n(el-get-bundle sticky-control) ちなみにレシピは公式ではなかったのでとりあえず自分の環境で使えるように自作レシピを置いている。\n(:name sticky-control :description \u0026#34;save your left little finger\u0026#34; :type http :url \u0026#34;https://raw.githubusercontent.com/martialboniou/emacs-revival/master/sticky-control.el\u0026#34; :features \u0026#34;sticky-control\u0026#34;) 元々は http://www.cs.toronto.edu/~ryanjohn/sticky-control.el にあったのだけど最近そこからは取得できなくなったので https://github.com/martialboniou/emacs-revival/blob/master/sticky-control.el から取得して利用している\n設定 まずは「2回叩いたら Control を押している状態になる」キーを指定する。\n(sticky-control-set-key \u0026#39;sticky-control-key ?,) 私は , を sticky-control のキーにしているのでこの指定。\nそして次に sticky-control-shortuts の指定。ここに指定しておくと、例えば ,c と素早くタイプすることで C-c が入力された状態とすることができる。\n(setq sticky-control-shortcuts \u0026#39;((?c . \u0026#34;\\C-c\u0026#34;) (?g . \u0026#34;\\C-g\u0026#34;) (?k . \u0026#34;\\C-k\u0026#34;) (?a . \u0026#34;\\C-a\u0026#34;) (?e . \u0026#34;\\C-e\u0026#34;) (?n . \u0026#34;\\C-n\u0026#34;) (?o . \u0026#34;\\C-o\u0026#34;) (?p . \u0026#34;\\C-p\u0026#34;) (?j . \u0026#34;\\C-j\u0026#34;) (?f . \u0026#34;\\C-f\u0026#34;) (?b . \u0026#34;\\C-b\u0026#34;) (?x . \u0026#34;\\C-x\u0026#34;) (?r . \u0026#34;\\C-r\u0026#34;) (?s . \u0026#34;\\C-s\u0026#34;))) 結構な数を指定しているけど、普段そんなに使えているわけでもない。まあ、大体 Control を押しながら使いそうなところは押さえてあるので何も考えずとも使えるようにしてある。\n有効化 最後に有効化\n(sticky-control-mode) "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/basics/gcmh/",
+	"title": "ガベージコレクション",
+	"tags": [],
+	"description": "",
+	"content": "概要 ガベージコレクションには gcmh というのを利用してみている。\nhttps://github.com/emacsmirror/gcmh\n普段は GC を控えめにしながら操作してない間に GC が走るような作りになっている。便利そう。\nインストール (el-get-bundle gcmh) これだけで有効化もされる。\nその他 以前の設定も折り畳んで残しておく\n  使わなくなったコード  gcmh を入れる前に設定していたコード。 gcmh を入れたらこれよりもいい感じに対応してくれそうなので入れ替えた。\n;; https://gist.github.com/garaemon/8851900ef27d8cb28200ac8d92ebacdf ;; Increase threshold to fire garbage collection (setq gc-cons-threshold 1073741824) (setq garbage-collection-messages t) ;; Run GC every 60 seconds if emacs is idle. (run-with-idle-timer 60.0 t #\u0026#39;garbage-collect) \n "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/",
+	"title": "麦汁&#39;s Emacs Config",
+	"tags": [],
+	"description": "",
+	"content": "ここは @mugijiru の Emacs の設定ファイルの一部を解説しているページです。\nhttps://github.com/mugijiru/.emacs.d/blob/master/init.org から ox-hugo を使ってWebサイトに仕立て上げています。\n動作確認環境 以下の環境で使用しています。が、動作を保証するものではありません。\n macOS emacsmacport で用意されている Emacs Ubuntu 20.04 LTS apt で手に入る Emacs 26.3  注意点 まだ全ての設定を init.org に記載できていない上に init.org からの出力設定も済ませていないので極一部の設定ファイルのみの解説となります。\n"
+}]

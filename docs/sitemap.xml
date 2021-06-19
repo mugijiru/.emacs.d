@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://mugijiru.github.io/.emacs.d/basics/</loc>
+  </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/keybinds/</loc>
+  </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/categories/</loc>
+  </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/keybinds/sticky-control/</loc>
+  </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/tags/</loc>
+  </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/basics/gcmh/</loc>
+  </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/</loc>
+  </url>
+</urlset>
