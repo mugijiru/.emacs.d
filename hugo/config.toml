@@ -24,6 +24,11 @@ url = "https://github.com/mugijiru/.emacs.d"
 weight = 10
 
 [[menu.shortcuts]]
+name = "<i class='fab fa-twitter'></i> Twitter"
+url = "https://twitter.com/mugijiru"
+weight = 10
+
+[[menu.shortcuts]]
 name = "<i class='fas fa-home'></i> 麦汁三昧に戻る"
 url = "https://mugijiru.github.io/"
 weight = 10
