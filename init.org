@@ -1124,6 +1124,12 @@
         "Other"
         (("p" (counsel-projectile-switch-project 'neotree-dir) "Switch Project")))))
    #+end_src
+
+** 30-show-paren.el
+
+   #+begin_src emacs-lisp :tangle inits/30-show-paren.el
+   (show-paren-mode 1) ;; http://syohex.hatenablog.com/entry/20110331/1301584188
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
