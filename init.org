@@ -924,6 +924,12 @@
          ("w" all-the-icons-insert-wicon      "Weather")
          ("*" all-the-icons-insert            "All")))))
    #+end_src
+
+** browse-url
+
+   #+begin_src emacs-lisp :tangle inits/20-browse-url.el
+   (setq browse-url-generic-program "vivaldi")
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
