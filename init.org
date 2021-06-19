@@ -890,6 +890,12 @@
    (setq migemo-coding-system 'utf-8-unix)
    (migemo-init)
    #+end_src
+
+** ace-window
+
+   #+begin_src emacs-lisp :tangle inits/20-ace-window.el
+   (el-get-bundle ace-window)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
