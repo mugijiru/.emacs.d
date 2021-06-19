@@ -896,6 +896,15 @@
    #+begin_src emacs-lisp :tangle inits/20-ace-window.el
    (el-get-bundle ace-window)
    #+end_src
+
+** alert
+
+   #+begin_src emacs-lisp :tangle inits/20-alert.el
+   ;; alert.el configuration
+   ;; https://github.com/jwiegley/alert
+   (el-get-bundle alert)
+   (setq alert-default-style 'notifier) ;; use terminal-notifier
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
