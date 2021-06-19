@@ -1057,6 +1057,13 @@
    (el-get-bundle git-gutter-fringe)
    (global-git-gutter-mode t)
    #+end_src
+
+** 30-highlight-indent-guides.el
+
+   #+begin_src emacs-lisp :tangle inits/30-highlight-indent-guides.el
+   (el-get-bundle DarthFennec/highlight-indent-guides)
+   (setq highlight-indent-guides-responsive "stack")
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
