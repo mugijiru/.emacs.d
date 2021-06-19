@@ -1004,6 +1004,14 @@
    (el-get-bundle smartparens)
    (require 'smartparens-config)
    #+end_src
+
+** uniquify
+
+   #+begin_src emacs-lisp :tangle inits/20-uniquify.el
+   ;; 同じ名前のファイルを開いている時に祖先ディレクトリ名を表示してくれてわかりやすくしてくれるやつ
+   (require 'uniquify) ;; includes Emacs
+   (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
