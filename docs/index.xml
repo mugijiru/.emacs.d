@@ -20,6 +20,23 @@
     </item>
     
     <item>
+      <title>Neotree</title>
+      <link>https://mugijiru.github.io/.emacs.d/ui/neotree/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/ui/neotree/</guid>
+      <description>概要 Neotree は Emacs でフォルダのツリー表示ができるやつ。メンテは活発じゃないようなので、その内乗り換えたい。
+レシピ Neotree でメンテされているのは dev ブランチだけど el-get の公式のレシピでは master ブランチを見ているので自前で recipe を用意してそれを使っている。
+(:name emacs-neotree-dev :website &amp;#34;https://github.com/jaypei/emacs-neotree&amp;#34; :description &amp;#34;An Emacs tree plugin like NerdTree for Vim.&amp;#34; :type github :branch &amp;#34;dev&amp;#34; :pkgname &amp;#34;jaypei/emacs-neotree&amp;#34;) インストール 上に書いたレシピを使ってインストールしている。
+(el-get-bundle emacs-neotree-dev) 使わなくなったコード 元々設定していたが、 counsel-projectile を使ってると projectile-switch-project-action を設定していても反映されず意味がないのに気付いたので使わなくなった
+https://github.com/mugijiru/.emacs.d/pull/183/files#r541843206
+(setq projectile-switch-project-action &amp;#39;neotree-projectile-action) テーマの設定 GUI で起動している時はアイコン表示しそうでない場合は ▾ とかで表示する
+(setq neo-theme (if (display-graphic-p) &amp;#39;icons &amp;#39;arrow)) のだけど、実際に今使ってるやつだともっとグラフィカルな表示なので all-the-icons の設定で上書きしている気がするので要確認
+major-mode-hydra いちいちキーバインドを覚えてられないので major-mode-hydra を使って主要なキーバインドは hydra で使えるようにしている。
+とはいえ、この文書を書く前日ぐらいに設定しているのでまだ使い慣れてないというか、ほとんど使えてない。</description>
+    </item>
+    
+    <item>
       <title>sticky-control</title>
       <link>https://mugijiru.github.io/.emacs.d/keybinds/sticky-control/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

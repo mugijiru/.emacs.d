@@ -6,5 +6,14 @@
     <description>Recent content in Tags on 麦汁&#39;s Emacs Config</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>replacement</title>
+      <link>https://mugijiru.github.io/.emacs.d/tags/replacement/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/tags/replacement/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

@@ -18,7 +18,7 @@
 	"title": "UI",
 	"tags": [],
 	"description": "",
-	"content": "ここでは Emacs の UI を変更するようなものを載せている\n helm-posframe Helm を posframe で使えるようにするやつ  "
+	"content": "ここでは Emacs の UI を変更するようなものを載せている\n helm-posframe Helm を posframe で使えるようにするやつ Neotree フォルダ構造を IDE みたいにツリー表示するやつ  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/categories/",
@@ -33,6 +33,20 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 helm-posframe は helm の拡張で Helm のバッファの表示を posframe を使うようにしてくれるやつ。\n実は helm 本体の方でも posframe 対応しているのであまり使う必要もなさそうなのでいずれ外すかもしれない。\nただ確か本体の方の挙動が気に入らなかったような気はする。\nインストール いつも通り el-get でインストール。 GitHub にあるのでそれを取得するようにしている。\n(el-get-bundle tumashu/helm-posframe) 有効化 (helm-posframe-enable) "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/ui/neotree/",
+	"title": "Neotree",
+	"tags": ["replacement"],
+	"description": "",
+	"content": "概要 Neotree は Emacs でフォルダのツリー表示ができるやつ。メンテは活発じゃないようなので、その内乗り換えたい。\nレシピ Neotree でメンテされているのは dev ブランチだけど el-get の公式のレシピでは master ブランチを見ているので自前で recipe を用意してそれを使っている。\n(:name emacs-neotree-dev :website \u0026#34;https://github.com/jaypei/emacs-neotree\u0026#34; :description \u0026#34;An Emacs tree plugin like NerdTree for Vim.\u0026#34; :type github :branch \u0026#34;dev\u0026#34; :pkgname \u0026#34;jaypei/emacs-neotree\u0026#34;) インストール 上に書いたレシピを使ってインストールしている。\n(el-get-bundle emacs-neotree-dev) 使わなくなったコード 元々設定していたが、 counsel-projectile を使ってると projectile-switch-project-action を設定していても反映されず意味がないのに気付いたので使わなくなった\nhttps://github.com/mugijiru/.emacs.d/pull/183/files#r541843206\n(setq projectile-switch-project-action \u0026#39;neotree-projectile-action) テーマの設定 GUI で起動している時はアイコン表示しそうでない場合は ▾ とかで表示する\n(setq neo-theme (if (display-graphic-p) \u0026#39;icons \u0026#39;arrow)) のだけど、実際に今使ってるやつだともっとグラフィカルな表示なので all-the-icons の設定で上書きしている気がするので要確認\nmajor-mode-hydra いちいちキーバインドを覚えてられないので major-mode-hydra を使って主要なキーバインドは hydra で使えるようにしている。\nとはいえ、この文書を書く前日ぐらいに設定しているのでまだ使い慣れてないというか、ほとんど使えてない。\n(with-eval-after-load \u0026#39;major-mode-hydra (major-mode-hydra-define neotree-mode (:separator \u0026#34;-\u0026#34; :quit-key \u0026#34;q\u0026#34; :title (concat (all-the-icons-octicon \u0026#34;list-unordered\u0026#34;) \u0026#34; Neotree\u0026#34;)) (\u0026#34;Nav\u0026#34; ((\u0026#34;u\u0026#34; neotree-select-up-node \u0026#34;Up\u0026#34;) (\u0026#34;g\u0026#34; neotree-refresh \u0026#34;Refresh\u0026#34;) (\u0026#34;Q\u0026#34; neotree-hide \u0026#34;Hide\u0026#34;)) \u0026#34;File\u0026#34; ((\u0026#34;a\u0026#34; neo-open-file-ace-window \u0026#34;Ace\u0026#34;) (\u0026#34;N\u0026#34; neotree-create-node \u0026#34;Create\u0026#34;) (\u0026#34;R\u0026#34; neotree-rename-node \u0026#34;Rename\u0026#34;) (\u0026#34;C\u0026#34; neotree-copy-node \u0026#34;Copy\u0026#34;) (\u0026#34;D\u0026#34; neotree-delete-node \u0026#34;Delete\u0026#34;) (\u0026#34;SPC\u0026#34; neotree-quick-look \u0026#34;Look\u0026#34;) ;; (\u0026#34;d\u0026#34; neo-open-dired \u0026#34;Dired\u0026#34;) ;; (\u0026#34;O\u0026#34; neo-open-dir-recursive \u0026#34;Recursive\u0026#34;) ) \u0026#34;Toggle\u0026#34; ((\u0026#34;z\u0026#34; neotree-stretch-toggle \u0026#34;Size\u0026#34; :toggle (not (neo-window--minimize-p))) (\u0026#34;h\u0026#34; neotree-hidden-file-toggle \u0026#34;Hidden file\u0026#34; :toggle neo-buffer--show-hidden-file-p))))) キーバインド ナビゲーション    Key 効果     u 上のノードに移動   g 再描画   Q Neotree を隠す    ファイル操作    Key 効果     a ファイルを開く。その際に ace-window で開く window を指定する   N 新しいノードを作る   R ノードの名前を変える   C ノードのコピー   D ノードの削除   SPC クイックルック    Toggle    Key 効果     z Neotree のサイズを大きくしたり小さくしたり   h 隠しファイルを表示したり隠したり    "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/tags/replacement/",
+	"title": "replacement",
+	"tags": [],
+	"description": "",
+	"content": ""
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/keybinds/sticky-control/",

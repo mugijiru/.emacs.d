@@ -1,24 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>UI on 麦汁&#39;s Emacs Config</title>
-    <link>https://mugijiru.github.io/.emacs.d/ui/</link>
-    <description>Recent content in UI on 麦汁&#39;s Emacs Config</description>
+    <title>replacement on 麦汁&#39;s Emacs Config</title>
+    <link>https://mugijiru.github.io/.emacs.d/tags/replacement/</link>
+    <description>Recent content in replacement on 麦汁&#39;s Emacs Config</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/ui/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>helm-posframe</title>
-      <link>https://mugijiru.github.io/.emacs.d/ui/helm-posframe/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mugijiru.github.io/.emacs.d/ui/helm-posframe/</guid>
-      <description>概要 helm-posframe は helm の拡張で Helm のバッファの表示を posframe を使うようにしてくれるやつ。
-実は helm 本体の方でも posframe 対応しているのであまり使う必要もなさそうなのでいずれ外すかもしれない。
-ただ確か本体の方の挙動が気に入らなかったような気はする。
-インストール いつも通り el-get でインストール。 GitHub にあるのでそれを取得するようにしている。
-(el-get-bundle tumashu/helm-posframe) 有効化 (helm-posframe-enable) </description>
-    </item>
-    
+    <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/tags/replacement/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Neotree</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/neotree/</link>
