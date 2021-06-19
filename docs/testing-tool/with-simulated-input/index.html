@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>Categories :: 麦汁&#39;s Emacs Config</title>
+    <title>with-simulated-input :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624110620" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/categories/">
+  <body class="" data-url="/.emacs.d/testing-tool/with-simulated-input/">
     <nav id="sidebar" class="">
 
 
@@ -440,7 +440,7 @@
   
     
     <li data-nav-id="/.emacs.d/testing-tool/" title="テスト用ツール" class="dd-item
-        
+        parent
         
         
         ">
@@ -466,7 +466,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/testing-tool/with-simulated-input/" title="with-simulated-input" class="dd-item ">
+      <li data-nav-id="/.emacs.d/testing-tool/with-simulated-input/" title="with-simulated-input" class="dd-item active">
         <a href="/.emacs.d/testing-tool/with-simulated-input/">
         with-simulated-input
         
@@ -667,7 +667,13 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > Categories
+            
+            
+          
+          
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/testing-tool/'>テスト用ツール</a> > with-simulated-input
+          
+        
           
         
           
@@ -678,7 +684,12 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#インストール">インストール</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -694,24 +705,31 @@
           
             <h1>
               
-                category ::
-              
-              Categories
+              with-simulated-input
             </h1>
           
 
         
 
 
+<h2 id="概要">概要</h2>
+<p><a href="https://github.com/DarwinAwardWinner/with-simulated-input">with-simulated-input</a> は入力処理をシミュレートするためのプラグイン。</p>
+<p>公式のドキュメントにあるように</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-simulated-input
+    <span style="color:#e6db74">&#34;hello SPC world RET&#34;</span>
+  (<span style="color:#a6e22e">read-string</span> <span style="color:#e6db74">&#34;Say hello to the world: &#34;</span>))
+</code></pre></div><p>を評価すると
+read-string に対して「hello world」を入力したことになるので
+echo エリアに「hello world」と表示される。</p>
+<p>これで何が嬉しいかというと
+Emacs Lisp でやっていることはインタラクティブな部分が大きいのでそういった要素をテストできるようになる。</p>
+<p>具体的な使用例は <a href="/.emacs.d/testing/my-org-commands-test/#test-my-org-todo">test:my/org-todo</a> で示す。</p>
+<h2 id="インストール">インストール</h2>
+<p>el-get-bundle で GitHub からインストールしている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle DarwinAwardWinner/with-simulated-input)
+</code></pre></div>
 
-
-
-<ul>
-	
-</ul>
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -957,6 +975,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -969,6 +988,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -985,6 +1005,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1073,8 +1096,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/.emacs.d/testing-tool/" title="テスト用ツール"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/.emacs.d/basics/" title="基本設定" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/.emacs.d/testing-tool/mocker-el/" title="mocker.el" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1106,3 +1131,4 @@
 
   </body>
 </html>
+

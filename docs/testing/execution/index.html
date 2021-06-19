@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>Categories :: 麦汁&#39;s Emacs Config</title>
+    <title>実行方法 :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624110620" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/categories/">
+  <body class="" data-url="/.emacs.d/testing/execution/">
     <nav id="sidebar" class="">
 
 
@@ -516,7 +516,7 @@
   
     
     <li data-nav-id="/.emacs.d/testing/" title="テストコード" class="dd-item
-        
+        parent
         
         
         ">
@@ -542,7 +542,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/testing/execution/" title="実行方法" class="dd-item ">
+      <li data-nav-id="/.emacs.d/testing/execution/" title="実行方法" class="dd-item active">
         <a href="/.emacs.d/testing/execution/">
         実行方法
         
@@ -667,7 +667,13 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > Categories
+            
+            
+          
+          
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/testing/'>テストコード</a> > 実行方法
+          
+        
           
         
           
@@ -678,7 +684,7 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents"></nav>
     </div>
 </div>
 
@@ -694,24 +700,22 @@
           
             <h1>
               
-                category ::
-              
-              Categories
+              実行方法
             </h1>
           
 
         
 
 
+<p>テストする時は以下のように叩いたら動く。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">emacs -Q --batch -l ~/.emacs.d/inits/test/*-test.el -l ~/.emacs.d/inits/test/run-tests.el
+</code></pre></div><p>今まで <code>.emacs.d</code> にいる状態でしか叩いたことないので他の場所にいる時に実行しても大丈夫かはわからない。</p>
+<p>単体でテストしたい時は</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">-l ~/.emacs.d/inits/test/*-test.el
+</code></pre></div><p>の部分を書き換えたらいいんじゃないかな。やったことないけど。</p>
 
 
-
-<ul>
-	
-</ul>
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -1005,6 +1009,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1017,6 +1022,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -1033,6 +1039,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1073,8 +1082,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/.emacs.d/testing/" title="テストコード"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/.emacs.d/basics/" title="基本設定" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/.emacs.d/testing/run-tests/" title="run-tests" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1106,3 +1117,4 @@
 
   </body>
 </html>
+

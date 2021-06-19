@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>Categories :: 麦汁&#39;s Emacs Config</title>
+    <title>auto-insert :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624110620" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/categories/">
+  <body class="" data-url="/.emacs.d/editing/auto-insert/">
     <nav id="sidebar" class="">
 
 
@@ -199,7 +199,7 @@
   
     
     <li data-nav-id="/.emacs.d/editing/" title="ファイル編集" class="dd-item
-        
+        parent
         
         
         ">
@@ -225,7 +225,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/editing/auto-insert/" title="auto-insert" class="dd-item ">
+      <li data-nav-id="/.emacs.d/editing/auto-insert/" title="auto-insert" class="dd-item active">
         <a href="/.emacs.d/editing/auto-insert/">
         auto-insert
         
@@ -667,7 +667,13 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > Categories
+            
+            
+          
+          
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/editing/'>ファイル編集</a> > auto-insert
+          
+        
           
         
           
@@ -678,7 +684,14 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#設定">設定</a></li>
+    <li><a href="#有効化">有効化</a></li>
+    <li><a href="#他の設定">他の設定</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -694,24 +707,29 @@
           
             <h1>
               
-                category ::
-              
-              Categories
+              auto-insert
             </h1>
           
 
         
 
 
+<h2 id="概要">概要</h2>
+<p>auto-insert はファイルを新規作成した時にファイル名に応じたテンプレートを挿入する機能。</p>
+<p>Emacs が標準で持ってるライブラリなのでインストールは不要</p>
+<h2 id="設定">設定</h2>
+<p>Emacs の設定は .emacs.d の中に閉じ込めたいので
+auto-insert のテンプレートも <code>~/.emacs.d/insert</code> に閉じ込める設定にしている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(custom-set-variables <span style="color:#f92672">&#39;</span>(auto-insert-directory <span style="color:#e6db74">&#34;~/.emacs.d/insert/&#34;</span>))
+</code></pre></div><h2 id="有効化">有効化</h2>
+<p>あとは単に有効化している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(auto-insert-mode <span style="color:#ae81ff">1</span>)
+</code></pre></div><h2 id="他の設定">他の設定</h2>
+<p>ファイル名を正規表現でマッチさせてテンプレートが選択されるので各言語やフレームワーク毎に設定を入れることにしている。</p>
+<p>実際は今のところ inits/41-vue.el でのみ追加設定を入れている。</p>
 
 
-
-<ul>
-	
-</ul>
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -813,6 +831,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -825,6 +844,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -844,6 +864,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1073,8 +1096,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/.emacs.d/editing/" title="ファイル編集"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/.emacs.d/basics/" title="基本設定" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/.emacs.d/ui/" title="UI" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1106,3 +1131,4 @@
 
   </body>
 </html>
+

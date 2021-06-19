@@ -7,6 +7,87 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>with-simulated-input</title>
+      <link>https://mugijiru.github.io/.emacs.d/testing-tool/with-simulated-input/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/testing-tool/with-simulated-input/</guid>
+      <description>概要 with-simulated-input は入力処理をシミュレートするためのプラグイン。
+公式のドキュメントにあるように
+(with-simulated-input &amp;#34;hello SPC world RET&amp;#34; (read-string &amp;#34;Say hello to the world: &amp;#34;)) を評価すると read-string に対して「hello world」を入力したことになるので echo エリアに「hello world」と表示される。
+これで何が嬉しいかというと Emacs Lisp でやっていることはインタラクティブな部分が大きいのでそういった要素をテストできるようになる。
+具体的な使用例は test:my/org-todo で示す。
+インストール el-get-bundle で GitHub からインストールしている
+(el-get-bundle DarwinAwardWinner/with-simulated-input) </description>
+    </item>
+    
+    <item>
+      <title>実行方法</title>
+      <link>https://mugijiru.github.io/.emacs.d/testing/execution/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/testing/execution/</guid>
+      <description>テストする時は以下のように叩いたら動く。
+emacs -Q --batch -l ~/.emacs.d/inits/test/*-test.el -l ~/.emacs.d/inits/test/run-tests.el 今まで .emacs.d にいる状態でしか叩いたことないので他の場所にいる時に実行しても大丈夫かはわからない。
+単体でテストしたい時は
+-l ~/.emacs.d/inits/test/*-test.el の部分を書き換えたらいいんじゃないかな。やったことないけど。</description>
+    </item>
+    
+    <item>
+      <title>mocker.el</title>
+      <link>https://mugijiru.github.io/.emacs.d/testing-tool/mocker-el/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/testing-tool/mocker-el/</guid>
+      <description>概要 mocker.el は Emacs Lisp のテストで使う Mock ライブラリ。
+使おうと思って導入したけど、自分のやりたいことはちょっと違ったので死蔵中
+便利そうなのでとりあえず置いといている。
+インストール el-get で GitHub から取得している。
+(el-get-bundle sigma/mocker.el) </description>
+    </item>
+    
+    <item>
+      <title>run-tests</title>
+      <link>https://mugijiru.github.io/.emacs.d/testing/run-tests/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/testing/run-tests/</guid>
+      <description>読み込んだテストをまるっとテストするためのコードをとりあえず置いている。
+(if noninteractive (let ((ert-quiet t)) (ert-run-tests-batch-and-exit))) 後述の テストライブラリの読み込み などはここで担うべきかとも考えるが今はテストファイルが1つしかないので気にしないことにする。</description>
+    </item>
+    
+    <item>
+      <title>my-org-commands-test</title>
+      <link>https://mugijiru.github.io/.emacs.d/testing/my-org-commands-test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/testing/my-org-commands-test/</guid>
+      <description>org-mode 用に定義したコマンドや関数のテストコード
+Setup テストライブラリの読み込み 標準でついてくる ert を採用しているのでそれを読み込んでいる。
+(require &amp;#39;ert) el-get の設定の読み込み プラグイン管理には el-get を利用しているのでその設定ファイルを読み込んでいる。
+;; プラグイン読み込みの前準備 (load (expand-file-name (concat user-emacs-directory &amp;#34;/init-el-get.el&amp;#34;))) テスト補助のプラグイン読み込み with-simulated-input 上で説明しているが、入力をシミュレートするためのプラグインをテストで利用しているのでここで読み込んでいる。
+;; 入力シミュレート用のプラグイン (load (expand-file-name (concat user-emacs-directory &amp;#34;/inits/99-with-simulated-input&amp;#34;))) 依存プラグインの読み込み テスト対象が依存しているプラグインを読み込んでいる。本来は init.el などの設定ファイルを全部読み込んだ状態でテストをした方が良さそうだが現状だとその状態で GitHub Actions で動かせる方法がわからないので一旦個別に読み込むようにしている。
+swiper ivy-read を使った機能のテストをするので読み込んでいる。
+(el-get-bundle abo-abo/swiper) テスト対象の読み込み テストしたいファイルをここで読んでる。
+;; テスト対象の読み込み (load (expand-file-name (concat user-emacs-directory &amp;#34;/inits/68-my-org-commands.el&amp;#34;))) ert-deftest test:my/org-todo-keyword-strings org-todo-keywords から &amp;ldquo;|&amp;rdquo; という区切りを除外したり &amp;ldquo;(s)&amp;rdquo; とかのような高速アクセスのためのキーワードは ivy で選択する時には邪魔なので除外したい、ということを表現したテスト。
+(ert-deftest test:my/org-todo-keyword-strings () &amp;#34;Test of `my/org-todo-keyword-strings&amp;#39;.&amp;#34; (let ((org-todo-keywords &amp;#39;((sequence &amp;#34;TODO&amp;#34; &amp;#34;DOING(!</description>
+    </item>
+    
+    <item>
+      <title>auto-insert</title>
+      <link>https://mugijiru.github.io/.emacs.d/editing/auto-insert/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/editing/auto-insert/</guid>
+      <description>概要 auto-insert はファイルを新規作成した時にファイル名に応じたテンプレートを挿入する機能。
+Emacs が標準で持ってるライブラリなのでインストールは不要
+設定 Emacs の設定は .emacs.d の中に閉じ込めたいので auto-insert のテンプレートも ~/.emacs.d/insert に閉じ込める設定にしている。
+(custom-set-variables &amp;#39;(auto-insert-directory &amp;#34;~/.emacs.d/insert/&amp;#34;)) 有効化 あとは単に有効化している。
+(auto-insert-mode 1) 他の設定 ファイル名を正規表現でマッチさせてテンプレートが選択されるので各言語やフレームワーク毎に設定を入れることにしている。
+実際は今のところ inits/41-vue.el でのみ追加設定を入れている。</description>
+    </item>
+    
+    <item>
       <title>avy</title>
       <link>https://mugijiru.github.io/.emacs.d/nav/avy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

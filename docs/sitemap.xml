@@ -2,15 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://mugijiru.github.io/.emacs.d/testing-tool/with-simulated-input/</loc>
+  </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/basics/</loc>
   </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/testing/execution/</loc>
+  </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/testing-tool/mocker-el/</loc>
+  </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/testing/run-tests/</loc>
+  </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/keybinds/</loc>
+  </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/testing/my-org-commands-test/</loc>
+  </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/editing/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/ui/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/nav/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/framework-config/</loc>
+  </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/testing-tool/</loc>
+  </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/testing/</loc>
+  </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/editing/auto-insert/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/nav/avy/</loc>
   </url><url>
@@ -27,6 +45,8 @@
     <loc>https://mugijiru.github.io/.emacs.d/keybinds/sticky-control/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/tags/</loc>
+  </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/tags/unused/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/basics/gcmh/</loc>
   </url><url>

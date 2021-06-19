@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>Categories :: 麦汁&#39;s Emacs Config</title>
+    <title>run-tests :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624110620" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/categories/">
+  <body class="" data-url="/.emacs.d/testing/run-tests/">
     <nav id="sidebar" class="">
 
 
@@ -516,7 +516,7 @@
   
     
     <li data-nav-id="/.emacs.d/testing/" title="テストコード" class="dd-item
-        
+        parent
         
         
         ">
@@ -563,7 +563,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/testing/run-tests/" title="run-tests" class="dd-item ">
+      <li data-nav-id="/.emacs.d/testing/run-tests/" title="run-tests" class="dd-item active">
         <a href="/.emacs.d/testing/run-tests/">
         run-tests
         
@@ -667,7 +667,13 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > Categories
+            
+            
+          
+          
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/testing/'>テストコード</a> > run-tests
+          
+        
           
         
           
@@ -678,7 +684,7 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents"></nav>
     </div>
 </div>
 
@@ -694,24 +700,21 @@
           
             <h1>
               
-                category ::
-              
-              Categories
+              run-tests
             </h1>
           
 
         
 
 
+<p>読み込んだテストをまるっとテストするためのコードをとりあえず置いている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(if noninteractive
+    (let ((ert-quiet <span style="color:#66d9ef">t</span>))
+      (ert-run-tests-batch-and-exit)))
+</code></pre></div><p>後述の <a href="/.emacs.d/testing/my-org-commands-test/#テストライブラリの読み込み">テストライブラリの読み込み</a> などはここで担うべきかとも考えるが今はテストファイルが1つしかないので気にしないことにする。</p>
 
 
-
-<ul>
-	
-</ul>
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -1005,6 +1008,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1017,6 +1021,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1034,6 +1041,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1049,6 +1057,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1073,8 +1084,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/.emacs.d/testing/execution/" title="実行方法"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/.emacs.d/basics/" title="基本設定" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/.emacs.d/testing/my-org-commands-test/" title="my-org-commands-test" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1106,3 +1119,4 @@
 
   </body>
 </html>
+

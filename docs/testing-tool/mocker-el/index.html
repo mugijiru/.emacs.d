@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>Categories :: 麦汁&#39;s Emacs Config</title>
+    <title>mocker.el :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624110620" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/categories/">
+  <body class="" data-url="/.emacs.d/testing-tool/mocker-el/">
     <nav id="sidebar" class="">
 
 
@@ -440,7 +440,7 @@
   
     
     <li data-nav-id="/.emacs.d/testing-tool/" title="テスト用ツール" class="dd-item
-        
+        parent
         
         
         ">
@@ -487,7 +487,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/testing-tool/mocker-el/" title="mocker.el" class="dd-item ">
+      <li data-nav-id="/.emacs.d/testing-tool/mocker-el/" title="mocker.el" class="dd-item active">
         <a href="/.emacs.d/testing-tool/mocker-el/">
         mocker.el
         
@@ -667,7 +667,13 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > Categories
+            
+            
+          
+          
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/testing-tool/'>テスト用ツール</a> > mocker.el
+          
+        
           
         
           
@@ -678,7 +684,12 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#インストール">インストール</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -688,30 +699,35 @@
             
         <div id="head-tags">
         
+<div class="tags">
+
+  <a class="tag-link" href="/.emacs.d/tags/unused">unused</a>
+
+</div>
+
         </div>
         
         <div id="body-inner">
           
             <h1>
               
-                category ::
-              
-              Categories
+              mocker.el
             </h1>
           
 
         
 
 
+<h2 id="概要">概要</h2>
+<p><a href="https://github.com/sigma/mocker.el">mocker.el</a> は Emacs Lisp のテストで使う Mock ライブラリ。</p>
+<p>使おうと思って導入したけど、自分のやりたいことはちょっと違ったので死蔵中</p>
+<p>便利そうなのでとりあえず置いといている。</p>
+<h2 id="インストール">インストール</h2>
+<p>el-get で GitHub から取得している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle sigma/mocker.el)
+</code></pre></div>
 
-
-
-<ul>
-	
-</ul>
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -957,6 +973,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -969,6 +986,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -986,6 +1006,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1004,6 +1025,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1073,8 +1097,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/.emacs.d/testing-tool/with-simulated-input/" title="with-simulated-input"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/.emacs.d/basics/" title="基本設定" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/.emacs.d/testing/" title="テストコード" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1106,3 +1132,4 @@
 
   </body>
 </html>
+

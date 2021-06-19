@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>unused on 麦汁&#39;s Emacs Config</title>
+    <link>https://mugijiru.github.io/.emacs.d/tags/unused/</link>
+    <description>Recent content in unused on 麦汁&#39;s Emacs Config</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/tags/unused/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mocker.el</title>
+      <link>https://mugijiru.github.io/.emacs.d/testing-tool/mocker-el/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/testing-tool/mocker-el/</guid>
+      <description>概要 mocker.el は Emacs Lisp のテストで使う Mock ライブラリ。
+使おうと思って導入したけど、自分のやりたいことはちょっと違ったので死蔵中
+便利そうなのでとりあえず置いといている。
+インストール el-get で GitHub から取得している。
+(el-get-bundle sigma/mocker.el) </description>
+    </item>
+    
+  </channel>
+</rss>
