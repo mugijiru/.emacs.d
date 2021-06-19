@@ -982,6 +982,16 @@
    (helm-descbinds-mode)
    (helm-migemo-mode 1)
    #+end_src
+
+** lsp
+
+   #+begin_src emacs-lisp :tangle inits/20-lsp.el
+   (el-get-bundle lsp-mode)
+   (el-get-bundle lsp-ui)
+   (add-hook 'lsp-mode-hook 'lsp-ui-mode)
+   (setq lsp-ui-doc-alignment 'window)
+   #+end_src
+
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
