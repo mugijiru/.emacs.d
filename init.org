@@ -9,23 +9,23 @@
 
 * Top
   :PROPERTIES:
-  :EXPORT_FILE_NAME: _index
-  :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :chapter true
   :END:
 
-** Emacs の設定
+** 麦汁's Emacs Config
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: _index
+   :END:
 
-   麦汁の Emacs の設定ファイルの一部を解説しているページです。
+   ここは @mugijiru の Emacs の設定ファイルの一部を解説しているページです。
 
-   https://github.com/mugijiru/.emacs.d/blob/master/init.org に記載している内容を
-   ox-hugo を使って Webサイトに仕立て上げています。
+   https://github.com/mugijiru/.emacs.d/blob/master/init.org から
+   ox-hugo を使ってWebサイトに仕立て上げています。
 
 *** 注意点
 
-    まだ全ての設定を init.org に記載できていないので
+    まだ全ての設定を init.org に記載できていない上に
+    init.org からの出力設定も済ませていないので
     極一部の設定ファイルのみの解説となります。
-
-    他の設定については順次移行していきます。
 
 * 基本設定
   :PROPERTIES:
