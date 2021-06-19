@@ -2,8 +2,8 @@ name: Hugo
 
 on:
   push:
-    paths:
-      - 'hugo/content/**/*.md'
+    # paths:
+    #   - 'hugo/content/**/*.md'
     branches-ignore:
       - 'master'
 
@@ -27,7 +27,7 @@ jobs:
 
       - name: Check diff
         run: |
-          git diff --exit-code --quiet || echo 'found_update=1' >> $GITHUB_ENV
+          [[ -z $(git status -s) ]] || echo 'found_update=1' >> $GITHUB_ENV
 
       - name: Setup git config
         if: env.found_update == 1
