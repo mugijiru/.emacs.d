@@ -134,7 +134,7 @@
    :EXPORT_FILE_NAME: sticky-control
    :END:
 
-*** Description
+*** 概要
     指定したキーを2回叩いたら
     Control が押されてるような状態にしてくれるプラグイン。
 
