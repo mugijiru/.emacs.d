@@ -809,6 +809,16 @@
      (exec-path-from-shell-initialize))
    #+end_src
 
+** load-path
+
+   #+begin_src emacs-lisp :tangle inits/00-load-path.el
+   (add-to-list 'load-path (expand-file-name "~/.emacs.d/secret"))
+   (defun my/load-config (file)
+     (condition-case nil
+         (load file)
+       (file-missing (message "Load error: %s" file))))
+   #+end_src
+
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
