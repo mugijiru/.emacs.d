@@ -970,6 +970,18 @@
    #+begin_src emacs-lisp :tangle inits/20-google-translate.el
    (el-get-bundle google-translate)
    #+end_src
+
+** helm
+
+   #+begin_src emacs-lisp :tangle inits/20-helm.el
+   ;; helm 系の設定は他の部分への影響も大きそうなので先に持って来た
+   (el-get-bundle helm)
+   (el-get-bundle helm-descbinds)
+   (el-get-bundle helm-ag)
+   (require 'helm-config)
+   (helm-descbinds-mode)
+   (helm-migemo-mode 1)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
