@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>Tags :: 麦汁&#39;s Emacs Config</title>
+    <title>avy :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624107506" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/tags/">
+  <body class="" data-url="/.emacs.d/nav/avy/">
     <nav id="sidebar" class="">
 
 
@@ -275,7 +275,7 @@
   
     
     <li data-nav-id="/.emacs.d/nav/" title="ナビゲーション" class="dd-item
-        
+        parent
         
         
         ">
@@ -301,7 +301,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/nav/avy/" title="avy" class="dd-item ">
+      <li data-nav-id="/.emacs.d/nav/avy/" title="avy" class="dd-item active">
         <a href="/.emacs.d/nav/avy/">
         avy
         
@@ -384,7 +384,13 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > Tags
+            
+            
+          
+          
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/nav/'>ナビゲーション</a> > avy
+          
+        
           
         
           
@@ -395,7 +401,14 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#インストール">インストール</a></li>
+    <li><a href="#設定">設定</a></li>
+    <li><a href="#キーバインド">キーバインド</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -411,26 +424,82 @@
           
             <h1>
               
-                tag ::
-              
-              Tags
+              avy
             </h1>
           
 
         
 
 
+<h2 id="概要">概要</h2>
+<p><a href="https://github.com/abo-abo/avy">avy</a> は好きな文字とか単語など、表示されてる場所にさくっとジャンプするためのパッケージ。
+Vimium の f とかに似てる。</p>
+<h2 id="インストール">インストール</h2>
+<p>el-get で普通にインストールしている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle avy)
+</code></pre></div><h2 id="設定">設定</h2>
+<p>文字の上に重なると元の文字列がよくわからなくなるので、移動先の文字の前に表示するようにしている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq avy-style <span style="color:#e6db74">&#39;pre</span>)
+</code></pre></div><h2 id="キーバインド">キーバインド</h2>
+<p>グローバルなキーバインドを汚染したくなかったのでひとまず Hydra を定義している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
+  (pretty-hydra-define avy-hydra
+    (:separator <span style="color:#e6db74">&#34;-&#34;</span> :title <span style="color:#e6db74">&#34;avy&#34;</span> :foreign-key <span style="color:#a6e22e">warn</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :exit <span style="color:#66d9ef">t</span>)
+    (<span style="color:#e6db74">&#34;Char&#34;</span>
+     ((<span style="color:#e6db74">&#34;c&#34;</span> avy-goto-char       <span style="color:#e6db74">&#34;Char&#34;</span>)
+      (<span style="color:#e6db74">&#34;C&#34;</span> avy-goto-char-2     <span style="color:#e6db74">&#34;Char 2&#34;</span>)
+      (<span style="color:#e6db74">&#34;x&#34;</span> avy-goto-char-timer <span style="color:#e6db74">&#34;Char Timer&#34;</span>))
+
+     <span style="color:#e6db74">&#34;Word&#34;</span>
+     ((<span style="color:#e6db74">&#34;w&#34;</span> avy-goto-word-1 <span style="color:#e6db74">&#34;Word&#34;</span>)
+      (<span style="color:#e6db74">&#34;W&#34;</span> avy-goto-word-0 <span style="color:#e6db74">&#34;Word 0&#34;</span>))
+
+     <span style="color:#e6db74">&#34;Line&#34;</span>
+     ((<span style="color:#e6db74">&#34;l&#34;</span> avy-goto-line <span style="color:#e6db74">&#34;Line&#34;</span>))
+
+     <span style="color:#e6db74">&#34;Other&#34;</span>
+     ((<span style="color:#e6db74">&#34;r&#34;</span> avy-resume <span style="color:#e6db74">&#34;Resume&#34;</span>)))))
+</code></pre></div><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>c</td>
+<td>1文字からの絞り込み</td>
+</tr>
+<tr>
+<td>C</td>
+<td>2文字から絞り込み</td>
+</tr>
+<tr>
+<td>x</td>
+<td>任意の文字列からの絞り込み</td>
+</tr>
+<tr>
+<td>w</td>
+<td>1文字絞り込んで単語先頭に移動</td>
+</tr>
+<tr>
+<td>W</td>
+<td>絞り込みなしの単語移動</td>
+</tr>
+<tr>
+<td>l</td>
+<td>列移動</td>
+</tr>
+<tr>
+<td>r</td>
+<td>繰り返し同じコマンドを実行</td>
+</tr>
+</tbody>
+</table>
 
 
-
-<ul>
-	
-		<li><a href="/.emacs.d/tags/replacement/">replacement</a></li>
-	
-</ul>
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -580,6 +649,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -593,6 +663,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -615,6 +686,8 @@
 
 	 
 	 
+		
+			<a class="nav nav-prev" href="/.emacs.d/nav/" title="ナビゲーション"> <i class="fa fa-chevron-left"></i></a>
 		
 		
 			<a class="nav nav-next" href="/.emacs.d/basics/" title="基本設定" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
@@ -649,3 +722,4 @@
 
   </body>
 </html>
+

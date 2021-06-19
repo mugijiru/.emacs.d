@@ -21,6 +21,20 @@
 	"content": "ここでは Emacs の UI を変更するようなものを載せている\n helm-posframe Helm を posframe で使えるようにするやつ Neotree フォルダ構造を IDE みたいにツリー表示するやつ  "
 },
 {
+	"uri": "https://mugijiru.github.io/.emacs.d/nav/",
+	"title": "ナビゲーション",
+	"tags": [],
+	"description": "",
+	"content": "ここではカーソル移動やファイル移動などのナビゲーション系の設定を記載していく\n avy 表示されてるところの好きな場所にさくっとジャンプするためのパッケージ  "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/nav/avy/",
+	"title": "avy",
+	"tags": [],
+	"description": "",
+	"content": "概要 avy は好きな文字とか単語など、表示されてる場所にさくっとジャンプするためのパッケージ。 Vimium の f とかに似てる。\nインストール el-get で普通にインストールしている\n(el-get-bundle avy) 設定 文字の上に重なると元の文字列がよくわからなくなるので、移動先の文字の前に表示するようにしている\n(setq avy-style \u0026#39;pre) キーバインド グローバルなキーバインドを汚染したくなかったのでひとまず Hydra を定義している。\n(with-eval-after-load \u0026#39;pretty-hydra (pretty-hydra-define avy-hydra (:separator \u0026#34;-\u0026#34; :title \u0026#34;avy\u0026#34; :foreign-key warn :quit-key \u0026#34;q\u0026#34; :exit t) (\u0026#34;Char\u0026#34; ((\u0026#34;c\u0026#34; avy-goto-char \u0026#34;Char\u0026#34;) (\u0026#34;C\u0026#34; avy-goto-char-2 \u0026#34;Char 2\u0026#34;) (\u0026#34;x\u0026#34; avy-goto-char-timer \u0026#34;Char Timer\u0026#34;)) \u0026#34;Word\u0026#34; ((\u0026#34;w\u0026#34; avy-goto-word-1 \u0026#34;Word\u0026#34;) (\u0026#34;W\u0026#34; avy-goto-word-0 \u0026#34;Word 0\u0026#34;)) \u0026#34;Line\u0026#34; ((\u0026#34;l\u0026#34; avy-goto-line \u0026#34;Line\u0026#34;)) \u0026#34;Other\u0026#34; ((\u0026#34;r\u0026#34; avy-resume \u0026#34;Resume\u0026#34;)))))    Key 効果     c 1文字からの絞り込み   C 2文字から絞り込み   x 任意の文字列からの絞り込み   w 1文字絞り込んで単語先頭に移動   W 絞り込みなしの単語移動   l 列移動   r 繰り返し同じコマンドを実行    "
+},
+{
 	"uri": "https://mugijiru.github.io/.emacs.d/categories/",
 	"title": "Categories",
 	"tags": [],

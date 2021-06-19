@@ -7,6 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>avy</title>
+      <link>https://mugijiru.github.io/.emacs.d/nav/avy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/nav/avy/</guid>
+      <description>概要 avy は好きな文字とか単語など、表示されてる場所にさくっとジャンプするためのパッケージ。 Vimium の f とかに似てる。
+インストール el-get で普通にインストールしている
+(el-get-bundle avy) 設定 文字の上に重なると元の文字列がよくわからなくなるので、移動先の文字の前に表示するようにしている
+(setq avy-style &amp;#39;pre) キーバインド グローバルなキーバインドを汚染したくなかったのでひとまず Hydra を定義している。
+(with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define avy-hydra (:separator &amp;#34;-&amp;#34; :title &amp;#34;avy&amp;#34; :foreign-key warn :quit-key &amp;#34;q&amp;#34; :exit t) (&amp;#34;Char&amp;#34; ((&amp;#34;c&amp;#34; avy-goto-char &amp;#34;Char&amp;#34;) (&amp;#34;C&amp;#34; avy-goto-char-2 &amp;#34;Char 2&amp;#34;) (&amp;#34;x&amp;#34; avy-goto-char-timer &amp;#34;Char Timer&amp;#34;)) &amp;#34;Word&amp;#34; ((&amp;#34;w&amp;#34; avy-goto-word-1 &amp;#34;Word&amp;#34;) (&amp;#34;W&amp;#34; avy-goto-word-0 &amp;#34;Word 0&amp;#34;)) &amp;#34;Line&amp;#34; ((&amp;#34;l&amp;#34; avy-goto-line &amp;#34;Line&amp;#34;)) &amp;#34;Other&amp;#34; ((&amp;#34;r&amp;#34; avy-resume &amp;#34;Resume&amp;#34;)))))    Key 効果     c 1文字からの絞り込み   C 2文字から絞り込み   x 任意の文字列からの絞り込み   w 1文字絞り込んで単語先頭に移動   W 絞り込みなしの単語移動   l 列移動   r 繰り返し同じコマンドを実行    </description>
+    </item>
+    
+    <item>
       <title>helm-posframe</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/helm-posframe/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
