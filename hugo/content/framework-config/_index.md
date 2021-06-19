@@ -1,8 +1,8 @@
 +++
 title = "フレームワーク用の設定"
 draft = false
-pre = "<b>5. </b>"
-weight = 5
+pre = "<b>6. </b>"
+weight = 6
 disableToc = true
 +++
 
