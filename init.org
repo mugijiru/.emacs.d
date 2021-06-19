@@ -930,6 +930,15 @@
    #+begin_src emacs-lisp :tangle inits/20-browse-url.el
    (setq browse-url-generic-program "vivaldi")
    #+end_src
+
+** emojify
+
+   #+begin_src emacs-lisp :tangle inits/20-emojify.el
+   (el-get-bundle emojify)
+   (el-get-bundle dash)
+   (global-emojify-mode 1)
+   (global-emojify-mode-line-mode 1)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
