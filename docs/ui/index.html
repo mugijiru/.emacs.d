@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>sticky-control :: 麦汁&#39;s Emacs Config</title>
+    <title>UI :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624103244" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/keybinds/sticky-control/">
+  <body class="" data-url="/.emacs.d/ui/">
     <nav id="sidebar" class="">
 
 
@@ -144,7 +144,7 @@
   
     
     <li data-nav-id="/.emacs.d/keybinds/" title="キーバインド" class="dd-item
-        parent
+        
         
         
         ">
@@ -170,7 +170,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/keybinds/sticky-control/" title="sticky-control" class="dd-item active">
+      <li data-nav-id="/.emacs.d/keybinds/sticky-control/" title="sticky-control" class="dd-item ">
         <a href="/.emacs.d/keybinds/sticky-control/">
         sticky-control
         
@@ -199,8 +199,8 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        
-        
+        parent
+        active
         
         ">
       <a href="/.emacs.d/ui/">
@@ -296,8 +296,6 @@
                         </a>
                     </span>
                   
-                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
-                  
                   <span class="links">
                  
                  
@@ -308,13 +306,7 @@
             
           
           
-            
-            
-          
-          
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/keybinds/'>キーバインド</a> > sticky-control
-          
-        
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > UI
           
         
           
@@ -322,20 +314,6 @@
                  
                   </span>
                 </div>
-                
-                    <div class="progress">
-    <div class="wrapper">
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#概要">概要</a></li>
-    <li><a href="#インストール">インストール</a></li>
-    <li><a href="#設定">設定</a></li>
-    <li><a href="#有効化">有効化</a></li>
-  </ul>
-</nav>
-    </div>
-</div>
-
                 
               </div>
             </div>
@@ -348,62 +326,25 @@
           
             <h1>
               
-              sticky-control
+              UI
             </h1>
           
 
         
 
 
-<h2 id="概要">概要</h2>
-<p>指定したキーを2回叩いたら
-Control が押されてるような状態にしてくれるプラグイン。</p>
-<p>その2回の間隔はデフォルトだと 0.5 秒以内となっている。そのため、そのキーを押して 0.5 秒が経過したら、普通にそのキーが押されたことになる</p>
-<p>さらに <code>sticky-control-shortcuts</code> に指定されてる一部のキーについては
-sticky 用のキーを押した直後に shortcuts のキーを押すと
-Control を押している状態でそのキーを押したことになる。</p>
-<p>例えば私は <code>,</code> を sticky 用のキーにしていて
-shortcuts に <code>c</code> を入れているので
-<code>,c</code> と素早くタイプをすればそれだけで <code>C-c</code> が押された状態になる。</p>
-<h2 id="インストール">インストール</h2>
-<p>まずは el-get-bundle でインストール。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle sticky-control)
-</code></pre></div><p>ちなみにレシピは公式ではなかったのでとりあえず自分の環境で使えるように自作レシピを置いている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(:name sticky-control
-       :description <span style="color:#e6db74">&#34;save your left little finger&#34;</span>
-       :type http
-       :url <span style="color:#e6db74">&#34;https://raw.githubusercontent.com/martialboniou/emacs-revival/master/sticky-control.el&#34;</span>
-       :features <span style="color:#e6db74">&#34;sticky-control&#34;</span>)
-</code></pre></div><p>元々は <a href="http://www.cs.toronto.edu/~ryanjohn/sticky-control.el">http://www.cs.toronto.edu/~ryanjohn/sticky-control.el</a> にあったのだけど最近そこからは取得できなくなったので
-<a href="https://github.com/martialboniou/emacs-revival/blob/master/sticky-control.el">https://github.com/martialboniou/emacs-revival/blob/master/sticky-control.el</a>
-から取得して利用している</p>
-<h2 id="設定">設定</h2>
-<p>まずは「2回叩いたら Control を押している状態になる」キーを指定する。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(sticky-control-set-key <span style="color:#e6db74">&#39;sticky-control-key</span> <span style="color:#e6db74">?,</span>)
-</code></pre></div><p>私は <code>,</code> を sticky-control のキーにしているのでこの指定。</p>
-<p>そして次に <code>sticky-control-shortuts</code> の指定。ここに指定しておくと、例えば <code>,c</code> と素早くタイプすることで <code>C-c</code> が入力された状態とすることができる。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq sticky-control-shortcuts
-      <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">?c</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\C-c&#34;</span>)
-        (<span style="color:#e6db74">?g</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\C-g&#34;</span>)
-        (<span style="color:#e6db74">?k</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\C-k&#34;</span>)
-        (<span style="color:#e6db74">?a</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\C-a&#34;</span>)
-        (<span style="color:#e6db74">?e</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\C-e&#34;</span>)
-        (<span style="color:#e6db74">?n</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\C-n&#34;</span>)
-        (<span style="color:#e6db74">?o</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\C-o&#34;</span>)
-        (<span style="color:#e6db74">?p</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\C-p&#34;</span>)
-        (<span style="color:#e6db74">?j</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\C-j&#34;</span>)
-        (<span style="color:#e6db74">?f</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\C-f&#34;</span>)
-        (<span style="color:#e6db74">?b</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\C-b&#34;</span>)
-        (<span style="color:#e6db74">?x</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\C-x&#34;</span>)
-        (<span style="color:#e6db74">?r</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\C-r&#34;</span>)
-        (<span style="color:#e6db74">?s</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\C-s&#34;</span>)))
-</code></pre></div><p>結構な数を指定しているけど、普段そんなに使えているわけでもない。まあ、大体 Control を押しながら使いそうなところは押さえてあるので何も考えずとも使えるようにしてある。</p>
-<h2 id="有効化">有効化</h2>
-<p>最後に有効化</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(sticky-control-mode)
-</code></pre></div>
 
-<footer class="footline">
+	<p>ここでは Emacs の UI を変更するようなものを載せている</p>
+<dl>
+<dt>helm-posframe</dt>
+<dd>Helm を posframe で使えるようにするやつ</dd>
+</dl>
+
+
+
+
+
+<footer class=" footline" >
 	
 </footer>
 
@@ -473,7 +414,6 @@ shortcuts に <code>c</code> を入れているので
             
                 
                     
-                    
                 
                 
 
@@ -486,7 +426,6 @@ shortcuts に <code>c</code> を入れているので
             
             
                 
-                    
                     
                 
                 
@@ -507,8 +446,6 @@ shortcuts に <code>c</code> を入れているので
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -522,6 +459,9 @@ shortcuts に <code>c</code> を入れているので
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -546,10 +486,10 @@ shortcuts に <code>c</code> を入れているので
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/keybinds/" title="キーバインド"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/keybinds/sticky-control/" title="sticky-control"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/ui/" title="UI" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/ui/helm-posframe/" title="helm-posframe" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -581,4 +521,3 @@ shortcuts に <code>c</code> を入れているので
 
   </body>
 </html>
-
