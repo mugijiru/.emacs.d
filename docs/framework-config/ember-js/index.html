@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>Categories :: 麦汁&#39;s Emacs Config</title>
+    <title>Ember.js :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624108173" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/categories/">
+  <body class="" data-url="/.emacs.d/framework-config/ember-js/">
     <nav id="sidebar" class="">
 
 
@@ -330,7 +330,7 @@
   
     
     <li data-nav-id="/.emacs.d/framework-config/" title="フレームワーク用の設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -356,7 +356,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/framework-config/ember-js/" title="Ember.js" class="dd-item ">
+      <li data-nav-id="/.emacs.d/framework-config/ember-js/" title="Ember.js" class="dd-item active">
         <a href="/.emacs.d/framework-config/ember-js/">
         Ember.js
         
@@ -439,7 +439,13 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > Categories
+            
+            
+          
+          
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/framework-config/'>フレームワーク用の設定</a> > Ember.js
+          
+        
           
         
           
@@ -450,7 +456,13 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#ember-mode">ember-mode</a></li>
+    <li><a href="#handlebars-mode">handlebars-mode</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -466,24 +478,35 @@
           
             <h1>
               
-                category ::
-              
-              Categories
+              Ember.js
             </h1>
           
 
         
 
 
+<h2 id="概要">概要</h2>
+<p>Ember.js 用の Emacs の拡張としては
+<code>ember-mode</code> と <code>handlebars-mode</code> が存在する</p>
+<h2 id="ember-mode">ember-mode</h2>
+<p><a href="https://github.com/madnificent/ember-mode">ember-mode</a> は
+Ember.js アプリケーションのファイルナビゲーションや生成を行ってくれるモード。実は麦汁さんは使えてない。</p>
+<p>インストールするだけではダメで、
+ember-mode を明示的に起動しないといけない。</p>
+<p>そのためには dir-locals を使うとか
+projectile なんかがやってるようにフォルダ構成から判定させるみたいなことが必要そう。だるい。</p>
+<p>というわけで死蔵中。</p>
+<p>ついでにいうとキーバインドもだるい系なので使う時は Hydra を用意した方が良さそう</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle madnificent/ember-mode)
+</code></pre></div><h2 id="handlebars-mode">handlebars-mode</h2>
+<p><a href="https://github.com/danielevans/handlebars-mode">handlebars-mode</a> は Ember.js のテンプレートエンジンとして採用されている
+Handlebars を書くためのモード。</p>
+<p>syntax highlight と、いくつかの編集機能を備えている。が、今のところ麦汁さんは syntax highlight しか使えてない。</p>
+<p>編集コマンドは <a href="https://github.com/jerrypnz/major-mode-hydra.el">major-mode-hydra</a> で使えるようにしてあげれば良さそう</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle handlebars-mode)
+</code></pre></div>
 
-
-
-<ul>
-	
-</ul>
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -665,6 +688,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -678,6 +702,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -700,6 +725,8 @@
 
 	 
 	 
+		
+			<a class="nav nav-prev" href="/.emacs.d/framework-config/" title="フレームワーク用の設定"> <i class="fa fa-chevron-left"></i></a>
 		
 		
 			<a class="nav nav-next" href="/.emacs.d/basics/" title="基本設定" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
@@ -734,3 +761,4 @@
 
   </body>
 </html>
+
