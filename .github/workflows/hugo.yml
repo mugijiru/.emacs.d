@@ -2,8 +2,8 @@ name: Hugo
 
 on:
   push:
-    # paths:
-    #   - 'hugo/content/**/*.md'
+    paths:
+      - 'hugo/content/**/*.md'
     branches-ignore:
       - 'master'
 
