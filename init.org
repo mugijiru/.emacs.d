@@ -572,13 +572,30 @@
    #+end_src
 
 * テストコード
+  :PROPERTIES:
+  :EXPORT_HUGO_SECTION: testing
+  :END:
 
-  一部のコマンドなどの設定を書き始めているので設けたセクション。
+** テストコード
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: _index
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>6. </b>" :weight 6 :disableToc true
+   :END:
 
-  暫定的にここに置いているが設定と近い方が良さそうなので
-  いずれドキュメント内の位置を移動しそう。
+   一部のコマンドなどの設定を書き始めているので設けたセクション。
+
+   暫定的にここに置いているが設定と近い方が良さそうなので
+   いずれドキュメント内の位置を移動しそう。
+
+   - [[*実行方法][実行方法]] :: とりあえず書かれているテストを動かす方法を書いている。
+   - [[*run-tests][run-tests]] :: テスト全体を動かすための共通設定ファイルの説明
+   - [[*my-org-commands-test][my-org-commands-test]] :: org-mode 用に自分が生やしたコマンドのテストファイルの解説
 
 ** 実行方法
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: execution
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :weight 1
+   :END:
 
    テストする時は以下のように叩いたら動く。
 
@@ -598,6 +615,10 @@
    の部分を書き換えたらいいんじゃないかな。やったことないけど。
 
 ** run-tests
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: run-tests
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :weight 2
+   :END:
 
    読み込んだテストをまるっとテストするためのコードをとりあえず置いている。
 
@@ -610,7 +631,11 @@
    後述の [[*テストライブラリの読み込み][テストライブラリの読み込み]] などはここで担うべきかとも考えるが
    今はテストファイルが1つしかないので気にしないことにする。
 
-** 68-my-org-commands-test
+** my-org-commands-test
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: my-org-commands-test
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :weight 3
+   :END:
 
    org-mode 用に定義したコマンドや関数のテストコード
 
