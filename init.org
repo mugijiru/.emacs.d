@@ -1050,6 +1050,13 @@
    (with-eval-after-load 'flycheck
      (flycheck-pos-tip-mode))
    #+end_src
+
+** 30-git-gutter-fringe.el
+
+   #+begin_src emacs-lisp :tangle inits/30-git-gutter-fringe.el
+   (el-get-bundle git-gutter-fringe)
+   (global-git-gutter-mode t)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
