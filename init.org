@@ -826,6 +826,12 @@
    (setq savehist-additional-variables '(kill-ring))
    #+end_src
 
+** load-libraries
+
+   #+begin_src emacs-lisp :tangle inits/01-load-libraries.el
+   (el-get-bundle s)
+   (require 's)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
