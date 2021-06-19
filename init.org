@@ -466,16 +466,34 @@
     | r   | 繰り返し同じコマンドを実行    |
     |-----+-------------------------------|
 
-* フレームワーク系
-** Ember.js 用の設定
+* フレームワーク用の設定
+  :PROPERTIES:
+  :EXPORT_HUGO_SECTION: framework-config
+  :END:
 
-   Ember.js 用の Emacs の拡張としては
-   ~ember-mode~ と ~handlebars-mode~ が存在する
+** フレームワーク用の設定
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: _index
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>5. </b>" :weight 5 :disableToc true
+   :END:
+
+   開発に使っている各フレームワーク用の設定をここにまとめている。
+
+   - [[*Ember.js][Ember.js]] :: Web フロントエンド MVC フレームワークである Ember.js 用の設定を書いている
+
+** Ember.js
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: ember-js
+   :END:
+
+*** 概要
+
+    Ember.js 用の Emacs の拡張としては
+    ~ember-mode~ と ~handlebars-mode~ が存在する
 
 *** ember-mode                                                       :unused:
 
-    https://github.com/madnificent/ember-mode
-
+    [[https://github.com/madnificent/ember-mode][ember-mode]] は
     Ember.js アプリケーションのファイルナビゲーションや生成を行ってくれるモード。
     実は麦汁さんは使えてない。
 
@@ -497,8 +515,7 @@
 
 *** handlebars-mode                                             :improvement:
 
-    https://github.com/danielevans/handlebars-mode
-
+    [[https://github.com/danielevans/handlebars-mode][handlebars-mode]] は Ember.js のテンプレートエンジンとして採用されている
     Handlebars を書くためのモード。
 
     syntax highlight と、いくつかの編集機能を備えている。
