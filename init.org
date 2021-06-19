@@ -819,6 +819,13 @@
        (file-missing (message "Load error: %s" file))))
    #+end_src
 
+** savehist
+
+   #+begin_src emacs-lisp :tangle inits/00-savehist.el
+   (savehist-mode 1)
+   (setq savehist-additional-variables '(kill-ring))
+   #+end_src
+
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
