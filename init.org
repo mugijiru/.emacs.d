@@ -964,6 +964,12 @@
         "Tool"
         (("W" google-this-forecast "Weather")))))
    #+end_src
+
+** google-translate
+
+   #+begin_src emacs-lisp :tangle inits/20-google-translate.el
+   (el-get-bundle google-translate)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
