@@ -93,7 +93,6 @@
     #+end_src
     #+end_details
 
-
 * 編集系
 ** auto-insert
    ファイルを新規作成した時に
@@ -281,7 +280,19 @@
     | r   | 繰り返し同じコマンドを実行    |
     |-----+-------------------------------|
 
-* UI 系
+* UI
+  :PROPERTIES:
+  :EXPORT_HUGO_SECTION: ui
+  :END:
+** UI
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: _index
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>3. </b>" :weight 3 :disableToc true
+   :END:
+
+   ここでは Emacs の UI を変更するようなものを載せている
+
+   - helm-posframe :: Helm を posframe で使えるようにするやつ
 ** Neotree                                                      :replacement:
 
    https://github.com/jaypei/emacs-neotree
@@ -396,6 +407,36 @@
       | z   | Neotree のサイズを大きくしたり小さくしたり |
       | h   | 隠しファイルを表示したり隠したり           |
       |-----+--------------------------------------------|
+
+** helm-posframe
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: helm-posframe
+   :END:
+
+*** 概要
+
+    [[https://github.com/tumashu/helm-posframe][helm-posframe]] は [[https://github.com/emacs-helm/helm][helm]] の拡張で
+    Helm のバッファの表示を [[https://github.com/tumashu/posframe][posframe]] を使うようにしてくれるやつ。
+
+    実は helm 本体の方でも posframe 対応しているのであまり使う必要もなさそうなので
+    いずれ外すかもしれない。
+
+    ただ確か本体の方の挙動が気に入らなかったような気はする。
+
+*** インストール
+
+    いつも通り el-get でインストール。
+    GitHub にあるのでそれを取得するようにしている。
+
+    #+begin_src emacs-lisp :tangle inits/21-helm-posframe.el
+    (el-get-bundle tumashu/helm-posframe)
+    #+end_src
+
+*** 有効化
+
+    #+begin_src emacs-lisp :tangle inits/21-helm-posframe.el
+    (helm-posframe-enable)
+    #+end_src
 
 * フレームワーク系
 ** Ember.js 用の設定

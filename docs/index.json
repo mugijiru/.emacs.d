@@ -14,11 +14,25 @@
 	"content": "ここでは全体に関わるキーバインド系の設定を記載している。\n sticky-control Control の入力を sticky にしてくれるやつ  "
 },
 {
+	"uri": "https://mugijiru.github.io/.emacs.d/ui/",
+	"title": "UI",
+	"tags": [],
+	"description": "",
+	"content": "ここでは Emacs の UI を変更するようなものを載せている\n helm-posframe Helm を posframe で使えるようにするやつ  "
+},
+{
 	"uri": "https://mugijiru.github.io/.emacs.d/categories/",
 	"title": "Categories",
 	"tags": [],
 	"description": "",
 	"content": ""
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/ui/helm-posframe/",
+	"title": "helm-posframe",
+	"tags": [],
+	"description": "",
+	"content": "概要 helm-posframe は helm の拡張で Helm のバッファの表示を posframe を使うようにしてくれるやつ。\n実は helm 本体の方でも posframe 対応しているのであまり使う必要もなさそうなのでいずれ外すかもしれない。\nただ確か本体の方の挙動が気に入らなかったような気はする。\nインストール いつも通り el-get でインストール。 GitHub にあるのでそれを取得するようにしている。\n(el-get-bundle tumashu/helm-posframe) 有効化 (helm-posframe-enable) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/keybinds/sticky-control/",
