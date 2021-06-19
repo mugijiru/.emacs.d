@@ -1031,6 +1031,15 @@
          ("l" yas-describe-tables "List")
          ("r" yas-reload-all      "Reload all")))))
    #+end_src
+
+** company
+
+   #+begin_src emacs-lisp :tangle inits/30-company.el
+   (el-get-bundle company-mode)
+   (with-eval-after-load 'company
+     ;; active
+     (define-key company-active-map (kbd "C-s") 'company-search-candidates))
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
