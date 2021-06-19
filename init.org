@@ -793,6 +793,12 @@
      何度も使うならこの差し替え処理自体をテストヘルパーにしても良いかもしれない。
 
      また ivy で選択するので with-simulated-input を使って入力操作を代替している。便利。
+
+* 未整理
+
+  ここにはとりあえず inits 以下に出力できるようにしただけの記述を連ねていきます。
+  あとで移動する。
+
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
