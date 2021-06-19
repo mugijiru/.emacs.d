@@ -627,3 +627,8 @@
      何度も使うならこの差し替え処理自体をテストヘルパーにしても良いかもしれない。
 
      また ivy で選択するので with-simulated-input を使って入力操作を代替している。便利。
+* Footnotes
+* COMMENT Local Variables                          :ARCHIVE:
+# Local Variables:
+# eval: (org-hugo-auto-export-mode)
+# End:
