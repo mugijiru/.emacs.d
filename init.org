@@ -1012,6 +1012,25 @@
    (require 'uniquify) ;; includes Emacs
    (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
    #+end_src
+
+** 20-yasnippet.el
+
+   #+begin_src emacs-lisp :tangle inits/20-yasnippet.el
+   (el-get-bundle yasnippet)
+   (yas-global-mode 1)
+
+   (with-eval-after-load 'pretty-hydra
+     (pretty-hydra-define
+       yasnippet-hydra (:separator "-" :title "Yasnippet" :foreign-key warn :quit-key "q" :exit t)
+       ("Edit"
+        (("n" yas-new-snippet        "New")
+         ("v" yas-visit-snippet-file "Visit"))
+
+        "Other"
+        (("i" yas-insert-snippet  "Insert")
+         ("l" yas-describe-tables "List")
+         ("r" yas-reload-all      "Reload all")))))
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
