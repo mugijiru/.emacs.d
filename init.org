@@ -292,13 +292,16 @@
 
    ここでは Emacs の UI を変更するようなものを載せている
 
-   - helm-posframe :: Helm を posframe で使えるようにするやつ
+   - [[*helm-posframe][helm-posframe]] :: Helm を posframe で使えるようにするやつ
+   - [[*Neotree][Neotree]] :: フォルダ構造を IDE みたいにツリー表示するやつ
 ** Neotree                                                      :replacement:
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: neotree
+   :END:
 
-   https://github.com/jaypei/emacs-neotree
-
-   Emacs でフォルダのツリー表示ができるやつ。
-   メンテは活発じゃないようなので、その内乗り換えたい。
+*** 概要
+    [[https://github.com/jaypei/emacs-neotree][Neotree]] は Emacs でフォルダのツリー表示ができるやつ。
+    メンテは活発じゃないようなので、その内乗り換えたい。
 
 *** レシピ
 
@@ -316,6 +319,9 @@
     #+end_src
 
 *** インストール
+
+    上に書いたレシピを使ってインストールしている。
+
     #+begin_src emacs-lisp :tangle inits/40-neotree.el
     (el-get-bundle emacs-neotree-dev)
     #+end_src
@@ -349,7 +355,7 @@
 *** major-mode-hydra
 
     いちいちキーバインドを覚えてられないので
-    major-mode-hydra を使って主要なキーバインドは hydra で使えるようにしている。
+    [[https://github.com/jerrypnz/major-mode-hydra.el][major-mode-hydra]] を使って主要なキーバインドは [[https://github.com/abo-abo/hydra][hydra]] で使えるようにしている。
 
     とはいえ、この文書を書く前日ぐらいに設定しているのでまだ使い慣れてないというか、ほとんど使えてない。
 
