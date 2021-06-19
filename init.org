@@ -997,6 +997,13 @@
    #+begin_src emacs-lisp :tangle inits/20-posframe.el
    (el-get-bundle posframe)
    #+end_src
+
+** smartparens
+
+   #+begin_src emacs-lisp :tangle inits/20-smartparens.el
+   (el-get-bundle smartparens)
+   (require 'smartparens-config)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
