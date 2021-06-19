@@ -799,6 +799,16 @@
   ここにはとりあえず inits 以下に出力できるようにしただけの記述を連ねていきます。
   あとで移動する。
 
+** exec-path
+
+   #+begin_src emacs-lisp :tangle inits/00-exec-path.el
+   ;; for exec path
+   ;; use .bashrc setted path
+   (el-get-bundle exec-path-from-shell)
+   (when (memq window-system '(mac ns))
+     (exec-path-from-shell-initialize))
+   #+end_src
+
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
