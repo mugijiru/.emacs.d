@@ -2643,6 +2643,12 @@
    (setq ivy-re-builders-alist '((t . ivy--regex-plus)
                                  (swiper . my/ivy-migemo-re-builder)))
    #+end_src
+
+** 83-counsel-osx-app.el
+
+   #+begin_src emacs-lisp :tangle inits/83-counsel-osx-app.el
+   (el-get-bundle counsel-osx-app)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
