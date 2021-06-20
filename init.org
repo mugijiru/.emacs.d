@@ -2828,6 +2828,13 @@
    (setq dashboard-set-file-icons t)
    (dashboard-setup-startup-hook)
    #+end_src
+
+** 99-custom-file.el
+
+   #+begin_src emacs-lisp :tangle inits/99-custom-file.el
+   (setq custom-file (expand-file-name "~/.emacs.d/custom.el"))
+   (load custom-file)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
