@@ -1635,6 +1635,18 @@
             (setq org-plantuml-jar-path "~/bin/plantuml.jar")))
    (add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images) ;; org-babel-execute 後に画像を再表示
    #+end_src
+
+** 61-calfw.el
+
+   #+begin_src emacs-lisp :tangle inits/61-calfw.el
+   (el-get-bundle japanese-holidays)
+   (require 'japanese-holidays)
+   (setq calendar-holidays (append japanese-holidays))
+
+   (el-get-bundle calfw)
+   (require 'calfw)
+   (require 'calfw-org)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
