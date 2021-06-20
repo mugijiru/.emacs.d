@@ -2207,6 +2207,13 @@
         "Pomodoro"
         (("p" org-pomodoro "Pomodoro")))))
    #+end_src
+
+** 70-esa.el
+
+   #+begin_src emacs-lisp :tangle inits/70-esa.el
+   (el-get-bundle esa)
+   (my/load-config "my-esa-config")
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
