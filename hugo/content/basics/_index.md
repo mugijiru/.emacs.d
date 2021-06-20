@@ -11,6 +11,9 @@ Emacs の基本動作に関わる部分をここでは設定している
 [exec-path]({{< relref "exec-path" >}})
 : PATH などの環境変数を shell と合わせる設定
 
+[auto-save]({{< relref "auto-save" >}})
+: 編集中状態の自動保存や編集前の状態のバックアップに関する設定
+
 [load-path]({{< relref "load-path" >}})
 : Emacs Lisp が読み込める path の設定
 
