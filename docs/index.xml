@@ -74,6 +74,21 @@ swiper ivy-read を使った機能のテストをするので読み込んでい�
     </item>
     
     <item>
+      <title>ace-window</title>
+      <link>https://mugijiru.github.io/.emacs.d/nav/ace-window/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/nav/ace-window/</guid>
+      <description>概要 Window 間の移動を ace-jump や avy のように表示されてる文字の Window に移動するやつ。
+Window が2分割の時は文字も出ないで別の Window に移動してくれる。
+C-x o にデフォルトで設定されている other-window は別の window に順番に移動するコマンドなので大量に分割していると移動がしんどいのだが ace-window を使うと起動して 1 ストロークで移動できるので C-x o をデフォルトの other-window から ace-window そのまま置き換えても便利に使える。
+インストール いつも通り el-get でインストールしている。
+(el-get-bundle ace-window) 設定 キーバインドは別の箇所で定義しているが C-x o で ace-window が起動するようにしている。
+また Hydra からは ace-swap-window が起動できるようにしている。
+ace-window には色々な機能があるからそれ用の Hydra を別途定義してもいいかもしれない。</description>
+    </item>
+    
+    <item>
       <title>all-the-icons</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/all-the-icons/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

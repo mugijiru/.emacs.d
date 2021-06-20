@@ -67,7 +67,7 @@
 	"title": "ナビゲーション",
 	"tags": [],
 	"description": "",
-	"content": "ここではカーソル移動やファイル移動などのナビゲーション系の設定を記載していく\n avy 表示されてるところの好きな場所にさくっとジャンプするためのパッケージ  "
+	"content": "ここではカーソル移動やファイル移動などのナビゲーション系の設定を記載していく\n ace-window 3つ以上にウインドウを分割している際のウインドウ切替を楽にしてくれるパッケージ avy 表示されてるところの好きな場所にさくっとジャンプするためのパッケージ  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/framework-config/",
@@ -89,6 +89,13 @@
 	"tags": [],
 	"description": "",
 	"content": "一部のコマンドなどの設定を書き始めているので設けたセクション。\n暫定的にここに置いているが設定と近い方が良さそうなのでいずれドキュメント内の位置を移動しそう。\n 実行方法 とりあえず書かれているテストを動かす方法を書いている。 run-tests テスト全体を動かすための共通設定ファイルの説明 my-org-commands-test org-mode 用に自分が生やしたコマンドのテストファイルの解説  "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/nav/ace-window/",
+	"title": "ace-window",
+	"tags": [],
+	"description": "",
+	"content": "概要 Window 間の移動を ace-jump や avy のように表示されてる文字の Window に移動するやつ。\nWindow が2分割の時は文字も出ないで別の Window に移動してくれる。\nC-x o にデフォルトで設定されている other-window は別の window に順番に移動するコマンドなので大量に分割していると移動がしんどいのだが ace-window を使うと起動して 1 ストロークで移動できるので C-x o をデフォルトの other-window から ace-window そのまま置き換えても便利に使える。\nインストール いつも通り el-get でインストールしている。\n(el-get-bundle ace-window) 設定 キーバインドは別の箇所で定義しているが C-x o で ace-window が起動するようにしている。\nまた Hydra からは ace-swap-window が起動できるようにしている。\nace-window には色々な機能があるからそれ用の Hydra を別途定義してもいいかもしれない。\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/ui/all-the-icons/",
