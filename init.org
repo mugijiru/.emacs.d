@@ -1575,6 +1575,13 @@
    #+begin_src emacs-lisp :tangle inits/50-multiple-cursor.el
    (el-get-bundle multiple-cursors)
    #+end_src
+
+** 50-plantuml.el
+
+   #+begin_src emacs-lisp :tangle inits/50-plantuml.el
+   (el-get-bundle plantuml-mode)
+   (setq plantuml-default-exec-mode 'jar)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
