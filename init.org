@@ -1291,6 +1291,12 @@
    #+begin_src emacs-lisp :tangle inits/40-gnuplot.el
    (el-get-bundle gnuplot-mode)
    #+end_src
+
+** 40-markdown.el
+
+   #+begin_src emacs-lisp :tangle inits/40-markdown.el
+   (el-get-bundle markdown-mode)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
