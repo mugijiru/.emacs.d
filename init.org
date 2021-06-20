@@ -1043,7 +1043,7 @@
 
 ** 30-flycheck.el
 
-   #+begin_src emacs-lisp "tangle inits/30-flycheck.el
+   #+begin_src emacs-lisp :tangle inits/30-flycheck.el
    (el-get-bundle flycheck)
    (el-get-bundle flycheck-pos-tip)
 
