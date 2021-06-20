@@ -22,3 +22,6 @@ disableToc = true
 
 [toolbar]({{< relref "toolbar" >}})
 : Emacs 標準のボタンなどの UI 部分の設定。
+
+[zoom]({{< relref "zoom" >}})
+: フォーカスが当たってるウインドウを大きく表示してくれるやつ。

@@ -73,9 +73,7 @@
  '(scroll-bar-mode nil)
  '(wakatime-cli-path (expand-file-name "~/.anyenv/envs/pyenv/shims/wakatime"))
  '(wakatime-python-bin nil)
- '(yascroll:delay-to-hide nil)
- '(zoom-mode t nil (zoom))
- '(zoom-size (quote (0.618 . 0.618))))
+ '(yascroll:delay-to-hide nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
