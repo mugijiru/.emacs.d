@@ -2295,6 +2295,13 @@
 
    ;; キーバインドは 80-global-keybinds に書いた
    #+end_src
+
+** 80-edit.el
+
+   #+begin_src emacs-lisp :tangle inits/80-edit.el
+   (setq indent-tabs-mode nil) ;; インデントにタブを使わない
+   (save-place-mode 1)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
