@@ -770,6 +770,38 @@
     (tool-bar-mode -1)
     #+end_src
 
+** zoom
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: zoom
+   :END:
+
+*** 概要
+
+    [[https://github.com/cyrus-and/zoom][zoom]] はフォーカスが当たっている Window が大きく表示されるようにするやつ。
+    最近流行りのビデオチャットツールではない。
+
+*** インストール
+
+    いつも通り el-get から入れる。
+    GitHub から直接取得するように設定している。
+
+    #+begin_src emacs-lisp :tangle inits/90-zoom.el
+    (el-get-bundle cyrus-and/zoom)
+    #+end_src
+
+*** 設定
+
+    - 起動時に有効化 :: 1画面しか使えない時は必須なので
+    - 比率を黄金比に変更 :: この方が使いやすいっぽい。
+
+    という設定をしている。
+
+    #+begin_src emacs-lisp :tangle inits/90-zoom.el
+    (custom-set-variables
+     '(zoom-mode t)
+     '(zoom-size '(0.618 . 0.618)))
+    #+end_src
+
 * ナビゲーション
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: nav
@@ -3113,12 +3145,6 @@
      nil)
    #+end_src
 
-** 90-zoom.el
-
-   #+begin_src emacs-lisp :tangle inits/90-zoom.el
-   ;; 作業中の Window が大きく表示されるようにするやつ
-   (el-get-bundle cyrus-and/zoom)
-   #+end_src
 
 ** 91-doom-modeline.el
 
