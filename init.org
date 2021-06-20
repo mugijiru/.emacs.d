@@ -50,9 +50,132 @@
    Emacs の基本動作に関わる部分をここでは設定している
 
    - [[*exec-path][exec-path]] :: PATH などの環境変数を shell と合わせる設定
+   - [[*auto-save][auto-save]] :: 編集中状態の自動保存や編集前の状態のバックアップに関する設定
    - [[*load-path][load-path]] :: Emacs Lisp が読み込める path の設定
    - [[*savehist][savehist]] :: ミニバッファの履歴などを保存してくれる機能。
    - [[*ガベージコレクション][ガベージコレクション]] :: メモリの開放関係の設定
+
+** auto-save                                                    :replacement:
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: auto-save
+   :END:
+
+*** 概要
+
+    編集中状態の自動保存や、編集前や保存直後の状態のバックアップに関する設定をここでは書いている。
+
+    Emacs ではデフォルトでも
+    編集中ファイルの自動保存や、編集前の状態の自動バックアップもしてくれるが
+    開いているファイルとは違う場所に保存したりすることで、より便利になるのでいくつかの設定を入れている。
+
+*** 設定
+
+**** 自動保存設定
+
+     デフォルトだと ~#hoge.txt#~ みたいなファイル名で作られる、自動保存に関する設定。
+
+     まあこの自動保存されてやつを活用できてる気がしないのでこの自動保存自体不要な気はしているが、
+     とりあえず場所を移動して邪魔にはならないようにはしている。
+
+***** 自動保存のタイミング
+
+      自動保存のタイミングは
+
+      - auto-save-timeout
+      - auto-save-interval
+
+      で制御されている。
+
+      まず auto-save-timeout で設定した秒数が経過すると再度自動保存が実行される。
+
+      これがデフォルトだと 30 秒なのだが、ちょっと長いのでその半分の 15 秒で保存されるように設定を変更している。
+
+      #+begin_src emacs-lisp :tangle inits/10-auto-save.el
+      (setq auto-save-timeout 15)
+      #+end_src
+
+      また auto-save-interval で設定した回数のキーイベントが発生すると再度自動保存を実行する。
+
+      これもデフォルトだと 300 と結構なキーを叩く必要があるので 60 回としている。
+
+      #+begin_src emacs-lisp :tangle inits/10-auto-save.el
+      (setq auto-save-interval 60)
+      #+end_src
+
+***** 自動保存先を変更する
+
+      自動保存はそのままだと弄ってるファイルの場所に作られる。
+      が、これは以下のようにすると ~~/.emacs.d/backup/~ 一応変更可能。
+
+      #+begin_src emacs-lisp :tangle inits/10-auto-save.el
+      (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/backup/" t)))
+      #+end_src
+
+      ただ、デフォルト値が
+
+      #+begin_src emacs-lisp
+      (("\\`/[^/]*:\\([^/]*/\\)*\\([^/]*\\)\\'" "/tmp/\\2" t))
+      #+end_src
+
+      なので ~.*~ にしているのは乱暴そうな気がしている。
+
+      というわけで
+      https://masutaka.net/chalow/2014-05-11-1.html
+      に書かれているのを真似して
+
+      #+begin_src emacs-lisp
+      (("~/\\([^/]*/\\)*\\([^/]*\\)$" "~/.emacs.d/backup/\\2" t))
+      #+end_src
+
+      とでもした方が良いかもしれない。
+
+**** バックアップファイル
+
+     自動保存とは別に、
+     ファイルを開いた時点のバージョンや保存した時点のバージョンを取っておいてくれる自動バックアップ機能もあるので
+     その設定も弄っている。
+
+***** バックアップ先のフォルダ指定
+
+      デフォルトでは編集しているファイルと同じフォルダにバックアップファイルを作成するようになっている。
+
+      だけど、こいつが結構邪魔なので
+      バックアップファイルは ~~/.emacs.d/backup/~ に全部保存するようにしている。
+
+      また、普段 tramp は使っていないが
+      何かの拍子で使った時にバックアップが取られると邪魔そうなのでそれは保存しないようにしている。
+
+      #+begin_src emacs-lisp :tangle inits/10-auto-save.el
+      (setq backup-directory-alist '((".*" . "~/.emacs.d/backup")
+                                     (,tramp-file-name-regexp . nil)))
+      #+end_src
+
+***** バージョン管理
+
+      バックアップにはバージョン管理機能もある。が、標準では無効化されている。
+
+      とりあえず古いバージョンを引っ張り出せると便利かもと思って有効化している。
+
+      #+begin_src emacs-lisp :tangle inits/10-auto-save.el
+      (setq version-control t)
+      #+end_src
+
+      が、実際それを使ったことはない。。。
+
+      また、古過ぎるバックアップファイルは要らないので、
+      自動的に消されるように設定している。
+
+      #+begin_src emacs-lisp :tangle inits/10-auto-save.el
+      (setq delete-old-versions t)
+      #+end_src
+
+**** その他
+
+     Emacs の自動保存などについては
+     http://yohshiy.blog.fc2.com/blog-entry-319.html
+     によくまとめられているので、いずれその内容を設定に反映させたい。
+
+     また [[https://github.com/bbatsov/super-save][super-save]] というやつを使って実ファイルに自動保存したりしたらこれも不要になると思われる。
 
 ** exec-path
    :PROPERTIES:
@@ -1046,18 +1169,6 @@
                docstring))))
    #+end_src
 
-** auto-save
-
-   #+begin_src emacs-lisp :tangle inits/10-auto-save.el
-   (setq auto-save-timeout 15)
-   (setq auto-save-interval 60)
-   (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/backup/" t)))
-   (setq backup-directory-alist '((".*" . "~/.emacs.d/backup")
-                                  (,tramp-file-name-regexp . nil)))
-
-   (setq version-control t)
-   (setq delete-old-versions t)
-   #+end_src
 
 ** migemo
 
