@@ -765,7 +765,43 @@
 
    ここではカーソル移動やファイル移動などのナビゲーション系の設定を記載していく
 
+   - [[*ace-window][ace-window]] :: 3つ以上にウインドウを分割している際のウインドウ切替を楽にしてくれるパッケージ
    - [[*avy][avy]] :: 表示されてるところの好きな場所にさくっとジャンプするためのパッケージ
+
+** ace-window
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: ace-window
+   :END:
+
+*** 概要
+
+    Window 間の移動を ace-jump や avy のように
+    表示されてる文字の Window に移動するやつ。
+
+    Window が2分割の時は文字も出ないで別の Window に移動してくれる。
+
+    ~C-x o~ にデフォルトで設定されている ~other-window~ は別の window に順番に移動するコマンドなので
+    大量に分割していると移動がしんどいのだが
+    ace-window を使うと起動して 1 ストロークで移動できるので
+    ~C-x o~ をデフォルトの ~other-window~ から ~ace-window~ そのまま置き換えても便利に使える。
+
+*** インストール
+
+    いつも通り el-get でインストールしている。
+
+    #+begin_src emacs-lisp :tangle inits/20-ace-window.el
+    (el-get-bundle ace-window)
+    #+end_src
+
+*** 設定
+
+    キーバインドは別の箇所で定義しているが
+    ~C-x o~ で ace-window が起動するようにしている。
+
+    また Hydra からは ace-swap-window が起動できるようにしている。
+
+    ace-window には色々な機能があるから
+    それ用の Hydra を別途定義してもいいかもしれない。
 
 ** avy
    :PROPERTIES:
@@ -1196,11 +1232,6 @@
    (migemo-init)
    #+end_src
 
-** ace-window
-
-   #+begin_src emacs-lisp :tangle inits/20-ace-window.el
-   (el-get-bundle ace-window)
-   #+end_src
 
 ** alert
 
