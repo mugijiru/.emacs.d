@@ -2795,6 +2795,15 @@
    ;; 作業中の Window が大きく表示されるようにするやつ
    (el-get-bundle cyrus-and/zoom)
    #+end_src
+
+** 91-doom-modeline.el
+
+   #+begin_src emacs-lisp :tangle inits/91-doom-modeline.el
+   (el-get-bundle doom-modeline)
+   (doom-modeline-mode 1)
+   (setq doom-modeline-vcs-max-length 30)
+   (display-battery-mode 1)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
