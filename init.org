@@ -2402,6 +2402,14 @@
    #+begin_src emacs-lisp :tangle inits/80-undo-fu.el
    (el-get-bundle undo-fu)
    #+end_src
+
+** 80-wakatime.el
+
+   #+begin_src emacs-lisp :tangle inits/80-wakatime.el
+   (el-get-bundle wakatime-mode)
+   (my/load-config "my-wakatime-config")
+   (global-wakatime-mode 1)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
