@@ -602,6 +602,36 @@
     defcustom で定義されてる変数なので
     custom-set-variables で設定した方がいいかもしれない。
 
+** helm-posframe
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: helm-posframe
+   :END:
+
+*** 概要
+
+    [[https://github.com/tumashu/helm-posframe][helm-posframe]] は [[https://github.com/emacs-helm/helm][helm]] の拡張で
+    Helm のバッファの表示を [[https://github.com/tumashu/posframe][posframe]] を使うようにしてくれるやつ。
+
+    実は helm 本体の方でも posframe 対応しているのであまり使う必要もなさそうなので
+    いずれ外すかもしれない。
+
+    ただ確か本体の方の挙動が気に入らなかったような気はする。
+
+*** インストール
+
+    いつも通り el-get でインストール。
+    GitHub にあるのでそれを取得するようにしている。
+
+    #+begin_src emacs-lisp :tangle inits/21-helm-posframe.el
+    (el-get-bundle tumashu/helm-posframe)
+    #+end_src
+
+*** 有効化
+
+    #+begin_src emacs-lisp :tangle inits/21-helm-posframe.el
+    (helm-posframe-enable)
+    #+end_src
+
 ** Neotree                                                      :replacement:
    :PROPERTIES:
    :EXPORT_FILE_NAME: neotree
@@ -721,37 +751,6 @@
       | z   | Neotree のサイズを大きくしたり小さくしたり |
       | h   | 隠しファイルを表示したり隠したり           |
       |-----+--------------------------------------------|
-
-** helm-posframe
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: helm-posframe
-   :END:
-
-*** 概要
-
-    [[https://github.com/tumashu/helm-posframe][helm-posframe]] は [[https://github.com/emacs-helm/helm][helm]] の拡張で
-    Helm のバッファの表示を [[https://github.com/tumashu/posframe][posframe]] を使うようにしてくれるやつ。
-
-    実は helm 本体の方でも posframe 対応しているのであまり使う必要もなさそうなので
-    いずれ外すかもしれない。
-
-    ただ確か本体の方の挙動が気に入らなかったような気はする。
-
-*** インストール
-
-    いつも通り el-get でインストール。
-    GitHub にあるのでそれを取得するようにしている。
-
-    #+begin_src emacs-lisp :tangle inits/21-helm-posframe.el
-    (el-get-bundle tumashu/helm-posframe)
-    #+end_src
-
-*** 有効化
-
-    #+begin_src emacs-lisp :tangle inits/21-helm-posframe.el
-    (helm-posframe-enable)
-    #+end_src
-
 ** toolbar
    :PROPERTIES:
    :EXPORT_FILE_NAME: toolbar
