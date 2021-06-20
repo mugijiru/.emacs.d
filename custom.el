@@ -4,6 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(auth-sources (quote ("~/.emacs.d/.authinfo.gpg")))
+ '(auto-insert-directory "~/.emacs.d/insert/")
  '(aw-background t)
  '(column-number-mode t)
  '(counsel-locate-cmd (quote counsel-locate-cmd-mdfind))
@@ -73,9 +74,7 @@
  '(scroll-bar-mode nil)
  '(wakatime-cli-path (expand-file-name "~/.anyenv/envs/pyenv/shims/wakatime"))
  '(wakatime-python-bin nil)
- '(yascroll:delay-to-hide nil)
- '(zoom-mode t nil (zoom))
- '(zoom-size (quote (0.618 . 0.618))))
+ '(yascroll:delay-to-hide nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
