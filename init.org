@@ -143,6 +143,35 @@
 
     で十分な気もするので、置き換えを検討した方が良さそう。
 
+** savehist
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: savehist
+   :END:
+
+*** 概要
+
+    Emacs 標準でついている、ミニバッファの履歴などを保存してくれる機能。
+
+*** 有効化
+
+    標準でついているので以下のようにするだけで有効化可能。
+
+    #+begin_src emacs-lisp :tangle inits/00-savehist.el
+    (savehist-mode 1)
+    #+end_src
+
+*** 設定                                                        :improvement:
+
+    標準で保存されるもの以外だと kill-ring だけを保存対象にしている。
+    これで Emacs を終了させても kill-ring は残るようになるはず。
+    だけど最近使えてない気がするな……。検証が必要そう。
+
+    #+begin_src emacs-lisp :tangle inits/00-savehist.el
+    (setq savehist-additional-variables '(kill-ring))
+    #+end_src
+
+    他にも有効にしたら便利そうなのがあれば追加したい。
+    が、ぱっとは思い付かない。
 
 ** ガベージコレクション
    :PROPERTIES:
@@ -891,13 +920,6 @@
 
   ここにはとりあえず inits 以下に出力できるようにしただけの記述を連ねていきます。
   あとで移動する。
-
-** savehist
-
-   #+begin_src emacs-lisp :tangle inits/00-savehist.el
-   (savehist-mode 1)
-   (setq savehist-additional-variables '(kill-ring))
-   #+end_src
 
 ** load-libraries
 
