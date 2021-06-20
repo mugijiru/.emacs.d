@@ -2286,6 +2286,15 @@
    #+begin_src emacs-lisp :tangle inits/70-yascroll.el
    (el-get-bundle yascroll)
    #+end_src
+
+** 70-zoom-window.el
+
+   #+begin_src emacs-lisp :tangle inits/70-zoom-window.el
+   ;; tmux の prefix z のような動きをするやつ
+   (el-get-bundle zoom-window)
+
+   ;; キーバインドは 80-global-keybinds に書いた
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
