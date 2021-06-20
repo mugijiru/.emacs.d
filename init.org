@@ -1197,6 +1197,12 @@
    (setq whitespace-action '(auto-cleanup))
    (global-whitespace-mode 1)
    #+end_src
+
+** 35-magit.el
+
+   #+begin_src emacs-lisp :tangle inits/35-magit.el
+   (el-get-bundle magit)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
