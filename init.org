@@ -2038,6 +2038,14 @@
         "Other"
         (("V" org-trello-version "Version")))))
    #+end_src
+
+** 61-ox-hugo.el
+
+   #+begin_src emacs-lisp :tangle inits/61-ox-hugo.el
+   (el-get-bundle ox-hugo)
+   (with-eval-after-load 'ox
+     (require 'ox-hugo))
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
