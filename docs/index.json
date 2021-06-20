@@ -60,7 +60,7 @@
 	"title": "UI",
 	"tags": [],
 	"description": "",
-	"content": "ここでは Emacs の UI を変更するようなものを載せている\n all-the-icons Emacs で様々なアイコンを表示できるようにするやつ helm-posframe Helm を posframe で使えるようにするやつ Neotree フォルダ構造を IDE みたいにツリー表示するやつ  "
+	"content": "ここでは Emacs の UI を変更するようなものを載せている\n all-the-icons Emacs で様々なアイコンを表示できるようにするやつ helm-posframe Helm を posframe で使えるようにするやつ highlight-indent-guides インデント毎にラインを引いたりして見易くしてくれるやつ Neotree フォルダ構造を IDE みたいにツリー表示するやつ  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/nav/",
@@ -138,6 +138,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 helm-posframe は helm の拡張で Helm のバッファの表示を posframe を使うようにしてくれるやつ。\n実は helm 本体の方でも posframe 対応しているのであまり使う必要もなさそうなのでいずれ外すかもしれない。\nただ確か本体の方の挙動が気に入らなかったような気はする。\nインストール いつも通り el-get でインストール。 GitHub にあるのでそれを取得するようにしている。\n(el-get-bundle tumashu/helm-posframe) 有効化 (helm-posframe-enable) "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/ui/highlight-indent-guides/",
+	"title": "highlight-indent-guides",
+	"tags": [],
+	"description": "",
+	"content": "概要 highlight-indent-guides はインデント毎にラインを引いたりして見易くしてくれるパッケージ。通常のプログラムを書く時にも便利だけど、 YAML などのインデントがそのまま構造になるような言語を弄る時にとても便利。\nインストール これもいつも通り el-get でインストールしている。また GitHub にあるので、そこから直接インストールしている。\n(el-get-bundle DarthFennec/highlight-indent-guides) 設定 今いる行がどのインデントにいるのかをわかりやすくするために responsive モードを有効にしている。\n(setq highlight-indent-guides-responsive \u0026#34;stack\u0026#34;) defcustom で定義されてる変数なので custom-set-variables で設定した方がいいかもしれない。\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/basics/load-path/",
