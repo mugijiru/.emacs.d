@@ -1978,6 +1978,17 @@
    ;; デフォは日本語設定
    (setq org-export-default-language "ja")
    #+end_src
+
+** 61-org-gcal.el                                               :replacement:
+
+   gcal に乗り換えようかと思ってる
+
+   #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
+   (el-get-bundle persist) ;; org-gcal に必要
+   (el-get-bundle org-gcal)
+   (require 'org-gcal)
+   (my/load-config "my-org-gcal-config")
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
