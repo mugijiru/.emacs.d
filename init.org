@@ -2759,6 +2759,35 @@
    #+begin_src emacs-lisp :tangle inits/90-toolbar.el
    (tool-bar-mode -1)
    #+end_src
+
+** 90-twmode.el
+
+   #+begin_src emacs-lisp :tangle inits/90-twmode.el
+   (el-get-bundle twittering-mode)
+
+   (setq twittering-username "mugijiru")
+   (setq twittering-jojo-mode t)
+   (setq twittering-timer-interval 60)
+   ;(setq twittering-auth-method 'xauth)
+   (setq twittering-auth-method 'oauth)
+   (setq twittering-update-status-function 'twittering-update-status-from-minibuffer)
+   (setq twittering-status-format "%i %S(%s)%p, %@:\n%FILL{  %T // from %f%L%r%R}\n ")
+   (setq twittering-retweet-format "RT @%s %t")
+   (setq twittering-display-remaining t)
+   (let ((km twittering-mode-map))
+     (define-key km (kbd "SPC") 'scroll-up)
+     (define-key km (kbd "b") 'scroll-down)
+     (define-key km (kbd "g") 'beginning-of-buffer)
+     (define-key km (kbd "G") 'end-of-buffer)
+     (define-key km (kbd "<") 'beginning-of-buffer)
+     (define-key km (kbd ">") 'end-of-buffer)
+     (define-key km (kbd "R") 'twittering-current-timeline)
+     (define-key km (kbd "F") 'twittering-favorite)
+     (define-key km (kbd "\C-cfd") 'twittering-unfavorite)
+     (define-key km (kbd "\C-c[") 'twittering-follow)
+     (define-key km (kbd "\C-c]") 'twittering-unfollow)
+     nil)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
