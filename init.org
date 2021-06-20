@@ -1989,6 +1989,12 @@
    (require 'org-gcal)
    (my/load-config "my-org-gcal-config")
    #+end_src
+
+** 61-org-ql.el
+
+   #+begin_src emacs-lisp :tangle inits/61-org-ql.el
+   (el-get-bundle org-ql)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
