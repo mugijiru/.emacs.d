@@ -2247,6 +2247,14 @@
             (response (shell-command-to-string cmd)))
        (insert response)))
    #+end_src
+
+** 70-scratch-log.el
+
+   #+begin_src emacs-lisp :tangle inits/70-scratch-log.el
+   (el-get-bundle mori-dev/scratch-log)
+
+   (require 'scratch-log) ;; TODO: require 以外の方法で処理できないか?
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
