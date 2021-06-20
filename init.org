@@ -1203,6 +1203,16 @@
    #+begin_src emacs-lisp :tangle inits/35-magit.el
    (el-get-bundle magit)
    #+end_src
+
+** 36-forge.el
+
+   #+begin_src emacs-lisp :tangle inits/36-forge.el
+   ;; magit と github を連携させるやつ
+   (el-get-bundle forge)
+
+   (with-eval-after-load 'magit
+     (require 'forge))
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
