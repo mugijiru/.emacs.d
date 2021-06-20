@@ -14,5 +14,8 @@ Emacs の基本動作に関わる部分をここでは設定している
 [load-path]({{< relref "load-path" >}})
 : Emacs Lisp が読み込める path の設定
 
+[savehist]({{< relref "savehist" >}})
+: ミニバッファの履歴などを保存してくれる機能。
+
 [ガベージコレクション]({{< relref "gcmh" >}})
 : メモリの開放関係の設定
