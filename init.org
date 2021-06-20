@@ -2835,6 +2835,16 @@
    (setq custom-file (expand-file-name "~/.emacs.d/custom.el"))
    (load custom-file)
    #+end_src
+
+** 99-server.el
+
+   #+begin_src emacs-lisp :tangle inits/99-server.el
+   ;; サーバとして起動
+   ;; Firefox から org-capture を動かすのに必要
+   (require 'server)
+   (unless (server-running-p)
+     (server-start))
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
