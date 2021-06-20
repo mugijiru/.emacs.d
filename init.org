@@ -2274,6 +2274,12 @@
    (add-hook 'find-file-hook 'my/find-file-tempbuf-hook)
    (add-hook 'dired-mode-hook 'turn-on-tempbuf-mode)
    #+end_src
+
+** 70-w3m.el
+
+   #+begin_src emacs-lisp :tangle inits/70-w3m.el
+   (el-get-bundle emacs-w3m)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
