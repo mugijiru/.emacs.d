@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>unused :: 麦汁&#39;s Emacs Config</title>
+    <title>savehist :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624160250" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/tags/unused/">
+  <body class="" data-url="/.emacs.d/basics/savehist/">
     <nav id="sidebar" class="">
 
 
@@ -89,7 +89,7 @@
   
     
     <li data-nav-id="/.emacs.d/basics/" title="基本設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -157,7 +157,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/basics/savehist/" title="savehist" class="dd-item ">
+      <li data-nav-id="/.emacs.d/basics/savehist/" title="savehist" class="dd-item active">
         <a href="/.emacs.d/basics/savehist/">
         savehist
         
@@ -734,7 +734,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/tags/'>Tags</a> > unused
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/basics/'>基本設定</a> > savehist
           
         
           
@@ -747,7 +747,13 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#有効化">有効化</a></li>
+    <li><a href="#設定">設定</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -763,26 +769,25 @@
           
             <h1>
               
-                tag ::
-              
-              unused
+              savehist
             </h1>
           
 
         
 
 
+<h2 id="概要">概要</h2>
+<p>Emacs 標準でついている、ミニバッファの履歴などを保存してくれる機能。</p>
+<h2 id="有効化">有効化</h2>
+<p>標準でついているので以下のようにするだけで有効化可能。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(savehist-mode <span style="color:#ae81ff">1</span>)
+</code></pre></div><h2 id="設定">設定</h2>
+<p>標準で保存されるもの以外だと kill-ring だけを保存対象にしている。これで Emacs を終了させても kill-ring は残るようになるはず。だけど最近使えてない気がするな……。検証が必要そう。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq savehist-additional-variables <span style="color:#f92672">&#39;</span>(kill-ring))
+</code></pre></div><p>他にも有効にしたら便利そうなのがあれば追加したい。が、ぱっとは思い付かない。</p>
 
 
-
-<ul>
-	
-		<li><a href="/.emacs.d/testing-tool/mocker-el/">mocker.el</a></li>
-	
-</ul>
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -817,8 +822,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -832,6 +835,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -865,6 +871,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -880,6 +887,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1192,8 +1202,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/.emacs.d/basics/load-path/" title="load-path"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/.emacs.d/basics/" title="基本設定" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/.emacs.d/basics/gcmh/" title="ガベージコレクション" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1225,3 +1237,4 @@
 
   </body>
 </html>
+

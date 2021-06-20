@@ -11,7 +11,7 @@
 	"title": "基本設定",
 	"tags": [],
 	"description": "",
-	"content": "Emacs の基本動作に関わる部分をここでは設定している\n exec-path PATH などの環境変数を shell と合わせる設定 load-path Emacs Lisp が読み込める path の設定 ガベージコレクション メモリの開放関係の設定  "
+	"content": "Emacs の基本動作に関わる部分をここでは設定している\n exec-path PATH などの環境変数を shell と合わせる設定 load-path Emacs Lisp が読み込める path の設定 savehist ミニバッファの履歴などを保存してくれる機能。 ガベージコレクション メモリの開放関係の設定  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/testing/execution/",
@@ -152,6 +152,13 @@
 	"tags": [],
 	"description": "",
 	"content": ""
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/basics/savehist/",
+	"title": "savehist",
+	"tags": [],
+	"description": "",
+	"content": "概要 Emacs 標準でついている、ミニバッファの履歴などを保存してくれる機能。\n有効化 標準でついているので以下のようにするだけで有効化可能。\n(savehist-mode 1) 設定 標準で保存されるもの以外だと kill-ring だけを保存対象にしている。これで Emacs を終了させても kill-ring は残るようになるはず。だけど最近使えてない気がするな……。検証が必要そう。\n(setq savehist-additional-variables \u0026#39;(kill-ring)) 他にも有効にしたら便利そうなのがあれば追加したい。が、ぱっとは思い付かない。\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/keybinds/sticky-control/",

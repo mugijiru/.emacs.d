@@ -39,6 +39,18 @@
     </item>
     
     <item>
+      <title>savehist</title>
+      <link>https://mugijiru.github.io/.emacs.d/basics/savehist/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/basics/savehist/</guid>
+      <description>概要 Emacs 標準でついている、ミニバッファの履歴などを保存してくれる機能。
+有効化 標準でついているので以下のようにするだけで有効化可能。
+(savehist-mode 1) 設定 標準で保存されるもの以外だと kill-ring だけを保存対象にしている。これで Emacs を終了させても kill-ring は残るようになるはず。だけど最近使えてない気がするな……。検証が必要そう。
+(setq savehist-additional-variables &amp;#39;(kill-ring)) 他にも有効にしたら便利そうなのがあれば追加したい。が、ぱっとは思い付かない。</description>
+    </item>
+    
+    <item>
       <title>ガベージコレクション</title>
       <link>https://mugijiru.github.io/.emacs.d/basics/gcmh/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
