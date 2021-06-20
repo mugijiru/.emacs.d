@@ -1,6 +1,5 @@
 (el-get-bundle all-the-icons)
 (require 'all-the-icons)
-;; (all-the-icons-install-fonts) unless installed
 
 (with-eval-after-load 'pretty-hydra
   (pretty-hydra-define all-the-icons-hydra (:separator "-" :title "All the icons" :exit t :quit-key "q")
