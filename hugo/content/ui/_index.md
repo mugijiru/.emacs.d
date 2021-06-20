@@ -14,5 +14,8 @@ disableToc = true
 [helm-posframe]({{< relref "helm-posframe" >}})
 : Helm を posframe で使えるようにするやつ
 
+[highlight-indent-guides]({{< relref "highlight-indent-guides" >}})
+: インデント毎にラインを引いたりして見易くしてくれるやつ
+
 [Neotree]({{< relref "neotree" >}})
 : フォルダ構造を IDE みたいにツリー表示するやつ
