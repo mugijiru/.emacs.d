@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>auto-insert :: 麦汁&#39;s Emacs Config</title>
+    <title>exec-path :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624157214" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/editing/auto-insert/">
+  <body class="" data-url="/.emacs.d/basics/exec-path/">
     <nav id="sidebar" class="">
 
 
@@ -89,7 +89,7 @@
   
     
     <li data-nav-id="/.emacs.d/basics/" title="基本設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -115,7 +115,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/basics/exec-path/" title="exec-path" class="dd-item ">
+      <li data-nav-id="/.emacs.d/basics/exec-path/" title="exec-path" class="dd-item active">
         <a href="/.emacs.d/basics/exec-path/">
         exec-path
         
@@ -220,7 +220,7 @@
   
     
     <li data-nav-id="/.emacs.d/editing/" title="ファイル編集" class="dd-item
-        parent
+        
         
         
         ">
@@ -246,7 +246,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/editing/auto-insert/" title="auto-insert" class="dd-item active">
+      <li data-nav-id="/.emacs.d/editing/auto-insert/" title="auto-insert" class="dd-item ">
         <a href="/.emacs.d/editing/auto-insert/">
         auto-insert
         
@@ -692,7 +692,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/editing/'>ファイル編集</a> > auto-insert
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/basics/'>基本設定</a> > exec-path
           
         
           
@@ -708,9 +708,9 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#設定">設定</a></li>
+    <li><a href="#インストール">インストール</a></li>
     <li><a href="#有効化">有効化</a></li>
-    <li><a href="#他の設定">他の設定</a></li>
+    <li><a href="#その他">その他</a></li>
   </ul>
 </nav>
     </div>
@@ -728,7 +728,7 @@
           
             <h1>
               
-              auto-insert
+              exec-path
             </h1>
           
 
@@ -736,19 +736,24 @@
 
 
 <h2 id="概要">概要</h2>
-<p>auto-insert はファイルを新規作成した時にファイル名に応じたテンプレートを挿入する機能。</p>
-<p>Emacs が標準で持ってるライブラリなのでインストールは不要</p>
-<h2 id="設定">設定</h2>
-<p>Emacs の設定は .emacs.d の中に閉じ込めたいので
-auto-insert のテンプレートも <code>~/.emacs.d/insert</code> に閉じ込める設定にしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(custom-set-variables <span style="color:#f92672">&#39;</span>(auto-insert-directory <span style="color:#e6db74">&#34;~/.emacs.d/insert/&#34;</span>))
+<p>Emacs は通常最小限の環境変数しか利用しないようになっている。</p>
+<p>が、それだと普段使う上で「ああ、このコマンドが使えなくてもどかしい……!」と感じてしまう。</p>
+<p>そこで <a href="https://github.com/purcell/exec-path-from-shell">exec-path-from-shell</a> というのを使って
+Emacs が見える PATH 環境変数をシェルが見てる PATH 環境変数と揃うようにしている。</p>
+<h2 id="インストール">インストール</h2>
+<p>いつも通り el-get からインストールしている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle exec-path-from-shell)
 </code></pre></div><h2 id="有効化">有効化</h2>
-<p>あとは単に有効化している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(auto-insert-mode <span style="color:#ae81ff">1</span>)
-</code></pre></div><h2 id="他の設定">他の設定</h2>
-<p>ファイル名を正規表現でマッチさせてテンプレートが選択されるので各言語やフレームワーク毎に設定を入れることにしている。</p>
-<p>実際は今のところ inits/41-vue.el でのみ追加設定を入れている。</p>
-
+<p>理由は忘れたが Mac の環境でのみ有効化している。その内 Linux 環境でも有効化を試みた方が良さそう</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(when (<span style="color:#a6e22e">memq</span> <span style="color:#a6e22e">window-system</span> <span style="color:#f92672">&#39;</span>(mac ns))
+  (exec-path-from-shell-initialize))
+</code></pre></div><p>なお、これでシェルと共通の環境変数が使われるようになるのは
+<a href="https://github.com/purcell/exec-path-from-shell/blob/bf4bdc8b8911e7a2c04e624b9a343164c3878282/exec-path-from-shell.el#L85-L89">デフォルトでは <code>PATH</code> と <code>MANPATH</code> のみである</a></p>
+<h2 id="その他">その他</h2>
+<p>なぜか以下のようなコメントを書いていた。普段使っている zsh で持ってる PATH は使わないのだろうか? :thinking_face:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#75715e">;; for exec path</span>
+<span style="color:#75715e">;; use .bashrc setted path</span>
+</code></pre></div>
 
 <footer class="footline">
 	
@@ -785,89 +790,6 @@ auto-insert のテンプレートも <code>~/.emacs.d/insert</code> に閉じ込
             
                 
                     
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -894,6 +816,25 @@ auto-insert のテンプレートも <code>~/.emacs.d/insert</code> に閉じ込
             
         
                     
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -902,8 +843,69 @@ auto-insert のテンプレートも <code>~/.emacs.d/insert</code> に閉じ込
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1133,10 +1135,10 @@ auto-insert のテンプレートも <code>~/.emacs.d/insert</code> に閉じ込
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/editing/" title="ファイル編集"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/basics/" title="基本設定"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/ui/" title="UI" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/basics/gcmh/" title="ガベージコレクション" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
