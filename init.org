@@ -2788,6 +2788,13 @@
      (define-key km (kbd "\C-c]") 'twittering-unfollow)
      nil)
    #+end_src
+
+** 90-zoom.el
+
+   #+begin_src emacs-lisp :tangle inits/90-zoom.el
+   ;; 作業中の Window が大きく表示されるようにするやつ
+   (el-get-bundle cyrus-and/zoom)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
