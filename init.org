@@ -2649,6 +2649,14 @@
    #+begin_src emacs-lisp :tangle inits/83-counsel-osx-app.el
    (el-get-bundle counsel-osx-app)
    #+end_src
+
+** 83-prescient.el
+
+   #+begin_src emacs-lisp :tangle inits/83-prescient.el
+   (el-get-bundle raxod502/prescient.el)
+   (ivy-prescient-mode 1)
+   (setq prescient-sort-length-enable nil)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
