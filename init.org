@@ -1569,6 +1569,12 @@
    (ido-mode 1) ;; includes Emacs
    (setq ido-enable-flex-matching t)
    #+end_src
+
+** 50-multiple-cursor.el
+
+   #+begin_src emacs-lisp :tangle inits/50-multiple-cursor.el
+   (el-get-bundle multiple-cursors)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
