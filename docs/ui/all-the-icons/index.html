@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>実行方法 :: 麦汁&#39;s Emacs Config</title>
+    <title>all-the-icons :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624161577" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/testing/execution/">
+  <body class="" data-url="/.emacs.d/ui/all-the-icons/">
     <nav id="sidebar" class="">
 
 
@@ -317,7 +317,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        
+        parent
         
         
         ">
@@ -343,7 +343,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/all-the-icons/" title="all-the-icons" class="dd-item ">
+      <li data-nav-id="/.emacs.d/ui/all-the-icons/" title="all-the-icons" class="dd-item active">
         <a href="/.emacs.d/ui/all-the-icons/">
         all-the-icons
         
@@ -600,7 +600,7 @@
   
     
     <li data-nav-id="/.emacs.d/testing/" title="テストコード" class="dd-item
-        parent
+        
         
         
         ">
@@ -626,7 +626,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/testing/execution/" title="実行方法" class="dd-item active">
+      <li data-nav-id="/.emacs.d/testing/execution/" title="実行方法" class="dd-item ">
         <a href="/.emacs.d/testing/execution/">
         実行方法
         
@@ -755,7 +755,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/testing/'>テストコード</a> > 実行方法
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > all-the-icons
           
         
           
@@ -768,7 +768,14 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#インストール">インストール</a></li>
+    <li><a href="#フォントのインストール">フォントのインストール</a></li>
+    <li><a href="#キーバインド">キーバインド</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -784,19 +791,77 @@
           
             <h1>
               
-              実行方法
+              all-the-icons
             </h1>
           
 
         
 
 
-<p>テストする時は以下のように叩いたら動く。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">emacs -Q --batch -l ~/.emacs.d/inits/test/*-test.el -l ~/.emacs.d/inits/test/run-tests.el
-</code></pre></div><p>今まで <code>.emacs.d</code> にいる状態でしか叩いたことないので他の場所にいる時に実行しても大丈夫かはわからない。</p>
-<p>単体でテストしたい時は</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">-l ~/.emacs.d/inits/test/*-test.el
-</code></pre></div><p>の部分を書き換えたらいいんじゃないかな。やったことないけど。</p>
+<h2 id="概要">概要</h2>
+<p><a href="https://github.com/domtronn/all-the-icons.el">all-the-icons</a> は Emacs で様々なアイコンを表示できるようにして華やかにしてくれるパッケージです。
+<a href="/.emacs.d/ui/neotree/">Neotree</a> などでも対応していてアイコンでファイルの種類が表示されるようになってモダンな雰囲気が出ます。</p>
+<h2 id="インストール">インストール</h2>
+<p>いつも通り el-get-bundle で入れている。明示的に require している理由は忘れました。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle all-the-icons)
+(require <span style="color:#e6db74">&#39;all-the-icons</span>)
+</code></pre></div><h2 id="フォントのインストール">フォントのインストール</h2>
+<p>以下のコマンドを叩くことでフォントをインストールすることができる。
+all-the-icons のインストール直後に叩いておいたら普段は叩かなくて良いはず。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(all-the-icons-install-fonts)
+</code></pre></div><p>all-the-icons の更新後は叩いた方がいいかもしれない</p>
+<h2 id="キーバインド">キーバインド</h2>
+<p>キーバインドは覚えられないし、使えるキーも大分埋まってるので、
+pretty-hydra を使って all-the-icons 用の Hydra を用意している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
+  (pretty-hydra-define all-the-icons-hydra (:separator <span style="color:#e6db74">&#34;-&#34;</span> :title <span style="color:#e6db74">&#34;All the icons&#34;</span> :exit <span style="color:#66d9ef">t</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span>)
+    (<span style="color:#e6db74">&#34;Insert&#34;</span>
+     ((<span style="color:#e6db74">&#34;a&#34;</span> all-the-icons-insert-alltheicon <span style="color:#e6db74">&#34;All the icons&#34;</span>)
+      (<span style="color:#e6db74">&#34;f&#34;</span> all-the-icons-insert-fileicon   <span style="color:#e6db74">&#34;File icons&#34;</span>)
+      (<span style="color:#e6db74">&#34;F&#34;</span> all-the-icons-insert-faicons    <span style="color:#e6db74">&#34;FontAwesome&#34;</span>)
+      (<span style="color:#e6db74">&#34;m&#34;</span> all-the-icons-insert-material   <span style="color:#e6db74">&#34;Material&#34;</span>)
+      (<span style="color:#e6db74">&#34;o&#34;</span> all-the-icons-insert-octicon    <span style="color:#e6db74">&#34;Octicon&#34;</span>)
+      (<span style="color:#e6db74">&#34;w&#34;</span> all-the-icons-insert-wicon      <span style="color:#e6db74">&#34;Weather&#34;</span>)
+      (<span style="color:#e6db74">&#34;*&#34;</span> all-the-icons-insert            <span style="color:#e6db74">&#34;All&#34;</span>)))))
+</code></pre></div><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>all-the-icons で追加されてるアイコンを検索して挿入</td>
+</tr>
+<tr>
+<td>f</td>
+<td>ファイルアイコンを検索して挿入</td>
+</tr>
+<tr>
+<td>F</td>
+<td>FontAwesome アイコンを検索して挿入</td>
+</tr>
+<tr>
+<td>m</td>
+<td>Material アイコンを検索して挿入</td>
+</tr>
+<tr>
+<td>o</td>
+<td>Octicon のアイコンを検索して挿入</td>
+</tr>
+<tr>
+<td>w</td>
+<td>天気アイコンを検索して挿入</td>
+</tr>
+<tr>
+<td>*</td>
+<td>全てのアイコンを検索して挿入</td>
+</tr>
+</tbody>
+</table>
+<p>フォントのインストールコマンドもここに収めてしまうのが良さそうな気がする</p>
 
 
 <footer class="footline">
@@ -981,6 +1046,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -993,6 +1059,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -1010,40 +1077,8 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
                         
-            
-            
-                
                     
                 
                 
@@ -1052,6 +1087,9 @@
                     
                     
 
+                    
+            
+        
                     
                         
             
@@ -1133,6 +1171,38 @@
             
         
                     
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
             
             
@@ -1157,7 +1227,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -1170,7 +1239,6 @@
             
             
                 
-                    
                     
                 
                 
@@ -1187,9 +1255,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1230,10 +1295,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/testing/" title="テストコード"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/ui/" title="UI"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/testing/run-tests/" title="run-tests" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/ui/helm-posframe/" title="helm-posframe" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
