@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>テスト用ツール :: 麦汁&#39;s Emacs Config</title>
+    <title>load-path :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624158647" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/testing-tool/">
+  <body class="" data-url="/.emacs.d/basics/load-path/">
     <nav id="sidebar" class="">
 
 
@@ -89,7 +89,7 @@
   
     
     <li data-nav-id="/.emacs.d/basics/" title="基本設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -136,7 +136,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/basics/load-path/" title="load-path" class="dd-item ">
+      <li data-nav-id="/.emacs.d/basics/load-path/" title="load-path" class="dd-item active">
         <a href="/.emacs.d/basics/load-path/">
         load-path
         
@@ -482,8 +482,8 @@
   
     
     <li data-nav-id="/.emacs.d/testing-tool/" title="テスト用ツール" class="dd-item
-        parent
-        active
+        
+        
         
         ">
       <a href="/.emacs.d/testing-tool/">
@@ -697,6 +697,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -707,7 +709,13 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > テスト用ツール
+            
+            
+          
+          
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/basics/'>基本設定</a> > load-path
+          
+        
           
         
           
@@ -715,6 +723,19 @@
                  
                   </span>
                 </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#秘匿情報を入れてるフォルダを読み込み可能にする">秘匿情報を入れてるフォルダを読み込み可能にする</a></li>
+    <li><a href="#my-load-config">my/load-config</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
                 
               </div>
             </div>
@@ -727,27 +748,33 @@
           
             <h1>
               
-              テスト用ツール
+              load-path
             </h1>
           
 
         
 
 
+<h2 id="概要">概要</h2>
+<p><code>load-path</code> は Emacs の設定でも重要な項目でこのリストに追加されている path は <code>load</code> または <code>require</code> する際に走査される path となっている。</p>
+<p>即ち load-path を通しておけば、そこに置いている emacs lisp のファイルは簡単に読み出せるようになる。</p>
+<p>なお package-install や el-get を使っておけば基本的に自分で load-path を通す必要はない。</p>
+<h2 id="秘匿情報を入れてるフォルダを読み込み可能にする">秘匿情報を入れてるフォルダを読み込み可能にする</h2>
+<p>パスワードなどの秘匿情報を持っている部分は <code>~/.emacs.d/secret</code> というフォルダで管理している。そのためここに入ってる emacs lisp のファイルも読み込めるように load-path に追加している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-to-list <span style="color:#e6db74">&#39;load-path</span> (<span style="color:#a6e22e">expand-file-name</span> <span style="color:#e6db74">&#34;~/.emacs.d/secret&#34;</span>))
+</code></pre></div><h2 id="my-load-config">my/load-config</h2>
+<p><code>~/.emacs.d/secret</code> は個人マシンか会社マシンかによって置いてるデータが異なったりするためもしもファイルがなくてもエラーにならないような方法で load する方法が必要だった。</p>
+<p>というわけでファイルがなかったら読み込まずにメッセージを出力して終了するような関数を用意している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/load-config (file)
+  (condition-case <span style="color:#66d9ef">nil</span>
+      (<span style="color:#a6e22e">load</span> file)
+    (file-missing (<span style="color:#a6e22e">message</span> <span style="color:#e6db74">&#34;Load error: %s&#34;</span> file))))
+</code></pre></div><p>ただ、これって結局</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#a6e22e">load</span> file <span style="color:#66d9ef">nil</span> <span style="color:#66d9ef">t</span>)
+</code></pre></div><p>で十分な気もするので、置き換えを検討した方が良さそう。</p>
 
-	<p>自動テストを実行するにあたり、追加インストールしているパッケージをここに載せている</p>
-<dl>
-<dt><a href="/.emacs.d/testing-tool/with-simulated-input/">with-simulated-input</a></dt>
-<dd>入力処理をシミュレートしてくれるパッケージ</dd>
-<dt><a href="/.emacs.d/testing-tool/mocker-el/">mocker.el</a></dt>
-<dd>Mock/Stub するためのパッケージ。まだ使ってない</dd>
-</dl>
 
-
-
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -782,8 +809,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -797,6 +822,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -814,117 +842,6 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -941,6 +858,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1025,6 +945,53 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1039,8 +1006,69 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1145,10 +1173,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/framework-config/ember-js/" title="Ember.js"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/basics/exec-path/" title="exec-path"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/testing-tool/with-simulated-input/" title="with-simulated-input" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/basics/gcmh/" title="ガベージコレクション" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1180,3 +1208,4 @@
 
   </body>
 </html>
+
