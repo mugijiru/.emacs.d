@@ -60,7 +60,7 @@
 	"title": "UI",
 	"tags": [],
 	"description": "",
-	"content": "ここでは Emacs の UI を変更するようなものを載せている\n all-the-icons Emacs で様々なアイコンを表示できるようにするやつ helm-posframe Helm を posframe で使えるようにするやつ highlight-indent-guides インデント毎にラインを引いたりして見易くしてくれるやつ Neotree フォルダ構造を IDE みたいにツリー表示するやつ toolbar Emacs 標準のボタンなどの UI 部分の設定。  "
+	"content": "ここでは Emacs の UI を変更するようなものを載せている\n all-the-icons Emacs で様々なアイコンを表示できるようにするやつ helm-posframe Helm を posframe で使えるようにするやつ highlight-indent-guides インデント毎にラインを引いたりして見易くしてくれるやつ Neotree フォルダ構造を IDE みたいにツリー表示するやつ toolbar Emacs 標準のボタンなどの UI 部分の設定。 zoom フォーカスが当たってるウインドウを大きく表示してくれるやつ。  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/nav/",
@@ -215,6 +215,13 @@
 	"tags": [],
 	"description": "",
 	"content": ""
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/ui/zoom/",
+	"title": "zoom",
+	"tags": [],
+	"description": "",
+	"content": "概要 zoom はフォーカスが当たっている Window が大きく表示されるようにするやつ。最近流行りのビデオチャットツールではない。\nどこにフォーカスが当たっているかわかりやすくなるし、狭い画面でも見たい部分を広げて表示できるので便利。\nインストール いつも通り el-get から入れる。 GitHub から直接取得するように設定している。\n(el-get-bundle cyrus-and/zoom) 設定  起動時に有効化 1画面しか使えない時は必須なので 比率を黄金比に変更 この方が使いやすいっぽい。  という設定をしている。\n(custom-set-variables \u0026#39;(zoom-mode t) \u0026#39;(zoom-size \u0026#39;(0.618 . 0.618))) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/basics/gcmh/",

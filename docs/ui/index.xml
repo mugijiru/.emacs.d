@@ -73,5 +73,18 @@ major-mode-hydra いちいちキーバインドを覚えてられないので ma
 (tool-bar-mode -1) </description>
     </item>
     
+    <item>
+      <title>zoom</title>
+      <link>https://mugijiru.github.io/.emacs.d/ui/zoom/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/ui/zoom/</guid>
+      <description>概要 zoom はフォーカスが当たっている Window が大きく表示されるようにするやつ。最近流行りのビデオチャットツールではない。
+どこにフォーカスが当たっているかわかりやすくなるし、狭い画面でも見たい部分を広げて表示できるので便利。
+インストール いつも通り el-get から入れる。 GitHub から直接取得するように設定している。
+(el-get-bundle cyrus-and/zoom) 設定  起動時に有効化 1画面しか使えない時は必須なので 比率を黄金比に変更 この方が使いやすいっぽい。  という設定をしている。
+(custom-set-variables &amp;#39;(zoom-mode t) &amp;#39;(zoom-size &amp;#39;(0.618 . 0.618))) </description>
+    </item>
+    
   </channel>
 </rss>
