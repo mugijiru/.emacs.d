@@ -506,6 +506,7 @@
    - [[*helm-posframe][helm-posframe]] :: Helm を posframe で使えるようにするやつ
    - [[*highlight-indent-guides][highlight-indent-guides]] :: インデント毎にラインを引いたりして見易くしてくれるやつ
    - [[*Neotree][Neotree]] :: フォルダ構造を IDE みたいにツリー表示するやつ
+   - [[*toolbar][toolbar]] :: Emacs 標準のボタンなどの UI 部分の設定。
 
 ** all-the-icons
    :PROPERTIES:
