@@ -49,7 +49,50 @@
 
    Emacs の基本動作に関わる部分をここでは設定している
 
+   - [[*exec-path][exec-path]] :: PATH を shell と合わせる設定
    - [[*ガベージコレクション][ガベージコレクション]] :: メモリの開放関係の設定
+
+** exec-path
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: exec-path
+   :END:
+
+*** 概要
+    Emacs は通常最小限の環境変数しか利用しないようになっている。
+
+    が、それだと普段使う上で「ああ、このコマンドが使えなくてもどかしい……!」
+    と感じてしまう。
+
+    そこで [[https://github.com/purcell/exec-path-from-shell][exec-path-from-shell]] というのを使って
+    Emacs が見える環境変数をシェルが見てる環境変数と揃うようにしている。
+
+*** インストール
+
+    いつも通り el-get からインストールしている
+
+    #+begin_src emacs-lisp :tangle inits/00-exec-path.el
+    (el-get-bundle exec-path-from-shell)
+    #+end_src
+
+*** 有効化                                                      :improvement:
+
+    理由は忘れたが Mac の環境でのみ有効化している。
+    その内 Linux 環境でも有効化を試みた方が良さそう
+
+    #+begin_src emacs-lisp :tangle inits/00-exec-path.el
+    (when (memq window-system '(mac ns))
+      (exec-path-from-shell-initialize))
+    #+end_src
+
+*** その他
+
+    なぜか以下のようなコメントを書いていた。
+    普段使っている zsh で持ってる PATH は使わないのだろうか? :thinking_face:
+
+    #+begin_src emacs-lisp
+    ;; for exec path
+    ;; use .bashrc setted path
+    #+end_src
 
 ** ガベージコレクション
    :PROPERTIES:
@@ -798,16 +841,6 @@
 
   ここにはとりあえず inits 以下に出力できるようにしただけの記述を連ねていきます。
   あとで移動する。
-
-** exec-path
-
-   #+begin_src emacs-lisp :tangle inits/00-exec-path.el
-   ;; for exec path
-   ;; use .bashrc setted path
-   (el-get-bundle exec-path-from-shell)
-   (when (memq window-system '(mac ns))
-     (exec-path-from-shell-initialize))
-   #+end_src
 
 ** load-path
 
