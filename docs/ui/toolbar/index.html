@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>UI :: 麦汁&#39;s Emacs Config</title>
+    <title>toolbar :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624197290" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/ui/">
+  <body class="" data-url="/.emacs.d/ui/toolbar/">
     <nav id="sidebar" class="">
 
 
@@ -339,7 +339,7 @@
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
         parent
-        active
+        
         
         ">
       <a href="/.emacs.d/ui/">
@@ -448,7 +448,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/toolbar/" title="toolbar" class="dd-item ">
+      <li data-nav-id="/.emacs.d/ui/toolbar/" title="toolbar" class="dd-item active">
         <a href="/.emacs.d/ui/toolbar/">
         toolbar
         
@@ -823,6 +823,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -833,7 +835,13 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > UI
+            
+            
+          
+          
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > toolbar
+          
+        
           
         
           
@@ -841,6 +849,18 @@
                  
                   </span>
                 </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#設定">設定</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
                 
               </div>
             </div>
@@ -853,33 +873,21 @@
           
             <h1>
               
-              UI
+              toolbar
             </h1>
           
 
         
 
 
+<h2 id="概要">概要</h2>
+<p>Emacs 標準の toolbar の設定。麦汁さんは使わないし幅を取るので隠す派。</p>
+<h2 id="設定">設定</h2>
+<p>単に無効にして隠している</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(tool-bar-mode <span style="color:#ae81ff">-1</span>)
+</code></pre></div>
 
-	<p>ここでは Emacs の UI を変更するようなものを載せている</p>
-<dl>
-<dt><a href="/.emacs.d/ui/all-the-icons/">all-the-icons</a></dt>
-<dd>Emacs で様々なアイコンを表示できるようにするやつ</dd>
-<dt><a href="/.emacs.d/ui/helm-posframe/">helm-posframe</a></dt>
-<dd>Helm を posframe で使えるようにするやつ</dd>
-<dt><a href="/.emacs.d/ui/highlight-indent-guides/">highlight-indent-guides</a></dt>
-<dd>インデント毎にラインを引いたりして見易くしてくれるやつ</dd>
-<dt><a href="/.emacs.d/ui/neotree/">Neotree</a></dt>
-<dd>フォルダ構造を IDE みたいにツリー表示するやつ</dd>
-<dt><a href="/.emacs.d/ui/toolbar/">toolbar</a></dt>
-<dd>Emacs 標準のボタンなどの UI 部分の設定。</dd>
-</dl>
-
-
-
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -1158,6 +1166,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1176,6 +1185,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1373,10 +1385,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/editing/auto-insert/" title="auto-insert"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/ui/neotree/" title="Neotree"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/ui/all-the-icons/" title="all-the-icons" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/nav/" title="ナビゲーション" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1408,3 +1420,4 @@
 
   </body>
 </html>
+

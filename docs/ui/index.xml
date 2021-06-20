@@ -62,5 +62,16 @@ major-mode-hydra いちいちキーバインドを覚えてられないので ma
 とはいえ、この文書を書く前日ぐらいに設定しているのでまだ使い慣れてないというか、ほとんど使えてない。</description>
     </item>
     
+    <item>
+      <title>toolbar</title>
+      <link>https://mugijiru.github.io/.emacs.d/ui/toolbar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/ui/toolbar/</guid>
+      <description>概要 Emacs 標準の toolbar の設定。麦汁さんは使わないし幅を取るので隠す派。
+設定 単に無効にして隠している
+(tool-bar-mode -1) </description>
+    </item>
+    
   </channel>
 </rss>
