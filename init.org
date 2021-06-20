@@ -1556,6 +1556,12 @@
    ;; C-c C-c で現在の行のテストを実行
    (define-key rspec-mode-map (kbd "C-c C-c") 'rspec-verify-single)
    #+end_src
+
+** 50-browse-at-point.el
+
+   #+begin_src emacs-lisp :tangle inits/50-browse-at-point.el
+   (el-get-bundle browse-at-remote)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
