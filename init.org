@@ -1412,6 +1412,16 @@
             (hl-line-mode 1)
             (view-mode 1))))
    #+end_src
+
+** 40-yaml.el
+
+   #+begin_src emacs-lisp :tangle inits/40-yaml.el
+   (el-get-bundle yaml-mode)
+   (defun my/yaml-mode-hook ()
+     (highlight-indent-guides-mode 1))
+
+   (add-hook 'yaml-mode-hook 'my/yaml-mode-hook)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
