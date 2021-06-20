@@ -1562,6 +1562,13 @@
    #+begin_src emacs-lisp :tangle inits/50-browse-at-point.el
    (el-get-bundle browse-at-remote)
    #+end_src
+
+** 50-ido.el
+
+   #+begin_src emacs-lisp :tangle inits/50-ido.el
+   (ido-mode 1) ;; includes Emacs
+   (setq ido-enable-flex-matching t)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
