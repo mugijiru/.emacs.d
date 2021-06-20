@@ -793,6 +793,2058 @@
      何度も使うならこの差し替え処理自体をテストヘルパーにしても良いかもしれない。
 
      また ivy で選択するので with-simulated-input を使って入力操作を代替している。便利。
+
+* 未整理
+
+  ここにはとりあえず inits 以下に出力できるようにしただけの記述を連ねていきます。
+  あとで移動する。
+
+** exec-path
+
+   #+begin_src emacs-lisp :tangle inits/00-exec-path.el
+   ;; for exec path
+   ;; use .bashrc setted path
+   (el-get-bundle exec-path-from-shell)
+   (when (memq window-system '(mac ns))
+     (exec-path-from-shell-initialize))
+   #+end_src
+
+** load-path
+
+   #+begin_src emacs-lisp :tangle inits/00-load-path.el
+   (add-to-list 'load-path (expand-file-name "~/.emacs.d/secret"))
+   (defun my/load-config (file)
+     (condition-case nil
+         (load file)
+       (file-missing (message "Load error: %s" file))))
+   #+end_src
+
+** savehist
+
+   #+begin_src emacs-lisp :tangle inits/00-savehist.el
+   (savehist-mode 1)
+   (setq savehist-additional-variables '(kill-ring))
+   #+end_src
+
+** load-libraries
+
+   #+begin_src emacs-lisp :tangle inits/01-load-libraries.el
+   (el-get-bundle s)
+   (require 's)
+   #+end_src
+
+** override
+
+   #+begin_src emacs-lisp :tangle inits/01-override.el
+   ;; posframe が最初に空行があると最後の行を表示しないため
+   ;; 一時的にこちらを直してみている
+   (with-eval-after-load 'pretty-hydra
+     (defun pretty-hydra--maybe-add-title (title docstring)
+     "Add TITLE to the DOCSTRING if it's not nil, other return DOCSTRING unchanged."
+     (if (null title)
+         docstring
+       (format "%s\n%s"
+               (cond
+                ((char-or-string-p title) title)
+                ((symbolp title)          (format "%%s`%s" title))
+                ((listp title)            (format "%%s%s" (prin1-to-string title)))
+                (t                        ""))
+               docstring))))
+   #+end_src
+
+** auto-save
+
+   #+begin_src emacs-lisp :tangle inits/10-auto-save.el
+   (setq auto-save-timeout 15)
+   (setq auto-save-interval 60)
+   (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/backup/" t)))
+   (setq backup-directory-alist '((".*" . "~/.emacs.d/backup")
+                                  (,tramp-file-name-regexp . nil)))
+
+   (setq version-control t)
+   (setq delete-old-versions t)
+   #+end_src
+
+** migemo
+
+   #+begin_src emacs-lisp :tangle inits/10-migemo.el
+   (el-get-bundle migemo)
+   (load "migemo")
+
+   ;; Mac
+   (let ((path "/usr/local/share/migemo/utf-8/migemo-dict"))
+     (if (file-exists-p path)
+         (setq migemo-dictionary path)))
+
+   ;; Ubuntu
+   (let ((path "/usr/share/cmigemo/utf-8/migemo-dict"))
+     (if (file-exists-p path)
+         (setq migemo-dictionary path)))
+
+   (let ((path (s-chomp (shell-command-to-string "which cmigemo"))))
+     (if (s-ends-with? "not found" path)
+         (message "cmigemo not found")
+       (setq migemo-command path)))
+
+   (setq migemo-options '("-q" "--emacs"))
+   (setq migemo-coding-system 'utf-8-unix)
+   (migemo-init)
+   #+end_src
+
+** ace-window
+
+   #+begin_src emacs-lisp :tangle inits/20-ace-window.el
+   (el-get-bundle ace-window)
+   #+end_src
+
+** alert
+
+   #+begin_src emacs-lisp :tangle inits/20-alert.el
+   ;; alert.el configuration
+   ;; https://github.com/jwiegley/alert
+   (el-get-bundle alert)
+   (setq alert-default-style 'notifier) ;; use terminal-notifier
+   #+end_src
+
+** all-the-icons
+
+   #+begin_src emacs-lisp :tangle inits/20-all-the-icons.el
+   (el-get-bundle all-the-icons)
+   (require 'all-the-icons)
+   ;; (all-the-icons-install-fonts) unless installed
+
+   (with-eval-after-load 'pretty-hydra
+     (pretty-hydra-define all-the-icons-hydra (:separator "-" :title "All the icons" :exit t :quit-key "q")
+       ("Insert"
+        (("a" all-the-icons-insert-alltheicon "All the icons")
+         ("f" all-the-icons-insert-fileicon   "File icons")
+         ("F" all-the-icons-insert-faicons    "FontAwesome")
+         ("m" all-the-icons-insert-material   "Material")
+         ("o" all-the-icons-insert-octicon    "Octicon")
+         ("w" all-the-icons-insert-wicon      "Weather")
+         ("*" all-the-icons-insert            "All")))))
+   #+end_src
+
+** browse-url
+
+   #+begin_src emacs-lisp :tangle inits/20-browse-url.el
+   (setq browse-url-generic-program "vivaldi")
+   #+end_src
+
+** emojify
+
+   #+begin_src emacs-lisp :tangle inits/20-emojify.el
+   (el-get-bundle emojify)
+   (el-get-bundle dash)
+   (global-emojify-mode 1)
+   (global-emojify-mode-line-mode 1)
+   #+end_src
+
+** google-this
+
+   #+begin_src emacs-lisp :tangle inits/20-google-this.el
+   (el-get-bundle google-this)
+
+   (with-eval-after-load 'pretty-hydra
+     (pretty-hydra-define google-this-pretty-hydra
+       (:foreign-keys warn :title "Google" :quit-key "q" :color blue :separator "-")
+       ("Current"
+        (("SPC" google-this-noconfirm "No Confirm")
+         ("RET" google-this           "Auto")
+         ("w"   google-this-word      "Word")
+         ("l"   google-this-line      "Line")
+         ("s"   google-this-symbol    "Symbol")
+         ("r"   google-this-region    "Region")
+         ("e"   google-this-error     "Error"))
+
+        "Feeling Lucky"
+        (("L"   google-this-lucky-search         "Lucky")
+         ("i"   google-this-lucky-and-insert-url "Insert URL"))
+
+        "Tool"
+        (("W" google-this-forecast "Weather")))))
+   #+end_src
+
+** google-translate
+
+   #+begin_src emacs-lisp :tangle inits/20-google-translate.el
+   (el-get-bundle google-translate)
+   #+end_src
+
+** helm
+
+   #+begin_src emacs-lisp :tangle inits/20-helm.el
+   ;; helm 系の設定は他の部分への影響も大きそうなので先に持って来た
+   (el-get-bundle helm)
+   (el-get-bundle helm-descbinds)
+   (el-get-bundle helm-ag)
+   (require 'helm-config)
+   (helm-descbinds-mode)
+   (helm-migemo-mode 1)
+   #+end_src
+
+** lsp
+
+   #+begin_src emacs-lisp :tangle inits/20-lsp.el
+   (el-get-bundle lsp-mode)
+   (el-get-bundle lsp-ui)
+   (add-hook 'lsp-mode-hook 'lsp-ui-mode)
+   (setq lsp-ui-doc-alignment 'window)
+   #+end_src
+
+** posframe
+
+   #+begin_src emacs-lisp :tangle inits/20-posframe.el
+   (el-get-bundle posframe)
+   #+end_src
+
+** smartparens
+
+   #+begin_src emacs-lisp :tangle inits/20-smartparens.el
+   (el-get-bundle smartparens)
+   (require 'smartparens-config)
+   #+end_src
+
+** uniquify
+
+   #+begin_src emacs-lisp :tangle inits/20-uniquify.el
+   ;; 同じ名前のファイルを開いている時に祖先ディレクトリ名を表示してくれてわかりやすくしてくれるやつ
+   (require 'uniquify) ;; includes Emacs
+   (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+   #+end_src
+
+** 20-yasnippet.el
+
+   #+begin_src emacs-lisp :tangle inits/20-yasnippet.el
+   (el-get-bundle yasnippet)
+   (yas-global-mode 1)
+
+   (with-eval-after-load 'pretty-hydra
+     (pretty-hydra-define
+       yasnippet-hydra (:separator "-" :title "Yasnippet" :foreign-key warn :quit-key "q" :exit t)
+       ("Edit"
+        (("n" yas-new-snippet        "New")
+         ("v" yas-visit-snippet-file "Visit"))
+
+        "Other"
+        (("i" yas-insert-snippet  "Insert")
+         ("l" yas-describe-tables "List")
+         ("r" yas-reload-all      "Reload all")))))
+   #+end_src
+
+** company
+
+   #+begin_src emacs-lisp :tangle inits/30-company.el
+   (el-get-bundle company-mode)
+   (with-eval-after-load 'company
+     ;; active
+     (define-key company-active-map (kbd "C-s") 'company-search-candidates))
+   #+end_src
+
+** 30-flycheck.el
+
+   #+begin_src emacs-lisp :tangle inits/30-flycheck.el
+   (el-get-bundle flycheck)
+   (el-get-bundle flycheck-pos-tip)
+
+   (with-eval-after-load 'flycheck
+     (flycheck-pos-tip-mode))
+   #+end_src
+
+** 30-git-gutter-fringe.el
+
+   #+begin_src emacs-lisp :tangle inits/30-git-gutter-fringe.el
+   (el-get-bundle git-gutter-fringe)
+   (global-git-gutter-mode t)
+   #+end_src
+
+** 30-highlight-indent-guides.el
+
+   #+begin_src emacs-lisp :tangle inits/30-highlight-indent-guides.el
+   (el-get-bundle DarthFennec/highlight-indent-guides)
+   (setq highlight-indent-guides-responsive "stack")
+   #+end_src
+
+** 30-notify-slack.el
+
+   #+begin_src emacs-lisp :tangle inits/30-notify-slack.el
+   (my/load-config "my-notify-slack-config")
+
+   (setq my/notify-slack-enable-p t)
+
+   (defun my/notify-slack-toggle ()
+     (interactive)
+     (if my/notify-slack-enable-p
+         (setq my/notify-slack-enable-p nil)
+       (setq my/notify-slack-enable-p t)))
+
+   (defun my/notify-slack (channel text)
+     (if my/notify-slack-enable-p
+         (start-process "my/org-clock-slack-notifier" "*my/org-clock-slack-notifier*" "my-slack-notifier" channel text)))
+
+   (defun my/notify-slack-times (text)
+     (my/notify-slack my/notify-slack-times-channel text))
+   #+end_src
+
+** 30-projectile.el
+
+   #+begin_src emacs-lisp :tangle inits/30-projectile.el
+   (el-get-bundle projectile)
+
+   (el-get-bundle helm-projectile)
+   (helm-projectile-on)
+
+   (projectile-mode)
+
+   ;; 無視するディレクトリ
+   (add-to-list 'projectile-globally-ignored-directories "tmp")
+   (add-to-list 'projectile-globally-ignored-directories ".tmp")
+   (add-to-list 'projectile-globally-ignored-directories "vendor")
+   (add-to-list 'projectile-globally-ignored-directories ".sass-cache")
+   (add-to-list 'projectile-globally-ignored-directories "coverage")
+   (add-to-list 'projectile-globally-ignored-directories "cache")
+   (add-to-list 'projectile-globally-ignored-directories "log")
+
+   ;; 無視するファイル
+   (add-to-list 'projectile-globally-ignored-files "gems.tags")
+   (add-to-list 'projectile-globally-ignored-files "project.tags")
+   (add-to-list 'projectile-globally-ignored-files "manifest.json")
+
+   (setq projectile-completion-system 'ivy)
+   (el-get-bundle counsel-projectile)
+
+   (with-eval-after-load 'pretty-hydra
+     (pretty-hydra-define
+       projectile-hydra (:separator "-" :title "Projectile" :foreign-key warn :quit-key "q" :exit t)
+       ("File"
+        (("f" counsel-projectile-find-file "Find File")
+         ("d" counsel-projectile-find-dir "Find Dir")
+         ("r" projectile-recentf "Recentf"))
+
+        "Other"
+        (("p" (counsel-projectile-switch-project 'neotree-dir) "Switch Project")))))
+   #+end_src
+
+** 30-show-paren.el
+
+   #+begin_src emacs-lisp :tangle inits/30-show-paren.el
+   (show-paren-mode 1) ;; http://syohex.hatenablog.com/entry/20110331/1301584188
+   #+end_src
+
+** 30-skk.el
+
+   #+begin_src emacs-lisp :tangle inits/30-skk.el
+   (el-get-bundle ddskk)
+   (add-hook 'skk-load-hook
+             (lambda ()
+               ;; コード中では自動的に英字にする。
+               (require 'context-skk)
+
+               (setq skk-comp-mode t) ;; 動的自動補完
+               (setq skk-auto-insert-paren t) ;; 閉じ括弧の自動補完
+               (setq skk-delete-implies-kakutei nil) ;; ▼モードで BS を押した時に一つ前の候補を表示
+               (setq skk-sticky-key ";") ;; sticky-shift key
+               (setq skk-henkan-strict-okuri-precedence t) ;; 見出し語と送り仮名がマッチした候補を優先して表示
+               (setq skk-show-annotation t) ;; 単語の意味をアノテーションとして表示。例) いぜん /以前;previous/依然;still/
+
+               ;; 半角で入力したい文字
+               (setq skk-rom-kana-rule-list
+                     (nconc skk-rom-kana-rule-list
+                            '((";" nil nil)
+                              (":" nil nil)
+                              ("?" nil nil)
+                              ("!" nil nil))))))
+
+   (setq skk-extra-jisyo-file-list (list '("~/.emacs.d/skk-jisyo/SKK-JISYO.lisp" . japanese-iso-8bit-unix)))
+
+   ;; AquaSKKのL辞書をつかうようにする
+   (let ((l-dict (expand-file-name "~/Library/Application Support/AquaSKK/SKK-JISYO.L")))
+     (if (file-exists-p l-dict)
+         (setq skk-large-jisyo l-dict)))
+
+   (el-get-bundle conao3/ddskk-posframe.el)
+   (ddskk-posframe-mode 1)
+   #+end_src
+
+** 30-whitespace.el
+
+   #+begin_src emacs-lisp :tangle inits/30-whitespace.el
+   (require 'whitespace)
+   (setq whitespace-style '(face           ; faceで可視化
+                            trailing       ; 行末
+                            tabs           ; タブ
+                            spaces         ; スペース
+                            empty          ; 先頭/末尾の空行
+                            space-mark     ; 表示のマッピング
+                            tab-mark))
+
+   (setq whitespace-display-mappings
+         '((space-mark ?\u3000 [?\u25a1])
+           ;; WARNING: the mapping below has a problem.
+           ;; When a TAB occupies exactly one column, it will display the
+           ;; character ?\xBB at that column followed by a TAB which goes to
+           ;; the next TAB column.
+           ;; If this is a problem for you, please, comment the line below.
+           (tab-mark ?\t [?\u00BB ?\t] [?\\ ?\t])))
+
+   ;; スペースは全角のみを可視化
+   (setq whitespace-space-regexp "\\(\u3000+\\)")
+
+   ;; 行末の空白も表示
+   (setq whitespace-trailing-regexp  "\\([ \u00A0]+\\)$")
+
+   ;; 保存前に自動でクリーンアップ
+   (setq whitespace-action '(auto-cleanup))
+   (global-whitespace-mode 1)
+   #+end_src
+
+** 35-magit.el
+
+   #+begin_src emacs-lisp :tangle inits/35-magit.el
+   (el-get-bundle magit)
+   #+end_src
+
+** 36-forge.el
+
+   #+begin_src emacs-lisp :tangle inits/36-forge.el
+   ;; magit と github を連携させるやつ
+   (el-get-bundle forge)
+
+   (with-eval-after-load 'magit
+     (require 'forge))
+   #+end_src
+
+** 40-dumb-jump.el
+
+   #+begin_src emacs-lisp :tangle inits/40-dumb-jump.el
+   (el-get-bundle dumb-jump)
+   (setq dumb-jump-default-project "~/projects")
+   (setq dumb-jump-selector 'ivy)
+
+   (with-eval-after-load 'pretty-hydra
+     (pretty-hydra-define dumb-jump-pretty-hydra
+       (:foreign-keys warn :title "Dumb jump" :quit-key "q" :color blue :separator "-")
+       ("Go"
+        (("j" dumb-jump-go "Jump")
+         ("o" dumb-jump-go-other-window "Other window"))
+
+        "External"
+        (("e" dumb-jump-go-prefer-external "Go external")
+         ("x" dumb-jump-go-prefer-external-other-window "Go external other window"))
+
+        "Lock"
+        (("l" dumb-jump-quick-look "Quick look"))
+
+        "Other"
+        (("b" dumb-jump-back "Back")))))
+   #+end_src
+
+** 40-emacs-lisp.el
+
+   #+begin_src emacs-lisp :tangle inits/40-emacs-lisp.el
+   (defun my/emacs-lisp-mode-hook ()
+     (display-line-numbers-mode 1)
+     (company-mode 1)
+     (smartparens-mode 1)
+     (turn-on-smartparens-strict-mode))
+   (add-hook 'emacs-lisp-mode-hook 'my/emacs-lisp-mode-hook)
+
+   (defun my/insert-all-the-icons-code (family)
+     (let* ((candidates (all-the-icons--read-candidates-for-family family))
+            (prompt     (format "%s Icon: " (funcall (all-the-icons--family-name family))))
+            (selection  (completing-read prompt candidates nil t)))
+       (insert "(all-the-icons-" (symbol-name family) " \"" selection "\")")))
+
+   (with-eval-after-load 'major-mode-hydra
+     (major-mode-hydra-define emacs-lisp-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-fileicon "elisp") " Emacs Lisp"))
+       ("Describe"
+        (("F" counsel-describe-function "Function")
+         ("V" counsel-describe-variable "Variable"))
+
+        "Insert Icon Code"
+        (("@a" (my/insert-all-the-icons-code 'alltheicon) "All the icons")
+         ("@f" (my/insert-all-the-icons-code 'fileicon)   "File icons")
+         ("@F" (my/insert-all-the-icons-code 'faicon)     "FontAwesome")
+         ("@m" (my/insert-all-the-icons-code 'material)   "Material")
+         ("@o" (my/insert-all-the-icons-code 'octicon)    "Octicon")
+         ("@w" (my/insert-all-the-icons-code 'wicon)      "Weather")))))
+   #+end_src
+
+** 40-es6.el
+
+   #+begin_src emacs-lisp :tangle inits/40-es6.el
+   (el-get-bundle js2-mode)
+   (defun my/js2-mode-hook ()
+     (flycheck-mode 1)
+     (setq flycheck-disabled-checkers '(javascript-standard javascript-jshint))
+
+     (company-mode 1)
+     (turn-on-smartparens-strict-mode)
+
+     (setq js2-basic-offset 2))
+   (add-to-list 'auto-mode-alist '("\\.es6$" . js2-mode))
+   (add-hook 'js2-mode-hook 'my/js2-mode-hook)
+   #+end_src
+
+** 40-gnuplot.el
+
+   #+begin_src emacs-lisp :tangle inits/40-gnuplot.el
+   (el-get-bundle gnuplot-mode)
+   #+end_src
+
+** 40-markdown.el
+
+   #+begin_src emacs-lisp :tangle inits/40-markdown.el
+   (el-get-bundle markdown-mode)
+   #+end_src
+
+** 40-ruby.el
+
+   #+begin_src emacs-lisp :tangle inits/40-ruby.el
+   (el-get-bundle rbenv)
+   (global-rbenv-mode)
+   (el-get-bundle enh-ruby-mode)
+
+   (with-eval-after-load 'enh-ruby-mode
+     (setq enh-ruby-add-encoding-comment-on-save nil)
+     (setq enh-ruby-deep-indent-paren nil) ;; 有効にするとインデントが気持ち悪いのでOFF
+     (setq enh-ruby-bounce-deep-indent t))
+
+   ;; TODO: flycheck-mode 用の設定。単に有効にすると警告が多過ぎて無理
+   (defun my/enh-ruby-mode-hook ()
+     (company-mode 1)
+     (lsp)
+     (lsp-ui-mode 1)
+     (turn-on-smartparens-strict-mode)
+     (display-line-numbers-mode 1))
+
+   (add-hook 'enh-ruby-mode-hook 'my/enh-ruby-mode-hook)
+   (add-to-list 'context-skk-programming-mode 'enh-ruby-mode)
+
+   (with-eval-after-load 'major-mode-hydra
+     (major-mode-hydra-define enh-ruby-mode (:quit-key "q" :title (concat (all-the-icons-alltheicon "ruby-alt") " Ruby commands"))
+       ("Enh Ruby"
+        (("{" enh-ruby-toggle-block "Toggle block")
+         ("e" enh-ruby-insert-end "Insert end"))
+
+        "LSP"
+        (("i" lsp-ui-imenu "Imenu")
+         ("f" lsp-ui-flycheck-list "Flycheck list"))
+
+        "RSpec"
+        (("s" rspec-verify "Run associated spec")
+         ("m" rspec-verify-method "Run method spec")
+         ("r" rspec-rerun "Rerun")
+         ("l" rspec-run-last-failed "Run last failed"))
+
+        "REPL"
+        (("I" inf-ruby "inf-ruby"))
+
+        "Other"
+        (("j" dumb-jump-go "Dumb Jump")))))
+   #+end_src
+
+** 40-scss.el
+
+   #+begin_src emacs-lisp :tangle inits/40-scss.el
+   (el-get-bundle rainbow-mode)
+   (with-eval-after-load 'scss-mode
+     (setq css-indent-offset 2))
+   (defun my/scss-mode-hook ()
+     (flycheck-mode 1)
+
+     (setq-local lsp-prefer-flymake nil) ;; flycheck が有効にならなくなるのを防ぐ
+     (lsp)
+     (lsp-ui-mode -1) ;; lsp-ui が有効だと画面上でガチャガチャ height とかの説明をしてうざいので
+
+     ;; lsp-ui とかより後に設定しないと上書きされるのでここに移動した
+     (setq-local flycheck-checker 'scss-stylelint)
+     (setq-local flycheck-check-syntax-automatically '(save new-line idle-change))
+
+     (company-mode 1)
+     (display-line-numbers-mode 1)
+
+     (rainbow-mode))
+   (add-hook 'scss-mode-hook 'my/scss-mode-hook)
+
+   (with-eval-after-load 'major-mode-hydra
+     (major-mode-hydra-define scss-mode (:quit-key "q" :title (concat (all-the-icons-alltheicon "css3") " CSS"))
+       ("Edit"
+        (("v" my/replace-var "replace-var")))))
+   #+end_src
+
+** 40-view.el
+
+   #+begin_src emacs-lisp :tangle inits/40-view.el
+   ;; view-mode 用の設定
+
+   ;; (define-key projectile-rails-mode-map (kbd "C-c r") 'pretty-hydra-projectile-rails-find/body)
+
+   (defun my/setup-view-mode-keymap ()
+       (let ((keymap view-mode-map))
+         (define-key keymap (kbd "h") 'backward-char)
+         (define-key keymap (kbd "j") 'next-line)
+         (define-key keymap (kbd "k") 'previous-line)
+         (define-key keymap (kbd "l") 'forward-char)
+
+         (define-key keymap (kbd "e") 'forward-word)
+
+         (define-key keymap (kbd "b")   'scroll-down)
+         (define-key keymap (kbd "SPC") 'scroll-up)
+
+         (define-key keymap (kbd "g") 'beginning-of-buffer)
+         (define-key keymap (kbd "G") 'end-of-buffer)
+         (define-key keymap (kbd "<") 'beginning-of-buffer)
+         (define-key keymap (kbd ">") 'end-of-buffer)))
+
+   (defun my/view-mode-hook ()
+     (my/setup-view-mode-keymap))
+
+   (add-hook 'view-mode-hook 'my/view-mode-hook)
+
+   (defun my/toggle-view-mode ()
+     "view-mode と通常モードの切り替えコマンド"
+     (interactive)
+     (cond (view-mode
+            (hl-line-mode -1)
+            (view-mode -1))
+           (t
+            (hl-line-mode 1)
+            (view-mode 1))))
+   #+end_src
+
+** 40-yaml.el
+
+   #+begin_src emacs-lisp :tangle inits/40-yaml.el
+   (el-get-bundle yaml-mode)
+   (defun my/yaml-mode-hook ()
+     (highlight-indent-guides-mode 1))
+
+   (add-hook 'yaml-mode-hook 'my/yaml-mode-hook)
+   #+end_src
+
+** 41-rails.el
+
+   #+begin_src emacs-lisp :tangle inits/41-rails.el
+   (el-get-bundle haml-mode)
+   (el-get-bundle projectile-rails)
+   (projectile-rails-global-mode 1)
+
+   (defun my/projectile-rails-find-uploader ()
+     "Find a Uploader."
+     (interactive)
+     (projectile-rails-find-resource
+      "uploader: "
+      '(("app/uploaders/" "\\(.+\\)\\.rb$"))
+      "app/uploaders/${filename}.rb"))
+
+   (defun my/projectile-rails-find-admin ()
+     "Find a ActiveAdmin file."
+     (interactive)
+     (projectile-rails-find-resource
+      "admin: "
+      '(("app/admin/" "\\(.+\\)\\.rb$"))
+      "app/admin/${filename}.rb"))
+
+   (defun my/projectile-rails-find-form-object ()
+     "Find a Form Object."
+     (interactive)
+     (projectile-rails-find-resource
+      "form object: "
+      '(("app/models/forms/" "\\(.+\\)\\.rb$"))
+      "app/models/forms/${filename}.rb"))
+
+   (defun my/projectile-rails-find-vue ()
+     "Find a Vue."
+     (interactive)
+     (projectile-rails-find-resource
+      "vue: "
+      '(("app/javascript/" "\\(.+\\)\\.vue$"))
+      "app/javascript/${filename}.vue"))
+
+   (defun my/projectile-rails-find-webpack-js ()
+     "Find a Webpack js."
+     (interactive)
+     (projectile-rails-find-resource
+      "webpack js: "
+      '(("app/javascript/" "\\(.+\\)\\.js$"))
+      "app/javascript/${filename}.js"))
+
+   (with-eval-after-load 'pretty-hydra
+     (pretty-hydra-define pretty-hydra-projectile-rails-find (:separator "-" :color blue :foreign-keys warn :title "Projectile Rails" :quit-key "q")
+       ("Current"
+        (("M" projectile-rails-find-current-model      "Current model")
+         ("V" projectile-rails-find-current-view       "Current view")
+         ("C" projectile-rails-find-current-controller "Current controller")
+         ("H" projectile-rails-find-current-helper     "Current helper")
+         ("P" projectile-rails-find-current-spec       "Current spec")
+         ("Z" projectile-rails-find-current-serializer "Current serializer"))
+
+        "App"
+        (("m" projectile-rails-find-model           "Model")
+         ("v" projectile-rails-find-view            "View")
+         ("c" projectile-rails-find-controller      "Controller")
+         ("h" projectile-rails-find-helper          "Helper")
+         ("a" my/projectile-rails-find-admin        "ActiveAdmin")
+         ("f" my/projectile-rails-find-form-object  "Form object")
+         ("@" projectile-rails-find-mailer          "Mailer")
+         ("V" my/projectile-rails-find-vue          "Vue")
+         ("J" my/projectile-rails-find-webpack-js   "Webpack js")
+         ("u" my/projectile-rails-find-uploader     "Controller")
+         ("!" projectile-rails-find-validator       "Validator")
+         ;; ("y" projectile-rails-find-layout       "Layout")
+         ("z" projectile-rails-find-serializer      "Serializer"))
+
+        "Assets"
+        (("j" projectile-rails-find-javascript  "Javascript")
+         ;; ("w" projectile-rails-find-component)
+         ("s" projectile-rails-find-stylesheet  "CSS"))
+
+        "Other"
+        (("n" projectile-rails-find-migration    "Migration")
+         ("r" projectile-rails-find-rake-task    "Rake task")
+         ("i" projectile-rails-find-initializer  "Initializer")
+         ("l" projectile-rails-find-lib          "Lib")
+         ("p" projectile-rails-find-spec         "Spec")
+         ("t" projectile-rails-find-locale       "Translation"))
+
+        "Single Files"
+        (("R" projectile-rails-goto-routes   "routes.rb")
+         ("G" projectile-rails-goto-gemfile  "Gemfile")
+         ("D" projectile-rails-goto-schema   "schema.rb"))))
+     (define-key projectile-rails-mode-map (kbd "C-c r") 'pretty-hydra-projectile-rails-find/body))
+   #+end_src
+
+** 41-vue.el
+
+   #+begin_src emacs-lisp :tangle inits/41-vue.el
+   (define-auto-insert "\\.vue$" "template.vue")
+
+   (el-get-bundle vue-mode)
+   (el-get-bundle hlissner/emacs-pug-mode)
+   (defun my/css-mode-hook ()
+     ;; vue-mode では scss は css-mode が適用される
+     ;; https://github.com/AdamNiederer/vue-mode/blob/031edd1f97db6e7d8d6c295c0e6d58dd128b9e71/vue-mode.el#L63
+     (setq-local flycheck-checker 'css-stylelint)
+     (rainbow-mode 1))
+
+   (defun my/vue-mode-hook ()
+     (display-line-numbers-mode t)
+     (lsp)
+     (flycheck-mode 1))
+
+   (add-hook 'css-mode-hook 'my/css-mode-hook)
+   (add-hook 'vue-mode-hook 'my/vue-mode-hook)
+
+   (with-eval-after-load 'major-mode-hydra
+     (major-mode-hydra-define css-mode (:quit-key "q" :title (concat (all-the-icons-alltheicon "css3") " CSS"))
+       ("Edit"
+        (("v" my/replace-var "replace-var")))))
+   #+end_src
+
+** 42-rspec.el
+
+   #+begin_src emacs-lisp :tangle inits/42-rspec.el
+   (el-get-bundle rspec-mode)
+
+   ;; rspec 実行バッファで byebug などで止った際に
+   ;; C-x C-q したら inf-ruby が動くようにする
+   ;; byebug か binding.irb 推奨。
+   ;; binding.pry は何故かまともに動かない
+   (add-hook 'after-init-hook 'inf-ruby-switch-setup)
+
+   ;; C-c C-c で現在の行のテストを実行
+   (define-key rspec-mode-map (kbd "C-c C-c") 'rspec-verify-single)
+   #+end_src
+
+** 50-browse-at-point.el
+
+   #+begin_src emacs-lisp :tangle inits/50-browse-at-point.el
+   (el-get-bundle browse-at-remote)
+   #+end_src
+
+** 50-ido.el
+
+   #+begin_src emacs-lisp :tangle inits/50-ido.el
+   (ido-mode 1) ;; includes Emacs
+   (setq ido-enable-flex-matching t)
+   #+end_src
+
+** 50-multiple-cursor.el
+
+   #+begin_src emacs-lisp :tangle inits/50-multiple-cursor.el
+   (el-get-bundle multiple-cursors)
+   #+end_src
+
+** 50-plantuml.el
+
+   #+begin_src emacs-lisp :tangle inits/50-plantuml.el
+   (el-get-bundle plantuml-mode)
+   (setq plantuml-default-exec-mode 'jar)
+   #+end_src
+
+** 50-todoist.el
+
+   #+begin_src emacs-lisp :tangle inits/50-todoist.el
+   (el-get-bundle  abrochard/emacs-todoist)
+   (my/load-config "my-todoist-config")
+   #+end_src
+
+** 60-open-junk-file.el                                              :unused:
+
+   #+begin_src emacs-lisp :tangle inits/60-open-junk-file.el
+   (el-get-bundle open-junk-file)
+   (setq open-junk-file-format "~/junk/%Y-%m-%d-%H%M%S.")
+   (global-set-key (kbd "C-o") 'open-junk-file)
+   #+end_src
+
+** 60-org.el
+
+   #+begin_src emacs-lisp :tangle inits/60-org.el
+   (el-get-bundle org-mode :checkout "release_9.3.6") ;; from Git. because melpa cannot resolve dependencies.
+   (el-get-bundle org-export-blocks-format-plantuml)
+   (org-babel-do-load-languages 'org-babel-load-languages
+                                '((plantuml . t)
+                                  (sql . t)
+                                  (gnuplot . t)
+                                  (emacs-lisp . t)
+                                  (shell . t)
+                                  (js . t)
+                                  (ruby . t)))
+   (setq org-directory (expand-file-name "~/Documents/org/"))
+
+   ;; org-mode のリンク先が xlsx の時に numbers を開くようにした
+   ;; default は内部的には open コマンドが使われる
+   (add-to-list 'org-file-apps '("\\.xlsx?\\'" . default))
+
+   (setq org-todo-keywords
+         '((sequence "TODO" "DOING(!)" "WAIT" "|" "DONE(!)" "SOMEDAY(s)")))
+
+   ;; DONEの時刻を記録
+   (setq org-log-done 'time)
+   (setq org-log-into-drawer "LOGBOOK")
+
+   ;; タスク管理系
+   (setq my/org-tasks-directory (concat org-directory "tasks/"))
+
+   ;; ob-async
+   (el-get-bundle ob-async)
+   (require 'ob-async)
+   (add-hook 'ob-async-pre-execute-src-block-hook
+         '(lambda ()
+            (setq org-plantuml-jar-path "~/bin/plantuml.jar")))
+   (add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images) ;; org-babel-execute 後に画像を再表示
+   #+end_src
+
+** 61-calfw.el
+
+   #+begin_src emacs-lisp :tangle inits/61-calfw.el
+   (el-get-bundle japanese-holidays)
+   (require 'japanese-holidays)
+   (setq calendar-holidays (append japanese-holidays))
+
+   (el-get-bundle calfw)
+   (require 'calfw)
+   (require 'calfw-org)
+   #+end_src
+
+** 61-org-agenda.el
+
+   #+begin_src emacs-lisp :tangle inits/61-org-agenda.el
+   (el-get-bundle org-super-agenda)
+
+   ;; org-agenda の週の始まりを日曜日に
+   (setq org-agenda-start-on-weekday 0)
+
+   ;; org-agenda のデフォルト表示を1日単位にする
+   (setq org-agenda-span 'day)
+
+   (setq org-agenda-files
+         '("~/Documents/org/ical.org"
+           "~/Documents/org/tasks/"))
+
+   ;; agenda に時間の区切りを入れない
+   (setq org-agenda-use-time-grid nil)
+   (setq org-agenda-block-separator "------------------------------")
+   (org-super-agenda-mode 1)
+
+   (setq org-agenda-custom-commands
+   '(("h" . "Habits")
+     ("hs" "Weekday Start"
+      ((tags "Weekday&Start|Daily"
+             ((org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+                                         (:name "今日の作業" :scheduled today)
+                                         (:discard (:anything t))))))))
+     ("hf" "Weekday Finish"
+      ((tags "Weekday&Finish"
+             ((org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+                                         (:name "今日の作業" :scheduled today)
+                                         (:discard (:anything t))))))))
+     ("hw" "Weekly"
+      ((tags "Weekly"
+             ((org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+                                         (:name "今週の作業" :scheduled today)
+                                         (:discard (:anything t))))))))
+     ("hh" "Holiday"
+      ((tags "Weekend|Holiday|Daily"
+             ((org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+                                         (:name "今日の作業" :scheduled today)
+                                         (:discard (:anything t))))))))
+     ("d" "Today"
+      ((agenda "会議など"
+               ((org-agenda-span 'day)
+                (org-agenda-files my/org-agenda-calendar-files)))
+       (tags-todo "-Weekday-Daily-Holiday-Weekly-Weekend"
+                  ((org-agenda-prefix-format " ")
+                   (org-agenda-overriding-header "今日の作業")
+                   (org-habit-show-habits nil)
+                   (org-agenda-span 'day)
+                   (org-agenda-todo-keyword-format "-")
+                   (org-overriding-columns-format "%25ITEM %TODO")
+                   (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
+                   (org-super-agenda-groups '((:name "仕掛かり中" :todo "DOING")
+                                              (:name "TODO" :todo "TODO")
+                                              (:name "待ち" :todo "WAIT")
+                                              (:discard (:anything t))))))
+       (alltodo ""
+                  ((org-agenda-prefix-format " ")
+                   (org-agenda-overriding-header "予定作業")
+                   (org-habit-show-habits nil)
+                   (org-agenda-span 'day)
+                   (org-agenda-todo-keyword-format "-")
+                   (org-overriding-columns-format "%25ITEM %TODO")
+                   (org-agenda-files '("~/Documents/org/tasks/projects.org"))
+                   (org-super-agenda-groups '((:name "〆切が過ぎてる作業" :deadline past)
+                                              (:name "予定が過ぎてる作業" :scheduled past)
+                                              (:name "今日〆切の作業" :deadline today)
+                                              (:name "今日予定の作業" :scheduled today)
+                                              (:discard (:anything t))))))
+       (tags-todo "Weekday|Daily|Weekly"
+                  ((org-agenda-overriding-header "習慣")
+                   (org-habit-show-habits t)
+                   (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
+                   (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+                                              (:name "今日予定" :scheduled today)
+                                              (:discard (:anything t))))))))
+     ("D" "Holiday"
+      ((tags-todo "-Weekday-Daily-Holiday-Weekly-Weekend"
+                  ((org-agenda-prefix-format " ")
+                   (org-agenda-overriding-header "休日の作業")
+                   (org-habit-show-habits nil)
+                   (org-agenda-span 'day)
+                   (org-agenda-todo-keyword-format "-")
+                   (org-overriding-columns-format "%25ITEM %TODO")
+                   (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
+                   (org-super-agenda-groups '((:name "仕掛かり中" :todo "DOING")
+                                              (:name "TODO" :todo "TODO")
+                                              (:name "待ち" :todo "WAIT")
+                                              (:discard (:anything t))))))
+       (tags-todo "Holiday|Weekend|Daily"
+                  ((org-agenda-overriding-header "習慣")
+                   (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
+                   (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+                                              (:name "今日予定の作業" :scheduled today)
+                                              (:discard (:anything t))))))))
+     ("p" . "Projects")
+     ("pp" "Projects"
+      ((alltodo "" ((org-agenda-prefix-format " ")
+                    (org-agenda-overriding-header "今日のタスク")
+                    (org-habit-show-habits nil)
+                    (org-agenda-span 'day)
+                    (org-agenda-todo-keyword-format "-")
+                    (org-overriding-columns-format "%25ITEM %TODO")
+                    (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
+                    (org-super-agenda-groups (append
+                                              (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
+                                              '((:name "その他" :scheduled nil)
+                                                (:discard (:anything t)))))))
+       (alltodo "" ((org-agenda-prefix-format " ")
+                    (org-agenda-overriding-header "予定に入ってる作業")
+                    (org-habit-show-habits nil)
+                    (org-agenda-span 'day)
+                    (org-agenda-todo-keyword-format "-")
+                    (org-overriding-columns-format "%25ITEM %TODO")
+                    (org-agenda-files '("~/Documents/org/tasks/projects.org"))
+                    (org-super-agenda-groups '((:name "〆切が過ぎてる作業" :deadline past)
+                                               (:name "予定が過ぎてる作業" :scheduled past)
+                                               (:name "今日〆切の作業" :deadline today)
+                                               (:name "今日予定の作業" :scheduled today)
+                                               (:discard (:anything t))))))
+       (todo "DOING" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))
+       (todo "TODO"  ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
+     ("pP" "Projects without Env"
+      ((alltodo "" ((org-agenda-prefix-format " ")
+                    (org-agenda-overriding-header "今日のタスク")
+                    (org-habit-show-habits nil)
+                    (org-agenda-span 'day)
+                    (org-agenda-todo-keyword-format "-")
+                    (org-overriding-columns-format "%25ITEM %TODO")
+                    (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
+                    (org-super-agenda-groups (append
+                                              (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
+                                              '((:name "その他" :scheduled nil)
+                                                (:discard (:anything t)))))))
+       (alltodo "" ((org-agenda-prefix-format " ")
+                    (org-agenda-overriding-header "予定に入ってる作業")
+                    (org-habit-show-habits nil)
+                    (org-agenda-span 'day)
+                    (org-agenda-todo-keyword-format "-")
+                    (org-overriding-columns-format "%25ITEM %TODO")
+                    (org-agenda-files '("~/Documents/org/tasks/projects.org"))
+                    (org-super-agenda-groups '((:name "〆切が過ぎてる作業" :deadline past)
+                                               (:name "予定が過ぎてる作業" :scheduled past)
+                                               (:name "今日〆切の作業" :deadline today)
+                                               (:name "今日予定の作業" :scheduled today)
+                                               (:discard (:anything t))))))
+       (tags-todo "-Emacs-org-Env-Hugo" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
+     ("P" "Pointers"
+      ((todo "DOING" ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))
+       (todo "TODO"  ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))))
+     ("X" "Finished"
+      ((todo "DONE"    ((org-agenda-files '("~/Documents/org/tasks/projects.org"
+                                            "~/Documents/org/tasks/inbox.org"
+                                            "~/Documents/org/tasks/shopping.org"
+                                            "~/Documents/org/tasks/next-actions.org"))))
+       (todo "SOMEDAY" ((org-agenda-files '("~/Documents/org/tasks/projects.org"
+                                            "~/Documents/org/tasks/inbox.org"
+                                            "~/Documents/org/tasks/shopping.org"
+                                            "~/Documents/org/tasks/next-actions.org"))))))
+
+     ("z" "日報"
+      ((agenda "" ((org-agenda-span 'day)
+                   (org-agenda-overriding-header "")
+                   (org-habit-show-habits nil)
+                   (org-agenda-format-date "## %Y/%m/%d (%a) 日報")
+                   (org-agenda-prefix-format " %?-12t")
+                   (org-agenda-files my/org-agenda-calendar-files)
+                   (org-super-agenda-groups
+                    '((:name "会議など" :time-grid t)
+                      (:discard (:anything t))))))
+       (todo "DONE" ((org-agenda-prefix-format " ")
+                     (org-agenda-overriding-header "対応済")
+                     (org-habit-show-habits nil)
+                     (org-agenda-span 'day)
+                     (org-agenda-todo-keyword-format "-")
+                     ;; (org-overriding-columns-format "%25ITEM %TODO %CATEGORY")
+                     (org-columns-default-format-for-agenda "%25ITEM %TODO %3PRIORITY")
+                     (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
+                     (org-super-agenda-groups (append
+                                               (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DONE")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
+                                               '((:discard (:anything t :name "discard")))))))
+       (alltodo "" ((org-agenda-prefix-format " ")
+                    (org-agenda-overriding-header "仕掛かり中")
+                    (org-habit-show-habits nil)
+                    (org-agenda-span 'day)
+                    (org-agenda-todo-keyword-format "-")
+                    (org-overriding-columns-format "%25ITEM %TODO")
+                    (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
+                    (org-super-agenda-groups (append
+                                              (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
+                                              '((:discard (:anything t :name "discard")))))))))
+
+     ("H" "HouseWork" ((tags "HouseWork")))
+     ("E" . "Env")
+     ("EO" "org"
+      ((tags-todo "+org"
+                  ((org-agenda-files '("~/Documents/org/tasks/projects.org"
+                                       "~/Documents/org/tasks/inbox.org"))))))
+     ("EE" "Emacs without org"
+      ((tags-todo "+Emacs-org"
+                  ((org-agenda-files '("~/Documents/org/tasks/projects.org"
+                                       "~/Documents/org/tasks/inbox.org"))))))
+     ("Ee" "without Emacs"
+      ((tags-todo "+Env-Emacs-org"
+                  ((org-agenda-files '("~/Documents/org/tasks/projects.org"
+                                       "~/Documents/org/tasks/inbox.org"))))))))
+   #+end_src
+
+** 61-org-capture.el
+
+   #+begin_src emacs-lisp :tangle inits/61-org-capture.el
+   ;; org-capture
+   (defvar org-capture-ical-file (concat org-directory "ical.org"))
+   (setq org-capture-ical-file (concat org-directory "ical.org"))
+
+   (setq my/org-capture-interrupted-file  (concat my/org-tasks-directory "interrupted.org"))
+   (setq my/org-capture-inbox-file        (concat my/org-tasks-directory "inbox.org"))
+   (setq my/org-capture-pointers-file     (concat my/org-tasks-directory "pointers.org"))
+   (setq my/org-capture-impediments-file  (concat org-directory "work/scrum/impediments.org"))
+   (setq my/org-capture-memo-file         (concat org-directory "memo.org"))
+   (setq my/org-capture-sql-file          (concat org-directory "work/sql.org"))
+   (setq my/org-capture-shopping-file     (concat my/org-tasks-directory "shopping.org"))
+   (setq my/org-capture-2020-summary-file (concat org-directory "private/2020_summary.org"))
+
+   (setq org-capture-templates
+         `(("g" "Inbox にエントリー" entry
+            (file ,my/org-capture-inbox-file)
+            "* TODO %?\n\t")
+           ("m" "Memoにエントリー" entry
+            (file+headline ,my/org-capture-memo-file "未分類")
+            "*** %?\n\t")
+           ("p" "Pointersにエントリー" entry
+            (file+headline ,my/org-capture-pointers-file "Pointers")
+            "** %?\n\t")
+           ("i" "割り込みタスクにエントリー" entry ;; 参考: http://grugrut.hatenablog.jp/entry/2016/03/13/085417
+            (file+headline ,my/org-capture-interrupted-file "Interrupted")
+            "** %?\n\t" :clock-in t :clock-resume t)
+           ("I" "障害リストにエントリー" entry
+            (file+headline ,my/org-capture-impediments-file "Impediments")
+            "** TODO %?\n\t")
+           ("R" "2020ふりかえりにエントリー" entry
+            (file+headline ,my/org-capture-2020-summary-file "Timeline")
+            "** %?\n\t")
+           ("s" "SQL にエントリー" entry
+            (file+headline ,my/org-capture-sql-file "SQL")
+            "** %?\n\t")
+           ("S" "買い物リストエントリー" entry
+            (file ,my/org-capture-shopping-file)
+            "* TODO %?\n\t")
+           ("b" "Blogネタにエントリー" entry
+            (file+headline ,my/org-capture-memo-file "Blogネタ")
+            "** %?\n\t")
+           ("P" "Protocol" entry
+            (file+headline ,my/org-capture-pointers-file "Pointers")
+            "** %?\n   #+BEGIN_QUOTE\n   %i\n   #+END_QUOTE\n\n   Source: %u, [[%:link][%:description]]\n")
+           ("L" "Protocol Link" entry
+            (file+headline ,my/org-capture-pointers-file "Pointers")
+            "** %:description\n   %:link\n   %?\n   Captured On: %U")
+           ("c" "同期カレンダーにエントリー" entry
+            (file+headline ,org-capture-ical-file "Schedule")
+            "** TODO %?\n\t")))
+   #+end_src
+
+** 61-org-clock.el
+
+   #+begin_src emacs-lisp :tangle inits/61-org-clock.el
+   (setq org-clock-clocktable-default-properties
+         '(:maxlevel 10
+                    :lang "ja"
+                    :scope agenda-with-archives
+                    :block today
+                    :level 4))
+
+   (defun my/org-clock-in-hook ()
+     (let* ((task org-clock-current-task)
+            (message (format "開始: %s" task)))
+       (my/notify-slack-times message))
+
+     (if (org-clocking-p)
+         (org-todo "DOING")))
+
+   (defun my/org-clock-out-hook ()
+     (let* ((task org-clock-current-task)
+            (message (format "終了: %s" task)))
+       (my/notify-slack-times message)))
+
+   (setq org-clock-in-hook 'my/org-clock-in-hook)
+   (setq org-clock-out-hook 'my/org-clock-out-hook)
+
+   ;; org-pomodoro
+
+   (el-get-bundle org-pomodoro)
+   (setq org-pomodoro-play-sounds nil)
+   #+end_src
+
+** 61-org-export.el
+
+   #+begin_src emacs-lisp :tangle inits/61-org-export.el
+   ;; フッターなくしたり
+   (setq org-export-html-footnotes-section "")
+   (setq org-export-html-footnote-format "")
+   (setq org-export-with-footnotes nil)
+   (setq org-export-with-creator nil)
+   (setq org-export-with-author nil)
+   (setq org-html-validation-link nil)
+
+   ;; for seesaa blog settings
+   (setq org-export-author-info nil)
+   (setq org-export-email-info nil)
+   (setq org-export-creator-info nil)
+   (setq org-export-time-stamp-file nil)
+   (setq org-export-with-timestamps nil)
+   (setq org-export-with-section-numbers nil)
+   (setq org-export-with-sub-superscripts nil)
+
+   ;;; Table of Contents を出さない
+   (setq org-export-with-toc nil)
+
+   ;;; h1でサイト名出さない
+   (setq org-export-html-preamble nil)
+   (setq org-html-preamble nil)
+
+   ;;; *bold* とか /italic/ とか _underline_ とかを<b>とかにしないようにする
+   (setq org-export-with-emphasize nil)
+
+   ;; デフォは日本語設定
+   (setq org-export-default-language "ja")
+   #+end_src
+
+** 61-org-gcal.el                                               :replacement:
+
+   gcal に乗り換えようかと思ってる
+
+   #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
+   (el-get-bundle persist) ;; org-gcal に必要
+   (el-get-bundle org-gcal)
+   (require 'org-gcal)
+   (my/load-config "my-org-gcal-config")
+   #+end_src
+
+** 61-org-ql.el
+
+   #+begin_src emacs-lisp :tangle inits/61-org-ql.el
+   (el-get-bundle org-ql)
+   #+end_src
+
+** 61-org-refile.el
+
+   #+begin_src emacs-lisp :tangle inits/61-org-refile.el
+   (setq org-refile-use-outline-path 'file)
+   (setq org-outline-path-complete-in-steps nil)
+   (setq org-refile-targets `((,(concat org-directory "tasks/projects.org") :level . 2)
+                              (,(concat org-directory "tasks/pointers.org") :level . 1)
+                              (,(concat org-directory "work/scrum/impediments.org") :level . 3)
+                              (,(concat org-directory "tasks/next-actions.org") :regexp . "today")
+                              (,(concat org-directory "tasks/next-actions.org") :regexp . "C-")
+                              (,(concat org-directory "private/2020_summary.org") :level . 2)
+                              (,(concat org-directory "tasks/shopping.org") :level . 1)
+                              (,(concat org-directory "tasks/someday.org") :level . 1)))
+   #+end_src
+
+** 61-org-trello.el
+
+   #+begin_src emacs-lisp :tangle inits/61-org-trello.el
+   (el-get-bundle org-trello)
+   (defun my/org-trello-fetch-buffer ()
+     (interactive)
+     (org-trello-sync-buffer t))
+
+   (with-eval-after-load 'pretty-hydra
+     (pretty-hydra-define
+       org-trello-hydra
+       (:separator "-"
+                   :color teal
+                   :foreign-key warn
+                   :title (concat (all-the-icons-faicon "trello") "  Org Trello commands")
+                   :quit-key "q")
+       ("Install"
+        (("i" org-trello-install-board-metadata "Board metadata")
+         ("I" org-trello-install-key-and-token "Setup"))
+
+        "Sync"
+        (("s" my/org-trello-fetch-buffer "← Trello")
+         ("S" org-trello-sync-buffer "→ Trello"))
+
+        "Other"
+        (("V" org-trello-version "Version")))))
+   #+end_src
+
+** 61-ox-hugo.el
+
+   #+begin_src emacs-lisp :tangle inits/61-ox-hugo.el
+   (el-get-bundle ox-hugo)
+   (with-eval-after-load 'ox
+     (require 'ox-hugo))
+   #+end_src
+
+** 61-seesaa-blog.el                                                 :unused:
+
+   #+begin_src emacs-lisp :tangle inits/61-seesaa-blog.el
+   (el-get-bundle seesaa-blog-mode) ;; for seesaa blog. dependent org-mdoe
+   (my/load-config "my-seesaa-blog-config")
+   #+end_src
+
+** 62-nippou.el
+
+   #+begin_src emacs-lisp :tangle inits/62-nippou.el
+   (my/load-config "my-nippou-config")
+
+   (defun my/org-nippou-targets ()
+         (-concat (my/org-nippou-files) my/org-nippou-additional-files))
+
+   (defun my/org-nippou-files ()
+     (let* ((dir my/org-tasks-directory)
+            (cmd (format "find \"%s\" -name '*.org' -or -name '*.org_archive'" dir))
+            (result (shell-command-to-string cmd))
+            (file-names (split-string result "\n")))
+       (-remove (lambda (file-name) (string= "" file-name))
+                file-names)))
+
+   (defun my/nippou-query ()
+     (interactive)
+     (org-ql-search
+       (my/org-nippou-targets)
+       "todo:TODO,DOING,WAIT,DONE ts:on=today"
+       :title "日報"
+       :super-groups '((:auto-group))))
+   #+end_src
+
+** 68-my-org-commands.el
+
+   #+begin_src emacs-lisp :tangle inits/68-my-org-commands.el
+   (defun my/org-clock-toggle-display ()
+     "行の後ろに掛かった作業時間を表示をしたり消したりを切り替える機能。
+   Hydra から利用するために定義している。"
+     (interactive)
+     (if org-clock-overlays
+         (org-clock-remove-overlays)
+       (org-clock-display)))
+
+   (defun my/org-todo-keyword-strings ()
+     "org-todo-keywords から装飾を省いた文字列のリストを返す関数"
+     (let* ((keywords (cl-rest (cl-first org-todo-keywords)))
+            (without-delimiter (cl-remove-if (lambda (elm) (string= "|" elm))
+                                             keywords)))
+       (mapcar (lambda (element)
+                 (replace-regexp-in-string "\(.+\)" "" element))
+               without-delimiter)))
+
+   (defun my/org-todo ()
+     "ivy で TODO ステータスを切り替えるためのコマンド
+   Hydra から利用するために定義している。"
+     (interactive)
+     (ivy-read "Org todo: "
+               (my/org-todo-keyword-strings)
+               :require-match t
+               :sort nil
+               :action (lambda (keyword)
+                         (org-todo keyword))))
+
+   (defun my/org-tags-view-only-todo ()
+     (interactive)
+     (org-tags-view t))
+
+   (defun my/open-calendar ()
+     (interactive)
+     (ivy-read "Calendar: "
+               my/calendar-targets
+               :require-match t
+               :sort nil
+               :action (lambda (target)
+                         (progn
+                           (setq cfw:org-icalendars `(,(concat org-directory target ".org")))
+                           (cfw:open-org-calendar)))))
+   #+end_src
+
+** 69-org-mode-hydra.el
+
+   #+begin_src emacs-lisp :tangle inits/69-org-mode-hydra.el
+   (with-eval-after-load 'major-mode-hydra
+     (major-mode-hydra-define org-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-fileicon "org") " Org commands"))
+       ("Insert"
+        (("l" org-insert-link                     "Link")
+         ("T" org-insert-todo-heading             "Todo")
+         ("h" org-insert-heading-respect-content  "Heading")
+         ("P" org-set-property                    "Property")
+         ("." org-time-stamp                      "Timestamp")
+         ("!" org-time-stamp-inactive             "Timestamp(inactive)")
+         ("S" org-insert-structure-template       "Snippet"))
+
+        "Edit"
+        (("a" org-archive-subtree  "Archive")
+         ("r" org-refile           "Refile")
+         ("Q" org-set-tags-command "Tag"))
+
+        "View"
+        (("N" org-toggle-narrow-to-subtree "Toggle Subtree")
+         ("C" org-columns "Columns")
+         ("D" my/org-clock-toggle-display  "Toggle Display"))
+
+        "Task"
+        (("s" org-schedule         "Schedule")
+         ("d" org-deadline         "Deadline")
+         ("t" my/org-todo          "Change state")
+         ("c" org-toggle-checkbox  "Toggle checkbox"))
+
+        "Clock"
+        (("i" org-clock-in      "In")
+         ("o" org-clock-out     "Out")
+         ("E" org-set-effort    "Effort")
+         ("R" org-clock-report  "Report")
+         ("p" org-pomodoro      "Pomodoro"))
+
+        "Babel"
+        (("e" org-babel-confirm-evaluate "Eval")
+         ("x" org-babel-tangle "Export SRC"))
+
+        "Trello"
+        (("K" org-trello-mode "On/Off" :toggle org-trello-mode)
+         ("k" (if org-trello-mode
+                  (org-trello-hydra/body)
+                (message "org-trello-mode is not enabled")) "Menu"))
+
+        "Agenda"
+        (("," org-cycle-agenda-files "Cycle")))))
+
+   (with-eval-after-load 'pretty-hydra
+     (pretty-hydra-define
+       global-org-hydra
+       (:separator "-"
+                   :color teal
+                   :foreign-key warn
+                   :title (concat (all-the-icons-fileicon "org") " Global Org commands")
+                   :quit-key "q")
+       ("Main"
+        (("a" org-agenda "Agenda")
+         ("c" counsel-org-capture "Capture")
+         ("l" org-store-link "Store link")
+         ("t" my/org-tags-view-only-todo "Tagged Todo"))
+
+        "Calendar"
+        (("F" org-gcal-fetch "Fetch Calendar")
+         ("C" my/open-calendar "Calendar"))
+
+        "Clock"
+        (("i" org-clock-in       "In")
+         ("o" org-clock-out      "Out")
+         ("r" org-clock-in-last  "Restart")
+         ("x" org-clock-cancel   "Cancel")
+         ("j" org-clock-goto     "Goto"))
+
+        "Search"
+        (("H" org-search-view "Heading"))
+
+        "Pomodoro"
+        (("p" org-pomodoro "Pomodoro")))))
+   #+end_src
+
+** 70-esa.el
+
+   #+begin_src emacs-lisp :tangle inits/70-esa.el
+   (el-get-bundle esa)
+   (my/load-config "my-esa-config")
+   #+end_src
+
+** 70-key-chord.el
+
+   #+begin_src emacs-lisp :tangle inits/70-key-chord.el
+   (el-get-bundle zk-phi/key-chord)
+   (setq key-chord-two-keys-delay           0.15
+         key-chord-safety-interval-backward 0.1
+         key-chord-safety-interval-forward  0.15)
+   (key-chord-mode 1)
+   #+end_src
+
+** 70-my-commands.el
+
+   #+begin_src emacs-lisp :tangle inits/70-my-commands.el
+   (defun my/replace-var (point mark)
+     (interactive "r")
+     (let* ((str (buffer-substring point mark))
+            (cmd (concat "fetch-color-var '" str "'"))
+            (response (shell-command-to-string cmd)))
+       (delete-region point mark)
+       (insert response)))
+
+   (setq my/org-document-dir (expand-file-name "~/Documents/org/"))
+   (defun my/create-org-document ()
+     (interactive)
+     (find-file-other-window my/org-document-dir))
+
+   (defun my/insert-review-requested-prs-as-string ()
+     (interactive)
+     (let* ((cmd (concat "review-requested-prs " my/github-organization " " my/github-repository))
+            (response (shell-command-to-string cmd)))
+       (insert response)))
+   #+end_src
+
+** 70-scratch-log.el
+
+   #+begin_src emacs-lisp :tangle inits/70-scratch-log.el
+   (el-get-bundle mori-dev/scratch-log)
+
+   (require 'scratch-log) ;; TODO: require 以外の方法で処理できないか?
+   #+end_src
+
+** 70-tempbuf.el
+
+   #+begin_src emacs-lisp :tangle inits/70-tempbuf.el
+   (el-get-bundle tempbuf)
+
+   (setq my/tempbuf-ignore-files '("~/Documents/org/tasks/gtd.org"
+                                   "~/Documents/org/tasks/interrupted.org"
+                                   "~/Documents/org/tasks/next-actions.org"
+                                   ))
+
+   (defun my/find-file-tempbuf-hook ()
+     (let ((ignore-file-names (mapcar 'expand-file-name my/tempbuf-ignore-files)))
+       (unless (member (buffer-file-name) ignore-file-names)
+         (turn-on-tempbuf-mode))))
+
+   (add-hook 'find-file-hook 'my/find-file-tempbuf-hook)
+   (add-hook 'dired-mode-hook 'turn-on-tempbuf-mode)
+   #+end_src
+
+** 70-w3m.el
+
+   #+begin_src emacs-lisp :tangle inits/70-w3m.el
+   (el-get-bundle emacs-w3m)
+   #+end_src
+
+** 70-yascroll.el
+
+   #+begin_src emacs-lisp :tangle inits/70-yascroll.el
+   (el-get-bundle yascroll)
+   #+end_src
+
+** 70-zoom-window.el
+
+   #+begin_src emacs-lisp :tangle inits/70-zoom-window.el
+   ;; tmux の prefix z のような動きをするやつ
+   (el-get-bundle zoom-window)
+
+   ;; キーバインドは 80-global-keybinds に書いた
+   #+end_src
+
+** 80-edit.el
+
+   #+begin_src emacs-lisp :tangle inits/80-edit.el
+   (setq indent-tabs-mode nil) ;; インデントにタブを使わない
+   (save-place-mode 1)
+   #+end_src
+
+** 80-frame-cmds.el
+
+   #+begin_src emacs-lisp :tangle inits/80-frame-cmds.el
+   (el-get-bundle frame-cmds)
+
+   (pretty-hydra-define window-control-hydra (:separator "-" :title "Window Control" :exit nil :quit-key "q")
+     ("Move"
+      (("h" move-frame-left  "Left")
+       ("j" move-frame-down  "Down")
+       ("k" move-frame-up    "Up")
+       ("l" move-frame-right "Right"))
+
+      "Resize"
+      (("H" shrink-frame-horizontally "H-")
+       ("J" enlarge-frame "V+")
+       ("K" shrink-frame "V-")
+       ("L" enlarge-frame-horizontally "H+"))))
+   #+end_src
+
+** 80-global-keybinds.el
+
+   #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
+   (if (eq window-system 'ns)
+       (progn
+             (setq ns-alternate-modifier (quote super)) ;; option  => super
+             (setq ns-command-modifier (quote meta))))  ;; command => meta
+
+   ;; C-h を backspace に
+   (keyboard-translate ?\C-h ?\C-?)
+   (global-set-key "\C-h" nil)
+
+   ;; M-g rをstring-replaceに割り当て
+   (global-set-key (kbd "M-g r") 'replace-string)
+
+   ;; C-\ で skk が有効になるように
+   (global-set-key (kbd "C-\\") 'skk-mode)
+
+   ;; C-s で swiper を代わりに使うことにした
+   (global-set-key (kbd "C-s") 'swiper)
+
+   ;; C-x o で ace-window を起動するようにした
+   (global-set-key (kbd "C-x o") 'ace-window)
+
+   ;; Shift+矢印でwindow移動
+   (windmove-default-keybindings)
+
+   ;; undo-fu
+   (global-set-key (kbd "C-/") 'undo-fu-only-undo)
+   (global-set-key (kbd "C-M-/") 'undo-fu-only-redo)
+
+   ;; ¥ ではなく \ になるように調整
+   (define-key global-map [?¥] [?\\])
+   (define-key global-map [?\C-¥] [?\C-\\])
+   (define-key global-map [?\M-¥] [?\M-\\])
+   (define-key global-map [?\C-\M-¥] [?\C-\M-\\])
+
+   ;; multiple-cursors
+   (global-set-key (kbd "C-:") 'mc/edit-lines)
+   (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+   (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+   (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
+   ;; helm
+   ;; (global-set-key (kbd "M-y") 'helm-show-kill-ring)
+   (global-set-key (kbd "C-;") 'helm-for-files)
+   ;; (global-set-key (kbd "M-x") 'helm-M-x)
+   ;; (global-set-key (kbd "C-x b") 'helm-mini)
+   ;; (global-set-key (kbd "C-x C-f") 'helm-find-files)
+
+   ;; ivy
+   (global-set-key (kbd "M-x") 'counsel-M-x)
+   (global-set-key (kbd "M-y") 'counsel-yank-pop)
+   (global-set-key (kbd "C-x b") 'counsel-switch-buffer)
+   (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+
+   ;; zoom-window
+   (global-set-key (kbd "C-x 1") 'zoom-window-zoom)
+
+   ;; neotree
+   (global-set-key [f8] 'neotree-toggle)
+
+   ;; org-mode
+   (setq my/org-mode-prefix-key "C-c o ")
+   (global-set-key (kbd (concat my/org-mode-prefix-key "a")) 'org-agenda)
+   (global-set-key (kbd (concat my/org-mode-prefix-key "c")) 'org-capture)
+   (global-set-key (kbd (concat my/org-mode-prefix-key "l")) 'org-store-link)
+
+   ;; with keychord
+   (key-chord-define-global "jk" 'pretty-hydra-usefull-commands/body)
+
+   ;; Don't ask yes or no.
+   (defalias 'yes-or-no-p 'y-or-n-p)
+   #+end_src
+
+** 80-undo-fu.el
+
+   #+begin_src emacs-lisp :tangle inits/80-undo-fu.el
+   (el-get-bundle undo-fu)
+   #+end_src
+
+** 80-wakatime.el
+
+   #+begin_src emacs-lisp :tangle inits/80-wakatime.el
+   (el-get-bundle wakatime-mode)
+   (my/load-config "my-wakatime-config")
+   (global-wakatime-mode 1)
+   #+end_src
+
+** 81-hydra.el
+
+   #+begin_src emacs-lisp :tangle inits/81-hydra.el
+   (el-get-bundle hydra)
+
+   ;; hydra-posframe
+   ;; https://github.com/Ladicle/hydra-posframe
+   ;; 画面真ん中に表示されて便利
+   (el-get-bundle hydra-posframe)
+   (add-hook 'after-init-hook 'hydra-posframe-enable)
+
+   (el-get-bundle jerrypnz/major-mode-hydra.el)
+
+   (pretty-hydra-define el-get-hydra (:separator "-" :title "el-get" :foreign-key warn :quit-key "q" :exit t)
+     ("Install"
+      (("i" el-get-install   "Install")
+       ("I" el-get-reinstall "Re-install")
+       ("D" el-get-remove    "Uninstall"))
+
+      "Update"
+      (("s" el-get-self-update  "Self Update")
+       ("u" el-get-update       "Update")
+       ("A" el-get-update-all   "Update All")
+       ("r" el-get-reload       "Reload"))
+
+      "Recipe"
+      (("f" el-get-find-recipe-file  "Find recipe"))
+
+      "Lock"
+      (("C" el-get-lock-checkout  "Checkout")
+       ("U" el-get-lock-unlock    "Unlock"))))
+
+   (pretty-hydra-define
+     toggle-hydra
+     (:separator "-"
+                 :title (concat (all-the-icons-faicon "toggle-on") " Toggle Switches")
+                 :foreign-key warn
+                 :quit-key "q"
+                 :exit t)
+     ("View"
+      (("z" zoom-mode                 "zoom-mode"      :toggle zoom-mode)
+       ("Z" toggle-frame-fullscreen   "Fullscreen"     :toggle (frame-parameter nil 'fullscreen))
+       ("b" display-battery-mode      "Battery"        :toggle display-battery-mode)
+       ("L" display-line-numbers-mode "Line Number"    :toggle display-line-numbers-mode)
+       ("N" neotree-toggle            "Neotree"        :toggle (if (fboundp 'neo-global--window-exists-p) (neo-global--window-exists-p) nil)))
+
+      "Behavior"
+      (("S" my/notify-slack-toggle    "Notify Slack"   :toggle my/notify-slack-enable-p)
+       ("v" my/toggle-view-mode       "Readonly"       :toggle view-mode)
+       ("E" toggle-debug-on-error     "Debug on error" :toggle debug-on-error))))
+
+   (pretty-hydra-define
+     subtools-hydra
+     (:separator "-"
+                 :color teal
+                 :foreign-key warn
+                 :title (concat (all-the-icons-material "build") " Sub tools")
+                 :quit-key "q"
+                 :exit t)
+     ("Translation"
+      (("t" google-translate-at-point "EN => JP")
+       ("T" google-translate-at-point-reverse "JP => EN"))
+
+      "Describe"
+      (("b" counsel-descbinds "Keybind")
+       ("f" counsel-describe-function "Function")
+       ("v" counsel-describe-variable "Variable")
+       ("m" describe-minor-mode "Minor mode"))
+
+      ;; ("P"   my/open-review-requested-pr "Open Requested PR")
+      "Other"
+      (("@"   all-the-icons-hydra/body "List icons"))))
+
+   (pretty-hydra-define text-scale-hydra (:separator "-" :title (concat (all-the-icons-material "text_fields") " Text Scale") :exit nil :quit-key "q")
+     ("Scale"
+      (("+" text-scale-increase "Increase")
+       ("-" text-scale-decrease "Decrease")
+       ("0" text-scale-adjust   "Adjust"))))
+
+   (pretty-hydra-define pretty-hydra-usefull-commands (:separator "-" :color teal :foreign-key warn :title (concat (all-the-icons-material "build") " Usefull commands") :quit-key "q")
+     ("File"
+      (("p" projectile-hydra/body "Projectile")
+       ("f" counsel-find-file     "Find File")
+       ("d" counsel-find-dir      "Find Dir")
+       ("r" counsel-recentf       "Recentf")
+       ("l" counsel-locate        "Locate")
+       ("A" counsel-osx-app       "macOS App"))
+
+      "Edit"
+      (("a" align-regexp "Align Regexp")
+       (";" comment-dwim "Comment"))
+
+      "Code"
+      (("G" counsel-projectile-ag       "Grep")
+       ("j" dumb-jump-pretty-hydra/body "Dumb jump")
+       ("g" avy-hydra/body)
+       ("i" counsel-imenu               "imenu")
+       ("y" yasnippet-hydra/body        "Yasnippet")
+       ("B" browse-at-remote            "Browse")
+       ("m" magit-status                "Magit"))
+
+      "View"
+      (("D" delete-other-windows      "Only This Win")
+       ("W" window-control-hydra/body "Window Control")
+       ("+" text-scale-hydra/body     "Text Scale")
+       ("w" ace-swap-window           "Swap Window"))
+
+      "Tool"
+      (("SPC" major-mode-hydra              "Hydra(Major)")
+       ("s"   toggle-hydra/body             "Toggle switches")
+       ("c"   counsel-org-capture           "Capture")
+       ("o"   global-org-hydra/body         "Org")
+       ("e"   el-get-hydra/body             "el-get")
+       ("/"   google-this-pretty-hydra/body "Google")
+       ("t"   subtools-hydra/body           "Sub Tools"))))
+   #+end_src
+
+** 82-ivy.el
+
+   #+begin_src emacs-lisp :tangle inits/82-ivy.el
+   (el-get-bundle abo-abo/swiper) ;; ivy, swiper, counsel が同時に入って来る
+
+   (when (require 'ivy nil t)
+     ;; M-o を ivy-dispatching-done-hydra に割り当てる．
+     (require 'ivy-hydra)
+
+     ;; `ivy-switch-buffer' (C-x b) のリストに recent files と bookmark を含める．
+     (setq ivy-use-virtual-buffers t)
+
+     ;; ミニバッファでコマンド発行を認める
+     (when (setq enable-recursive-minibuffers t)
+       (minibuffer-depth-indicate-mode 1)) ;; 何回層入ったかプロンプトに表示．
+
+     ;; ESC連打でミニバッファを閉じる
+     (define-key ivy-minibuffer-map (kbd "<escape>") 'minibuffer-keyboard-quit)
+
+     ;; (index/総数) 表示で何番目の候補かわかりやすくする
+     (setq ivy-count-format "(%d/%d) ")
+
+     ;; アクティベート
+     (ivy-mode 1))
+
+   (counsel-mode 1)
+
+   ;; posframe を使って中央表示
+   (el-get-bundle ivy-posframe)
+   (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
+   (ivy-posframe-mode 1)
+
+   (el-get-bundle ivy-rich)
+
+   ;; https://ladicle.com/post/config/#ivy
+   ;; に書かれている関数を丸コピしてきた
+   (defun ivy-rich-file-icon (candidate)
+     "Display file icons in `ivy-rich'."
+     (when (display-graphic-p)
+       (let ((icon (if (file-directory-p candidate)
+                       (cond
+                        ((and (fboundp 'tramp-tramp-file-p)
+                              (tramp-tramp-file-p default-directory))
+                         (all-the-icons-octicon "file-directory"))
+                        ((file-symlink-p candidate)
+                         (all-the-icons-octicon "file-symlink-directory"))
+                        ((all-the-icons-dir-is-submodule candidate)
+                         (all-the-icons-octicon "file-submodule"))
+                        ((file-exists-p (format "%s/.git" candidate))
+                         (all-the-icons-octicon "repo"))
+                        (t (let ((matcher (all-the-icons-match-to-alist candidate all-the-icons-dir-icon-alist)))
+                             (apply (car matcher) (list (cadr matcher))))))
+                     (all-the-icons-icon-for-file candidate))))
+         (unless (symbolp icon)
+           (propertize icon
+                       'face `(
+                               :height 1.1
+                               :family ,(all-the-icons-icon-family icon)
+                               ))))))
+
+   ;; https://github.com/Yevgnen/ivy-rich#1312-add-icons-for-ivy-switch-buffer
+   (defun ivy-rich-switch-buffer-icon (candidate)
+     (with-current-buffer
+         (get-buffer candidate)
+       (let ((icon (all-the-icons-icon-for-mode major-mode)))
+         (if (symbolp icon)
+             (all-the-icons-icon-for-mode 'fundamental-mode)
+           icon))))
+
+   ;; yank-pop の区切りを変更。ちょっと長めにしている
+   (setq counsel-yank-pop-separator "\n--------------------\n")
+
+   (setq ivy-rich-display-transformers-list
+         '(ivy-switch-buffer
+           (:columns
+            ((ivy-rich-switch-buffer-icon :width 2)
+             (ivy-rich-candidate (:width 30))
+             (ivy-rich-switch-buffer-size (:width 7))
+             (ivy-rich-switch-buffer-indicators (:width 4 :face error :align right))
+             (ivy-rich-switch-buffer-major-mode (:width 12 :face warning))
+             (ivy-rich-switch-buffer-project (:width 15 :face success))
+             (ivy-rich-switch-buffer-path (:width (lambda (x) (ivy-rich-switch-buffer-shorten-path x (ivy-rich-minibuffer-width 0.3))))))
+            :predicate
+            (lambda (cand) (get-buffer cand)))
+           counsel-M-x
+           (:columns
+            ((counsel-M-x-transformer (:width 40))  ; thr original transformer
+             (ivy-rich-counsel-function-docstring (:face font-lock-doc-face))))  ; return the docstring of the command
+           counsel-find-file
+           (:columns
+            ((ivy-rich-file-icon)
+             (ivy-rich-candidate)))
+           counsel-recentf
+           (:columns
+            ((ivy-rich-file-icon)
+             (ivy-rich-candidate (:width 110))))
+           ))
+
+   (ivy-rich-mode 1)
+
+   ;; https://www.yewton.net/2020/05/21/migemo-ivy/
+   ;; 関数名などは書き換えてる
+   (defun my/ivy-migemo-re-builder (str)
+     (let* ((sep " \\|\\^\\|\\.\\|\\*")
+            (splitted (--map (s-join "" it)
+                             (--partition-by (s-matches-p " \\|\\^\\|\\.\\|\\*" it)
+                                             (s-split "" str t)))))
+       (s-join "" (--map (cond ((s-equals? it " ") ".*?")
+                               ((s-matches? sep it) it)
+                               (t (migemo-get-pattern it)))
+                         splitted))))
+
+   (setq ivy-re-builders-alist '((t . ivy--regex-plus)
+                                 (swiper . my/ivy-migemo-re-builder)))
+   #+end_src
+
+** 83-counsel-osx-app.el
+
+   #+begin_src emacs-lisp :tangle inits/83-counsel-osx-app.el
+   (el-get-bundle counsel-osx-app)
+   #+end_src
+
+** 83-prescient.el
+
+   #+begin_src emacs-lisp :tangle inits/83-prescient.el
+   (el-get-bundle raxod502/prescient.el)
+   (ivy-prescient-mode 1)
+   (setq prescient-sort-length-enable nil)
+   #+end_src
+
+** 90-font.el
+
+   #+begin_src emacs-lisp :tangle inits/90-font.el
+   (let* ((size 14)
+          (asciifont "Ricty Diminished")      ; ASCII fonts
+          (jpfont "Ricty Diminished")         ; Japanese fonts
+          (h (* size 10))
+          (fontspec (font-spec :family asciifont))
+          (jp-fontspec (font-spec :family jpfont)))
+     (set-face-attribute 'default nil :family asciifont :height h)
+     (set-fontset-font nil 'japanese-jisx0213.2004-1 jp-fontspec)
+     (set-fontset-font nil 'japanese-jisx0213-2 jp-fontspec)
+     (set-fontset-font nil 'katakana-jisx0201 jp-fontspec)
+     (set-fontset-font nil '(#x0080 . #x024F) fontspec)
+     (set-fontset-font nil '(#x0370 . #x03FF) fontspec))
+   #+end_src
+
+** 90-fullscreen.el
+
+   #+begin_src emacs-lisp :tangle inits/90-fullscreen.el
+   ;; Mac の場合にフルスクリーンにする
+   ;; 2020-01-08 yabai WM を導入したのでフルスクリーンじゃない方がよくなったのでコメントアウト
+   ;; (if (or (eq window-system 'ns) (eq window-system 'mac))
+   ;;     (add-hook 'window-setup-hook
+   ;;               (lambda ()
+   ;;                 (set-frame-parameter nil 'fullscreen 'fullboth))))
+
+   ;; X Window system の場合にフルスクリーンにする
+   (if (eq window-system 'x)
+       (add-hook 'window-setup-hook
+                 (lambda ()
+                   (set-frame-parameter nil 'fullscreen 'fullboth)
+                   (set-frame-position nil 0 0))))
+   #+end_src
+
+** 90-mode-line.el
+
+   #+begin_src emacs-lisp :tangle inits/90-mode-line.el
+   ;; 一部のモードでは mode-line を表示しないようにする
+   (el-get-bundle hlissner/emacs-hide-mode-line)
+   (add-hook 'neotree-mode-hook #'hide-mode-line-mode)
+
+   ;; 日時を modeline で表示
+   (display-time-mode 1)
+
+   ;; (el-get-bundle smart-mode-line)
+   ;; (defvar sml/no-confirm-load-theme t)
+   ;; (defvar sml/theme 'dark)
+   ;; (sml/setup)
+
+   ;; major-mode
+   ;; (add-hook 'emacs-lisp-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon "elisp"))))
+   ;; (add-hook 'enh-ruby-mode-hook (lambda () (setq mode-name (concat "e" (all-the-icons-alltheicon "ruby-alt")))))
+   ;; (add-hook 'ruby-mode-hook (lambda () (setq mode-name (all-the-icons-alltheicon "ruby-alt"))))
+   ;; (add-hook 'vue-mode-hook (lambda ()
+   ;;                            (make-local-variable 'mmm-submode-mode-line-format)
+   ;;                            (setq mmm-submode-mode-line-format "~M:~m")
+   ;;                            (make-local-variable 'mmm-buffer-mode-display-name)
+   ;;                            (setq mmm-buffer-mode-display-name "V")))
+   ;; (add-hook 'js-mode-hook (lambda () (setq mode-name "")))
+   ;; (add-hook 'pug-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon "pug"))))
+   ;; (add-hook 'css-mode-hook (lambda () (setq mode-name (all-the-icons-faicon "css3"))))
+   ;; (add-hook 'twittering-mode-hook (lambda () (setq mode-name (all-the-icons-faicon "twitter-square"))))
+   ;; (add-hook 'org-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon "org"))))
+
+   (el-get-bundle diminish)
+   (require 'diminish)
+
+   (defmacro my/diminish (file mode &optional new-name)
+     "https://github.com/larstvei/dot-emacs/blob/master/init.org"
+     `(with-eval-after-load ,file
+        (diminish ,mode ,new-name)))
+
+   ;; minor-mode
+   ;; (my/diminish "helm" 'helm-mode ":helmet-with-cross:")
+   ;; (my/diminish "git-gutter" 'git-gutter-mode (all-the-icons-octicon "git-compare"))
+   ;; (my/diminish "yasnippet" 'yas-minor-mode " Ys")
+   ;; (my/diminish "whitespace" 'whitespace-mode "◽")
+   ;; (my/diminish "whitespace" 'global-whitespace-mode "◽")
+   ;; (my/diminish "tempbuf" 'tempbuf-mode "")
+   ;; (my/diminish "flycheck" 'flycheck-mode "")
+   ;; (my/diminish "zoom" 'zoom-mode "")
+   ;; (my/diminish "rainbow" 'rainbow-mode "🌈")
+   ;; (my/diminish "projectile-rails" 'projectile-rails-mode "🛤")
+   ;; (my/diminish "company" 'company-mode "")
+   ;; (my/diminish "ElDoc" 'eldoc-mode "")
+   #+end_src
+
+** 90-theme.el
+
+   #+begin_src emacs-lisp :tangle inits/90-theme.el
+   (el-get-bundle alloy-d/color-theme-molokai)
+   (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/el-get/color-theme-molokai"))
+   (load-theme 'molokai t)
+   #+end_src
+
+** 90-toolbar.el
+
+   #+begin_src emacs-lisp :tangle inits/90-toolbar.el
+   (tool-bar-mode -1)
+   #+end_src
+
+** 90-twmode.el
+
+   #+begin_src emacs-lisp :tangle inits/90-twmode.el
+   (el-get-bundle twittering-mode)
+
+   (setq twittering-username "mugijiru")
+   (setq twittering-jojo-mode t)
+   (setq twittering-timer-interval 60)
+   ;(setq twittering-auth-method 'xauth)
+   (setq twittering-auth-method 'oauth)
+   (setq twittering-update-status-function 'twittering-update-status-from-minibuffer)
+   (setq twittering-status-format "%i %S(%s)%p, %@:\n%FILL{  %T // from %f%L%r%R}\n ")
+   (setq twittering-retweet-format "RT @%s %t")
+   (setq twittering-display-remaining t)
+   (let ((km twittering-mode-map))
+     (define-key km (kbd "SPC") 'scroll-up)
+     (define-key km (kbd "b") 'scroll-down)
+     (define-key km (kbd "g") 'beginning-of-buffer)
+     (define-key km (kbd "G") 'end-of-buffer)
+     (define-key km (kbd "<") 'beginning-of-buffer)
+     (define-key km (kbd ">") 'end-of-buffer)
+     (define-key km (kbd "R") 'twittering-current-timeline)
+     (define-key km (kbd "F") 'twittering-favorite)
+     (define-key km (kbd "\C-cfd") 'twittering-unfavorite)
+     (define-key km (kbd "\C-c[") 'twittering-follow)
+     (define-key km (kbd "\C-c]") 'twittering-unfollow)
+     nil)
+   #+end_src
+
+** 90-zoom.el
+
+   #+begin_src emacs-lisp :tangle inits/90-zoom.el
+   ;; 作業中の Window が大きく表示されるようにするやつ
+   (el-get-bundle cyrus-and/zoom)
+   #+end_src
+
+** 91-doom-modeline.el
+
+   #+begin_src emacs-lisp :tangle inits/91-doom-modeline.el
+   (el-get-bundle doom-modeline)
+   (doom-modeline-mode 1)
+   (setq doom-modeline-vcs-max-length 30)
+   (display-battery-mode 1)
+   #+end_src
+
+** 92-dashboard.el
+
+   #+begin_src emacs-lisp :tangle inits/92-dashboard.el
+   (el-get-bundle dashboard)
+
+   ;; 表示するアイコンをロゴに変更
+   (setq dashboard-startup-banner 'logo)
+
+   ;; 表示する情報の設定
+   (setq dashboard-items '((recents  . 5)
+                           ;; (bookmarks . 5) ;; bookmarks は使ってない
+                           (projects . 5)
+                           (agenda . 5)
+                           ;; (registers . 5) ;; registers は使ってない
+                           ))
+
+   ;; 各セクションのタイトル部の先頭にアイコンを表示
+   (setq dashboard-set-heading-icons t)
+
+   ;; 各ファイルの先頭にアイコンを表示
+   (setq dashboard-set-file-icons t)
+   (dashboard-setup-startup-hook)
+   #+end_src
+
+** 99-custom-file.el
+
+   #+begin_src emacs-lisp :tangle inits/99-custom-file.el
+   (setq custom-file (expand-file-name "~/.emacs.d/custom.el"))
+   (load custom-file)
+   #+end_src
+
+** 99-server.el
+
+   #+begin_src emacs-lisp :tangle inits/99-server.el
+   ;; サーバとして起動
+   ;; Firefox から org-capture を動かすのに必要
+   (require 'server)
+   (unless (server-running-p)
+     (server-start))
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
