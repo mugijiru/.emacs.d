@@ -2214,6 +2214,16 @@
    (el-get-bundle esa)
    (my/load-config "my-esa-config")
    #+end_src
+
+** 70-key-chord.el
+
+   #+begin_src emacs-lisp :tangle inits/70-key-chord.el
+   (el-get-bundle zk-phi/key-chord)
+   (setq key-chord-two-keys-delay           0.15
+         key-chord-safety-interval-backward 0.1
+         key-chord-safety-interval-forward  0.15)
+   (key-chord-mode 1)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
