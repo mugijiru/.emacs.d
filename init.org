@@ -446,6 +446,38 @@
 
     フォントのインストールコマンドもここに収めてしまうのが良さそうな気がする
 
+** highlight-indent-guides
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: highlight-indent-guides
+   :END:
+
+*** 概要
+
+    [[https://github.com/DarthFennec/highlight-indent-guides][highlight-indent-guides]] はインデント毎にラインを引いたりして見易くしてくれるパッケージ。
+    通常のプログラムを書く時にも便利だけど、
+    YAML などのインデントがそのまま構造になるような言語を弄る時にとても便利。
+
+*** インストール
+
+    これもいつも通り el-get でインストールしている。
+    また GitHub にあるので、そこから直接インストールしている。
+
+    #+begin_src emacs-lisp :tangle inits/30-highlight-indent-guides.el
+    (el-get-bundle DarthFennec/highlight-indent-guides)
+    #+end_src
+
+*** 設定                                                        :improvement:
+
+    今いる行がどのインデントにいるのかをわかりやすくするために
+    responsive モードを有効にしている。
+
+    #+begin_src emacs-lisp :tangle inits/30-highlight-indent-guides.el
+    (setq highlight-indent-guides-responsive "stack")
+    #+end_src
+
+    defcustom で定義されてる変数なので
+    custom-set-variables で設定した方がいいかもしれない。
+
 ** Neotree                                                      :replacement:
    :PROPERTIES:
    :EXPORT_FILE_NAME: neotree
@@ -1201,12 +1233,6 @@
    (global-git-gutter-mode t)
    #+end_src
 
-** 30-highlight-indent-guides.el
-
-   #+begin_src emacs-lisp :tangle inits/30-highlight-indent-guides.el
-   (el-get-bundle DarthFennec/highlight-indent-guides)
-   (setq highlight-indent-guides-responsive "stack")
-   #+end_src
 
 ** 30-notify-slack.el
 
