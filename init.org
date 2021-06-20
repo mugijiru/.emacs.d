@@ -2280,6 +2280,12 @@
    #+begin_src emacs-lisp :tangle inits/70-w3m.el
    (el-get-bundle emacs-w3m)
    #+end_src
+
+** 70-yascroll.el
+
+   #+begin_src emacs-lisp :tangle inits/70-yascroll.el
+   (el-get-bundle yascroll)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
