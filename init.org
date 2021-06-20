@@ -1582,6 +1582,13 @@
    (el-get-bundle plantuml-mode)
    (setq plantuml-default-exec-mode 'jar)
    #+end_src
+
+** 50-todoist.el
+
+   #+begin_src emacs-lisp :tangle inits/50-todoist.el
+   (el-get-bundle  abrochard/emacs-todoist)
+   (my/load-config "my-todoist-config")
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
