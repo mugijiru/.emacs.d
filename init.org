@@ -2753,6 +2753,12 @@
    (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/el-get/color-theme-molokai"))
    (load-theme 'molokai t)
    #+end_src
+
+** 90-toolbar.el
+
+   #+begin_src emacs-lisp :tangle inits/90-toolbar.el
+   (tool-bar-mode -1)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
