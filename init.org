@@ -506,6 +506,7 @@
    - [[*helm-posframe][helm-posframe]] :: Helm を posframe で使えるようにするやつ
    - [[*highlight-indent-guides][highlight-indent-guides]] :: インデント毎にラインを引いたりして見易くしてくれるやつ
    - [[*Neotree][Neotree]] :: フォルダ構造を IDE みたいにツリー表示するやつ
+   - [[*toolbar][toolbar]] :: Emacs 標準のボタンなどの UI 部分の設定。
 
 ** all-the-icons
    :PROPERTIES:
@@ -601,6 +602,36 @@
 
     defcustom で定義されてる変数なので
     custom-set-variables で設定した方がいいかもしれない。
+
+** helm-posframe
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: helm-posframe
+   :END:
+
+*** 概要
+
+    [[https://github.com/tumashu/helm-posframe][helm-posframe]] は [[https://github.com/emacs-helm/helm][helm]] の拡張で
+    Helm のバッファの表示を [[https://github.com/tumashu/posframe][posframe]] を使うようにしてくれるやつ。
+
+    実は helm 本体の方でも posframe 対応しているのであまり使う必要もなさそうなので
+    いずれ外すかもしれない。
+
+    ただ確か本体の方の挙動が気に入らなかったような気はする。
+
+*** インストール
+
+    いつも通り el-get でインストール。
+    GitHub にあるのでそれを取得するようにしている。
+
+    #+begin_src emacs-lisp :tangle inits/21-helm-posframe.el
+    (el-get-bundle tumashu/helm-posframe)
+    #+end_src
+
+*** 有効化
+
+    #+begin_src emacs-lisp :tangle inits/21-helm-posframe.el
+    (helm-posframe-enable)
+    #+end_src
 
 ** Neotree                                                      :replacement:
    :PROPERTIES:
@@ -721,35 +752,22 @@
       | z   | Neotree のサイズを大きくしたり小さくしたり |
       | h   | 隠しファイルを表示したり隠したり           |
       |-----+--------------------------------------------|
-
-** helm-posframe
+** toolbar
    :PROPERTIES:
-   :EXPORT_FILE_NAME: helm-posframe
+   :EXPORT_FILE_NAME: toolbar
    :END:
 
 *** 概要
 
-    [[https://github.com/tumashu/helm-posframe][helm-posframe]] は [[https://github.com/emacs-helm/helm][helm]] の拡張で
-    Helm のバッファの表示を [[https://github.com/tumashu/posframe][posframe]] を使うようにしてくれるやつ。
+    Emacs 標準の toolbar の設定。
+    麦汁さんは使わないし幅を取るので隠す派。
 
-    実は helm 本体の方でも posframe 対応しているのであまり使う必要もなさそうなので
-    いずれ外すかもしれない。
+*** 設定
 
-    ただ確か本体の方の挙動が気に入らなかったような気はする。
+    単に無効にして隠している
 
-*** インストール
-
-    いつも通り el-get でインストール。
-    GitHub にあるのでそれを取得するようにしている。
-
-    #+begin_src emacs-lisp :tangle inits/21-helm-posframe.el
-    (el-get-bundle tumashu/helm-posframe)
-    #+end_src
-
-*** 有効化
-
-    #+begin_src emacs-lisp :tangle inits/21-helm-posframe.el
-    (helm-posframe-enable)
+    #+begin_src emacs-lisp :tangle inits/90-toolbar.el
+    (tool-bar-mode -1)
     #+end_src
 
 * ナビゲーション
@@ -3064,12 +3082,6 @@
    (el-get-bundle alloy-d/color-theme-molokai)
    (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/el-get/color-theme-molokai"))
    (load-theme 'molokai t)
-   #+end_src
-
-** 90-toolbar.el
-
-   #+begin_src emacs-lisp :tangle inits/90-toolbar.el
-   (tool-bar-mode -1)
    #+end_src
 
 ** 90-twmode.el

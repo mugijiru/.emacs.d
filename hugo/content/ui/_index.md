@@ -19,3 +19,6 @@ disableToc = true
 
 [Neotree]({{< relref "neotree" >}})
 : フォルダ構造を IDE みたいにツリー表示するやつ
+
+[toolbar]({{< relref "toolbar" >}})
+: Emacs 標準のボタンなどの UI 部分の設定。
