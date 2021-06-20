@@ -381,6 +381,7 @@
 
    - [[*all-the-icons][all-the-icons]] :: Emacs で様々なアイコンを表示できるようにするやつ
    - [[*helm-posframe][helm-posframe]] :: Helm を posframe で使えるようにするやつ
+   - [[*highlight-indent-guides][highlight-indent-guides]] :: インデント毎にラインを引いたりして見易くしてくれるやつ
    - [[*Neotree][Neotree]] :: フォルダ構造を IDE みたいにツリー表示するやつ
 
 ** all-the-icons
