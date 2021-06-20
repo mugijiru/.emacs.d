@@ -2745,6 +2745,14 @@
    ;; (my/diminish "company" 'company-mode "")
    ;; (my/diminish "ElDoc" 'eldoc-mode "")
    #+end_src
+
+** 90-theme.el
+
+   #+begin_src emacs-lisp :tangle inits/90-theme.el
+   (el-get-bundle alloy-d/color-theme-molokai)
+   (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/el-get/color-theme-molokai"))
+   (load-theme 'molokai t)
+   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
