@@ -50,6 +50,7 @@
    Emacs の基本動作に関わる部分をここでは設定している
 
    - [[*exec-path][exec-path]] :: PATH などの環境変数を shell と合わせる設定
+   - [[*load-path][load-path]] :: Emacs Lisp が読み込める path の設定
    - [[*ガベージコレクション][ガベージコレクション]] :: メモリの開放関係の設定
 
 ** exec-path
