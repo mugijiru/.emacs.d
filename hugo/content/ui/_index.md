@@ -8,6 +8,9 @@ disableToc = true
 
 ここでは Emacs の UI を変更するようなものを載せている
 
+[all-the-icons]({{< relref "all-the-icons" >}})
+: Emacs で様々なアイコンを表示できるようにするやつ
+
 [helm-posframe]({{< relref "helm-posframe" >}})
 : Helm を posframe で使えるようにするやつ
 
