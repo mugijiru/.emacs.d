@@ -507,6 +507,7 @@
    - [[*highlight-indent-guides][highlight-indent-guides]] :: インデント毎にラインを引いたりして見易くしてくれるやつ
    - [[*Neotree][Neotree]] :: フォルダ構造を IDE みたいにツリー表示するやつ
    - [[*toolbar][toolbar]] :: Emacs 標準のボタンなどの UI 部分の設定。
+   - [[*zoom][zoom]] :: フォーカスが当たってるウインドウを大きく表示してくれるやつ。
 
 ** all-the-icons
    :PROPERTIES:
