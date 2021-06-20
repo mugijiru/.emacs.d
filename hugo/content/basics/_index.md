@@ -9,7 +9,7 @@ disableToc = true
 Emacs の基本動作に関わる部分をここでは設定している
 
 [exec-path]({{< relref "exec-path" >}})
-: PATH を shell と合わせる設定
+: PATH などの環境変数を shell と合わせる設定
 
 [ガベージコレクション]({{< relref "gcmh" >}})
 : メモリの開放関係の設定

@@ -49,7 +49,7 @@
 
    Emacs の基本動作に関わる部分をここでは設定している
 
-   - [[*exec-path][exec-path]] :: PATH を shell と合わせる設定
+   - [[*exec-path][exec-path]] :: PATH などの環境変数を shell と合わせる設定
    - [[*ガベージコレクション][ガベージコレクション]] :: メモリの開放関係の設定
 
 ** exec-path
@@ -64,7 +64,7 @@
     と感じてしまう。
 
     そこで [[https://github.com/purcell/exec-path-from-shell][exec-path-from-shell]] というのを使って
-    Emacs が見える環境変数をシェルが見てる環境変数と揃うようにしている。
+    Emacs が見える PATH 環境変数をシェルが見てる PATH 環境変数と揃うようにしている。
 
 *** インストール
 
@@ -83,6 +83,9 @@
     (when (memq window-system '(mac ns))
       (exec-path-from-shell-initialize))
     #+end_src
+
+    なお、これでシェルと共通の環境変数が使われるようになるのは
+    [[https://github.com/purcell/exec-path-from-shell/blob/bf4bdc8b8911e7a2c04e624b9a343164c3878282/exec-path-from-shell.el#L85-L89][デフォルトでは ~PATH~ と ~MANPATH~ のみである]]
 
 *** その他
 

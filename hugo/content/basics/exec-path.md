@@ -10,7 +10,7 @@ Emacs は通常最小限の環境変数しか利用しないようになって�
 が、それだと普段使う上で「ああ、このコマンドが使えなくてもどかしい……!」と感じてしまう。
 
 そこで [exec-path-from-shell](https://github.com/purcell/exec-path-from-shell) というのを使って
-Emacs が見える環境変数をシェルが見てる環境変数と揃うようにしている。
+Emacs が見える PATH 環境変数をシェルが見てる PATH 環境変数と揃うようにしている。
 
 
 ## インストール {#インストール}
@@ -30,6 +30,9 @@ Emacs が見える環境変数をシェルが見てる環境変数と揃うよ�
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 ```
+
+なお、これでシェルと共通の環境変数が使われるようになるのは
+[デフォルトでは `PATH` と `MANPATH` のみである](https://github.com/purcell/exec-path-from-shell/blob/bf4bdc8b8911e7a2c04e624b9a343164c3878282/exec-path-from-shell.el#L85-L89)
 
 
 ## その他 {#その他}
