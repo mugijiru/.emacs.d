@@ -622,7 +622,7 @@
     ただ、麦汁さんは ivy に乗り換えようとしているので helm の設定は頑張っていない。
     helm-for-files が便利なのでまだ捨てられてないけど……。
 
-*** インストール
+*** インストール                                                :improvement:
 
     helm で使いたい拡張として
     [[https://github.com/emacs-helm/helm-descbinds][helm-descbinds]] と [[https://github.com/emacsorphanage/helm-ag][helm-ag]] というのがあるのでそれらも同時に入れている。
@@ -833,6 +833,32 @@
     (tool-bar-mode -1)
     #+end_src
 
+** uniquify
+
+*** 概要
+    同じ名前のファイルを開いている時に
+    祖先のディレクトリ名を表示してくれてどこのファイルかわかりやすくしてくれるやつ。
+
+    すぐ親とかも同名でも、名前が違うところまで遡って表示してくれる。
+
+*** 有効化
+    Emacs に標準で入ってるので require するだけで有効にできる
+
+    #+begin_src emacs-lisp :tangle inits/20-uniquify.el
+    (require 'uniquify)
+    #+end_src
+
+*** 設定
+
+    自分は ~ファイル名<フォルダ名>~ みたいな表示になる形式にしている。
+    その方がファイル名が主という感じになって使いやすそうだなって。
+
+    そういう意味では ~post-foward~ の方が幅を使わない分良いかもしれない。
+    いつか検討しても良いかもしれない。
+
+    #+begin_src emacs-lisp :tangle inits/20-uniquify.el
+    (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+    #+end_src
 ** zoom
    :PROPERTIES:
    :EXPORT_FILE_NAME: zoom
@@ -1321,7 +1347,6 @@
                docstring))))
    #+end_src
 
-
 ** migemo
 
    #+begin_src emacs-lisp :tangle inits/10-migemo.el
@@ -1348,7 +1373,6 @@
    (migemo-init)
    #+end_src
 
-
 ** alert
 
    #+begin_src emacs-lisp :tangle inits/20-alert.el
@@ -1357,7 +1381,6 @@
    (el-get-bundle alert)
    (setq alert-default-style 'notifier) ;; use terminal-notifier
    #+end_src
-
 
 ** browse-url
 
@@ -1425,14 +1448,6 @@
    #+begin_src emacs-lisp :tangle inits/20-smartparens.el
    (el-get-bundle smartparens)
    (require 'smartparens-config)
-   #+end_src
-
-** uniquify
-
-   #+begin_src emacs-lisp :tangle inits/20-uniquify.el
-   ;; 同じ名前のファイルを開いている時に祖先ディレクトリ名を表示してくれてわかりやすくしてくれるやつ
-   (require 'uniquify) ;; includes Emacs
-   (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
    #+end_src
 
 ** 20-yasnippet.el
