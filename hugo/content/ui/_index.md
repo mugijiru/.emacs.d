@@ -12,7 +12,7 @@ disableToc = true
 : Emacs で様々なアイコンを表示できるようにするやつ
 
 [helm]({{< relref "helm" >}})
-: 絞り込みインターフェースを提供するやつ。
+: 絞り込みインターフェースを提供するやつ
 
 [helm-posframe]({{< relref "helm-posframe" >}})
 : Helm を posframe で使えるようにするやつ
@@ -24,7 +24,10 @@ disableToc = true
 : フォルダ構造を IDE みたいにツリー表示するやつ
 
 [toolbar]({{< relref "toolbar" >}})
-: Emacs 標準のボタンなどの UI 部分の設定。
+: Emacs 標準のボタンなどの UI 部分の設定
+
+[uniquify]({{< relref "uniquify" >}})
+: 同名ファイルを開いている時にどこのファイルかまで表示してくれるやつ
 
 [zoom]({{< relref "zoom" >}})
-: フォーカスが当たってるウインドウを大きく表示してくれるやつ。
+: フォーカスが当たってるウインドウを大きく表示してくれるやつ
