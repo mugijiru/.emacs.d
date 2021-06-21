@@ -503,6 +503,7 @@
    ここでは Emacs の UI を変更するようなものを載せている
 
    - [[*all-the-icons][all-the-icons]] :: Emacs で様々なアイコンを表示できるようにするやつ
+   - [[*helm][helm]] :: 絞り込みインターフェースを提供するやつ。
    - [[*helm-posframe][helm-posframe]] :: Helm を posframe で使えるようにするやつ
    - [[*highlight-indent-guides][highlight-indent-guides]] :: インデント毎にラインを引いたりして見易くしてくれるやつ
    - [[*Neotree][Neotree]] :: フォルダ構造を IDE みたいにツリー表示するやつ
@@ -603,6 +604,67 @@
 
     defcustom で定義されてる変数なので
     custom-set-variables で設定した方がいいかもしれない。
+
+** helm
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: helm
+   :END:
+
+*** 概要
+
+    [[https://github.com/emacs-helm/helm][helm]] は anything.el の後継であり、
+    インクリメンタルに候補の絞り込みをしたりする UI を提供する便利なパッケージ。
+
+    [[https://github.com/peco/peco][peco]] とか [[https://github.com/junegunn/fzf][fzf]] とかと似ているっちゃ似ているかな? fzf 使ったことないけど。
+
+    一時期開発が止まってるようだったけど最近(2021年)はまた更新が活発になっている。
+
+    ただ、麦汁さんは ivy に乗り換えようとしているので helm の設定は頑張っていない。
+    helm-for-files が便利なのでまだ捨てられてないけど……。
+
+*** インストール
+
+    helm で使いたい拡張として
+    [[https://github.com/emacs-helm/helm-descbinds][helm-descbinds]] と [[https://github.com/emacsorphanage/helm-ag][helm-ag]] というのがあるのでそれらも同時に入れている。
+
+    #+begin_src emacs-lisp :tangle inits/20-helm.el
+    (el-get-bundle helm)
+    (el-get-bundle helm-descbinds)
+    (el-get-bundle helm-ag)
+    #+end_src
+
+    ただ descbinds は counsel-descbinds に置き換えたし
+    helm-ag ももう使ってない気がする
+
+*** 設定
+
+    オススメの設定が helm に同梱されている helm-config に入ってるので
+    まずはそれを読み込んでいる。
+
+    #+begin_src emacs-lisp :tangle inits/20-helm.el
+    (require 'helm-config)
+    #+end_src
+
+    また helm-descbinds を使えるように有効にしている。
+    けど、上にも書いたけどもう counsel-descbinds に置き換えちゃったのよね……。
+
+    #+begin_src emacs-lisp :tangle inits/20-helm.el
+    (helm-descbinds-mode)
+    #+end_src
+
+    あとは helm-migemo-mode というのを有効にしている。
+    これがあると helm で検索する時に migemo れて便利。
+
+    #+begin_src emacs-lisp :tangle inits/20-helm.el
+    (helm-migemo-mode 1)
+    #+end_src
+
+    ivy の方でも migemo 対応したいけどまだできてない……。
+
+*** その他
+
+    helm 系の設定は他の設定にも色々影響も大きそうなので
+    読み込み順は結構早いタイミングにしている(init-loader で 20 を prefix にしている)
 
 ** helm-posframe
    :PROPERTIES:
@@ -1343,18 +1405,6 @@
    (el-get-bundle google-translate)
    #+end_src
 
-** helm
-
-   #+begin_src emacs-lisp :tangle inits/20-helm.el
-   ;; helm 系の設定は他の部分への影響も大きそうなので先に持って来た
-   (el-get-bundle helm)
-   (el-get-bundle helm-descbinds)
-   (el-get-bundle helm-ag)
-   (require 'helm-config)
-   (helm-descbinds-mode)
-   (helm-migemo-mode 1)
-   #+end_src
-
 ** lsp
 
    #+begin_src emacs-lisp :tangle inits/20-lsp.el
@@ -1429,7 +1479,6 @@
    (el-get-bundle git-gutter-fringe)
    (global-git-gutter-mode t)
    #+end_src
-
 
 ** 30-notify-slack.el
 
@@ -3148,7 +3197,6 @@
      (define-key km (kbd "\C-c]") 'twittering-unfollow)
      nil)
    #+end_src
-
 
 ** 91-doom-modeline.el
 
