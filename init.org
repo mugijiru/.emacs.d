@@ -503,12 +503,13 @@
    ここでは Emacs の UI を変更するようなものを載せている
 
    - [[*all-the-icons][all-the-icons]] :: Emacs で様々なアイコンを表示できるようにするやつ
-   - [[*helm][helm]] :: 絞り込みインターフェースを提供するやつ。
+   - [[*helm][helm]] :: 絞り込みインターフェースを提供するやつ
    - [[*helm-posframe][helm-posframe]] :: Helm を posframe で使えるようにするやつ
    - [[*highlight-indent-guides][highlight-indent-guides]] :: インデント毎にラインを引いたりして見易くしてくれるやつ
    - [[*Neotree][Neotree]] :: フォルダ構造を IDE みたいにツリー表示するやつ
-   - [[*toolbar][toolbar]] :: Emacs 標準のボタンなどの UI 部分の設定。
-   - [[*zoom][zoom]] :: フォーカスが当たってるウインドウを大きく表示してくれるやつ。
+   - [[*toolbar][toolbar]] :: Emacs 標準のボタンなどの UI 部分の設定
+   - [[*uniquify][uniquify]] :: 同名ファイルを開いている時にどこのファイルかまで表示してくれるやつ
+   - [[*zoom][zoom]] :: フォーカスが当たってるウインドウを大きく表示してくれるやつ
 
 ** all-the-icons
    :PROPERTIES:
