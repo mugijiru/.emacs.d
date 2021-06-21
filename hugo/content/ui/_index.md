@@ -26,7 +26,7 @@ disableToc = true
 [toolbar]({{< relref "toolbar" >}})
 : Emacs 標準のボタンなどの UI 部分の設定
 
-[uniquify](ui/.org)
+[uniquify]({{< relref "uniquify" >}})
 : 同名ファイルを開いている時にどこのファイルかまで表示してくれるやつ
 
 [zoom]({{< relref "zoom" >}})
