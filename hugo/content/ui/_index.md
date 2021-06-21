@@ -11,6 +11,9 @@ disableToc = true
 [all-the-icons]({{< relref "all-the-icons" >}})
 : Emacs で様々なアイコンを表示できるようにするやつ
 
+[helm]({{< relref "helm" >}})
+: 絞り込みインターフェースを提供するやつ。
+
 [helm-posframe]({{< relref "helm-posframe" >}})
 : Helm を posframe で使えるようにするやつ
 
