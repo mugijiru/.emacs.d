@@ -60,7 +60,7 @@
 	"title": "UI",
 	"tags": [],
 	"description": "",
-	"content": "ここでは Emacs の UI を変更するようなものを載せている\n all-the-icons Emacs で様々なアイコンを表示できるようにするやつ helm 絞り込みインターフェースを提供するやつ。 helm-posframe Helm を posframe で使えるようにするやつ highlight-indent-guides インデント毎にラインを引いたりして見易くしてくれるやつ Neotree フォルダ構造を IDE みたいにツリー表示するやつ toolbar Emacs 標準のボタンなどの UI 部分の設定。 zoom フォーカスが当たってるウインドウを大きく表示してくれるやつ。  "
+	"content": "ここでは Emacs の UI を変更するようなものを載せている\n all-the-icons Emacs で様々なアイコンを表示できるようにするやつ helm 絞り込みインターフェースを提供するやつ helm-posframe Helm を posframe で使えるようにするやつ highlight-indent-guides インデント毎にラインを引いたりして見易くしてくれるやつ Neotree フォルダ構造を IDE みたいにツリー表示するやつ toolbar Emacs 標準のボタンなどの UI 部分の設定 uniquify 同名ファイルを開いている時にどこのファイルかまで表示してくれるやつ zoom フォーカスが当たってるウインドウを大きく表示してくれるやつ  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/nav/",
@@ -215,6 +215,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 Emacs 標準の toolbar の設定。麦汁さんは使わないし幅を取るので隠す派。\n設定 単に無効にして隠している\n(tool-bar-mode -1) "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/ui/uniquify/",
+	"title": "uniquify",
+	"tags": [],
+	"description": "",
+	"content": "概要 同じ名前のファイルを開いている時に祖先のディレクトリ名を表示してくれてどこのファイルかわかりやすくしてくれるやつ。\nすぐ親とかも同名でも、名前が違うところまで遡って表示してくれる。\n有効化 Emacs に標準で入ってるので require するだけで有効にできる\n(require \u0026#39;uniquify) 設定 自分は ファイル名\u0026lt;フォルダ名\u0026gt; みたいな表示になる形式にしている。その方がファイル名が主という感じになって使いやすそうだなって。\nそういう意味では post-foward の方が幅を使わない分良いかもしれない。いつか検討しても良いかもしれない。\n(setq uniquify-buffer-name-style \u0026#39;post-forward-angle-brackets) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/tags/unused/",
