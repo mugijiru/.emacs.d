@@ -44,6 +44,8 @@
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/basics/exec-path/</loc>
   </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/ui/helm/</loc>
+  </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/ui/helm-posframe/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/ui/highlight-indent-guides/</loc>

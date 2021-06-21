@@ -60,7 +60,7 @@
 	"title": "UI",
 	"tags": [],
 	"description": "",
-	"content": "ここでは Emacs の UI を変更するようなものを載せている\n all-the-icons Emacs で様々なアイコンを表示できるようにするやつ helm-posframe Helm を posframe で使えるようにするやつ highlight-indent-guides インデント毎にラインを引いたりして見易くしてくれるやつ Neotree フォルダ構造を IDE みたいにツリー表示するやつ toolbar Emacs 標準のボタンなどの UI 部分の設定。 zoom フォーカスが当たってるウインドウを大きく表示してくれるやつ。  "
+	"content": "ここでは Emacs の UI を変更するようなものを載せている\n all-the-icons Emacs で様々なアイコンを表示できるようにするやつ helm 絞り込みインターフェースを提供するやつ。 helm-posframe Helm を posframe で使えるようにするやつ highlight-indent-guides インデント毎にラインを引いたりして見易くしてくれるやつ Neotree フォルダ構造を IDE みたいにツリー表示するやつ toolbar Emacs 標準のボタンなどの UI 部分の設定。 zoom フォーカスが当たってるウインドウを大きく表示してくれるやつ。  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/nav/",
@@ -145,6 +145,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 Emacs は通常最小限の環境変数しか利用しないようになっている。\nが、それだと普段使う上で「ああ、このコマンドが使えなくてもどかしい……!」と感じてしまう。\nそこで exec-path-from-shell というのを使って Emacs が見える PATH 環境変数をシェルが見てる PATH 環境変数と揃うようにしている。\nインストール いつも通り el-get からインストールしている\n(el-get-bundle exec-path-from-shell) 有効化 理由は忘れたが Mac の環境でのみ有効化している。その内 Linux 環境でも有効化を試みた方が良さそう\n(when (memq window-system \u0026#39;(mac ns)) (exec-path-from-shell-initialize)) なお、これでシェルと共通の環境変数が使われるようになるのは デフォルトでは PATH と MANPATH のみである\nその他 なぜか以下のようなコメントを書いていた。普段使っている zsh で持ってる PATH は使わないのだろうか? :thinking_face:\n;; for exec path ;; use .bashrc setted path "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/ui/helm/",
+	"title": "helm",
+	"tags": [],
+	"description": "",
+	"content": "概要 helm は anything.el の後継であり、インクリメンタルに候補の絞り込みをしたりする UI を提供する便利なパッケージ。\npeco とか fzf とかと似ているっちゃ似ているかな? fzf 使ったことないけど。\n一時期開発が止まってるようだったけど最近(2021年)はまた更新が活発になっている。\nただ、麦汁さんは ivy に乗り換えようとしているので helm の設定は頑張っていない。 helm-for-files が便利なのでまだ捨てられてないけど……。\nインストール helm で使いたい拡張として helm-descbinds と helm-ag というのがあるのでそれらも同時に入れている。\n(el-get-bundle helm) (el-get-bundle helm-descbinds) (el-get-bundle helm-ag) ただ descbinds は counsel-descbinds に置き換えたし helm-ag ももう使ってない気がする\n設定 オススメの設定が helm に同梱されている helm-config に入ってるのでまずはそれを読み込んでいる。\n(require \u0026#39;helm-config) また helm-descbinds を使えるように有効にしている。けど、上にも書いたけどもう counsel-descbinds に置き換えちゃったのよね……。\n(helm-descbinds-mode) あとは helm-migemo-mode というのを有効にしている。これがあると helm で検索する時に migemo れて便利。\n(helm-migemo-mode 1) ivy の方でも migemo 対応したいけどまだできてない……。\nその他 helm 系の設定は他の設定にも色々影響も大きそうなので読み込み順は結構早いタイミングにしている(init-loader で 20 を prefix にしている)\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/ui/helm-posframe/",

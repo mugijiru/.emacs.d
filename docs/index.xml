@@ -191,6 +191,25 @@ syntax highlight と、いくつかの編集機能を備えている。が、今
     </item>
     
     <item>
+      <title>helm</title>
+      <link>https://mugijiru.github.io/.emacs.d/ui/helm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/ui/helm/</guid>
+      <description>概要 helm は anything.el の後継であり、インクリメンタルに候補の絞り込みをしたりする UI を提供する便利なパッケージ。
+peco とか fzf とかと似ているっちゃ似ているかな? fzf 使ったことないけど。
+一時期開発が止まってるようだったけど最近(2021年)はまた更新が活発になっている。
+ただ、麦汁さんは ivy に乗り換えようとしているので helm の設定は頑張っていない。 helm-for-files が便利なのでまだ捨てられてないけど……。
+インストール helm で使いたい拡張として helm-descbinds と helm-ag というのがあるのでそれらも同時に入れている。
+(el-get-bundle helm) (el-get-bundle helm-descbinds) (el-get-bundle helm-ag) ただ descbinds は counsel-descbinds に置き換えたし helm-ag ももう使ってない気がする
+設定 オススメの設定が helm に同梱されている helm-config に入ってるのでまずはそれを読み込んでいる。
+(require &amp;#39;helm-config) また helm-descbinds を使えるように有効にしている。けど、上にも書いたけどもう counsel-descbinds に置き換えちゃったのよね……。
+(helm-descbinds-mode) あとは helm-migemo-mode というのを有効にしている。これがあると helm で検索する時に migemo れて便利。
+(helm-migemo-mode 1) ivy の方でも migemo 対応したいけどまだできてない……。
+その他 helm 系の設定は他の設定にも色々影響も大きそうなので読み込み順は結構早いタイミングにしている(init-loader で 20 を prefix にしている)</description>
+    </item>
+    
+    <item>
       <title>helm-posframe</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/helm-posframe/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>mocker.el :: 麦汁&#39;s Emacs Config</title>
+    <title>helm :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624281486" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/testing-tool/mocker-el/">
+  <body class="" data-url="/.emacs.d/ui/helm/">
     <nav id="sidebar" class="">
 
 
@@ -338,7 +338,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        
+        parent
         
         
         ">
@@ -385,7 +385,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/helm/" title="helm" class="dd-item ">
+      <li data-nav-id="/.emacs.d/ui/helm/" title="helm" class="dd-item active">
         <a href="/.emacs.d/ui/helm/">
         helm
         
@@ -650,7 +650,7 @@
   
     
     <li data-nav-id="/.emacs.d/testing-tool/" title="テスト用ツール" class="dd-item
-        parent
+        
         
         
         ">
@@ -697,7 +697,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/testing-tool/mocker-el/" title="mocker.el" class="dd-item active">
+      <li data-nav-id="/.emacs.d/testing-tool/mocker-el/" title="mocker.el" class="dd-item ">
         <a href="/.emacs.d/testing-tool/mocker-el/">
         mocker.el
         
@@ -881,7 +881,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/testing-tool/'>テスト用ツール</a> > mocker.el
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > helm
           
         
           
@@ -898,6 +898,8 @@
   <ul>
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
+    <li><a href="#設定">設定</a></li>
+    <li><a href="#その他">その他</a></li>
   </ul>
 </nav>
     </div>
@@ -909,19 +911,13 @@
             
         <div id="head-tags">
         
-<div class="tags">
-
-  <a class="tag-link" href="/.emacs.d/tags/unused">unused</a>
-
-</div>
-
         </div>
         
         <div id="body-inner">
           
             <h1>
               
-              mocker.el
+              helm
             </h1>
           
 
@@ -929,13 +925,30 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/sigma/mocker.el">mocker.el</a> は Emacs Lisp のテストで使う Mock ライブラリ。</p>
-<p>使おうと思って導入したけど、自分のやりたいことはちょっと違ったので死蔵中</p>
-<p>便利そうなのでとりあえず置いといている。</p>
+<p><a href="https://github.com/emacs-helm/helm">helm</a> は anything.el の後継であり、インクリメンタルに候補の絞り込みをしたりする UI を提供する便利なパッケージ。</p>
+<p><a href="https://github.com/peco/peco">peco</a> とか <a href="https://github.com/junegunn/fzf">fzf</a> とかと似ているっちゃ似ているかな? fzf 使ったことないけど。</p>
+<p>一時期開発が止まってるようだったけど最近(2021年)はまた更新が活発になっている。</p>
+<p>ただ、麦汁さんは ivy に乗り換えようとしているので helm の設定は頑張っていない。
+helm-for-files が便利なのでまだ捨てられてないけど……。</p>
 <h2 id="インストール">インストール</h2>
-<p>el-get で GitHub から取得している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle sigma/mocker.el)
-</code></pre></div>
+<p>helm で使いたい拡張として
+<a href="https://github.com/emacs-helm/helm-descbinds">helm-descbinds</a> と <a href="https://github.com/emacsorphanage/helm-ag">helm-ag</a> というのがあるのでそれらも同時に入れている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle helm)
+(el-get-bundle helm-descbinds)
+(el-get-bundle helm-ag)
+</code></pre></div><p>ただ descbinds は counsel-descbinds に置き換えたし
+helm-ag ももう使ってない気がする</p>
+<h2 id="設定">設定</h2>
+<p>オススメの設定が helm に同梱されている helm-config に入ってるのでまずはそれを読み込んでいる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(require <span style="color:#e6db74">&#39;helm-config</span>)
+</code></pre></div><p>また helm-descbinds を使えるように有効にしている。けど、上にも書いたけどもう counsel-descbinds に置き換えちゃったのよね……。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(helm-descbinds-mode)
+</code></pre></div><p>あとは helm-migemo-mode というのを有効にしている。これがあると helm で検索する時に migemo れて便利。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(helm-migemo-mode <span style="color:#ae81ff">1</span>)
+</code></pre></div><p>ivy の方でも migemo 対応したいけどまだできてない……。</p>
+<h2 id="その他">その他</h2>
+<p>helm 系の設定は他の設定にも色々影響も大きそうなので読み込み順は結構早いタイミングにしている(init-loader で 20 を prefix にしている)</p>
+
 
 <footer class="footline">
 	
@@ -1135,6 +1148,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1147,6 +1161,45 @@
             
             
                 
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -1223,38 +1276,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -1343,7 +1364,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -1356,9 +1376,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1375,7 +1392,6 @@
             
             
                 
-                    
                     
                 
                 
@@ -1395,9 +1411,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1467,10 +1480,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/testing-tool/with-simulated-input/" title="with-simulated-input"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/ui/all-the-icons/" title="all-the-icons"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/testing/" title="テストコード" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/ui/helm-posframe/" title="helm-posframe" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
