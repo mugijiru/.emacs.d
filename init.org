@@ -835,6 +835,9 @@
     #+end_src
 
 ** uniquify
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: uniquify
+   :END:
 
 *** 概要
     同じ名前のファイルを開いている時に
