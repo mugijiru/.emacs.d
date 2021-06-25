@@ -913,6 +913,7 @@
 
    - [[*ace-window][ace-window]] :: 3つ以上にウインドウを分割している際のウインドウ切替を楽にしてくれるパッケージ
    - [[*avy][avy]] :: 表示されてるところの好きな場所にさくっとジャンプするためのパッケージ
+   - [[*dumb-jump][dumb-jump]] :: カーソル下の関数とかの定義場所にジャンプしてくれるパッケージ
 
 ** ace-window
    :PROPERTIES:
@@ -1011,6 +1012,81 @@
     | l   | 列移動                        |
     | r   | 繰り返し同じコマンドを実行    |
     |-----+-------------------------------|
+
+** dumb-jump
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: dumb-jump
+   :END:
+
+*** 概要
+
+    [[https://github.com/jacktasia/dumb-jump][dumb-jump]] は関数とかの定義されてる場所にお手軽にジャンプできるようにするパッケージ。
+    めっちゃ色々な言語をサポートしている。
+
+*** インストール
+
+    いつも通り el-get でインストールしている。
+
+    #+begin_src emacs-lisp :tangle inits/40-dumb-jump.el
+    (el-get-bundle dumb-jump)
+    #+end_src
+
+*** 設定
+
+**** デフォルトプロジェクトの変更
+
+     デフォルトだと ~~/~ がデフォルトプロジェクトらしいが
+     そんなに上の階層から調べられてもしょうがない気がするので
+     ソースコードを置いているフォルダを指定している。
+
+     #+begin_src emacs-lisp :tangle inits/40-dumb-jump.el
+     (setq dumb-jump-default-project "~/projects")
+     #+end_src
+
+**** 複数マッチした時に使う絞り込み
+
+     最近はできるだけ ivy を使うようにしているので
+     dumb-jump でも ivy を使うように指定している。
+
+     #+begin_src emacs-lisp :tangle inits/40-dumb-jump.el
+     (setq dumb-jump-selector 'ivy)
+     #+end_src
+
+*** キーバインド
+
+    README に書いている hydra の設定をほぼパクってるけど
+    pretty-hydra を使ってキーを定義している
+
+    #+begin_src emacs-lisp :tangle inits/40-dumb-jump.el
+    (with-eval-after-load 'pretty-hydra
+      (pretty-hydra-define dumb-jump-pretty-hydra
+        (:foreign-keys warn :title "Dumb jump" :quit-key "q" :color blue :separator "-")
+        ("Go"
+         (("j" dumb-jump-go "Jump")
+          ("o" dumb-jump-go-other-window "Other window"))
+
+         "External"
+         (("e" dumb-jump-go-prefer-external "Go external")
+          ("x" dumb-jump-go-prefer-external-other-window "Go external other window"))
+
+         "Lock"
+         (("l" dumb-jump-quick-look "Quick look"))
+
+         "Other"
+         (("b" dumb-jump-back "Back")))))
+    #+end_src
+
+    |-----+--------------------------------------------------------------------------------|
+    | Key | 効果                                                                           |
+    |-----+--------------------------------------------------------------------------------|
+    | j   | 定義場所にジャンプ                                                             |
+    | o   | 定義場所を別 window で開く                                                     |
+    | e   | 定義場所にジャンプ。ただし同じファイルより外部ファイルとのマッチを優先         |
+    | x   | 定義場所を別 window で開く。ただし同じファイルより外部ファイルとのマッチを優先 |
+    | l   | クイックルック。定義をツールチップ表示する                                     |
+    | b   | 最後にジャンプされた場所に戻る。今は既に obsolute 扱い                         |
+    |-----+--------------------------------------------------------------------------------|
+
 
 * フレームワーク用の設定
   :PROPERTIES:
@@ -1648,30 +1724,6 @@
      (require 'forge))
    #+end_src
 
-** 40-dumb-jump.el
-
-   #+begin_src emacs-lisp :tangle inits/40-dumb-jump.el
-   (el-get-bundle dumb-jump)
-   (setq dumb-jump-default-project "~/projects")
-   (setq dumb-jump-selector 'ivy)
-
-   (with-eval-after-load 'pretty-hydra
-     (pretty-hydra-define dumb-jump-pretty-hydra
-       (:foreign-keys warn :title "Dumb jump" :quit-key "q" :color blue :separator "-")
-       ("Go"
-        (("j" dumb-jump-go "Jump")
-         ("o" dumb-jump-go-other-window "Other window"))
-
-        "External"
-        (("e" dumb-jump-go-prefer-external "Go external")
-         ("x" dumb-jump-go-prefer-external-other-window "Go external other window"))
-
-        "Lock"
-        (("l" dumb-jump-quick-look "Quick look"))
-
-        "Other"
-        (("b" dumb-jump-back "Back")))))
-   #+end_src
 
 ** 40-emacs-lisp.el
 
