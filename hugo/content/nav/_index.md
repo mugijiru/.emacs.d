@@ -13,3 +13,6 @@ disableToc = true
 
 [avy]({{< relref "avy" >}})
 : 表示されてるところの好きな場所にさくっとジャンプするためのパッケージ
+
+[dumb-jump]({{< relref "dumb-jump" >}})
+: カーソル下の関数とかの定義場所にジャンプしてくれるパッケージ
