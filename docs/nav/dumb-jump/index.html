@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>with-simulated-input :: 麦汁&#39;s Emacs Config</title>
+    <title>dumb-jump :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624631149" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/testing-tool/with-simulated-input/">
+  <body class="" data-url="/.emacs.d/nav/dumb-jump/">
     <nav id="sidebar" class="">
 
 
@@ -540,7 +540,7 @@
   
     
     <li data-nav-id="/.emacs.d/nav/" title="ナビゲーション" class="dd-item
-        
+        parent
         
         
         ">
@@ -608,7 +608,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/nav/dumb-jump/" title="dumb-jump" class="dd-item ">
+      <li data-nav-id="/.emacs.d/nav/dumb-jump/" title="dumb-jump" class="dd-item active">
         <a href="/.emacs.d/nav/dumb-jump/">
         dumb-jump
         
@@ -692,7 +692,7 @@
   
     
     <li data-nav-id="/.emacs.d/testing-tool/" title="テスト用ツール" class="dd-item
-        parent
+        
         
         
         ">
@@ -718,7 +718,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/testing-tool/with-simulated-input/" title="with-simulated-input" class="dd-item active">
+      <li data-nav-id="/.emacs.d/testing-tool/with-simulated-input/" title="with-simulated-input" class="dd-item ">
         <a href="/.emacs.d/testing-tool/with-simulated-input/">
         with-simulated-input
         
@@ -923,7 +923,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/testing-tool/'>テスト用ツール</a> > with-simulated-input
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/nav/'>ナビゲーション</a> > dumb-jump
           
         
           
@@ -940,6 +940,13 @@
   <ul>
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
+    <li><a href="#設定">設定</a>
+      <ul>
+        <li><a href="#デフォルトプロジェクトの変更">デフォルトプロジェクトの変更</a></li>
+        <li><a href="#複数マッチした時に使う絞り込み">複数マッチした時に使う絞り込み</a></li>
+      </ul>
+    </li>
+    <li><a href="#キーバインド">キーバインド</a></li>
   </ul>
 </nav>
     </div>
@@ -957,7 +964,7 @@
           
             <h1>
               
-              with-simulated-input
+              dumb-jump
             </h1>
           
 
@@ -965,21 +972,72 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/DarwinAwardWinner/with-simulated-input">with-simulated-input</a> は入力処理をシミュレートするためのプラグイン。</p>
-<p>公式のドキュメントにあるように</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-simulated-input
-    <span style="color:#e6db74">&#34;hello SPC world RET&#34;</span>
-  (<span style="color:#a6e22e">read-string</span> <span style="color:#e6db74">&#34;Say hello to the world: &#34;</span>))
-</code></pre></div><p>を評価すると
-read-string に対して「hello world」を入力したことになるので
-echo エリアに「hello world」と表示される。</p>
-<p>これで何が嬉しいかというと
-Emacs Lisp でやっていることはインタラクティブな部分が大きいのでそういった要素をテストできるようになる。</p>
-<p>具体的な使用例は <a href="/.emacs.d/testing/my-org-commands-test/#test-my-org-todo">test:my/org-todo</a> で示す。</p>
+<p><a href="https://github.com/jacktasia/dumb-jump">dumb-jump</a> は関数とかの定義されてる場所にお手軽にジャンプできるようにするパッケージ。めっちゃ色々な言語をサポートしている。</p>
 <h2 id="インストール">インストール</h2>
-<p>el-get-bundle で GitHub からインストールしている</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle DarwinAwardWinner/with-simulated-input)
-</code></pre></div>
+<p>いつも通り el-get でインストールしている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle dumb-jump)
+</code></pre></div><h2 id="設定">設定</h2>
+<h3 id="デフォルトプロジェクトの変更">デフォルトプロジェクトの変更</h3>
+<p>デフォルトだと <code>~/</code> がデフォルトプロジェクトらしいがそんなに上の階層から調べられてもしょうがない気がするのでソースコードを置いているフォルダを指定している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq dumb-jump-default-project <span style="color:#e6db74">&#34;~/projects&#34;</span>)
+</code></pre></div><h3 id="複数マッチした時に使う絞り込み">複数マッチした時に使う絞り込み</h3>
+<p>最近はできるだけ ivy を使うようにしているので
+dumb-jump でも ivy を使うように指定している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq dumb-jump-selector <span style="color:#e6db74">&#39;ivy</span>)
+</code></pre></div><h2 id="キーバインド">キーバインド</h2>
+<p>README に書いている hydra の設定をほぼパクってるけど
+pretty-hydra を使ってキーを定義している</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
+  (pretty-hydra-define dumb-jump-pretty-hydra
+    (:foreign-keys <span style="color:#a6e22e">warn</span> :title <span style="color:#e6db74">&#34;Dumb jump&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :color blue :separator <span style="color:#e6db74">&#34;-&#34;</span>)
+    (<span style="color:#e6db74">&#34;Go&#34;</span>
+     ((<span style="color:#e6db74">&#34;j&#34;</span> dumb-jump-go <span style="color:#e6db74">&#34;Jump&#34;</span>)
+      (<span style="color:#e6db74">&#34;o&#34;</span> dumb-jump-go-other-window <span style="color:#e6db74">&#34;Other window&#34;</span>))
+
+     <span style="color:#e6db74">&#34;External&#34;</span>
+     ((<span style="color:#e6db74">&#34;e&#34;</span> dumb-jump-go-prefer-external <span style="color:#e6db74">&#34;Go external&#34;</span>)
+      (<span style="color:#e6db74">&#34;x&#34;</span> dumb-jump-go-prefer-external-other-window <span style="color:#e6db74">&#34;Go external other window&#34;</span>))
+
+     <span style="color:#e6db74">&#34;Lock&#34;</span>
+     ((<span style="color:#e6db74">&#34;l&#34;</span> dumb-jump-quick-look <span style="color:#e6db74">&#34;Quick look&#34;</span>))
+
+     <span style="color:#e6db74">&#34;Other&#34;</span>
+     ((<span style="color:#e6db74">&#34;b&#34;</span> dumb-jump-back <span style="color:#e6db74">&#34;Back&#34;</span>)))))
+</code></pre></div><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>j</td>
+<td>定義場所にジャンプ</td>
+</tr>
+<tr>
+<td>o</td>
+<td>定義場所を別 window で開く</td>
+</tr>
+<tr>
+<td>e</td>
+<td>定義場所にジャンプ。ただし同じファイルより外部ファイルとのマッチを優先</td>
+</tr>
+<tr>
+<td>x</td>
+<td>定義場所を別 window で開く。ただし同じファイルより外部ファイルとのマッチを優先</td>
+</tr>
+<tr>
+<td>l</td>
+<td>クイックルック。定義をツールチップ表示する</td>
+</tr>
+<tr>
+<td>b</td>
+<td>最後にジャンプされた場所に戻る。今は既に obsolute 扱い</td>
+</tr>
+</tbody>
+</table>
+
 
 <footer class="footline">
 	
@@ -1323,6 +1381,7 @@ Emacs Lisp でやっていることはインタラクティブな部分が大き
             
                 
                     
+                    
                 
                 
 
@@ -1335,6 +1394,9 @@ Emacs Lisp でやっていることはインタラクティブな部分が大き
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1368,6 +1430,42 @@ Emacs Lisp でやっていることはインタラクティブな部分が大き
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
                 
                 
 
@@ -1411,47 +1509,10 @@ Emacs Lisp でやっていることはインタラクティブな部分が大き
             
         
                     
-            
-        
-                    
                         
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -1540,10 +1601,10 @@ Emacs Lisp でやっていることはインタラクティブな部分が大き
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/testing-tool/" title="テスト用ツール"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/nav/avy/" title="avy"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/testing-tool/mocker-el/" title="mocker.el" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/framework-config/" title="フレームワーク用の設定" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
