@@ -13,3 +13,6 @@ disableToc = true
 
 [company-mode]({{< relref "company-mode" >}})
 : プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ
+
+[smartparens]({{< relref "smartparens" >}})
+: カッコや引用符などのペアになるやつの入力補助をしてくれるやつ
