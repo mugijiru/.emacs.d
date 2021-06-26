@@ -501,18 +501,18 @@
     (sticky-control-mode)
     #+end_src
 
-* ファイル編集
+* ファイル編集/入力補助
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: editing
   :END:
 
-** ファイル編集
+** ファイル編集/入力補助
    :PROPERTIES:
    :EXPORT_FILE_NAME: _index
    :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>3. </b>" :weight 3 :disableToc true
    :END:
 
-   ここにはファイル編集系の設定をまとめている
+   ここにはファイル編集や入力補助の設定をまとめている
 
    - [[*auto-insert][auto-insert]] :: ファイル新規作成時にテンプレートを挿入する機能
 
