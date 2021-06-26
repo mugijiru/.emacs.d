@@ -11,7 +11,7 @@
 	"title": "基本設定",
 	"tags": [],
 	"description": "",
-	"content": "Emacs の基本動作に関わる部分をここでは設定している\n exec-path PATH などの環境変数を shell と合わせる設定 auto-save 編集中状態の自動保存や編集前の状態のバックアップに関する設定 load-path Emacs Lisp が読み込める path の設定 savehist ミニバッファの履歴などを保存してくれる機能。 ガベージコレクション メモリの開放関係の設定  "
+	"content": "Emacs の基本動作に関わる部分をここでは設定している\n exec-path PATH などの環境変数を shell と合わせる設定 auto-save 編集中状態の自動保存や編集前の状態のバックアップに関する設定 font-config フォントの設定 load-path Emacs Lisp が読み込める path の設定 savehist ミニバッファの履歴などを保存してくれる機能。 ガベージコレクション メモリの開放関係の設定  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/testing/execution/",
@@ -180,6 +180,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 Emacs は通常最小限の環境変数しか利用しないようになっている。\nが、それだと普段使う上で「ああ、このコマンドが使えなくてもどかしい……!」と感じてしまう。\nそこで exec-path-from-shell というのを使って Emacs が見える PATH 環境変数をシェルが見てる PATH 環境変数と揃うようにしている。\nインストール いつも通り el-get からインストールしている\n(el-get-bundle exec-path-from-shell) 有効化 理由は忘れたが Mac の環境でのみ有効化している。その内 Linux 環境でも有効化を試みた方が良さそう\n(when (memq window-system \u0026#39;(mac ns)) (exec-path-from-shell-initialize)) なお、これでシェルと共通の環境変数が使われるようになるのは デフォルトでは PATH と MANPATH のみである\nその他 なぜか以下のようなコメントを書いていた。普段使っている zsh で持ってる PATH は使わないのだろうか? :thinking_face:\n;; for exec path ;; use .bashrc setted path "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/basics/font-config/",
+	"title": "font-config",
+	"tags": [],
+	"description": "",
+	"content": "概要 Emacs で利用するフォントの設定。それなりの設定をしないとガタついたりするので通常あまり手を入れないで済ませている。\n設定 Mac では 14, それ以外(Linux) では 12 を基準としている。\nMac と Linux で基準のサイズを変えているがなぜかこの方がガタガタもしないし大き過ぎもしないしでいい感じになる。\n(let* ((size (if (or (eq window-system \u0026#39;ns) (eq window-system \u0026#39;mac)) 14 12)) (asciifont \u0026#34;Ricty Diminished\u0026#34;) ; ASCII fonts (jpfont \u0026#34;Ricty Diminished\u0026#34;) ; Japanese fonts (h (* size 10)) (fontspec (font-spec :family asciifont)) (jp-fontspec (font-spec :family jpfont))) (set-face-attribute \u0026#39;default nil :family asciifont :height h) (set-fontset-font nil \u0026#39;japanese-jisx0213.2004-1 jp-fontspec) (set-fontset-font nil \u0026#39;japanese-jisx0213-2 jp-fontspec) (set-fontset-font nil \u0026#39;katakana-jisx0201 jp-fontspec) (set-fontset-font nil \u0026#39;(#x0080 . #x024F) fontspec) (set-fontset-font nil \u0026#39;(#x0370 . #x03FF) fontspec)) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/ui/git-gutter-fringe/",

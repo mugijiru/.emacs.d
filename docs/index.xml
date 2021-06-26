@@ -246,6 +246,18 @@ syntax highlight と、いくつかの編集機能を備えている。が、今
     </item>
     
     <item>
+      <title>font-config</title>
+      <link>https://mugijiru.github.io/.emacs.d/basics/font-config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/basics/font-config/</guid>
+      <description>概要 Emacs で利用するフォントの設定。それなりの設定をしないとガタついたりするので通常あまり手を入れないで済ませている。
+設定 Mac では 14, それ以外(Linux) では 12 を基準としている。
+Mac と Linux で基準のサイズを変えているがなぜかこの方がガタガタもしないし大き過ぎもしないしでいい感じになる。
+(let* ((size (if (or (eq window-system &amp;#39;ns) (eq window-system &amp;#39;mac)) 14 12)) (asciifont &amp;#34;Ricty Diminished&amp;#34;) ; ASCII fonts (jpfont &amp;#34;Ricty Diminished&amp;#34;) ; Japanese fonts (h (* size 10)) (fontspec (font-spec :family asciifont)) (jp-fontspec (font-spec :family jpfont))) (set-face-attribute &amp;#39;default nil :family asciifont :height h) (set-fontset-font nil &amp;#39;japanese-jisx0213.2004-1 jp-fontspec) (set-fontset-font nil &amp;#39;japanese-jisx0213-2 jp-fontspec) (set-fontset-font nil &amp;#39;katakana-jisx0201 jp-fontspec) (set-fontset-font nil &amp;#39;(#x0080 .</description>
+    </item>
+    
+    <item>
       <title>git-gutter-fringe</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/git-gutter-fringe/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
