@@ -9,23 +9,23 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>ガベージコレクション :: 麦汁&#39;s Emacs Config</title>
+    <title>plantuml-mode :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1624718425" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1624718425" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1624718425" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1624718425" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1624718425" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1624718425" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1624718425" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1624718425" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1624718425" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1624718425" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1624718426" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1624718426" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1624718426" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1624718426" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1624718426" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1624718426" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1624718426" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1624718426" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1624718426" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1624718426" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1624718425"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1624718426"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/basics/gcmh/">
+  <body class="" data-url="/.emacs.d/language-config/plantuml-mode/">
     <nav id="sidebar" class="">
 
 
@@ -54,14 +54,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1624718425"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1624718425"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1624718426"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1624718426"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1624718425"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1624718426"></script>
 
     
   </div>
@@ -89,7 +89,7 @@
   
     
     <li data-nav-id="/.emacs.d/basics/" title="基本設定" class="dd-item
-        parent
+        
         
         
         ">
@@ -199,7 +199,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/basics/gcmh/" title="ガベージコレクション" class="dd-item active">
+      <li data-nav-id="/.emacs.d/basics/gcmh/" title="ガベージコレクション" class="dd-item ">
         <a href="/.emacs.d/basics/gcmh/">
         ガベージコレクション
         
@@ -847,7 +847,7 @@
   
     
     <li data-nav-id="/.emacs.d/language-config/" title="言語毎の設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -873,7 +873,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/language-config/plantuml-mode/" title="plantuml-mode" class="dd-item ">
+      <li data-nav-id="/.emacs.d/language-config/plantuml-mode/" title="plantuml-mode" class="dd-item active">
         <a href="/.emacs.d/language-config/plantuml-mode/">
         plantuml-mode
         
@@ -1209,7 +1209,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/basics/'>基本設定</a> > ガベージコレクション
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/language-config/'>言語毎の設定</a> > plantuml-mode
           
         
           
@@ -1226,6 +1226,7 @@
   <ul>
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
+    <li><a href="#設定">設定</a></li>
     <li><a href="#その他">その他</a></li>
   </ul>
 </nav>
@@ -1244,7 +1245,7 @@
           
             <h1>
               
-              ガベージコレクション
+              plantuml-mode
             </h1>
           
 
@@ -1252,30 +1253,18 @@
 
 
 <h2 id="概要">概要</h2>
-<p>ガベージコレクションには gcmh というのを利用してみている。</p>
-<p><a href="https://github.com/emacsmirror/gcmh">https://github.com/emacsmirror/gcmh</a></p>
-<p>普段は GC を控えめにしながら操作してない間に GC が走るような作りになっている。便利そう。</p>
+<p><a href="https://github.com/skuro/plantuml-mode">plantuml-mode</a> は <a href="https://plantuml.com/ja/">PlantUML</a> という、テキストだけで UML 図などが描けるツール用のモード。</p>
 <h2 id="インストール">インストール</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle gcmh)
-</code></pre></div><p>これだけで有効化もされる。</p>
+<p>いつも通り el-get で入れてる</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle plantuml-mode)
+</code></pre></div><h2 id="設定">設定</h2>
+<p>実行モードは <code>'jar</code> を指定している。デフォルトは <code>'server</code> なんだけどオフラインの時も使いたいししね。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq plantuml-default-exec-mode <span style="color:#e6db74">&#39;jar</span>)
+</code></pre></div><p>el-get でインスコすると jar ファイルも自動で拾って来て
+plantuml-mode と同じディレクトリに設置して
+<code>plantuml-jar-path</code> も通してくれるからそっち使う方が便利だしね。</p>
 <h2 id="その他">その他</h2>
-<p>以前の設定も折り畳んで残しておく</p>
-<details>
-<summary>
-使わなくなったコード
-</summary>
-<p class="details">
-<p>gcmh を入れる前に設定していたコード。
-gcmh を入れたらこれよりもいい感じに対応してくれそうなので入れ替えた。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#75715e">;; https://gist.github.com/garaemon/8851900ef27d8cb28200ac8d92ebacdf</span>
-<span style="color:#75715e">;; Increase threshold to fire garbage collection</span>
-(setq gc-cons-threshold <span style="color:#ae81ff">1073741824</span>)
-(setq garbage-collection-messages <span style="color:#66d9ef">t</span>)
-
-<span style="color:#75715e">;; Run GC every 60 seconds if emacs is idle.</span>
-(run-with-idle-timer <span style="color:#ae81ff">60.0</span> <span style="color:#66d9ef">t</span> <span style="color:#a6e22e">#&#39;garbage-collect</span>)
-</code></pre></div></p>
-</details>
+<p>最新の develop ブランチだとインデントを調整できる機能が入っているので乗り換えたいけどそのためには el-get のレシピを書いてあげる必要がありそうで放置している。</p>
 
 
 <footer class="footline">
@@ -1313,20 +1302,6 @@ gcmh を入れたらこれよりもいい感じに対応してくれそうなの
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
                         
                         
                     
@@ -1337,9 +1312,6 @@ gcmh を入れたらこれよりもいい感じに対応してくれそうなの
                     
                     
 
-                    
-            
-        
                     
                         
             
@@ -1394,6 +1366,21 @@ gcmh を入れたらこれよりもいい感じに対応してくれそうなの
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1413,9 +1400,6 @@ gcmh を入れたらこれよりもいい感じに対応してくれそうなの
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1552,54 +1536,6 @@ gcmh を入れたらこれよりもいい感じに対応してくれそうなの
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -1761,6 +1697,54 @@ gcmh を入れたらこれよりもいい感じに対応してくれそうなの
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -1849,6 +1833,7 @@ gcmh を入れたらこれよりもいい感じに対応してくれそうなの
             
                 
                     
+                    
                 
                 
 
@@ -1861,6 +1846,7 @@ gcmh を入れたらこれよりもいい感じに対応してくれそうなの
             
             
                 
+                    
                     
                 
                 
@@ -1877,6 +1863,9 @@ gcmh を入れたらこれよりもいい感じに対応してくれそうなの
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -2045,10 +2034,10 @@ gcmh を入れたらこれよりもいい感じに対応してくれそうなの
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/basics/savehist/" title="savehist"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/language-config/" title="言語毎の設定"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/keybinds/" title="キーバインド" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/language-config/yaml-mode/" title="yaml-mode" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
