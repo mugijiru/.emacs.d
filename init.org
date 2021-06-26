@@ -515,6 +515,7 @@
    ここにはファイル編集や入力補助の設定をまとめている
 
    - [[*auto-insert][auto-insert]] :: ファイル新規作成時にテンプレートを挿入する機能
+   - [[*company-mode][company-mode]] :: プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ
 
 ** auto-insert
    :PROPERTIES:
