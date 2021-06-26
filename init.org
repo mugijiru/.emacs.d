@@ -642,6 +642,7 @@
    ここでは Emacs の UI を変更するようなものを載せている
 
    - [[*all-the-icons][all-the-icons]] :: Emacs で様々なアイコンを表示できるようにするやつ
+   - [[*git-gutter-fringe][git-gutter-fringe]] :: 最後のコミットからどう弄ったかを fringe 領域に表示してくれるやつ
    - [[*helm][helm]] :: 絞り込みインターフェースを提供するやつ
    - [[*helm-posframe][helm-posframe]] :: Helm を posframe で使えるようにするやつ
    - [[*highlight-indent-guides][highlight-indent-guides]] :: インデント毎にラインを引いたりして見易くしてくれるやつ
@@ -713,6 +714,43 @@
     |-----+----------------------------------------------------|
 
     フォントのインストールコマンドもここに収めてしまうのが良さそうな気がする
+
+** git-gutter-fringe                                            :improvement:
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: git-gutter-fringe
+   :END:
+
+*** 概要
+    [[https://github.com/emacsorphanage/git-gutter-fringe][git-gutter-fringe]] は [[https://github.com/emacsorphanage/git-gutter][git-gutter]] の派生版。
+    最後のコミットからどの行を弄ったかを fringe 領域に表示してくれる。
+
+    他にも hunk の操作をできる機能とかあるみたいだけどそのあたりは使ったことがない……。
+
+    派生元の git-gutter は linum-mode と同じ領域を使って描画をしているようで
+    併用ができなかったので git-gutter-fringe を利用している。
+
+    が、Emacs 26 から display-line-numbers-mode が搭載されて linum-mode が不要になったので
+    git-gutter に乗り換えても良さそう
+
+*** インストール
+    いつも通り el-get でインストールしている
+
+    #+begin_src emacs-lisp :tangle inits/30-git-gutter-fringe.el
+    (el-get-bundle git-gutter-fringe)
+    #+end_src
+
+*** 有効化
+    Git 管理しているやつは全部差分情報が表示されて欲しいので
+    グローバルマイナーモードを有効にしている。
+
+    #+begin_src emacs-lisp :tangle inits/30-git-gutter-fringe.el
+    (global-git-gutter-mode t)
+    #+end_src
+
+*** その他
+
+    git-gutter ほどではないけど多少のカスタマイズはできるはずだが
+    デフォルト設定で特に不満はないので何もしてない
 
 ** highlight-indent-guides
    :PROPERTIES:
@@ -1746,13 +1784,6 @@
 
    (with-eval-after-load 'flycheck
      (flycheck-pos-tip-mode))
-   #+end_src
-
-** 30-git-gutter-fringe.el
-
-   #+begin_src emacs-lisp :tangle inits/30-git-gutter-fringe.el
-   (el-get-bundle git-gutter-fringe)
-   (global-git-gutter-mode t)
    #+end_src
 
 ** 30-notify-slack.el
