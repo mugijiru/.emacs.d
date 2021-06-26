@@ -8,5 +8,8 @@ disableToc = true
 
 ここでは各言語毎の設定をまとめている
 
+[plantuml-mode]({{< relref "plantuml-mode" >}})
+: PlantUML を書く時のメジャーモードの設定
+
 [yaml-mode]({{< relref "yaml-mode" >}})
 : YAML を書く時のメジャーモードの設定
