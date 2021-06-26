@@ -14,5 +14,8 @@ disableToc = true
 [avy]({{< relref "avy" >}})
 : 表示されてるところの好きな場所にさくっとジャンプするためのパッケージ
 
+[browse-at-remote]({{< relref "browse-at-remote" >}})
+: 表示している行の GitHub などのサービス上の位置でブラウザで開いてくれるパッケージ
+
 [dumb-jump]({{< relref "dumb-jump" >}})
 : カーソル下の関数とかの定義場所にジャンプしてくれるパッケージ
