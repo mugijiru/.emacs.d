@@ -60,7 +60,7 @@
 	"title": "UI",
 	"tags": [],
 	"description": "",
-	"content": "ここでは Emacs の UI を変更するようなものを載せている\n all-the-icons Emacs で様々なアイコンを表示できるようにするやつ helm 絞り込みインターフェースを提供するやつ helm-posframe Helm を posframe で使えるようにするやつ highlight-indent-guides インデント毎にラインを引いたりして見易くしてくれるやつ Neotree フォルダ構造を IDE みたいにツリー表示するやつ posframe いい感じの位置に child frame を表示する機能を提供するやつ toolbar Emacs 標準のボタンなどの UI 部分の設定 uniquify 同名ファイルを開いている時にどこのファイルかまで表示してくれるやつ zoom フォーカスが当たってるウインドウを大きく表示してくれるやつ  "
+	"content": "ここでは Emacs の UI を変更するようなものを載せている\n all-the-icons Emacs で様々なアイコンを表示できるようにするやつ git-gutter-fringe 最後のコミットからどう弄ったかを fringe 領域に表示してくれるやつ helm 絞り込みインターフェースを提供するやつ helm-posframe Helm を posframe で使えるようにするやつ highlight-indent-guides インデント毎にラインを引いたりして見易くしてくれるやつ Neotree フォルダ構造を IDE みたいにツリー表示するやつ posframe いい感じの位置に child frame を表示する機能を提供するやつ toolbar Emacs 標準のボタンなどの UI 部分の設定 uniquify 同名ファイルを開いている時にどこのファイルかまで表示してくれるやつ zoom フォーカスが当たってるウインドウを大きく表示してくれるやつ  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/nav/",
@@ -168,6 +168,13 @@
 	"content": "概要 Emacs は通常最小限の環境変数しか利用しないようになっている。\nが、それだと普段使う上で「ああ、このコマンドが使えなくてもどかしい……!」と感じてしまう。\nそこで exec-path-from-shell というのを使って Emacs が見える PATH 環境変数をシェルが見てる PATH 環境変数と揃うようにしている。\nインストール いつも通り el-get からインストールしている\n(el-get-bundle exec-path-from-shell) 有効化 理由は忘れたが Mac の環境でのみ有効化している。その内 Linux 環境でも有効化を試みた方が良さそう\n(when (memq window-system \u0026#39;(mac ns)) (exec-path-from-shell-initialize)) なお、これでシェルと共通の環境変数が使われるようになるのは デフォルトでは PATH と MANPATH のみである\nその他 なぜか以下のようなコメントを書いていた。普段使っている zsh で持ってる PATH は使わないのだろうか? :thinking_face:\n;; for exec path ;; use .bashrc setted path "
 },
 {
+	"uri": "https://mugijiru.github.io/.emacs.d/ui/git-gutter-fringe/",
+	"title": "git-gutter-fringe",
+	"tags": ["improvement"],
+	"description": "",
+	"content": "概要 git-gutter-fringe は git-gutter の派生版。最後のコミットからどの行を弄ったかを fringe 領域に表示してくれる。\n他にも hunk の操作をできる機能とかあるみたいだけどそのあたりは使ったことがない……。\n派生元の git-gutter は linum-mode と同じ領域を使って描画をしているようで併用ができなかったので git-gutter-fringe を利用している。\nが、Emacs 26 から display-line-numbers-mode が搭載されて linum-mode が不要になったので git-gutter に乗り換えても良さそう\nインストール いつも通り el-get でインストールしている\n(el-get-bundle git-gutter-fringe) 有効化 Git 管理しているやつは全部差分情報が表示されて欲しいのでグローバルマイナーモードを有効にしている。\n(global-git-gutter-mode t) その他 git-gutter ほどではないけど多少のカスタマイズはできるはずだがデフォルト設定で特に不満はないので何もしてない\n"
+},
+{
 	"uri": "https://mugijiru.github.io/.emacs.d/ui/helm/",
 	"title": "helm",
 	"tags": [],
@@ -187,6 +194,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 highlight-indent-guides はインデント毎にラインを引いたりして見易くしてくれるパッケージ。通常のプログラムを書く時にも便利だけど、 YAML などのインデントがそのまま構造になるような言語を弄る時にとても便利。\nインストール これもいつも通り el-get でインストールしている。また GitHub にあるので、そこから直接インストールしている。\n(el-get-bundle DarthFennec/highlight-indent-guides) 設定 今いる行がどのインデントにいるのかをわかりやすくするために responsive モードを有効にしている。\n(setq highlight-indent-guides-responsive \u0026#34;stack\u0026#34;) defcustom で定義されてる変数なので custom-set-variables で設定した方がいいかもしれない。\n"
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/tags/improvement/",
+	"title": "improvement",
+	"tags": [],
+	"description": "",
+	"content": ""
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/keybinds/key-chord/",
