@@ -1183,6 +1183,38 @@
     | r   | 繰り返し同じコマンドを実行    |
     |-----+-------------------------------|
 
+** browse-at-remote
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: browse-at-remote
+   :END:
+
+*** 概要
+    [[https://github.com/rmuslimov/browse-at-remote][browse-at-remote]] は Emacs で見ているファイルについて
+    GitHub や GitLab などのサービス上での該当ブランチ、該当ファイル、該当行を開いてくれる便利なやつ。
+
+    業務だとレビュー中に「ここにこういう関数あるよ」みたいに示すことがあるけど
+    その時に Emacs 内で関数を探して browse-at-remote で GitHub 上の位置を開くことで
+    そこへのリンクを拾いやすく便利。
+
+*** インストール
+
+    いつも透り el-get で入れている。
+
+    #+begin_src emacs-lisp :tangle inits/50-browse-at-remote.el
+    (el-get-bundle browse-at-remote)
+    #+end_src
+
+*** 使い方
+
+    ブラウザで見たい行の上で ~M-x browse-at-remote~ を実行する。
+
+    または Region を選択している状態で実行すると、
+    その範囲を選択している状態で開いてくれる。便利。
+
+*** その他
+
+    Hydra でいつでも使えるようにキーバインドを割り当てている。
+
 ** dumb-jump
    :PROPERTIES:
    :EXPORT_FILE_NAME: dumb-jump
@@ -2187,12 +2219,6 @@
 
    ;; C-c C-c で現在の行のテストを実行
    (define-key rspec-mode-map (kbd "C-c C-c") 'rspec-verify-single)
-   #+end_src
-
-** 50-browse-at-point.el
-
-   #+begin_src emacs-lisp :tangle inits/50-browse-at-point.el
-   (el-get-bundle browse-at-remote)
    #+end_src
 
 ** 50-ido.el
