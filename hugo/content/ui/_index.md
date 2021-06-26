@@ -35,5 +35,8 @@ disableToc = true
 [uniquify]({{< relref "uniquify" >}})
 : 同名ファイルを開いている時にどこのファイルかまで表示してくれるやつ
 
+[yascroll]({{< relref "yascroll" >}})
+: 主張の大人しいスクロールバーを表示してくれるやつ
+
 [zoom]({{< relref "zoom" >}})
 : フォーカスが当たってるウインドウを大きく表示してくれるやつ

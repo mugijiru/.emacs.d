@@ -650,6 +650,7 @@
    - [[*posframe][posframe]] :: いい感じの位置に child frame を表示する機能を提供するやつ
    - [[*toolbar][toolbar]] :: Emacs 標準のボタンなどの UI 部分の設定
    - [[*uniquify][uniquify]] :: 同名ファイルを開いている時にどこのファイルかまで表示してくれるやつ
+   - [[*yascroll][yascroll]] :: 主張の大人しいスクロールバーを表示してくれるやつ
    - [[*zoom][zoom]] :: フォーカスが当たってるウインドウを大きく表示してくれるやつ
 
 ** all-the-icons
@@ -1071,6 +1072,30 @@
     #+begin_src emacs-lisp :tangle inits/20-uniquify.el
     (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
     #+end_src
+** yascroll
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: yascroll
+   :END:
+*** 概要
+    [[https://github.com/emacsorphanage/yascroll][yascroll]] は標準のスクロールバーとは異なるスクロールバーを表示するやつ。
+
+    デフォルトだと右側の fringe 領域に表示するのであまり邪魔にならないし
+    表示領域を必要以上に狭めないので気に入っている。
+
+    最初に作られたっぽい記事は
+    [[https://m2ym.hatenadiary.org/entry/20110401/1301617991][主張しないスクロールバーモード、yascroll.elをリリースしました - Functional Emacser]]
+    にある。
+    タイトル通り、あまり主張しない感じで良い。
+
+*** インストール
+    いつも通り el-get でインストールしている
+
+    #+begin_src emacs-lisp :tangle inits/70-yascroll.el
+    (el-get-bundle yascroll)
+    #+end_src
+
+    これだけで大体いい感じに表示されるので便利。
+    たまに表示されなくなることもあるが、まあそこまで重要なやつでもないのであまり気にしていない
 ** zoom
    :PROPERTIES:
    :EXPORT_FILE_NAME: zoom
@@ -2959,12 +2984,6 @@
 
    #+begin_src emacs-lisp :tangle inits/70-w3m.el
    (el-get-bundle emacs-w3m)
-   #+end_src
-
-** 70-yascroll.el
-
-   #+begin_src emacs-lisp :tangle inits/70-yascroll.el
-   (el-get-bundle yascroll)
    #+end_src
 
 ** 70-zoom-window.el
