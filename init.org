@@ -1437,6 +1437,15 @@
     | b   | 最後にジャンプされた場所に戻る。今は既に obsolute 扱い                         |
     |-----+--------------------------------------------------------------------------------|
 
+* 言語毎の設定
+  :PROPERTIES:
+  :EXPORT_HUGO_SECTION: language-config
+  :END:
+** 言語毎の設定
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: _index
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>6. </b>" :weight 6 :disableToc true
+   :END:
 * フレームワーク用の設定
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: framework-config
@@ -1445,7 +1454,7 @@
 ** フレームワーク用の設定
    :PROPERTIES:
    :EXPORT_FILE_NAME: _index
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>6. </b>" :weight 6 :disableToc true
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>7. </b>" :weight 7 :disableToc true
    :END:
 
    開発に使っている各フレームワーク用の設定をここにまとめている。
@@ -1506,7 +1515,7 @@
 ** テスト用ツール
    :PROPERTIES:
    :EXPORT_FILE_NAME: _index
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>7. </b>" :weight 7 :disableToc true
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>8. </b>" :weight 8 :disableToc true
    :END:
 
    自動テストを実行するにあたり、追加インストールしているパッケージをここに載せている
@@ -1578,7 +1587,7 @@
 ** テストコード
    :PROPERTIES:
    :EXPORT_FILE_NAME: _index
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>8. </b>" :weight 8 :disableToc true
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>9. </b>" :weight 9 :disableToc true
    :END:
 
    一部のコマンドなどの設定を書き始めているので設けたセクション。
