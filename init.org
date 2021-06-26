@@ -1609,15 +1609,23 @@
     (el-get-bundle handlebars-mode)
     #+end_src
 
+* 外部連携ツール設定
+  :PROPERTIES:
+  :EXPORT_HUGO_SECTION: external-tool
+  :END:
+** 外部連携ツール設定
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: _index
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>8. </b>" :weight 8 :disableToc true
+   :END:
 * テスト用ツール
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: testing-tool
   :END:
-
 ** テスト用ツール
    :PROPERTIES:
    :EXPORT_FILE_NAME: _index
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>8. </b>" :weight 8 :disableToc true
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>9. </b>" :weight 9 :disableToc true
    :END:
 
    自動テストを実行するにあたり、追加インストールしているパッケージをここに載せている
@@ -1685,11 +1693,10 @@
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: testing
   :END:
-
 ** テストコード
    :PROPERTIES:
    :EXPORT_FILE_NAME: _index
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>9. </b>" :weight 9 :disableToc true
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>10. </b>" :weight 10 :disableToc true
    :END:
 
    一部のコマンドなどの設定を書き始めているので設けたセクション。
