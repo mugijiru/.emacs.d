@@ -1451,6 +1451,35 @@
 
    - [[*yaml-mode][yaml-mode]] :: YAML を書く時のメジャーモードの設定
 
+** plantuml-mode
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: plantuml-mode
+   :END:
+
+*** 概要
+    [[https://github.com/skuro/plantuml-mode][plantuml-mode]] は [[https://plantuml.com/ja/][PlantUML]] という、テキストだけで UML 図などが描けるツール用のモード。
+
+*** インストール
+    いつも通り el-get で入れてる
+
+    #+begin_src emacs-lisp :tangle inits/50-plantuml.el
+    (el-get-bundle plantuml-mode)
+    #+end_src
+*** 設定
+    実行モードは ~'jar~ を指定している。
+    デフォルトは ~'server~ なんだけどオフラインの時も使いたいししね。
+
+    #+begin_src emacs-lisp :tangle inits/50-plantuml.el
+    (setq plantuml-default-exec-mode 'jar)
+    #+end_src
+
+    el-get でインスコすると jar ファイルも自動で拾って来て
+    plantuml-mode と同じディレクトリに設置して
+    ~plantuml-jar-path~ も通してくれるからそっち使う方が便利だしね。
+*** その他
+    最新の develop ブランチだとインデントを調整できる機能が入っているので乗り換えたいけど
+    そのためには el-get のレシピを書いてあげる必要がありそうで放置している。
+
 ** yaml-mode
    :PROPERTIES:
    :EXPORT_FILE_NAME: yaml-mode
@@ -2483,13 +2512,6 @@
 
    #+begin_src emacs-lisp :tangle inits/50-multiple-cursor.el
    (el-get-bundle multiple-cursors)
-   #+end_src
-
-** 50-plantuml.el
-
-   #+begin_src emacs-lisp :tangle inits/50-plantuml.el
-   (el-get-bundle plantuml-mode)
-   (setq plantuml-default-exec-mode 'jar)
    #+end_src
 
 ** 50-todoist.el
