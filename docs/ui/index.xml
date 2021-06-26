@@ -161,5 +161,18 @@ ivy なんかを使う時に ivy-posframe ど真ん中に出すと、いつも�
 (custom-set-variables &amp;#39;(zoom-mode t) &amp;#39;(zoom-size &amp;#39;(0.618 . 0.618))) </description>
     </item>
     
+    <item>
+      <title>zoom-window</title>
+      <link>https://mugijiru.github.io/.emacs.d/ui/zoom-window/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/ui/zoom-window/</guid>
+      <description>概要 zoom-window は tmux の prefix z のような動きをするやつ。表示している window をフレーム全体に広げたり戻したりすることができる。
+インストール いつも通り el-get から入れている
+(el-get-bundle zoom-window) その他 キーバインドは 80-global-keybinds に書いたけど C-x 1 に割り当てている。
+ただそれだと tmux と使い勝手が違うなって感じているのでそのうち hydra の中の z にでもアサインしようかと思う。
+あと、その window を最大化して戻すことよりも単に他の window が邪魔なことの方が多い気もしている。。。</description>
+    </item>
+    
   </channel>
 </rss>

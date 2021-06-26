@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>mocker.el :: 麦汁&#39;s Emacs Config</title>
+    <title>zoom-window :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624686690" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/testing-tool/mocker-el/">
+  <body class="" data-url="/.emacs.d/ui/zoom-window/">
     <nav id="sidebar" class="">
 
 
@@ -401,7 +401,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        
+        parent
         
         
         ">
@@ -658,7 +658,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/zoom-window/" title="zoom-window" class="dd-item ">
+      <li data-nav-id="/.emacs.d/ui/zoom-window/" title="zoom-window" class="dd-item active">
         <a href="/.emacs.d/ui/zoom-window/">
         zoom-window
         
@@ -860,7 +860,7 @@
   
     
     <li data-nav-id="/.emacs.d/testing-tool/" title="テスト用ツール" class="dd-item
-        parent
+        
         
         
         ">
@@ -907,7 +907,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/testing-tool/mocker-el/" title="mocker.el" class="dd-item active">
+      <li data-nav-id="/.emacs.d/testing-tool/mocker-el/" title="mocker.el" class="dd-item ">
         <a href="/.emacs.d/testing-tool/mocker-el/">
         mocker.el
         
@@ -1091,7 +1091,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/testing-tool/'>テスト用ツール</a> > mocker.el
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > zoom-window
           
         
           
@@ -1108,6 +1108,7 @@
   <ul>
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
+    <li><a href="#その他">その他</a></li>
   </ul>
 </nav>
     </div>
@@ -1119,19 +1120,13 @@
             
         <div id="head-tags">
         
-<div class="tags">
-
-  <a class="tag-link" href="/.emacs.d/tags/unused">unused</a>
-
-</div>
-
         </div>
         
         <div id="body-inner">
           
             <h1>
               
-              mocker.el
+              zoom-window
             </h1>
           
 
@@ -1139,13 +1134,16 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/sigma/mocker.el">mocker.el</a> は Emacs Lisp のテストで使う Mock ライブラリ。</p>
-<p>使おうと思って導入したけど、自分のやりたいことはちょっと違ったので死蔵中</p>
-<p>便利そうなのでとりあえず置いといている。</p>
+<p><a href="https://github.com/emacsorphanage/zoom-window">zoom-window</a> は tmux の prefix z のような動きをするやつ。表示している window をフレーム全体に広げたり戻したりすることができる。</p>
 <h2 id="インストール">インストール</h2>
-<p>el-get で GitHub から取得している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle sigma/mocker.el)
-</code></pre></div>
+<p>いつも通り el-get から入れている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle zoom-window)
+</code></pre></div><h2 id="その他">その他</h2>
+<p>キーバインドは 80-global-keybinds に書いたけど
+<code>C-x 1</code> に割り当てている。</p>
+<p>ただそれだと tmux と使い勝手が違うなって感じているのでそのうち hydra の中の z にでもアサインしようかと思う。</p>
+<p>あと、その window を最大化して戻すことよりも単に他の window が邪魔なことの方が多い気もしている。。。</p>
+
 
 <footer class="footline">
 	
@@ -1393,6 +1391,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1400,6 +1399,25 @@
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -1566,21 +1584,6 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1600,6 +1603,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1713,7 +1719,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -1726,9 +1731,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1745,7 +1747,6 @@
             
             
                 
-                    
                     
                 
                 
@@ -1765,9 +1766,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1837,10 +1835,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/testing-tool/with-simulated-input/" title="with-simulated-input"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/ui/zoom/" title="zoom"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/testing/" title="テストコード" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/nav/" title="ナビゲーション" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
