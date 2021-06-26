@@ -1449,6 +1449,7 @@
 
    ここでは各言語毎の設定をまとめている
 
+   - [[*plantuml-mode][plantuml-mode]] :: PlantUML を書く時のメジャーモードの設定
    - [[*yaml-mode][yaml-mode]] :: YAML を書く時のメジャーモードの設定
 
 ** plantuml-mode
