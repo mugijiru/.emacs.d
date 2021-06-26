@@ -8,6 +8,9 @@ disableToc = true
 
 ここでは Emacs の UI を変更するようなものを載せている
 
+[alert]({{< relref "alert" >}})
+: 共通インターフェースで色々な通知機能と連携して通知するやつ
+
 [all-the-icons]({{< relref "all-the-icons" >}})
 : Emacs で様々なアイコンを表示できるようにするやつ
 
