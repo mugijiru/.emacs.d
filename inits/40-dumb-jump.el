@@ -1,5 +1,7 @@
 (el-get-bundle dumb-jump)
+
 (setq dumb-jump-default-project "~/projects")
+
 (setq dumb-jump-selector 'ivy)
 
 (with-eval-after-load 'pretty-hydra
