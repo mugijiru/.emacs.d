@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>alert :: 麦汁&#39;s Emacs Config</title>
+    <title>言語毎の設定 :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624716931" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/ui/alert/">
+  <body class="" data-url="/.emacs.d/language-config/">
     <nav id="sidebar" class="">
 
 
@@ -422,7 +422,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        parent
+        
         
         
         ">
@@ -448,7 +448,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/alert/" title="alert" class="dd-item active">
+      <li data-nav-id="/.emacs.d/ui/alert/" title="alert" class="dd-item ">
         <a href="/.emacs.d/ui/alert/">
         alert
         
@@ -847,8 +847,8 @@
   
     
     <li data-nav-id="/.emacs.d/language-config/" title="言語毎の設定" class="dd-item
-        
-        
+        parent
+        active
         
         ">
       <a href="/.emacs.d/language-config/">
@@ -1172,8 +1172,6 @@
                         </a>
                     </span>
                   
-                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
-                  
                   <span class="links">
                  
                  
@@ -1184,13 +1182,7 @@
             
           
           
-            
-            
-          
-          
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > alert
-          
-        
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > 言語毎の設定
           
         
           
@@ -1198,19 +1190,6 @@
                  
                   </span>
                 </div>
-                
-                    <div class="progress">
-    <div class="wrapper">
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#概要">概要</a></li>
-    <li><a href="#インストール">インストール</a></li>
-    <li><a href="#設定">設定</a></li>
-  </ul>
-</nav>
-    </div>
-</div>
-
                 
               </div>
             </div>
@@ -1223,32 +1202,25 @@
           
             <h1>
               
-              alert
+              言語毎の設定
             </h1>
           
 
         
 
 
-<h2 id="概要">概要</h2>
-<p><a href="https://github.com/jwiegley/alert">alert</a> は色々な通知システムに対応した通知を飛ばせるパッケージ。
-Mac だと Growl だったり terminal-notifier だったり
-Win だと toast だったり
-Linux だと libnotify だったりを使ってその環境での標準的な通知機能を使って通知ができるやつ。</p>
-<h2 id="インストール">インストール</h2>
-<p>いつも通りに el-get でインストール。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle alert)
-</code></pre></div><h2 id="設定">設定</h2>
-<p>業務では Mac を使ってるので terminal-notifier を設定している。他の環境では大人しく message にしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(if (or (<span style="color:#a6e22e">eq</span> <span style="color:#a6e22e">window-system</span> <span style="color:#e6db74">&#39;ns</span>) (<span style="color:#a6e22e">eq</span> <span style="color:#a6e22e">window-system</span> <span style="color:#e6db74">&#39;mac</span>))
-    (setq alert-default-style <span style="color:#e6db74">&#39;notifier</span>) <span style="color:#75715e">;; use terminal-notifier</span>
-  (setq alert-default-style <span style="color:#e6db74">&#39;message</span>))
-</code></pre></div><p>本当は WSL2 でもいい感じに通知されるようにしたいが
-<a href="https://cobodo.hateblo.jp/entry/2018/03/08/160247">WSLで通知を出すメモ - cobodoのブログ</a>
-とかを見てるとちょっと面倒そうなのでまた今度にする。</p>
+
+	<p>ここでは各言語毎の設定をまとめている</p>
+<dl>
+<dt><a href="/.emacs.d/language-config/yaml-mode/">yaml-mode</a></dt>
+<dd>YAML を書く時のメジャーモードの設定</dd>
+</dl>
 
 
-<footer class="footline">
+
+
+
+<footer class=" footline" >
 	
 </footer>
 
@@ -1510,7 +1482,6 @@ Linux だと libnotify だったりを使ってその環境での標準的な通
             
                 
                     
-                    
                 
                 
 
@@ -1523,7 +1494,6 @@ Linux だと libnotify だったりを使ってその環境での標準的な通
             
             
                 
-                    
                     
                 
                 
@@ -1540,9 +1510,6 @@ Linux だと libnotify だったりを使ってその環境での標準的な通
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1819,6 +1786,7 @@ Linux だと libnotify だったりを使ってその環境での標準的な通
             
                 
                     
+                    
                 
                 
 
@@ -1831,6 +1799,9 @@ Linux だと libnotify だったりを使ってその環境での標準的な通
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1999,10 +1970,10 @@ Linux だと libnotify だったりを使ってその環境での標準的な通
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/ui/" title="UI"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/nav/dumb-jump/" title="dumb-jump"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/ui/all-the-icons/" title="all-the-icons" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/language-config/yaml-mode/" title="yaml-mode" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -2034,4 +2005,3 @@ Linux だと libnotify だったりを使ってその環境での標準的な通
 
   </body>
 </html>
-

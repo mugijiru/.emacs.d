@@ -22,6 +22,8 @@
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/nav/</loc>
   </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/language-config/</loc>
+  </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/framework-config/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/testing-tool/</loc>
@@ -87,6 +89,8 @@
     <loc>https://mugijiru.github.io/.emacs.d/ui/uniquify/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/tags/unused/</loc>
+  </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/language-config/yaml-mode/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/ui/yascroll/</loc>
   </url><url>

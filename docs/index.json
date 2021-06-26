@@ -70,6 +70,13 @@
 	"content": "ここではカーソル移動やファイル移動などのナビゲーション系の設定を記載していく\n ace-window 3つ以上にウインドウを分割している際のウインドウ切替を楽にしてくれるパッケージ avy 表示されてるところの好きな場所にさくっとジャンプするためのパッケージ browse-at-remote 表示している行の GitHub などのサービス上の位置でブラウザで開いてくれるパッケージ dumb-jump カーソル下の関数とかの定義場所にジャンプしてくれるパッケージ  "
 },
 {
+	"uri": "https://mugijiru.github.io/.emacs.d/language-config/",
+	"title": "言語毎の設定",
+	"tags": [],
+	"description": "",
+	"content": "ここでは各言語毎の設定をまとめている\n yaml-mode YAML を書く時のメジャーモードの設定  "
+},
+{
 	"uri": "https://mugijiru.github.io/.emacs.d/framework-config/",
 	"title": "フレームワーク用の設定",
 	"tags": [],
@@ -299,6 +306,13 @@
 	"tags": [],
 	"description": "",
 	"content": ""
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/language-config/yaml-mode/",
+	"title": "yaml-mode",
+	"tags": [],
+	"description": "",
+	"content": "概要 yaml-mode は yaml を編集する時のメジャーモード。インデントを調整しやすい。\nインストール いつも通り el-get でインストール\n(el-get-bundle yaml-mode) hook mode に対する hook は関数を定義してその中で呼びたいコードを書いていくようにしている。\nlambda で書いてしまうと hook を弄りたい時に結構面倒なのだけど関数を定義しておくと、その関数の中身を変更して評価しておくだけで hook で動作する中身が変更できて便利。\nとりあえず yaml-mode では以下のようにして highlight-indent-guides を有効にしている。\n(defun my/yaml-mode-hook () (highlight-indent-guides-mode 1)) で、その hook を最後に yaml-mode-hook に追加している。\n(add-hook \u0026#39;yaml-mode-hook \u0026#39;my/yaml-mode-hook) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/ui/yascroll/",
