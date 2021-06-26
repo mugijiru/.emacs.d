@@ -40,3 +40,6 @@ disableToc = true
 
 [zoom]({{< relref "zoom" >}})
 : フォーカスが当たってるウインドウを大きく表示してくれるやつ
+
+[zoom-window]({{< relref "zoom-window" >}})
+: 見ている window を最大化したり戻したりしてくれるやつ
