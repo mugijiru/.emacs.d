@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>posframe :: 麦汁&#39;s Emacs Config</title>
+    <title>alert :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624715106" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/ui/posframe/">
+  <body class="" data-url="/.emacs.d/ui/alert/">
     <nav id="sidebar" class="">
 
 
@@ -448,7 +448,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/alert/" title="alert" class="dd-item ">
+      <li data-nav-id="/.emacs.d/ui/alert/" title="alert" class="dd-item active">
         <a href="/.emacs.d/ui/alert/">
         alert
         
@@ -595,7 +595,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/posframe/" title="posframe" class="dd-item active">
+      <li data-nav-id="/.emacs.d/ui/posframe/" title="posframe" class="dd-item ">
         <a href="/.emacs.d/ui/posframe/">
         posframe
         
@@ -1133,7 +1133,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > posframe
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > alert
           
         
           
@@ -1150,6 +1150,7 @@
   <ul>
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
+    <li><a href="#設定">設定</a></li>
   </ul>
 </nav>
     </div>
@@ -1167,7 +1168,7 @@
           
             <h1>
               
-              posframe
+              alert
             </h1>
           
 
@@ -1175,16 +1176,21 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/tumashu/posframe">posframe</a> は child frame を表示させるためのパッケージ。
-Emacs のど真ん中に表示したり、今あるカーソル位置のすぐそばに出したりできる。</p>
-<p>ivy なんかを使う時に <a href="https://github.com/tumashu/ivy-posframe">ivy-posframe</a> ど真ん中に出すと、いつもそこに表示されるし真ん中なの視線移動が少なくて済むし
-<a href="https://github.com/conao3/ddskk-posframe.el">ddskk-posframe</a> なんかで変換候補をカーソル位置のそばに出て来るので一般的な日本語変換ソフトと同様にこれまた視線移動が少なくて便利。</p>
-<p>という感じで色々なものの拡張として使わているやつ。</p>
+<p><a href="https://github.com/jwiegley/alert">alert</a> は色々な通知システムに対応した通知を飛ばせるパッケージ。
+Mac だと Growl だったり terminal-notifier だったり
+Win だと toast だったり
+Linux だと libnotify だったりを使ってその環境での標準的な通知機能を使って通知ができるやつ。</p>
 <h2 id="インストール">インストール</h2>
-<p>いつも通り el-get で入れているだけ。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle posframe)
-</code></pre></div><p>こいつ自体には特に設定を入れてない。というか設定項目自体2個しか存在していない。</p>
-<p>ま、こいつ単体で使うものでもないしね。</p>
+<p>いつも通りに el-get でインストール。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle alert)
+</code></pre></div><h2 id="設定">設定</h2>
+<p>業務では Mac を使ってるので terminal-notifier を設定している。他の環境では大人しく message にしている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(if (or (<span style="color:#a6e22e">eq</span> <span style="color:#a6e22e">window-system</span> <span style="color:#e6db74">&#39;ns</span>) (<span style="color:#a6e22e">eq</span> <span style="color:#a6e22e">window-system</span> <span style="color:#e6db74">&#39;mac</span>))
+    (setq alert-default-style <span style="color:#e6db74">&#39;notifier</span>) <span style="color:#75715e">;; use terminal-notifier</span>
+  (setq alert-default-style <span style="color:#e6db74">&#39;message</span>))
+</code></pre></div><p>本当は WSL2 でもいい感じに通知されるようにしたいが
+<a href="https://cobodo.hateblo.jp/entry/2018/03/08/160247">WSLで通知を出すメモ - cobodoのブログ</a>
+とかを見てるとちょっと面倒そうなのでまた今度にする。</p>
 
 
 <footer class="footline">
@@ -1463,6 +1469,23 @@ Emacs のど真ん中に表示したり、今あるカーソル位置のすぐ�
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                         
                         
                     
@@ -1577,26 +1600,6 @@ Emacs のど真ん中に表示したり、今あるカーソル位置のすぐ�
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -1909,10 +1912,10 @@ Emacs のど真ん中に表示したり、今あるカーソル位置のすぐ�
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/ui/neotree/" title="Neotree"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/ui/" title="UI"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/ui/toolbar/" title="toolbar" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/ui/all-the-icons/" title="all-the-icons" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

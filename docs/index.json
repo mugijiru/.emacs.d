@@ -60,7 +60,7 @@
 	"title": "UI",
 	"tags": [],
 	"description": "",
-	"content": "ここでは Emacs の UI を変更するようなものを載せている\n all-the-icons Emacs で様々なアイコンを表示できるようにするやつ git-gutter-fringe 最後のコミットからどう弄ったかを fringe 領域に表示してくれるやつ helm 絞り込みインターフェースを提供するやつ helm-posframe Helm を posframe で使えるようにするやつ highlight-indent-guides インデント毎にラインを引いたりして見易くしてくれるやつ Neotree フォルダ構造を IDE みたいにツリー表示するやつ posframe いい感じの位置に child frame を表示する機能を提供するやつ toolbar Emacs 標準のボタンなどの UI 部分の設定 uniquify 同名ファイルを開いている時にどこのファイルかまで表示してくれるやつ yascroll 主張の大人しいスクロールバーを表示してくれるやつ zoom フォーカスが当たってるウインドウを大きく表示してくれるやつ zoom-window 見ている window を最大化したり戻したりしてくれるやつ  "
+	"content": "ここでは Emacs の UI を変更するようなものを載せている\n alert 共通インターフェースで色々な通知機能と連携して通知するやつ all-the-icons Emacs で様々なアイコンを表示できるようにするやつ git-gutter-fringe 最後のコミットからどう弄ったかを fringe 領域に表示してくれるやつ helm 絞り込みインターフェースを提供するやつ helm-posframe Helm を posframe で使えるようにするやつ highlight-indent-guides インデント毎にラインを引いたりして見易くしてくれるやつ Neotree フォルダ構造を IDE みたいにツリー表示するやつ posframe いい感じの位置に child frame を表示する機能を提供するやつ toolbar Emacs 標準のボタンなどの UI 部分の設定 uniquify 同名ファイルを開いている時にどこのファイルかまで表示してくれるやつ yascroll 主張の大人しいスクロールバーを表示してくれるやつ zoom フォーカスが当たってるウインドウを大きく表示してくれるやつ zoom-window 見ている window を最大化したり戻したりしてくれるやつ  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/nav/",
@@ -96,6 +96,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 Window 間の移動を ace-jump や avy のように表示されてる文字の Window に移動するやつ。\nWindow が2分割の時は文字も出ないで別の Window に移動してくれる。\nC-x o にデフォルトで設定されている other-window は別の window に順番に移動するコマンドなので大量に分割していると移動がしんどいのだが ace-window を使うと起動して 1 ストロークで移動できるので C-x o をデフォルトの other-window から ace-window そのまま置き換えても便利に使える。\nインストール いつも通り el-get でインストールしている。\n(el-get-bundle ace-window) 設定 キーバインドは別の箇所で定義しているが C-x o で ace-window が起動するようにしている。\nまた Hydra からは ace-swap-window が起動できるようにしている。\nace-window には色々な機能があるからそれ用の Hydra を別途定義してもいいかもしれない。\n"
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/ui/alert/",
+	"title": "alert",
+	"tags": [],
+	"description": "",
+	"content": "概要 alert は色々な通知システムに対応した通知を飛ばせるパッケージ。 Mac だと Growl だったり terminal-notifier だったり Win だと toast だったり Linux だと libnotify だったりを使ってその環境での標準的な通知機能を使って通知ができるやつ。\nインストール いつも通りに el-get でインストール。\n(el-get-bundle alert) 設定 業務では Mac を使ってるので terminal-notifier を設定している。他の環境では大人しく message にしている。\n(if (or (eq window-system \u0026#39;ns) (eq window-system \u0026#39;mac)) (setq alert-default-style \u0026#39;notifier) ;; use terminal-notifier (setq alert-default-style \u0026#39;message)) 本当は WSL2 でもいい感じに通知されるようにしたいが WSLで通知を出すメモ - cobodoのブログ とかを見てるとちょっと面倒そうなのでまた今度にする。\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/ui/all-the-icons/",

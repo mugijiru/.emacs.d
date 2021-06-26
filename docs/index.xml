@@ -89,6 +89,18 @@ ace-window には色々な機能があるからそれ用の Hydra を別途定�
     </item>
     
     <item>
+      <title>alert</title>
+      <link>https://mugijiru.github.io/.emacs.d/ui/alert/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/ui/alert/</guid>
+      <description>概要 alert は色々な通知システムに対応した通知を飛ばせるパッケージ。 Mac だと Growl だったり terminal-notifier だったり Win だと toast だったり Linux だと libnotify だったりを使ってその環境での標準的な通知機能を使って通知ができるやつ。
+インストール いつも通りに el-get でインストール。
+(el-get-bundle alert) 設定 業務では Mac を使ってるので terminal-notifier を設定している。他の環境では大人しく message にしている。
+(if (or (eq window-system &amp;#39;ns) (eq window-system &amp;#39;mac)) (setq alert-default-style &amp;#39;notifier) ;; use terminal-notifier (setq alert-default-style &amp;#39;message)) 本当は WSL2 でもいい感じに通知されるようにしたいが WSLで通知を出すメモ - cobodoのブログ とかを見てるとちょっと面倒そうなのでまた今度にする。</description>
+    </item>
+    
+    <item>
       <title>all-the-icons</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/all-the-icons/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
