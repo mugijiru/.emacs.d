@@ -650,6 +650,7 @@
    - [[*posframe][posframe]] :: いい感じの位置に child frame を表示する機能を提供するやつ
    - [[*toolbar][toolbar]] :: Emacs 標準のボタンなどの UI 部分の設定
    - [[*uniquify][uniquify]] :: 同名ファイルを開いている時にどこのファイルかまで表示してくれるやつ
+   - [[*yascroll][yascroll]] :: 主張の大人しいスクロールバーを表示してくれるやつ
    - [[*zoom][zoom]] :: フォーカスが当たってるウインドウを大きく表示してくれるやつ
 
 ** all-the-icons
