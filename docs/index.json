@@ -50,10 +50,10 @@
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/editing/",
-	"title": "ファイル編集",
+	"title": "ファイル編集/入力補助",
 	"tags": [],
 	"description": "",
-	"content": "ここにはファイル編集系の設定をまとめている\n auto-insert ファイル新規作成時にテンプレートを挿入する機能  "
+	"content": "ここにはファイル編集や入力補助の設定をまとめている\n auto-insert ファイル新規作成時にテンプレートを挿入する機能 company-mode プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/ui/",
@@ -131,6 +131,13 @@
 	"tags": [],
 	"description": "",
 	"content": ""
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/editing/company-mode/",
+	"title": "company-mode",
+	"tags": [],
+	"description": "",
+	"content": "概要 company-mode は Emacs での補完機能を提供してくれるパッケージです。プラグイン式に拡張しやすいのが特徴っぽい。\nインストール いつも透り el-get から入れている\n(el-get-bundle company-mode) 設定 ほとんど設定は入れていない。有効な時に C-s を入力すると検索ができる程度。\nというのも最近の更新で、デフォルトが結構好みのキーバインドになったのでキーバインドはこだわる必要がなくなったのと、ついでに色もそこで好みな感じになってくれた。\nというわけで設定は以下のようにとてもシンプル。\n(with-eval-after-load \u0026#39;company ;; active (define-key company-active-map (kbd \u0026#34;C-s\u0026#34;) \u0026#39;company-search-candidates)) その他 グローバルでは有効にしていなくて各モードで有効にするような hook を入れている。\nグローバルで有効でもいい気がしている。\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/nav/dumb-jump/",

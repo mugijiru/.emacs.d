@@ -12,20 +12,20 @@
     <title>auto-insert :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1624675952" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1624675952" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1624675952" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1624675952" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1624675952" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1624675952" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1624675952" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1624675952" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1624675952" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1624675952" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1624676965" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1624676965" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1624676965" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1624676965" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1624676965" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1624676965" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1624676965" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1624676965" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1624676965" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1624676965" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1624675952"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1624676965"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -54,14 +54,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1624675952"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1624675952"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1624676965"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1624676965"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1624675952"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1624676965"></script>
 
     
   </div>
@@ -303,13 +303,13 @@
  
   
     
-    <li data-nav-id="/.emacs.d/editing/" title="ファイル編集" class="dd-item
+    <li data-nav-id="/.emacs.d/editing/" title="ファイル編集/入力補助" class="dd-item
         parent
         
         
         ">
       <a href="/.emacs.d/editing/">
-          <b>3. </b>ファイル編集
+          <b>3. </b>ファイル編集/入力補助
           
       </a>
       
@@ -333,6 +333,27 @@
       <li data-nav-id="/.emacs.d/editing/auto-insert/" title="auto-insert" class="dd-item active">
         <a href="/.emacs.d/editing/auto-insert/">
         auto-insert
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/editing/company-mode/" title="company-mode" class="dd-item ">
+        <a href="/.emacs.d/editing/company-mode/">
+        company-mode
         
         </a>
     </li>
@@ -965,7 +986,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/editing/'>ファイル編集</a> > auto-insert
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/editing/'>ファイル編集/入力補助</a> > auto-insert
           
         
           
@@ -1231,9 +1252,6 @@ auto-insert のテンプレートも <code>~/.emacs.d/insert</code> に閉じ込
             
         
                     
-            
-        
-                    
                         
             
             
@@ -1241,6 +1259,25 @@ auto-insert のテンプレートも <code>~/.emacs.d/insert</code> に閉じ込
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1614,10 +1651,10 @@ auto-insert のテンプレートも <code>~/.emacs.d/insert</code> に閉じ込
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/editing/" title="ファイル編集"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/editing/" title="ファイル編集/入力補助"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/ui/" title="UI" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/editing/company-mode/" title="company-mode" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1627,19 +1664,19 @@ auto-insert のテンプレートも <code>~/.emacs.d/insert</code> に閉じ込
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1624675952"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1624675952"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1624675952"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1624675952"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1624675952"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1624675952"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1624676965"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1624676965"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1624676965"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1624676965"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1624676965"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1624676965"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1624675952"></script>
-    <script src="/.emacs.d/js/learn.js?1624675952"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1624675952"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1624676965"></script>
+    <script src="/.emacs.d/js/learn.js?1624676965"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1624676965"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1624675952"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1624676965"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

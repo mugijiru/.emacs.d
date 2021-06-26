@@ -157,6 +157,21 @@ Emacs ではデフォルトでも編集中ファイルの自動保存や、編�
     </item>
     
     <item>
+      <title>company-mode</title>
+      <link>https://mugijiru.github.io/.emacs.d/editing/company-mode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/editing/company-mode/</guid>
+      <description>概要 company-mode は Emacs での補完機能を提供してくれるパッケージです。プラグイン式に拡張しやすいのが特徴っぽい。
+インストール いつも透り el-get から入れている
+(el-get-bundle company-mode) 設定 ほとんど設定は入れていない。有効な時に C-s を入力すると検索ができる程度。
+というのも最近の更新で、デフォルトが結構好みのキーバインドになったのでキーバインドはこだわる必要がなくなったのと、ついでに色もそこで好みな感じになってくれた。
+というわけで設定は以下のようにとてもシンプル。
+(with-eval-after-load &amp;#39;company ;; active (define-key company-active-map (kbd &amp;#34;C-s&amp;#34;) &amp;#39;company-search-candidates)) その他 グローバルでは有効にしていなくて各モードで有効にするような hook を入れている。
+グローバルで有効でもいい気がしている。</description>
+    </item>
+    
+    <item>
       <title>dumb-jump</title>
       <link>https://mugijiru.github.io/.emacs.d/nav/dumb-jump/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
