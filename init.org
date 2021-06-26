@@ -1437,6 +1437,55 @@
     | b   | 最後にジャンプされた場所に戻る。今は既に obsolute 扱い                         |
     |-----+--------------------------------------------------------------------------------|
 
+* 言語毎の設定
+  :PROPERTIES:
+  :EXPORT_HUGO_SECTION: language-config
+  :END:
+** 言語毎の設定
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: _index
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>6. </b>" :weight 6 :disableToc true
+   :END:
+
+   ここでは各言語毎の設定をまとめている
+
+   - [[*yaml-mode][yaml-mode]] :: YAML を書く時のメジャーモードの設定
+
+** yaml-mode
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: yaml-mode
+   :END:
+*** 概要
+    [[https://github.com/yoshiki/yaml-mode][yaml-mode]] は yaml を編集する時のメジャーモード。
+    インデントを調整しやすい。
+
+*** インストール
+    いつも通り el-get でインストール
+
+    #+begin_src emacs-lisp :tangle inits/40-yaml.el
+    (el-get-bundle yaml-mode)
+    #+end_src
+*** hook
+    mode に対する hook は関数を定義して
+    その中で呼びたいコードを書いていくようにしている。
+
+    lambda で書いてしまうと hook を弄りたい時に結構面倒なのだけど
+    関数を定義しておくと、その関数の中身を変更して評価しておくだけで
+    hook で動作する中身が変更できて便利。
+
+    とりあえず yaml-mode では以下のようにして
+    [[https://github.com/DarthFennec/highlight-indent-guides][highlight-indent-guides]] を有効にしている。
+
+    #+begin_src emacs-lisp :tangle inits/40-yaml.el
+    (defun my/yaml-mode-hook ()
+      (highlight-indent-guides-mode 1))
+    #+end_src
+
+    で、その hook を最後に yaml-mode-hook に追加している。
+
+    #+begin_src emacs-lisp :tangle inits/40-yaml.el
+    (add-hook 'yaml-mode-hook 'my/yaml-mode-hook)
+    #+end_src
 * フレームワーク用の設定
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: framework-config
@@ -1445,7 +1494,7 @@
 ** フレームワーク用の設定
    :PROPERTIES:
    :EXPORT_FILE_NAME: _index
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>6. </b>" :weight 6 :disableToc true
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>7. </b>" :weight 7 :disableToc true
    :END:
 
    開発に使っている各フレームワーク用の設定をここにまとめている。
@@ -1506,7 +1555,7 @@
 ** テスト用ツール
    :PROPERTIES:
    :EXPORT_FILE_NAME: _index
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>7. </b>" :weight 7 :disableToc true
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>8. </b>" :weight 8 :disableToc true
    :END:
 
    自動テストを実行するにあたり、追加インストールしているパッケージをここに載せている
@@ -1578,7 +1627,7 @@
 ** テストコード
    :PROPERTIES:
    :EXPORT_FILE_NAME: _index
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>8. </b>" :weight 8 :disableToc true
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>9. </b>" :weight 9 :disableToc true
    :END:
 
    一部のコマンドなどの設定を書き始めているので設けたセクション。
@@ -2287,16 +2336,6 @@
            (t
             (hl-line-mode 1)
             (view-mode 1))))
-   #+end_src
-
-** 40-yaml.el
-
-   #+begin_src emacs-lisp :tangle inits/40-yaml.el
-   (el-get-bundle yaml-mode)
-   (defun my/yaml-mode-hook ()
-     (highlight-indent-guides-mode 1))
-
-   (add-hook 'yaml-mode-hook 'my/yaml-mode-hook)
    #+end_src
 
 ** 41-rails.el

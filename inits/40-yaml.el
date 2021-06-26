@@ -1,4 +1,5 @@
 (el-get-bundle yaml-mode)
+
 (defun my/yaml-mode-hook ()
   (highlight-indent-guides-mode 1))
 
