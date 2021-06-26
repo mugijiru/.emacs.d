@@ -1823,6 +1823,8 @@
 
    #+begin_src emacs-lisp :tangle inits/20-google-translate.el
    (el-get-bundle google-translate)
+   (require 'google-translate-default-ui)
+   (defun google-translate--search-tkk () "Search TKK." (list 430675 2721866130))
    #+end_src
 
 ** lsp
