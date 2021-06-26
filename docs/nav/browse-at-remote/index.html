@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>uniquify :: 麦汁&#39;s Emacs Config</title>
+    <title>browse-at-remote :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624679065" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/ui/uniquify/">
+  <body class="" data-url="/.emacs.d/nav/browse-at-remote/">
     <nav id="sidebar" class="">
 
 
@@ -401,7 +401,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        parent
+        
         
         
         ">
@@ -574,7 +574,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/uniquify/" title="uniquify" class="dd-item active">
+      <li data-nav-id="/.emacs.d/ui/uniquify/" title="uniquify" class="dd-item ">
         <a href="/.emacs.d/ui/uniquify/">
         uniquify
         
@@ -624,7 +624,7 @@
   
     
     <li data-nav-id="/.emacs.d/nav/" title="ナビゲーション" class="dd-item
-        
+        parent
         
         
         ">
@@ -692,7 +692,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/nav/browse-at-remote/" title="browse-at-remote" class="dd-item ">
+      <li data-nav-id="/.emacs.d/nav/browse-at-remote/" title="browse-at-remote" class="dd-item active">
         <a href="/.emacs.d/nav/browse-at-remote/">
         browse-at-remote
         
@@ -1028,7 +1028,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > uniquify
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/nav/'>ナビゲーション</a> > browse-at-remote
           
         
           
@@ -1044,8 +1044,9 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#有効化">有効化</a></li>
-    <li><a href="#設定">設定</a></li>
+    <li><a href="#インストール">インストール</a></li>
+    <li><a href="#使い方">使い方</a></li>
+    <li><a href="#その他">その他</a></li>
   </ul>
 </nav>
     </div>
@@ -1063,7 +1064,7 @@
           
             <h1>
               
-              uniquify
+              browse-at-remote
             </h1>
           
 
@@ -1071,16 +1072,18 @@
 
 
 <h2 id="概要">概要</h2>
-<p>同じ名前のファイルを開いている時に祖先のディレクトリ名を表示してくれてどこのファイルかわかりやすくしてくれるやつ。</p>
-<p>すぐ親とかも同名でも、名前が違うところまで遡って表示してくれる。</p>
-<h2 id="有効化">有効化</h2>
-<p>Emacs に標準で入ってるので require するだけで有効にできる</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(require <span style="color:#e6db74">&#39;uniquify</span>)
-</code></pre></div><h2 id="設定">設定</h2>
-<p>自分は <code>ファイル名&lt;フォルダ名&gt;</code> みたいな表示になる形式にしている。その方がファイル名が主という感じになって使いやすそうだなって。</p>
-<p>そういう意味では <code>post-foward</code> の方が幅を使わない分良いかもしれない。いつか検討しても良いかもしれない。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq uniquify-buffer-name-style <span style="color:#e6db74">&#39;post-forward-angle-brackets</span>)
-</code></pre></div>
+<p><a href="https://github.com/rmuslimov/browse-at-remote">browse-at-remote</a> は Emacs で見ているファイルについて
+GitHub や GitLab などのサービス上での該当ブランチ、該当ファイル、該当行を開いてくれる便利なやつ。</p>
+<p>業務だとレビュー中に「ここにこういう関数あるよ」みたいに示すことがあるけどその時に Emacs 内で関数を探して browse-at-remote で GitHub 上の位置を開くことでそこへのリンクを拾いやすく便利。</p>
+<h2 id="インストール">インストール</h2>
+<p>いつも透り el-get で入れている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle browse-at-remote)
+</code></pre></div><h2 id="使い方">使い方</h2>
+<p>ブラウザで見たい行の上で <code>M-x browse-at-remote</code> を実行する。</p>
+<p>または Region を選択している状態で実行すると、その範囲を選択している状態で開いてくれる。便利。</p>
+<h2 id="その他">その他</h2>
+<p>Hydra でいつでも使えるようにキーバインドを割り当てている。</p>
+
 
 <footer class="footline">
 	
@@ -1328,7 +1331,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -1342,8 +1344,53 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1436,19 +1483,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
             
         
                     
@@ -1466,9 +1500,6 @@
                     
 
                     
-            
-        
-                    
                         
             
             
@@ -1476,38 +1507,6 @@
                     
                         
                         
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1541,6 +1540,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1556,6 +1556,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1724,10 +1727,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/ui/toolbar/" title="toolbar"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/nav/avy/" title="avy"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/ui/zoom/" title="zoom" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/nav/dumb-jump/" title="dumb-jump" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

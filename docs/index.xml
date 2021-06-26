@@ -157,6 +157,20 @@ Emacs ではデフォルトでも編集中ファイルの自動保存や、編�
     </item>
     
     <item>
+      <title>browse-at-remote</title>
+      <link>https://mugijiru.github.io/.emacs.d/nav/browse-at-remote/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/nav/browse-at-remote/</guid>
+      <description>概要 browse-at-remote は Emacs で見ているファイルについて GitHub や GitLab などのサービス上での該当ブランチ、該当ファイル、該当行を開いてくれる便利なやつ。
+業務だとレビュー中に「ここにこういう関数あるよ」みたいに示すことがあるけどその時に Emacs 内で関数を探して browse-at-remote で GitHub 上の位置を開くことでそこへのリンクを拾いやすく便利。
+インストール いつも透り el-get で入れている。
+(el-get-bundle browse-at-remote) 使い方 ブラウザで見たい行の上で M-x browse-at-remote を実行する。
+または Region を選択している状態で実行すると、その範囲を選択している状態で開いてくれる。便利。
+その他 Hydra でいつでも使えるようにキーバインドを割り当てている。</description>
+    </item>
+    
+    <item>
       <title>company-mode</title>
       <link>https://mugijiru.github.io/.emacs.d/editing/company-mode/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

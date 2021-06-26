@@ -67,7 +67,7 @@
 	"title": "ナビゲーション",
 	"tags": [],
 	"description": "",
-	"content": "ここではカーソル移動やファイル移動などのナビゲーション系の設定を記載していく\n ace-window 3つ以上にウインドウを分割している際のウインドウ切替を楽にしてくれるパッケージ avy 表示されてるところの好きな場所にさくっとジャンプするためのパッケージ dumb-jump カーソル下の関数とかの定義場所にジャンプしてくれるパッケージ  "
+	"content": "ここではカーソル移動やファイル移動などのナビゲーション系の設定を記載していく\n ace-window 3つ以上にウインドウを分割している際のウインドウ切替を楽にしてくれるパッケージ avy 表示されてるところの好きな場所にさくっとジャンプするためのパッケージ browse-at-remote 表示している行の GitHub などのサービス上の位置でブラウザで開いてくれるパッケージ dumb-jump カーソル下の関数とかの定義場所にジャンプしてくれるパッケージ  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/framework-config/",
@@ -124,6 +124,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 avy は好きな文字とか単語など、表示されてる場所にさくっとジャンプするためのパッケージ。 Vimium の f とかに似てる。\nインストール el-get で普通にインストールしている\n(el-get-bundle avy) 設定 文字の上に重なると元の文字列がよくわからなくなるので、移動先の文字の前に表示するようにしている\n(setq avy-style \u0026#39;pre) キーバインド グローバルなキーバインドを汚染したくなかったのでひとまず Hydra を定義している。\n(with-eval-after-load \u0026#39;pretty-hydra (pretty-hydra-define avy-hydra (:separator \u0026#34;-\u0026#34; :title \u0026#34;avy\u0026#34; :foreign-key warn :quit-key \u0026#34;q\u0026#34; :exit t) (\u0026#34;Char\u0026#34; ((\u0026#34;c\u0026#34; avy-goto-char \u0026#34;Char\u0026#34;) (\u0026#34;C\u0026#34; avy-goto-char-2 \u0026#34;Char 2\u0026#34;) (\u0026#34;x\u0026#34; avy-goto-char-timer \u0026#34;Char Timer\u0026#34;)) \u0026#34;Word\u0026#34; ((\u0026#34;w\u0026#34; avy-goto-word-1 \u0026#34;Word\u0026#34;) (\u0026#34;W\u0026#34; avy-goto-word-0 \u0026#34;Word 0\u0026#34;)) \u0026#34;Line\u0026#34; ((\u0026#34;l\u0026#34; avy-goto-line \u0026#34;Line\u0026#34;)) \u0026#34;Other\u0026#34; ((\u0026#34;r\u0026#34; avy-resume \u0026#34;Resume\u0026#34;)))))    Key 効果     c 1文字からの絞り込み   C 2文字から絞り込み   x 任意の文字列からの絞り込み   w 1文字絞り込んで単語先頭に移動   W 絞り込みなしの単語移動   l 列移動   r 繰り返し同じコマンドを実行    "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/nav/browse-at-remote/",
+	"title": "browse-at-remote",
+	"tags": [],
+	"description": "",
+	"content": "概要 browse-at-remote は Emacs で見ているファイルについて GitHub や GitLab などのサービス上での該当ブランチ、該当ファイル、該当行を開いてくれる便利なやつ。\n業務だとレビュー中に「ここにこういう関数あるよ」みたいに示すことがあるけどその時に Emacs 内で関数を探して browse-at-remote で GitHub 上の位置を開くことでそこへのリンクを拾いやすく便利。\nインストール いつも透り el-get で入れている。\n(el-get-bundle browse-at-remote) 使い方 ブラウザで見たい行の上で M-x browse-at-remote を実行する。\nまたは Region を選択している状態で実行すると、その範囲を選択している状態で開いてくれる。便利。\nその他 Hydra でいつでも使えるようにキーバインドを割り当てている。\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/categories/",
