@@ -1,8 +1,8 @@
 +++
 title = "テスト用ツール"
 draft = false
-pre = "<b>7. </b>"
-weight = 7
+pre = "<b>8. </b>"
+weight = 8
 disableToc = true
 +++
 
