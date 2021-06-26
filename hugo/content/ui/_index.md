@@ -11,6 +11,9 @@ disableToc = true
 [all-the-icons]({{< relref "all-the-icons" >}})
 : Emacs で様々なアイコンを表示できるようにするやつ
 
+[git-gutter-fringe]({{< relref "git-gutter-fringe" >}})
+: 最後のコミットからどう弄ったかを fringe 領域に表示してくれるやつ
+
 [helm]({{< relref "helm" >}})
 : 絞り込みインターフェースを提供するやつ
 
