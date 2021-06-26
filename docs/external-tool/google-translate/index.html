@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>helm :: 麦汁&#39;s Emacs Config</title>
+    <title>google-translate :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624721822" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/ui/helm/">
+  <body class="" data-url="/.emacs.d/external-tool/google-translate/">
     <nav id="sidebar" class="">
 
 
@@ -443,7 +443,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        parent
+        
         
         
         ">
@@ -532,7 +532,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/helm/" title="helm" class="dd-item active">
+      <li data-nav-id="/.emacs.d/ui/helm/" title="helm" class="dd-item ">
         <a href="/.emacs.d/ui/helm/">
         helm
         
@@ -999,7 +999,7 @@
   
     
     <li data-nav-id="/.emacs.d/external-tool/" title="外部連携ツール設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -1025,7 +1025,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/external-tool/google-translate/" title="google-translate" class="dd-item ">
+      <li data-nav-id="/.emacs.d/external-tool/google-translate/" title="google-translate" class="dd-item active">
         <a href="/.emacs.d/external-tool/google-translate/">
         google-translate
         
@@ -1285,7 +1285,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > helm
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/external-tool/'>外部連携ツール設定</a> > google-translate
           
         
           
@@ -1302,8 +1302,9 @@
   <ul>
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
-    <li><a href="#設定">設定</a></li>
-    <li><a href="#その他">その他</a></li>
+    <li><a href="#関数のオーバーライド">関数のオーバーライド</a></li>
+    <li><a href="#default-ui-の読み込み">default-ui の読み込み</a></li>
+    <li><a href="#カスタム変数の設定">カスタム変数の設定</a></li>
   </ul>
 </nav>
     </div>
@@ -1321,7 +1322,7 @@
           
             <h1>
               
-              helm
+              google-translate
             </h1>
           
 
@@ -1329,29 +1330,61 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/emacs-helm/helm">helm</a> は anything.el の後継であり、インクリメンタルに候補の絞り込みをしたりする UI を提供する便利なパッケージ。</p>
-<p><a href="https://github.com/peco/peco">peco</a> とか <a href="https://github.com/junegunn/fzf">fzf</a> とかと似ているっちゃ似ているかな? fzf 使ったことないけど。</p>
-<p>一時期開発が止まってるようだったけど最近(2021年)はまた更新が活発になっている。</p>
-<p>ただ、麦汁さんは ivy に乗り換えようとしているので helm の設定は頑張っていない。
-helm-for-files が便利なのでまだ捨てられてないけど……。</p>
+<p><a href="https://github.com/atykhonov/google-translate">google-translate</a> は Google 翻訳する機能を提供するパッケージ。</p>
 <h2 id="インストール">インストール</h2>
-<p>helm で使いたい拡張として
-<a href="https://github.com/emacs-helm/helm-descbinds">helm-descbinds</a> と <a href="https://github.com/emacsorphanage/helm-ag">helm-ag</a> というのがあるのでそれらも同時に入れている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle helm)
-(el-get-bundle helm-descbinds)
-(el-get-bundle helm-ag)
-</code></pre></div><p>ただ descbinds は counsel-descbinds に置き換えたし
-helm-ag ももう使ってない気がする</p>
-<h2 id="設定">設定</h2>
-<p>オススメの設定が helm に同梱されている helm-config に入ってるのでまずはそれを読み込んでいる。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(require <span style="color:#e6db74">&#39;helm-config</span>)
-</code></pre></div><p>また helm-descbinds を使えるように有効にしている。けど、上にも書いたけどもう counsel-descbinds に置き換えちゃったのよね……。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(helm-descbinds-mode)
-</code></pre></div><p>あとは helm-migemo-mode というのを有効にしている。これがあると helm で検索する時に migemo れて便利。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(helm-migemo-mode <span style="color:#ae81ff">1</span>)
-</code></pre></div><p>ivy の方でも migemo 対応したいけどまだできてない……。</p>
-<h2 id="その他">その他</h2>
-<p>helm 系の設定は他の設定にも色々影響も大きそうなので読み込み順は結構早いタイミングにしている(init-loader で 20 を prefix にしている)</p>
+<p>いつも通り el-get でインストール</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle google-translate)
+</code></pre></div><h2 id="関数のオーバーライド">関数のオーバーライド</h2>
+<p>どうも最新版でも壊れっぱなしのようなので
+<a href="https://github.com/atykhonov/google-translate/issues/52#issuecomment-727920888">https://github.com/atykhonov/google-translate/issues/52#issuecomment-727920888</a>
+にあるように関数を上書きしている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;google-translate-tk</span>
+  (defun google-translate--search-tkk ()
+    <span style="color:#e6db74">&#34;Search TKK.&#34;</span>
+    (<span style="color:#a6e22e">list</span> <span style="color:#ae81ff">430675</span> <span style="color:#ae81ff">2721866130</span>)))
+</code></pre></div><p>google-translate-tk に定義されていて、それが読まれた後に上書きしないといけないので
+with-eval-after-load を使っている。</p>
+<h2 id="default-ui-の読み込み">default-ui の読み込み</h2>
+<p>Google Translate は UI を defauult と smooth のどちらかから選べるようになっている。</p>
+<p>default だと</p>
+<ul>
+<li><code>google-translate-default-source-language</code></li>
+<li><code>google-translate-default-target-language</code></li>
+</ul>
+<p>を設定しておいて</p>
+<dl>
+<dt><code>M-x google-translate-at-point</code></dt>
+<dd>source → target の翻訳</dd>
+<dt><code>M-x google-translate-at-point-reverse</code></dt>
+<dd>target → source の翻訳</dd>
+</dl>
+<p>という使い方をする。</p>
+<p>smooth だと翻訳の source, target を複数設定して多言語対応ができるが、英語以外を翻訳することがないので smooth でなくていいかという感じで default を採用している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;popup</span>
+  (require <span style="color:#e6db74">&#39;google-translate-default-ui</span>))
+</code></pre></div><p>popup.el に依存しているのでそれが読まれた後に require しないといけなかった。というわけで with-eval-after-load で対応している。</p>
+<h2 id="カスタム変数の設定">カスタム変数の設定</h2>
+<p>上述の通り default UI を使うことにしたのでその変数をいくらか設定している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(custom-set-variables
+ <span style="color:#f92672">&#39;</span>(google-translate-default-source-language <span style="color:#e6db74">&#34;en&#34;</span>)
+ <span style="color:#f92672">&#39;</span>(google-translate-default-target-language <span style="color:#e6db74">&#34;ja&#34;</span>)
+ <span style="color:#f92672">&#39;</span>(google-translate-output-destination <span style="color:#e6db74">&#39;popup</span>))
+</code></pre></div><dl>
+<dt>google-translate-default-source-language</dt>
+<dd>翻訳元言語</dd>
+<dt>google-translate-default-target-language</dt>
+<dd>翻訳先言語</dd>
+<dt>google-translate-output-destination</dt>
+<dd>翻訳結果の表示</dd>
+</dl>
+<p>日本語を母国語としていて英語はからきしという人間なので当然英日変換されるように設定していてあとは変換結果の表示方法は popup でツールチップ表示するようにしている。</p>
+<p>popup 表示の欠点としては、その結果をコピペできないところだけど
+current-buffer への挿入も邪魔そうだし
+kill-ring に入れるのも違うしなどを考えた結果、消去法でこれにしてみた。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(my/google-translate-at-point-output-tempbuf ()
+  (let ((google-translate-output-destination <span style="color:#66d9ef">nil</span>))
+    (google-translate-at-point)))
+</code></pre></div><p>とか用意しておいたらその時だけデフォルト動作の temporary buffer への出力ができそうだけどもね。ただこれだと逆版も作らないといけなさそうなのでちょっと方法考えるか。別で output destination を切り替えるようにするとか。</p>
 
 
 <footer class="footline">
@@ -1632,7 +1665,6 @@ helm-ag ももう使ってない気がする</p>
             
                 
                     
-                    
                 
                 
 
@@ -1645,9 +1677,6 @@ helm-ag ももう使ってない気がする</p>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1697,7 +1726,6 @@ helm-ag ももう使ってない気がする</p>
             
                 
                     
-                    
                 
                 
 
@@ -1713,9 +1741,6 @@ helm-ag ももう使ってない気がする</p>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -2024,6 +2049,7 @@ helm-ag ももう使ってない気がする</p>
             
                 
                     
+                    
                 
                 
 
@@ -2036,6 +2062,7 @@ helm-ag ももう使ってない気がする</p>
             
             
                 
+                    
                     
                 
                 
@@ -2055,6 +2082,9 @@ helm-ag ももう使ってない気がする</p>
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -2172,10 +2202,10 @@ helm-ag ももう使ってない気がする</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/ui/git-gutter-fringe/" title="git-gutter-fringe"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/external-tool/" title="外部連携ツール設定"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/ui/helm-posframe/" title="helm-posframe" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/testing-tool/" title="テスト用ツール" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

@@ -26,6 +26,8 @@
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/framework-config/</loc>
   </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/external-tool/</loc>
+  </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/testing-tool/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/testing/</loc>
@@ -57,6 +59,8 @@
     <loc>https://mugijiru.github.io/.emacs.d/basics/font-config/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/ui/git-gutter-fringe/</loc>
+  </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/external-tool/google-translate/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/ui/helm/</loc>
   </url><url>
