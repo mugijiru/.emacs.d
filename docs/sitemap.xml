@@ -80,6 +80,8 @@
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/ui/toolbar/</loc>
   </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/editing/undo-fu/</loc>
+  </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/ui/uniquify/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/tags/unused/</loc>

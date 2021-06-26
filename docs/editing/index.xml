@@ -48,5 +48,17 @@ strict モードだとペアが崩れないように強制するので雑に C-k
 (require &amp;#39;smartparens-config) その他 各言語の hook で smartparens-strict-mode を有効にしている。なんか常に有効だと困りそうな気がしたので。</description>
     </item>
     
+    <item>
+      <title>undo-fu</title>
+      <link>https://mugijiru.github.io/.emacs.d/editing/undo-fu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/editing/undo-fu/</guid>
+      <description>概要 undo-fu はシンプルな undo/redo 機能を提供してくれるやつ。
+昔はもっと色々できる undo-tree を使っていたけどそっちにバグがあるっぽいので乗り換えた。
+インストール (el-get-bundle undo-fu) キーバインド 別の場所で定義しているけど、以下のキーバインドにしている。
+   Key 効果     C-/ undo   C-M-/ redo    </description>
+    </item>
+    
   </channel>
 </rss>

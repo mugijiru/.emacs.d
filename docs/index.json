@@ -53,7 +53,7 @@
 	"title": "ファイル編集/入力補助",
 	"tags": [],
 	"description": "",
-	"content": "ここにはファイル編集や入力補助の設定をまとめている\n auto-insert ファイル新規作成時にテンプレートを挿入する機能 company-mode プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ smartparens カッコや引用符などのペアになるやつの入力補助をしてくれるやつ  "
+	"content": "ここにはファイル編集や入力補助の設定をまとめている\n auto-insert ファイル新規作成時にテンプレートを挿入する機能 company-mode プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ smartparens カッコや引用符などのペアになるやつの入力補助をしてくれるやつ undo-fu シンプルな undo/redo の機能を提供してくれるやつ  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/ui/",
@@ -271,6 +271,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 Emacs 標準の toolbar の設定。麦汁さんは使わないし幅を取るので隠す派。\n設定 単に無効にして隠している\n(tool-bar-mode -1) "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/editing/undo-fu/",
+	"title": "undo-fu",
+	"tags": [],
+	"description": "",
+	"content": "概要 undo-fu はシンプルな undo/redo 機能を提供してくれるやつ。\n昔はもっと色々できる undo-tree を使っていたけどそっちにバグがあるっぽいので乗り換えた。\nインストール (el-get-bundle undo-fu) キーバインド 別の場所で定義しているけど、以下のキーバインドにしている。\n   Key 効果     C-/ undo   C-M-/ redo    "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/ui/uniquify/",
