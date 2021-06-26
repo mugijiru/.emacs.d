@@ -43,9 +43,6 @@
  '(google-this-browse-url-function (quote w3m-browse-url))
  '(google-this-keybind "")
  '(google-this-location-suffix "co.jp")
- '(google-translate-default-source-language "en")
- '(google-translate-default-target-language "ja")
- '(google-translate-output-destination nil)
  '(helm-for-files-preferred-list
    (quote
     (helm-source-buffers-list helm-source-recentf helm-source-bookmarks helm-source-projectile-files-list helm-source-file-cache helm-source-files-in-current-dir helm-source-locate)))
