@@ -1446,6 +1446,11 @@
    :EXPORT_FILE_NAME: _index
    :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>6. </b>" :weight 6 :disableToc true
    :END:
+
+   ここでは各言語毎の設定をまとめている
+
+   - [[*yaml-mode][yaml-mode]] :: YAML を書く時のメジャーモードの設定
+
 ** yaml-mode
    :PROPERTIES:
    :EXPORT_FILE_NAME: yaml-mode
