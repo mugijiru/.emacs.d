@@ -16,3 +16,6 @@ disableToc = true
 
 [smartparens]({{< relref "smartparens" >}})
 : カッコや引用符などのペアになるやつの入力補助をしてくれるやつ
+
+[undo-fu]({{< relref "undo-fu" >}})
+: シンプルな undo/redo の機能を提供してくれるやつ
