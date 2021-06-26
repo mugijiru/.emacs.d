@@ -14,6 +14,9 @@ Emacs の基本動作に関わる部分をここでは設定している
 [auto-save]({{< relref "auto-save" >}})
 : 編集中状態の自動保存や編集前の状態のバックアップに関する設定
 
+[font-config]({{< relref "font-config" >}})
+: フォントの設定
+
 [load-path]({{< relref "load-path" >}})
 : Emacs Lisp が読み込める path の設定
 
