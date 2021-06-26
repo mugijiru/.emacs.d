@@ -816,6 +816,36 @@
       | z   | Neotree のサイズを大きくしたり小さくしたり |
       | h   | 隠しファイルを表示したり隠したり           |
       |-----+--------------------------------------------|
+** posframe
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: posframe
+   :END:
+*** 概要
+
+    [[https://github.com/tumashu/posframe][posframe]] は child frame を表示させるためのパッケージ。
+    Emacs のど真ん中に表示したり、
+    今あるカーソル位置のすぐそばに出したりできる。
+
+    ivy なんかを使う時に [[https://github.com/tumashu/ivy-posframe][ivy-posframe]] ど真ん中に出すと、
+    いつもそこに表示されるし真ん中なの視線移動が少なくて済むし
+    [[https://github.com/conao3/ddskk-posframe.el][ddskk-posframe]] なんかで変換候補をカーソル位置のそばに出て来るので
+    一般的な日本語変換ソフトと同様にこれまた視線移動が少なくて便利。
+
+    という感じで色々なものの拡張として使わているやつ。
+
+*** インストール
+
+    いつも通り el-get で入れているだけ。
+
+    #+begin_src emacs-lisp :tangle inits/20-posframe.el
+    (el-get-bundle posframe)
+    #+end_src
+
+    こいつ自体には特に設定を入れてない。
+    というか設定項目自体2個しか存在していない。
+
+    ま、こいつ単体で使うものでもないしね。
+
 ** toolbar
    :PROPERTIES:
    :EXPORT_FILE_NAME: toolbar
@@ -1086,7 +1116,6 @@
     | l   | クイックルック。定義をツールチップ表示する                                     |
     | b   | 最後にジャンプされた場所に戻る。今は既に obsolute 扱い                         |
     |-----+--------------------------------------------------------------------------------|
-
 
 * フレームワーク用の設定
   :PROPERTIES:
@@ -1515,12 +1544,6 @@
    (el-get-bundle lsp-ui)
    (add-hook 'lsp-mode-hook 'lsp-ui-mode)
    (setq lsp-ui-doc-alignment 'window)
-   #+end_src
-
-** posframe
-
-   #+begin_src emacs-lisp :tangle inits/20-posframe.el
-   (el-get-bundle posframe)
    #+end_src
 
 ** smartparens
