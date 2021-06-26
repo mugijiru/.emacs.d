@@ -136,6 +136,19 @@ ivy なんかを使う時に ivy-posframe ど真ん中に出すと、いつも�
     </item>
     
     <item>
+      <title>yascroll</title>
+      <link>https://mugijiru.github.io/.emacs.d/ui/yascroll/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/ui/yascroll/</guid>
+      <description>概要 yascroll は標準のスクロールバーとは異なるスクロールバーを表示するやつ。
+デフォルトだと右側の fringe 領域に表示するのであまり邪魔にならないし表示領域を必要以上に狭めないので気に入っている。
+最初に作られたっぽい記事は 主張しないスクロールバーモード、yascroll.elをリリースしました - Functional Emacser にある。タイトル通り、あまり主張しない感じで良い。
+インストール いつも通り el-get でインストールしている
+(el-get-bundle yascroll) これだけで大体いい感じに表示されるので便利。たまに表示されなくなることもあるが、まあそこまで重要なやつでもないのであまり気にしていない</description>
+    </item>
+    
+    <item>
       <title>zoom</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/zoom/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

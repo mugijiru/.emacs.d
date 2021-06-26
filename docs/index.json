@@ -60,7 +60,7 @@
 	"title": "UI",
 	"tags": [],
 	"description": "",
-	"content": "ここでは Emacs の UI を変更するようなものを載せている\n all-the-icons Emacs で様々なアイコンを表示できるようにするやつ git-gutter-fringe 最後のコミットからどう弄ったかを fringe 領域に表示してくれるやつ helm 絞り込みインターフェースを提供するやつ helm-posframe Helm を posframe で使えるようにするやつ highlight-indent-guides インデント毎にラインを引いたりして見易くしてくれるやつ Neotree フォルダ構造を IDE みたいにツリー表示するやつ posframe いい感じの位置に child frame を表示する機能を提供するやつ toolbar Emacs 標準のボタンなどの UI 部分の設定 uniquify 同名ファイルを開いている時にどこのファイルかまで表示してくれるやつ zoom フォーカスが当たってるウインドウを大きく表示してくれるやつ  "
+	"content": "ここでは Emacs の UI を変更するようなものを載せている\n all-the-icons Emacs で様々なアイコンを表示できるようにするやつ git-gutter-fringe 最後のコミットからどう弄ったかを fringe 領域に表示してくれるやつ helm 絞り込みインターフェースを提供するやつ helm-posframe Helm を posframe で使えるようにするやつ highlight-indent-guides インデント毎にラインを引いたりして見易くしてくれるやつ Neotree フォルダ構造を IDE みたいにツリー表示するやつ posframe いい感じの位置に child frame を表示する機能を提供するやつ toolbar Emacs 標準のボタンなどの UI 部分の設定 uniquify 同名ファイルを開いている時にどこのファイルかまで表示してくれるやつ yascroll 主張の大人しいスクロールバーを表示してくれるやつ zoom フォーカスが当たってるウインドウを大きく表示してくれるやつ  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/nav/",
@@ -285,6 +285,13 @@
 	"tags": [],
 	"description": "",
 	"content": ""
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/ui/yascroll/",
+	"title": "yascroll",
+	"tags": [],
+	"description": "",
+	"content": "概要 yascroll は標準のスクロールバーとは異なるスクロールバーを表示するやつ。\nデフォルトだと右側の fringe 領域に表示するのであまり邪魔にならないし表示領域を必要以上に狭めないので気に入っている。\n最初に作られたっぽい記事は 主張しないスクロールバーモード、yascroll.elをリリースしました - Functional Emacser にある。タイトル通り、あまり主張しない感じで良い。\nインストール いつも通り el-get でインストールしている\n(el-get-bundle yascroll) これだけで大体いい感じに表示されるので便利。たまに表示されなくなることもあるが、まあそこまで重要なやつでもないのであまり気にしていない\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/ui/zoom/",

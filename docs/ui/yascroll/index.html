@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>uniquify :: 麦汁&#39;s Emacs Config</title>
+    <title>yascroll :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624685853" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/ui/uniquify/">
+  <body class="" data-url="/.emacs.d/ui/yascroll/">
     <nav id="sidebar" class="">
 
 
@@ -595,7 +595,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/uniquify/" title="uniquify" class="dd-item active">
+      <li data-nav-id="/.emacs.d/ui/uniquify/" title="uniquify" class="dd-item ">
         <a href="/.emacs.d/ui/uniquify/">
         uniquify
         
@@ -616,7 +616,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/yascroll/" title="yascroll" class="dd-item ">
+      <li data-nav-id="/.emacs.d/ui/yascroll/" title="yascroll" class="dd-item active">
         <a href="/.emacs.d/ui/yascroll/">
         yascroll
         
@@ -1070,7 +1070,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > uniquify
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > yascroll
           
         
           
@@ -1086,8 +1086,7 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#有効化">有効化</a></li>
-    <li><a href="#設定">設定</a></li>
+    <li><a href="#インストール">インストール</a></li>
   </ul>
 </nav>
     </div>
@@ -1105,7 +1104,7 @@
           
             <h1>
               
-              uniquify
+              yascroll
             </h1>
           
 
@@ -1113,16 +1112,16 @@
 
 
 <h2 id="概要">概要</h2>
-<p>同じ名前のファイルを開いている時に祖先のディレクトリ名を表示してくれてどこのファイルかわかりやすくしてくれるやつ。</p>
-<p>すぐ親とかも同名でも、名前が違うところまで遡って表示してくれる。</p>
-<h2 id="有効化">有効化</h2>
-<p>Emacs に標準で入ってるので require するだけで有効にできる</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(require <span style="color:#e6db74">&#39;uniquify</span>)
-</code></pre></div><h2 id="設定">設定</h2>
-<p>自分は <code>ファイル名&lt;フォルダ名&gt;</code> みたいな表示になる形式にしている。その方がファイル名が主という感じになって使いやすそうだなって。</p>
-<p>そういう意味では <code>post-foward</code> の方が幅を使わない分良いかもしれない。いつか検討しても良いかもしれない。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq uniquify-buffer-name-style <span style="color:#e6db74">&#39;post-forward-angle-brackets</span>)
-</code></pre></div>
+<p><a href="https://github.com/emacsorphanage/yascroll">yascroll</a> は標準のスクロールバーとは異なるスクロールバーを表示するやつ。</p>
+<p>デフォルトだと右側の fringe 領域に表示するのであまり邪魔にならないし表示領域を必要以上に狭めないので気に入っている。</p>
+<p>最初に作られたっぽい記事は
+<a href="https://m2ym.hatenadiary.org/entry/20110401/1301617991">主張しないスクロールバーモード、yascroll.elをリリースしました - Functional Emacser</a>
+にある。タイトル通り、あまり主張しない感じで良い。</p>
+<h2 id="インストール">インストール</h2>
+<p>いつも通り el-get でインストールしている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle yascroll)
+</code></pre></div><p>これだけで大体いい感じに表示されるので便利。たまに表示されなくなることもあるが、まあそこまで重要なやつでもないのであまり気にしていない</p>
+
 
 <footer class="footline">
 	
@@ -1515,6 +1514,22 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                     
                 
                 
@@ -1534,22 +1549,6 @@
                     
                         
                         
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1798,10 +1797,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/ui/toolbar/" title="toolbar"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/ui/uniquify/" title="uniquify"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/ui/yascroll/" title="yascroll" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/ui/zoom/" title="zoom" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
