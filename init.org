@@ -652,6 +652,7 @@
    - [[*uniquify][uniquify]] :: 同名ファイルを開いている時にどこのファイルかまで表示してくれるやつ
    - [[*yascroll][yascroll]] :: 主張の大人しいスクロールバーを表示してくれるやつ
    - [[*zoom][zoom]] :: フォーカスが当たってるウインドウを大きく表示してくれるやつ
+   - [[*zoom-window][zoom-window]] :: 見ている window を最大化したり戻したりしてくれるやつ
 
 ** all-the-icons
    :PROPERTIES:
