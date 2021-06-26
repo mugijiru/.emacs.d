@@ -51,6 +51,7 @@
 
    - [[*exec-path][exec-path]] :: PATH などの環境変数を shell と合わせる設定
    - [[*auto-save][auto-save]] :: 編集中状態の自動保存や編集前の状態のバックアップに関する設定
+   - [[*font-config][font-config]] :: フォントの設定
    - [[*load-path][load-path]] :: Emacs Lisp が読み込める path の設定
    - [[*savehist][savehist]] :: ミニバッファの履歴などを保存してくれる機能。
    - [[*ガベージコレクション][ガベージコレクション]] :: メモリの開放関係の設定
@@ -220,6 +221,37 @@
     #+begin_src emacs-lisp
     ;; for exec path
     ;; use .bashrc setted path
+    #+end_src
+
+** font-config
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: font-config
+   :END:
+
+*** 概要
+    Emacs で利用するフォントの設定。
+    それなりの設定をしないとガタついたりするので
+    通常あまり手を入れないで済ませている。
+
+*** 設定
+    Mac では 14, それ以外(Linux) では 12 を基準としている。
+
+    Mac と Linux で基準のサイズを変えているが
+    なぜかこの方がガタガタもしないし大き過ぎもしないしでいい感じになる。
+
+    #+begin_src emacs-lisp :tangle inits/90-font.el
+    (let* ((size (if (or (eq window-system 'ns) (eq window-system 'mac)) 14 12))
+           (asciifont "Ricty Diminished")      ; ASCII fonts
+           (jpfont "Ricty Diminished")         ; Japanese fonts
+           (h (* size 10))
+           (fontspec (font-spec :family asciifont))
+           (jp-fontspec (font-spec :family jpfont)))
+      (set-face-attribute 'default nil :family asciifont :height h)
+      (set-fontset-font nil 'japanese-jisx0213.2004-1 jp-fontspec)
+      (set-fontset-font nil 'japanese-jisx0213-2 jp-fontspec)
+      (set-fontset-font nil 'katakana-jisx0201 jp-fontspec)
+      (set-fontset-font nil '(#x0080 . #x024F) fontspec)
+      (set-fontset-font nil '(#x0370 . #x03FF) fontspec))
     #+end_src
 
 ** load-path
@@ -3549,23 +3581,6 @@
    (el-get-bundle raxod502/prescient.el)
    (ivy-prescient-mode 1)
    (setq prescient-sort-length-enable nil)
-   #+end_src
-
-** 90-font.el
-
-   #+begin_src emacs-lisp :tangle inits/90-font.el
-   (let* ((size 14)
-          (asciifont "Ricty Diminished")      ; ASCII fonts
-          (jpfont "Ricty Diminished")         ; Japanese fonts
-          (h (* size 10))
-          (fontspec (font-spec :family asciifont))
-          (jp-fontspec (font-spec :family jpfont)))
-     (set-face-attribute 'default nil :family asciifont :height h)
-     (set-fontset-font nil 'japanese-jisx0213.2004-1 jp-fontspec)
-     (set-fontset-font nil 'japanese-jisx0213-2 jp-fontspec)
-     (set-fontset-font nil 'katakana-jisx0201 jp-fontspec)
-     (set-fontset-font nil '(#x0080 . #x024F) fontspec)
-     (set-fontset-font nil '(#x0370 . #x03FF) fontspec))
    #+end_src
 
 ** 90-fullscreen.el
