@@ -2332,14 +2332,6 @@
    (my/load-config "my-todoist-config")
    #+end_src
 
-** 60-open-junk-file.el                                              :unused:
-
-   #+begin_src emacs-lisp :tangle inits/60-open-junk-file.el
-   (el-get-bundle open-junk-file)
-   (setq open-junk-file-format "~/junk/%Y-%m-%d-%H%M%S.")
-   (global-set-key (kbd "C-o") 'open-junk-file)
-   #+end_src
-
 ** 60-org.el
 
    #+begin_src emacs-lisp :tangle inits/60-org.el
