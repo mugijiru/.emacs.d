@@ -1,4 +1,4 @@
-(let* ((size 14)
+(let* ((size (if (or (eq window-system 'ns) (eq window-system 'mac)) 14 12))
        (asciifont "Ricty Diminished")      ; ASCII fonts
        (jpfont "Ricty Diminished")         ; Japanese fonts
        (h (* size 10))
