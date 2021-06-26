@@ -1446,6 +1446,41 @@
    :EXPORT_FILE_NAME: _index
    :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>6. </b>" :weight 6 :disableToc true
    :END:
+** yaml-mode
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: yaml-mode
+   :END:
+*** 概要
+    [[https://github.com/yoshiki/yaml-mode][yaml-mode]] は yaml を編集する時のメジャーモード。
+    インデントを調整しやすい。
+
+*** インストール
+    いつも通り el-get でインストール
+
+    #+begin_src emacs-lisp :tangle inits/40-yaml.el
+    (el-get-bundle yaml-mode)
+    #+end_src
+*** hook
+    mode に対する hook は関数を定義して
+    その中で呼びたいコードを書いていくようにしている。
+
+    lambda で書いてしまうと hook を弄りたい時に結構面倒なのだけど
+    関数を定義しておくと、その関数の中身を変更して評価しておくだけで
+    hook で動作する中身が変更できて便利。
+
+    とりあえず yaml-mode では以下のようにして
+    [[https://github.com/DarthFennec/highlight-indent-guides][highlight-indent-guides]] を有効にしている。
+
+    #+begin_src emacs-lisp :tangle inits/40-yaml.el
+    (defun my/yaml-mode-hook ()
+      (highlight-indent-guides-mode 1))
+    #+end_src
+
+    で、その hook を最後に yaml-mode-hook に追加している。
+
+    #+begin_src emacs-lisp :tangle inits/40-yaml.el
+    (add-hook 'yaml-mode-hook 'my/yaml-mode-hook)
+    #+end_src
 * フレームワーク用の設定
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: framework-config
@@ -2296,16 +2331,6 @@
            (t
             (hl-line-mode 1)
             (view-mode 1))))
-   #+end_src
-
-** 40-yaml.el
-
-   #+begin_src emacs-lisp :tangle inits/40-yaml.el
-   (el-get-bundle yaml-mode)
-   (defun my/yaml-mode-hook ()
-     (highlight-indent-guides-mode 1))
-
-   (add-hook 'yaml-mode-hook 'my/yaml-mode-hook)
    #+end_src
 
 ** 41-rails.el
