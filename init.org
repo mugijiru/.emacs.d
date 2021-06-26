@@ -698,10 +698,18 @@
     #+end_src
 *** 設定
     業務では Mac を使ってるので terminal-notifier を設定している。
+    他の環境では大人しく message にしている。
 
     #+begin_src emacs-lisp :tangle inits/20-alert.el
-    (setq alert-default-style 'notifier) ;; use terminal-notifier
+    (if (or (eq window-system 'ns) (eq window-system 'mac))
+        (setq alert-default-style 'notifier) ;; use terminal-notifier
+      (setq alert-default-style 'message))
     #+end_src
+
+    本当は WSL2 でもいい感じに通知されるようにしたいが
+    [[https://cobodo.hateblo.jp/entry/2018/03/08/160247][WSLで通知を出すメモ - cobodoのブログ]]
+    とかを見てるとちょっと面倒そうなのでまた今度にする。
+
 ** all-the-icons
    :PROPERTIES:
    :EXPORT_FILE_NAME: all-the-icons
