@@ -629,6 +629,30 @@
     各言語の hook で ~smartparens-strict-mode~ を有効にしている。
     なんか常に有効だと困りそうな気がしたので。
 
+** undo-fu
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: undo-fu
+   :END:
+
+*** 概要
+    [[https://github.com/emacsmirror/undo-fu][undo-fu]] はシンプルな undo/redo 機能を提供してくれるやつ。
+
+    昔はもっと色々できる [[https://www.emacswiki.org/emacs/UndoTree][undo-tree]] を使っていたけど
+    そっちにバグがあるっぽいので乗り換えた。
+
+*** インストール
+    #+begin_src emacs-lisp :tangle inits/80-undo-fu.el
+    (el-get-bundle undo-fu)
+    #+end_src
+
+*** キーバインド
+
+    別の場所で定義しているけど、以下のキーバインドにしている。
+
+    | Key   | 効果 |
+    | C-/   | undo |
+    | C-M-/ | redo |
+
 * UI
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: ui
@@ -3104,12 +3128,6 @@
 
    ;; Don't ask yes or no.
    (defalias 'yes-or-no-p 'y-or-n-p)
-   #+end_src
-
-** 80-undo-fu.el
-
-   #+begin_src emacs-lisp :tangle inits/80-undo-fu.el
-   (el-get-bundle undo-fu)
    #+end_src
 
 ** 80-wakatime.el
