@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>replacement :: 麦汁&#39;s Emacs Config</title>
+    <title>smartparens :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624677785" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/tags/replacement/">
+  <body class="" data-url="/.emacs.d/editing/smartparens/">
     <nav id="sidebar" class="">
 
 
@@ -304,7 +304,7 @@
   
     
     <li data-nav-id="/.emacs.d/editing/" title="ファイル編集/入力補助" class="dd-item
-        
+        parent
         
         
         ">
@@ -372,7 +372,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/editing/smartparens/" title="smartparens" class="dd-item ">
+      <li data-nav-id="/.emacs.d/editing/smartparens/" title="smartparens" class="dd-item active">
         <a href="/.emacs.d/editing/smartparens/">
         smartparens
         
@@ -1007,7 +1007,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/tags/'>Tags</a> > replacement
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/editing/'>ファイル編集/入力補助</a> > smartparens
           
         
           
@@ -1020,7 +1020,14 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#インストール">インストール</a></li>
+    <li><a href="#設定">設定</a></li>
+    <li><a href="#その他">その他</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -1036,28 +1043,27 @@
           
             <h1>
               
-                tag ::
-              
-              replacement
+              smartparens
             </h1>
           
 
         
 
 
+<h2 id="概要">概要</h2>
+<p><a href="https://github.com/Fuco1/smartparens">smartparens</a> はカッコとかクォートとかのペアになるようなものの入力補助をしてくれるやつ。</p>
+<p>strict モードだとペアが崩れないように強制するので雑に C-k で行削除しててもペアが維持されて便利。</p>
+<h2 id="インストール">インストール</h2>
+<p>いつも透り el-get で導入している</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle smartparens)
+</code></pre></div><h2 id="設定">設定</h2>
+<p>実は導入して間もないので、提供されてるオススメ設定のみ突っ込んでいる。オススメ設定は別途 reqiure したら良いという作りなので、以下のようにして突っ込んでいる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(require <span style="color:#e6db74">&#39;smartparens-config</span>)
+</code></pre></div><h2 id="その他">その他</h2>
+<p>各言語の hook で <code>smartparens-strict-mode</code> を有効にしている。なんか常に有効だと困りそうな気がしたので。</p>
 
 
-
-<ul>
-	
-		<li><a href="/.emacs.d/basics/auto-save/">auto-save</a></li>
-	
-		<li><a href="/.emacs.d/ui/neotree/">Neotree</a></li>
-	
-</ul>
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -1239,6 +1245,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1251,6 +1258,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1284,6 +1294,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1302,6 +1313,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1675,8 +1689,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/.emacs.d/editing/company-mode/" title="company-mode"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/.emacs.d/basics/" title="基本設定" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/.emacs.d/ui/" title="UI" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1708,3 +1724,4 @@
 
   </body>
 </html>
+
