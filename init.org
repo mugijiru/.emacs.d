@@ -222,9 +222,9 @@
     ;; use .bashrc setted path
     #+end_src
 
-** font
+** font-config
    :PROPERTIES:
-   :EXPORT_FILE_NAME: font
+   :EXPORT_FILE_NAME: font-config
    :END:
 
 *** 概要
