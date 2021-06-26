@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>all-the-icons :: 麦汁&#39;s Emacs Config</title>
+    <title>key-chord :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624675952" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/ui/all-the-icons/">
+  <body class="" data-url="/.emacs.d/keybinds/key-chord/">
     <nav id="sidebar" class="">
 
 
@@ -228,7 +228,7 @@
   
     
     <li data-nav-id="/.emacs.d/keybinds/" title="キーバインド" class="dd-item
-        
+        parent
         
         
         ">
@@ -254,7 +254,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/keybinds/key-chord/" title="key-chord" class="dd-item ">
+      <li data-nav-id="/.emacs.d/keybinds/key-chord/" title="key-chord" class="dd-item active">
         <a href="/.emacs.d/keybinds/key-chord/">
         key-chord
         
@@ -359,7 +359,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        parent
+        
         
         
         ">
@@ -385,7 +385,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/all-the-icons/" title="all-the-icons" class="dd-item active">
+      <li data-nav-id="/.emacs.d/ui/all-the-icons/" title="all-the-icons" class="dd-item ">
         <a href="/.emacs.d/ui/all-the-icons/">
         all-the-icons
         
@@ -965,7 +965,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > all-the-icons
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/keybinds/'>キーバインド</a> > key-chord
           
         
           
@@ -982,8 +982,9 @@
   <ul>
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
-    <li><a href="#フォントのインストール">フォントのインストール</a></li>
-    <li><a href="#キーバインド">キーバインド</a></li>
+    <li><a href="#設定">設定</a></li>
+    <li><a href="#有効化">有効化</a></li>
+    <li><a href="#その他">その他</a></li>
   </ul>
 </nav>
     </div>
@@ -1001,7 +1002,7 @@
           
             <h1>
               
-              all-the-icons
+              key-chord
             </h1>
           
 
@@ -1009,69 +1010,27 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/domtronn/all-the-icons.el">all-the-icons</a> は Emacs で様々なアイコンを表示できるようにして華やかにしてくれるパッケージです。
-<a href="/.emacs.d/ui/neotree/">Neotree</a> などでも対応していてアイコンでファイルの種類が表示されるようになってモダンな雰囲気が出ます。</p>
+<p><a href="https://github.com/emacsorphanage/key-chord">key-chord</a> はキーを同時に押した時にコマンドを発動させるということができるようにしてくれるパッケージ。</p>
+<p>なのですが<a href="https://qiita.com/zk%5Fphi/items/e70bc4c69b5a4755edd6">本家の方だと誤爆が多い</a>ということなのでそれを改善した <a href="https://github.com/zk-phi/key-chord/">zk-phi/key-chord</a> の方を利用している。</p>
+<p>まあほとんど使えてないので改良版の恩恵をまだ受けてないけど……。</p>
 <h2 id="インストール">インストール</h2>
-<p>いつも通り el-get-bundle で入れている。明示的に require している理由は忘れました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle all-the-icons)
-(require <span style="color:#e6db74">&#39;all-the-icons</span>)
-</code></pre></div><h2 id="フォントのインストール">フォントのインストール</h2>
-<p>以下のコマンドを叩くことでフォントをインストールすることができる。
-all-the-icons のインストール直後に叩いておいたら普段は叩かなくて良いはず。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(all-the-icons-install-fonts)
-</code></pre></div><p>all-the-icons の更新後は叩いた方がいいかもしれない</p>
-<h2 id="キーバインド">キーバインド</h2>
-<p>キーバインドは覚えられないし、使えるキーも大分埋まってるので、
-pretty-hydra を使って all-the-icons 用の Hydra を用意している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
-  (pretty-hydra-define all-the-icons-hydra (:separator <span style="color:#e6db74">&#34;-&#34;</span> :title <span style="color:#e6db74">&#34;All the icons&#34;</span> :exit <span style="color:#66d9ef">t</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span>)
-    (<span style="color:#e6db74">&#34;Insert&#34;</span>
-     ((<span style="color:#e6db74">&#34;a&#34;</span> all-the-icons-insert-alltheicon <span style="color:#e6db74">&#34;All the icons&#34;</span>)
-      (<span style="color:#e6db74">&#34;f&#34;</span> all-the-icons-insert-fileicon   <span style="color:#e6db74">&#34;File icons&#34;</span>)
-      (<span style="color:#e6db74">&#34;F&#34;</span> all-the-icons-insert-faicons    <span style="color:#e6db74">&#34;FontAwesome&#34;</span>)
-      (<span style="color:#e6db74">&#34;m&#34;</span> all-the-icons-insert-material   <span style="color:#e6db74">&#34;Material&#34;</span>)
-      (<span style="color:#e6db74">&#34;o&#34;</span> all-the-icons-insert-octicon    <span style="color:#e6db74">&#34;Octicon&#34;</span>)
-      (<span style="color:#e6db74">&#34;w&#34;</span> all-the-icons-insert-wicon      <span style="color:#e6db74">&#34;Weather&#34;</span>)
-      (<span style="color:#e6db74">&#34;*&#34;</span> all-the-icons-insert            <span style="color:#e6db74">&#34;All&#34;</span>)))))
-</code></pre></div><table>
-<thead>
-<tr>
-<th>Key</th>
-<th>効果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>a</td>
-<td>all-the-icons で追加されてるアイコンを検索して挿入</td>
-</tr>
-<tr>
-<td>f</td>
-<td>ファイルアイコンを検索して挿入</td>
-</tr>
-<tr>
-<td>F</td>
-<td>FontAwesome アイコンを検索して挿入</td>
-</tr>
-<tr>
-<td>m</td>
-<td>Material アイコンを検索して挿入</td>
-</tr>
-<tr>
-<td>o</td>
-<td>Octicon のアイコンを検索して挿入</td>
-</tr>
-<tr>
-<td>w</td>
-<td>天気アイコンを検索して挿入</td>
-</tr>
-<tr>
-<td>*</td>
-<td>全てのアイコンを検索して挿入</td>
-</tr>
-</tbody>
-</table>
-<p>フォントのインストールコマンドもここに収めてしまうのが良さそうな気がする</p>
+<p>いつも通り el-get でインストールしている。本家の方じゃないので GitHub のリポジトリから突っ込んでいる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle zk-phi/key-chord)
+</code></pre></div><h2 id="設定">設定</h2>
+<p>同時押し時の許容時間、その前後で別のキーが押されていたら発動しない判断をする、みたいな設定を入れている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq key-chord-two-keys-delay           <span style="color:#ae81ff">0.15</span>
+      key-chord-safety-interval-backward <span style="color:#ae81ff">0.1</span>
+      key-chord-safety-interval-forward  <span style="color:#ae81ff">0.15</span>)
+</code></pre></div><p>キーの同時押し判定は 0.15 秒で、それらのキーが押される直前の 0.1 秒以内、または直後の 0.15 秒に押されていたら発動しない、という設定にしている。</p>
+<p>改良版の作者の記事だと、直後判定は 0.25 秒で設定されていたが自分は Hydra の起動に使っている上に Hydra で叩けるやつでよく使うやつは覚えているので表示を待たずに次のキーを押すので 0.25 秒も待っていられないという事情があった。</p>
+<h2 id="有効化">有効化</h2>
+<p>設定を入れた後は有効にするだけである。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(key-chord-mode <span style="color:#ae81ff">1</span>)
+</code></pre></div><p>実際のキーバインド設定は各モードだったりグローバルキーバインドを設定しているファイルだったりで書く感じ。</p>
+<p>といいつつ現状では Hydra 起動のやつしか使ってないので、グローバルキーバインド設定でしか書いてない。</p>
+<h2 id="その他">その他</h2>
+<p><a href="/.emacs.d/keybinds/sticky-control/">sticky-control</a> も control 限定で似たようなことをしているので
+key-chord に全部置き換えできるかもしれない。</p>
 
 
 <footer class="footline">
@@ -1208,86 +1167,6 @@ pretty-hydra を使って all-the-icons 用の Hydra を用意している。</p
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -1321,6 +1200,86 @@ pretty-hydra を使って all-the-icons 用の Hydra を用意している。</p
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1665,10 +1624,10 @@ pretty-hydra を使って all-the-icons 用の Hydra を用意している。</p
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/ui/" title="UI"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/keybinds/" title="キーバインド"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/ui/helm/" title="helm" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/keybinds/sticky-control/" title="sticky-control" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
