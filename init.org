@@ -501,20 +501,21 @@
     (sticky-control-mode)
     #+end_src
 
-* ファイル編集
+* ファイル編集/入力補助
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: editing
   :END:
 
-** ファイル編集
+** ファイル編集/入力補助
    :PROPERTIES:
    :EXPORT_FILE_NAME: _index
    :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>3. </b>" :weight 3 :disableToc true
    :END:
 
-   ここにはファイル編集系の設定をまとめている
+   ここにはファイル編集や入力補助の設定をまとめている
 
    - [[*auto-insert][auto-insert]] :: ファイル新規作成時にテンプレートを挿入する機能
+   - [[*company-mode][company-mode]] :: プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ
 
 ** auto-insert
    :PROPERTIES:
@@ -550,6 +551,48 @@
     各言語やフレームワーク毎に設定を入れることにしている。
 
     実際は今のところ inits/41-vue.el でのみ追加設定を入れている。
+
+** company-mode
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: company-mode
+   :END:
+
+*** 概要
+
+    [[https://github.com/company-mode/company-mode][company-mode]] は Emacs での補完機能を提供してくれるパッケージです。
+    プラグイン式に拡張しやすいのが特徴っぽい。
+
+*** インストール
+
+    いつも透り el-get から入れている
+
+    #+begin_src emacs-lisp :tangle inits/30-company.el
+    (el-get-bundle company-mode)
+    #+end_src
+
+*** 設定
+
+    ほとんど設定は入れていない。
+    有効な時に ~C-s~ を入力すると検索ができる程度。
+
+    というのも最近の更新で、デフォルトが結構好みのキーバインドになったので
+    キーバインドはこだわる必要がなくなったのと、
+    ついでに色もそこで好みな感じになってくれた。
+
+    というわけで設定は以下のようにとてもシンプル。
+
+    #+begin_src emacs-lisp :tangle inits/30-company.el
+    (with-eval-after-load 'company
+      ;; active
+      (define-key company-active-map (kbd "C-s") 'company-search-candidates))
+    #+end_src
+
+*** その他
+
+    グローバルでは有効にしていなくて
+    各モードで有効にするような hook を入れている。
+
+    グローバルで有効でもいい気がしている。
 
 * UI
   :PROPERTIES:
@@ -1632,15 +1675,6 @@
         (("i" yas-insert-snippet  "Insert")
          ("l" yas-describe-tables "List")
          ("r" yas-reload-all      "Reload all")))))
-   #+end_src
-
-** company
-
-   #+begin_src emacs-lisp :tangle inits/30-company.el
-   (el-get-bundle company-mode)
-   (with-eval-after-load 'company
-     ;; active
-     (define-key company-active-map (kbd "C-s") 'company-search-candidates))
    #+end_src
 
 ** 30-flycheck.el
