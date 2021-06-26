@@ -1131,6 +1131,32 @@
      '(zoom-size '(0.618 . 0.618)))
     #+end_src
 
+** zoom-window
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: zoom-window
+   :END:
+
+*** 概要
+    [[https://github.com/emacsorphanage/zoom-window][zoom-window]] は tmux の prefix z のような動きをするやつ。
+    表示している window をフレーム全体に広げたり戻したりすることができる。
+
+*** インストール
+    いつも通り el-get から入れている
+
+    #+begin_src emacs-lisp :tangle inits/70-zoom-window.el
+    (el-get-bundle zoom-window)
+    #+end_src
+*** その他                                                      :improvement:
+
+    キーバインドは 80-global-keybinds に書いたけど
+    ~C-x 1~ に割り当てている。
+
+    ただそれだと tmux と使い勝手が違うなって感じているので
+    そのうち hydra の中の z にでもアサインしようかと思う。
+
+    あと、その window を最大化して戻すことよりも
+    単に他の window が邪魔なことの方が多い気もしている。。。
+
 * ナビゲーション
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: nav
@@ -2984,15 +3010,6 @@
 
    #+begin_src emacs-lisp :tangle inits/70-w3m.el
    (el-get-bundle emacs-w3m)
-   #+end_src
-
-** 70-zoom-window.el
-
-   #+begin_src emacs-lisp :tangle inits/70-zoom-window.el
-   ;; tmux の prefix z のような動きをするやつ
-   (el-get-bundle zoom-window)
-
-   ;; キーバインドは 80-global-keybinds に書いた
    #+end_src
 
 ** 80-edit.el
