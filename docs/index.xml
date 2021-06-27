@@ -439,6 +439,22 @@ ivy なんかを使う時に ivy-posframe ど真ん中に出すと、いつも�
     </item>
     
     <item>
+      <title>projectile</title>
+      <link>https://mugijiru.github.io/.emacs.d/nav/projectile/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/nav/projectile/</guid>
+      <description>概要 projectile はプロジェクト内のファイルを検索したりするのに便利なパッケージ
+インストール いつも通り el-get からインストールする
+(el-get-bundle projectile) helm との連携 helm-projectile を使って helm と連携できるようにしている。けど ivy に乗り換えを進めているので多分これ使ってないんだよな……。というわけでこの設定は消す候補に入っている。
+(el-get-bundle helm-projectile) (helm-projectile-on) 有効化 このあたりで有効化しておいている。この順序に意味があったかは忘れた……。
+(projectile-mode) 無視リスト 普段 Rails ばっかりやってるのでそれ関係のものを無視リストに入れている。けどあんまりメンテしてない。
+無視するディレクトリ (add-to-list &amp;#39;projectile-globally-ignored-directories &amp;#34;tmp&amp;#34;) (add-to-list &amp;#39;projectile-globally-ignored-directories &amp;#34;.tmp&amp;#34;) (add-to-list &amp;#39;projectile-globally-ignored-directories &amp;#34;vendor&amp;#34;) (add-to-list &amp;#39;projectile-globally-ignored-directories &amp;#34;.sass-cache&amp;#34;) (add-to-list &amp;#39;projectile-globally-ignored-directories &amp;#34;coverage&amp;#34;) (add-to-list &amp;#39;projectile-globally-ignored-directories &amp;#34;cache&amp;#34;) (add-to-list &amp;#39;projectile-globally-ignored-directories &amp;#34;log&amp;#34;) node_modules もここに突っ込んでも良いかもしれない。
+無視するファイル (add-to-list &amp;#39;projectile-globally-ignored-files &amp;#34;gems.tags&amp;#34;) (add-to-list &amp;#39;projectile-globally-ignored-files &amp;#34;project.tags&amp;#34;) (add-to-list &amp;#39;projectile-globally-ignored-files &amp;#34;manifest.json&amp;#34;) tags ファイルは昔は使っていたけど、最近は dumb-jump が優秀なのと、面倒で使ってないのでそろそろ gems.tags と project.tags は不要かもしれない。
+ivy/counsel との連携 上の方で helm との連携処理を入れていたが今は大体 ivy に乗り換えているので ivy 連携もしている。</description>
+    </item>
+    
+    <item>
       <title>savehist</title>
       <link>https://mugijiru.github.io/.emacs.d/basics/savehist/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
