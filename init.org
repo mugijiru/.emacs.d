@@ -1574,6 +1574,24 @@
      Node.js と連携してステップ実行とかができるようになるらしい。
      便利そう。
 
+** markdown
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: markdown
+   :END:
+
+*** 概要
+    Markdown を書くための設定。
+    といいつつ markdown-mode を入れてるだけだけども。
+
+    手元でテキストドキュメントを弄るのは org-mode が多いからなあ……
+
+*** インストール
+    いつも通り el-get で入れている。
+
+    #+begin_src emacs-lisp :tangle inits/40-markdown.el
+    (el-get-bundle markdown-mode)
+    #+end_src
+
 ** plantuml-mode
    :PROPERTIES:
    :EXPORT_FILE_NAME: plantuml-mode
@@ -2360,12 +2378,6 @@
 
    #+begin_src emacs-lisp :tangle inits/40-gnuplot.el
    (el-get-bundle gnuplot-mode)
-   #+end_src
-
-** 40-markdown.el
-
-   #+begin_src emacs-lisp :tangle inits/40-markdown.el
-   (el-get-bundle markdown-mode)
    #+end_src
 
 ** 40-ruby.el
