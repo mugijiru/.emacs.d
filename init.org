@@ -1482,6 +1482,7 @@
    ここでは各言語毎の設定をまとめている
 
    - [[*plantuml-mode][plantuml-mode]] :: PlantUML を書く時のメジャーモードの設定
+   - [[*es6][es6]] :: ES2015 以降の JS に関する設定。es6 としているのは過去の経緯のため。
    - [[*yaml-mode][yaml-mode]] :: YAML を書く時のメジャーモードの設定
 
 ** es6
