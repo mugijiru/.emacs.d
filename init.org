@@ -706,6 +706,7 @@
    - [[*highlight-indent-guides][highlight-indent-guides]] :: インデント毎にラインを引いたりして見易くしてくれるやつ
    - [[*Neotree][Neotree]] :: フォルダ構造を IDE みたいにツリー表示するやつ
    - [[*posframe][posframe]] :: いい感じの位置に child frame を表示する機能を提供するやつ
+   - [[*show-paren-mode][show-paren-mode]] :: 対応するカッコとコッカをハイライトしてくれたりするやつ
    - [[*toolbar][toolbar]] :: Emacs 標準のボタンなどの UI 部分の設定
    - [[*uniquify][uniquify]] :: 同名ファイルを開いている時にどこのファイルかまで表示してくれるやつ
    - [[*yascroll][yascroll]] :: 主張の大人しいスクロールバーを表示してくれるやつ
