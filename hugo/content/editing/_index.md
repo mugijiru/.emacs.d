@@ -19,3 +19,6 @@ disableToc = true
 
 [undo-fu]({{< relref "undo-fu" >}})
 : シンプルな undo/redo の機能を提供してくれるやつ
+
+[yasnippet]({{< relref "yasnippet" >}})
+: テンプレート挿入機能を提供してくれるやつ
