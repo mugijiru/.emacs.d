@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>外部連携ツール設定 :: 麦汁&#39;s Emacs Config</title>
+    <title>yasnippet :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624795455" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/external-tool/">
+  <body class="" data-url="/.emacs.d/editing/yasnippet/">
     <nav id="sidebar" class="">
 
 
@@ -325,7 +325,7 @@
   
     
     <li data-nav-id="/.emacs.d/editing/" title="ファイル編集/入力補助" class="dd-item
-        
+        parent
         
         
         ">
@@ -435,7 +435,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/editing/yasnippet/" title="yasnippet" class="dd-item ">
+      <li data-nav-id="/.emacs.d/editing/yasnippet/" title="yasnippet" class="dd-item active">
         <a href="/.emacs.d/editing/yasnippet/">
         yasnippet
         
@@ -1083,8 +1083,8 @@
   
     
     <li data-nav-id="/.emacs.d/external-tool/" title="外部連携ツール設定" class="dd-item
-        parent
-        active
+        
+        
         
         ">
       <a href="/.emacs.d/external-tool/">
@@ -1353,6 +1353,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -1363,7 +1365,13 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > 外部連携ツール設定
+            
+            
+          
+          
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/editing/'>ファイル編集/入力補助</a> > yasnippet
+          
+        
           
         
           
@@ -1371,6 +1379,21 @@
                  
                   </span>
                 </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#インストール">インストール</a></li>
+    <li><a href="#有効化">有効化</a></li>
+    <li><a href="#キーバインド">キーバインド</a></li>
+    <li><a href="#その他">その他</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
                 
               </div>
             </div>
@@ -1383,25 +1406,76 @@
           
             <h1>
               
-              外部連携ツール設定
+              yasnippet
             </h1>
           
 
         
 
 
+<h2 id="概要">概要</h2>
+<p><a href="https://github.com/joaotavora/yasnippet">yasnippet</a> はテンプレートを挿入する機能を持ったパッケージ。
+Emacs でそこそこ何かを書いている人なら大体知ってるような有名なやつだと思う。</p>
+<h2 id="インストール">インストール</h2>
+<p>いつも通り el-get でインストール</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle yasnippet)
+</code></pre></div><h2 id="有効化">有効化</h2>
+<p>どこでも使いたいぐらい便利なやつなので global に有効化している</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(yas-global-mode <span style="color:#ae81ff">1</span>)
+</code></pre></div><h2 id="キーバインド">キーバインド</h2>
+<p>基本的に覚えられないので Hydra を使って定義している</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
+  (pretty-hydra-define
+    yasnippet-hydra (:separator <span style="color:#e6db74">&#34;-&#34;</span> :title <span style="color:#e6db74">&#34;Yasnippet&#34;</span> :foreign-key <span style="color:#a6e22e">warn</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :exit <span style="color:#66d9ef">t</span>)
+    (<span style="color:#e6db74">&#34;Edit&#34;</span>
+     ((<span style="color:#e6db74">&#34;n&#34;</span> yas-new-snippet        <span style="color:#e6db74">&#34;New&#34;</span>)
+      (<span style="color:#e6db74">&#34;v&#34;</span> yas-visit-snippet-file <span style="color:#e6db74">&#34;Visit&#34;</span>))
 
-	<p>ここでは外部のサービスと連携するようなやつをまとめています</p>
-<dl>
-<dt><a href="/.emacs.d/external-tool/google-translate/">google-translate</a></dt>
-<dd>Emacs から Google 翻訳するためのパッケージ</dd>
-</dl>
+     <span style="color:#e6db74">&#34;Other&#34;</span>
+     ((<span style="color:#e6db74">&#34;i&#34;</span> yas-insert-snippet  <span style="color:#e6db74">&#34;Insert&#34;</span>)
+      (<span style="color:#e6db74">&#34;l&#34;</span> yas-describe-tables <span style="color:#e6db74">&#34;List&#34;</span>)
+      (<span style="color:#e6db74">&#34;r&#34;</span> yas-reload-all      <span style="color:#e6db74">&#34;Reload all&#34;</span>)))))
+</code></pre></div><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>n</td>
+<td>現在のメジャーモード用に新しい snippet を作る</td>
+</tr>
+<tr>
+<td>v</td>
+<td>現在のメジャーモードの登録済 snippet ファイルを開く</td>
+</tr>
+<tr>
+<td>i</td>
+<td>snippet の挿入。選択は ivy で行われる。</td>
+</tr>
+<tr>
+<td>l</td>
+<td>現在のメジャーモードの登録済 snippet の一覧表示</td>
+</tr>
+<tr>
+<td>r</td>
+<td>snippet を全部 load し直す</td>
+</tr>
+</tbody>
+</table>
+<h2 id="その他">その他</h2>
+<p>実は、どういう snippet があれば便利なのかよくわかってなくて
+snippet をほとんど登録してない。</p>
+<p><a href="https://github.com/AndreaCrotti/yasnippet-snippets">yasnippet-snippets</a> などのよくある snippet 集は、そんなの省略形をまず覚えられないだろと思っている。
+ivy で選択可能なので省略形は長くていいので中身がわかりやすい方が良い。</p>
+<p>また導入はしてないが <a href="https://github.com/mkcms/ivy-yasnippet">ivy-yasnippet</a> を入れるとさらにそのあたりがやりやすくなるんじゃないかと思う。</p>
+<p>それから company-yasnippet で補完できるようにしているとより良いかもれない。</p>
+<p>とはいえ snippet を充実させてない今だとどうにもイマイチそのあたりを充実させる気力がない</p>
 
 
-
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -1599,6 +1673,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1611,6 +1686,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1676,6 +1754,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1686,35 +1765,6 @@
                     
             
         
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
             
         
@@ -1724,21 +1774,8 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
+                        
                     
                 
                 
@@ -1747,9 +1784,6 @@
                     
                     
 
-                    
-            
-        
                     
                         
             
@@ -1910,38 +1944,6 @@
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
                         
             
@@ -2119,6 +2121,19 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
             
         
                     
@@ -2127,6 +2142,40 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -2141,8 +2190,37 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
                         
+            
+            
+                
                     
                 
                 
@@ -2279,10 +2357,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/framework-config/ember-js/" title="Ember.js"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/editing/undo-fu/" title="undo-fu"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/external-tool/google-translate/" title="google-translate" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/ui/" title="UI" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -2314,3 +2392,4 @@
 
   </body>
 </html>
+

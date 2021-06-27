@@ -53,7 +53,7 @@
 	"title": "ファイル編集/入力補助",
 	"tags": [],
 	"description": "",
-	"content": "ここにはファイル編集や入力補助の設定をまとめている\n auto-insert ファイル新規作成時にテンプレートを挿入する機能 company-mode プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ smartparens カッコや引用符などのペアになるやつの入力補助をしてくれるやつ undo-fu シンプルな undo/redo の機能を提供してくれるやつ  "
+	"content": "ここにはファイル編集や入力補助の設定をまとめている\n auto-insert ファイル新規作成時にテンプレートを挿入する機能 company-mode プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ smartparens カッコや引用符などのペアになるやつの入力補助をしてくれるやつ undo-fu シンプルな undo/redo の機能を提供してくれるやつ yasnippet テンプレート挿入機能を提供してくれるやつ  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/ui/",
@@ -369,6 +369,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 yascroll は標準のスクロールバーとは異なるスクロールバーを表示するやつ。\nデフォルトだと右側の fringe 領域に表示するのであまり邪魔にならないし表示領域を必要以上に狭めないので気に入っている。\n最初に作られたっぽい記事は 主張しないスクロールバーモード、yascroll.elをリリースしました - Functional Emacser にある。タイトル通り、あまり主張しない感じで良い。\nインストール いつも通り el-get でインストールしている\n(el-get-bundle yascroll) これだけで大体いい感じに表示されるので便利。たまに表示されなくなることもあるが、まあそこまで重要なやつでもないのであまり気にしていない\n"
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/editing/yasnippet/",
+	"title": "yasnippet",
+	"tags": [],
+	"description": "",
+	"content": "概要 yasnippet はテンプレートを挿入する機能を持ったパッケージ。 Emacs でそこそこ何かを書いている人なら大体知ってるような有名なやつだと思う。\nインストール いつも通り el-get でインストール\n(el-get-bundle yasnippet) 有効化 どこでも使いたいぐらい便利なやつなので global に有効化している\n(yas-global-mode 1) キーバインド 基本的に覚えられないので Hydra を使って定義している\n(with-eval-after-load \u0026#39;pretty-hydra (pretty-hydra-define yasnippet-hydra (:separator \u0026#34;-\u0026#34; :title \u0026#34;Yasnippet\u0026#34; :foreign-key warn :quit-key \u0026#34;q\u0026#34; :exit t) (\u0026#34;Edit\u0026#34; ((\u0026#34;n\u0026#34; yas-new-snippet \u0026#34;New\u0026#34;) (\u0026#34;v\u0026#34; yas-visit-snippet-file \u0026#34;Visit\u0026#34;)) \u0026#34;Other\u0026#34; ((\u0026#34;i\u0026#34; yas-insert-snippet \u0026#34;Insert\u0026#34;) (\u0026#34;l\u0026#34; yas-describe-tables \u0026#34;List\u0026#34;) (\u0026#34;r\u0026#34; yas-reload-all \u0026#34;Reload all\u0026#34;)))))    Key 効果     n 現在のメジャーモード用に新しい snippet を作る   v 現在のメジャーモードの登録済 snippet ファイルを開く   i snippet の挿入。選択は ivy で行われる。   l 現在のメジャーモードの登録済 snippet の一覧表示   r snippet を全部 load し直す    その他 実は、どういう snippet があれば便利なのかよくわかってなくて snippet をほとんど登録してない。\nyasnippet-snippets などのよくある snippet 集は、そんなの省略形をまず覚えられないだろと思っている。 ivy で選択可能なので省略形は長くていいので中身がわかりやすい方が良い。\nまた導入はしてないが ivy-yasnippet を入れるとさらにそのあたりがやりやすくなるんじゃないかと思う。\nそれから company-yasnippet で補完できるようにしているとより良いかもれない。\nとはいえ snippet を充実させてない今だとどうにもイマイチそのあたりを充実させる気力がない\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/ui/zoom/",

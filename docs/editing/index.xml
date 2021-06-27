@@ -60,5 +60,18 @@ strict モードだとペアが崩れないように強制するので雑に C-k
    Key 効果     C-/ undo   C-M-/ redo    </description>
     </item>
     
+    <item>
+      <title>yasnippet</title>
+      <link>https://mugijiru.github.io/.emacs.d/editing/yasnippet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/editing/yasnippet/</guid>
+      <description>概要 yasnippet はテンプレートを挿入する機能を持ったパッケージ。 Emacs でそこそこ何かを書いている人なら大体知ってるような有名なやつだと思う。
+インストール いつも通り el-get でインストール
+(el-get-bundle yasnippet) 有効化 どこでも使いたいぐらい便利なやつなので global に有効化している
+(yas-global-mode 1) キーバインド 基本的に覚えられないので Hydra を使って定義している
+(with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define yasnippet-hydra (:separator &amp;#34;-&amp;#34; :title &amp;#34;Yasnippet&amp;#34; :foreign-key warn :quit-key &amp;#34;q&amp;#34; :exit t) (&amp;#34;Edit&amp;#34; ((&amp;#34;n&amp;#34; yas-new-snippet &amp;#34;New&amp;#34;) (&amp;#34;v&amp;#34; yas-visit-snippet-file &amp;#34;Visit&amp;#34;)) &amp;#34;Other&amp;#34; ((&amp;#34;i&amp;#34; yas-insert-snippet &amp;#34;Insert&amp;#34;) (&amp;#34;l&amp;#34; yas-describe-tables &amp;#34;List&amp;#34;) (&amp;#34;r&amp;#34; yas-reload-all &amp;#34;Reload all&amp;#34;)))))    Key 効果     n 現在のメジャーモード用に新しい snippet を作る   v 現在のメジャーモードの登録済 snippet ファイルを開く   i snippet の挿入。選択は ivy で行われる。   l 現在のメジャーモードの登録済 snippet の一覧表示   r snippet を全部 load し直す    その他 実は、どういう snippet があれば便利なのかよくわかってなくて snippet をほとんど登録してない。</description>
+    </item>
+    
   </channel>
 </rss>
