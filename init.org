@@ -1934,7 +1934,6 @@
    :PROPERTIES:
    :EXPORT_FILE_NAME: forge
    :END:
-
 *** 概要
     [[https://github.com/magit/forge][forge]] は magit と github を連携させるやつ。
     一応入れているけど実は使えてないのであまりこの設定を呼んでも意味はなさそう
