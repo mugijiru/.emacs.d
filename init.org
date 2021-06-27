@@ -1484,6 +1484,95 @@
    - [[*plantuml-mode][plantuml-mode]] :: PlantUML を書く時のメジャーモードの設定
    - [[*yaml-mode][yaml-mode]] :: YAML を書く時のメジャーモードの設定
 
+** es6
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: es6
+   :END:
+
+*** 概要
+    ES5 以前ではない JS を書くための設定。
+    es6 といいつつ ES2016(ES7) などもこの設定のまま書いている。
+
+    [[https://github.com/TannerRogalsky/sprockets-es6][sprockets-es6]] を使って ES6 対応をしていた時に
+    es6 という拡張子を使っていたのでこのファイル名になっている。
+
+*** インストール
+    es6 はつまり JS なのでとりあえず el-get で js2-mode を入れている。
+
+    #+begin_src emacs-lisp :tangle inits/40-es6.el
+    (el-get-bundle js2-mode)
+    #+end_src
+
+*** Hook
+
+    - flycheck を有効にしてリアルタイムに文法チェックをしている
+      - また ~javascript-eslint~ を使いたいので他2つは disable にしている
+    - company-mode で補完できるようにしている
+    - smartparens-strict-mode でカッコなどの入力補助をしている
+    - インデントは空白2文字としている
+
+    #+begin_src emacs-lisp :tangle inits/40-es6.el
+    (defun my/js2-mode-hook ()
+      (flycheck-mode 1)
+      (setq flycheck-disabled-checkers '(javascript-standard javascript-jshint))
+
+      (company-mode 1)
+      (turn-on-smartparens-strict-mode)
+
+      (setq js2-basic-offset 2))
+    #+end_src
+
+    という Hook 用関数を用意しておいて
+
+    #+begin_src emacs-lisp :tangle inits/40-es6.el
+    (add-hook 'js2-mode-hook 'my/js2-mode-hook)
+    #+end_src
+
+    という感じで js2-mode-hook に追加している。
+
+    Lambda で一括でやる方法もあるけども、
+    関数名つけて分離しておくと中身を簡単に入れ替えられて便利。
+
+*** es6 を js2-mode で扱うようにする
+
+    #+begin_src emacs-lisp :tangle inits/40-es6.el
+    (add-to-list 'auto-mode-alist '("\\.es6$" . js2-mode))
+    #+end_src
+
+*** 他に気になるツール
+
+**** xref-js2
+     https://github.com/js-emacs/xref-js2
+
+     コード間の移動が楽になるかもしれない。
+     けど dumb-jump があるから別に要らない気もする
+
+**** js2-refactor
+     https://github.com/js-emacs/js2-refactor.el
+
+     リファクタリングツール。
+     キーバインドは覚えるのつらそうだから Hydra を用意する必要がありそう。
+
+**** skewer-mode
+     https://github.com/skeeto/skewer-mode
+
+     Web ブラウザと連携して JS の評価をしたりとかしてくれたり
+     一部の変更を反映してくれたりするらしい。
+
+     保存したら自動リロードされる環境はともかく
+     そうじゃない環境だと楽かもしねあい。
+
+**** js-import
+     https://github.com/jakoblind/js-import
+
+     import を書くのを楽にしてくれるっぽい。
+
+**** indium
+     https://github.com/NicolasPetton/indium
+
+     Node.js と連携してステップ実行とかができるようになるらしい。
+     便利そう。
+
 ** plantuml-mode
    :PROPERTIES:
    :EXPORT_FILE_NAME: plantuml-mode
@@ -2264,22 +2353,6 @@
          ("@m" (my/insert-all-the-icons-code 'material)   "Material")
          ("@o" (my/insert-all-the-icons-code 'octicon)    "Octicon")
          ("@w" (my/insert-all-the-icons-code 'wicon)      "Weather")))))
-   #+end_src
-
-** 40-es6.el
-
-   #+begin_src emacs-lisp :tangle inits/40-es6.el
-   (el-get-bundle js2-mode)
-   (defun my/js2-mode-hook ()
-     (flycheck-mode 1)
-     (setq flycheck-disabled-checkers '(javascript-standard javascript-jshint))
-
-     (company-mode 1)
-     (turn-on-smartparens-strict-mode)
-
-     (setq js2-basic-offset 2))
-   (add-to-list 'auto-mode-alist '("\\.es6$" . js2-mode))
-   (add-hook 'js2-mode-hook 'my/js2-mode-hook)
    #+end_src
 
 ** 40-gnuplot.el
