@@ -706,6 +706,7 @@
    - [[*highlight-indent-guides][highlight-indent-guides]] :: インデント毎にラインを引いたりして見易くしてくれるやつ
    - [[*Neotree][Neotree]] :: フォルダ構造を IDE みたいにツリー表示するやつ
    - [[*posframe][posframe]] :: いい感じの位置に child frame を表示する機能を提供するやつ
+   - [[*show-paren-mode][show-paren-mode]] :: 対応するカッコとコッカをハイライトしてくれたりするやつ
    - [[*toolbar][toolbar]] :: Emacs 標準のボタンなどの UI 部分の設定
    - [[*uniquify][uniquify]] :: 同名ファイルを開いている時にどこのファイルかまで表示してくれるやつ
    - [[*yascroll][yascroll]] :: 主張の大人しいスクロールバーを表示してくれるやつ
@@ -1114,6 +1115,36 @@
     というか設定項目自体2個しか存在していない。
 
     ま、こいつ単体で使うものでもないしね。
+
+** show-paren-mode
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: show-paren-mode
+   :END:
+
+*** 概要
+    [[https://www.emacswiki.org/emacs/ShowParenMode][show-paren-mode]] は Emacs に標準で入っているやつで
+    開き括弧と閉じ括弧の対応を示してくれたり
+    括弧の中身を強調表示したりする機能を提供してくれるやつ。
+
+*** 有効化
+    デフォで入ってるので以下のようにするだけで有効化される。
+
+    #+begin_src emacs-lisp :tangle inits/30-show-paren.el
+    (show-paren-mode 1)
+    #+end_src
+
+    デフォ設定だと対応する括弧を強調表示するだけだけど
+    まあそれで悪くないと思ってるので今のところデフォルト設定のままである。
+
+*** その他
+    http://syohex.hatenablog.com/entry/20110331/1301584188
+
+    の記事へのリンクを設定ファイルの中に残していたけど
+    設定は特に弄ってないので
+    またその記事読んだりで設定弄ってみてもいいかもしれない。
+
+    また smartparens.el にも似た機能はあるようだけど
+    Emacs 標準機能の方が軽そうなのでとりあえずこのままにするつもり。
 
 ** toolbar
    :PROPERTIES:
@@ -2253,12 +2284,6 @@
 
         "Other"
         (("p" (counsel-projectile-switch-project 'neotree-dir) "Switch Project")))))
-   #+end_src
-
-** 30-show-paren.el
-
-   #+begin_src emacs-lisp :tangle inits/30-show-paren.el
-   (show-paren-mode 1) ;; http://syohex.hatenablog.com/entry/20110331/1301584188
    #+end_src
 
 ** 30-skk.el

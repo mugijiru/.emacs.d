@@ -32,6 +32,9 @@ disableToc = true
 [posframe]({{< relref "posframe" >}})
 : いい感じの位置に child frame を表示する機能を提供するやつ
 
+[show-paren-mode]({{< relref "show-paren-mode" >}})
+: 対応するカッコとコッカをハイライトしてくれたりするやつ
+
 [toolbar]({{< relref "toolbar" >}})
 : Emacs 標準のボタンなどの UI 部分の設定
 
