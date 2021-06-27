@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>zoom :: 麦汁&#39;s Emacs Config</title>
+    <title>es6 :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624766350" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/ui/zoom/">
+  <body class="" data-url="/.emacs.d/language-config/es6/">
     <nav id="sidebar" class="">
 
 
@@ -443,7 +443,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        parent
+        
         
         
         ">
@@ -700,7 +700,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/zoom/" title="zoom" class="dd-item active">
+      <li data-nav-id="/.emacs.d/ui/zoom/" title="zoom" class="dd-item ">
         <a href="/.emacs.d/ui/zoom/">
         zoom
         
@@ -868,7 +868,7 @@
   
     
     <li data-nav-id="/.emacs.d/language-config/" title="言語毎の設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -894,7 +894,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/language-config/es6/" title="es6" class="dd-item ">
+      <li data-nav-id="/.emacs.d/language-config/es6/" title="es6" class="dd-item active">
         <a href="/.emacs.d/language-config/es6/">
         es6
         
@@ -1306,7 +1306,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > zoom
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/language-config/'>言語毎の設定</a> > es6
           
         
           
@@ -1323,7 +1323,17 @@
   <ul>
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
-    <li><a href="#設定">設定</a></li>
+    <li><a href="#hook">Hook</a></li>
+    <li><a href="#es6-を-js2-mode-で扱うようにする">es6 を js2-mode で扱うようにする</a></li>
+    <li><a href="#他に気になるツール">他に気になるツール</a>
+      <ul>
+        <li><a href="#xref-js2">xref-js2</a></li>
+        <li><a href="#js2-refactor">js2-refactor</a></li>
+        <li><a href="#skewer-mode">skewer-mode</a></li>
+        <li><a href="#js-import">js-import</a></li>
+        <li><a href="#indium">indium</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -1341,7 +1351,7 @@
           
             <h1>
               
-              zoom
+              es6
             </h1>
           
 
@@ -1349,24 +1359,57 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/cyrus-and/zoom">zoom</a> はフォーカスが当たっている Window が大きく表示されるようにするやつ。最近流行りのビデオチャットツールではない。</p>
-<p>どこにフォーカスが当たっているかわかりやすくなるし、狭い画面でも見たい部分を広げて表示できるので便利。</p>
+<p>ES5 以前ではない JS を書くための設定。
+es6 といいつつ ES2016(ES7) などもこの設定のまま書いている。</p>
+<p><a href="https://github.com/TannerRogalsky/sprockets-es6">sprockets-es6</a> を使って ES6 対応をしていた時に
+es6 という拡張子を使っていたのでこのファイル名になっている。</p>
 <h2 id="インストール">インストール</h2>
-<p>いつも通り el-get から入れる。
-GitHub から直接取得するように設定している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle cyrus-and/zoom)
-</code></pre></div><h2 id="設定">設定</h2>
-<dl>
-<dt>起動時に有効化</dt>
-<dd>1画面しか使えない時は必須なので</dd>
-<dt>比率を黄金比に変更</dt>
-<dd>この方が使いやすいっぽい。</dd>
-</dl>
-<p>という設定をしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(custom-set-variables
- <span style="color:#f92672">&#39;</span>(zoom-mode <span style="color:#66d9ef">t</span>)
- <span style="color:#f92672">&#39;</span>(zoom-size <span style="color:#f92672">&#39;</span>(<span style="color:#ae81ff">0.618</span> <span style="color:#f92672">.</span> <span style="color:#ae81ff">0.618</span>)))
-</code></pre></div>
+<p>es6 はつまり JS なのでとりあえず el-get で js2-mode を入れている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle js2-mode)
+</code></pre></div><h2 id="hook">Hook</h2>
+<ul>
+<li>flycheck を有効にしてリアルタイムに文法チェックをしている
+<ul>
+<li>また <code>javascript-eslint</code> を使いたいので他2つは disable にしている</li>
+</ul>
+</li>
+<li>company-mode で補完できるようにしている</li>
+<li>smartparens-strict-mode でカッコなどの入力補助をしている</li>
+<li>インデントは空白2文字としている</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/js2-mode-hook ()
+  (flycheck-mode <span style="color:#ae81ff">1</span>)
+  (setq flycheck-disabled-checkers <span style="color:#f92672">&#39;</span>(javascript-standard javascript-jshint))
+
+  (company-mode <span style="color:#ae81ff">1</span>)
+  (turn-on-smartparens-strict-mode)
+
+  (setq js2-basic-offset <span style="color:#ae81ff">2</span>))
+</code></pre></div><p>という Hook 用関数を用意しておいて</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-hook <span style="color:#e6db74">&#39;js2-mode-hook</span> <span style="color:#e6db74">&#39;my/js2-mode-hook</span>)
+</code></pre></div><p>という感じで js2-mode-hook に追加している。</p>
+<p>Lambda で一括でやる方法もあるけども、関数名つけて分離しておくと中身を簡単に入れ替えられて便利。</p>
+<h2 id="es6-を-js2-mode-で扱うようにする">es6 を js2-mode で扱うようにする</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-to-list <span style="color:#e6db74">&#39;auto-mode-alist</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;\\.es6$&#34;</span> <span style="color:#f92672">.</span> js2-mode))
+</code></pre></div><h2 id="他に気になるツール">他に気になるツール</h2>
+<h3 id="xref-js2">xref-js2</h3>
+<p><a href="https://github.com/js-emacs/xref-js2">https://github.com/js-emacs/xref-js2</a></p>
+<p>コード間の移動が楽になるかもしれない。けど dumb-jump があるから別に要らない気もする</p>
+<h3 id="js2-refactor">js2-refactor</h3>
+<p><a href="https://github.com/js-emacs/js2-refactor.el">https://github.com/js-emacs/js2-refactor.el</a></p>
+<p>リファクタリングツール。キーバインドは覚えるのつらそうだから Hydra を用意する必要がありそう。</p>
+<h3 id="skewer-mode">skewer-mode</h3>
+<p><a href="https://github.com/skeeto/skewer-mode">https://github.com/skeeto/skewer-mode</a></p>
+<p>Web ブラウザと連携して JS の評価をしたりとかしてくれたり一部の変更を反映してくれたりするらしい。</p>
+<p>保存したら自動リロードされる環境はともかくそうじゃない環境だと楽かもしねあい。</p>
+<h3 id="js-import">js-import</h3>
+<p><a href="https://github.com/jakoblind/js-import">https://github.com/jakoblind/js-import</a></p>
+<p>import を書くのを楽にしてくれるっぽい。</p>
+<h3 id="indium">indium</h3>
+<p><a href="https://github.com/NicolasPetton/indium">https://github.com/NicolasPetton/indium</a></p>
+<p>Node.js と連携してステップ実行とかができるようになるらしい。便利そう。</p>
+
 
 <footer class="footline">
 	
@@ -1646,7 +1689,6 @@ GitHub から直接取得するように設定している。</p>
             
                 
                     
-                    
                 
                 
 
@@ -1660,8 +1702,69 @@ GitHub から直接取得するように設定している。</p>
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1802,74 +1905,6 @@ GitHub から直接取得するように設定している。</p>
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -1958,6 +1993,7 @@ GitHub から直接取得するように設定している。</p>
             
                 
                     
+                    
                 
                 
 
@@ -1970,6 +2006,7 @@ GitHub から直接取得するように設定している。</p>
             
             
                 
+                    
                     
                 
                 
@@ -1986,6 +2023,9 @@ GitHub から直接取得するように設定している。</p>
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -2202,10 +2242,10 @@ GitHub から直接取得するように設定している。</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/ui/yascroll/" title="yascroll"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/language-config/" title="言語毎の設定"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/ui/zoom-window/" title="zoom-window" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/language-config/plantuml-mode/" title="plantuml-mode" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

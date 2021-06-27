@@ -74,7 +74,7 @@
 	"title": "言語毎の設定",
 	"tags": [],
 	"description": "",
-	"content": "ここでは各言語毎の設定をまとめている\n plantuml-mode PlantUML を書く時のメジャーモードの設定 yaml-mode YAML を書く時のメジャーモードの設定  "
+	"content": "ここでは各言語毎の設定をまとめている\n plantuml-mode PlantUML を書く時のメジャーモードの設定 es6 ES2015 以降の JS に関する設定。es6 としているのは過去の経緯のため。 yaml-mode YAML を書く時のメジャーモードの設定  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/framework-config/",
@@ -180,6 +180,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 Ember.js 用の Emacs の拡張としては ember-mode と handlebars-mode が存在する\nember-mode ember-mode は Ember.js アプリケーションのファイルナビゲーションや生成を行ってくれるモード。実は麦汁さんは使えてない。\nインストールするだけではダメで、 ember-mode を明示的に起動しないといけない。\nそのためには dir-locals を使うとか projectile なんかがやってるようにフォルダ構成から判定させるみたいなことが必要そう。だるい。\nというわけで死蔵中。\nついでにいうとキーバインドもだるい系なので使う時は Hydra を用意した方が良さそう\n(el-get-bundle madnificent/ember-mode) handlebars-mode handlebars-mode は Ember.js のテンプレートエンジンとして採用されている Handlebars を書くためのモード。\nsyntax highlight と、いくつかの編集機能を備えている。が、今のところ麦汁さんは syntax highlight しか使えてない。\n編集コマンドは major-mode-hydra で使えるようにしてあげれば良さそう\n(el-get-bundle handlebars-mode) "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/language-config/es6/",
+	"title": "es6",
+	"tags": [],
+	"description": "",
+	"content": "概要 ES5 以前ではない JS を書くための設定。 es6 といいつつ ES2016(ES7) などもこの設定のまま書いている。\nsprockets-es6 を使って ES6 対応をしていた時に es6 という拡張子を使っていたのでこのファイル名になっている。\nインストール es6 はつまり JS なのでとりあえず el-get で js2-mode を入れている。\n(el-get-bundle js2-mode) Hook  flycheck を有効にしてリアルタイムに文法チェックをしている  また javascript-eslint を使いたいので他2つは disable にしている   company-mode で補完できるようにしている smartparens-strict-mode でカッコなどの入力補助をしている インデントは空白2文字としている   (defun my/js2-mode-hook () (flycheck-mode 1) (setq flycheck-disabled-checkers \u0026#39;(javascript-standard javascript-jshint)) (company-mode 1) (turn-on-smartparens-strict-mode) (setq js2-basic-offset 2)) という Hook 用関数を用意しておいて\n(add-hook \u0026#39;js2-mode-hook \u0026#39;my/js2-mode-hook) という感じで js2-mode-hook に追加している。\nLambda で一括でやる方法もあるけども、関数名つけて分離しておくと中身を簡単に入れ替えられて便利。\nes6 を js2-mode で扱うようにする (add-to-list \u0026#39;auto-mode-alist \u0026#39;(\u0026#34;\\\\.es6$\u0026#34; . js2-mode)) 他に気になるツール xref-js2 https://github.com/js-emacs/xref-js2\nコード間の移動が楽になるかもしれない。けど dumb-jump があるから別に要らない気もする\njs2-refactor https://github.com/js-emacs/js2-refactor.el\nリファクタリングツール。キーバインドは覚えるのつらそうだから Hydra を用意する必要がありそう。\nskewer-mode https://github.com/skeeto/skewer-mode\nWeb ブラウザと連携して JS の評価をしたりとかしてくれたり一部の変更を反映してくれたりするらしい。\n保存したら自動リロードされる環境はともかくそうじゃない環境だと楽かもしねあい。\njs-import https://github.com/jakoblind/js-import\nimport を書くのを楽にしてくれるっぽい。\nindium https://github.com/NicolasPetton/indium\nNode.js と連携してステップ実行とかができるようになるらしい。便利そう。\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/basics/exec-path/",
