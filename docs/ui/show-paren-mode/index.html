@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>es6 :: 麦汁&#39;s Emacs Config</title>
+    <title>show-paren-mode :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624793947" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/language-config/es6/">
+  <body class="" data-url="/.emacs.d/ui/show-paren-mode/">
     <nav id="sidebar" class="">
 
 
@@ -443,7 +443,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        
+        parent
         
         
         ">
@@ -637,7 +637,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/show-paren-mode/" title="show-paren-mode" class="dd-item ">
+      <li data-nav-id="/.emacs.d/ui/show-paren-mode/" title="show-paren-mode" class="dd-item active">
         <a href="/.emacs.d/ui/show-paren-mode/">
         show-paren-mode
         
@@ -889,7 +889,7 @@
   
     
     <li data-nav-id="/.emacs.d/language-config/" title="言語毎の設定" class="dd-item
-        parent
+        
         
         
         ">
@@ -915,7 +915,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/language-config/es6/" title="es6" class="dd-item active">
+      <li data-nav-id="/.emacs.d/language-config/es6/" title="es6" class="dd-item ">
         <a href="/.emacs.d/language-config/es6/">
         es6
         
@@ -1348,7 +1348,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/language-config/'>言語毎の設定</a> > es6
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > show-paren-mode
           
         
           
@@ -1364,18 +1364,8 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#インストール">インストール</a></li>
-    <li><a href="#hook">Hook</a></li>
-    <li><a href="#es6-を-js2-mode-で扱うようにする">es6 を js2-mode で扱うようにする</a></li>
-    <li><a href="#他に気になるツール">他に気になるツール</a>
-      <ul>
-        <li><a href="#xref-js2">xref-js2</a></li>
-        <li><a href="#js2-refactor">js2-refactor</a></li>
-        <li><a href="#skewer-mode">skewer-mode</a></li>
-        <li><a href="#js-import">js-import</a></li>
-        <li><a href="#indium">indium</a></li>
-      </ul>
-    </li>
+    <li><a href="#有効化">有効化</a></li>
+    <li><a href="#その他">その他</a></li>
   </ul>
 </nav>
     </div>
@@ -1393,7 +1383,7 @@
           
             <h1>
               
-              es6
+              show-paren-mode
             </h1>
           
 
@@ -1401,56 +1391,16 @@
 
 
 <h2 id="概要">概要</h2>
-<p>ES5 以前ではない JS を書くための設定。
-es6 といいつつ ES2016(ES7) などもこの設定のまま書いている。</p>
-<p><a href="https://github.com/TannerRogalsky/sprockets-es6">sprockets-es6</a> を使って ES6 対応をしていた時に
-es6 という拡張子を使っていたのでこのファイル名になっている。</p>
-<h2 id="インストール">インストール</h2>
-<p>es6 はつまり JS なのでとりあえず el-get で js2-mode を入れている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle js2-mode)
-</code></pre></div><h2 id="hook">Hook</h2>
-<ul>
-<li>flycheck を有効にしてリアルタイムに文法チェックをしている
-<ul>
-<li>また <code>javascript-eslint</code> を使いたいので他2つは disable にしている</li>
-</ul>
-</li>
-<li>company-mode で補完できるようにしている</li>
-<li>smartparens-strict-mode でカッコなどの入力補助をしている</li>
-<li>インデントは空白2文字としている</li>
-</ul>
-<!--listend-->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/js2-mode-hook ()
-  (flycheck-mode <span style="color:#ae81ff">1</span>)
-  (setq flycheck-disabled-checkers <span style="color:#f92672">&#39;</span>(javascript-standard javascript-jshint))
-
-  (company-mode <span style="color:#ae81ff">1</span>)
-  (turn-on-smartparens-strict-mode)
-
-  (setq js2-basic-offset <span style="color:#ae81ff">2</span>))
-</code></pre></div><p>という Hook 用関数を用意しておいて</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-hook <span style="color:#e6db74">&#39;js2-mode-hook</span> <span style="color:#e6db74">&#39;my/js2-mode-hook</span>)
-</code></pre></div><p>という感じで js2-mode-hook に追加している。</p>
-<p>Lambda で一括でやる方法もあるけども、関数名つけて分離しておくと中身を簡単に入れ替えられて便利。</p>
-<h2 id="es6-を-js2-mode-で扱うようにする">es6 を js2-mode で扱うようにする</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-to-list <span style="color:#e6db74">&#39;auto-mode-alist</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;\\.es6$&#34;</span> <span style="color:#f92672">.</span> js2-mode))
-</code></pre></div><h2 id="他に気になるツール">他に気になるツール</h2>
-<h3 id="xref-js2">xref-js2</h3>
-<p><a href="https://github.com/js-emacs/xref-js2">https://github.com/js-emacs/xref-js2</a></p>
-<p>コード間の移動が楽になるかもしれない。けど dumb-jump があるから別に要らない気もする</p>
-<h3 id="js2-refactor">js2-refactor</h3>
-<p><a href="https://github.com/js-emacs/js2-refactor.el">https://github.com/js-emacs/js2-refactor.el</a></p>
-<p>リファクタリングツール。キーバインドは覚えるのつらそうだから Hydra を用意する必要がありそう。</p>
-<h3 id="skewer-mode">skewer-mode</h3>
-<p><a href="https://github.com/skeeto/skewer-mode">https://github.com/skeeto/skewer-mode</a></p>
-<p>Web ブラウザと連携して JS の評価をしたりとかしてくれたり一部の変更を反映してくれたりするらしい。</p>
-<p>保存したら自動リロードされる環境はともかくそうじゃない環境だと楽かもしねあい。</p>
-<h3 id="js-import">js-import</h3>
-<p><a href="https://github.com/jakoblind/js-import">https://github.com/jakoblind/js-import</a></p>
-<p>import を書くのを楽にしてくれるっぽい。</p>
-<h3 id="indium">indium</h3>
-<p><a href="https://github.com/NicolasPetton/indium">https://github.com/NicolasPetton/indium</a></p>
-<p>Node.js と連携してステップ実行とかができるようになるらしい。便利そう。</p>
+<p><a href="https://www.emacswiki.org/emacs/ShowParenMode">show-paren-mode</a> は Emacs に標準で入っているやつで開き括弧と閉じ括弧の対応を示してくれたり括弧の中身を強調表示したりする機能を提供してくれるやつ。</p>
+<h2 id="有効化">有効化</h2>
+<p>デフォで入ってるので以下のようにするだけで有効化される。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(show-paren-mode <span style="color:#ae81ff">1</span>)
+</code></pre></div><p>デフォ設定だと対応する括弧を強調表示するだけだけどまあそれで悪くないと思ってるので今のところデフォルト設定のままである。</p>
+<h2 id="その他">その他</h2>
+<p><a href="http://syohex.hatenablog.com/entry/20110331/1301584188">http://syohex.hatenablog.com/entry/20110331/1301584188</a></p>
+<p>の記事へのリンクを設定ファイルの中に残していたけど設定は特に弄ってないのでまたその記事読んだりで設定弄ってみてもいいかもしれない。</p>
+<p>また smartparens.el にも似た機能はあるようだけど
+Emacs 標準機能の方が軽そうなのでとりあえずこのままにするつもり。</p>
 
 
 <footer class="footline">
@@ -1731,6 +1681,7 @@ es6 という拡張子を使っていたのでこのファイル名になって�
             
                 
                     
+                    
                 
                 
 
@@ -1743,6 +1694,9 @@ es6 という拡張子を使っていたのでこのファイル名になって�
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1872,6 +1826,26 @@ es6 という拡張子を使っていたのでこのファイル名になって�
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
                 
                 
 
@@ -1947,22 +1921,6 @@ es6 という拡張子を使っていたのでこのファイル名になって�
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -2051,7 +2009,6 @@ es6 という拡張子を使っていたのでこのファイル名になって�
             
                 
                     
-                    
                 
                 
 
@@ -2064,7 +2021,6 @@ es6 という拡張子を使っていたのでこのファイル名になって�
             
             
                 
-                    
                     
                 
                 
@@ -2081,9 +2037,6 @@ es6 という拡張子を使っていたのでこのファイル名になって�
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -2316,10 +2269,10 @@ es6 という拡張子を使っていたのでこのファイル名になって�
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/language-config/" title="言語毎の設定"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/ui/posframe/" title="posframe"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/language-config/markdown/" title="markdown" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/ui/toolbar/" title="toolbar" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

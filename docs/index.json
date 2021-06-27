@@ -60,7 +60,7 @@
 	"title": "UI",
 	"tags": [],
 	"description": "",
-	"content": "ここでは Emacs の UI を変更するようなものを載せている\n alert 共通インターフェースで色々な通知機能と連携して通知するやつ all-the-icons Emacs で様々なアイコンを表示できるようにするやつ git-gutter-fringe 最後のコミットからどう弄ったかを fringe 領域に表示してくれるやつ helm 絞り込みインターフェースを提供するやつ helm-posframe Helm を posframe で使えるようにするやつ highlight-indent-guides インデント毎にラインを引いたりして見易くしてくれるやつ Neotree フォルダ構造を IDE みたいにツリー表示するやつ posframe いい感じの位置に child frame を表示する機能を提供するやつ toolbar Emacs 標準のボタンなどの UI 部分の設定 uniquify 同名ファイルを開いている時にどこのファイルかまで表示してくれるやつ yascroll 主張の大人しいスクロールバーを表示してくれるやつ zoom フォーカスが当たってるウインドウを大きく表示してくれるやつ zoom-window 見ている window を最大化したり戻したりしてくれるやつ  "
+	"content": "ここでは Emacs の UI を変更するようなものを載せている\n alert 共通インターフェースで色々な通知機能と連携して通知するやつ all-the-icons Emacs で様々なアイコンを表示できるようにするやつ git-gutter-fringe 最後のコミットからどう弄ったかを fringe 領域に表示してくれるやつ helm 絞り込みインターフェースを提供するやつ helm-posframe Helm を posframe で使えるようにするやつ highlight-indent-guides インデント毎にラインを引いたりして見易くしてくれるやつ Neotree フォルダ構造を IDE みたいにツリー表示するやつ posframe いい感じの位置に child frame を表示する機能を提供するやつ show-paren-mode 対応するカッコとコッカをハイライトしてくれたりするやつ toolbar Emacs 標準のボタンなどの UI 部分の設定 uniquify 同名ファイルを開いている時にどこのファイルかまで表示してくれるやつ yascroll 主張の大人しいスクロールバーを表示してくれるやつ zoom フォーカスが当たってるウインドウを大きく表示してくれるやつ zoom-window 見ている window を最大化したり戻したりしてくれるやつ  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/nav/",
@@ -299,6 +299,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 Emacs 標準でついている、ミニバッファの履歴などを保存してくれる機能。\n有効化 標準でついているので以下のようにするだけで有効化可能。\n(savehist-mode 1) 設定 標準で保存されるもの以外だと kill-ring だけを保存対象にしている。これで Emacs を終了させても kill-ring は残るようになるはず。だけど最近使えてない気がするな……。検証が必要そう。\n(setq savehist-additional-variables \u0026#39;(kill-ring)) 他にも有効にしたら便利そうなのがあれば追加したい。が、ぱっとは思い付かない。\n"
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/ui/show-paren-mode/",
+	"title": "show-paren-mode",
+	"tags": [],
+	"description": "",
+	"content": "概要 show-paren-mode は Emacs に標準で入っているやつで開き括弧と閉じ括弧の対応を示してくれたり括弧の中身を強調表示したりする機能を提供してくれるやつ。\n有効化 デフォで入ってるので以下のようにするだけで有効化される。\n(show-paren-mode 1) デフォ設定だと対応する括弧を強調表示するだけだけどまあそれで悪くないと思ってるので今のところデフォルト設定のままである。\nその他 http://syohex.hatenablog.com/entry/20110331/1301584188\nの記事へのリンクを設定ファイルの中に残していたけど設定は特に弄ってないのでまたその記事読んだりで設定弄ってみてもいいかもしれない。\nまた smartparens.el にも似た機能はあるようだけど Emacs 標準機能の方が軽そうなのでとりあえずこのままにするつもり。\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/editing/smartparens/",
