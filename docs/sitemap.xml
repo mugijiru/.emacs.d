@@ -60,6 +60,8 @@
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/basics/font-config/</loc>
   </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/external-tool/forge/</loc>
+  </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/ui/git-gutter-fringe/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/external-tool/google-translate/</loc>
@@ -75,6 +77,8 @@
     <loc>https://mugijiru.github.io/.emacs.d/keybinds/key-chord/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/basics/load-path/</loc>
+  </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/external-tool/magit/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/language-config/markdown/</loc>
   </url><url>

@@ -272,6 +272,18 @@ Mac と Linux で基準のサイズを変えているがなぜかこの方がガ
     </item>
     
     <item>
+      <title>forge</title>
+      <link>https://mugijiru.github.io/.emacs.d/external-tool/forge/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/external-tool/forge/</guid>
+      <description>概要 forge は magit と github を連携させるやつ。一応入れているけど実は使えてないのであまりこの設定を呼んでも意味はなさそう
+インストール いつも通り el-get でインストール
+(el-get-bundle forge) 読み込み magit の拡張なので magit を読み込んで後に読み込まれるようにしている
+(with-eval-after-load &amp;#39;magit (require &amp;#39;forge)) その他 リポジトリのコミット数が多いとまともに使えない感じだけどどうしたらいいの。</description>
+    </item>
+    
+    <item>
       <title>git-gutter-fringe</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/git-gutter-fringe/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -380,6 +392,17 @@ peco とか fzf とかと似ているっちゃ似ているかな? fzf 使った�
 というわけでファイルがなかったら読み込まずにメッセージを出力して終了するような関数を用意している。
 (defun my/load-config (file) (condition-case nil (load file) (file-missing (message &amp;#34;Load error: %s&amp;#34; file)))) ただ、これって結局
 (load file nil t) で十分な気もするので、置き換えを検討した方が良さそう。</description>
+    </item>
+    
+    <item>
+      <title>magit</title>
+      <link>https://mugijiru.github.io/.emacs.d/external-tool/magit/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/external-tool/magit/</guid>
+      <description>概要 magit は Emacs の上で Git の色々な操作ができるやつ。結構使いやすいのでオススメなやつ。
+forge を使うと GitHub や GitLab とも連携できてさらに便利、なはず。
+インストール (el-get-bundle magit) 使い方 Git 管理されてるファイルを開いている時に M-x magit とかすると Git 管理用のバッファが出て来るしそこで ? を叩いたらどういうコマンドが使えるのか教えてくれるよ(雑)</description>
     </item>
     
     <item>

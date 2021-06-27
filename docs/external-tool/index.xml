@@ -7,6 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/external-tool/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>forge</title>
+      <link>https://mugijiru.github.io/.emacs.d/external-tool/forge/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/external-tool/forge/</guid>
+      <description>概要 forge は magit と github を連携させるやつ。一応入れているけど実は使えてないのであまりこの設定を呼んでも意味はなさそう
+インストール いつも通り el-get でインストール
+(el-get-bundle forge) 読み込み magit の拡張なので magit を読み込んで後に読み込まれるようにしている
+(with-eval-after-load &amp;#39;magit (require &amp;#39;forge)) その他 リポジトリのコミット数が多いとまともに使えない感じだけどどうしたらいいの。</description>
+    </item>
+    
+    <item>
       <title>google-translate</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/google-translate/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -21,6 +33,17 @@ default だと
  google-translate-default-source-language google-translate-default-target-language  を設定しておいて
  M-x google-translate-at-point source → target の翻訳 M-x google-translate-at-point-reverse target → source の翻訳  という使い方をする。
 smooth だと翻訳の source, target を複数設定して多言語対応ができるが、英語以外を翻訳することがないので smooth でなくていいかという感じで default を採用している。</description>
+    </item>
+    
+    <item>
+      <title>magit</title>
+      <link>https://mugijiru.github.io/.emacs.d/external-tool/magit/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/external-tool/magit/</guid>
+      <description>概要 magit は Emacs の上で Git の色々な操作ができるやつ。結構使いやすいのでオススメなやつ。
+forge を使うと GitHub や GitLab とも連携できてさらに便利、なはず。
+インストール (el-get-bundle magit) 使い方 Git 管理されてるファイルを開いている時に M-x magit とかすると Git 管理用のバッファが出て来るしそこで ? を叩いたらどういうコマンドが使えるのか教えてくれるよ(雑)</description>
     </item>
     
   </channel>

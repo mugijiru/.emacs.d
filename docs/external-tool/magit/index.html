@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>テスト用ツール :: 麦汁&#39;s Emacs Config</title>
+    <title>magit :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624802624" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/testing-tool/">
+  <body class="" data-url="/.emacs.d/external-tool/magit/">
     <nav id="sidebar" class="">
 
 
@@ -1104,7 +1104,7 @@
   
     
     <li data-nav-id="/.emacs.d/external-tool/" title="外部連携ツール設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -1172,7 +1172,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/external-tool/magit/" title="magit" class="dd-item ">
+      <li data-nav-id="/.emacs.d/external-tool/magit/" title="magit" class="dd-item active">
         <a href="/.emacs.d/external-tool/magit/">
         magit
         
@@ -1201,8 +1201,8 @@
   
     
     <li data-nav-id="/.emacs.d/testing-tool/" title="テスト用ツール" class="dd-item
-        parent
-        active
+        
+        
         
         ">
       <a href="/.emacs.d/testing-tool/">
@@ -1416,6 +1416,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -1426,7 +1428,13 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > テスト用ツール
+            
+            
+          
+          
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/external-tool/'>外部連携ツール設定</a> > magit
+          
+        
           
         
           
@@ -1434,6 +1442,19 @@
                  
                   </span>
                 </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#インストール">インストール</a></li>
+    <li><a href="#使い方">使い方</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
                 
               </div>
             </div>
@@ -1446,27 +1467,24 @@
           
             <h1>
               
-              テスト用ツール
+              magit
             </h1>
           
 
         
 
 
-
-	<p>自動テストを実行するにあたり、追加インストールしているパッケージをここに載せている</p>
-<dl>
-<dt><a href="/.emacs.d/testing-tool/with-simulated-input/">with-simulated-input</a></dt>
-<dd>入力処理をシミュレートしてくれるパッケージ</dd>
-<dt><a href="/.emacs.d/testing-tool/mocker-el/">mocker.el</a></dt>
-<dd>Mock/Stub するためのパッケージ。まだ使ってない</dd>
-</dl>
-
-
+<h2 id="概要">概要</h2>
+<p><a href="https://github.com/magit/magit">magit</a> は Emacs の上で Git の色々な操作ができるやつ。結構使いやすいのでオススメなやつ。</p>
+<p><a href="/.emacs.d/external-tool/forge/">forge</a> を使うと GitHub や GitLab とも連携できてさらに便利、なはず。</p>
+<h2 id="インストール">インストール</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle magit)
+</code></pre></div><h2 id="使い方">使い方</h2>
+<p>Git 管理されてるファイルを開いている時に
+<code>M-x magit</code> とかすると Git 管理用のバッファが出て来るしそこで <code>?</code> を叩いたらどういうコマンドが使えるのか教えてくれるよ(雑)</p>
 
 
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -2208,6 +2226,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -2220,6 +2239,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -2253,6 +2275,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -2272,6 +2295,8 @@
             
                 
                     
+                        
+                        
                     
                 
                 
@@ -2285,9 +2310,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -2392,10 +2414,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/external-tool/magit/" title="magit"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/external-tool/google-translate/" title="google-translate"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/testing-tool/with-simulated-input/" title="with-simulated-input" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/testing-tool/" title="テスト用ツール" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -2427,3 +2449,4 @@
 
   </body>
 </html>
+
