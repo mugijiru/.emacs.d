@@ -1926,7 +1926,35 @@
 
    ここでは外部のサービスと連携するようなやつをまとめています
 
+   - [[*forge][forge]] :: [[*magit][magit]] と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ
    - [[*google-translate][google-translate]] :: Emacs から Google 翻訳するためのパッケージ
+   - [[*magit][magit]] :: Emacs 上で Git の操作をするのにとても便利なパッケージ
+
+** forge
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: forge
+   :END:
+*** 概要
+    [[https://github.com/magit/forge][forge]] は magit と github を連携させるやつ。
+    一応入れているけど実は使えてないのであまりこの設定を呼んでも意味はなさそう
+
+*** インストール
+    いつも通り el-get でインストール
+
+    #+begin_src emacs-lisp :tangle inits/36-forge.el
+    (el-get-bundle forge)
+    #+end_src
+
+*** 読み込み
+    magit の拡張なので magit を読み込んで後に読み込まれるようにしている
+
+    #+begin_src emacs-lisp :tangle inits/36-forge.el
+    (with-eval-after-load 'magit
+      (require 'forge))
+    #+end_src
+
+*** その他
+    リポジトリのコミット数が多いとまともに使えない感じだけどどうしたらいいの。
 
 ** google-translate
    :PROPERTIES:
@@ -2011,6 +2039,23 @@
     とか用意しておいたらその時だけデフォルト動作の temporary buffer への出力ができそうだけどもね。
     ただこれだと逆版も作らないといけなさそうなのでちょっと方法考えるか。
     別で output destination を切り替えるようにするとか。
+** magit
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: magit
+   :END:
+*** 概要
+    [[https://github.com/magit/magit][magit]] は Emacs の上で Git の色々な操作ができるやつ。
+    結構使いやすいのでオススメなやつ。
+
+    [[*forge][forge]] を使うと GitHub や GitLab とも連携できてさらに便利、なはず。
+*** インストール
+    #+begin_src emacs-lisp :tangle inits/35-magit.el
+    (el-get-bundle magit)
+    #+end_src
+*** 使い方
+    Git 管理されてるファイルを開いている時に
+    ~M-x magit~ とかすると Git 管理用のバッファが出て来るし
+    そこで ~?~ を叩いたらどういうコマンドが使えるのか教えてくれるよ(雑)
 * テスト用ツール
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: testing-tool
@@ -2458,22 +2503,6 @@
    ;; 保存前に自動でクリーンアップ
    (setq whitespace-action '(auto-cleanup))
    (global-whitespace-mode 1)
-   #+end_src
-
-** 35-magit.el
-
-   #+begin_src emacs-lisp :tangle inits/35-magit.el
-   (el-get-bundle magit)
-   #+end_src
-
-** 36-forge.el
-
-   #+begin_src emacs-lisp :tangle inits/36-forge.el
-   ;; magit と github を連携させるやつ
-   (el-get-bundle forge)
-
-   (with-eval-after-load 'magit
-     (require 'forge))
    #+end_src
 
 ** 40-emacs-lisp.el
