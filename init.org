@@ -662,6 +662,59 @@
     各言語の hook で ~smartparens-strict-mode~ を有効にしている。
     なんか常に有効だと困りそうな気がしたので。
 
+** yasnippet
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: yasnippet
+   :END:
+
+*** 概要
+    [[https://github.com/joaotavora/yasnippet][yasnippet]] はテンプレートを挿入する機能を持ったパッケージ。
+    Emacs でそこそこ何かを書いている人なら大体知ってるような有名なやつだと思う。
+
+*** インストール
+    いつも通り el-get でインストール
+
+    #+begin_src emacs-lisp :tangle inits/20-yasnippet.el
+    (el-get-bundle yasnippet)
+    #+end_src
+*** 有効化
+    どこでも使いたいぐらい便利なやつなので global に有効化している
+
+    #+begin_src emacs-lisp :tangle inits/20-yasnippet.el
+    (yas-global-mode 1)
+    #+end_src
+
+*** キーバインド
+    基本的に覚えられないので Hydra を使って定義している
+
+    #+begin_src emacs-lisp :tangle inits/20-yasnippet.el
+    (with-eval-after-load 'pretty-hydra
+      (pretty-hydra-define
+        yasnippet-hydra (:separator "-" :title "Yasnippet" :foreign-key warn :quit-key "q" :exit t)
+        ("Edit"
+         (("n" yas-new-snippet        "New")
+          ("v" yas-visit-snippet-file "Visit"))
+
+         "Other"
+         (("i" yas-insert-snippet  "Insert")
+          ("l" yas-describe-tables "List")
+          ("r" yas-reload-all      "Reload all")))))
+    #+end_src
+
+*** その他
+    実は、どういう snippet があれば便利なのかよくわかってなくて
+    snippet をほとんど登録してない。
+
+    [[https://github.com/AndreaCrotti/yasnippet-snippets][yasnippet-snippets]] などのよくある snippet 集は、
+    そんなの省略形をまず覚えられないだろと思っている。
+    ivy で選択可能なので省略形は長くていいので中身がわかりやすい方が良い。
+
+    また導入はしてないが [[https://github.com/mkcms/ivy-yasnippet][ivy-yasnippet]] を入れるとさらにそのあたりがやりやすくなるんじゃないかと思う。
+
+    それから company-yasnippet で補完できるようにしているとより良いかもれない。
+
+    とはいえ snippet を充実させてない今だとどうにもイマイチそのあたりを充実させる気力がない
+
 ** undo-fu
    :PROPERTIES:
    :EXPORT_FILE_NAME: undo-fu
@@ -2195,25 +2248,6 @@
    (el-get-bundle lsp-ui)
    (add-hook 'lsp-mode-hook 'lsp-ui-mode)
    (setq lsp-ui-doc-alignment 'window)
-   #+end_src
-
-** 20-yasnippet.el
-
-   #+begin_src emacs-lisp :tangle inits/20-yasnippet.el
-   (el-get-bundle yasnippet)
-   (yas-global-mode 1)
-
-   (with-eval-after-load 'pretty-hydra
-     (pretty-hydra-define
-       yasnippet-hydra (:separator "-" :title "Yasnippet" :foreign-key warn :quit-key "q" :exit t)
-       ("Edit"
-        (("n" yas-new-snippet        "New")
-         ("v" yas-visit-snippet-file "Visit"))
-
-        "Other"
-        (("i" yas-insert-snippet  "Insert")
-         ("l" yas-describe-tables "List")
-         ("r" yas-reload-all      "Reload all")))))
    #+end_src
 
 ** 30-flycheck.el
