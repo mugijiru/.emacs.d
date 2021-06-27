@@ -74,7 +74,7 @@
 	"title": "言語毎の設定",
 	"tags": [],
 	"description": "",
-	"content": "ここでは各言語毎の設定をまとめている\n plantuml-mode PlantUML を書く時のメジャーモードの設定 es6 ES2015 以降の JS に関する設定。es6 としているのは過去の経緯のため。 yaml-mode YAML を書く時のメジャーモードの設定  "
+	"content": "ここでは各言語毎の設定をまとめている\n es6 ES2015 以降の JS に関する設定。es6 としているのは過去の経緯のため。 markdown Markdown を書く時の設定 plantuml-mode PlantUML を書く時のメジャーモードの設定 yaml-mode YAML を書く時のメジャーモードの設定  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/framework-config/",
@@ -257,6 +257,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 load-path は Emacs の設定でも重要な項目でこのリストに追加されている path は load または require する際に走査される path となっている。\n即ち load-path を通しておけば、そこに置いている emacs lisp のファイルは簡単に読み出せるようになる。\nなお package-install や el-get を使っておけば基本的に自分で load-path を通す必要はない。\n秘匿情報を入れてるフォルダを読み込み可能にする パスワードなどの秘匿情報を持っている部分は ~/.emacs.d/secret というフォルダで管理している。そのためここに入ってる emacs lisp のファイルも読み込めるように load-path に追加している。\n(add-to-list \u0026#39;load-path (expand-file-name \u0026#34;~/.emacs.d/secret\u0026#34;)) my/load-config ~/.emacs.d/secret は個人マシンか会社マシンかによって置いてるデータが異なったりするためもしもファイルがなくてもエラーにならないような方法で load する方法が必要だった。\nというわけでファイルがなかったら読み込まずにメッセージを出力して終了するような関数を用意している。\n(defun my/load-config (file) (condition-case nil (load file) (file-missing (message \u0026#34;Load error: %s\u0026#34; file)))) ただ、これって結局\n(load file nil t) で十分な気もするので、置き換えを検討した方が良さそう。\n"
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/language-config/markdown/",
+	"title": "markdown",
+	"tags": [],
+	"description": "",
+	"content": "概要 Markdown を書くための設定。といいつつ markdown-mode を入れてるだけだけども。\n手元でテキストドキュメントを弄るのは org-mode が多いからなあ……\nインストール いつも通り el-get で入れている。\n(el-get-bundle markdown-mode) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/ui/neotree/",

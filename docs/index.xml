@@ -383,6 +383,18 @@ peco とか fzf とかと似ているっちゃ似ているかな? fzf 使った�
     </item>
     
     <item>
+      <title>markdown</title>
+      <link>https://mugijiru.github.io/.emacs.d/language-config/markdown/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/language-config/markdown/</guid>
+      <description>概要 Markdown を書くための設定。といいつつ markdown-mode を入れてるだけだけども。
+手元でテキストドキュメントを弄るのは org-mode が多いからなあ……
+インストール いつも通り el-get で入れている。
+(el-get-bundle markdown-mode) </description>
+    </item>
+    
+    <item>
       <title>Neotree</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/neotree/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
