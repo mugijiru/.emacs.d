@@ -702,6 +702,13 @@
           ("r" yas-reload-all      "Reload all")))))
     #+end_src
 
+    | Key | 効果                                                |
+    | n   | 現在のメジャーモード用に新しい snippet を作る       |
+    | v   | 現在のメジャーモードの登録済 snippet ファイルを開く |
+    | i   | snippet の挿入。選択は ivy で行われる。             |
+    | l   | 現在のメジャーモードの登録済 snippet の一覧表示     |
+    | r   | snippet を全部 load し直す                          |
+
 *** その他
     実は、どういう snippet があれば便利なのかよくわかってなくて
     snippet をほとんど登録してない。
