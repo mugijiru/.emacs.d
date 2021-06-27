@@ -19,3 +19,6 @@ disableToc = true
 
 [dumb-jump]({{< relref "dumb-jump" >}})
 : カーソル下の関数とかの定義場所にジャンプしてくれるパッケージ
+
+[projectile]({{< relref "projectile" >}})
+: プロジェクト内のファイルなどを開いたりするのに便利なパッケージ
