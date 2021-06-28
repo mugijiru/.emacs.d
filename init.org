@@ -2035,8 +2035,9 @@
     自分はそのデフォルトキーバインドを使う気がないので有効化はしてない。
 
 *** キーバインド
-    キーバインドは Hydra で設定している
-
+    キーバインドは Hydra で設定しているが、
+    [[*google-translate][google-translate]] と統合したので
+    [[*Google 連携][キーバインド > Google 連携]] に記載している。
 
 ** google-translate
    :PROPERTIES:
@@ -2121,6 +2122,9 @@
     とか用意しておいたらその時だけデフォルト動作の temporary buffer への出力ができそうだけどもね。
     ただこれだと逆版も作らないといけなさそうなのでちょっと方法考えるか。
     別で output destination を切り替えるようにするとか。
+*** キーバインド
+    [[*google-this][google-this]] と同じく Google 連係機能なので
+    [[*Google 連携][キーバインド > Google 連携]] でまとめて Hydra を定義している
 ** magit
    :PROPERTIES:
    :EXPORT_FILE_NAME: magit
