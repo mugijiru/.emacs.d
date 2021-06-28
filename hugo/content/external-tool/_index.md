@@ -11,6 +11,9 @@ disableToc = true
 [forge]({{< relref "forge" >}})
 : [magit]({{< relref "magit" >}}) と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ
 
+[google-this]({{< relref "google-this" >}})
+: Google 検索機能を提供してくれるパッケージ
+
 [google-translate]({{< relref "google-translate" >}})
 : Emacs から Google 翻訳するためのパッケージ
 
