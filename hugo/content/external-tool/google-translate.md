@@ -96,3 +96,9 @@ kill-ring に入れるのも違うしなどを考えた結果、消去法でこ�
 ```
 
 とか用意しておいたらその時だけデフォルト動作の temporary buffer への出力ができそうだけどもね。ただこれだと逆版も作らないといけなさそうなのでちょっと方法考えるか。別で output destination を切り替えるようにするとか。
+
+
+## キーバインド {#キーバインド}
+
+[google-this]({{< relref "google-this" >}}) と同じく Google 連係機能なので
+[キーバインド > Google 連携]({{< relref "google-integration" >}}) でまとめて Hydra を定義している

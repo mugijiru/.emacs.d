@@ -27,38 +27,6 @@ draft = false
 
 ## キーバインド {#キーバインド}
 
-キーバインドは Hydra で設定している
-
-```emacs-lisp
-(with-eval-after-load 'pretty-hydra
-  (pretty-hydra-define google-this-pretty-hydra
-    (:foreign-keys warn :title "Google" :quit-key "q" :color blue :separator "-")
-    ("Current"
-     (("SPC" google-this-noconfirm "No Confirm")
-      ("RET" google-this           "Auto")
-      ("w"   google-this-word      "Word")
-      ("l"   google-this-line      "Line")
-      ("s"   google-this-symbol    "Symbol")
-      ("r"   google-this-region    "Region")
-      ("e"   google-this-error     "Error"))
-
-     "Feeling Lucky"
-     (("L"   google-this-lucky-search         "Lucky")
-      ("i"   google-this-lucky-and-insert-url "Insert URL"))
-
-     "Tool"
-     (("W" google-this-forecast "Weather")))))
-```
-
-| Key | 効果                                  |
-|-----|-------------------------------------|
-| SPC | 確認なしで検索                        |
-| RET | どの範囲の情報で検索するか自動判定して検索 |
-| w   | 近くの単語で検索                      |
-| l   | その行の内容で検索。エラーの検索とかに良いかも |
-| s   | シンボルで検索。使うのは Emacs Lisp の関数調べる時ぐらいか? |
-| r   | リージョンで検索。まあリージョン選択してたら RET とかでいいんだけども |
-| e   | コンパイルバッファのエラーで検索するっぽい |
-| L   | 1件目を開く                           |
-| i   | 1件目の URL を挿入する                |
-| w   | 天気を調べる                          |
+キーバインドは Hydra で設定しているが、
+[google-translate]({{< relref "google-translate" >}}) と統合したので
+[キーバインド > Google 連携]({{< relref "google-integration" >}}) に記載している。
