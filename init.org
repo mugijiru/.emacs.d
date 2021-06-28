@@ -589,7 +589,6 @@
     | w   | 天気を調べる                                                          |
     |-----+-----------------------------------------------------------------------|
 
-
 * ファイル編集/入力補助
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: editing
@@ -2018,7 +2017,6 @@
    :PROPERTIES:
    :EXPORT_FILE_NAME: google-this
    :END:
-
 *** 概要
     [[https://github.com/Malabarba/emacs-google-this][google-this]] は Google 検索を Emacs の中から行えるやつ。
 
