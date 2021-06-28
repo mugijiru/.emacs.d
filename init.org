@@ -537,6 +537,10 @@
    :PROPERTIES:
    :EXPORT_FILE_NAME: google-integration
    :END:
+*** 概要
+    Google と連携するパッケージとして
+    [[*google-this][google-this]] と [[*google-translate][google-translate]] を入れているが、
+    どっちも Google を使うので1つの Hydra にまとめていた方が扱いやすいと思って統合している
 *** キーバインド
 
     #+begin_src emacs-lisp :tangle inits/21-google-hydra.el
