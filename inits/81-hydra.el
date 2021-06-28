@@ -54,11 +54,7 @@
               :title (concat (all-the-icons-material "build") " Sub tools")
               :quit-key "q"
               :exit t)
-  ("Translation"
-   (("t" google-translate-at-point "EN => JP")
-    ("T" google-translate-at-point-reverse "JP => EN"))
-
-   "Describe"
+  ("Describe"
    (("b" counsel-descbinds "Keybind")
     ("f" counsel-describe-function "Function")
     ("v" counsel-describe-variable "Variable")
@@ -103,10 +99,10 @@
     ("w" ace-swap-window           "Swap Window"))
 
    "Tool"
-   (("SPC" major-mode-hydra              "Hydra(Major)")
-    ("s"   toggle-hydra/body             "Toggle switches")
-    ("c"   counsel-org-capture           "Capture")
-    ("o"   global-org-hydra/body         "Org")
-    ("e"   el-get-hydra/body             "el-get")
-    ("/"   google-this-pretty-hydra/body "Google")
-    ("t"   subtools-hydra/body           "Sub Tools"))))
+   (("SPC" major-mode-hydra         "Hydra(Major)")
+    ("s"   toggle-hydra/body        "Toggle switches")
+    ("c"   counsel-org-capture      "Capture")
+    ("o"   global-org-hydra/body    "Org")
+    ("e"   el-get-hydra/body        "el-get")
+    ("/"   google-pretty-hydra/body "Google")
+    ("t"   subtools-hydra/body      "Sub Tools"))))
