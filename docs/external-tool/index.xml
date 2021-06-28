@@ -19,6 +19,20 @@
     </item>
     
     <item>
+      <title>google-this</title>
+      <link>https://mugijiru.github.io/.emacs.d/external-tool/google-this/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/external-tool/google-this/</guid>
+      <description>概要 google-this は Google 検索を Emacs の中から行えるやつ。
+インストール いつも通り el-get でインストール
+(el-get-bundle google-this) で、本来の使い方だとこのあとに
+(google-this-mode 1) とやって有効化することになるがそれをしても google-this のデフォルトキーバインドが設定されるぐらいで自分はそのデフォルトキーバインドを使う気がないので有効化はしてない。
+キーバインド キーバインドは Hydra で設定している
+(with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define google-this-pretty-hydra (:foreign-keys warn :title &amp;#34;Google&amp;#34; :quit-key &amp;#34;q&amp;#34; :color blue :separator &amp;#34;-&amp;#34;) (&amp;#34;Current&amp;#34; ((&amp;#34;SPC&amp;#34; google-this-noconfirm &amp;#34;No Confirm&amp;#34;) (&amp;#34;RET&amp;#34; google-this &amp;#34;Auto&amp;#34;) (&amp;#34;w&amp;#34; google-this-word &amp;#34;Word&amp;#34;) (&amp;#34;l&amp;#34; google-this-line &amp;#34;Line&amp;#34;) (&amp;#34;s&amp;#34; google-this-symbol &amp;#34;Symbol&amp;#34;) (&amp;#34;r&amp;#34; google-this-region &amp;#34;Region&amp;#34;) (&amp;#34;e&amp;#34; google-this-error &amp;#34;Error&amp;#34;)) &amp;#34;Feeling Lucky&amp;#34; ((&amp;#34;L&amp;#34; google-this-lucky-search &amp;#34;Lucky&amp;#34;) (&amp;#34;i&amp;#34; google-this-lucky-and-insert-url &amp;#34;Insert URL&amp;#34;)) &amp;#34;Tool&amp;#34; ((&amp;#34;W&amp;#34; google-this-forecast &amp;#34;Weather&amp;#34;)))))    Key 効果     SPC 確認なしで検索   RET どの範囲の情報で検索するか自動判定して検索   w 近くの単語で検索   l その行の内容で検索。エラーの検索とかに良いかも   s シンボルで検索。使うのは Emacs Lisp の関数調べる時ぐらいか?</description>
+    </item>
+    
+    <item>
       <title>google-translate</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/google-translate/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

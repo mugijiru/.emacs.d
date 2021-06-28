@@ -88,7 +88,7 @@
 	"title": "外部連携ツール設定",
 	"tags": [],
 	"description": "",
-	"content": "ここでは外部のサービスと連携するようなやつをまとめています\n forge magit と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ google-translate Emacs から Google 翻訳するためのパッケージ magit Emacs 上で Git の操作をするのにとても便利なパッケージ  "
+	"content": "ここでは外部のサービスと連携するようなやつをまとめています\n forge magit と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ google-this Google 検索機能を提供してくれるパッケージ google-translate Emacs から Google 翻訳するためのパッケージ magit Emacs 上で Git の操作をするのにとても便利なパッケージ  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/testing-tool/",
@@ -215,6 +215,13 @@
 	"tags": ["improvement"],
 	"description": "",
 	"content": "概要 git-gutter-fringe は git-gutter の派生版。最後のコミットからどの行を弄ったかを fringe 領域に表示してくれる。\n他にも hunk の操作をできる機能とかあるみたいだけどそのあたりは使ったことがない……。\n派生元の git-gutter は linum-mode と同じ領域を使って描画をしているようで併用ができなかったので git-gutter-fringe を利用している。\nが、Emacs 26 から display-line-numbers-mode が搭載されて linum-mode が不要になったので git-gutter に乗り換えても良さそう\nインストール いつも通り el-get でインストールしている\n(el-get-bundle git-gutter-fringe) 有効化 Git 管理しているやつは全部差分情報が表示されて欲しいのでグローバルマイナーモードを有効にしている。\n(global-git-gutter-mode t) その他 git-gutter ほどではないけど多少のカスタマイズはできるはずだがデフォルト設定で特に不満はないので何もしてない\n"
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/external-tool/google-this/",
+	"title": "google-this",
+	"tags": [],
+	"description": "",
+	"content": "概要 google-this は Google 検索を Emacs の中から行えるやつ。\nインストール いつも通り el-get でインストール\n(el-get-bundle google-this) で、本来の使い方だとこのあとに\n(google-this-mode 1) とやって有効化することになるがそれをしても google-this のデフォルトキーバインドが設定されるぐらいで自分はそのデフォルトキーバインドを使う気がないので有効化はしてない。\nキーバインド キーバインドは Hydra で設定している\n(with-eval-after-load \u0026#39;pretty-hydra (pretty-hydra-define google-this-pretty-hydra (:foreign-keys warn :title \u0026#34;Google\u0026#34; :quit-key \u0026#34;q\u0026#34; :color blue :separator \u0026#34;-\u0026#34;) (\u0026#34;Current\u0026#34; ((\u0026#34;SPC\u0026#34; google-this-noconfirm \u0026#34;No Confirm\u0026#34;) (\u0026#34;RET\u0026#34; google-this \u0026#34;Auto\u0026#34;) (\u0026#34;w\u0026#34; google-this-word \u0026#34;Word\u0026#34;) (\u0026#34;l\u0026#34; google-this-line \u0026#34;Line\u0026#34;) (\u0026#34;s\u0026#34; google-this-symbol \u0026#34;Symbol\u0026#34;) (\u0026#34;r\u0026#34; google-this-region \u0026#34;Region\u0026#34;) (\u0026#34;e\u0026#34; google-this-error \u0026#34;Error\u0026#34;)) \u0026#34;Feeling Lucky\u0026#34; ((\u0026#34;L\u0026#34; google-this-lucky-search \u0026#34;Lucky\u0026#34;) (\u0026#34;i\u0026#34; google-this-lucky-and-insert-url \u0026#34;Insert URL\u0026#34;)) \u0026#34;Tool\u0026#34; ((\u0026#34;W\u0026#34; google-this-forecast \u0026#34;Weather\u0026#34;)))))    Key 効果     SPC 確認なしで検索   RET どの範囲の情報で検索するか自動判定して検索   w 近くの単語で検索   l その行の内容で検索。エラーの検索とかに良いかも   s シンボルで検索。使うのは Emacs Lisp の関数調べる時ぐらいか?   r リージョンで検索。まあリージョン選択してたら RET とかでいいんだけども   e コンパイルバッファのエラーで検索するっぽい   L 1件目を開く   i 1件目の URL を挿入する   w 天気を調べる    "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/external-tool/google-translate/",
