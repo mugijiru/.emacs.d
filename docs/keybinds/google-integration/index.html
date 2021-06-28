@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>Neotree :: 麦汁&#39;s Emacs Config</title>
+    <title>Google 連携 :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624841224" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/ui/neotree/">
+  <body class="" data-url="/.emacs.d/keybinds/google-integration/">
     <nav id="sidebar" class="">
 
 
@@ -249,7 +249,7 @@
   
     
     <li data-nav-id="/.emacs.d/keybinds/" title="キーバインド" class="dd-item
-        
+        parent
         
         
         ">
@@ -275,7 +275,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/keybinds/google-integration/" title="Google 連携" class="dd-item ">
+      <li data-nav-id="/.emacs.d/keybinds/google-integration/" title="Google 連携" class="dd-item active">
         <a href="/.emacs.d/keybinds/google-integration/">
         Google 連携
         
@@ -485,7 +485,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        parent
+        
         
         
         ">
@@ -637,7 +637,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/neotree/" title="Neotree" class="dd-item active">
+      <li data-nav-id="/.emacs.d/ui/neotree/" title="Neotree" class="dd-item ">
         <a href="/.emacs.d/ui/neotree/">
         Neotree
         
@@ -1474,7 +1474,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > Neotree
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/keybinds/'>キーバインド</a> > Google 連携
           
         
           
@@ -1490,15 +1490,7 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#レシピ">レシピ</a></li>
-    <li><a href="#インストール">インストール</a></li>
-    <li><a href="#使わなくなったコード">使わなくなったコード</a></li>
-    <li><a href="#テーマの設定">テーマの設定</a></li>
-    <li><a href="#major-mode-hydra">major-mode-hydra</a>
-      <ul>
-        <li><a href="#キーバインド">キーバインド</a></li>
-      </ul>
-    </li>
+    <li><a href="#キーバインド">キーバインド</a></li>
   </ul>
 </nav>
     </div>
@@ -1510,19 +1502,13 @@
             
         <div id="head-tags">
         
-<div class="tags">
-
-  <a class="tag-link" href="/.emacs.d/tags/replacement">replacement</a>
-
-</div>
-
         </div>
         
         <div id="body-inner">
           
             <h1>
               
-              Neotree
+              Google 連携
             </h1>
           
 
@@ -1530,57 +1516,32 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/jaypei/emacs-neotree">Neotree</a> は Emacs でフォルダのツリー表示ができるやつ。メンテは活発じゃないようなので、その内乗り換えたい。</p>
-<h2 id="レシピ">レシピ</h2>
-<p>Neotree でメンテされているのは dev ブランチだけど
-el-get の公式のレシピでは master ブランチを見ているので自前で recipe を用意してそれを使っている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(:name emacs-neotree-dev
-       :website <span style="color:#e6db74">&#34;https://github.com/jaypei/emacs-neotree&#34;</span>
-       :description <span style="color:#e6db74">&#34;An Emacs tree plugin like NerdTree for Vim.&#34;</span>
-       :type github
-       :branch <span style="color:#e6db74">&#34;dev&#34;</span>
-       :pkgname <span style="color:#e6db74">&#34;jaypei/emacs-neotree&#34;</span>)
-</code></pre></div><h2 id="インストール">インストール</h2>
-<p>上に書いたレシピを使ってインストールしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle emacs-neotree-dev)
-</code></pre></div><h2 id="使わなくなったコード">使わなくなったコード</h2>
-<p>元々設定していたが、
-counsel-projectile を使ってると
-projectile-switch-project-action を設定していても反映されず意味がないのに気付いたので使わなくなった</p>
-<p><a href="https://github.com/mugijiru/.emacs.d/pull/183/files#r541843206">https://github.com/mugijiru/.emacs.d/pull/183/files#r541843206</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq projectile-switch-project-action <span style="color:#e6db74">&#39;neotree-projectile-action</span>)
-</code></pre></div><h2 id="テーマの設定">テーマの設定</h2>
-<p>GUI で起動している時はアイコン表示しそうでない場合は ▾ とかで表示する</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq neo-theme (if (display-graphic-p) <span style="color:#e6db74">&#39;icons</span> <span style="color:#e6db74">&#39;arrow</span>))
-</code></pre></div><p>のだけど、実際に今使ってるやつだともっとグラフィカルな表示なので
-all-the-icons の設定で上書きしている気がするので要確認</p>
-<h2 id="major-mode-hydra">major-mode-hydra</h2>
-<p>いちいちキーバインドを覚えてられないので
-<a href="https://github.com/jerrypnz/major-mode-hydra.el">major-mode-hydra</a> を使って主要なキーバインドは <a href="https://github.com/abo-abo/hydra">hydra</a> で使えるようにしている。</p>
-<p>とはいえ、この文書を書く前日ぐらいに設定しているのでまだ使い慣れてないというか、ほとんど使えてない。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;major-mode-hydra</span>
-  (major-mode-hydra-define neotree-mode (:separator <span style="color:#e6db74">&#34;-&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :title (<span style="color:#a6e22e">concat</span> (all-the-icons-octicon <span style="color:#e6db74">&#34;list-unordered&#34;</span>) <span style="color:#e6db74">&#34; Neotree&#34;</span>))
-    (<span style="color:#e6db74">&#34;Nav&#34;</span>
-     ((<span style="color:#e6db74">&#34;u&#34;</span>   neotree-select-up-node   <span style="color:#e6db74">&#34;Up&#34;</span>)
-      (<span style="color:#e6db74">&#34;g&#34;</span>   neotree-refresh          <span style="color:#e6db74">&#34;Refresh&#34;</span>)
-      (<span style="color:#e6db74">&#34;Q&#34;</span>   neotree-hide             <span style="color:#e6db74">&#34;Hide&#34;</span>))
+<p>Google と連携するパッケージとして
+<a href="/.emacs.d/external-tool/google-this/">google-this</a> と <a href="/.emacs.d/external-tool/google-translate/">google-translate</a> を入れているが、どっちも Google を使うので1つの Hydra にまとめていた方が扱いやすいと思って統合している</p>
+<h2 id="キーバインド">キーバインド</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
+  (pretty-hydra-define google-pretty-hydra
+    (:foreign-keys <span style="color:#a6e22e">warn</span> :title <span style="color:#e6db74">&#34;Google&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :color blue :separator <span style="color:#e6db74">&#34;-&#34;</span>)
+    (<span style="color:#e6db74">&#34;Current&#34;</span>
+     ((<span style="color:#e6db74">&#34;SPC&#34;</span> google-this-noconfirm <span style="color:#e6db74">&#34;No Confirm&#34;</span>)
+      (<span style="color:#e6db74">&#34;RET&#34;</span> google-this           <span style="color:#e6db74">&#34;Auto&#34;</span>)
+      (<span style="color:#e6db74">&#34;w&#34;</span>   google-this-word      <span style="color:#e6db74">&#34;Word&#34;</span>)
+      (<span style="color:#e6db74">&#34;l&#34;</span>   google-this-line      <span style="color:#e6db74">&#34;Line&#34;</span>)
+      (<span style="color:#e6db74">&#34;s&#34;</span>   google-this-symbol    <span style="color:#e6db74">&#34;Symbol&#34;</span>)
+      (<span style="color:#e6db74">&#34;r&#34;</span>   google-this-region    <span style="color:#e6db74">&#34;Region&#34;</span>)
+      (<span style="color:#e6db74">&#34;e&#34;</span>   google-this-error     <span style="color:#e6db74">&#34;Error&#34;</span>))
 
-     <span style="color:#e6db74">&#34;File&#34;</span>
-     ((<span style="color:#e6db74">&#34;a&#34;</span>   neo-open-file-ace-window <span style="color:#e6db74">&#34;Ace&#34;</span>)
-      (<span style="color:#e6db74">&#34;N&#34;</span>   neotree-create-node      <span style="color:#e6db74">&#34;Create&#34;</span>)
-      (<span style="color:#e6db74">&#34;R&#34;</span>   neotree-rename-node      <span style="color:#e6db74">&#34;Rename&#34;</span>)
-      (<span style="color:#e6db74">&#34;C&#34;</span>   neotree-copy-node        <span style="color:#e6db74">&#34;Copy&#34;</span>)
-      (<span style="color:#e6db74">&#34;D&#34;</span>   neotree-delete-node      <span style="color:#e6db74">&#34;Delete&#34;</span>)
-      (<span style="color:#e6db74">&#34;SPC&#34;</span> neotree-quick-look       <span style="color:#e6db74">&#34;Look&#34;</span>)
-      <span style="color:#75715e">;; (&#34;d&#34; neo-open-dired &#34;Dired&#34;)</span>
-      <span style="color:#75715e">;; (&#34;O&#34; neo-open-dir-recursive   &#34;Recursive&#34;)</span>
-      )
-     <span style="color:#e6db74">&#34;Toggle&#34;</span>
-     ((<span style="color:#e6db74">&#34;z&#34;</span> neotree-stretch-toggle     <span style="color:#e6db74">&#34;Size&#34;</span>        :toggle (not (neo-window--minimize-p)))
-      (<span style="color:#e6db74">&#34;h&#34;</span> neotree-hidden-file-toggle <span style="color:#e6db74">&#34;Hidden file&#34;</span> :toggle neo-buffer--show-hidden-file-p)))))
-</code></pre></div><h3 id="キーバインド">キーバインド</h3>
-<h4 id="ナビゲーション">ナビゲーション</h4>
-<table>
+     <span style="color:#e6db74">&#34;Feeling Lucky&#34;</span>
+     ((<span style="color:#e6db74">&#34;L&#34;</span> google-this-lucky-search         <span style="color:#e6db74">&#34;Lucky&#34;</span>)
+      (<span style="color:#e6db74">&#34;i&#34;</span> google-this-lucky-and-insert-url <span style="color:#e6db74">&#34;Insert URL&#34;</span>))
+
+     <span style="color:#e6db74">&#34;Translate&#34;</span>
+     ((<span style="color:#e6db74">&#34;t&#34;</span> google-translate-at-point         <span style="color:#e6db74">&#34;EN =&gt; JP&#34;</span>)
+      (<span style="color:#e6db74">&#34;T&#34;</span> google-translate-at-point-reverse <span style="color:#e6db74">&#34;JP =&gt; EN&#34;</span>))
+
+     <span style="color:#e6db74">&#34;Tool&#34;</span>
+     ((<span style="color:#e6db74">&#34;W&#34;</span> google-this-forecast <span style="color:#e6db74">&#34;Weather&#34;</span>)))))
+</code></pre></div><table>
 <thead>
 <tr>
 <th>Key</th>
@@ -1588,71 +1549,53 @@ all-the-icons の設定で上書きしている気がするので要確認</p>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>u</td>
-<td>上のノードに移動</td>
-</tr>
-<tr>
-<td>g</td>
-<td>再描画</td>
-</tr>
-<tr>
-<td>Q</td>
-<td>Neotree を隠す</td>
-</tr>
-</tbody>
-</table>
-<h4 id="ファイル操作">ファイル操作</h4>
-<table>
-<thead>
-<tr>
-<th>Key</th>
-<th>効果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>a</td>
-<td>ファイルを開く。その際に ace-window で開く window を指定する</td>
-</tr>
-<tr>
-<td>N</td>
-<td>新しいノードを作る</td>
-</tr>
-<tr>
-<td>R</td>
-<td>ノードの名前を変える</td>
-</tr>
-<tr>
-<td>C</td>
-<td>ノードのコピー</td>
-</tr>
-<tr>
-<td>D</td>
-<td>ノードの削除</td>
-</tr>
 <tr>
 <td>SPC</td>
-<td>クイックルック</td>
-</tr>
-</tbody>
-</table>
-<h4 id="toggle">Toggle</h4>
-<table>
-<thead>
-<tr>
-<th>Key</th>
-<th>効果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>z</td>
-<td>Neotree のサイズを大きくしたり小さくしたり</td>
+<td>確認なしで検索</td>
 </tr>
 <tr>
-<td>h</td>
-<td>隠しファイルを表示したり隠したり</td>
+<td>RET</td>
+<td>どの範囲の情報で検索するか自動判定して検索</td>
+</tr>
+<tr>
+<td>w</td>
+<td>近くの単語で検索</td>
+</tr>
+<tr>
+<td>l</td>
+<td>その行の内容で検索。エラーの検索とかに良いかも</td>
+</tr>
+<tr>
+<td>s</td>
+<td>シンボルで検索。使うのは Emacs Lisp の関数調べる時ぐらいか?</td>
+</tr>
+<tr>
+<td>r</td>
+<td>リージョンで検索。まあリージョン選択してたら RET とかでいいんだけども</td>
+</tr>
+<tr>
+<td>e</td>
+<td>コンパイルバッファのエラーで検索するっぽい</td>
+</tr>
+<tr>
+<td>L</td>
+<td>1件目を開く</td>
+</tr>
+<tr>
+<td>i</td>
+<td>1件目の URL を挿入する</td>
+</tr>
+<tr>
+<td>t</td>
+<td>英語→日本語翻訳</td>
+</tr>
+<tr>
+<td>T</td>
+<td>日本語→英語翻訳</td>
+</tr>
+<tr>
+<td>w</td>
+<td>天気を調べる</td>
 </tr>
 </tbody>
 </table>
@@ -1808,6 +1751,7 @@ all-the-icons の設定で上書きしている気がするので要確認</p>
             
                 
                     
+                    
                 
                 
 
@@ -1820,6 +1764,7 @@ all-the-icons の設定で上書きしている気がするので要確認</p>
             
             
                 
+                    
                     
                 
                 
@@ -1837,101 +1782,8 @@ all-the-icons の設定で上書きしている気がするので要確認</p>
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1968,7 +1820,6 @@ all-the-icons の設定で上書きしている気がするので要確認</p>
             
                 
                     
-                    
                 
                 
 
@@ -1976,25 +1827,6 @@ all-the-icons の設定で上書きしている気がするので要確認</p>
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -2076,11 +1908,26 @@ all-the-icons の設定で上書きしている気がするので要確認</p>
             
         
                     
+            
+        
+                    
                         
             
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -2098,8 +1945,101 @@ all-the-icons の設定で上書きしている気がするので要確認</p>
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -2620,10 +2560,10 @@ all-the-icons の設定で上書きしている気がするので要確認</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/ui/highlight-indent-guides/" title="highlight-indent-guides"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/keybinds/" title="キーバインド"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/ui/posframe/" title="posframe" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/keybinds/key-chord/" title="key-chord" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
