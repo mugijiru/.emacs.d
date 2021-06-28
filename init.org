@@ -1927,6 +1927,7 @@
    ここでは外部のサービスと連携するようなやつをまとめています
 
    - [[*forge][forge]] :: [[*magit][magit]] と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ
+   - [[*google-this][google-this]] :: Google 検索機能を提供してくれるパッケージ
    - [[*google-translate][google-translate]] :: Emacs から Google 翻訳するためのパッケージ
    - [[*magit][magit]] :: Emacs 上で Git の操作をするのにとても便利なパッケージ
 
