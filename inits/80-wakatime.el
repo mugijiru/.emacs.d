@@ -1,3 +1,4 @@
 (el-get-bundle wakatime-mode)
-(my/load-config "my-wakatime-config")
+(custom-set-variables
+ '(wakatime-api-key (funcall (plist-get (nth 0 (auth-source-search :host "wakatime.com" :max 1)) :secret))))
 (global-wakatime-mode 1)
