@@ -19,3 +19,6 @@ disableToc = true
 
 [magit]({{< relref "magit" >}})
 : Emacs 上で Git の操作をするのにとても便利なパッケージ
+
+[wakatime-mode]({{< relref "wakatime-mode" >}})
+: Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ
