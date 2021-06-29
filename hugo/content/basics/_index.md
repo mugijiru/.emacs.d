@@ -8,11 +8,14 @@ disableToc = true
 
 Emacs の基本動作に関わる部分をここでは設定している
 
-[exec-path]({{< relref "exec-path" >}})
-: PATH などの環境変数を shell と合わせる設定
-
 [auto-save]({{< relref "auto-save" >}})
 : 編集中状態の自動保存や編集前の状態のバックアップに関する設定
+
+[auth-source]({{< relref "auth-source" >}})
+: 認証情報の取り扱いファイルの設定
+
+[exec-path]({{< relref "exec-path" >}})
+: PATH などの環境変数を shell と合わせる設定
 
 [font-config]({{< relref "font-config" >}})
 : フォントの設定

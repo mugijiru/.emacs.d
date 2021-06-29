@@ -49,13 +49,36 @@
 
    Emacs の基本動作に関わる部分をここでは設定している
 
-   - [[*exec-path][exec-path]] :: PATH などの環境変数を shell と合わせる設定
    - [[*auto-save][auto-save]] :: 編集中状態の自動保存や編集前の状態のバックアップに関する設定
+   - [[*auth-source][auth-source]] :: 認証情報の取り扱いファイルの設定
+   - [[*exec-path][exec-path]] :: PATH などの環境変数を shell と合わせる設定
    - [[*font-config][font-config]] :: フォントの設定
    - [[*load-path][load-path]] :: Emacs Lisp が読み込める path の設定
    - [[*savehist][savehist]] :: ミニバッファの履歴などを保存してくれる機能。
    - [[*ガベージコレクション][ガベージコレクション]] :: メモリの開放関係の設定
 
+** auth-source
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: auth-source
+   :END:
+*** 概要
+    [[https://www.gnu.org/software/emacs/manual/html_mono/auth.html][auth-source]] は Emacs でパスワードのような秘匿情報を扱うための仕組み。
+    Emacs の各パッケージが認証情報を要求する時に
+    こいつ経由で取得できるようにしておくと秘匿もできて便利っぽい。
+
+    パスワードの保存先はデフォルトだと
+    ~("~/.authinfo" "~/.authinfo.gpg" "~/.netrc")~
+    となっている。
+
+    拡張子が gpg だと [[https://www.gnu.org/software/emacs/manual/html_mono/epa.html][EagyPG Assistant]] で保存時に暗号化されるので便利。
+
+*** ファイル指定
+    自分は Emacs でしか使わないであろう情報ということで
+    ~/.emacs.d/.authinfo.gpg~ を指定している。
+
+    #+begin_src emacs-lisp :tangle inits/00-authinfo.el
+    (custom-set-variables '(auth-sources (quote ("~/.emacs.d/.authinfo.gpg"))))
+    #+end_src
 ** auto-save                                                    :replacement:
    :PROPERTIES:
    :EXPORT_FILE_NAME: auto-save
@@ -1986,6 +2009,7 @@
    - [[*google-this][google-this]] :: Google 検索機能を提供してくれるパッケージ
    - [[*google-translate][google-translate]] :: Emacs から Google 翻訳するためのパッケージ
    - [[*magit][magit]] :: Emacs 上で Git の操作をするのにとても便利なパッケージ
+   - [[*wakatime-mode][wakatime-mode]] :: Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ
 
 ** forge
    :PROPERTIES:
@@ -2145,6 +2169,48 @@
     Git 管理されてるファイルを開いている時に
     ~M-x magit~ とかすると Git 管理用のバッファが出て来るし
     そこで ~?~ を叩いたらどういうコマンドが使えるのか教えてくれるよ(雑)
+** wakatime-mode
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: wakatime-mode
+   :END:
+*** 概要
+    [[https://github.com/wakatime/wakatime-mode][wakatime-mode]] は [[https://wakatime.com][WakaTime]] というサービスと連携するためのパッケージ。
+
+    WakaTime は自分がどのプロジェクトの作業をしているかを計測してくれるようなツール。
+    普段の行動の改善に使えるかもしれないので、なんとなく連携してみている。
+
+*** インストール
+    いつも通り el-get から入れている
+
+    #+begin_src emacs-lisp :tangle inits/80-wakatime.el
+    (el-get-bundle wakatime-mode)
+    #+end_src
+*** APIキーの設定
+    APIキーは .authinfo.gpg に保存しているので
+    そこから引っ張り出している。
+
+    #+begin_src emacs-lisp :tangle inits/80-wakatime.el
+    (custom-set-variables
+     '(wakatime-api-key (funcall (plist-get (nth 0 (auth-source-search :host "wakatime.com" :max 1)) :secret))))
+    #+end_src
+*** 有効化
+    Emacs を使っている間は常に有効になっていて欲しいので
+    global-wakatime-mode を有効にしている。
+
+    #+begin_src emacs-lisp :tangle inits/80-wakatime.el
+    (global-wakatime-mode 1)
+    #+end_src
+
+    APIキーが取れてない時はやたらエラーを吐くので
+    何かしら調整はしてもいいかもしれない。
+
+    #+begin_src emacs-lisp
+    (if (boundp 'wakatime-api-key)
+      (global-wakatime-mode 1))
+    #+end_src
+
+    みたいにして API キーが取れている時だけ有効にするとかね。
+
 * テスト用ツール
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: testing-tool
@@ -3647,14 +3713,6 @@
 
    ;; Don't ask yes or no.
    (defalias 'yes-or-no-p 'y-or-n-p)
-   #+end_src
-
-** 80-wakatime.el
-
-   #+begin_src emacs-lisp :tangle inits/80-wakatime.el
-   (el-get-bundle wakatime-mode)
-   (my/load-config "my-wakatime-config")
-   (global-wakatime-mode 1)
    #+end_src
 
 ** 81-hydra.el
