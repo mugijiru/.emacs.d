@@ -115,6 +115,19 @@ ace-window には色々な機能があるからそれ用の Hydra を別途定�
     </item>
     
     <item>
+      <title>auth-source</title>
+      <link>https://mugijiru.github.io/.emacs.d/basics/auth-source/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/basics/auth-source/</guid>
+      <description>概要 auth-source は Emacs でパスワードのような秘匿情報を扱うための仕組み。 Emacs の各パッケージが認証情報を要求する時にこいつ経由で取得できるようにしておくと秘匿もできて便利っぽい。
+パスワードの保存先はデフォルトだと (&amp;quot;~/.authinfo&amp;quot; &amp;quot;~/.authinfo.gpg&amp;quot; &amp;quot;~/.netrc&amp;quot;) となっている。
+拡張子が gpg だと EagyPG Assistant で保存時に暗号化されるので便利。
+ファイル指定 自分は Emacs でしか使わないであろう情報ということで /.emacs.d/.authinfo.gpg を指定している。
+(custom-set-variables &amp;#39;(auth-sources (quote (&amp;#34;~/.emacs.d/.authinfo.gpg&amp;#34;)))) </description>
+    </item>
+    
+    <item>
       <title>auto-insert</title>
       <link>https://mugijiru.github.io/.emacs.d/editing/auto-insert/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -592,6 +605,21 @@ strict モードだとペアが崩れないように強制するので雑に C-k
 (require &amp;#39;uniquify) 設定 自分は ファイル名&amp;lt;フォルダ名&amp;gt; みたいな表示になる形式にしている。その方がファイル名が主という感じになって使いやすそうだなって。
 そういう意味では post-foward の方が幅を使わない分良いかもしれない。いつか検討しても良いかもしれない。
 (setq uniquify-buffer-name-style &amp;#39;post-forward-angle-brackets) </description>
+    </item>
+    
+    <item>
+      <title>wakatime-mode</title>
+      <link>https://mugijiru.github.io/.emacs.d/external-tool/wakatime-mode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/external-tool/wakatime-mode/</guid>
+      <description>概要 wakatime-mode は WakaTime というサービスと連携するためのパッケージ。
+WakaTime は自分がどのプロジェクトの作業をしているかを計測してくれるようなツール。普段の行動の改善に使えるかもしれないので、なんとなく連携してみている。
+インストール いつも通り el-get から入れている
+(el-get-bundle wakatime-mode) APIキーの設定 APIキーは .authinfo.gpg に保存しているのでそこから引っ張り出している。
+(custom-set-variables &amp;#39;(wakatime-api-key (funcall (plist-get (nth 0 (auth-source-search :host &amp;#34;wakatime.com&amp;#34; :max 1)) :secret)))) 有効化 Emacs を使っている間は常に有効になっていて欲しいので global-wakatime-mode を有効にしている。
+(global-wakatime-mode 1) APIキーが取れてない時はやたらエラーを吐くので何かしら調整はしてもいいかもしれない。
+(if (boundp &amp;#39;wakatime-api-key) (global-wakatime-mode 1)) みたいにして API キーが取れている時だけ有効にするとかね。</description>
     </item>
     
     <item>

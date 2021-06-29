@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>テスト用ツール :: 麦汁&#39;s Emacs Config</title>
+    <title>auth-source :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624975918" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/testing-tool/">
+  <body class="" data-url="/.emacs.d/basics/auth-source/">
     <nav id="sidebar" class="">
 
 
@@ -89,7 +89,7 @@
   
     
     <li data-nav-id="/.emacs.d/basics/" title="基本設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -115,7 +115,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/basics/auth-source/" title="auth-source" class="dd-item ">
+      <li data-nav-id="/.emacs.d/basics/auth-source/" title="auth-source" class="dd-item active">
         <a href="/.emacs.d/basics/auth-source/">
         auth-source
         
@@ -1285,8 +1285,8 @@
   
     
     <li data-nav-id="/.emacs.d/testing-tool/" title="テスト用ツール" class="dd-item
-        parent
-        active
+        
+        
         
         ">
       <a href="/.emacs.d/testing-tool/">
@@ -1500,6 +1500,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -1510,7 +1512,13 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > テスト用ツール
+            
+            
+          
+          
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/basics/'>基本設定</a> > auth-source
+          
+        
           
         
           
@@ -1518,6 +1526,18 @@
                  
                   </span>
                 </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#ファイル指定">ファイル指定</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
                 
               </div>
             </div>
@@ -1530,27 +1550,27 @@
           
             <h1>
               
-              テスト用ツール
+              auth-source
             </h1>
           
 
         
 
 
+<h2 id="概要">概要</h2>
+<p><a href="https://www.gnu.org/software/emacs/manual/html%5Fmono/auth.html">auth-source</a> は Emacs でパスワードのような秘匿情報を扱うための仕組み。
+Emacs の各パッケージが認証情報を要求する時にこいつ経由で取得できるようにしておくと秘匿もできて便利っぽい。</p>
+<p>パスワードの保存先はデフォルトだと
+<code>(&quot;~/.authinfo&quot; &quot;~/.authinfo.gpg&quot; &quot;~/.netrc&quot;)</code>
+となっている。</p>
+<p>拡張子が gpg だと <a href="https://www.gnu.org/software/emacs/manual/html%5Fmono/epa.html">EagyPG Assistant</a> で保存時に暗号化されるので便利。</p>
+<h2 id="ファイル指定">ファイル指定</h2>
+<p>自分は Emacs でしか使わないであろう情報ということで
+<code>/.emacs.d/.authinfo.gpg</code> を指定している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(custom-set-variables <span style="color:#f92672">&#39;</span>(auth-sources (quote (<span style="color:#e6db74">&#34;~/.emacs.d/.authinfo.gpg&#34;</span>))))
+</code></pre></div>
 
-	<p>自動テストを実行するにあたり、追加インストールしているパッケージをここに載せている</p>
-<dl>
-<dt><a href="/.emacs.d/testing-tool/with-simulated-input/">with-simulated-input</a></dt>
-<dd>入力処理をシミュレートしてくれるパッケージ</dd>
-<dt><a href="/.emacs.d/testing-tool/mocker-el/">mocker.el</a></dt>
-<dd>Mock/Stub するためのパッケージ。まだ使ってない</dd>
-</dl>
-
-
-
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -1585,8 +1605,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -1600,6 +1618,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -1617,37 +1636,8 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
                     
                 
                 
@@ -1659,134 +1649,6 @@
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
                         
             
@@ -1883,182 +1745,6 @@
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -2284,6 +1970,342 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -2420,7 +2442,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -2433,9 +2454,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -2540,10 +2558,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/external-tool/wakatime-mode/" title="wakatime-mode"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/basics/" title="基本設定"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/testing-tool/with-simulated-input/" title="with-simulated-input" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/basics/auto-save/" title="auto-save" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -2575,3 +2593,4 @@
 
   </body>
 </html>
+

@@ -59,5 +59,20 @@ forge を使うと GitHub や GitLab とも連携できてさらに便利、な�
 インストール (el-get-bundle magit) 使い方 Git 管理されてるファイルを開いている時に M-x magit とかすると Git 管理用のバッファが出て来るしそこで ? を叩いたらどういうコマンドが使えるのか教えてくれるよ(雑)</description>
     </item>
     
+    <item>
+      <title>wakatime-mode</title>
+      <link>https://mugijiru.github.io/.emacs.d/external-tool/wakatime-mode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/external-tool/wakatime-mode/</guid>
+      <description>概要 wakatime-mode は WakaTime というサービスと連携するためのパッケージ。
+WakaTime は自分がどのプロジェクトの作業をしているかを計測してくれるようなツール。普段の行動の改善に使えるかもしれないので、なんとなく連携してみている。
+インストール いつも通り el-get から入れている
+(el-get-bundle wakatime-mode) APIキーの設定 APIキーは .authinfo.gpg に保存しているのでそこから引っ張り出している。
+(custom-set-variables &amp;#39;(wakatime-api-key (funcall (plist-get (nth 0 (auth-source-search :host &amp;#34;wakatime.com&amp;#34; :max 1)) :secret)))) 有効化 Emacs を使っている間は常に有効になっていて欲しいので global-wakatime-mode を有効にしている。
+(global-wakatime-mode 1) APIキーが取れてない時はやたらエラーを吐くので何かしら調整はしてもいいかもしれない。
+(if (boundp &amp;#39;wakatime-api-key) (global-wakatime-mode 1)) みたいにして API キーが取れている時だけ有効にするとかね。</description>
+    </item>
+    
   </channel>
 </rss>

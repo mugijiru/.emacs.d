@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>テスト用ツール :: 麦汁&#39;s Emacs Config</title>
+    <title>wakatime-mode :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1624975918" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/testing-tool/">
+  <body class="" data-url="/.emacs.d/external-tool/wakatime-mode/">
     <nav id="sidebar" class="">
 
 
@@ -1146,7 +1146,7 @@
   
     
     <li data-nav-id="/.emacs.d/external-tool/" title="外部連携ツール設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -1256,7 +1256,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/external-tool/wakatime-mode/" title="wakatime-mode" class="dd-item ">
+      <li data-nav-id="/.emacs.d/external-tool/wakatime-mode/" title="wakatime-mode" class="dd-item active">
         <a href="/.emacs.d/external-tool/wakatime-mode/">
         wakatime-mode
         
@@ -1285,8 +1285,8 @@
   
     
     <li data-nav-id="/.emacs.d/testing-tool/" title="テスト用ツール" class="dd-item
-        parent
-        active
+        
+        
         
         ">
       <a href="/.emacs.d/testing-tool/">
@@ -1500,6 +1500,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -1510,7 +1512,13 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > テスト用ツール
+            
+            
+          
+          
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/external-tool/'>外部連携ツール設定</a> > wakatime-mode
+          
+        
           
         
           
@@ -1518,6 +1526,20 @@
                  
                   </span>
                 </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#インストール">インストール</a></li>
+    <li><a href="#apiキーの設定">APIキーの設定</a></li>
+    <li><a href="#有効化">有効化</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
                 
               </div>
             </div>
@@ -1530,27 +1552,34 @@
           
             <h1>
               
-              テスト用ツール
+              wakatime-mode
             </h1>
           
 
         
 
 
+<h2 id="概要">概要</h2>
+<p><a href="https://github.com/wakatime/wakatime-mode">wakatime-mode</a> は <a href="https://wakatime.com">WakaTime</a> というサービスと連携するためのパッケージ。</p>
+<p>WakaTime は自分がどのプロジェクトの作業をしているかを計測してくれるようなツール。普段の行動の改善に使えるかもしれないので、なんとなく連携してみている。</p>
+<h2 id="インストール">インストール</h2>
+<p>いつも通り el-get から入れている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle wakatime-mode)
+</code></pre></div><h2 id="apiキーの設定">APIキーの設定</h2>
+<p>APIキーは .authinfo.gpg に保存しているのでそこから引っ張り出している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(custom-set-variables
+ <span style="color:#f92672">&#39;</span>(wakatime-api-key (<span style="color:#a6e22e">funcall</span> (<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;wakatime.com&#34;</span> :max <span style="color:#ae81ff">1</span>)) :secret))))
+</code></pre></div><h2 id="有効化">有効化</h2>
+<p>Emacs を使っている間は常に有効になっていて欲しいので
+global-wakatime-mode を有効にしている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(global-wakatime-mode <span style="color:#ae81ff">1</span>)
+</code></pre></div><p>APIキーが取れてない時はやたらエラーを吐くので何かしら調整はしてもいいかもしれない。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(if (<span style="color:#a6e22e">boundp</span> <span style="color:#e6db74">&#39;wakatime-api-key</span>)
+  (global-wakatime-mode <span style="color:#ae81ff">1</span>))
+</code></pre></div><p>みたいにして API キーが取れている時だけ有効にするとかね。</p>
 
-	<p>自動テストを実行するにあたり、追加インストールしているパッケージをここに載せている</p>
-<dl>
-<dt><a href="/.emacs.d/testing-tool/with-simulated-input/">with-simulated-input</a></dt>
-<dd>入力処理をシミュレートしてくれるパッケージ</dd>
-<dt><a href="/.emacs.d/testing-tool/mocker-el/">mocker.el</a></dt>
-<dd>Mock/Stub するためのパッケージ。まだ使ってない</dd>
-</dl>
 
-
-
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -2324,6 +2353,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -2336,6 +2366,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -2401,6 +2434,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -2420,6 +2454,8 @@
             
                 
                     
+                        
+                        
                     
                 
                 
@@ -2433,9 +2469,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -2540,10 +2573,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/external-tool/wakatime-mode/" title="wakatime-mode"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/external-tool/magit/" title="magit"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/testing-tool/with-simulated-input/" title="with-simulated-input" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/testing-tool/" title="テスト用ツール" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -2575,3 +2608,4 @@
 
   </body>
 </html>
+
