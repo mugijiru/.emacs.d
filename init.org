@@ -56,6 +56,28 @@
    - [[*savehist][savehist]] :: ミニバッファの履歴などを保存してくれる機能。
    - [[*ガベージコレクション][ガベージコレクション]] :: メモリの開放関係の設定
 
+** auth-source
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: auth-source
+   :END:
+*** 概要
+    [[https://www.gnu.org/software/emacs/manual/html_mono/auth.html][auth-source]] は Emacs でパスワードのような秘匿情報を扱うための仕組み。
+    Emacs の各パッケージが認証情報を要求する時に
+    こいつ経由で取得できるようにしておくと秘匿もできて便利っぽい。
+
+    パスワードの保存先はデフォルトだと
+    ~("~/.authinfo" "~/.authinfo.gpg" "~/.netrc")~
+    となっている。
+
+    拡張子が gpg だと [[https://www.gnu.org/software/emacs/manual/html_mono/epa.html][EagyPG Assistant]] で保存時に暗号化されるので便利。
+
+*** ファイル指定
+    自分は Emacs でしか使わないであろう情報ということで
+    ~/.emacs.d/.authinfo.gpg~ を指定している。
+
+    #+begin_src emacs-lisp :tangle inits/00-authinfo.el
+    (custom-set-variables '(auth-sources (quote ("~/.emacs.d/.authinfo.gpg"))))
+    #+end_src
 ** auto-save                                                    :replacement:
    :PROPERTIES:
    :EXPORT_FILE_NAME: auto-save
