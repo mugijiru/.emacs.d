@@ -2168,6 +2168,48 @@
     Git 管理されてるファイルを開いている時に
     ~M-x magit~ とかすると Git 管理用のバッファが出て来るし
     そこで ~?~ を叩いたらどういうコマンドが使えるのか教えてくれるよ(雑)
+** wakatime-mode
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: wakatime-mode
+   :END:
+*** 概要
+    [[https://github.com/wakatime/wakatime-mode][wakatime-mode]] は [[https://wakatime.com][WakaTime]] というサービスと連携するためのパッケージ。
+
+    WakaTime は自分がどのプロジェクトの作業をしているかを計測してくれるようなツール。
+    普段の行動の改善に使えるかもしれないので、なんとなく連携してみている。
+
+*** インストール
+    いつも通り el-get から入れている
+
+    #+begin_src emacs-lisp :tangle inits/80-wakatime.el
+    (el-get-bundle wakatime-mode)
+    #+end_src
+*** APIキーの設定
+    APIキーは .authinfo.gpg に保存しているので
+    そこから引っ張り出している。
+
+    #+begin_src emacs-lisp :tangle inits/80-wakatime.el
+    (custom-set-variables
+      '(wakatime-api-key (funcall (plist-get (nth 0 (auth-source-search :host "wakatime.com" :max 1)) :secret))))
+    #+end_src
+*** 有効化
+    Emacs を使っている間は常に有効になっていて欲しいので
+    global-wakatime-mode を有効にしている。
+
+    #+begin_src emacs-lisp :tangle inits/80-wakatime.el
+    (global-wakatime-mode 1)
+    #+end_src
+
+    APIキーが取れてない時はやたらエラーを吐くので
+    何かしら調整はしてもいいかもしれない。
+
+    #+begin_src emacs-lisp
+    (if (boundp 'wakatime-api-key)
+      (global-wakatime-mode 1))
+    #+end_src
+
+    みたいにして API キーが取れている時だけ有効にするとかね。
+
 * テスト用ツール
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: testing-tool
@@ -3670,14 +3712,6 @@
 
    ;; Don't ask yes or no.
    (defalias 'yes-or-no-p 'y-or-n-p)
-   #+end_src
-
-** 80-wakatime.el
-
-   #+begin_src emacs-lisp :tangle inits/80-wakatime.el
-   (el-get-bundle wakatime-mode)
-   (my/load-config "my-wakatime-config")
-   (global-wakatime-mode 1)
    #+end_src
 
 ** 81-hydra.el
