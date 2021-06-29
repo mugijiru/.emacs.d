@@ -2191,7 +2191,7 @@
 
     #+begin_src emacs-lisp :tangle inits/80-wakatime.el
     (custom-set-variables
-      '(wakatime-api-key (funcall (plist-get (nth 0 (auth-source-search :host "wakatime.com" :max 1)) :secret))))
+     '(wakatime-api-key (funcall (plist-get (nth 0 (auth-source-search :host "wakatime.com" :max 1)) :secret))))
     #+end_src
 *** 有効化
     Emacs を使っている間は常に有効になっていて欲しいので
