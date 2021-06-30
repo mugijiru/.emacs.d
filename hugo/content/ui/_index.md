@@ -26,6 +26,9 @@ disableToc = true
 [highlight-indent-guides]({{< relref "highlight-indent-guides" >}})
 : インデント毎にラインを引いたりして見易くしてくれるやつ
 
+[hydra]({{< relref "hydra" >}})
+: サブコマンドをビジュアル的に表示してくれるメニューを提供してくれるやつ
+
 [Neotree]({{< relref "neotree" >}})
 : フォルダ構造を IDE みたいにツリー表示するやつ
 

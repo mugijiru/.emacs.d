@@ -1,9 +1,7 @@
 (el-get-bundle hydra)
 
-;; hydra-posframe
-;; https://github.com/Ladicle/hydra-posframe
-;; 画面真ん中に表示されて便利
 (el-get-bundle hydra-posframe)
+
 (add-hook 'after-init-hook 'hydra-posframe-enable)
 
 (el-get-bundle jerrypnz/major-mode-hydra.el)
@@ -86,7 +84,7 @@
    "Code"
    (("G" counsel-projectile-ag       "Grep")
     ("j" dumb-jump-pretty-hydra/body "Dumb jump")
-    ("g" avy-hydra/body)
+    ("g" avy-hydra/body              "Avy")
     ("i" counsel-imenu               "imenu")
     ("y" yasnippet-hydra/body        "Yasnippet")
     ("B" browse-at-remote            "Browse")
