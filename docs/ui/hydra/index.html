@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>plantuml-mode :: 麦汁&#39;s Emacs Config</title>
+    <title>hydra :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1625097067" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/language-config/plantuml-mode/">
+  <body class="" data-url="/.emacs.d/ui/hydra/">
     <nav id="sidebar" class="">
 
 
@@ -506,7 +506,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        
+        parent
         
         
         ">
@@ -658,7 +658,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/hydra/" title="hydra" class="dd-item ">
+      <li data-nav-id="/.emacs.d/ui/hydra/" title="hydra" class="dd-item active">
         <a href="/.emacs.d/ui/hydra/">
         hydra
         
@@ -994,7 +994,7 @@
   
     
     <li data-nav-id="/.emacs.d/language-config/" title="言語毎の設定" class="dd-item
-        parent
+        
         
         
         ">
@@ -1062,7 +1062,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/language-config/plantuml-mode/" title="plantuml-mode" class="dd-item active">
+      <li data-nav-id="/.emacs.d/language-config/plantuml-mode/" title="plantuml-mode" class="dd-item ">
         <a href="/.emacs.d/language-config/plantuml-mode/">
         plantuml-mode
         
@@ -1537,7 +1537,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/language-config/'>言語毎の設定</a> > plantuml-mode
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > hydra
           
         
           
@@ -1553,9 +1553,22 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#インストール">インストール</a></li>
-    <li><a href="#設定">設定</a></li>
-    <li><a href="#その他">その他</a></li>
+    <li><a href="#インストール">インストール</a>
+      <ul>
+        <li><a href="#hydra-本体のインストール">Hydra 本体のインストール</a></li>
+        <li><a href="#hydra-posframe-のインストール">hydra-posframe のインストール</a></li>
+        <li><a href="#major-mode-hydra-のインストール">major-mode-hydra のインストール</a></li>
+      </ul>
+    </li>
+    <li><a href="#キーバインド">キーバインド</a>
+      <ul>
+        <li><a href="#el-get">el-get</a></li>
+        <li><a href="#toggle-switches">Toggle Switches</a></li>
+        <li><a href="#sub-tools">Sub Tools</a></li>
+        <li><a href="#text-scale">Text Scale</a></li>
+        <li><a href="#main">Main</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -1573,7 +1586,7 @@
           
             <h1>
               
-              plantuml-mode
+              hydra
             </h1>
           
 
@@ -1581,18 +1594,390 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/skuro/plantuml-mode">plantuml-mode</a> は <a href="https://plantuml.com/ja/">PlantUML</a> という、テキストだけで UML 図などが描けるツール用のモード。</p>
+<p><a href="https://github.com/abo-abo/hydra">Hydra</a> は Emacs の貴重なキーバインドを節約できる便利なパッケージ。</p>
+<p>自分で定義した各 Hydra コマンドを実行するとそれに紐付くサブコマンドとそれらのキーバインド一覧を表示させることができるというやつ。</p>
 <h2 id="インストール">インストール</h2>
-<p>いつも通り el-get で入れてる</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle plantuml-mode)
-</code></pre></div><h2 id="設定">設定</h2>
-<p>実行モードは <code>'jar</code> を指定している。デフォルトは <code>'server</code> なんだけどオフラインの時も使いたいししね。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq plantuml-default-exec-mode <span style="color:#e6db74">&#39;jar</span>)
-</code></pre></div><p>el-get でインスコすると jar ファイルも自動で拾って来て
-plantuml-mode と同じディレクトリに設置して
-<code>plantuml-jar-path</code> も通してくれるからそっち使う方が便利だしね。</p>
-<h2 id="その他">その他</h2>
-<p>最新の develop ブランチだとインデントを調整できる機能が入っているので乗り換えたいけどそのためには el-get のレシピを書いてあげる必要がありそうで放置している。</p>
+<p>Hydra 本体と関連パッケージをここでインスコしている</p>
+<h3 id="hydra-本体のインストール">Hydra 本体のインストール</h3>
+<p>Hydra 本体は el-get で普通に入れている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle hydra)
+</code></pre></div><h3 id="hydra-posframe-のインストール">hydra-posframe のインストール</h3>
+<p>Hydra は通常だと minibuffer あたりに表示されるけど画面の真ん中に表示される方が視線移動が少なくて便利なので
+hydra-posframe を使って画面中央に表示されるようにしている。</p>
+<p>インストールはいつも通り el-get で行っている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle hydra-posframe)
+</code></pre></div><p>そして Emacs の初期化処理が完了したタイミングでそれが使われるように after-init-hook で hydra-posframe を有効化している</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-hook <span style="color:#e6db74">&#39;after-init-hook</span> <span style="color:#e6db74">&#39;hydra-posframe-enable</span>)
+</code></pre></div><h3 id="major-mode-hydra-のインストール">major-mode-hydra のインストール</h3>
+<p>自分以外で使っている人を見たことはないけど麦汁さんは <a href="https://github.com/jerrypnz/major-mode-hydra.el">major-mode-hydra</a> というものを利用している。</p>
+<p>これは major mode 用に簡単に Hydra の設定ができるというやつ。なので emacs-lisp-mode 用の Hydra とか
+js2-mode 用の Hydra などを定義できて便利。</p>
+<p>どちらの場合も <code>M-x major-mode-hydra</code> で起動するので迷わないで済むのも良い。</p>
+<p>内部では同じリポジトリにある pretty-hydra というのを利用していてそいつが UI の定義をせずともそれなりの感じに Hydra のメニューを構築してくれるようになっている。これもズボラな麦汁さんは気に入っている。導入していても表示にこだわりたい場合は直接 <code>defhydra</code> したらいいだけだしね。</p>
+<p>ってことでそれを el-get を使って GitHub からインストールしている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle jerrypnz/major-mode-hydra.el)
+</code></pre></div><h2 id="キーバインド">キーバインド</h2>
+<p>Hydra でいくつかのキーバインドを設定していて他の機能に属さないものはここでまとめてキーバインドを定義している。</p>
+<h3 id="el-get">el-get</h3>
+<p>他の機能に属さないものは、と書いたな? ありゃ嘘だ。
+el-get の Hydra はここで定義してしまっている。その内 el-get 用の設定ファイルにでも移動したい気がする。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(pretty-hydra-define el-get-hydra (:separator <span style="color:#e6db74">&#34;-&#34;</span> :title <span style="color:#e6db74">&#34;el-get&#34;</span> :foreign-key <span style="color:#a6e22e">warn</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :exit <span style="color:#66d9ef">t</span>)
+  (<span style="color:#e6db74">&#34;Install&#34;</span>
+   ((<span style="color:#e6db74">&#34;i&#34;</span> el-get-install   <span style="color:#e6db74">&#34;Install&#34;</span>)
+    (<span style="color:#e6db74">&#34;I&#34;</span> el-get-reinstall <span style="color:#e6db74">&#34;Re-install&#34;</span>)
+    (<span style="color:#e6db74">&#34;D&#34;</span> el-get-remove    <span style="color:#e6db74">&#34;Uninstall&#34;</span>))
+
+   <span style="color:#e6db74">&#34;Update&#34;</span>
+   ((<span style="color:#e6db74">&#34;s&#34;</span> el-get-self-update  <span style="color:#e6db74">&#34;Self Update&#34;</span>)
+    (<span style="color:#e6db74">&#34;u&#34;</span> el-get-update       <span style="color:#e6db74">&#34;Update&#34;</span>)
+    (<span style="color:#e6db74">&#34;A&#34;</span> el-get-update-all   <span style="color:#e6db74">&#34;Update All&#34;</span>)
+    (<span style="color:#e6db74">&#34;r&#34;</span> el-get-reload       <span style="color:#e6db74">&#34;Reload&#34;</span>))
+
+   <span style="color:#e6db74">&#34;Recipe&#34;</span>
+   ((<span style="color:#e6db74">&#34;f&#34;</span> el-get-find-recipe-file  <span style="color:#e6db74">&#34;Find recipe&#34;</span>))
+
+   <span style="color:#e6db74">&#34;Lock&#34;</span>
+   ((<span style="color:#e6db74">&#34;C&#34;</span> el-get-lock-checkout  <span style="color:#e6db74">&#34;Checkout&#34;</span>)
+    (<span style="color:#e6db74">&#34;U&#34;</span> el-get-lock-unlock    <span style="color:#e6db74">&#34;Unlock&#34;</span>))))
+</code></pre></div><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i</td>
+<td>パッケージの新規インストール。正直このキー叩いた記憶がない</td>
+</tr>
+<tr>
+<td>I</td>
+<td>パッケージの再インストール</td>
+</tr>
+<tr>
+<td>D</td>
+<td>パッケージの削除</td>
+</tr>
+<tr>
+<td>s</td>
+<td>el-get 自身のアップデート</td>
+</tr>
+<tr>
+<td>u</td>
+<td>指定パッケージのアップデート</td>
+</tr>
+<tr>
+<td>A</td>
+<td>全パッケージのアップデート</td>
+</tr>
+<tr>
+<td>r</td>
+<td>パッケージの読み直し</td>
+</tr>
+<tr>
+<td>f</td>
+<td>パッケージのインストール用レシピファイルを開く</td>
+</tr>
+<tr>
+<td>C</td>
+<td>指定したパッケージを el-get-lock でロックされたバージョンをチェックアウト</td>
+</tr>
+<tr>
+<td>U</td>
+<td>指定したパッケージの el-get-lock のロックを解除</td>
+</tr>
+</tbody>
+</table>
+<h3 id="toggle-switches">Toggle Switches</h3>
+<p>ここでは ON/OFF を切り替えるような機能のコントロールを行っている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(pretty-hydra-define
+  toggle-hydra
+  (:separator <span style="color:#e6db74">&#34;-&#34;</span>
+              :title (<span style="color:#a6e22e">concat</span> (all-the-icons-faicon <span style="color:#e6db74">&#34;toggle-on&#34;</span>) <span style="color:#e6db74">&#34; Toggle Switches&#34;</span>)
+              :foreign-key <span style="color:#a6e22e">warn</span>
+              :quit-key <span style="color:#e6db74">&#34;q&#34;</span>
+              :exit <span style="color:#66d9ef">t</span>)
+  (<span style="color:#e6db74">&#34;View&#34;</span>
+   ((<span style="color:#e6db74">&#34;z&#34;</span> zoom-mode                 <span style="color:#e6db74">&#34;zoom-mode&#34;</span>      :toggle zoom-mode)
+    (<span style="color:#e6db74">&#34;Z&#34;</span> toggle-frame-fullscreen   <span style="color:#e6db74">&#34;Fullscreen&#34;</span>     :toggle (<span style="color:#a6e22e">frame-parameter</span> <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;fullscreen</span>))
+    (<span style="color:#e6db74">&#34;b&#34;</span> display-battery-mode      <span style="color:#e6db74">&#34;Battery&#34;</span>        :toggle display-battery-mode)
+    (<span style="color:#e6db74">&#34;L&#34;</span> display-line-numbers-mode <span style="color:#e6db74">&#34;Line Number&#34;</span>    :toggle display-line-numbers-mode)
+    (<span style="color:#e6db74">&#34;N&#34;</span> neotree-toggle            <span style="color:#e6db74">&#34;Neotree&#34;</span>        :toggle (if (<span style="color:#a6e22e">fboundp</span> <span style="color:#e6db74">&#39;neo-global--window-exists-p</span>) (neo-global--window-exists-p) <span style="color:#66d9ef">nil</span>)))
+
+   <span style="color:#e6db74">&#34;Behavior&#34;</span>
+   ((<span style="color:#e6db74">&#34;S&#34;</span> my/notify-slack-toggle    <span style="color:#e6db74">&#34;Notify Slack&#34;</span>   :toggle my/notify-slack-enable-p)
+    (<span style="color:#e6db74">&#34;v&#34;</span> my/toggle-view-mode       <span style="color:#e6db74">&#34;Readonly&#34;</span>       :toggle view-mode)
+    (<span style="color:#e6db74">&#34;E&#34;</span> toggle-debug-on-error     <span style="color:#e6db74">&#34;Debug on error&#34;</span> :toggle debug-on-error))))
+</code></pre></div><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>z</td>
+<td><a href="/.emacs.d/ui/zoom/">zoom-mode</a> のON/OFF切替。狭いディスプレイの時は ON にするが、大きいディスプレイだと OFF にしている</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>フルスクリーンの切替。狭いディスプレイの時は ON にするが、大きいディスプレイだと OFF にしている</td>
+</tr>
+<tr>
+<td>b</td>
+<td>バッテリー表示モードの切替。OFF にしたことないな……</td>
+</tr>
+<tr>
+<td>L</td>
+<td>行番号表示の切替。邪魔になる時もあるので ON/OFF 切り替えている</td>
+</tr>
+<tr>
+<td>N</td>
+<td><a href="/.emacs.d/ui/neotree/">Neotree</a> の表示切替。普段は邪魔なので OFF にしている</td>
+</tr>
+<tr>
+<td>S</td>
+<td>Slack 通知の切替。org-clock-in とかのタイミングで Slack に通知を飛ばしているが切る時もある</td>
+</tr>
+<tr>
+<td>v</td>
+<td>view-mode にしたり戻したり。コードを眺めたい時などに ON にする</td>
+</tr>
+<tr>
+<td>E</td>
+<td>エラー時のデバッグモードの切替。設定を弄ってる時はバックトレースある方が嬉しいよね</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sub-tools">Sub Tools</h3>
+<p>最初に起動した Hydra からは外してるけど、そこそこ使うコマンド群を適当に詰めてるやつ。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(pretty-hydra-define
+  subtools-hydra
+  (:separator <span style="color:#e6db74">&#34;-&#34;</span>
+              :color teal
+              :foreign-key <span style="color:#a6e22e">warn</span>
+              :title (<span style="color:#a6e22e">concat</span> (all-the-icons-material <span style="color:#e6db74">&#34;build&#34;</span>) <span style="color:#e6db74">&#34; Sub tools&#34;</span>)
+              :quit-key <span style="color:#e6db74">&#34;q&#34;</span>
+              :exit <span style="color:#66d9ef">t</span>)
+  (<span style="color:#e6db74">&#34;Describe&#34;</span>
+   ((<span style="color:#e6db74">&#34;b&#34;</span> counsel-descbinds <span style="color:#e6db74">&#34;Keybind&#34;</span>)
+    (<span style="color:#e6db74">&#34;f&#34;</span> counsel-describe-function <span style="color:#e6db74">&#34;Function&#34;</span>)
+    (<span style="color:#e6db74">&#34;v&#34;</span> counsel-describe-variable <span style="color:#e6db74">&#34;Variable&#34;</span>)
+    (<span style="color:#e6db74">&#34;m&#34;</span> describe-minor-mode <span style="color:#e6db74">&#34;Minor mode&#34;</span>))
+
+   <span style="color:#75715e">;; (&#34;P&#34;   my/open-review-requested-pr &#34;Open Requested PR&#34;)</span>
+   <span style="color:#e6db74">&#34;Other&#34;</span>
+   ((<span style="color:#e6db74">&#34;@&#34;</span>   all-the-icons-hydra/body <span style="color:#e6db74">&#34;List icons&#34;</span>))))
+</code></pre></div><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>b</td>
+<td>キーバインドを調べる</td>
+</tr>
+<tr>
+<td>f</td>
+<td>Emacs Lisp の関数を調べる</td>
+</tr>
+<tr>
+<td>v</td>
+<td>Emacs Lisp の変数を調べる</td>
+</tr>
+<tr>
+<td>m</td>
+<td>minor-mode を調べる</td>
+</tr>
+<tr>
+<td>@</td>
+<td>All the icons の Hydra を起動</td>
+</tr>
+</tbody>
+</table>
+<h3 id="text-scale">Text Scale</h3>
+<p>文字サイズの切替用。たまに字を大きくしたりしたいので。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(pretty-hydra-define text-scale-hydra (:separator <span style="color:#e6db74">&#34;-&#34;</span> :title (<span style="color:#a6e22e">concat</span> (all-the-icons-material <span style="color:#e6db74">&#34;text_fields&#34;</span>) <span style="color:#e6db74">&#34; Text Scale&#34;</span>) :exit <span style="color:#66d9ef">nil</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span>)
+  (<span style="color:#e6db74">&#34;Scale&#34;</span>
+   ((<span style="color:#e6db74">&#34;+&#34;</span> text-scale-increase <span style="color:#e6db74">&#34;Increase&#34;</span>)
+    (<span style="color:#e6db74">&#34;-&#34;</span> text-scale-decrease <span style="color:#e6db74">&#34;Decrease&#34;</span>)
+    (<span style="color:#e6db74">&#34;0&#34;</span> text-scale-adjust   <span style="color:#e6db74">&#34;Adjust&#34;</span>))))
+</code></pre></div><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>文字サイズを大きくする</td>
+</tr>
+<tr>
+<td>-</td>
+<td>文字サイズを小さくする</td>
+</tr>
+<tr>
+<td>0</td>
+<td>文字サイズを元に戻す</td>
+</tr>
+</tbody>
+</table>
+<h3 id="main">Main</h3>
+<p>よく使うコマンドをまとめたやつ。
+<a href="/.emacs.d/keybinds/key-chord/">key-chord</a> を使って <code>jk</code> 同時押しで起動できるようにしている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(pretty-hydra-define pretty-hydra-usefull-commands (:separator <span style="color:#e6db74">&#34;-&#34;</span> :color teal :foreign-key <span style="color:#a6e22e">warn</span> :title (<span style="color:#a6e22e">concat</span> (all-the-icons-material <span style="color:#e6db74">&#34;build&#34;</span>) <span style="color:#e6db74">&#34; Usefull commands&#34;</span>) :quit-key <span style="color:#e6db74">&#34;q&#34;</span>)
+  (<span style="color:#e6db74">&#34;File&#34;</span>
+   ((<span style="color:#e6db74">&#34;p&#34;</span> projectile-hydra/body <span style="color:#e6db74">&#34;Projectile&#34;</span>)
+    (<span style="color:#e6db74">&#34;f&#34;</span> counsel-find-file     <span style="color:#e6db74">&#34;Find File&#34;</span>)
+    (<span style="color:#e6db74">&#34;d&#34;</span> counsel-find-dir      <span style="color:#e6db74">&#34;Find Dir&#34;</span>)
+    (<span style="color:#e6db74">&#34;r&#34;</span> counsel-recentf       <span style="color:#e6db74">&#34;Recentf&#34;</span>)
+    (<span style="color:#e6db74">&#34;l&#34;</span> counsel-locate        <span style="color:#e6db74">&#34;Locate&#34;</span>)
+    (<span style="color:#e6db74">&#34;A&#34;</span> counsel-osx-app       <span style="color:#e6db74">&#34;macOS App&#34;</span>))
+
+   <span style="color:#e6db74">&#34;Edit&#34;</span>
+   ((<span style="color:#e6db74">&#34;a&#34;</span> align-regexp <span style="color:#e6db74">&#34;Align Regexp&#34;</span>)
+    (<span style="color:#e6db74">&#34;;&#34;</span> comment-dwim <span style="color:#e6db74">&#34;Comment&#34;</span>))
+
+   <span style="color:#e6db74">&#34;Code&#34;</span>
+   ((<span style="color:#e6db74">&#34;G&#34;</span> counsel-projectile-ag       <span style="color:#e6db74">&#34;Grep&#34;</span>)
+    (<span style="color:#e6db74">&#34;j&#34;</span> dumb-jump-pretty-hydra/body <span style="color:#e6db74">&#34;Dumb jump&#34;</span>)
+    (<span style="color:#e6db74">&#34;g&#34;</span> avy-hydra/body              <span style="color:#e6db74">&#34;Avy&#34;</span>)
+    (<span style="color:#e6db74">&#34;i&#34;</span> counsel-imenu               <span style="color:#e6db74">&#34;imenu&#34;</span>)
+    (<span style="color:#e6db74">&#34;y&#34;</span> yasnippet-hydra/body        <span style="color:#e6db74">&#34;Yasnippet&#34;</span>)
+    (<span style="color:#e6db74">&#34;B&#34;</span> browse-at-remote            <span style="color:#e6db74">&#34;Browse&#34;</span>)
+    (<span style="color:#e6db74">&#34;m&#34;</span> magit-status                <span style="color:#e6db74">&#34;Magit&#34;</span>))
+
+   <span style="color:#e6db74">&#34;View&#34;</span>
+   ((<span style="color:#e6db74">&#34;D&#34;</span> delete-other-windows      <span style="color:#e6db74">&#34;Only This Win&#34;</span>)
+    (<span style="color:#e6db74">&#34;W&#34;</span> window-control-hydra/body <span style="color:#e6db74">&#34;Window Control&#34;</span>)
+    (<span style="color:#e6db74">&#34;+&#34;</span> text-scale-hydra/body     <span style="color:#e6db74">&#34;Text Scale&#34;</span>)
+    (<span style="color:#e6db74">&#34;w&#34;</span> ace-swap-window           <span style="color:#e6db74">&#34;Swap Window&#34;</span>))
+
+   <span style="color:#e6db74">&#34;Tool&#34;</span>
+   ((<span style="color:#e6db74">&#34;SPC&#34;</span> major-mode-hydra         <span style="color:#e6db74">&#34;Hydra(Major)&#34;</span>)
+    (<span style="color:#e6db74">&#34;s&#34;</span>   toggle-hydra/body        <span style="color:#e6db74">&#34;Toggle switches&#34;</span>)
+    (<span style="color:#e6db74">&#34;c&#34;</span>   counsel-org-capture      <span style="color:#e6db74">&#34;Capture&#34;</span>)
+    (<span style="color:#e6db74">&#34;o&#34;</span>   global-org-hydra/body    <span style="color:#e6db74">&#34;Org&#34;</span>)
+    (<span style="color:#e6db74">&#34;e&#34;</span>   el-get-hydra/body        <span style="color:#e6db74">&#34;el-get&#34;</span>)
+    (<span style="color:#e6db74">&#34;/&#34;</span>   google-pretty-hydra/body <span style="color:#e6db74">&#34;Google&#34;</span>)
+    (<span style="color:#e6db74">&#34;t&#34;</span>   subtools-hydra/body      <span style="color:#e6db74">&#34;Sub Tools&#34;</span>))))
+</code></pre></div><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>p</td>
+<td><a href="/.emacs.d/nav/projectile/">Projectile</a> 用の Hydra 起動</td>
+</tr>
+<tr>
+<td>f</td>
+<td>counsel でファイルを開く</td>
+</tr>
+<tr>
+<td>d</td>
+<td>counsel でフォルダ開く</td>
+</tr>
+<tr>
+<td>r</td>
+<td>counsel で最近使ったファイルを開く</td>
+</tr>
+<tr>
+<td>l</td>
+<td>counsel で locate する。Mac だと mdfind だけど</td>
+</tr>
+<tr>
+<td>A</td>
+<td>counsel で macOS の Application を開く</td>
+</tr>
+<tr>
+<td>a</td>
+<td>正規表現に基いて整形</td>
+</tr>
+<tr>
+<td>;</td>
+<td>コメント挿入。 M-; を使ってるから要らないかも</td>
+</tr>
+<tr>
+<td>G</td>
+<td>projectile 内の検索。関係ないのがかかる時もあるので調整必要</td>
+</tr>
+<tr>
+<td>j</td>
+<td><a href="/.emacs.d/nav/dumb-jump/">dumb-jump</a> 用の Hydra 起動</td>
+</tr>
+<tr>
+<td>g</td>
+<td>画面上の好きな位置にジャンプする <a href="/.emacs.d/nav/avy/">avy</a> の起動</td>
+</tr>
+<tr>
+<td>i</td>
+<td>counsel-imenu 起動。使ってない気がする</td>
+</tr>
+<tr>
+<td>y</td>
+<td><a href="/.emacs.d/editing/yasnippet/">yasnippet</a> 用の Hydra 起動</td>
+</tr>
+<tr>
+<td>B</td>
+<td><a href="/.emacs.d/nav/browse-at-remote/">browse-at-remote</a> で GitHub などのコード位置を開く</td>
+</tr>
+<tr>
+<td>m</td>
+<td><a href="/.emacs.d/external-tool/magit/">magit</a> を起動</td>
+</tr>
+<tr>
+<td>D</td>
+<td>他の Window を消す</td>
+</tr>
+<tr>
+<td>W</td>
+<td>フレームサイズや位置を弄るための Hydra を起動。ほぼ使ってない</td>
+</tr>
+<tr>
+<td>+</td>
+<td><a href="#text-scale">文字サイズ変更用 Hydra</a> の起動</td>
+</tr>
+<tr>
+<td>w</td>
+<td>Window の入替</td>
+</tr>
+<tr>
+<td>SPC</td>
+<td><a href="https://github.com/jerrypnz/major-mode-hydra.el">major-mode-hydra</a> の起動</td>
+</tr>
+<tr>
+<td>s</td>
+<td><a href="#toggle-switches">ON/OFF 切替系の Hydra</a> を起動する</td>
+</tr>
+<tr>
+<td>c</td>
+<td>counsel-org-capture を呼び出す</td>
+</tr>
+<tr>
+<td>o</td>
+<td>org-mode 用の Hydra を起動する</td>
+</tr>
+<tr>
+<td>e</td>
+<td>el-get 用の Hydra を起動する</td>
+</tr>
+<tr>
+<td>t</td>
+<td><a href="#sub-tools">第一階層には入れてないけどまあまあ便利なコマンドを詰めた Hydra</a> を起動する</td>
+</tr>
+</tbody>
+</table>
 
 
 <footer class="footline">
@@ -1921,6 +2306,7 @@ plantuml-mode と同じディレクトリに設置して
             
                 
                     
+                    
                 
                 
 
@@ -1933,6 +2319,125 @@ plantuml-mode と同じディレクトリに設置して
             
             
                 
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -2057,118 +2562,6 @@ plantuml-mode と同じディレクトリに設置して
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -2273,7 +2666,6 @@ plantuml-mode と同じディレクトリに設置して
             
                 
                     
-                    
                 
                 
 
@@ -2287,8 +2679,21 @@ plantuml-mode と同じディレクトリに設置して
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
-                        
+            
+            
+                
                     
                 
                 
@@ -2321,26 +2726,6 @@ plantuml-mode と同じディレクトリに設置して
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -2605,10 +2990,10 @@ plantuml-mode と同じディレクトリに設置して
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/language-config/markdown/" title="markdown"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/ui/highlight-indent-guides/" title="highlight-indent-guides"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/language-config/yaml-mode/" title="yaml-mode" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/ui/neotree/" title="Neotree" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
