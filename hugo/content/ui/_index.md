@@ -14,6 +14,9 @@ disableToc = true
 [all-the-icons]({{< relref "all-the-icons" >}})
 : Emacs で様々なアイコンを表示できるようにするやつ
 
+[fullscreen]({{< relref "fullscreen" >}})
+: 起動時のフルスクリーン設定
+
 [git-gutter-fringe]({{< relref "git-gutter-fringe" >}})
 : 最後のコミットからどう弄ったかを fringe 領域に表示してくれるやつ
 
