@@ -948,6 +948,40 @@
 
     フォントのインストールコマンドもここに収めてしまうのが良さそうな気がする
 
+** fullscreen
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: fullscreen
+   :END:
+
+*** 概要
+    起動時にフルスクリーンにする設定はここにまとめている
+
+*** Mac の設定
+    Mac の場合にフルスクリーンにする設定を入れていた。
+    けど 2020-01-08 に yabai WM を導入したことにより
+    起動時はフルスクリーンじゃない方がよくなったので以下の処理は今は使ってない。
+
+    #+begin_src emacs-lisp
+    (if (or (eq window-system 'ns) (eq window-system 'mac))
+        (add-hook 'window-setup-hook
+                  (lambda ()
+                    (set-frame-parameter nil 'fullscreen 'fullboth))))
+    #+end_src
+*** Linux(X Window system) の設定
+    X Window system の場合にはフルスクリーンにする。
+    まあ Linux って書いているけど WSL2 用なのである。
+
+    #+begin_src emacs-lisp :tangle inits/90-fullscreen.el
+    (if (eq window-system 'x)
+        (add-hook 'window-setup-hook
+                  (lambda ()
+                    (set-frame-parameter nil 'fullscreen 'fullboth)
+                    (set-frame-position nil 0 0))))
+    #+end_src
+
+    微妙に画面の下の方がちゃんとフルになってくれてないけど
+    そこは今は我慢して使っている。
+
 ** git-gutter-fringe                                            :improvement:
    :PROPERTIES:
    :EXPORT_FILE_NAME: git-gutter-fringe
@@ -4099,24 +4133,6 @@
    (el-get-bundle raxod502/prescient.el)
    (ivy-prescient-mode 1)
    (setq prescient-sort-length-enable nil)
-   #+end_src
-
-** 90-fullscreen.el
-
-   #+begin_src emacs-lisp :tangle inits/90-fullscreen.el
-   ;; Mac の場合にフルスクリーンにする
-   ;; 2020-01-08 yabai WM を導入したのでフルスクリーンじゃない方がよくなったのでコメントアウト
-   ;; (if (or (eq window-system 'ns) (eq window-system 'mac))
-   ;;     (add-hook 'window-setup-hook
-   ;;               (lambda ()
-   ;;                 (set-frame-parameter nil 'fullscreen 'fullboth))))
-
-   ;; X Window system の場合にフルスクリーンにする
-   (if (eq window-system 'x)
-       (add-hook 'window-setup-hook
-                 (lambda ()
-                   (set-frame-parameter nil 'fullscreen 'fullboth)
-                   (set-frame-position nil 0 0))))
    #+end_src
 
 ** 90-mode-line.el
