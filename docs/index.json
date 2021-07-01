@@ -60,7 +60,7 @@
 	"title": "UI",
 	"tags": [],
 	"description": "",
-	"content": "ここでは Emacs の UI を変更するようなものを載せている\n alert 共通インターフェースで色々な通知機能と連携して通知するやつ all-the-icons Emacs で様々なアイコンを表示できるようにするやつ git-gutter-fringe 最後のコミットからどう弄ったかを fringe 領域に表示してくれるやつ helm 絞り込みインターフェースを提供するやつ helm-posframe Helm を posframe で使えるようにするやつ highlight-indent-guides インデント毎にラインを引いたりして見易くしてくれるやつ hydra サブコマンドをビジュアル的に表示してくれるメニューを提供してくれるやつ Neotree フォルダ構造を IDE みたいにツリー表示するやつ posframe いい感じの位置に child frame を表示する機能を提供するやつ show-paren-mode 対応するカッコとコッカをハイライトしてくれたりするやつ toolbar Emacs 標準のボタンなどの UI 部分の設定 uniquify 同名ファイルを開いている時にどこのファイルかまで表示してくれるやつ yascroll 主張の大人しいスクロールバーを表示してくれるやつ zoom フォーカスが当たってるウインドウを大きく表示してくれるやつ zoom-window 見ている window を最大化したり戻したりしてくれるやつ  "
+	"content": "ここでは Emacs の UI を変更するようなものを載せている\n alert 共通インターフェースで色々な通知機能と連携して通知するやつ all-the-icons Emacs で様々なアイコンを表示できるようにするやつ fullscreen 起動時のフルスクリーン設定 git-gutter-fringe 最後のコミットからどう弄ったかを fringe 領域に表示してくれるやつ helm 絞り込みインターフェースを提供するやつ helm-posframe Helm を posframe で使えるようにするやつ highlight-indent-guides インデント毎にラインを引いたりして見易くしてくれるやつ hydra サブコマンドをビジュアル的に表示してくれるメニューを提供してくれるやつ Neotree フォルダ構造を IDE みたいにツリー表示するやつ posframe いい感じの位置に child frame を表示する機能を提供するやつ show-paren-mode 対応するカッコとコッカをハイライトしてくれたりするやつ toolbar Emacs 標準のボタンなどの UI 部分の設定 uniquify 同名ファイルを開いている時にどこのファイルかまで表示してくれるやつ yascroll 主張の大人しいスクロールバーを表示してくれるやつ zoom フォーカスが当たってるウインドウを大きく表示してくれるやつ zoom-window 見ている window を最大化したり戻したりしてくれるやつ  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/nav/",
@@ -215,6 +215,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 forge は magit と github を連携させるやつ。一応入れているけど実は使えてないのであまりこの設定を呼んでも意味はなさそう\nインストール いつも通り el-get でインストール\n(el-get-bundle forge) 読み込み magit の拡張なので magit を読み込んで後に読み込まれるようにしている\n(with-eval-after-load \u0026#39;magit (require \u0026#39;forge)) その他 リポジトリのコミット数が多いとまともに使えない感じだけどどうしたらいいの。\n"
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/ui/fullscreen/",
+	"title": "fullscreen",
+	"tags": [],
+	"description": "",
+	"content": "概要 起動時にフルスクリーンにする設定はここにまとめている\nMac の設定 Mac の場合にフルスクリーンにする設定を入れていた。けど 2020-01-08 に yabai WM を導入したことにより起動時はフルスクリーンじゃない方がよくなったので以下の処理は今は使ってない。\n(if (or (eq window-system \u0026#39;ns) (eq window-system \u0026#39;mac)) (add-hook \u0026#39;window-setup-hook (lambda () (set-frame-parameter nil \u0026#39;fullscreen \u0026#39;fullboth)))) Linux(X Window system) の設定 X Window system の場合にはフルスクリーンにする。まあ Linux って書いているけど WSL2 用なのである。\n(if (eq window-system \u0026#39;x) (add-hook \u0026#39;window-setup-hook (lambda () (set-frame-parameter nil \u0026#39;fullscreen \u0026#39;fullboth) (set-frame-position nil 0 0)))) 微妙に画面の下の方がちゃんとフルになってくれてないけどそこは今は我慢して使っている。\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/ui/git-gutter-fringe/",

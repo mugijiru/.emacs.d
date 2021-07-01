@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>run-tests :: 麦汁&#39;s Emacs Config</title>
+    <title>fullscreen :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1625097973" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/testing/run-tests/">
+  <body class="" data-url="/.emacs.d/ui/fullscreen/">
     <nav id="sidebar" class="">
 
 
@@ -506,7 +506,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        
+        parent
         
         
         ">
@@ -574,7 +574,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/fullscreen/" title="fullscreen" class="dd-item ">
+      <li data-nav-id="/.emacs.d/ui/fullscreen/" title="fullscreen" class="dd-item active">
         <a href="/.emacs.d/ui/fullscreen/">
         fullscreen
         
@@ -1403,7 +1403,7 @@
   
     
     <li data-nav-id="/.emacs.d/testing/" title="テストコード" class="dd-item
-        parent
+        
         
         
         ">
@@ -1450,7 +1450,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/testing/run-tests/" title="run-tests" class="dd-item active">
+      <li data-nav-id="/.emacs.d/testing/run-tests/" title="run-tests" class="dd-item ">
         <a href="/.emacs.d/testing/run-tests/">
         run-tests
         
@@ -1558,7 +1558,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/testing/'>テストコード</a> > run-tests
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > fullscreen
           
         
           
@@ -1571,7 +1571,13 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#mac-の設定">Mac の設定</a></li>
+    <li><a href="#linux--x-window-system--の設定">Linux(X Window system) の設定</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -1587,18 +1593,29 @@
           
             <h1>
               
-              run-tests
+              fullscreen
             </h1>
           
 
         
 
 
-<p>読み込んだテストをまるっとテストするためのコードをとりあえず置いている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(if noninteractive
-    (let ((ert-quiet <span style="color:#66d9ef">t</span>))
-      (ert-run-tests-batch-and-exit)))
-</code></pre></div><p>後述の <a href="/.emacs.d/testing/my-org-commands-test/#テストライブラリの読み込み">テストライブラリの読み込み</a> などはここで担うべきかとも考えるが今はテストファイルが1つしかないので気にしないことにする。</p>
+<h2 id="概要">概要</h2>
+<p>起動時にフルスクリーンにする設定はここにまとめている</p>
+<h2 id="mac-の設定">Mac の設定</h2>
+<p>Mac の場合にフルスクリーンにする設定を入れていた。けど 2020-01-08 に yabai WM を導入したことにより起動時はフルスクリーンじゃない方がよくなったので以下の処理は今は使ってない。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(if (or (<span style="color:#a6e22e">eq</span> <span style="color:#a6e22e">window-system</span> <span style="color:#e6db74">&#39;ns</span>) (<span style="color:#a6e22e">eq</span> <span style="color:#a6e22e">window-system</span> <span style="color:#e6db74">&#39;mac</span>))
+    (add-hook <span style="color:#e6db74">&#39;window-setup-hook</span>
+              (lambda ()
+                (set-frame-parameter <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;fullscreen</span> <span style="color:#e6db74">&#39;fullboth</span>))))
+</code></pre></div><h2 id="linux--x-window-system--の設定">Linux(X Window system) の設定</h2>
+<p>X Window system の場合にはフルスクリーンにする。まあ Linux って書いているけど WSL2 用なのである。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(if (<span style="color:#a6e22e">eq</span> <span style="color:#a6e22e">window-system</span> <span style="color:#e6db74">&#39;x</span>)
+    (add-hook <span style="color:#e6db74">&#39;window-setup-hook</span>
+              (lambda ()
+                (set-frame-parameter <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;fullscreen</span> <span style="color:#e6db74">&#39;fullboth</span>)
+                (<span style="color:#a6e22e">set-frame-position</span> <span style="color:#66d9ef">nil</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span>))))
+</code></pre></div><p>微妙に画面の下の方がちゃんとフルになってくれてないけどそこは今は我慢して使っている。</p>
 
 
 <footer class="footline">
@@ -1927,6 +1944,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1939,6 +1957,61 @@
             
             
                 
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -2143,54 +2216,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -2551,7 +2576,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -2564,26 +2588,6 @@
             
             
                 
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -2601,8 +2605,21 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
-                        
+            
+            
+                
                     
                 
                 
@@ -2627,10 +2644,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/testing/execution/" title="実行方法"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/ui/all-the-icons/" title="all-the-icons"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/testing/my-org-commands-test/" title="my-org-commands-test" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/ui/git-gutter-fringe/" title="git-gutter-fringe" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
