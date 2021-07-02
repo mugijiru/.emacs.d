@@ -413,7 +413,7 @@
 ** キーバインド
    :PROPERTIES:
    :EXPORT_FILE_NAME: _index
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>2. </b>" :weight 2 :disableToc true
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>3. </b>" :weight 3 :disableToc true
    :END:
 
    ここでは全体に関わるキーバインド系の設定を記載している。
@@ -628,11 +628,10 @@
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: editing
   :END:
-
 ** ファイル編集/入力補助
    :PROPERTIES:
    :EXPORT_FILE_NAME: _index
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>3. </b>" :weight 3 :disableToc true
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>4. </b>" :weight 4 :disableToc true
    :END:
 
    ここにはファイル編集や入力補助の設定をまとめている
@@ -867,7 +866,7 @@
 ** UI
    :PROPERTIES:
    :EXPORT_FILE_NAME: _index
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>4. </b>" :weight 4 :disableToc true
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>5. </b>" :weight 5 :disableToc true
    :END:
 
    ここでは Emacs の UI を変更するようなものを載せている
@@ -1778,10 +1777,9 @@
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: nav
   :END:
-
 ** ナビゲーション
    :PROPERTIES:
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>5. </b>" :weight 5 :disableToc true
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>6. </b>" :weight 6 :disableToc true
    :EXPORT_FILE_NAME: _index
    :END:
 
@@ -2107,7 +2105,7 @@
 ** 言語毎の設定
    :PROPERTIES:
    :EXPORT_FILE_NAME: _index
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>6. </b>" :weight 6 :disableToc true
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>8. </b>" :weight 8 :disableToc true
    :END:
 
    ここでは各言語毎の設定をまとめている
@@ -2365,11 +2363,10 @@
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: framework-config
   :END:
-
 ** フレームワーク用の設定
    :PROPERTIES:
    :EXPORT_FILE_NAME: _index
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>7. </b>" :weight 7 :disableToc true
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>8. </b>" :weight 8 :disableToc true
    :END:
 
    開発に使っている各フレームワーク用の設定をここにまとめている。
@@ -2429,7 +2426,7 @@
 ** 外部連携ツール設定
    :PROPERTIES:
    :EXPORT_FILE_NAME: _index
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>8. </b>" :weight 8 :disableToc true
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>9. </b>" :weight 9 :disableToc true
    :END:
 
    ここでは外部のサービスと連携するようなやつをまとめています
@@ -2665,7 +2662,7 @@
 ** テスト用ツール
    :PROPERTIES:
    :EXPORT_FILE_NAME: _index
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>9. </b>" :weight 9 :disableToc true
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>10. </b>" :weight 10 :disableToc true
    :END:
 
    自動テストを実行するにあたり、追加インストールしているパッケージをここに載せている
@@ -2736,7 +2733,7 @@
 ** テストコード
    :PROPERTIES:
    :EXPORT_FILE_NAME: _index
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>10. </b>" :weight 10 :disableToc true
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>11. </b>" :weight 11 :disableToc true
    :END:
 
    一部のコマンドなどの設定を書き始めているので設けたセクション。
