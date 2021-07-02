@@ -12,9 +12,11 @@
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/testing/run-tests/</loc>
   </url><url>
-    <loc>https://mugijiru.github.io/.emacs.d/keybinds/</loc>
+    <loc>https://mugijiru.github.io/.emacs.d/buffer-management/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/testing/my-org-commands-test/</loc>
+  </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/keybinds/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/editing/</loc>
   </url><url>
@@ -22,9 +24,9 @@
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/nav/</loc>
   </url><url>
-    <loc>https://mugijiru.github.io/.emacs.d/language-config/</loc>
-  </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/framework-config/</loc>
+  </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/language-config/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/external-tool/</loc>
   </url><url>

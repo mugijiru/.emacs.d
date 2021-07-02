@@ -35,11 +35,11 @@
 	"content": "読み込んだテストをまるっとテストするためのコードをとりあえず置いている。\n(if noninteractive (let ((ert-quiet t)) (ert-run-tests-batch-and-exit))) 後述の テストライブラリの読み込み などはここで担うべきかとも考えるが今はテストファイルが1つしかないので気にしないことにする。\n"
 },
 {
-	"uri": "https://mugijiru.github.io/.emacs.d/keybinds/",
-	"title": "キーバインド",
+	"uri": "https://mugijiru.github.io/.emacs.d/buffer-management/",
+	"title": "バッファ管理",
 	"tags": [],
 	"description": "",
-	"content": "ここでは全体に関わるキーバインド系の設定を記載している。\n Google 連携 Google 連携する機能のキーバインドをまとめている key-chord 同時押しというキーバインドを提供してくれるやつ sticky-control Control の入力を sticky にしてくれるやつ  "
+	"content": "ここではバッファ管理関係の設定を記載している\n scratch-log scratch バッファを自動的に永続化してくれるパッケージ  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/testing/my-org-commands-test/",
@@ -47,6 +47,13 @@
 	"tags": [],
 	"description": "",
 	"content": "org-mode 用に定義したコマンドや関数のテストコード\nSetup テストライブラリの読み込み 標準でついてくる ert を採用しているのでそれを読み込んでいる。\n(require \u0026#39;ert) el-get の設定の読み込み プラグイン管理には el-get を利用しているのでその設定ファイルを読み込んでいる。\n;; プラグイン読み込みの前準備 (load (expand-file-name (concat user-emacs-directory \u0026#34;/init-el-get.el\u0026#34;))) テスト補助のプラグイン読み込み with-simulated-input 上で説明しているが、入力をシミュレートするためのプラグインをテストで利用しているのでここで読み込んでいる。\n;; 入力シミュレート用のプラグイン (load (expand-file-name (concat user-emacs-directory \u0026#34;/inits/99-with-simulated-input\u0026#34;))) 依存プラグインの読み込み テスト対象が依存しているプラグインを読み込んでいる。本来は init.el などの設定ファイルを全部読み込んだ状態でテストをした方が良さそうだが現状だとその状態で GitHub Actions で動かせる方法がわからないので一旦個別に読み込むようにしている。\nswiper ivy-read を使った機能のテストをするので読み込んでいる。\n(el-get-bundle abo-abo/swiper) テスト対象の読み込み テストしたいファイルをここで読んでる。\n;; テスト対象の読み込み (load (expand-file-name (concat user-emacs-directory \u0026#34;/inits/68-my-org-commands.el\u0026#34;))) ert-deftest test:my/org-todo-keyword-strings org-todo-keywords から \u0026ldquo;|\u0026rdquo; という区切りを除外したり \u0026ldquo;(s)\u0026rdquo; とかのような高速アクセスのためのキーワードは ivy で選択する時には邪魔なので除外したい、ということを表現したテスト。\n(ert-deftest test:my/org-todo-keyword-strings () \u0026#34;Test of `my/org-todo-keyword-strings\u0026#39;.\u0026#34; (let ((org-todo-keywords \u0026#39;((sequence \u0026#34;TODO\u0026#34; \u0026#34;DOING(!)\u0026#34; \u0026#34;WAIT\u0026#34; \u0026#34;|\u0026#34; \u0026#34;DONE(!)\u0026#34; \u0026#34;SOMEDAY(s)\u0026#34;)))) (should (equal \u0026#39;(\u0026#34;TODO\u0026#34; \u0026#34;DOING\u0026#34; \u0026#34;WAIT\u0026#34; \u0026#34;DONE\u0026#34; \u0026#34;SOMEDAY\u0026#34;) (my/org-todo-keyword-strings))))) なお、ここでテストしている関数では TODO キーワードを ivy で扱いやすいように整えているだけで実際の選択は別の関数が担っている\ntest:my/org-todo org-todo を ivy で選択する関数のテストを書いている。\n(ert-deftest test:my/org-todo () \u0026#34;Test of `my/org-todo\u0026#39;.\u0026#34; (let ((org-todo-keywords \u0026#39;((sequence \u0026#34;TODO\u0026#34; \u0026#34;DOING(!)\u0026#34; \u0026#34;WAIT\u0026#34; \u0026#34;|\u0026#34; \u0026#34;DONE(!)\u0026#34; \u0026#34;SOMEDAY(s)\u0026#34;))) (result)) ;; org-mode を読まずに済むように org-todo を差し替えてテストしている (cl-letf (((symbol-function \u0026#39;org-todo) (lambda (keyword) (setq result keyword)))) (with-simulated-input \u0026#34;DOI RET\u0026#34; (my/org-todo)) (should (equal \u0026#34;DOING\u0026#34; result))))) ポイントは cl-letf を使って、内部で叩いている関数 org-todo を一時的に\n(lambda (keyword) (setq result keyword)) に差し替えているところ。\norg-mode を呼び出さずに代わりの関数に差し替えているのでテストがしやすくなっている。Stub 的なやつかな。\n何度も使うならこの差し替え処理自体をテストヘルパーにしても良いかもしれない。\nまた ivy で選択するので with-simulated-input を使って入力操作を代替している。便利。\n"
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/keybinds/",
+	"title": "キーバインド",
+	"tags": [],
+	"description": "",
+	"content": "ここでは全体に関わるキーバインド系の設定を記載している。\n Google 連携 Google 連携する機能のキーバインドをまとめている key-chord 同時押しというキーバインドを提供してくれるやつ sticky-control Control の入力を sticky にしてくれるやつ  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/editing/",
@@ -70,18 +77,18 @@
 	"content": "ここではカーソル移動やファイル移動などのナビゲーション系の設定を記載していく\n ace-window 3つ以上にウインドウを分割している際のウインドウ切替を楽にしてくれるパッケージ avy 表示されてるところの好きな場所にさくっとジャンプするためのパッケージ browse-at-remote 表示している行の GitHub などのサービス上の位置でブラウザで開いてくれるパッケージ dumb-jump カーソル下の関数とかの定義場所にジャンプしてくれるパッケージ projectile プロジェクト内のファイルなどを開いたりするのに便利なパッケージ  "
 },
 {
-	"uri": "https://mugijiru.github.io/.emacs.d/language-config/",
-	"title": "言語毎の設定",
-	"tags": [],
-	"description": "",
-	"content": "ここでは各言語毎の設定をまとめている\n emacs-lisp Emacs Lisp を書くための設定 es6 ES2015 以降の JS に関する設定。es6 としているのは過去の経緯のため。 markdown Markdown を書く時の設定 plantuml-mode PlantUML を書く時のメジャーモードの設定 yaml-mode YAML を書く時のメジャーモードの設定  "
-},
-{
 	"uri": "https://mugijiru.github.io/.emacs.d/framework-config/",
 	"title": "フレームワーク用の設定",
 	"tags": [],
 	"description": "",
 	"content": "開発に使っている各フレームワーク用の設定をここにまとめている。\n Ember.js Web フロントエンド MVC フレームワークである Ember.js 用の設定を書いている  "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/language-config/",
+	"title": "言語毎の設定",
+	"tags": [],
+	"description": "",
+	"content": "ここでは各言語毎の設定をまとめている\n emacs-lisp Emacs Lisp を書くための設定 es6 ES2015 以降の JS に関する設定。es6 としているのは過去の経緯のため。 markdown Markdown を書く時の設定 plantuml-mode PlantUML を書く時のメジャーモードの設定 yaml-mode YAML を書く時のメジャーモードの設定  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/external-tool/",
