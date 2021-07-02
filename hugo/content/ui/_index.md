@@ -32,6 +32,9 @@ disableToc = true
 [hydra]({{< relref "hydra" >}})
 : サブコマンドをビジュアル的に表示してくれるメニューを提供してくれるやつ
 
+[ido-mode]({{< relref "ido-mode" >}})
+: Emacs 標準添付の補完インターフェース
+
 [Neotree]({{< relref "neotree" >}})
 : フォルダ構造を IDE みたいにツリー表示するやつ
 

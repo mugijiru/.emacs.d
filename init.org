@@ -846,6 +846,7 @@
    - [[*helm-posframe][helm-posframe]] :: Helm を posframe で使えるようにするやつ
    - [[*highlight-indent-guides][highlight-indent-guides]] :: インデント毎にラインを引いたりして見易くしてくれるやつ
    - [[*hydra][hydra]] :: サブコマンドをビジュアル的に表示してくれるメニューを提供してくれるやつ
+   - [[*ido-mode][ido-mode]] :: Emacs 標準添付の補完インターフェース
    - [[*Neotree][Neotree]] :: フォルダ構造を IDE みたいにツリー表示するやつ
    - [[*posframe][posframe]] :: いい感じの位置に child frame を表示する機能を提供するやつ
    - [[*show-paren-mode][show-paren-mode]] :: 対応するカッコとコッカをハイライトしてくれたりするやつ
@@ -1398,6 +1399,36 @@
      | /   | [[*Google 連携][Google 連携用 Hydra]] を起動する                                            |
      | t   | [[*Sub Tools][第一階層には入れてないけどまあまあ便利なコマンドを詰めた Hydra]] を起動する |
 
+** ido-mode
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: ido-mode
+   :END:
+*** 概要
+    Emacs に標準添付の補完インターフェース。
+    ivy 使ってるからこれ有効化している意味がない気はする。
+
+    拡張入れてない段階でもこいつを有効にしていると
+    find-file とかが楽になって良い。
+
+*** 有効化
+    とりあえず昔からずっと有効化している
+
+    #+begin_src emacs-lisp :tangle inits/50-ido.el
+    (ido-mode 1)
+    #+end_src
+*** 設定
+    ファイル名の補完とかを曖昧一致を有効にするっぽいい。
+
+    #+begin_src emacs-lisp :tangle inits/50-ido.el
+    (setq ido-enable-flex-matching t)
+    #+end_src
+*** その他
+    https://qiita.com/tadsan/items/33ebb8db2271897a462b に書いていることだけど
+
+    - ido-everywhere を有効にするとファイル名とバッファ切替以外にも使えるようになるらしい
+    - smex 入れると M-x が強化される
+    - ido-ubiquitous を入れると ido-everywhere よりもさらに色々な他に使えるらしい
+    - ido-vertical-mode を入れたら候補が縦並びになって便利っぽい
 ** Neotree                                                      :replacement:
    :PROPERTIES:
    :EXPORT_FILE_NAME: neotree
@@ -3252,13 +3283,6 @@
 
    ;; C-c C-c で現在の行のテストを実行
    (define-key rspec-mode-map (kbd "C-c C-c") 'rspec-verify-single)
-   #+end_src
-
-** 50-ido.el
-
-   #+begin_src emacs-lisp :tangle inits/50-ido.el
-   (ido-mode 1) ;; includes Emacs
-   (setq ido-enable-flex-matching t)
    #+end_src
 
 ** 50-multiple-cursor.el
