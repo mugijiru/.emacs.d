@@ -1,8 +1,8 @@
 +++
 title = "キーバインド"
 draft = false
-pre = "<b>2. </b>"
-weight = 2
+pre = "<b>3. </b>"
+weight = 3
 disableToc = true
 +++
 
