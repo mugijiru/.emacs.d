@@ -725,8 +725,10 @@
     (el-get-bundle multiple-cursors)
     #+end_src
 
-    そしてデフォルトのキーバインドを使ってる。
-    もうちょっと色々頑張って使いやすくしたい
+*** キーバインド
+
+    キーバインドは別途定義している。
+    もうちょっと真面目に定義したい
 
 ** smartparens
    :PROPERTIES:
