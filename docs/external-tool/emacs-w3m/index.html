@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>browse-at-remote :: 麦汁&#39;s Emacs Config</title>
+    <title>emacs-w3m :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1625233441" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/nav/browse-at-remote/">
+  <body class="" data-url="/.emacs.d/external-tool/emacs-w3m/">
     <nav id="sidebar" class="">
 
 
@@ -897,7 +897,7 @@
   
     
     <li data-nav-id="/.emacs.d/nav/" title="ナビゲーション" class="dd-item
-        parent
+        
         
         
         ">
@@ -965,7 +965,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/nav/browse-at-remote/" title="browse-at-remote" class="dd-item active">
+      <li data-nav-id="/.emacs.d/nav/browse-at-remote/" title="browse-at-remote" class="dd-item ">
         <a href="/.emacs.d/nav/browse-at-remote/">
         browse-at-remote
         
@@ -1230,7 +1230,7 @@
   
     
     <li data-nav-id="/.emacs.d/external-tool/" title="外部連携ツール設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -1256,7 +1256,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/external-tool/emacs-w3m/" title="emacs-w3m" class="dd-item ">
+      <li data-nav-id="/.emacs.d/external-tool/emacs-w3m/" title="emacs-w3m" class="dd-item active">
         <a href="/.emacs.d/external-tool/emacs-w3m/">
         emacs-w3m
         
@@ -1621,7 +1621,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/nav/'>ナビゲーション</a> > browse-at-remote
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/external-tool/'>外部連携ツール設定</a> > emacs-w3m
           
         
           
@@ -1638,8 +1638,6 @@
   <ul>
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
-    <li><a href="#使い方">使い方</a></li>
-    <li><a href="#その他">その他</a></li>
   </ul>
 </nav>
     </div>
@@ -1657,7 +1655,7 @@
           
             <h1>
               
-              browse-at-remote
+              emacs-w3m
             </h1>
           
 
@@ -1665,17 +1663,11 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/rmuslimov/browse-at-remote">browse-at-remote</a> は Emacs で見ているファイルについて
-GitHub や GitLab などのサービス上での該当ブランチ、該当ファイル、該当行を開いてくれる便利なやつ。</p>
-<p>業務だとレビュー中に「ここにこういう関数あるよ」みたいに示すことがあるけどその時に Emacs 内で関数を探して browse-at-remote で GitHub 上の位置を開くことでそこへのリンクを拾いやすく便利。</p>
+<p>w3m という和製のテキストブラウザを Emacs 上で使うためのパッケージ。つまり w3m 自体もインストールしておく必要がある。</p>
 <h2 id="インストール">インストール</h2>
-<p>いつも透り el-get で入れている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle browse-at-remote)
-</code></pre></div><h2 id="使い方">使い方</h2>
-<p>ブラウザで見たい行の上で <code>M-x browse-at-remote</code> を実行する。</p>
-<p>または Region を選択している状態で実行すると、その範囲を選択している状態で開いてくれる。便利。</p>
-<h2 id="その他">その他</h2>
-<p>Hydra でいつでも使えるようにキーバインドを割り当てている。</p>
+<p>emacs-w3m は el-get で入れられるので以下のようにして入れている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle emacs-w3m)
+</code></pre></div><p>今はこれだけしか入れてない。昔の設定はどこかにいっちゃった……。</p>
 
 
 <footer class="footline">
@@ -2292,7 +2284,6 @@ GitHub や GitLab などのサービス上での該当ブランチ、該当フ�
             
                 
                     
-                    
                 
                 
 
@@ -2306,8 +2297,21 @@ GitHub や GitLab などのサービス上での該当ブランチ、該当フ�
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
-                        
+            
+            
+                
                     
                 
                 
@@ -2340,26 +2344,6 @@ GitHub や GitLab などのサービス上での該当ブランチ、該当フ�
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -2524,6 +2508,7 @@ GitHub や GitLab などのサービス上での該当ブランチ、該当フ�
             
                 
                     
+                    
                 
                 
 
@@ -2536,6 +2521,7 @@ GitHub や GitLab などのサービス上での該当ブランチ、該当フ�
             
             
                 
+                    
                     
                 
                 
@@ -2552,6 +2538,9 @@ GitHub や GitLab などのサービス上での該当ブランチ、該当フ�
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -2752,10 +2741,10 @@ GitHub や GitLab などのサービス上での該当ブランチ、該当フ�
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/nav/avy/" title="avy"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/external-tool/" title="外部連携ツール設定"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/nav/dumb-jump/" title="dumb-jump" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/external-tool/forge/" title="forge" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

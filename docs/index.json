@@ -88,7 +88,7 @@
 	"title": "外部連携ツール設定",
 	"tags": [],
 	"description": "",
-	"content": "ここでは外部のサービスと連携するようなやつをまとめています\n forge magit と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ google-this Google 検索機能を提供してくれるパッケージ google-translate Emacs から Google 翻訳するためのパッケージ magit Emacs 上で Git の操作をするのにとても便利なパッケージ wakatime-mode Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ  "
+	"content": "ここでは外部のサービスと連携するようなやつをまとめています\n forge magit と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ emacs-w3m 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ google-this Google 検索機能を提供してくれるパッケージ google-translate Emacs から Google 翻訳するためのパッケージ magit Emacs 上で Git の操作をするのにとても便利なパッケージ wakatime-mode Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/testing-tool/",
@@ -187,6 +187,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 Emacs Lisp を書くための設定。まあそんなにしっかり書いてないので、あんまり設定は入ってない\nHook Hook 用の関数を定義してその中に色々書いている。\n とりあえず行数表示が欲しいので display-line-numbers-mode を有効化 当然補完もしたいので company-mode を有効にしている カッコの対応などもいい感じに動いて欲しいので smartparens-mode とその strict-mode を有効にしている   (defun my/emacs-lisp-mode-hook () (display-line-numbers-mode 1) (company-mode 1) (smartparens-mode 1) (turn-on-smartparens-strict-mode)) そんで最後にその関数を hook に突っ込んでる。\n(add-hook \u0026#39;emacs-lisp-mode-hook \u0026#39;my/emacs-lisp-mode-hook) アイコン挿入コマンドの用意 時々 UI 設定目的で絵文字を使うことがあるので挿入できるコマンドを用意している。最近使った記憶ないけど。\n(defun my/insert-all-the-icons-code (family) (interactive) (let* ((candidates (all-the-icons--read-candidates-for-family family)) (prompt (format \u0026#34;%s Icon: \u0026#34; (funcall (all-the-icons--family-name family)))) (selection (completing-read prompt candidates nil t))) (insert \u0026#34;(all-the-icons-\u0026#34; (symbol-name family) \u0026#34; \\\u0026#34;\u0026#34; selection \u0026#34;\\\u0026#34;)\u0026#34;))) キーバインド emacs-lisp-mode 用に major-mode-hydra を設定している。けどそんなにしっかり Emacs Lisp を書いてるわけではないのがバレバレな感じである。\n(with-eval-after-load \u0026#39;major-mode-hydra (major-mode-hydra-define emacs-lisp-mode (:separator \u0026#34;-\u0026#34; :quit-key \u0026#34;q\u0026#34; :title (concat (all-the-icons-fileicon \u0026#34;elisp\u0026#34;) \u0026#34; Emacs Lisp\u0026#34;)) (\u0026#34;Describe\u0026#34; ((\u0026#34;F\u0026#34; counsel-describe-function \u0026#34;Function\u0026#34;) (\u0026#34;V\u0026#34; counsel-describe-variable \u0026#34;Variable\u0026#34;)) \u0026#34;Insert Icon Code\u0026#34; ((\u0026#34;@a\u0026#34; (my/insert-all-the-icons-code \u0026#39;alltheicon) \u0026#34;All the icons\u0026#34;) (\u0026#34;@f\u0026#34; (my/insert-all-the-icons-code \u0026#39;fileicon) \u0026#34;File icons\u0026#34;) (\u0026#34;@F\u0026#34; (my/insert-all-the-icons-code \u0026#39;faicon) \u0026#34;FontAwesome\u0026#34;) (\u0026#34;@m\u0026#34; (my/insert-all-the-icons-code \u0026#39;material) \u0026#34;Material\u0026#34;) (\u0026#34;@o\u0026#34; (my/insert-all-the-icons-code \u0026#39;octicon) \u0026#34;Octicon\u0026#34;) (\u0026#34;@w\u0026#34; (my/insert-all-the-icons-code \u0026#39;wicon) \u0026#34;Weather\u0026#34;)))))    Key 効果     F 関数を調べる   V 変数を調べる   @a all-the-icon のアイコンを挿入   @f fileicon のアイコンを挿入   @F FontAwesome のアイコンを挿入   @m Material Icons のアイコンを挿入   @o Octicons のアイコンを挿入   @w 天気アイコンを挿入    "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/external-tool/emacs-w3m/",
+	"title": "emacs-w3m",
+	"tags": [],
+	"description": "",
+	"content": "概要 w3m という和製のテキストブラウザを Emacs 上で使うためのパッケージ。つまり w3m 自体もインストールしておく必要がある。\nインストール emacs-w3m は el-get で入れられるので以下のようにして入れている\n(el-get-bundle emacs-w3m) 今はこれだけしか入れてない。昔の設定はどこかにいっちゃった……。\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/framework-config/ember-js/",

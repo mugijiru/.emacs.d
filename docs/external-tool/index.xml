@@ -7,6 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/external-tool/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>emacs-w3m</title>
+      <link>https://mugijiru.github.io/.emacs.d/external-tool/emacs-w3m/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/external-tool/emacs-w3m/</guid>
+      <description>概要 w3m という和製のテキストブラウザを Emacs 上で使うためのパッケージ。つまり w3m 自体もインストールしておく必要がある。
+インストール emacs-w3m は el-get で入れられるので以下のようにして入れている
+(el-get-bundle emacs-w3m) 今はこれだけしか入れてない。昔の設定はどこかにいっちゃった……。</description>
+    </item>
+    
+    <item>
       <title>forge</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/forge/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
