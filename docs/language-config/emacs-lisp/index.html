@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>Ember.js :: 麦汁&#39;s Emacs Config</title>
+    <title>emacs-lisp :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1625185224" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/framework-config/ember-js/">
+  <body class="" data-url="/.emacs.d/language-config/emacs-lisp/">
     <nav id="sidebar" class="">
 
 
@@ -1015,7 +1015,7 @@
   
     
     <li data-nav-id="/.emacs.d/language-config/" title="言語毎の設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -1041,7 +1041,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/language-config/emacs-lisp/" title="emacs-lisp" class="dd-item ">
+      <li data-nav-id="/.emacs.d/language-config/emacs-lisp/" title="emacs-lisp" class="dd-item active">
         <a href="/.emacs.d/language-config/emacs-lisp/">
         emacs-lisp
         
@@ -1154,7 +1154,7 @@
   
     
     <li data-nav-id="/.emacs.d/framework-config/" title="フレームワーク用の設定" class="dd-item
-        parent
+        
         
         
         ">
@@ -1180,7 +1180,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/framework-config/ember-js/" title="Ember.js" class="dd-item active">
+      <li data-nav-id="/.emacs.d/framework-config/ember-js/" title="Ember.js" class="dd-item ">
         <a href="/.emacs.d/framework-config/ember-js/">
         Ember.js
         
@@ -1579,7 +1579,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/framework-config/'>フレームワーク用の設定</a> > Ember.js
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/language-config/'>言語毎の設定</a> > emacs-lisp
           
         
           
@@ -1595,8 +1595,9 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#ember-mode">ember-mode</a></li>
-    <li><a href="#handlebars-mode">handlebars-mode</a></li>
+    <li><a href="#hook">Hook</a></li>
+    <li><a href="#アイコン挿入コマンドの用意">アイコン挿入コマンドの用意</a></li>
+    <li><a href="#キーバインド">キーバインド</a></li>
   </ul>
 </nav>
     </div>
@@ -1614,7 +1615,7 @@
           
             <h1>
               
-              Ember.js
+              emacs-lisp
             </h1>
           
 
@@ -1622,25 +1623,88 @@
 
 
 <h2 id="概要">概要</h2>
-<p>Ember.js 用の Emacs の拡張としては
-<code>ember-mode</code> と <code>handlebars-mode</code> が存在する</p>
-<h2 id="ember-mode">ember-mode</h2>
-<p><a href="https://github.com/madnificent/ember-mode">ember-mode</a> は
-Ember.js アプリケーションのファイルナビゲーションや生成を行ってくれるモード。実は麦汁さんは使えてない。</p>
-<p>インストールするだけではダメで、
-ember-mode を明示的に起動しないといけない。</p>
-<p>そのためには dir-locals を使うとか
-projectile なんかがやってるようにフォルダ構成から判定させるみたいなことが必要そう。だるい。</p>
-<p>というわけで死蔵中。</p>
-<p>ついでにいうとキーバインドもだるい系なので使う時は Hydra を用意した方が良さそう</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle madnificent/ember-mode)
-</code></pre></div><h2 id="handlebars-mode">handlebars-mode</h2>
-<p><a href="https://github.com/danielevans/handlebars-mode">handlebars-mode</a> は Ember.js のテンプレートエンジンとして採用されている
-Handlebars を書くためのモード。</p>
-<p>syntax highlight と、いくつかの編集機能を備えている。が、今のところ麦汁さんは syntax highlight しか使えてない。</p>
-<p>編集コマンドは <a href="https://github.com/jerrypnz/major-mode-hydra.el">major-mode-hydra</a> で使えるようにしてあげれば良さそう</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle handlebars-mode)
-</code></pre></div>
+<p>Emacs Lisp を書くための設定。まあそんなにしっかり書いてないので、あんまり設定は入ってない</p>
+<h2 id="hook">Hook</h2>
+<p>Hook 用の関数を定義してその中に色々書いている。</p>
+<ul>
+<li>とりあえず行数表示が欲しいので display-line-numbers-mode を有効化</li>
+<li>当然補完もしたいので company-mode を有効にしている</li>
+<li>カッコの対応などもいい感じに動いて欲しいので smartparens-mode とその strict-mode を有効にしている</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/emacs-lisp-mode-hook ()
+  (display-line-numbers-mode <span style="color:#ae81ff">1</span>)
+  (company-mode <span style="color:#ae81ff">1</span>)
+  (smartparens-mode <span style="color:#ae81ff">1</span>)
+  (turn-on-smartparens-strict-mode))
+</code></pre></div><p>そんで最後にその関数を hook に突っ込んでる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-hook <span style="color:#e6db74">&#39;emacs-lisp-mode-hook</span> <span style="color:#e6db74">&#39;my/emacs-lisp-mode-hook</span>)
+</code></pre></div><h2 id="アイコン挿入コマンドの用意">アイコン挿入コマンドの用意</h2>
+<p>時々 UI 設定目的で絵文字を使うことがあるので挿入できるコマンドを用意している。最近使った記憶ないけど。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/insert-all-the-icons-code (family)
+  (interactive)
+  (let* ((candidates (all-the-icons--read-candidates-for-family family))
+         (prompt     (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;%s Icon: &#34;</span> (<span style="color:#a6e22e">funcall</span> (all-the-icons--family-name family))))
+         (selection  (<span style="color:#a6e22e">completing-read</span> prompt candidates <span style="color:#66d9ef">nil</span> <span style="color:#66d9ef">t</span>)))
+    (<span style="color:#a6e22e">insert</span> <span style="color:#e6db74">&#34;(all-the-icons-&#34;</span> (<span style="color:#a6e22e">symbol-name</span> family) <span style="color:#e6db74">&#34; \&#34;&#34;</span> selection <span style="color:#e6db74">&#34;\&#34;)&#34;</span>)))
+</code></pre></div><h2 id="キーバインド">キーバインド</h2>
+<p>emacs-lisp-mode 用に major-mode-hydra を設定している。けどそんなにしっかり Emacs Lisp を書いてるわけではないのがバレバレな感じである。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;major-mode-hydra</span>
+  (major-mode-hydra-define emacs-lisp-mode (:separator <span style="color:#e6db74">&#34;-&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :title (<span style="color:#a6e22e">concat</span> (all-the-icons-fileicon <span style="color:#e6db74">&#34;elisp&#34;</span>) <span style="color:#e6db74">&#34; Emacs Lisp&#34;</span>))
+    (<span style="color:#e6db74">&#34;Describe&#34;</span>
+     ((<span style="color:#e6db74">&#34;F&#34;</span> counsel-describe-function <span style="color:#e6db74">&#34;Function&#34;</span>)
+      (<span style="color:#e6db74">&#34;V&#34;</span> counsel-describe-variable <span style="color:#e6db74">&#34;Variable&#34;</span>))
+
+     <span style="color:#e6db74">&#34;Insert Icon Code&#34;</span>
+     ((<span style="color:#e6db74">&#34;@a&#34;</span> (my/insert-all-the-icons-code <span style="color:#e6db74">&#39;alltheicon</span>) <span style="color:#e6db74">&#34;All the icons&#34;</span>)
+      (<span style="color:#e6db74">&#34;@f&#34;</span> (my/insert-all-the-icons-code <span style="color:#e6db74">&#39;fileicon</span>)   <span style="color:#e6db74">&#34;File icons&#34;</span>)
+      (<span style="color:#e6db74">&#34;@F&#34;</span> (my/insert-all-the-icons-code <span style="color:#e6db74">&#39;faicon</span>)     <span style="color:#e6db74">&#34;FontAwesome&#34;</span>)
+      (<span style="color:#e6db74">&#34;@m&#34;</span> (my/insert-all-the-icons-code <span style="color:#e6db74">&#39;material</span>)   <span style="color:#e6db74">&#34;Material&#34;</span>)
+      (<span style="color:#e6db74">&#34;@o&#34;</span> (my/insert-all-the-icons-code <span style="color:#e6db74">&#39;octicon</span>)    <span style="color:#e6db74">&#34;Octicon&#34;</span>)
+      (<span style="color:#e6db74">&#34;@w&#34;</span> (my/insert-all-the-icons-code <span style="color:#e6db74">&#39;wicon</span>)      <span style="color:#e6db74">&#34;Weather&#34;</span>)))))
+</code></pre></div><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F</td>
+<td>関数を調べる</td>
+</tr>
+<tr>
+<td>V</td>
+<td>変数を調べる</td>
+</tr>
+<tr>
+<td>@a</td>
+<td>all-the-icon のアイコンを挿入</td>
+</tr>
+<tr>
+<td>@f</td>
+<td>fileicon のアイコンを挿入</td>
+</tr>
+<tr>
+<td>@F</td>
+<td>FontAwesome のアイコンを挿入</td>
+</tr>
+<tr>
+<td>@m</td>
+<td>Material Icons のアイコンを挿入</td>
+</tr>
+<tr>
+<td>@o</td>
+<td>Octicons のアイコンを挿入</td>
+</tr>
+<tr>
+<td>@w</td>
+<td>天気アイコンを挿入</td>
+</tr>
+</tbody>
+</table>
+
 
 <footer class="footline">
 	
@@ -2336,6 +2400,7 @@ Handlebars を書くためのモード。</p>
             
                 
                     
+                    
                 
                 
 
@@ -2348,6 +2413,26 @@ Handlebars を書くためのモード。</p>
             
             
                 
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -2408,6 +2493,22 @@ Handlebars を書くためのモード。</p>
             
         
                     
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
                         
             
             
@@ -2431,43 +2532,6 @@ Handlebars を書くためのモード。</p>
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -2681,10 +2745,10 @@ Handlebars を書くためのモード。</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/framework-config/" title="フレームワーク用の設定"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/language-config/" title="言語毎の設定"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/external-tool/" title="外部連携ツール設定" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/language-config/es6/" title="es6" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
