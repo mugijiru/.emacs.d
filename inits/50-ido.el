@@ -1,2 +1,3 @@
-(ido-mode 1) ;; includes Emacs
+(ido-mode 1)
+
 (setq ido-enable-flex-matching t)
