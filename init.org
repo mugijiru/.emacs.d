@@ -394,10 +394,14 @@
     #+end_src
     #+end_details
 
+* バッファ管理
+  :PROPERTIES:
+  :EXPORT_HUGO_SECTION: buffer-management
+  :END:
 * キーバインド
-   :PROPERTIES:
-   :EXPORT_HUGO_SECTION: keybinds
-   :END:
+  :PROPERTIES:
+  :EXPORT_HUGO_SECTION: keybinds
+  :END:
 ** キーバインド
    :PROPERTIES:
    :EXPORT_FILE_NAME: _index
