@@ -14,6 +14,9 @@ disableToc = true
 [company-mode]({{< relref "company-mode" >}})
 : プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ
 
+[multiple-cursors]({{< relref "multiple-cursors" >}})
+: カーソルを増やして複数箇所を同時に編集できるようになるやつ
+
 [smartparens]({{< relref "smartparens" >}})
 : カッコや引用符などのペアになるやつの入力補助をしてくれるやつ
 

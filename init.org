@@ -627,6 +627,7 @@
 
    - [[*auto-insert][auto-insert]] :: ファイル新規作成時にテンプレートを挿入する機能
    - [[*company-mode][company-mode]] :: プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ
+   - [[*multiple-cursors][multiple-cursors]] :: カーソルを増やして複数箇所を同時に編集できるようになるやつ
    - [[*smartparens][smartparens]] :: カッコや引用符などのペアになるやつの入力補助をしてくれるやつ
    - [[*undo-fu][undo-fu]] :: シンプルな undo/redo の機能を提供してくれるやつ
    - [[*yasnippet][yasnippet]] :: テンプレート挿入機能を提供してくれるやつ
@@ -707,6 +708,27 @@
     各モードで有効にするような hook を入れている。
 
     グローバルで有効でもいい気がしている。
+
+** multiple-cursors
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: multiple-cursors
+   :END:
+
+*** 概要
+    [[https://github.com/magnars/multiple-cursors.el][multiple-cursors]] はカーソルを増やせるやつ。
+    複数箇所を同時に編集できるようになって便利。
+
+*** インストール
+    el-get からインストールしている
+
+    #+begin_src emacs-lisp :tangle inits/50-multiple-cursor.el
+    (el-get-bundle multiple-cursors)
+    #+end_src
+
+*** キーバインド
+
+    キーバインドは別途定義している。
+    もうちょっと真面目に定義したい
 
 ** smartparens
    :PROPERTIES:
@@ -2400,8 +2422,8 @@
 
    ここでは外部のサービスと連携するようなやつをまとめています
 
-   - [[*forge][forge]] :: [[*magit][magit]] と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ
    - [[*emacs-w3m][emacs-w3m]] :: 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ
+   - [[*forge][forge]] :: [[*magit][magit]] と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ
    - [[*google-this][google-this]] :: Google 検索機能を提供してくれるパッケージ
    - [[*google-translate][google-translate]] :: Emacs から Google 翻訳するためのパッケージ
    - [[*magit][magit]] :: Emacs 上で Git の操作をするのにとても便利なパッケージ
@@ -3301,12 +3323,6 @@
 
    ;; C-c C-c で現在の行のテストを実行
    (define-key rspec-mode-map (kbd "C-c C-c") 'rspec-verify-single)
-   #+end_src
-
-** 50-multiple-cursor.el
-
-   #+begin_src emacs-lisp :tangle inits/50-multiple-cursor.el
-   (el-get-bundle multiple-cursors)
    #+end_src
 
 ** 50-todoist.el

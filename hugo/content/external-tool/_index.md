@@ -8,11 +8,11 @@ disableToc = true
 
 ここでは外部のサービスと連携するようなやつをまとめています
 
-[forge]({{< relref "forge" >}})
-: [magit]({{< relref "magit" >}}) と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ
-
 [emacs-w3m]({{< relref "emacs-w3m" >}})
 : 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ
+
+[forge]({{< relref "forge" >}})
+: [magit]({{< relref "magit" >}}) と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ
 
 [google-this]({{< relref "google-this" >}})
 : Google 検索機能を提供してくれるパッケージ
