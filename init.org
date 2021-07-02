@@ -2047,10 +2047,83 @@
 
    ここでは各言語毎の設定をまとめている
 
+   - [[*emacs-lisp][emacs-lisp]] :: Emacs Lisp を書くための設定
    - [[*es6][es6]] :: ES2015 以降の JS に関する設定。es6 としているのは過去の経緯のため。
    - [[*markdown][markdown]] :: Markdown を書く時の設定
    - [[*plantuml-mode][plantuml-mode]] :: PlantUML を書く時のメジャーモードの設定
    - [[*yaml-mode][yaml-mode]] :: YAML を書く時のメジャーモードの設定
+
+** emacs-lisp
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: emacs-lisp
+   :END:
+
+*** 概要
+    Emacs Lisp を書くための設定。
+    まあそんなにしっかり書いてないので、あんまり設定は入ってない
+
+*** Hook
+    Hook 用の関数を定義してその中に色々書いている。
+
+    - とりあえず行数表示が欲しいので display-line-numbers-mode を有効化
+    - 当然補完もしたいので company-mode を有効にしている
+    - カッコの対応などもいい感じに動いて欲しいので smartparens-mode とその strict-mode を有効にしている
+
+    #+begin_src emacs-lisp :tangle inits/40-emacs-lisp.el
+    (defun my/emacs-lisp-mode-hook ()
+      (display-line-numbers-mode 1)
+      (company-mode 1)
+      (smartparens-mode 1)
+      (turn-on-smartparens-strict-mode))
+    #+end_src
+
+    そんで最後にその関数を hook に突っ込んでる。
+
+    #+begin_src emacs-lisp :tangle inits/40-emacs-lisp.el
+    (add-hook 'emacs-lisp-mode-hook 'my/emacs-lisp-mode-hook)
+    #+end_src
+*** アイコン挿入コマンドの用意
+    時々 UI 設定目的で絵文字を使うことがあるので
+    挿入できるコマンドを用意している。最近使った記憶ないけど。
+
+    #+begin_src emacs-lisp :tangle inits/40-emacs-lisp.el
+    (defun my/insert-all-the-icons-code (family)
+      (interactive)
+      (let* ((candidates (all-the-icons--read-candidates-for-family family))
+             (prompt     (format "%s Icon: " (funcall (all-the-icons--family-name family))))
+             (selection  (completing-read prompt candidates nil t)))
+        (insert "(all-the-icons-" (symbol-name family) " \"" selection "\")")))
+    #+end_src
+*** キーバインド
+
+    emacs-lisp-mode 用に major-mode-hydra を設定している。
+    けどそんなにしっかり Emacs Lisp を書いてるわけではないのがバレバレな感じである。
+
+    #+begin_src emacs-lisp :tangle inits/40-emacs-lisp.el
+    (with-eval-after-load 'major-mode-hydra
+      (major-mode-hydra-define emacs-lisp-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-fileicon "elisp") " Emacs Lisp"))
+        ("Describe"
+         (("F" counsel-describe-function "Function")
+          ("V" counsel-describe-variable "Variable"))
+
+         "Insert Icon Code"
+         (("@a" (my/insert-all-the-icons-code 'alltheicon) "All the icons")
+          ("@f" (my/insert-all-the-icons-code 'fileicon)   "File icons")
+          ("@F" (my/insert-all-the-icons-code 'faicon)     "FontAwesome")
+          ("@m" (my/insert-all-the-icons-code 'material)   "Material")
+          ("@o" (my/insert-all-the-icons-code 'octicon)    "Octicon")
+          ("@w" (my/insert-all-the-icons-code 'wicon)      "Weather")))))
+    #+end_src
+
+    | Key | 効果                            |
+    | F   | 関数を調べる                    |
+    | V   | 変数を調べる                    |
+    | @a  | all-the-icon のアイコンを挿入   |
+    | @f  | fileicon のアイコンを挿入       |
+    | @F  | FontAwesome のアイコンを挿入    |
+    | @m  | Material Icons のアイコンを挿入 |
+    | @o  | Octicons のアイコンを挿入       |
+    | @w  | 天気アイコンを挿入              |
 
 ** es6
    :PROPERTIES:
@@ -2924,37 +2997,6 @@
    ;; 保存前に自動でクリーンアップ
    (setq whitespace-action '(auto-cleanup))
    (global-whitespace-mode 1)
-   #+end_src
-
-** 40-emacs-lisp.el
-
-   #+begin_src emacs-lisp :tangle inits/40-emacs-lisp.el
-   (defun my/emacs-lisp-mode-hook ()
-     (display-line-numbers-mode 1)
-     (company-mode 1)
-     (smartparens-mode 1)
-     (turn-on-smartparens-strict-mode))
-   (add-hook 'emacs-lisp-mode-hook 'my/emacs-lisp-mode-hook)
-
-   (defun my/insert-all-the-icons-code (family)
-     (let* ((candidates (all-the-icons--read-candidates-for-family family))
-            (prompt     (format "%s Icon: " (funcall (all-the-icons--family-name family))))
-            (selection  (completing-read prompt candidates nil t)))
-       (insert "(all-the-icons-" (symbol-name family) " \"" selection "\")")))
-
-   (with-eval-after-load 'major-mode-hydra
-     (major-mode-hydra-define emacs-lisp-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-fileicon "elisp") " Emacs Lisp"))
-       ("Describe"
-        (("F" counsel-describe-function "Function")
-         ("V" counsel-describe-variable "Variable"))
-
-        "Insert Icon Code"
-        (("@a" (my/insert-all-the-icons-code 'alltheicon) "All the icons")
-         ("@f" (my/insert-all-the-icons-code 'fileicon)   "File icons")
-         ("@F" (my/insert-all-the-icons-code 'faicon)     "FontAwesome")
-         ("@m" (my/insert-all-the-icons-code 'material)   "Material")
-         ("@o" (my/insert-all-the-icons-code 'octicon)    "Octicon")
-         ("@w" (my/insert-all-the-icons-code 'wicon)      "Weather")))))
    #+end_src
 
 ** 40-gnuplot.el
