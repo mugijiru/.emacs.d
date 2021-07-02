@@ -405,6 +405,8 @@
    :END:
 
    ここではバッファ管理関係の設定を記載している
+
+   - [[*scratch-log][scratch-log]] :: scratch バッファを自動的に永続化してくれるパッケージ
 ** scratch-log
 *** 概要
     [[https://github.com/mori-dev/scratch-log][scratch-log]] は、Emacs でちょっとした Emacs Lisp なんかを試し書きする時に使う ~*scratch*~ バッファを永続化してくれるパッケージ。
