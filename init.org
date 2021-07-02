@@ -405,7 +405,35 @@
    :END:
 
    ここではバッファ管理関係の設定を記載している
+** scratch-log
+*** 概要
+    [[https://github.com/mori-dev/scratch-log][scratch-log]] は、Emacs でちょっとした Emacs Lisp なんかを試し書きする時に使う ~*scratch*~ バッファを永続化してくれるパッケージ。
 
+    自分なんかは Emacs Lisp だけでなくちょっとメモを置いといたりもするので
+    勝手に永続化してくれるこいつにはとてもお世話になっている。
+
+    GitHub の README には作者のブログへのリンクしかないし
+    そのブログは消えてるので
+    一番まともに解説しているのは http://emacs.rubikitch.com/scratch-log/ だと思う。
+
+*** インストール
+    el-get から入れるだけ。
+
+    #+begin_src emacs-lisp :tangle inits/70-scratch-log.el
+    (el-get-bundle mori-dev/scratch-log)
+    #+end_src
+*** 有効化
+    どうも明示的に require しないといけないっぽくて、そうしている。
+    ちょっと本当にそうなのか検証したい気はする。
+
+    #+begin_src emacs-lisp :tangle inits/70-scratch-log.el
+    (require 'scratch-log)
+    #+end_src
+*** 類似品など
+
+    - [[https://github.com/Fanael/persistent-scratch][persistent-scratch]] :: これも scratch を永続化させるやつ。カスタマイズ性はこっちがありそう
+    - [[https://github.com/EricCrosson/unkillable-scratch][unkillable-scratch]] :: scratch バッファを kill させないやつ。同じような機能が scratch-log にもある
+    - [[https://github.com/kentaro/auto-save-buffers-enhanced][auto-save-buffers-enhanced]] :: 自動保存機能がメインだけど scratch を自動保存する機能もある
 * キーバインド
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: keybinds
@@ -3979,14 +4007,6 @@
      (let* ((cmd (concat "review-requested-prs " my/github-organization " " my/github-repository))
             (response (shell-command-to-string cmd)))
        (insert response)))
-   #+end_src
-
-** 70-scratch-log.el
-
-   #+begin_src emacs-lisp :tangle inits/70-scratch-log.el
-   (el-get-bundle mori-dev/scratch-log)
-
-   (require 'scratch-log) ;; TODO: require 以外の方法で処理できないか?
    #+end_src
 
 ** 70-tempbuf.el
