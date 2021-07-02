@@ -98,6 +98,8 @@
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/language-config/markdown/</loc>
   </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/editing/multiple-cursors/</loc>
+  </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/ui/neotree/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/language-config/plantuml-mode/</loc>

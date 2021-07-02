@@ -53,7 +53,7 @@
 	"title": "ファイル編集/入力補助",
 	"tags": [],
 	"description": "",
-	"content": "ここにはファイル編集や入力補助の設定をまとめている\n auto-insert ファイル新規作成時にテンプレートを挿入する機能 company-mode プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ smartparens カッコや引用符などのペアになるやつの入力補助をしてくれるやつ undo-fu シンプルな undo/redo の機能を提供してくれるやつ yasnippet テンプレート挿入機能を提供してくれるやつ  "
+	"content": "ここにはファイル編集や入力補助の設定をまとめている\n auto-insert ファイル新規作成時にテンプレートを挿入する機能 company-mode プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ multiple-cursors カーソルを増やして複数箇所を同時に編集できるようになるやつ smartparens カッコや引用符などのペアになるやつの入力補助をしてくれるやつ undo-fu シンプルな undo/redo の機能を提供してくれるやつ yasnippet テンプレート挿入機能を提供してくれるやつ  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/ui/",
@@ -88,7 +88,7 @@
 	"title": "外部連携ツール設定",
 	"tags": [],
 	"description": "",
-	"content": "ここでは外部のサービスと連携するようなやつをまとめています\n forge magit と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ emacs-w3m 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ google-this Google 検索機能を提供してくれるパッケージ google-translate Emacs から Google 翻訳するためのパッケージ magit Emacs 上で Git の操作をするのにとても便利なパッケージ wakatime-mode Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ  "
+	"content": "ここでは外部のサービスと連携するようなやつをまとめています\n emacs-w3m 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ forge magit と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ google-this Google 検索機能を提供してくれるパッケージ google-translate Emacs から Google 翻訳するためのパッケージ magit Emacs 上で Git の操作をするのにとても便利なパッケージ wakatime-mode Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/testing-tool/",
@@ -334,6 +334,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 Markdown を書くための設定。といいつつ markdown-mode を入れてるだけだけども。\n手元でテキストドキュメントを弄るのは org-mode が多いからなあ……\nインストール いつも通り el-get で入れている。\n(el-get-bundle markdown-mode) "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/editing/multiple-cursors/",
+	"title": "multiple-cursors",
+	"tags": [],
+	"description": "",
+	"content": "概要 multiple-cursors はカーソルを増やせるやつ。複数箇所を同時に編集できるようになって便利。\nインストール el-get からインストールしている\n(el-get-bundle multiple-cursors) キーバインド キーバインドは別途定義している。もうちょっと真面目に定義したい\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/ui/neotree/",

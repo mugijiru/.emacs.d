@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>highlight-indent-guides :: 麦汁&#39;s Emacs Config</title>
+    <title>multiple-cursors :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1625234546" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/ui/highlight-indent-guides/">
+  <body class="" data-url="/.emacs.d/editing/multiple-cursors/">
     <nav id="sidebar" class="">
 
 
@@ -367,7 +367,7 @@
   
     
     <li data-nav-id="/.emacs.d/editing/" title="ファイル編集/入力補助" class="dd-item
-        
+        parent
         
         
         ">
@@ -435,7 +435,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/editing/multiple-cursors/" title="multiple-cursors" class="dd-item ">
+      <li data-nav-id="/.emacs.d/editing/multiple-cursors/" title="multiple-cursors" class="dd-item active">
         <a href="/.emacs.d/editing/multiple-cursors/">
         multiple-cursors
         
@@ -527,7 +527,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        parent
+        
         
         
         ">
@@ -679,7 +679,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/highlight-indent-guides/" title="highlight-indent-guides" class="dd-item active">
+      <li data-nav-id="/.emacs.d/ui/highlight-indent-guides/" title="highlight-indent-guides" class="dd-item ">
         <a href="/.emacs.d/ui/highlight-indent-guides/">
         highlight-indent-guides
         
@@ -1642,7 +1642,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > highlight-indent-guides
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/editing/'>ファイル編集/入力補助</a> > multiple-cursors
           
         
           
@@ -1659,7 +1659,7 @@
   <ul>
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
-    <li><a href="#設定">設定</a></li>
+    <li><a href="#キーバインド">キーバインド</a></li>
   </ul>
 </nav>
     </div>
@@ -1677,7 +1677,7 @@
           
             <h1>
               
-              highlight-indent-guides
+              multiple-cursors
             </h1>
           
 
@@ -1685,17 +1685,12 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/DarthFennec/highlight-indent-guides">highlight-indent-guides</a> はインデント毎にラインを引いたりして見易くしてくれるパッケージ。通常のプログラムを書く時にも便利だけど、
-YAML などのインデントがそのまま構造になるような言語を弄る時にとても便利。</p>
+<p><a href="https://github.com/magnars/multiple-cursors.el">multiple-cursors</a> はカーソルを増やせるやつ。複数箇所を同時に編集できるようになって便利。</p>
 <h2 id="インストール">インストール</h2>
-<p>これもいつも通り el-get でインストールしている。また GitHub にあるので、そこから直接インストールしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle DarthFennec/highlight-indent-guides)
-</code></pre></div><h2 id="設定">設定</h2>
-<p>今いる行がどのインデントにいるのかをわかりやすくするために
-responsive モードを有効にしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq highlight-indent-guides-responsive <span style="color:#e6db74">&#34;stack&#34;</span>)
-</code></pre></div><p>defcustom で定義されてる変数なので
-custom-set-variables で設定した方がいいかもしれない。</p>
+<p>el-get からインストールしている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle multiple-cursors)
+</code></pre></div><h2 id="キーバインド">キーバインド</h2>
+<p>キーバインドは別途定義している。もうちょっと真面目に定義したい</p>
 
 
 <footer class="footline">
@@ -1928,6 +1923,126 @@ custom-set-variables で設定した方がいいかもしれない。</p>
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                 
                 
 
@@ -2032,42 +2147,6 @@ custom-set-variables で設定した方がいいかもしれない。</p>
             
         
                     
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
             
             
@@ -2088,90 +2167,6 @@ custom-set-variables で設定した方がいいかもしれない。</p>
             
             
                 
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -2788,10 +2783,10 @@ custom-set-variables で設定した方がいいかもしれない。</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/ui/helm-posframe/" title="helm-posframe"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/editing/company-mode/" title="company-mode"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/ui/hydra/" title="hydra" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/editing/smartparens/" title="smartparens" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
