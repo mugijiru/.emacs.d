@@ -708,6 +708,25 @@
 
     グローバルで有効でもいい気がしている。
 
+** multiple-cursors
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: multiple-cursors
+   :END:
+
+*** 概要
+    [[https://github.com/magnars/multiple-cursors.el][multiple-cursors]] はカーソルを増やせるやつ。
+    複数箇所を同時に編集できるようになって便利。
+
+*** インストール
+    el-get からインストールしている
+
+    #+begin_src emacs-lisp :tangle inits/50-multiple-cursor.el
+    (el-get-bundle multiple-cursors)
+    #+end_src
+
+    そしてデフォルトのキーバインドを使ってる。
+    もうちょっと色々頑張って使いやすくしたい
+
 ** smartparens
    :PROPERTIES:
    :EXPORT_FILE_NAME: smartparens
@@ -3301,12 +3320,6 @@
 
    ;; C-c C-c で現在の行のテストを実行
    (define-key rspec-mode-map (kbd "C-c C-c") 'rspec-verify-single)
-   #+end_src
-
-** 50-multiple-cursor.el
-
-   #+begin_src emacs-lisp :tangle inits/50-multiple-cursor.el
-   (el-get-bundle multiple-cursors)
    #+end_src
 
 ** 50-todoist.el
