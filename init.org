@@ -398,6 +398,14 @@
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: buffer-management
   :END:
+** バッファ管理
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: _index
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>2. </b>" :weight 2 :disableToc true
+   :END:
+
+   ここではバッファ管理関係の設定を記載している
+
 * キーバインド
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: keybinds
