@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>replacement :: 麦汁&#39;s Emacs Config</title>
+    <title>ido-mode :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1625232705" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/tags/replacement/">
+  <body class="" data-url="/.emacs.d/ui/ido-mode/">
     <nav id="sidebar" class="">
 
 
@@ -506,7 +506,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        
+        parent
         
         
         ">
@@ -700,7 +700,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/ido-mode/" title="ido-mode" class="dd-item ">
+      <li data-nav-id="/.emacs.d/ui/ido-mode/" title="ido-mode" class="dd-item active">
         <a href="/.emacs.d/ui/ido-mode/">
         ido-mode
         
@@ -1600,7 +1600,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/tags/'>Tags</a> > replacement
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > ido-mode
           
         
           
@@ -1613,7 +1613,14 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#有効化">有効化</a></li>
+    <li><a href="#設定">設定</a></li>
+    <li><a href="#その他">その他</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -1629,28 +1636,35 @@
           
             <h1>
               
-                tag ::
-              
-              replacement
+              ido-mode
             </h1>
           
 
         
 
 
-
-
-
+<h2 id="概要">概要</h2>
+<p>Emacs に標準添付の補完インターフェース。
+ivy 使ってるからこれ有効化している意味がない気はする。</p>
+<p>拡張入れてない段階でもこいつを有効にしていると
+find-file とかが楽になって良い。</p>
+<h2 id="有効化">有効化</h2>
+<p>とりあえず昔からずっと有効化している</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(ido-mode <span style="color:#ae81ff">1</span>)
+</code></pre></div><h2 id="設定">設定</h2>
+<p>ファイル名の補完とかを曖昧一致を有効にするっぽいい。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq ido-enable-flex-matching <span style="color:#66d9ef">t</span>)
+</code></pre></div><h2 id="その他">その他</h2>
+<p><a href="https://qiita.com/tadsan/items/33ebb8db2271897a462b">https://qiita.com/tadsan/items/33ebb8db2271897a462b</a> に書いていることだけど</p>
 <ul>
-	
-		<li><a href="/.emacs.d/basics/auto-save/">auto-save</a></li>
-	
-		<li><a href="/.emacs.d/ui/neotree/">Neotree</a></li>
-	
+<li>ido-everywhere を有効にするとファイル名とバッファ切替以外にも使えるようになるらしい</li>
+<li>smex 入れると M-x が強化される</li>
+<li>ido-ubiquitous を入れると ido-everywhere よりもさらに色々な他に使えるらしい</li>
+<li>ido-vertical-mode を入れたら候補が縦並びになって便利っぽい</li>
 </ul>
 
 
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -1976,6 +1990,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1988,6 +2003,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -2117,6 +2135,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -2132,6 +2151,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -2700,8 +2722,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/.emacs.d/ui/hydra/" title="hydra"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/.emacs.d/basics/" title="基本設定" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/.emacs.d/ui/neotree/" title="Neotree" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -2733,3 +2757,4 @@
 
   </body>
 </html>
+
