@@ -2401,10 +2401,28 @@
    ここでは外部のサービスと連携するようなやつをまとめています
 
    - [[*forge][forge]] :: [[*magit][magit]] と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ
+   - [[*emacs-w3m][emacs-w3m]] :: 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ
    - [[*google-this][google-this]] :: Google 検索機能を提供してくれるパッケージ
    - [[*google-translate][google-translate]] :: Emacs から Google 翻訳するためのパッケージ
    - [[*magit][magit]] :: Emacs 上で Git の操作をするのにとても便利なパッケージ
    - [[*wakatime-mode][wakatime-mode]] :: Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ
+
+** emacs-w3m
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: emacs-w3m
+   :END:
+*** 概要
+    w3m という和製のテキストブラウザを Emacs 上で使うためのパッケージ。
+    つまり w3m 自体もインストールしておく必要がある。
+*** インストール
+    emacs-w3m は el-get で入れられるので以下のようにして入れている
+
+    #+begin_src emacs-lisp :tangle inits/70-w3m.el
+    (el-get-bundle emacs-w3m)
+    #+end_src
+
+    今はこれだけしか入れてない。
+    昔の設定はどこかにいっちゃった……。
 
 ** forge
    :PROPERTIES:
@@ -3963,12 +3981,6 @@
 
    (add-hook 'find-file-hook 'my/find-file-tempbuf-hook)
    (add-hook 'dired-mode-hook 'turn-on-tempbuf-mode)
-   #+end_src
-
-** 70-w3m.el
-
-   #+begin_src emacs-lisp :tangle inits/70-w3m.el
-   (el-get-bundle emacs-w3m)
    #+end_src
 
 ** 80-edit.el
