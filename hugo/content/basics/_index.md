@@ -14,6 +14,9 @@ Emacs の基本動作に関わる部分をここでは設定している
 [auth-source]({{< relref "auth-source" >}})
 : 認証情報の取り扱いファイルの設定
 
+[custom-file]({{< relref "custom-file" >}})
+: カスタマイズ変数などの保存先を変更している
+
 [exec-path]({{< relref "exec-path" >}})
 : PATH などの環境変数を shell と合わせる設定
 
