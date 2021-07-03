@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>言語毎の設定 on 麦汁&#39;s Emacs Config</title>
+    <link>https://mugijiru.github.io/.emacs.d/programming/</link>
+    <description>Recent content in 言語毎の設定 on 麦汁&#39;s Emacs Config</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>emacs-lisp</title>
+      <link>https://mugijiru.github.io/.emacs.d/programming/emacs-lisp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/programming/emacs-lisp/</guid>
+      <description>概要 Emacs Lisp を書くための設定。まあそんなにしっかり書いてないので、あんまり設定は入ってない
+Hook Hook 用の関数を定義してその中に色々書いている。
+ とりあえず行数表示が欲しいので display-line-numbers-mode を有効化 当然補完もしたいので company-mode を有効にしている カッコの対応などもいい感じに動いて欲しいので smartparens-mode とその strict-mode を有効にしている   (defun my/emacs-lisp-mode-hook () (display-line-numbers-mode 1) (company-mode 1) (smartparens-mode 1) (turn-on-smartparens-strict-mode)) そんで最後にその関数を hook に突っ込んでる。
+(add-hook &amp;#39;emacs-lisp-mode-hook &amp;#39;my/emacs-lisp-mode-hook) アイコン挿入コマンドの用意 時々 UI 設定目的で絵文字を使うことがあるので挿入できるコマンドを用意している。最近使った記憶ないけど。
+(defun my/insert-all-the-icons-code (family) (interactive) (let* ((candidates (all-the-icons--read-candidates-for-family family)) (prompt (format &amp;#34;%s Icon: &amp;#34; (funcall (all-the-icons--family-name family)))) (selection (completing-read prompt candidates nil t))) (insert &amp;#34;(all-the-icons-&amp;#34; (symbol-name family) &amp;#34; \&amp;#34;&amp;#34; selection &amp;#34;\&amp;#34;)&amp;#34;))) キーバインド emacs-lisp-mode 用に major-mode-hydra を設定している。けどそんなにしっかり Emacs Lisp を書いてるわけではないのがバレバレな感じである。</description>
+    </item>
+    
+    <item>
+      <title>Ember.js</title>
+      <link>https://mugijiru.github.io/.emacs.d/programming/ember-js/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/programming/ember-js/</guid>
+      <description>概要 Ember.js 用の Emacs の拡張としては ember-mode と handlebars-mode が存在する
+ember-mode ember-mode は Ember.js アプリケーションのファイルナビゲーションや生成を行ってくれるモード。実は麦汁さんは使えてない。
+インストールするだけではダメで、 ember-mode を明示的に起動しないといけない。
+そのためには dir-locals を使うとか projectile なんかがやってるようにフォルダ構成から判定させるみたいなことが必要そう。だるい。
+というわけで死蔵中。
+ついでにいうとキーバインドもだるい系なので使う時は Hydra を用意した方が良さそう
+(el-get-bundle madnificent/ember-mode) handlebars-mode handlebars-mode は Ember.js のテンプレートエンジンとして採用されている Handlebars を書くためのモード。
+syntax highlight と、いくつかの編集機能を備えている。が、今のところ麦汁さんは syntax highlight しか使えてない。
+編集コマンドは major-mode-hydra で使えるようにしてあげれば良さそう
+(el-get-bundle handlebars-mode) </description>
+    </item>
+    
+    <item>
+      <title>es6</title>
+      <link>https://mugijiru.github.io/.emacs.d/programming/es6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/programming/es6/</guid>
+      <description>概要 ES5 以前ではない JS を書くための設定。 es6 といいつつ ES2016(ES7) などもこの設定のまま書いている。
+sprockets-es6 を使って ES6 対応をしていた時に es6 という拡張子を使っていたのでこのファイル名になっている。
+インストール es6 はつまり JS なのでとりあえず el-get で js2-mode を入れている。
+(el-get-bundle js2-mode) Hook  flycheck を有効にしてリアルタイムに文法チェックをしている  また javascript-eslint を使いたいので他2つは disable にしている   company-mode で補完できるようにしている smartparens-strict-mode でカッコなどの入力補助をしている インデントは空白2文字としている   (defun my/js2-mode-hook () (flycheck-mode 1) (setq flycheck-disabled-checkers &amp;#39;(javascript-standard javascript-jshint)) (company-mode 1) (turn-on-smartparens-strict-mode) (setq js2-basic-offset 2)) という Hook 用関数を用意しておいて
+(add-hook &amp;#39;js2-mode-hook &amp;#39;my/js2-mode-hook) という感じで js2-mode-hook に追加している。
+Lambda で一括でやる方法もあるけども、関数名つけて分離しておくと中身を簡単に入れ替えられて便利。</description>
+    </item>
+    
+    <item>
+      <title>markdown</title>
+      <link>https://mugijiru.github.io/.emacs.d/programming/markdown/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/programming/markdown/</guid>
+      <description>概要 Markdown を書くための設定。といいつつ markdown-mode を入れてるだけだけども。
+手元でテキストドキュメントを弄るのは org-mode が多いからなあ……
+インストール いつも通り el-get で入れている。
+(el-get-bundle markdown-mode) </description>
+    </item>
+    
+    <item>
+      <title>plantuml-mode</title>
+      <link>https://mugijiru.github.io/.emacs.d/programming/plantuml-mode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/programming/plantuml-mode/</guid>
+      <description>概要 plantuml-mode は PlantUML という、テキストだけで UML 図などが描けるツール用のモード。
+インストール いつも通り el-get で入れてる
+(el-get-bundle plantuml-mode) 設定 実行モードは &#39;jar を指定している。デフォルトは &#39;server なんだけどオフラインの時も使いたいししね。
+(setq plantuml-default-exec-mode &amp;#39;jar) el-get でインスコすると jar ファイルも自動で拾って来て plantuml-mode と同じディレクトリに設置して plantuml-jar-path も通してくれるからそっち使う方が便利だしね。
+その他 最新の develop ブランチだとインデントを調整できる機能が入っているので乗り換えたいけどそのためには el-get のレシピを書いてあげる必要がありそうで放置している。</description>
+    </item>
+    
+    <item>
+      <title>yaml-mode</title>
+      <link>https://mugijiru.github.io/.emacs.d/programming/yaml-mode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/programming/yaml-mode/</guid>
+      <description>概要 yaml-mode は yaml を編集する時のメジャーモード。インデントを調整しやすい。
+インストール いつも通り el-get でインストール
+(el-get-bundle yaml-mode) hook mode に対する hook は関数を定義してその中で呼びたいコードを書いていくようにしている。
+lambda で書いてしまうと hook を弄りたい時に結構面倒なのだけど関数を定義しておくと、その関数の中身を変更して評価しておくだけで hook で動作する中身が変更できて便利。
+とりあえず yaml-mode では以下のようにして highlight-indent-guides を有効にしている。
+(defun my/yaml-mode-hook () (highlight-indent-guides-mode 1)) で、その hook を最後に yaml-mode-hook に追加している。
+(add-hook &amp;#39;yaml-mode-hook &amp;#39;my/yaml-mode-hook) </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,2809 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="description" content="麦汁の Emacs 設定解説ページ">
+<meta name="author" content="麦汁">
+
+    <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
+
+    <title>markdown :: 麦汁&#39;s Emacs Config</title>
+
+    
+    <link href="/.emacs.d/css/nucleus.css?1625280039" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1625280039" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1625280039" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1625280039" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1625280039" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1625280039" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1625280039" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1625280039" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1625280039" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1625280039" rel="stylesheet">
+    
+    
+
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1625280039"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/.emacs.d/programming/markdown/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href='https://mugijiru.github.io/.emacs.d/'>
+  麦汁&#39;s Emacs Config
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1625280039"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1625280039"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
+    
+</script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1625280039"></script>
+
+    
+  </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='https://mugijiru.github.io/.emacs.d/'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/.emacs.d/basics/" title="基本設定" class="dd-item
+        
+        
+        
+        ">
+      <a href="/.emacs.d/basics/">
+          <b>1. </b>基本設定
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/basics/auth-source/" title="auth-source" class="dd-item ">
+        <a href="/.emacs.d/basics/auth-source/">
+        auth-source
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/basics/auto-save/" title="auto-save" class="dd-item ">
+        <a href="/.emacs.d/basics/auto-save/">
+        auto-save
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/basics/exec-path/" title="exec-path" class="dd-item ">
+        <a href="/.emacs.d/basics/exec-path/">
+        exec-path
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/basics/font-config/" title="font-config" class="dd-item ">
+        <a href="/.emacs.d/basics/font-config/">
+        font-config
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/basics/load-path/" title="load-path" class="dd-item ">
+        <a href="/.emacs.d/basics/load-path/">
+        load-path
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/basics/savehist/" title="savehist" class="dd-item ">
+        <a href="/.emacs.d/basics/savehist/">
+        savehist
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/basics/gcmh/" title="ガベージコレクション" class="dd-item ">
+        <a href="/.emacs.d/basics/gcmh/">
+        ガベージコレクション
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/.emacs.d/buffer-management/" title="バッファ管理" class="dd-item
+        
+        
+        
+        ">
+      <a href="/.emacs.d/buffer-management/">
+          <b>2. </b>バッファ管理
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/.emacs.d/keybinds/" title="キーバインド" class="dd-item
+        
+        
+        
+        ">
+      <a href="/.emacs.d/keybinds/">
+          <b>3. </b>キーバインド
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/keybinds/google-integration/" title="Google 連携" class="dd-item ">
+        <a href="/.emacs.d/keybinds/google-integration/">
+        Google 連携
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/keybinds/key-chord/" title="key-chord" class="dd-item ">
+        <a href="/.emacs.d/keybinds/key-chord/">
+        key-chord
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/keybinds/sticky-control/" title="sticky-control" class="dd-item ">
+        <a href="/.emacs.d/keybinds/sticky-control/">
+        sticky-control
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/.emacs.d/editing/" title="ファイル編集/入力補助" class="dd-item
+        
+        
+        
+        ">
+      <a href="/.emacs.d/editing/">
+          <b>4. </b>ファイル編集/入力補助
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/editing/auto-insert/" title="auto-insert" class="dd-item ">
+        <a href="/.emacs.d/editing/auto-insert/">
+        auto-insert
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/editing/company-mode/" title="company-mode" class="dd-item ">
+        <a href="/.emacs.d/editing/company-mode/">
+        company-mode
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/editing/multiple-cursors/" title="multiple-cursors" class="dd-item ">
+        <a href="/.emacs.d/editing/multiple-cursors/">
+        multiple-cursors
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/editing/smartparens/" title="smartparens" class="dd-item ">
+        <a href="/.emacs.d/editing/smartparens/">
+        smartparens
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/editing/undo-fu/" title="undo-fu" class="dd-item ">
+        <a href="/.emacs.d/editing/undo-fu/">
+        undo-fu
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/editing/yasnippet/" title="yasnippet" class="dd-item ">
+        <a href="/.emacs.d/editing/yasnippet/">
+        yasnippet
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
+        
+        
+        
+        ">
+      <a href="/.emacs.d/ui/">
+          <b>5. </b>UI
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/ui/alert/" title="alert" class="dd-item ">
+        <a href="/.emacs.d/ui/alert/">
+        alert
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/ui/all-the-icons/" title="all-the-icons" class="dd-item ">
+        <a href="/.emacs.d/ui/all-the-icons/">
+        all-the-icons
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/ui/fullscreen/" title="fullscreen" class="dd-item ">
+        <a href="/.emacs.d/ui/fullscreen/">
+        fullscreen
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/ui/git-gutter-fringe/" title="git-gutter-fringe" class="dd-item ">
+        <a href="/.emacs.d/ui/git-gutter-fringe/">
+        git-gutter-fringe
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/ui/helm/" title="helm" class="dd-item ">
+        <a href="/.emacs.d/ui/helm/">
+        helm
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/ui/helm-posframe/" title="helm-posframe" class="dd-item ">
+        <a href="/.emacs.d/ui/helm-posframe/">
+        helm-posframe
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/ui/highlight-indent-guides/" title="highlight-indent-guides" class="dd-item ">
+        <a href="/.emacs.d/ui/highlight-indent-guides/">
+        highlight-indent-guides
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/ui/hydra/" title="hydra" class="dd-item ">
+        <a href="/.emacs.d/ui/hydra/">
+        hydra
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/ui/ido-mode/" title="ido-mode" class="dd-item ">
+        <a href="/.emacs.d/ui/ido-mode/">
+        ido-mode
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/ui/neotree/" title="Neotree" class="dd-item ">
+        <a href="/.emacs.d/ui/neotree/">
+        Neotree
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/ui/posframe/" title="posframe" class="dd-item ">
+        <a href="/.emacs.d/ui/posframe/">
+        posframe
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/ui/show-paren-mode/" title="show-paren-mode" class="dd-item ">
+        <a href="/.emacs.d/ui/show-paren-mode/">
+        show-paren-mode
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/ui/toolbar/" title="toolbar" class="dd-item ">
+        <a href="/.emacs.d/ui/toolbar/">
+        toolbar
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/ui/uniquify/" title="uniquify" class="dd-item ">
+        <a href="/.emacs.d/ui/uniquify/">
+        uniquify
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/ui/yascroll/" title="yascroll" class="dd-item ">
+        <a href="/.emacs.d/ui/yascroll/">
+        yascroll
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/ui/zoom/" title="zoom" class="dd-item ">
+        <a href="/.emacs.d/ui/zoom/">
+        zoom
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/ui/zoom-window/" title="zoom-window" class="dd-item ">
+        <a href="/.emacs.d/ui/zoom-window/">
+        zoom-window
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/.emacs.d/nav/" title="ナビゲーション" class="dd-item
+        
+        
+        
+        ">
+      <a href="/.emacs.d/nav/">
+          <b>6. </b>ナビゲーション
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/nav/ace-window/" title="ace-window" class="dd-item ">
+        <a href="/.emacs.d/nav/ace-window/">
+        ace-window
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/nav/avy/" title="avy" class="dd-item ">
+        <a href="/.emacs.d/nav/avy/">
+        avy
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/nav/browse-at-remote/" title="browse-at-remote" class="dd-item ">
+        <a href="/.emacs.d/nav/browse-at-remote/">
+        browse-at-remote
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/nav/dumb-jump/" title="dumb-jump" class="dd-item ">
+        <a href="/.emacs.d/nav/dumb-jump/">
+        dumb-jump
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/nav/projectile/" title="projectile" class="dd-item ">
+        <a href="/.emacs.d/nav/projectile/">
+        projectile
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/.emacs.d/programming/" title="言語毎の設定" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/.emacs.d/programming/">
+          <b>7. </b>言語毎の設定
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/programming/emacs-lisp/" title="emacs-lisp" class="dd-item ">
+        <a href="/.emacs.d/programming/emacs-lisp/">
+        emacs-lisp
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/programming/ember-js/" title="Ember.js" class="dd-item ">
+        <a href="/.emacs.d/programming/ember-js/">
+        Ember.js
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/programming/es6/" title="es6" class="dd-item ">
+        <a href="/.emacs.d/programming/es6/">
+        es6
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/programming/markdown/" title="markdown" class="dd-item active">
+        <a href="/.emacs.d/programming/markdown/">
+        markdown
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/programming/plantuml-mode/" title="plantuml-mode" class="dd-item ">
+        <a href="/.emacs.d/programming/plantuml-mode/">
+        plantuml-mode
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/programming/yaml-mode/" title="yaml-mode" class="dd-item ">
+        <a href="/.emacs.d/programming/yaml-mode/">
+        yaml-mode
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/.emacs.d/external-tool/" title="外部連携ツール設定" class="dd-item
+        
+        
+        
+        ">
+      <a href="/.emacs.d/external-tool/">
+          <b>8. </b>外部連携ツール設定
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/external-tool/emacs-w3m/" title="emacs-w3m" class="dd-item ">
+        <a href="/.emacs.d/external-tool/emacs-w3m/">
+        emacs-w3m
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/external-tool/forge/" title="forge" class="dd-item ">
+        <a href="/.emacs.d/external-tool/forge/">
+        forge
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/external-tool/google-this/" title="google-this" class="dd-item ">
+        <a href="/.emacs.d/external-tool/google-this/">
+        google-this
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/external-tool/google-translate/" title="google-translate" class="dd-item ">
+        <a href="/.emacs.d/external-tool/google-translate/">
+        google-translate
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/external-tool/magit/" title="magit" class="dd-item ">
+        <a href="/.emacs.d/external-tool/magit/">
+        magit
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/external-tool/wakatime-mode/" title="wakatime-mode" class="dd-item ">
+        <a href="/.emacs.d/external-tool/wakatime-mode/">
+        wakatime-mode
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/.emacs.d/testing-tool/" title="テスト用ツール" class="dd-item
+        
+        
+        
+        ">
+      <a href="/.emacs.d/testing-tool/">
+          <b>9. </b>テスト用ツール
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/testing-tool/with-simulated-input/" title="with-simulated-input" class="dd-item ">
+        <a href="/.emacs.d/testing-tool/with-simulated-input/">
+        with-simulated-input
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/testing-tool/mocker-el/" title="mocker.el" class="dd-item ">
+        <a href="/.emacs.d/testing-tool/mocker-el/">
+        mocker.el
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/.emacs.d/testing/" title="テストコード" class="dd-item
+        
+        
+        
+        ">
+      <a href="/.emacs.d/testing/">
+          <b>10. </b>テストコード
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/testing/execution/" title="実行方法" class="dd-item ">
+        <a href="/.emacs.d/testing/execution/">
+        実行方法
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/testing/run-tests/" title="run-tests" class="dd-item ">
+        <a href="/.emacs.d/testing/run-tests/">
+        run-tests
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/testing/my-org-commands-test/" title="my-org-commands-test" class="dd-item ">
+        <a href="/.emacs.d/testing/my-org-commands-test/">
+        my-org-commands-test
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://github.com/mugijiru/.emacs.d"><i class='fab fa-github'></i> Github repo</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://twitter.com/mugijiru"><i class='fab fa-twitter'></i> Twitter</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://mugijiru.github.io/"><i class='fas fa-home'></i> 麦汁三昧に戻る</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/programming/'>言語毎の設定</a> > markdown
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#インストール">インストール</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              markdown
+            </h1>
+          
+
+        
+
+
+<h2 id="概要">概要</h2>
+<p>Markdown を書くための設定。といいつつ markdown-mode を入れてるだけだけども。</p>
+<p>手元でテキストドキュメントを弄るのは org-mode が多いからなあ……</p>
+<h2 id="インストール">インストール</h2>
+<p>いつも通り el-get で入れている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle markdown-mode)
+</code></pre></div>
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/.emacs.d/programming/es6/" title="es6"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/.emacs.d/programming/plantuml-mode/" title="plantuml-mode" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/.emacs.d/js/clipboard.min.js?1625280039"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1625280039"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1625280039"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1625280039"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1625280039"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1625280039"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1625280039"></script>
+    <script src="/.emacs.d/js/learn.js?1625280039"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1625280039"></script>
+    
+        
+            <script src="/.emacs.d/mermaid/mermaid.js?1625280039"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

@@ -24,9 +24,7 @@
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/nav/</loc>
   </url><url>
-    <loc>https://mugijiru.github.io/.emacs.d/framework-config/</loc>
-  </url><url>
-    <loc>https://mugijiru.github.io/.emacs.d/language-config/</loc>
+    <loc>https://mugijiru.github.io/.emacs.d/programming/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/external-tool/</loc>
   </url><url>
@@ -56,13 +54,13 @@
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/nav/dumb-jump/</loc>
   </url><url>
-    <loc>https://mugijiru.github.io/.emacs.d/language-config/emacs-lisp/</loc>
+    <loc>https://mugijiru.github.io/.emacs.d/programming/emacs-lisp/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/external-tool/emacs-w3m/</loc>
   </url><url>
-    <loc>https://mugijiru.github.io/.emacs.d/framework-config/ember-js/</loc>
+    <loc>https://mugijiru.github.io/.emacs.d/programming/ember-js/</loc>
   </url><url>
-    <loc>https://mugijiru.github.io/.emacs.d/language-config/es6/</loc>
+    <loc>https://mugijiru.github.io/.emacs.d/programming/es6/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/basics/exec-path/</loc>
   </url><url>
@@ -98,13 +96,13 @@
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/external-tool/magit/</loc>
   </url><url>
-    <loc>https://mugijiru.github.io/.emacs.d/language-config/markdown/</loc>
+    <loc>https://mugijiru.github.io/.emacs.d/programming/markdown/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/editing/multiple-cursors/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/ui/neotree/</loc>
   </url><url>
-    <loc>https://mugijiru.github.io/.emacs.d/language-config/plantuml-mode/</loc>
+    <loc>https://mugijiru.github.io/.emacs.d/programming/plantuml-mode/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/ui/posframe/</loc>
   </url><url>
@@ -132,7 +130,7 @@
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/external-tool/wakatime-mode/</loc>
   </url><url>
-    <loc>https://mugijiru.github.io/.emacs.d/language-config/yaml-mode/</loc>
+    <loc>https://mugijiru.github.io/.emacs.d/programming/yaml-mode/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/ui/yascroll/</loc>
   </url><url>
