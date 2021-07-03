@@ -2128,9 +2128,9 @@
     基本的に Rails のプロジェクトをやっているので
     projectile-rails をベースにいつも触ってるので projectile そのものはあまり弄ってないのであった
 
-* 言語毎の設定
+* プログラミング関係の設定
   :PROPERTIES:
-  :EXPORT_HUGO_SECTION: language-config
+  :EXPORT_HUGO_SECTION: programming
   :END:
 ** 言語毎の設定
    :PROPERTIES:
@@ -3116,7 +3116,6 @@
    #+end_src
 
 ** 40-ruby.el
-
    #+begin_src emacs-lisp :tangle inits/40-ruby.el
    (el-get-bundle rbenv)
    (global-rbenv-mode)
