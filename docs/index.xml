@@ -361,6 +361,18 @@ Mac の設定 Mac の場合にフルスクリーンにする設定を入れて�
     </item>
     
     <item>
+      <title>gnuplot-mode</title>
+      <link>https://mugijiru.github.io/.emacs.d/programming/gnuplot-mode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/programming/gnuplot-mode/</guid>
+      <description>概要 gnuplot-mode はグラフ作成ソフトである gnuplot を Emacs で使うためのパッケージ。 Syntax Highlight や 補完機能 などを提供する。
+まあほとんど使ってないんだけど。
+インストール いつも通り el-get で入れている
+(el-get-bundle gnuplot-mode) その他 org-mode から使ってた記憶があるのでそっちの方で何か設定があるかもしれない</description>
+    </item>
+    
+    <item>
       <title>Google 連携</title>
       <link>https://mugijiru.github.io/.emacs.d/keybinds/google-integration/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

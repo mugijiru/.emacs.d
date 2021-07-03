@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>言語毎の設定 on 麦汁&#39;s Emacs Config</title>
+    <title>プログラミング関係の設定 on 麦汁&#39;s Emacs Config</title>
     <link>https://mugijiru.github.io/.emacs.d/programming/</link>
-    <description>Recent content in 言語毎の設定 on 麦汁&#39;s Emacs Config</description>
+    <description>Recent content in プログラミング関係の設定 on 麦汁&#39;s Emacs Config</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -49,6 +49,18 @@ sprockets-es6 を使って ES6 対応をしていた時に es6 という拡張�
 (el-get-bundle js2-mode) Hook  flycheck を有効にしてリアルタイムに文法チェックをしている  また javascript-eslint を使いたいので他2つは disable にしている   company-mode で補完できるようにしている smartparens-strict-mode でカッコなどの入力補助をしている インデントは空白2文字としている   (defun my/js2-mode-hook () (flycheck-mode 1) (setq flycheck-disabled-checkers &amp;#39;(javascript-standard javascript-jshint)) (company-mode 1) (turn-on-smartparens-strict-mode) (setq js2-basic-offset 2)) という Hook 用関数を用意しておいて
 (add-hook &amp;#39;js2-mode-hook &amp;#39;my/js2-mode-hook) という感じで js2-mode-hook に追加している。
 Lambda で一括でやる方法もあるけども、関数名つけて分離しておくと中身を簡単に入れ替えられて便利。</description>
+    </item>
+    
+    <item>
+      <title>gnuplot-mode</title>
+      <link>https://mugijiru.github.io/.emacs.d/programming/gnuplot-mode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/programming/gnuplot-mode/</guid>
+      <description>概要 gnuplot-mode はグラフ作成ソフトである gnuplot を Emacs で使うためのパッケージ。 Syntax Highlight や 補完機能 などを提供する。
+まあほとんど使ってないんだけど。
+インストール いつも通り el-get で入れている
+(el-get-bundle gnuplot-mode) その他 org-mode から使ってた記憶があるのでそっちの方で何か設定があるかもしれない</description>
     </item>
     
     <item>

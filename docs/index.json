@@ -78,10 +78,10 @@
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/programming/",
-	"title": "言語毎の設定",
+	"title": "プログラミング関係の設定",
 	"tags": [],
 	"description": "",
-	"content": "ここでは各言語やフレームワーク毎の設定をまとめている。 markdown-mode とか yaml-mode なんかはプログラム言語ではないけど面倒なので一旦ここにまとめている。\n emacs-lisp Emacs Lisp を書くための設定 Ember.js Web フロントエンド MVC フレームワークである Ember.js 用の設定を書いている es6 ES2015 以降の JS に関する設定。es6 としているのは過去の経緯のため。 markdown Markdown を書く時の設定 plantuml-mode PlantUML を書く時のメジャーモードの設定 rspec-mode Ruby のテストフレームワーク RSpec を書いたりするのに便利なモード yaml-mode YAML を書く時のメジャーモードの設定  "
+	"content": "ここでは各言語やフレームワーク毎の設定をまとめている。 markdown-mode とか yaml-mode なんかはプログラム言語ではないけど面倒なので一旦ここにまとめている。\n emacs-lisp Emacs Lisp を書くための設定 Ember.js Web フロントエンド MVC フレームワークである Ember.js 用の設定を書いている es6 ES2015 以降の JS に関する設定。es6 としているのは過去の経緯のため。 gnuplot-mode グラフ作成ソフト gnuplot を使うための設定 markdown Markdown を書く時の設定 plantuml-mode PlantUML を書く時のメジャーモードの設定 rspec-mode Ruby のテストフレームワーク RSpec を書いたりするのに便利なモード yaml-mode YAML を書く時のメジャーモードの設定  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/external-tool/",
@@ -250,6 +250,13 @@
 	"tags": ["improvement"],
 	"description": "",
 	"content": "概要 git-gutter-fringe は git-gutter の派生版。最後のコミットからどの行を弄ったかを fringe 領域に表示してくれる。\n他にも hunk の操作をできる機能とかあるみたいだけどそのあたりは使ったことがない……。\n派生元の git-gutter は linum-mode と同じ領域を使って描画をしているようで併用ができなかったので git-gutter-fringe を利用している。\nが、Emacs 26 から display-line-numbers-mode が搭載されて linum-mode が不要になったので git-gutter に乗り換えても良さそう\nインストール いつも通り el-get でインストールしている\n(el-get-bundle git-gutter-fringe) 有効化 Git 管理しているやつは全部差分情報が表示されて欲しいのでグローバルマイナーモードを有効にしている。\n(global-git-gutter-mode t) その他 git-gutter ほどではないけど多少のカスタマイズはできるはずだがデフォルト設定で特に不満はないので何もしてない\n"
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/programming/gnuplot-mode/",
+	"title": "gnuplot-mode",
+	"tags": [],
+	"description": "",
+	"content": "概要 gnuplot-mode はグラフ作成ソフトである gnuplot を Emacs で使うためのパッケージ。 Syntax Highlight や 補完機能 などを提供する。\nまあほとんど使ってないんだけど。\nインストール いつも通り el-get で入れている\n(el-get-bundle gnuplot-mode) その他 org-mode から使ってた記憶があるのでそっちの方で何か設定があるかもしれない\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/keybinds/google-integration/",
