@@ -11,7 +11,7 @@
 	"title": "基本設定",
 	"tags": [],
 	"description": "",
-	"content": "Emacs の基本動作に関わる部分をここでは設定している\n auto-save 編集中状態の自動保存や編集前の状態のバックアップに関する設定 auth-source 認証情報の取り扱いファイルの設定 exec-path PATH などの環境変数を shell と合わせる設定 font-config フォントの設定 load-path Emacs Lisp が読み込める path の設定 savehist ミニバッファの履歴などを保存してくれる機能。 ガベージコレクション メモリの開放関係の設定  "
+	"content": "Emacs の基本動作に関わる部分をここでは設定している\n auto-save 編集中状態の自動保存や編集前の状態のバックアップに関する設定 auth-source 認証情報の取り扱いファイルの設定 custom-file カスタマイズ変数などの保存先を変更している exec-path PATH などの環境変数を shell と合わせる設定 font-config フォントの設定 load-path Emacs Lisp が読み込める path の設定 savehist ミニバッファの履歴などを保存してくれる機能。 ガベージコレクション メモリの開放関係の設定  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/testing/execution/",
@@ -173,6 +173,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 company-mode は Emacs での補完機能を提供してくれるパッケージです。プラグイン式に拡張しやすいのが特徴っぽい。\nインストール いつも透り el-get から入れている\n(el-get-bundle company-mode) 設定 ほとんど設定は入れていない。有効な時に C-s を入力すると検索ができる程度。\nというのも最近の更新で、デフォルトが結構好みのキーバインドになったのでキーバインドはこだわる必要がなくなったのと、ついでに色もそこで好みな感じになってくれた。\nというわけで設定は以下のようにとてもシンプル。\n(with-eval-after-load \u0026#39;company ;; active (define-key company-active-map (kbd \u0026#34;C-s\u0026#34;) \u0026#39;company-search-candidates)) その他 グローバルでは有効にしていなくて各モードで有効にするような hook を入れている。\nグローバルで有効でもいい気がしている。\n"
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/basics/custom-file/",
+	"title": "custom-file",
+	"tags": [],
+	"description": "",
+	"content": "概要 Emacs では customize 機能などで設定したファイルを標準だと init.el の末尾に追記したりするが自動吐き出しされるものがあるとバージョン管理が難しくなるので別ファイルに出力するようにするなどの調整をしている。\n出力先の設定 .emacs.d の中に閉じ込めておく方が管理が楽なので出力先として ~/.emacs.d/custom.el を指定している。\n(setq custom-file (expand-file-name \u0026#34;~/.emacs.d/custom.el\u0026#34;)) カスタム設定の読み込み 起動時に、設定が入っているファイルが読み込まれないと保存した設定が有効にならないので load を使って読んでいる。\n(load custom-file) その他 カスタムファイルは終盤で読み込む方がいいかと思って init-loader では 99 という最後の方で読まれる番号を振っている。\nこのあたりの設定を個別のパッケージの設定の方に移動したらこのファイルは空にできるんじゃないかなとも思っているが、それはゆっくり対応していくつもり\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/nav/dumb-jump/",

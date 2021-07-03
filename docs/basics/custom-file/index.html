@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>auto-save :: 麦汁&#39;s Emacs Config</title>
+    <title>custom-file :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1625283355" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/basics/auto-save/">
+  <body class="" data-url="/.emacs.d/basics/custom-file/">
     <nav id="sidebar" class="">
 
 
@@ -136,7 +136,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/basics/auto-save/" title="auto-save" class="dd-item active">
+      <li data-nav-id="/.emacs.d/basics/auto-save/" title="auto-save" class="dd-item ">
         <a href="/.emacs.d/basics/auto-save/">
         auto-save
         
@@ -157,7 +157,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/basics/custom-file/" title="custom-file" class="dd-item ">
+      <li data-nav-id="/.emacs.d/basics/custom-file/" title="custom-file" class="dd-item active">
         <a href="/.emacs.d/basics/custom-file/">
         custom-file
         
@@ -1674,7 +1674,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/basics/'>基本設定</a> > auto-save
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/basics/'>基本設定</a> > custom-file
           
         
           
@@ -1690,13 +1690,9 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#設定">設定</a>
-      <ul>
-        <li><a href="#自動保存設定">自動保存設定</a></li>
-        <li><a href="#バックアップファイル">バックアップファイル</a></li>
-        <li><a href="#その他">その他</a></li>
-      </ul>
-    </li>
+    <li><a href="#出力先の設定">出力先の設定</a></li>
+    <li><a href="#カスタム設定の読み込み">カスタム設定の読み込み</a></li>
+    <li><a href="#その他">その他</a></li>
   </ul>
 </nav>
     </div>
@@ -1708,19 +1704,13 @@
             
         <div id="head-tags">
         
-<div class="tags">
-
-  <a class="tag-link" href="/.emacs.d/tags/replacement">replacement</a>
-
-</div>
-
         </div>
         
         <div id="body-inner">
           
             <h1>
               
-              auto-save
+              custom-file
             </h1>
           
 
@@ -1728,56 +1718,17 @@
 
 
 <h2 id="概要">概要</h2>
-<p>編集中状態の自動保存や、編集前や保存直後の状態のバックアップに関する設定をここでは書いている。</p>
-<p>Emacs ではデフォルトでも編集中ファイルの自動保存や、編集前の状態の自動バックアップもしてくれるが開いているファイルとは違う場所に保存したりすることで、より便利になるのでいくつかの設定を入れている。</p>
-<h2 id="設定">設定</h2>
-<h3 id="自動保存設定">自動保存設定</h3>
-<p>デフォルトだと <code>#hoge.txt#</code> みたいなファイル名で作られる、自動保存に関する設定。</p>
-<p>まあこの自動保存されてやつを活用できてる気がしないのでこの自動保存自体不要な気はしているが、とりあえず場所を移動して邪魔にはならないようにはしている。</p>
-<h4 id="自動保存のタイミング">自動保存のタイミング</h4>
-<p>自動保存のタイミングは</p>
-<ul>
-<li>auto-save-timeout</li>
-<li>auto-save-interval</li>
-</ul>
-<p>で制御されている。</p>
-<p>まず auto-save-timeout で設定した秒数が経過すると再度自動保存が実行される。</p>
-<p>これがデフォルトだと 30 秒なのだが、ちょっと長いのでその半分の 15 秒で保存されるように設定を変更している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq auto-save-timeout <span style="color:#ae81ff">15</span>)
-</code></pre></div><p>また auto-save-interval で設定した回数のキーイベントが発生すると再度自動保存を実行する。</p>
-<p>これもデフォルトだと 300 と結構なキーを叩く必要があるので 60 回としている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq auto-save-interval <span style="color:#ae81ff">60</span>)
-</code></pre></div><h4 id="自動保存先を変更する">自動保存先を変更する</h4>
-<p>自動保存はそのままだと弄ってるファイルの場所に作られる。が、これは以下のようにすると <code>~/.emacs.d/backup/</code> 一応変更可能。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq auto-save-file-name-transforms <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;.*&#34;</span> <span style="color:#e6db74">&#34;~/.emacs.d/backup/&#34;</span> <span style="color:#66d9ef">t</span>)))
-</code></pre></div><p>ただ、デフォルト値が</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">((<span style="color:#e6db74">&#34;\\`/[^/]*:\\([^/]*/\\)*\\([^/]*\\)\\&#39;&#34;</span> <span style="color:#e6db74">&#34;/tmp/\\2&#34;</span> <span style="color:#66d9ef">t</span>))
-</code></pre></div><p>なので <code>.*</code> にしているのは乱暴そうな気がしている。</p>
-<p>というわけで
-<a href="https://masutaka.net/chalow/2014-05-11-1.html">https://masutaka.net/chalow/2014-05-11-1.html</a>
-に書かれているのを真似して</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">((<span style="color:#e6db74">&#34;~/\\([^/]*/\\)*\\([^/]*\\)$&#34;</span> <span style="color:#e6db74">&#34;~/.emacs.d/backup/\\2&#34;</span> <span style="color:#66d9ef">t</span>))
-</code></pre></div><p>とでもした方が良いかもしれない。</p>
-<h3 id="バックアップファイル">バックアップファイル</h3>
-<p>自動保存とは別に、ファイルを開いた時点のバージョンや保存した時点のバージョンを取っておいてくれる自動バックアップ機能もあるのでその設定も弄っている。</p>
-<h4 id="バックアップ先のフォルダ指定">バックアップ先のフォルダ指定</h4>
-<p>デフォルトでは編集しているファイルと同じフォルダにバックアップファイルを作成するようになっている。</p>
-<p>だけど、こいつが結構邪魔なのでバックアップファイルは <code>~/.emacs.d/backup/</code> に全部保存するようにしている。</p>
-<p>また、普段 tramp は使っていないが何かの拍子で使った時にバックアップが取られると邪魔そうなのでそれは保存しないようにしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq backup-directory-alist <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;.*&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;~/.emacs.d/backup&#34;</span>)
-                               (<span style="color:#f92672">,</span>tramp-file-name-regexp <span style="color:#f92672">.</span> <span style="color:#66d9ef">nil</span>)))
-</code></pre></div><h4 id="バージョン管理">バージョン管理</h4>
-<p>バックアップにはバージョン管理機能もある。が、標準では無効化されている。</p>
-<p>とりあえず古いバージョンを引っ張り出せると便利かもと思って有効化している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq version-control <span style="color:#66d9ef">t</span>)
-</code></pre></div><p>が、実際それを使ったことはない。。。</p>
-<p>また、古過ぎるバックアップファイルは要らないので、自動的に消されるように設定している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq delete-old-versions <span style="color:#66d9ef">t</span>)
-</code></pre></div><h3 id="その他">その他</h3>
-<p>Emacs の自動保存などについては
-<a href="http://yohshiy.blog.fc2.com/blog-entry-319.html">http://yohshiy.blog.fc2.com/blog-entry-319.html</a>
-によくまとめられているので、いずれその内容を設定に反映させたい。</p>
-<p>また <a href="https://github.com/bbatsov/super-save">super-save</a> というやつを使って実ファイルに自動保存したりしたらこれも不要になると思われる。</p>
+<p>Emacs では customize 機能などで設定したファイルを標準だと init.el の末尾に追記したりするが自動吐き出しされるものがあるとバージョン管理が難しくなるので別ファイルに出力するようにするなどの調整をしている。</p>
+<h2 id="出力先の設定">出力先の設定</h2>
+<p>.emacs.d の中に閉じ込めておく方が管理が楽なので出力先として <code>~/.emacs.d/custom.el</code> を指定している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq custom-file (<span style="color:#a6e22e">expand-file-name</span> <span style="color:#e6db74">&#34;~/.emacs.d/custom.el&#34;</span>))
+</code></pre></div><h2 id="カスタム設定の読み込み">カスタム設定の読み込み</h2>
+<p>起動時に、設定が入っているファイルが読み込まれないと保存した設定が有効にならないので load を使って読んでいる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#a6e22e">load</span> custom-file)
+</code></pre></div><h2 id="その他">その他</h2>
+<p>カスタムファイルは終盤で読み込む方がいいかと思って
+init-loader では 99 という最後の方で読まれる番号を振っている。</p>
+<p>このあたりの設定を個別のパッケージの設定の方に移動したらこのファイルは空にできるんじゃないかなとも思っているが、それはゆっくり対応していくつもり</p>
 
 
 <footer class="footline">
@@ -1848,6 +1799,22 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                     
                 
                 
@@ -1867,22 +1834,6 @@
                     
                         
                         
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -2899,10 +2850,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/basics/auth-source/" title="auth-source"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/basics/auto-save/" title="auto-save"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/basics/custom-file/" title="custom-file" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/basics/exec-path/" title="exec-path" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

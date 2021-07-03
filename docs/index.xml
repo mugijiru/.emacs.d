@@ -211,6 +211,19 @@ Emacs ではデフォルトでも編集中ファイルの自動保存や、編�
     </item>
     
     <item>
+      <title>custom-file</title>
+      <link>https://mugijiru.github.io/.emacs.d/basics/custom-file/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/basics/custom-file/</guid>
+      <description>概要 Emacs では customize 機能などで設定したファイルを標準だと init.el の末尾に追記したりするが自動吐き出しされるものがあるとバージョン管理が難しくなるので別ファイルに出力するようにするなどの調整をしている。
+出力先の設定 .emacs.d の中に閉じ込めておく方が管理が楽なので出力先として ~/.emacs.d/custom.el を指定している。
+(setq custom-file (expand-file-name &amp;#34;~/.emacs.d/custom.el&amp;#34;)) カスタム設定の読み込み 起動時に、設定が入っているファイルが読み込まれないと保存した設定が有効にならないので load を使って読んでいる。
+(load custom-file) その他 カスタムファイルは終盤で読み込む方がいいかと思って init-loader では 99 という最後の方で読まれる番号を振っている。
+このあたりの設定を個別のパッケージの設定の方に移動したらこのファイルは空にできるんじゃないかなとも思っているが、それはゆっくり対応していくつもり</description>
+    </item>
+    
+    <item>
       <title>dumb-jump</title>
       <link>https://mugijiru.github.io/.emacs.d/nav/dumb-jump/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
