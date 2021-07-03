@@ -51,6 +51,7 @@
 
    - [[*auto-save][auto-save]] :: 編集中状態の自動保存や編集前の状態のバックアップに関する設定
    - [[*auth-source][auth-source]] :: 認証情報の取り扱いファイルの設定
+   - [[*custom-file][custom-file]] :: カスタマイズ変数などの保存先を変更している
    - [[*exec-path][exec-path]] :: PATH などの環境変数を shell と合わせる設定
    - [[*font-config][font-config]] :: フォントの設定
    - [[*load-path][load-path]] :: Emacs Lisp が読み込める path の設定
