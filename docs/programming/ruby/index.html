@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>gnuplot-mode :: 麦汁&#39;s Emacs Config</title>
+    <title>ruby :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1625325598" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/programming/gnuplot-mode/">
+  <body class="" data-url="/.emacs.d/programming/ruby/">
     <nav id="sidebar" class="">
 
 
@@ -1212,7 +1212,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/programming/gnuplot-mode/" title="gnuplot-mode" class="dd-item active">
+      <li data-nav-id="/.emacs.d/programming/gnuplot-mode/" title="gnuplot-mode" class="dd-item ">
         <a href="/.emacs.d/programming/gnuplot-mode/">
         gnuplot-mode
         
@@ -1296,7 +1296,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/programming/ruby/" title="ruby" class="dd-item ">
+      <li data-nav-id="/.emacs.d/programming/ruby/" title="ruby" class="dd-item active">
         <a href="/.emacs.d/programming/ruby/">
         ruby
         
@@ -1737,7 +1737,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/programming/'>プログラミング関係の設定</a> > gnuplot-mode
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/programming/'>プログラミング関係の設定</a> > ruby
           
         
           
@@ -1753,8 +1753,21 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#インストール">インストール</a></li>
-    <li><a href="#その他">その他</a></li>
+    <li><a href="#rbenv-dot-el">rbenv.el</a>
+      <ul>
+        <li><a href="#インストール">インストール</a></li>
+        <li><a href="#有効化">有効化</a></li>
+      </ul>
+    </li>
+    <li><a href="#enh-ruby-mode">enh-ruby-mode</a>
+      <ul>
+        <li><a href="#インストール">インストール</a></li>
+        <li><a href="#カスタム設定">カスタム設定</a></li>
+        <li><a href="#hook">hook</a></li>
+        <li><a href="#skk-の調整">SKK の調整</a></li>
+        <li><a href="#キーバインド">キーバインド</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -1772,7 +1785,7 @@
           
             <h1>
               
-              gnuplot-mode
+              ruby
             </h1>
           
 
@@ -1780,14 +1793,145 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/emacsorphanage/gnuplot">gnuplot-mode</a> はグラフ作成ソフトである <a href="http://www.gnuplot.info/">gnuplot</a> を Emacs で使うためのパッケージ。
-Syntax Highlight や 補完機能 などを提供する。</p>
-<p>まあほとんど使ってないんだけど。</p>
-<h2 id="インストール">インストール</h2>
-<p>いつも通り el-get で入れている</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle gnuplot-mode)
-</code></pre></div><h2 id="その他">その他</h2>
-<p>org-mode から使ってた記憶があるのでそっちの方で何か設定があるかもしれない</p>
+<p>Ruby のコードを編集する上での設定をここには書いている。別の箇所で <a href="/.emacs.d/programming/rspec-mode/">rspec-mode</a> などの設定も書いているのでいつか記述場所を統合した方が良さそうな気もする</p>
+<h2 id="rbenv-dot-el">rbenv.el</h2>
+<p>Ruby のバージョンを切り替えられる <a href="https://github.com/rbenv/rbenv">rbenv</a> を使ってるので
+Emacs 上でもそれが使えるように <a href="https://github.com/senny/rbenv.el">rbenv.el</a> を導入している。</p>
+<h3 id="インストール">インストール</h3>
+<p>インストールはいつも通り el-get でやっている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle rbenv)
+</code></pre></div><h3 id="有効化">有効化</h3>
+<p>そして global に有効化している。というか global じゃない有効化ってあるのかなってのと、あるとしても意味があるのかな的な。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(global-rbenv-mode)
+</code></pre></div><h2 id="enh-ruby-mode">enh-ruby-mode</h2>
+<p>メジャーモードは <a href="https://github.com/zenspider/enhanced-ruby-mode">enhanced-ruby-mode</a> を利用している。が、最近は ruby-mode の方がやっぱり良いみたいな話もどこかで見た気がするので戻ってみるのも手かもしれないと思っている。</p>
+<h3 id="インストール">インストール</h3>
+<p>いつも通り el-get で入れている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle enh-ruby-mode)
+</code></pre></div><h3 id="カスタム設定">カスタム設定</h3>
+<p>enh-ruby-mode が読み込まれた後に setq で以下のように設定されている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;enh-ruby-mode</span>
+  (setq enh-ruby-add-encoding-comment-on-save <span style="color:#66d9ef">nil</span>)
+  (setq enh-ruby-deep-indent-paren <span style="color:#66d9ef">nil</span>)
+  (setq enh-ruby-bounce-deep-indent <span style="color:#66d9ef">t</span>))
+</code></pre></div><h4 id="encoding-のマジックコメントが入らないようにする">encoding のマジックコメントが入らないようにする</h4>
+<p><code>enh-ruby-add-encoding-comment-on-save</code> を nil にすることで
+encoding 設定のマジックコメントが入らないようにしている。</p>
+<p>これは昔は有効にしておいた方が良かったけど最近の Ruby では設定しなくても UTF-8 が前提になるからむしろ無い方が良いというお話だったはず。</p>
+<p>そういう状況に変わったのも大分前なので詳細は忘れた。</p>
+<p>ただとりあえず <a href="https://github.com/zenspider/enhanced-ruby-mode/blob/e960bf941d9fa9d92eabf7c03a8bbb51ba1ac453/enh-ruby-mode.el#L74">最新の enhanced-ruby-mode</a> を見るとデフォルトが nil なのでわざわざ設定しなくて良さそう。</p>
+<h4 id="インデントの調整">インデントの調整</h4>
+<p><code>enh-ruby-deep-indent-paren</code> が t の場合</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">hoge <span style="color:#f92672">=</span> {
+         <span style="color:#e6db74">foo</span>: <span style="color:#ae81ff">1</span>
+       }
+</code></pre></div><p>みたいな深いインデントになるけど</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">hoge <span style="color:#f92672">=</span> {
+  <span style="color:#e6db74">foo</span>: <span style="color:#ae81ff">1</span>
+}
+</code></pre></div><p>というようにしたいので nil に設定している。</p>
+<h4 id="インデントの切替">インデントの切替</h4>
+<p>インデントを深くしたくないといいつつ、全然それができないのも困りそうなので
+<code>enh-ruby-bounce-deep-indent</code> を t に設定してタブを押すごとに切り替わるようにしている。</p>
+<p>ところでデフォルトで深い方になってるような気がするので今度設定の見直しした方が良さそう。</p>
+<h3 id="hook">hook</h3>
+<p>hook 用の関数で補完などの機能を有効にしている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/enh-ruby-mode-hook ()
+  (company-mode <span style="color:#ae81ff">1</span>)
+  (lsp)
+  (lsp-ui-mode <span style="color:#ae81ff">1</span>)
+  (turn-on-smartparens-strict-mode)
+  (display-line-numbers-mode <span style="color:#ae81ff">1</span>))
+</code></pre></div><ul>
+<li>補完用に company-mode を有効化</li>
+<li><a href="https://github.com/castwide/solargraph">solargraph</a> を使ってるので lsp-mode を有効にしている
+<ul>
+<li>lsp-ui-mode も有効にして色々な情報を表示している</li>
+</ul>
+</li>
+<li>開きカッコと閉じカッコの組み合わせがズレないように smartparens-strict-mode を有効にしている</li>
+<li>行番号も表示されている方が便利なので display-line-numbers-mode を有効にしている</li>
+</ul>
+<p>それらを設定する関数を enh-ruby-mode-hook に突っ込んでいる</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-hook <span style="color:#e6db74">&#39;enh-ruby-mode-hook</span> <span style="color:#e6db74">&#39;my/enh-ruby-mode-hook</span>)
+</code></pre></div><h3 id="skk-の調整">SKK の調整</h3>
+<p><code>enh-ruby-mode</code> を <code>context-skk-programming-mode</code> に追加することで
+Ruby を使ってる時にコメント部分はクォートの外以外では自動的に日本語入力がオフになるようにしている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-to-list <span style="color:#e6db74">&#39;context-skk-programming-mode</span> <span style="color:#e6db74">&#39;enh-ruby-mode</span>)
+</code></pre></div><h3 id="キーバインド">キーバインド</h3>
+<p>キーバインドは覚えられないので
+<a href="/.emacs.d/ui/neotree/#major-mode-hydra">major-mode-hydra</a> でキーを定義している</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;major-mode-hydra</span>
+  (major-mode-hydra-define enh-ruby-mode (:quit-key <span style="color:#e6db74">&#34;q&#34;</span> :title (<span style="color:#a6e22e">concat</span> (all-the-icons-alltheicon <span style="color:#e6db74">&#34;ruby-alt&#34;</span>) <span style="color:#e6db74">&#34; Ruby commands&#34;</span>))
+    (<span style="color:#e6db74">&#34;Enh Ruby&#34;</span>
+     ((<span style="color:#e6db74">&#34;{&#34;</span> enh-ruby-toggle-block <span style="color:#e6db74">&#34;Toggle block&#34;</span>)
+      (<span style="color:#e6db74">&#34;e&#34;</span> enh-ruby-insert-end <span style="color:#e6db74">&#34;Insert end&#34;</span>))
+
+     <span style="color:#e6db74">&#34;LSP&#34;</span>
+     ((<span style="color:#e6db74">&#34;i&#34;</span> lsp-ui-imenu <span style="color:#e6db74">&#34;Imenu&#34;</span>)
+      (<span style="color:#e6db74">&#34;f&#34;</span> lsp-ui-flycheck-list <span style="color:#e6db74">&#34;Flycheck list&#34;</span>))
+
+     <span style="color:#e6db74">&#34;RSpec&#34;</span>
+     ((<span style="color:#e6db74">&#34;s&#34;</span> rspec-verify <span style="color:#e6db74">&#34;Run associated spec&#34;</span>)
+      (<span style="color:#e6db74">&#34;m&#34;</span> rspec-verify-method <span style="color:#e6db74">&#34;Run method spec&#34;</span>)
+      (<span style="color:#e6db74">&#34;r&#34;</span> rspec-rerun <span style="color:#e6db74">&#34;Rerun&#34;</span>)
+      (<span style="color:#e6db74">&#34;l&#34;</span> rspec-run-last-failed <span style="color:#e6db74">&#34;Run last failed&#34;</span>))
+
+     <span style="color:#e6db74">&#34;REPL&#34;</span>
+     ((<span style="color:#e6db74">&#34;I&#34;</span> inf-ruby <span style="color:#e6db74">&#34;inf-ruby&#34;</span>))
+
+     <span style="color:#e6db74">&#34;Other&#34;</span>
+     ((<span style="color:#e6db74">&#34;j&#34;</span> dumb-jump-go <span style="color:#e6db74">&#34;Dumb Jump&#34;</span>)))))
+</code></pre></div><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{</td>
+<td>do 〜 end と { 〜 } を切り替える</td>
+</tr>
+<tr>
+<td>e</td>
+<td>end を挿入する。使ったことない気がする</td>
+</tr>
+<tr>
+<td>i</td>
+<td>lsp-ui-imenu の表示</td>
+</tr>
+<tr>
+<td>f</td>
+<td>Flycheck の通知されるエラーのリスト表示</td>
+</tr>
+<tr>
+<td>s</td>
+<td>関連するテストまたは特定のテストの実行</td>
+</tr>
+<tr>
+<td>m</td>
+<td>カーソル位置のコードのテストを探して実行する</td>
+</tr>
+<tr>
+<td>r</td>
+<td>最後に実行したテストを再実行</td>
+</tr>
+<tr>
+<td>l</td>
+<td>最後に失敗したテストの再実行</td>
+</tr>
+<tr>
+<td>I</td>
+<td>REPL バッファで Ruby を実行する</td>
+</tr>
+<tr>
+<td>j</td>
+<td>dumb-jump で関数定義にジャンプ。dumb-jump 用の hydra があるから要らなさそう</td>
+</tr>
+</tbody>
+</table>
 
 
 <footer class="footline">
@@ -2629,26 +2773,6 @@ Syntax Highlight や 補完機能 などを提供する。</p>
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
                 
                 
 
@@ -2712,6 +2836,26 @@ Syntax Highlight や 補完機能 などを提供する。</p>
             
             
                 
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -2960,10 +3104,10 @@ Syntax Highlight や 補完機能 などを提供する。</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/programming/es6/" title="es6"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/programming/rspec-mode/" title="rspec-mode"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/programming/markdown/" title="markdown" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/programming/yaml-mode/" title="yaml-mode" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

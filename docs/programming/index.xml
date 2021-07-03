@@ -102,6 +102,25 @@ Lambda で一括でやる方法もあるけども、関数名つけて分離し�
     </item>
     
     <item>
+      <title>ruby</title>
+      <link>https://mugijiru.github.io/.emacs.d/programming/ruby/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/programming/ruby/</guid>
+      <description>概要 Ruby のコードを編集する上での設定をここには書いている。別の箇所で rspec-mode などの設定も書いているのでいつか記述場所を統合した方が良さそうな気もする
+rbenv.el Ruby のバージョンを切り替えられる rbenv を使ってるので Emacs 上でもそれが使えるように rbenv.el を導入している。
+インストール インストールはいつも通り el-get でやっている
+(el-get-bundle rbenv) 有効化 そして global に有効化している。というか global じゃない有効化ってあるのかなってのと、あるとしても意味があるのかな的な。
+(global-rbenv-mode) enh-ruby-mode メジャーモードは enhanced-ruby-mode を利用している。が、最近は ruby-mode の方がやっぱり良いみたいな話もどこかで見た気がするので戻ってみるのも手かもしれないと思っている。
+インストール いつも通り el-get で入れている。
+(el-get-bundle enh-ruby-mode) カスタム設定 enh-ruby-mode が読み込まれた後に setq で以下のように設定されている
+(with-eval-after-load &amp;#39;enh-ruby-mode (setq enh-ruby-add-encoding-comment-on-save nil) (setq enh-ruby-deep-indent-paren nil) (setq enh-ruby-bounce-deep-indent t)) encoding のマジックコメントが入らないようにする enh-ruby-add-encoding-comment-on-save を nil にすることで encoding 設定のマジックコメントが入らないようにしている。
+これは昔は有効にしておいた方が良かったけど最近の Ruby では設定しなくても UTF-8 が前提になるからむしろ無い方が良いというお話だったはず。
+そういう状況に変わったのも大分前なので詳細は忘れた。
+ただとりあえず 最新の enhanced-ruby-mode を見るとデフォルトが nil なのでわざわざ設定しなくて良さそう。</description>
+    </item>
+    
+    <item>
       <title>yaml-mode</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/yaml-mode/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
