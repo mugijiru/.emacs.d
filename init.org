@@ -2135,12 +2135,13 @@
 ** 言語毎の設定
    :PROPERTIES:
    :EXPORT_FILE_NAME: _index
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>8. </b>" :weight 8 :disableToc true
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>7. </b>" :weight 7 :disableToc true
    :END:
 
-   ここでは各言語毎の設定をまとめている
+   ここでは各言語やフレームワーク毎の設定をまとめている
 
    - [[*emacs-lisp][emacs-lisp]] :: Emacs Lisp を書くための設定
+   - [[*Ember.js][Ember.js]] :: Web フロントエンド MVC フレームワークである Ember.js 用の設定を書いている
    - [[*es6][es6]] :: ES2015 以降の JS に関する設定。es6 としているのは過去の経緯のため。
    - [[*markdown][markdown]] :: Markdown を書く時の設定
    - [[*plantuml-mode][plantuml-mode]] :: PlantUML を書く時のメジャーモードの設定
@@ -2218,6 +2219,51 @@
     | @o  | Octicons のアイコンを挿入       |
     | @w  | 天気アイコンを挿入              |
 
+** Ember.js
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: ember-js
+   :END:
+
+*** 概要
+
+    Ember.js 用の Emacs の拡張としては
+    ~ember-mode~ と ~handlebars-mode~ が存在する
+
+*** ember-mode                                                       :unused:
+
+    [[https://github.com/madnificent/ember-mode][ember-mode]] は
+    Ember.js アプリケーションのファイルナビゲーションや生成を行ってくれるモード。
+    実は麦汁さんは使えてない。
+
+    インストールするだけではダメで、
+    ember-mode を明示的に起動しないといけない。
+
+    そのためには dir-locals を使うとか
+    projectile なんかがやってるように
+    フォルダ構成から判定させるみたいなことが必要そう。だるい。
+
+    というわけで死蔵中。
+
+    ついでにいうとキーバインドもだるい系なので
+    使う時は Hydra を用意した方が良さそう
+
+    #+begin_src emacs-lisp :tangle inits/40-ember.el
+    (el-get-bundle madnificent/ember-mode)
+    #+end_src
+
+*** handlebars-mode                                             :improvement:
+
+    [[https://github.com/danielevans/handlebars-mode][handlebars-mode]] は Ember.js のテンプレートエンジンとして採用されている
+    Handlebars を書くためのモード。
+
+    syntax highlight と、いくつかの編集機能を備えている。
+    が、今のところ麦汁さんは syntax highlight しか使えてない。
+
+    編集コマンドは [[https://github.com/jerrypnz/major-mode-hydra.el][major-mode-hydra]] で使えるようにしてあげれば良さそう
+
+    #+begin_src emacs-lisp :tangle inits/40-ember.el
+    (el-get-bundle handlebars-mode)
+    #+end_src
 ** es6
    :PROPERTIES:
    :EXPORT_FILE_NAME: es6
@@ -2389,66 +2435,6 @@
     #+begin_src emacs-lisp :tangle inits/40-yaml.el
     (add-hook 'yaml-mode-hook 'my/yaml-mode-hook)
     #+end_src
-* フレームワーク用の設定
-  :PROPERTIES:
-  :EXPORT_HUGO_SECTION: framework-config
-  :END:
-** フレームワーク用の設定
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: _index
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>8. </b>" :weight 8 :disableToc true
-   :END:
-
-   開発に使っている各フレームワーク用の設定をここにまとめている。
-
-   - [[*Ember.js][Ember.js]] :: Web フロントエンド MVC フレームワークである Ember.js 用の設定を書いている
-
-** Ember.js
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: ember-js
-   :END:
-
-*** 概要
-
-    Ember.js 用の Emacs の拡張としては
-    ~ember-mode~ と ~handlebars-mode~ が存在する
-
-*** ember-mode                                                       :unused:
-
-    [[https://github.com/madnificent/ember-mode][ember-mode]] は
-    Ember.js アプリケーションのファイルナビゲーションや生成を行ってくれるモード。
-    実は麦汁さんは使えてない。
-
-    インストールするだけではダメで、
-    ember-mode を明示的に起動しないといけない。
-
-    そのためには dir-locals を使うとか
-    projectile なんかがやってるように
-    フォルダ構成から判定させるみたいなことが必要そう。だるい。
-
-    というわけで死蔵中。
-
-    ついでにいうとキーバインドもだるい系なので
-    使う時は Hydra を用意した方が良さそう
-
-    #+begin_src emacs-lisp :tangle inits/40-ember.el
-    (el-get-bundle madnificent/ember-mode)
-    #+end_src
-
-*** handlebars-mode                                             :improvement:
-
-    [[https://github.com/danielevans/handlebars-mode][handlebars-mode]] は Ember.js のテンプレートエンジンとして採用されている
-    Handlebars を書くためのモード。
-
-    syntax highlight と、いくつかの編集機能を備えている。
-    が、今のところ麦汁さんは syntax highlight しか使えてない。
-
-    編集コマンドは [[https://github.com/jerrypnz/major-mode-hydra.el][major-mode-hydra]] で使えるようにしてあげれば良さそう
-
-    #+begin_src emacs-lisp :tangle inits/40-ember.el
-    (el-get-bundle handlebars-mode)
-    #+end_src
-
 * 外部連携ツール設定
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: external-tool
@@ -2456,7 +2442,7 @@
 ** 外部連携ツール設定
    :PROPERTIES:
    :EXPORT_FILE_NAME: _index
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>9. </b>" :weight 9 :disableToc true
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>8. </b>" :weight 8 :disableToc true
    :END:
 
    ここでは外部のサービスと連携するようなやつをまとめています
@@ -2692,7 +2678,7 @@
 ** テスト用ツール
    :PROPERTIES:
    :EXPORT_FILE_NAME: _index
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>10. </b>" :weight 10 :disableToc true
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>9. </b>" :weight 9 :disableToc true
    :END:
 
    自動テストを実行するにあたり、追加インストールしているパッケージをここに載せている
@@ -2763,7 +2749,7 @@
 ** テストコード
    :PROPERTIES:
    :EXPORT_FILE_NAME: _index
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>11. </b>" :weight 11 :disableToc true
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>10. </b>" :weight 10 :disableToc true
    :END:
 
    一部のコマンドなどの設定を書き始めているので設けたセクション。
