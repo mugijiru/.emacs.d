@@ -51,6 +51,7 @@
 
    - [[*auto-save][auto-save]] :: 編集中状態の自動保存や編集前の状態のバックアップに関する設定
    - [[*auth-source][auth-source]] :: 認証情報の取り扱いファイルの設定
+   - [[*custom-file][custom-file]] :: カスタマイズ変数などの保存先を変更している
    - [[*exec-path][exec-path]] :: PATH などの環境変数を shell と合わせる設定
    - [[*font-config][font-config]] :: フォントの設定
    - [[*load-path][load-path]] :: Emacs Lisp が読み込める path の設定
@@ -201,6 +202,37 @@
 
      また [[https://github.com/bbatsov/super-save][super-save]] というやつを使って実ファイルに自動保存したりしたらこれも不要になると思われる。
 
+** custom-file
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: custom-file
+   :END:
+*** 概要
+    Emacs では customize 機能などで設定したファイルを
+    標準だと init.el の末尾に追記したりするが
+    自動吐き出しされるものがあるとバージョン管理が難しくなるので
+    別ファイルに出力するようにするなどの調整をしている。
+
+*** 出力先の設定
+    .emacs.d の中に閉じ込めておく方が管理が楽なので
+    出力先として ~~/.emacs.d/custom.el~ を指定している。
+
+    #+begin_src emacs-lisp :tangle inits/99-custom-file.el
+    (setq custom-file (expand-file-name "~/.emacs.d/custom.el"))
+    #+end_src
+*** カスタム設定の読み込み
+    起動時に、設定が入っているファイルが読み込まれないと
+    保存した設定が有効にならないので load を使って読んでいる。
+
+    #+begin_src emacs-lisp :tangle inits/99-custom-file.el
+    (load custom-file)
+    #+end_src
+*** その他
+    カスタムファイルは終盤で読み込む方がいいかと思って
+    init-loader では 99 という最後の方で読まれる番号を振っている。
+
+    このあたりの設定を個別のパッケージの設定の方に移動したら
+    このファイルは空にできるんじゃないかなとも思っているが、
+    それはゆっくり対応していくつもり
 ** exec-path
    :PROPERTIES:
    :EXPORT_FILE_NAME: exec-path
@@ -4383,13 +4415,6 @@
    ;; 各ファイルの先頭にアイコンを表示
    (setq dashboard-set-file-icons t)
    (dashboard-setup-startup-hook)
-   #+end_src
-
-** 99-custom-file.el
-
-   #+begin_src emacs-lisp :tangle inits/99-custom-file.el
-   (setq custom-file (expand-file-name "~/.emacs.d/custom.el"))
-   (load custom-file)
    #+end_src
 
 ** 99-server.el
