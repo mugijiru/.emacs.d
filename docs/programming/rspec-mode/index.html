@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>projectile :: 麦汁&#39;s Emacs Config</title>
+    <title>rspec-mode :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1625282196" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/nav/projectile/">
+  <body class="" data-url="/.emacs.d/programming/rspec-mode/">
     <nav id="sidebar" class="">
 
 
@@ -942,7 +942,7 @@
   
     
     <li data-nav-id="/.emacs.d/nav/" title="ナビゲーション" class="dd-item
-        parent
+        
         
         
         ">
@@ -1052,7 +1052,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/nav/projectile/" title="projectile" class="dd-item active">
+      <li data-nav-id="/.emacs.d/nav/projectile/" title="projectile" class="dd-item ">
         <a href="/.emacs.d/nav/projectile/">
         projectile
         
@@ -1081,7 +1081,7 @@
   
     
     <li data-nav-id="/.emacs.d/programming/" title="言語毎の設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -1212,7 +1212,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/programming/rspec-mode/" title="rspec-mode" class="dd-item ">
+      <li data-nav-id="/.emacs.d/programming/rspec-mode/" title="rspec-mode" class="dd-item active">
         <a href="/.emacs.d/programming/rspec-mode/">
         rspec-mode
         
@@ -1653,7 +1653,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/nav/'>ナビゲーション</a> > projectile
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/programming/'>言語毎の設定</a> > rspec-mode
           
         
           
@@ -1670,17 +1670,8 @@
   <ul>
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
-    <li><a href="#helm-との連携">helm との連携</a></li>
     <li><a href="#有効化">有効化</a></li>
-    <li><a href="#無視リスト">無視リスト</a>
-      <ul>
-        <li><a href="#無視するディレクトリ">無視するディレクトリ</a></li>
-        <li><a href="#無視するファイル">無視するファイル</a></li>
-      </ul>
-    </li>
-    <li><a href="#ivy-counsel-との連携">ivy/counsel との連携</a></li>
     <li><a href="#キーバインド">キーバインド</a></li>
-    <li><a href="#その他">その他</a></li>
   </ul>
 </nav>
     </div>
@@ -1698,7 +1689,7 @@
           
             <h1>
               
-              projectile
+              rspec-mode
             </h1>
           
 
@@ -1706,85 +1697,17 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/bbatsov/projectile">projectile</a> はプロジェクト内のファイルを検索したりするのに便利なパッケージ</p>
+<p><a href="https://github.com/pezra/rspec-mode">rspec-mode</a> は Emacs で RSpec を実行したりする時に便利なパッケージ。といいつつ麦汁さんはちゃんと使いこなしていない……</p>
 <h2 id="インストール">インストール</h2>
-<p>いつも通り el-get からインストールする</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle projectile)
-</code></pre></div><h2 id="helm-との連携">helm との連携</h2>
-<p><a href="https://github.com/bbatsov/helm-projectile">helm-projectile</a> を使って helm と連携できるようにしている。けど ivy に乗り換えを進めているので多分これ使ってないんだよな……。というわけでこの設定は消す候補に入っている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle helm-projectile)
-(helm-projectile-on)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle rspec-mode)
 </code></pre></div><h2 id="有効化">有効化</h2>
-<p>このあたりで有効化しておいている。この順序に意味があったかは忘れた……。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(projectile-mode)
-</code></pre></div><h2 id="無視リスト">無視リスト</h2>
-<p>普段 Rails ばっかりやってるのでそれ関係のものを無視リストに入れている。けどあんまりメンテしてない。</p>
-<h3 id="無視するディレクトリ">無視するディレクトリ</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-directories</span> <span style="color:#e6db74">&#34;tmp&#34;</span>)
-(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-directories</span> <span style="color:#e6db74">&#34;.tmp&#34;</span>)
-(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-directories</span> <span style="color:#e6db74">&#34;vendor&#34;</span>)
-(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-directories</span> <span style="color:#e6db74">&#34;.sass-cache&#34;</span>)
-(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-directories</span> <span style="color:#e6db74">&#34;coverage&#34;</span>)
-(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-directories</span> <span style="color:#e6db74">&#34;cache&#34;</span>)
-(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-directories</span> <span style="color:#e6db74">&#34;log&#34;</span>)
-</code></pre></div><p>node_modules もここに突っ込んでも良いかもしれない。</p>
-<h3 id="無視するファイル">無視するファイル</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-files</span> <span style="color:#e6db74">&#34;gems.tags&#34;</span>)
-(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-files</span> <span style="color:#e6db74">&#34;project.tags&#34;</span>)
-(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-files</span> <span style="color:#e6db74">&#34;manifest.json&#34;</span>)
-</code></pre></div><p>tags ファイルは昔は使っていたけど、最近は dumb-jump が優秀なのと、面倒で使ってないのでそろそろ gems.tags と project.tags は不要かもしれない。</p>
-<h2 id="ivy-counsel-との連携">ivy/counsel との連携</h2>
-<p>上の方で helm との連携処理を入れていたが今は大体 ivy に乗り換えているので ivy 連携もしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq projectile-completion-system <span style="color:#e6db74">&#39;ivy</span>)
-(el-get-bundle counsel-projectile)
-</code></pre></div><p>counsel-projectile はいくつかの絞り込み処理を提供してくれて便利。それでも足りなかったら自前で何か作ることになるのかなと思っている。</p>
+<p>rspec 実行バッファで byebug などで止まった際に C-x C-q したら inf-ruby が動くようにしている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-hook <span style="color:#e6db74">&#39;after-init-hook</span> <span style="color:#e6db74">&#39;inf-ruby-switch-setup</span>)
+</code></pre></div><p>binding.pry は何故かまともに動かないので byebug か binding.irb 推奨。麦汁さんはいつも <code>debugger</code> とコードに入れて使っている。</p>
 <h2 id="キーバインド">キーバインド</h2>
-<p>デフォルトでいくつかのキーバインドが用意されてるようだけどそんなものさっぱり覚えられないのでとりあえずいくつかを Hydra で叩けるようにしている</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
-  (pretty-hydra-define
-    projectile-hydra (:separator <span style="color:#e6db74">&#34;-&#34;</span> :title <span style="color:#e6db74">&#34;Projectile&#34;</span> :foreign-key <span style="color:#a6e22e">warn</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :exit <span style="color:#66d9ef">t</span>)
-    (<span style="color:#e6db74">&#34;File&#34;</span>
-     ((<span style="color:#e6db74">&#34;f&#34;</span> counsel-projectile-find-file <span style="color:#e6db74">&#34;Find File&#34;</span>)
-      (<span style="color:#e6db74">&#34;d&#34;</span> counsel-projectile-find-dir <span style="color:#e6db74">&#34;Find Dir&#34;</span>)
-      (<span style="color:#e6db74">&#34;r&#34;</span> projectile-recentf <span style="color:#e6db74">&#34;Recentf&#34;</span>))
-
-     <span style="color:#e6db74">&#34;Other&#34;</span>
-     ((<span style="color:#e6db74">&#34;p&#34;</span> (counsel-projectile-switch-project <span style="color:#e6db74">&#39;neotree-dir</span>) <span style="color:#e6db74">&#34;Switch Project&#34;</span>)))))
-</code></pre></div><table>
-<thead>
-<tr>
-<th>Key</th>
-<th>効果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>f</td>
-<td>プロジェクト内のファイルを検索</td>
-</tr>
-<tr>
-<td>d</td>
-<td>プロジェクト内のフォルダを検索</td>
-</tr>
-<tr>
-<td>r</td>
-<td>プロジェクト内で最近触ったファイルのリスト表示</td>
-</tr>
-<tr>
-<td>p</td>
-<td>別のプロジェクトに切り替え</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><code>projectile-find-implementation-or-test</code></li>
-<li><code>projectile-replace</code></li>
-<li><code>projectile-replace-regxp</code></li>
-</ul>
-<p>あたりも使えるようにするともしかしたら便利かもしれない。あとは <code>counsel-projectile-grep</code> とかの類か。</p>
-<h2 id="その他">その他</h2>
-<p>基本的に Rails のプロジェクトをやっているので
-projectile-rails をベースにいつも触ってるので projectile そのものはあまり弄ってないのであった</p>
+<p>C-c C-c で開いている rspec ファイルのカーソルがある行のテストを実行できるようにしている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#a6e22e">define-key</span> rspec-mode-map (kbd <span style="color:#e6db74">&#34;C-c C-c&#34;</span>) <span style="color:#e6db74">&#39;rspec-verify-single</span>)
+</code></pre></div><p>他にも色々な機能があるのだけどキーバインド未設定なのでこれだけしか使ってない。</p>
 
 
 <footer class="footline">
@@ -2433,110 +2356,6 @@ projectile-rails をベースにいつも触ってるので projectile そのも
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
                 
                 
 
@@ -2625,6 +2444,42 @@ projectile-rails をベースにいつも触ってるので projectile そのも
             
         
                     
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
             
             
@@ -2645,6 +2500,74 @@ projectile-rails をベースにいつも触ってるので projectile そのも
             
             
                 
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -2893,10 +2816,10 @@ projectile-rails をベースにいつも触ってるので projectile そのも
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/nav/dumb-jump/" title="dumb-jump"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/programming/plantuml-mode/" title="plantuml-mode"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/programming/" title="言語毎の設定" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/programming/yaml-mode/" title="yaml-mode" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
