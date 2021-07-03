@@ -2138,7 +2138,8 @@
    :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>7. </b>" :weight 7 :disableToc true
    :END:
 
-   ここでは各言語やフレームワーク毎の設定をまとめている
+   ここでは各言語やフレームワーク毎の設定をまとめている。
+   markdown-mode とか yaml-mode なんかはプログラム言語ではないけど面倒なので一旦ここにまとめている。
 
    - [[*emacs-lisp][emacs-lisp]] :: Emacs Lisp を書くための設定
    - [[*Ember.js][Ember.js]] :: Web フロントエンド MVC フレームワークである Ember.js 用の設定を書いている
