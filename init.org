@@ -2197,7 +2197,7 @@
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: programming
   :END:
-** 言語毎の設定
+** プログラミング関係の設定
    :PROPERTIES:
    :EXPORT_FILE_NAME: _index
    :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>7. </b>" :weight 7 :disableToc true
