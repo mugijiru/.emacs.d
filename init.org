@@ -384,6 +384,38 @@
     他にも有効にしたら便利そうなのがあれば追加したい。
     が、ぱっとは思い付かない。
 
+** server
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: server
+   :END:
+*** 概要
+    Emacs の起動後にサーバとして動くようにしている。
+
+    これにより emacsclient コマンドで接続すると
+    サーバとして動いている Emacs に別端末から繋げられたりする。
+
+    けど麦汁さんは Firefox から org-capture を動かすためにだけ利用している。
+
+*** 設定
+    ~server.el~ を require しておいて
+    サーバとして動いていなかったらサーバとして動くようにしている。
+    多重起動の防止ですね。
+
+    #+begin_src emacs-lisp :tangle inits/99-server.el
+    (require 'server)
+    (unless (server-running-p)
+      (server-start))
+    #+end_src
+
+*** 関連ツール
+    - [[https://github.com/sprig/org-capture-extension][org-capture-extension]] :: org-capture 連携するための Chrome 及び Firefox の拡張。麦汁さんはこれを Firefox で使ってる。
+    - [[https://github.com/alphapapa/org-protocol-capture-html][org-protocol-capture-html]] :: HTML コンテンツを org-mode の記述に変換して capture してくれるやつ。Pandoc 利用。
+*** その他
+    起動処理の最後に動けばいいので
+    init-loader で 99 を割り振っている。
+
+    init-loader をやめるなら多分 after-init-hook を使うことになるのかな。
+
 ** ガベージコレクション
    :PROPERTIES:
    :EXPORT_FILE_NAME: gcmh
@@ -4417,15 +4449,6 @@
    (dashboard-setup-startup-hook)
    #+end_src
 
-** 99-server.el
-
-   #+begin_src emacs-lisp :tangle inits/99-server.el
-   ;; サーバとして起動
-   ;; Firefox から org-capture を動かすのに必要
-   (require 'server)
-   (unless (server-running-p)
-     (server-start))
-   #+end_src
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
 # Local Variables:
