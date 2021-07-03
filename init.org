@@ -55,7 +55,8 @@
    - [[*exec-path][exec-path]] :: PATH などの環境変数を shell と合わせる設定
    - [[*font-config][font-config]] :: フォントの設定
    - [[*load-path][load-path]] :: Emacs Lisp が読み込める path の設定
-   - [[*savehist][savehist]] :: ミニバッファの履歴などを保存してくれる機能。
+   - [[*savehist][savehist]] :: ミニバッファの履歴などを保存してくれる機能
+   - [[*server][server]] :: 起動した Emacs がサーバとしても動くように設定している
    - [[*ガベージコレクション][ガベージコレクション]] :: メモリの開放関係の設定
 
 ** auth-source
