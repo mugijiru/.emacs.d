@@ -1,8 +1,8 @@
 +++
 title = "外部連携ツール設定"
 draft = false
-pre = "<b>9. </b>"
-weight = 9
+pre = "<b>8. </b>"
+weight = 8
 disableToc = true
 +++
 
