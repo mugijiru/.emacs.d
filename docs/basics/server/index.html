@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>savehist :: 麦汁&#39;s Emacs Config</title>
+    <title>server :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1625285406" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/basics/savehist/">
+  <body class="" data-url="/.emacs.d/basics/server/">
     <nav id="sidebar" class="">
 
 
@@ -241,7 +241,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/basics/savehist/" title="savehist" class="dd-item active">
+      <li data-nav-id="/.emacs.d/basics/savehist/" title="savehist" class="dd-item ">
         <a href="/.emacs.d/basics/savehist/">
         savehist
         
@@ -262,7 +262,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/basics/server/" title="server" class="dd-item ">
+      <li data-nav-id="/.emacs.d/basics/server/" title="server" class="dd-item active">
         <a href="/.emacs.d/basics/server/">
         server
         
@@ -1695,7 +1695,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/basics/'>基本設定</a> > savehist
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/basics/'>基本設定</a> > server
           
         
           
@@ -1711,8 +1711,9 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#有効化">有効化</a></li>
     <li><a href="#設定">設定</a></li>
+    <li><a href="#関連ツール">関連ツール</a></li>
+    <li><a href="#その他">その他</a></li>
   </ul>
 </nav>
     </div>
@@ -1730,7 +1731,7 @@
           
             <h1>
               
-              savehist
+              server
             </h1>
           
 
@@ -1738,14 +1739,25 @@
 
 
 <h2 id="概要">概要</h2>
-<p>Emacs 標準でついている、ミニバッファの履歴などを保存してくれる機能。</p>
-<h2 id="有効化">有効化</h2>
-<p>標準でついているので以下のようにするだけで有効化可能。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(savehist-mode <span style="color:#ae81ff">1</span>)
-</code></pre></div><h2 id="設定">設定</h2>
-<p>標準で保存されるもの以外だと kill-ring だけを保存対象にしている。これで Emacs を終了させても kill-ring は残るようになるはず。だけど最近使えてない気がするな……。検証が必要そう。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq savehist-additional-variables <span style="color:#f92672">&#39;</span>(kill-ring))
-</code></pre></div><p>他にも有効にしたら便利そうなのがあれば追加したい。が、ぱっとは思い付かない。</p>
+<p>Emacs の起動後にサーバとして動くようにしている。</p>
+<p>これにより emacsclient コマンドで接続するとサーバとして動いている Emacs に別端末から繋げられたりする。</p>
+<p>けど麦汁さんは Firefox から org-capture を動かすためにだけ利用している。</p>
+<h2 id="設定">設定</h2>
+<p><code>server.el</code> を require しておいてサーバとして動いていなかったらサーバとして動くようにしている。多重起動の防止ですね。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(require <span style="color:#e6db74">&#39;server</span>)
+(unless (server-running-p)
+  (server-start))
+</code></pre></div><h2 id="関連ツール">関連ツール</h2>
+<dl>
+<dt><a href="https://github.com/sprig/org-capture-extension">org-capture-extension</a></dt>
+<dd>org-capture 連携するための Chrome 及び Firefox の拡張。麦汁さんはこれを Firefox で使ってる。</dd>
+<dt><a href="https://github.com/alphapapa/org-protocol-capture-html">org-protocol-capture-html</a></dt>
+<dd>HTML コンテンツを org-mode の記述に変換して capture してくれるやつ。Pandoc 利用。</dd>
+</dl>
+<h2 id="その他">その他</h2>
+<p>起動処理の最後に動けばいいので
+init-loader で 99 を割り振っている。</p>
+<p>init-loader をやめるなら多分 after-init-hook を使うことになるのかな。</p>
 
 
 <footer class="footline">
@@ -1896,6 +1908,22 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                     
                 
                 
@@ -1915,22 +1943,6 @@
                     
                         
                         
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -2883,10 +2895,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/basics/load-path/" title="load-path"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/basics/savehist/" title="savehist"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/basics/server/" title="server" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/basics/gcmh/" title="ガベージコレクション" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

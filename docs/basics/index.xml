@@ -116,6 +116,20 @@ Mac と Linux で基準のサイズを変えているがなぜかこの方がガ
     </item>
     
     <item>
+      <title>server</title>
+      <link>https://mugijiru.github.io/.emacs.d/basics/server/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/basics/server/</guid>
+      <description>概要 Emacs の起動後にサーバとして動くようにしている。
+これにより emacsclient コマンドで接続するとサーバとして動いている Emacs に別端末から繋げられたりする。
+けど麦汁さんは Firefox から org-capture を動かすためにだけ利用している。
+設定 server.el を require しておいてサーバとして動いていなかったらサーバとして動くようにしている。多重起動の防止ですね。
+(require &amp;#39;server) (unless (server-running-p) (server-start)) 関連ツール  org-capture-extension org-capture 連携するための Chrome 及び Firefox の拡張。麦汁さんはこれを Firefox で使ってる。 org-protocol-capture-html HTML コンテンツを org-mode の記述に変換して capture してくれるやつ。Pandoc 利用。  その他 起動処理の最後に動けばいいので init-loader で 99 を割り振っている。
+init-loader をやめるなら多分 after-init-hook を使うことになるのかな。</description>
+    </item>
+    
+    <item>
       <title>ガベージコレクション</title>
       <link>https://mugijiru.github.io/.emacs.d/basics/gcmh/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

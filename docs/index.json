@@ -11,7 +11,7 @@
 	"title": "基本設定",
 	"tags": [],
 	"description": "",
-	"content": "Emacs の基本動作に関わる部分をここでは設定している\n auto-save 編集中状態の自動保存や編集前の状態のバックアップに関する設定 auth-source 認証情報の取り扱いファイルの設定 custom-file カスタマイズ変数などの保存先を変更している exec-path PATH などの環境変数を shell と合わせる設定 font-config フォントの設定 load-path Emacs Lisp が読み込める path の設定 savehist ミニバッファの履歴などを保存してくれる機能。 ガベージコレクション メモリの開放関係の設定  "
+	"content": "Emacs の基本動作に関わる部分をここでは設定している\n auto-save 編集中状態の自動保存や編集前の状態のバックアップに関する設定 auth-source 認証情報の取り扱いファイルの設定 custom-file カスタマイズ変数などの保存先を変更している exec-path PATH などの環境変数を shell と合わせる設定 font-config フォントの設定 load-path Emacs Lisp が読み込める path の設定 savehist ミニバッファの履歴などを保存してくれる機能 server 起動した Emacs がサーバとしても動くように設定している ガベージコレクション メモリの開放関係の設定  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/testing/execution/",
@@ -397,6 +397,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 Emacs 標準でついている、ミニバッファの履歴などを保存してくれる機能。\n有効化 標準でついているので以下のようにするだけで有効化可能。\n(savehist-mode 1) 設定 標準で保存されるもの以外だと kill-ring だけを保存対象にしている。これで Emacs を終了させても kill-ring は残るようになるはず。だけど最近使えてない気がするな……。検証が必要そう。\n(setq savehist-additional-variables \u0026#39;(kill-ring)) 他にも有効にしたら便利そうなのがあれば追加したい。が、ぱっとは思い付かない。\n"
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/basics/server/",
+	"title": "server",
+	"tags": [],
+	"description": "",
+	"content": "概要 Emacs の起動後にサーバとして動くようにしている。\nこれにより emacsclient コマンドで接続するとサーバとして動いている Emacs に別端末から繋げられたりする。\nけど麦汁さんは Firefox から org-capture を動かすためにだけ利用している。\n設定 server.el を require しておいてサーバとして動いていなかったらサーバとして動くようにしている。多重起動の防止ですね。\n(require \u0026#39;server) (unless (server-running-p) (server-start)) 関連ツール  org-capture-extension org-capture 連携するための Chrome 及び Firefox の拡張。麦汁さんはこれを Firefox で使ってる。 org-protocol-capture-html HTML コンテンツを org-mode の記述に変換して capture してくれるやつ。Pandoc 利用。  その他 起動処理の最後に動けばいいので init-loader で 99 を割り振っている。\ninit-loader をやめるなら多分 after-init-hook を使うことになるのかな。\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/ui/show-paren-mode/",
