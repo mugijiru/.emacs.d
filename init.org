@@ -2420,6 +2420,26 @@
      Node.js と連携してステップ実行とかができるようになるらしい。
      便利そう。
 
+** gnuplot-mode
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: gnuplot-mode
+   :END:
+*** 概要
+    [[https://github.com/emacsorphanage/gnuplot][gnuplot-mode]] はグラフ作成ソフトである [[http://www.gnuplot.info/][gnuplot]] を Emacs で使うためのパッケージ。
+    Syntax Highlight や 補完機能 などを提供する。
+
+    まあほとんど使ってないんだけど。
+
+*** インストール
+    いつも通り el-get で入れている
+
+    #+begin_src emacs-lisp :tangle inits/40-gnuplot.el
+    (el-get-bundle gnuplot-mode)
+    #+end_src
+
+*** その他
+    org-mode から使ってた記憶があるのでそっちの方で何か設定があるかもしれない
+
 ** markdown
    :PROPERTIES:
    :EXPORT_FILE_NAME: markdown
@@ -3189,12 +3209,6 @@
    ;; 保存前に自動でクリーンアップ
    (setq whitespace-action '(auto-cleanup))
    (global-whitespace-mode 1)
-   #+end_src
-
-** 40-gnuplot.el
-
-   #+begin_src emacs-lisp :tangle inits/40-gnuplot.el
-   (el-get-bundle gnuplot-mode)
    #+end_src
 
 ** 40-ruby.el
