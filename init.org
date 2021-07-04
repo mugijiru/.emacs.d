@@ -2966,6 +2966,124 @@
 
     | Key | 効果                                                                          |
     | v   | リージョンの値で CSS 変数を検索して置き換えるやつ。自作コマンドを利用している |
+** Vue.js
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: vue-js
+   :END:
+*** 概要
+    ここでは Vue.js アプリケーションを書く上での設定を書いている。
+
+*** auto-insert の設定
+    Vue.js のコンポーネントファイルを新規作成する時に
+    テンプレートが自動挿入できるようにしている
+
+**** テンプレート
+     Vue.js の単一ファイルコンポーネントなので template, script, style を出力している。
+
+     template には [[https://pugjs.org/api/getting-started.html][pug]] を、CSS には scss を使っている。
+
+     #+begin_src html :tangle insert/template.vue
+     <template lang='pug'>
+     </template>
+
+     <script>
+     export default {
+
+     };
+     </script>
+
+     <style lang='scss' scoped>
+     </style>
+     #+end_src
+
+**** テンプレートを適用可能にする
+     ~.vue~ という拡張子のファイルを新規作成する時には
+     上で定義したテンプレートが自動的に挿入されるようにする。
+
+     #+begin_src emacs-lisp :tangle inits/41-vue.el
+     (define-auto-insert "\\.vue$" "template.vue")
+     #+end_src
+*** パッケージのインストール
+    ここでは Vue.js 開発に使っている関連パッケージを入れている。
+**** vue-mode
+     [[https://github.com/AdamNiederer/vue-mode][vue-mode]] は [[https://github.com/purcell/mmm-mode][mmm-mode]] をベースにして作られた Vue.js の単一ファイルコンポーネント用のモード。
+     mmm-mode ベースなので
+     template, script, css 部分でそれぞれ別のメジャーモードが動くようになっている。
+***** インストール
+      いつも透り el-get で入れている
+
+      #+begin_src emacs-lisp :tangle inits/41-vue.el
+      (el-get-bundle vue-mode)
+      #+end_src
+***** 備考
+      あまり更新は活発でなく微妙な挙動もあるので
+      mmm-mode に乗り換えたり web-mode を使うようにしている人も多い様子。
+
+      自分もそういった乗り換えを検討した方がいいかもと思いつつ
+      最近あまり Vue.js 触ってないから、まあいいかという気持ちもある。
+
+      なお vue-mode では JS 部分は js2-mode は使えないはず。
+      mmm-mode の方が何かの制限で使えないという話だったはずなので。
+      https://github.com/mooz/js2-mode/issues/124
+**** pug-mode
+     [[https://github.com/hlissner/emacs-pug-mode][pug-mode]] は [[https://pugjs.org/api/getting-started.html][pug]] というテンプレートエンジンを使って記述するためのモード。
+     Vue.js でテンプレートエンジンに pug を利用することが多いので入れている。
+     麦汁さんは HTML をそのまま書くようなことは好きじゃないのです。
+***** インストール
+      いつも透り el-get で入れている
+
+      #+begin_src emacs-lisp :tangle inits/41-vue.el
+      (el-get-bundle hlissner/emacs-pug-mode)
+      #+end_src
+*** hooks
+    css-mode と vue-mode だけは hook を定義している。
+    pug-mode や js-mode についても何か手を入れた方がいいのかもしれない。
+**** css-mode
+     Vue.js では style に scss を指定いちえる場合には css-mode が利用されるようになっているので
+     css-mode の hook としている。
+     https://github.com/AdamNiederer/vue-mode/blob/031edd1f97db6e7d8d6c295c0e6d58dd128b9e71/vue-mode.el#L63
+
+     #+begin_src emacs-lisp :tangle inits/41-vue.el
+     (defun my/css-mode-hook ()
+       (setq-local flycheck-checker 'css-stylelint)
+       (rainbow-mode 1))
+
+     (add-hook 'css-mode-hook 'my/css-mode-hook)
+     #+end_src
+
+     見ての透り rainbow-mode と flycheck-checker の設定ぐらいしかしてない。
+     [[*scss-mode][scss-mode]] の方ではもう少し手を入れているので
+     同じようなのをここに反映してもいいかもしれない。
+
+     もしくは設定を統合するという手もあるかも。
+**** vue-mode
+     #+begin_src emacs-lisp :tangle inits/41-vue.el
+     (defun my/vue-mode-hook ()
+       (display-line-numbers-mode t)
+       (lsp)
+       (flycheck-mode 1))
+
+     (add-hook 'vue-mode-hook 'my/vue-mode-hook)
+     #+end_src
+
+     - 行番号表示
+     - lsp を有効化
+     - flyckeck-mode を有効化
+
+     しているだけである。
+     lsp-ui とか色々設定の余地はありそうな気がする。
+*** キーバインド
+    これもろくに設定してないし、ろくに使ってないもいないが、一応設定自体はある。
+
+    #+begin_src emacs-lisp :tangle inits/41-vue.el
+    (with-eval-after-load 'major-mode-hydra
+      (major-mode-hydra-define css-mode (:quit-key "q" :title (concat (all-the-icons-alltheicon "css3") " CSS"))
+        ("Edit"
+         (("v" my/replace-var "replace-var")))))
+    #+end_src
+
+    | Key | 効果                                                                          |
+    | v   | リージョンの値で CSS 変数を検索して置き換えるやつ。自作コマンドを利用している |
 ** yaml-mode
    :PROPERTIES:
    :EXPORT_FILE_NAME: yaml-mode
@@ -3689,33 +3807,6 @@
            (t
             (hl-line-mode 1)
             (view-mode 1))))
-   #+end_src
-
-** 41-vue.el
-
-   #+begin_src emacs-lisp :tangle inits/41-vue.el
-   (define-auto-insert "\\.vue$" "template.vue")
-
-   (el-get-bundle vue-mode)
-   (el-get-bundle hlissner/emacs-pug-mode)
-   (defun my/css-mode-hook ()
-     ;; vue-mode では scss は css-mode が適用される
-     ;; https://github.com/AdamNiederer/vue-mode/blob/031edd1f97db6e7d8d6c295c0e6d58dd128b9e71/vue-mode.el#L63
-     (setq-local flycheck-checker 'css-stylelint)
-     (rainbow-mode 1))
-
-   (defun my/vue-mode-hook ()
-     (display-line-numbers-mode t)
-     (lsp)
-     (flycheck-mode 1))
-
-   (add-hook 'css-mode-hook 'my/css-mode-hook)
-   (add-hook 'vue-mode-hook 'my/vue-mode-hook)
-
-   (with-eval-after-load 'major-mode-hydra
-     (major-mode-hydra-define css-mode (:quit-key "q" :title (concat (all-the-icons-alltheicon "css3") " CSS"))
-       ("Edit"
-        (("v" my/replace-var "replace-var")))))
    #+end_src
 
 ** 50-todoist.el
