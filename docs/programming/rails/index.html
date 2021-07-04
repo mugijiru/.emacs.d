@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>auth-source :: 麦汁&#39;s Emacs Config</title>
+    <title>rails :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1625367540" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/basics/auth-source/">
+  <body class="" data-url="/.emacs.d/programming/rails/">
     <nav id="sidebar" class="">
 
 
@@ -89,7 +89,7 @@
   
     
     <li data-nav-id="/.emacs.d/basics/" title="基本設定" class="dd-item
-        parent
+        
         
         
         ">
@@ -115,7 +115,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/basics/auth-source/" title="auth-source" class="dd-item active">
+      <li data-nav-id="/.emacs.d/basics/auth-source/" title="auth-source" class="dd-item ">
         <a href="/.emacs.d/basics/auth-source/">
         auth-source
         
@@ -1123,7 +1123,7 @@
   
     
     <li data-nav-id="/.emacs.d/programming/" title="プログラミング関係の設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -1296,7 +1296,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/programming/rails/" title="rails" class="dd-item ">
+      <li data-nav-id="/.emacs.d/programming/rails/" title="rails" class="dd-item active">
         <a href="/.emacs.d/programming/rails/">
         rails
         
@@ -1800,7 +1800,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/basics/'>基本設定</a> > auth-source
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/programming/'>プログラミング関係の設定</a> > rails
           
         
           
@@ -1816,7 +1816,17 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#ファイル指定">ファイル指定</a></li>
+    <li><a href="#関連パッケージのインストール">関連パッケージのインストール</a></li>
+    <li><a href="#projectile-rails-用のコマンド追加">projectile-rails 用のコマンド追加</a>
+      <ul>
+        <li><a href="#uploader-finder">Uploader Finder</a></li>
+        <li><a href="#admin-finder">Admin Finder</a></li>
+        <li><a href="#form-object-finder">Form Object Finder</a></li>
+        <li><a href="#vue-finder">Vue Finder</a></li>
+        <li><a href="#webpacker-管理の-js-検索コマンド">Webpacker 管理の JS 検索コマンド</a></li>
+      </ul>
+    </li>
+    <li><a href="#キーバインド">キーバインド</a></li>
   </ul>
 </nav>
     </div>
@@ -1834,7 +1844,7 @@
           
             <h1>
               
-              auth-source
+              rails
             </h1>
           
 
@@ -1842,17 +1852,264 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://www.gnu.org/software/emacs/manual/html%5Fmono/auth.html">auth-source</a> は Emacs でパスワードのような秘匿情報を扱うための仕組み。
-Emacs の各パッケージが認証情報を要求する時にこいつ経由で取得できるようにしておくと秘匿もできて便利っぽい。</p>
-<p>パスワードの保存先はデフォルトだと
-<code>(&quot;~/.authinfo&quot; &quot;~/.authinfo.gpg&quot; &quot;~/.netrc&quot;)</code>
-となっている。</p>
-<p>拡張子が gpg だと <a href="https://www.gnu.org/software/emacs/manual/html%5Fmono/epa.html">EagyPG Assistant</a> で保存時に暗号化されるので便利。</p>
-<h2 id="ファイル指定">ファイル指定</h2>
-<p>自分は Emacs でしか使わないであろう情報ということで
-<code>/.emacs.d/.authinfo.gpg</code> を指定している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(custom-set-variables <span style="color:#f92672">&#39;</span>(auth-sources (quote (<span style="color:#e6db74">&#34;~/.emacs.d/.authinfo.gpg&#34;</span>))))
-</code></pre></div>
+<p>Rails 開発関係だけど Ruby 開発とはちょっと違う設定をここに書いている。</p>
+<h2 id="関連パッケージのインストール">関連パッケージのインストール</h2>
+<p>テンプレートエンジンには haml を使っているので <a href="https://github.com/nex3/haml-mode">haml-mode</a> を入れていてファイルナビゲーションには <a href="/.emacs.d/nav/projectile/">projectile</a> の拡張である <a href="https://github.com/asok/projectile-rails">projectile-rails</a> を利用している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle haml-mode)
+(el-get-bundle projectile-rails)
+(projectile-rails-global-mode <span style="color:#ae81ff">1</span>)
+</code></pre></div><h2 id="projectile-rails-用のコマンド追加">projectile-rails 用のコマンド追加</h2>
+<p>自身のプロジェクトだと少しナビゲーション用のコマンドが不足していたので
+projectile-rails の実装を参考にコマンドを追加している</p>
+<h3 id="uploader-finder">Uploader Finder</h3>
+<p><code>app/uploaders</code> に格納している upload に関連するファイルを検索するコマンド</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/projectile-rails-find-uploader ()
+  <span style="color:#e6db74">&#34;Find a Uploader.&#34;</span>
+  (interactive)
+  (projectile-rails-find-resource
+   <span style="color:#e6db74">&#34;uploader: &#34;</span>
+   <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;app/uploaders/&#34;</span> <span style="color:#e6db74">&#34;\\(.+\\)\\.rb$&#34;</span>))
+   <span style="color:#e6db74">&#34;app/uploaders/${filename}.rb&#34;</span>))
+</code></pre></div><h3 id="admin-finder">Admin Finder</h3>
+<p>Active Admin 用のファイルを検索するためのコマンド</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/projectile-rails-find-admin ()
+  <span style="color:#e6db74">&#34;Find a ActiveAdmin file.&#34;</span>
+  (interactive)
+  (projectile-rails-find-resource
+   <span style="color:#e6db74">&#34;admin: &#34;</span>
+   <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;app/admin/&#34;</span> <span style="color:#e6db74">&#34;\\(.+\\)\\.rb$&#34;</span>))
+   <span style="color:#e6db74">&#34;app/admin/${filename}.rb&#34;</span>))
+</code></pre></div><h3 id="form-object-finder">Form Object Finder</h3>
+<p>Form Object を探すためのコマンド</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/projectile-rails-find-form-object ()
+  <span style="color:#e6db74">&#34;Find a Form Object.&#34;</span>
+  (interactive)
+  (projectile-rails-find-resource
+   <span style="color:#e6db74">&#34;form object: &#34;</span>
+   <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;app/models/forms/&#34;</span> <span style="color:#e6db74">&#34;\\(.+\\)\\.rb$&#34;</span>))
+   <span style="color:#e6db74">&#34;app/models/forms/${filename}.rb&#34;</span>))
+</code></pre></div><h3 id="vue-finder">Vue Finder</h3>
+<p>Vue.js の単一ファイルコンポーネントを探すためのコマンド</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/projectile-rails-find-vue ()
+  <span style="color:#e6db74">&#34;Find a Vue.&#34;</span>
+  (interactive)
+  (projectile-rails-find-resource
+   <span style="color:#e6db74">&#34;vue: &#34;</span>
+   <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;app/javascript/&#34;</span> <span style="color:#e6db74">&#34;\\(.+\\)\\.vue$&#34;</span>))
+   <span style="color:#e6db74">&#34;app/javascript/${filename}.vue&#34;</span>))
+</code></pre></div><h3 id="webpacker-管理の-js-検索コマンド">Webpacker 管理の JS 検索コマンド</h3>
+<p>Webpacker で JS を管理していたりもするので必要だった</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/projectile-rails-find-webpack-js ()
+  <span style="color:#e6db74">&#34;Find a Webpack js.&#34;</span>
+  (interactive)
+  (projectile-rails-find-resource
+   <span style="color:#e6db74">&#34;webpack js: &#34;</span>
+   <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;app/javascript/&#34;</span> <span style="color:#e6db74">&#34;\\(.+\\)\\.js$&#34;</span>))
+   <span style="color:#e6db74">&#34;app/javascript/${filename}.js&#34;</span>))
+</code></pre></div><h2 id="キーバインド">キーバインド</h2>
+<p>もちろん基本的にコマンドなんて覚えられないのでいつも通り Hydra を定義して大体キーバインドは忘れている。</p>
+<p>なおこの Hydra は Rails のファイルを開いている時には <code>C-c r</code> で起動するようにしている。これは通常のセットアップで prefix としてこう設定するといいよ、みたいに書かれているのを流用している。
+<a href="https://github.com/asok/projectile-rails#keymap-prefix">https://github.com/asok/projectile-rails#keymap-prefix</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
+  (pretty-hydra-define pretty-hydra-projectile-rails-find (:separator <span style="color:#e6db74">&#34;-&#34;</span> :color blue :foreign-keys <span style="color:#a6e22e">warn</span> :title <span style="color:#e6db74">&#34;Projectile Rails&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span>)
+    (<span style="color:#e6db74">&#34;Current&#34;</span>
+     ((<span style="color:#e6db74">&#34;M&#34;</span> projectile-rails-find-current-model      <span style="color:#e6db74">&#34;Current model&#34;</span>)
+      (<span style="color:#e6db74">&#34;V&#34;</span> projectile-rails-find-current-view       <span style="color:#e6db74">&#34;Current view&#34;</span>)
+      (<span style="color:#e6db74">&#34;C&#34;</span> projectile-rails-find-current-controller <span style="color:#e6db74">&#34;Current controller&#34;</span>)
+      (<span style="color:#e6db74">&#34;H&#34;</span> projectile-rails-find-current-helper     <span style="color:#e6db74">&#34;Current helper&#34;</span>)
+      (<span style="color:#e6db74">&#34;P&#34;</span> projectile-rails-find-current-spec       <span style="color:#e6db74">&#34;Current spec&#34;</span>)
+      (<span style="color:#e6db74">&#34;Z&#34;</span> projectile-rails-find-current-serializer <span style="color:#e6db74">&#34;Current serializer&#34;</span>))
+
+     <span style="color:#e6db74">&#34;App&#34;</span>
+     ((<span style="color:#e6db74">&#34;m&#34;</span> projectile-rails-find-model           <span style="color:#e6db74">&#34;Model&#34;</span>)
+      (<span style="color:#e6db74">&#34;v&#34;</span> projectile-rails-find-view            <span style="color:#e6db74">&#34;View&#34;</span>)
+      (<span style="color:#e6db74">&#34;c&#34;</span> projectile-rails-find-controller      <span style="color:#e6db74">&#34;Controller&#34;</span>)
+      (<span style="color:#e6db74">&#34;h&#34;</span> projectile-rails-find-helper          <span style="color:#e6db74">&#34;Helper&#34;</span>)
+      (<span style="color:#e6db74">&#34;a&#34;</span> my/projectile-rails-find-admin        <span style="color:#e6db74">&#34;ActiveAdmin&#34;</span>)
+      (<span style="color:#e6db74">&#34;f&#34;</span> my/projectile-rails-find-form-object  <span style="color:#e6db74">&#34;Form object&#34;</span>)
+      (<span style="color:#e6db74">&#34;@&#34;</span> projectile-rails-find-mailer          <span style="color:#e6db74">&#34;Mailer&#34;</span>)
+      (<span style="color:#e6db74">&#34;V&#34;</span> my/projectile-rails-find-vue          <span style="color:#e6db74">&#34;Vue&#34;</span>)
+      (<span style="color:#e6db74">&#34;J&#34;</span> my/projectile-rails-find-webpack-js   <span style="color:#e6db74">&#34;Webpack js&#34;</span>)
+      (<span style="color:#e6db74">&#34;u&#34;</span> my/projectile-rails-find-uploader     <span style="color:#e6db74">&#34;Controller&#34;</span>)
+      (<span style="color:#e6db74">&#34;!&#34;</span> projectile-rails-find-validator       <span style="color:#e6db74">&#34;Validator&#34;</span>)
+      <span style="color:#75715e">;; (&#34;y&#34; projectile-rails-find-layout       &#34;Layout&#34;)</span>
+      (<span style="color:#e6db74">&#34;z&#34;</span> projectile-rails-find-serializer      <span style="color:#e6db74">&#34;Serializer&#34;</span>))
+
+     <span style="color:#e6db74">&#34;Assets&#34;</span>
+     ((<span style="color:#e6db74">&#34;j&#34;</span> projectile-rails-find-javascript  <span style="color:#e6db74">&#34;Javascript&#34;</span>)
+      <span style="color:#75715e">;; (&#34;w&#34; projectile-rails-find-component)</span>
+      (<span style="color:#e6db74">&#34;s&#34;</span> projectile-rails-find-stylesheet  <span style="color:#e6db74">&#34;CSS&#34;</span>))
+
+     <span style="color:#e6db74">&#34;Other&#34;</span>
+     ((<span style="color:#e6db74">&#34;n&#34;</span> projectile-rails-find-migration    <span style="color:#e6db74">&#34;Migration&#34;</span>)
+      (<span style="color:#e6db74">&#34;r&#34;</span> projectile-rails-find-rake-task    <span style="color:#e6db74">&#34;Rake task&#34;</span>)
+      (<span style="color:#e6db74">&#34;i&#34;</span> projectile-rails-find-initializer  <span style="color:#e6db74">&#34;Initializer&#34;</span>)
+      (<span style="color:#e6db74">&#34;l&#34;</span> projectile-rails-find-lib          <span style="color:#e6db74">&#34;Lib&#34;</span>)
+      (<span style="color:#e6db74">&#34;p&#34;</span> projectile-rails-find-spec         <span style="color:#e6db74">&#34;Spec&#34;</span>)
+      (<span style="color:#e6db74">&#34;t&#34;</span> projectile-rails-find-locale       <span style="color:#e6db74">&#34;Translation&#34;</span>))
+
+     <span style="color:#e6db74">&#34;Single Files&#34;</span>
+     ((<span style="color:#e6db74">&#34;R&#34;</span> projectile-rails-goto-routes   <span style="color:#e6db74">&#34;routes.rb&#34;</span>)
+      (<span style="color:#e6db74">&#34;G&#34;</span> projectile-rails-goto-gemfile  <span style="color:#e6db74">&#34;Gemfile&#34;</span>)
+      (<span style="color:#e6db74">&#34;D&#34;</span> projectile-rails-goto-schema   <span style="color:#e6db74">&#34;schema.rb&#34;</span>))))
+  (<span style="color:#a6e22e">define-key</span> projectile-rails-mode-map (kbd <span style="color:#e6db74">&#34;C-c r&#34;</span>) <span style="color:#e6db74">&#39;pretty-hydra-projectile-rails-find/body</span>))
+</code></pre></div><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>効果</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M</td>
+<td>現在のファイルに関連する Model を開く</td>
+<td></td>
+</tr>
+<tr>
+<td>V</td>
+<td>現在のファイルに関連する View を開く</td>
+<td>キーが Vue ファイル検索とかぶってしまっていて現在使えない</td>
+</tr>
+<tr>
+<td>C</td>
+<td>現在のファイルに関連する Controller を開く</td>
+<td></td>
+</tr>
+<tr>
+<td>H</td>
+<td>現在のファイルに関連する Helper を開く</td>
+<td></td>
+</tr>
+<tr>
+<td>P</td>
+<td>現在のファイルに関連する Spec を開く</td>
+<td></td>
+</tr>
+<tr>
+<td>Z</td>
+<td>現在のファイルに関連する Serializer を開く</td>
+<td><a href="https://github.com/rails-api/active%5Fmodel%5Fserializers">ActiveModelSerializer</a> を使ってるプロジェクトがある</td>
+</tr>
+<tr>
+<td>m</td>
+<td>Model ファイルを検索する</td>
+<td></td>
+</tr>
+<tr>
+<td>v</td>
+<td>View ファイルを検索する</td>
+<td></td>
+</tr>
+<tr>
+<td>c</td>
+<td>Controller ファイルを検索する</td>
+<td></td>
+</tr>
+<tr>
+<td>h</td>
+<td>Helper ファイルを検索する</td>
+<td></td>
+</tr>
+<tr>
+<td>a</td>
+<td>ActiveAdmin のファイルを検索する</td>
+<td></td>
+</tr>
+<tr>
+<td>f</td>
+<td>Form Object ファイルを検索する</td>
+<td></td>
+</tr>
+<tr>
+<td>@</td>
+<td>ActionMailer ファイルを検索する</td>
+<td></td>
+</tr>
+<tr>
+<td>V</td>
+<td>Vue の単一ファイルコンポーネントファイルを検索する</td>
+<td></td>
+</tr>
+<tr>
+<td>J</td>
+<td>Webpacker 管理の JS ファイルを検索する</td>
+<td></td>
+</tr>
+<tr>
+<td>u</td>
+<td>Uploader ファイルを検索する</td>
+<td></td>
+</tr>
+<tr>
+<td>!</td>
+<td>Validator ファイルを検索する</td>
+<td></td>
+</tr>
+<tr>
+<td>z</td>
+<td>Serializer ファイルを検索する</td>
+<td></td>
+</tr>
+<tr>
+<td>j</td>
+<td>assets 配架の JS ファイルを検索する</td>
+<td></td>
+</tr>
+<tr>
+<td>s</td>
+<td>SCSS ファイルを検索する</td>
+<td></td>
+</tr>
+<tr>
+<td>n</td>
+<td>migration ファイルを検索する</td>
+<td></td>
+</tr>
+<tr>
+<td>r</td>
+<td>rake ファイルを検索する</td>
+<td></td>
+</tr>
+<tr>
+<td>i</td>
+<td>config/initializers 以下のファイルを検索する</td>
+<td></td>
+</tr>
+<tr>
+<td>l</td>
+<td>lib 以下のファイルを検索する</td>
+<td></td>
+</tr>
+<tr>
+<td>p</td>
+<td>rspec ファイルを検索する</td>
+<td></td>
+</tr>
+<tr>
+<td>t</td>
+<td>I18n の翻訳ファイルを検索する</td>
+<td></td>
+</tr>
+<tr>
+<td>R</td>
+<td>routes.rb を開く</td>
+<td></td>
+</tr>
+<tr>
+<td>G</td>
+<td>Gemfile を開く</td>
+<td></td>
+</tr>
+<tr>
+<td>D</td>
+<td>Schema.rb を開く</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
 
 <footer class="footline">
 	
@@ -1889,6 +2146,8 @@ Emacs の各パッケージが認証情報を要求する時にこいつ経由�
             
                 
                     
+                        
+                        
                     
                 
                 
@@ -1902,26 +2161,6 @@ Emacs の各パッケージが認証情報を要求する時にこいつ経由�
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -2046,70 +2285,6 @@ Emacs の各パッケージが認証情報を要求する時にこいつ経由�
             
         
                     
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
             
             
@@ -2142,19 +2317,6 @@ Emacs の各パッケージが認証情報を要求する時にこいつ経由�
                     
 
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
             
         
                     
@@ -2170,25 +2332,6 @@ Emacs の各パッケージが認証情報を要求する時にこいつ経由�
                     
                     
 
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -2269,6 +2412,102 @@ Emacs の各パッケージが認証情報を要求する時にこいつ経由�
                     
             
         
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
                         
             
@@ -2526,86 +2765,6 @@ Emacs の各パッケージが認証情報を要求する時にこいつ経由�
             
         
                     
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
             
             
@@ -2718,6 +2877,74 @@ Emacs の各パッケージが認証情報を要求する時にこいつ経由�
             
         
                     
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
             
             
@@ -2770,6 +2997,42 @@ Emacs の各パッケージが認証情報を要求する時にこいつ経由�
             
             
                 
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -3066,10 +3329,10 @@ Emacs の各パッケージが認証情報を要求する時にこいつ経由�
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/basics/" title="基本設定"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/programming/plantuml-mode/" title="plantuml-mode"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/basics/auto-save/" title="auto-save" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/programming/rspec-mode/" title="rspec-mode" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
