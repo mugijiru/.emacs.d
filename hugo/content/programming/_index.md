@@ -18,6 +18,9 @@ markdown-mode とか yaml-mode なんかはプログラム言語ではないけ�
 [es6]({{< relref "es6" >}})
 : ES2015 以降の JS に関する設定。es6 としているのは過去の経緯のため。
 
+[flycheck]({{< relref "flycheck" >}})
+: Flycheck の設定について書いている
+
 [gnuplot-mode]({{< relref "gnuplot-mode" >}})
 : グラフ作成ソフト gnuplot を使うための設定
 
