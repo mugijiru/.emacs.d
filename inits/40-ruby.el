@@ -1,13 +1,14 @@
 (el-get-bundle rbenv)
+
 (global-rbenv-mode)
+
 (el-get-bundle enh-ruby-mode)
 
 (with-eval-after-load 'enh-ruby-mode
   (setq enh-ruby-add-encoding-comment-on-save nil)
-  (setq enh-ruby-deep-indent-paren nil) ;; 有効にするとインデントが気持ち悪いのでOFF
+  (setq enh-ruby-deep-indent-paren nil)
   (setq enh-ruby-bounce-deep-indent t))
 
-;; TODO: flycheck-mode 用の設定。単に有効にすると警告が多過ぎて無理
 (defun my/enh-ruby-mode-hook ()
   (company-mode 1)
   (lsp)
@@ -16,6 +17,7 @@
   (display-line-numbers-mode 1))
 
 (add-hook 'enh-ruby-mode-hook 'my/enh-ruby-mode-hook)
+
 (add-to-list 'context-skk-programming-mode 'enh-ruby-mode)
 
 (with-eval-after-load 'major-mode-hydra

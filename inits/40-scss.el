@@ -1,12 +1,14 @@
 (el-get-bundle rainbow-mode)
+
 (with-eval-after-load 'scss-mode
   (setq css-indent-offset 2))
+
 (defun my/scss-mode-hook ()
   (flycheck-mode 1)
 
-  (setq-local lsp-prefer-flymake nil) ;; flycheck が有効にならなくなるのを防ぐ
+  (setq-local lsp-prefer-flymake nil)
   (lsp)
-  (lsp-ui-mode -1) ;; lsp-ui が有効だと画面上でガチャガチャ height とかの説明をしてうざいので
+  (lsp-ui-mode -1)
 
   ;; lsp-ui とかより後に設定しないと上書きされるのでここに移動した
   (setq-local flycheck-checker 'scss-stylelint)
