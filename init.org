@@ -2427,7 +2427,6 @@
    :PROPERTIES:
    :EXPORT_FILE_NAME: flycheck
    :END:
-
 *** 概要
     [[https://www.flycheck.org/en/latest/][flycheck]] はリアルタイムで文法チェックなんかをするのに便利なモード。
     flymake よりモダンなやつだったんだけど最近は flymake に戻る人もいるっぽいので
@@ -2452,8 +2451,15 @@
        (flycheck-pos-tip-mode))
      #+end_src
 **** その他
-     flycheck-pos-tip は flycheck 公式のプラグインなので採用しているけど
-     [[https://github.com/alexmurray/flycheck-posframe][flycheck-posframe]] に置き換えた方が見た目麗しくなりそうな気がしている。
+***** flycheck-posframe
+      flycheck-pos-tip は flycheck 公式のプラグインなので採用しているけど
+      同じことを posframe でやってくれる [[https://github.com/alexmurray/flycheck-posframe][flycheck-posframe]] に置き換えた方が
+      見た目麗しくなりそうな気がしている。
+***** 言語毎の設定
+      各言語向けの設定もあるけど
+      それは各言語の設定ファイル内に書いているのでここでは書いてない
+
+      [[*ruby][プログラミング関係の設定 > ruby]] とか [[*scss][プログラミング関係の設定 > scss]] とかに書いているはず
 ** gnuplot-mode
    :PROPERTIES:
    :EXPORT_FILE_NAME: gnuplot-mode
