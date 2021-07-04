@@ -121,6 +121,23 @@ rbenv.el Ruby のバージョンを切り替えられる rbenv を使ってる�
     </item>
     
     <item>
+      <title>scss</title>
+      <link>https://mugijiru.github.io/.emacs.d/programming/scss/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/programming/scss/</guid>
+      <description>概要 scss を使う上での設定をここではまとめている。長いこと手を入れてないので今はより良い設定がありそうな気がする。
+rainbow-mode rainbow-mode はカラーコードを入力した際に、そのカラーコード部分の背景色をカラーコードの色に変化させるパッケージ。ぱっと見で大体どんな色かわかって便利なやつ
+インストール 自分はel-get で入れている。
+(el-get-bundle rainbow-mode) ELPA に登録されているので package-install でもいける
+scss-mode scss-mode は Emacs 組込みの css-mode の中で定義されているメジャーモード。なのでインストール不要で使えるし .scss という拡張子なら自動的に scss-mode で開いてくれるようになっている。
+設定 インデントはデフォルトだと半角空白 4 つとなっているが麦汁さん的には 2 の方が良いのでそのように変更している。
+(with-eval-after-load &amp;#39;scss-mode (setq css-indent-offset 2)) with-eval-after-load を使っているが css-indent-offset は defcustom で定義されているので custom-set-variables を使うように修正した方が良さそう
+hook scss を使う上で hook を使って色々有効化したりしている。
+(defun my/scss-mode-hook () (flycheck-mode 1) (setq-local lsp-prefer-flymake nil) (lsp) (lsp-ui-mode -1) ;; lsp-ui とかより後に設定しないと上書きされるのでここに移動した (setq-local flycheck-checker &amp;#39;scss-stylelint) (setq-local flycheck-check-syntax-automatically &amp;#39;(save new-line idle-change)) (company-mode 1) (display-line-numbers-mode 1) (rainbow-mode)) (add-hook &amp;#39;scss-mode-hook &amp;#39;my/scss-mode-hook)  flycheck-mode の有効化  これによりリアルタイムに lint 結果が分かって便利になる   lsp-prefer-flymake の無効化  flycheck が有効にならない問題を防いでいる。どうも自分の設定の書き方が悪い気もするが……。   lsp-mode を有効化しつつ lsp-ui は無効にしている  lsp-ui が有効だと画面上でガチャガチャ height とかのプロパティの説明をしてうざいので   flycheck-checker, flycheck-check-syntax-automatically の設定  lsp-ui とかより後に設定しないと上書きされるので、それらより後に設定している 設定の書き方の悪さのせいな気もする   company-mode の有効化。これがないと補完できなくて厳しいよね display-line-numbers-mode の有効化。行数表示も欲しいよね。巨大ファイルだと邪魔だけど巨大にしなきゃいい rainbow-mode の有効化  キーバインド 設定しているけど使ってないなあ……。</description>
+    </item>
+    
+    <item>
       <title>yaml-mode</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/yaml-mode/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

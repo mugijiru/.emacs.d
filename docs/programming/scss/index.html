@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>Neotree :: 麦汁&#39;s Emacs Config</title>
+    <title>scss :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1625364485" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/ui/neotree/">
+  <body class="" data-url="/.emacs.d/programming/scss/">
     <nav id="sidebar" class="">
 
 
@@ -593,7 +593,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        parent
+        
         
         
         ">
@@ -808,7 +808,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/neotree/" title="Neotree" class="dd-item active">
+      <li data-nav-id="/.emacs.d/ui/neotree/" title="Neotree" class="dd-item ">
         <a href="/.emacs.d/ui/neotree/">
         Neotree
         
@@ -1123,7 +1123,7 @@
   
     
     <li data-nav-id="/.emacs.d/programming/" title="プログラミング関係の設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -1317,7 +1317,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/programming/scss/" title="scss" class="dd-item ">
+      <li data-nav-id="/.emacs.d/programming/scss/" title="scss" class="dd-item active">
         <a href="/.emacs.d/programming/scss/">
         scss
         
@@ -1758,7 +1758,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > Neotree
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/programming/'>プログラミング関係の設定</a> > scss
           
         
           
@@ -1774,15 +1774,18 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#レシピ">レシピ</a></li>
-    <li><a href="#インストール">インストール</a></li>
-    <li><a href="#使わなくなったコード">使わなくなったコード</a></li>
-    <li><a href="#テーマの設定">テーマの設定</a></li>
-    <li><a href="#major-mode-hydra">major-mode-hydra</a>
+    <li><a href="#rainbow-mode">rainbow-mode</a>
       <ul>
-        <li><a href="#キーバインド">キーバインド</a></li>
+        <li><a href="#インストール">インストール</a></li>
       </ul>
     </li>
+    <li><a href="#scss-mode">scss-mode</a>
+      <ul>
+        <li><a href="#設定">設定</a></li>
+      </ul>
+    </li>
+    <li><a href="#hook">hook</a></li>
+    <li><a href="#キーバインド">キーバインド</a></li>
   </ul>
 </nav>
     </div>
@@ -1794,19 +1797,13 @@
             
         <div id="head-tags">
         
-<div class="tags">
-
-  <a class="tag-link" href="/.emacs.d/tags/replacement">replacement</a>
-
-</div>
-
         </div>
         
         <div id="body-inner">
           
             <h1>
               
-              Neotree
+              scss
             </h1>
           
 
@@ -1814,57 +1811,74 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/jaypei/emacs-neotree">Neotree</a> は Emacs でフォルダのツリー表示ができるやつ。メンテは活発じゃないようなので、その内乗り換えたい。</p>
-<h2 id="レシピ">レシピ</h2>
-<p>Neotree でメンテされているのは dev ブランチだけど
-el-get の公式のレシピでは master ブランチを見ているので自前で recipe を用意してそれを使っている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(:name emacs-neotree-dev
-       :website <span style="color:#e6db74">&#34;https://github.com/jaypei/emacs-neotree&#34;</span>
-       :description <span style="color:#e6db74">&#34;An Emacs tree plugin like NerdTree for Vim.&#34;</span>
-       :type github
-       :branch <span style="color:#e6db74">&#34;dev&#34;</span>
-       :pkgname <span style="color:#e6db74">&#34;jaypei/emacs-neotree&#34;</span>)
-</code></pre></div><h2 id="インストール">インストール</h2>
-<p>上に書いたレシピを使ってインストールしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle emacs-neotree-dev)
-</code></pre></div><h2 id="使わなくなったコード">使わなくなったコード</h2>
-<p>元々設定していたが、
-counsel-projectile を使ってると
-projectile-switch-project-action を設定していても反映されず意味がないのに気付いたので使わなくなった</p>
-<p><a href="https://github.com/mugijiru/.emacs.d/pull/183/files#r541843206">https://github.com/mugijiru/.emacs.d/pull/183/files#r541843206</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq projectile-switch-project-action <span style="color:#e6db74">&#39;neotree-projectile-action</span>)
-</code></pre></div><h2 id="テーマの設定">テーマの設定</h2>
-<p>GUI で起動している時はアイコン表示しそうでない場合は ▾ とかで表示する</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq neo-theme (if (display-graphic-p) <span style="color:#e6db74">&#39;icons</span> <span style="color:#e6db74">&#39;arrow</span>))
-</code></pre></div><p>のだけど、実際に今使ってるやつだともっとグラフィカルな表示なので
-all-the-icons の設定で上書きしている気がするので要確認</p>
-<h2 id="major-mode-hydra">major-mode-hydra</h2>
-<p>いちいちキーバインドを覚えてられないので
-<a href="https://github.com/jerrypnz/major-mode-hydra.el">major-mode-hydra</a> を使って主要なキーバインドは <a href="https://github.com/abo-abo/hydra">hydra</a> で使えるようにしている。</p>
-<p>とはいえ、この文書を書く前日ぐらいに設定しているのでまだ使い慣れてないというか、ほとんど使えてない。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;major-mode-hydra</span>
-  (major-mode-hydra-define neotree-mode (:separator <span style="color:#e6db74">&#34;-&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :title (<span style="color:#a6e22e">concat</span> (all-the-icons-octicon <span style="color:#e6db74">&#34;list-unordered&#34;</span>) <span style="color:#e6db74">&#34; Neotree&#34;</span>))
-    (<span style="color:#e6db74">&#34;Nav&#34;</span>
-     ((<span style="color:#e6db74">&#34;u&#34;</span>   neotree-select-up-node   <span style="color:#e6db74">&#34;Up&#34;</span>)
-      (<span style="color:#e6db74">&#34;g&#34;</span>   neotree-refresh          <span style="color:#e6db74">&#34;Refresh&#34;</span>)
-      (<span style="color:#e6db74">&#34;Q&#34;</span>   neotree-hide             <span style="color:#e6db74">&#34;Hide&#34;</span>))
+<p>scss を使う上での設定をここではまとめている。長いこと手を入れてないので今はより良い設定がありそうな気がする。</p>
+<h2 id="rainbow-mode">rainbow-mode</h2>
+<p><a href="https://elpa.gnu.org/packages/rainbow-mode.html">rainbow-mode</a> はカラーコードを入力した際に、そのカラーコード部分の背景色をカラーコードの色に変化させるパッケージ。ぱっと見で大体どんな色かわかって便利なやつ</p>
+<h3 id="インストール">インストール</h3>
+<p>自分はel-get で入れている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle rainbow-mode)
+</code></pre></div><p>ELPA に登録されているので package-install でもいける</p>
+<h2 id="scss-mode">scss-mode</h2>
+<p>scss-mode は Emacs 組込みの css-mode の中で定義されているメジャーモード。なのでインストール不要で使えるし
+<code>.scss</code> という拡張子なら自動的に scss-mode で開いてくれるようになっている。</p>
+<h3 id="設定">設定</h3>
+<p>インデントはデフォルトだと半角空白 4 つとなっているが麦汁さん的には 2 の方が良いのでそのように変更している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;scss-mode</span>
+  (setq css-indent-offset <span style="color:#ae81ff">2</span>))
+</code></pre></div><p><code>with-eval-after-load</code> を使っているが
+<code>css-indent-offset</code> は <code>defcustom</code> で定義されているので
+<code>custom-set-variables</code> を使うように修正した方が良さそう</p>
+<h2 id="hook">hook</h2>
+<p>scss を使う上で hook を使って色々有効化したりしている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/scss-mode-hook ()
+  (flycheck-mode <span style="color:#ae81ff">1</span>)
 
-     <span style="color:#e6db74">&#34;File&#34;</span>
-     ((<span style="color:#e6db74">&#34;a&#34;</span>   neo-open-file-ace-window <span style="color:#e6db74">&#34;Ace&#34;</span>)
-      (<span style="color:#e6db74">&#34;N&#34;</span>   neotree-create-node      <span style="color:#e6db74">&#34;Create&#34;</span>)
-      (<span style="color:#e6db74">&#34;R&#34;</span>   neotree-rename-node      <span style="color:#e6db74">&#34;Rename&#34;</span>)
-      (<span style="color:#e6db74">&#34;C&#34;</span>   neotree-copy-node        <span style="color:#e6db74">&#34;Copy&#34;</span>)
-      (<span style="color:#e6db74">&#34;D&#34;</span>   neotree-delete-node      <span style="color:#e6db74">&#34;Delete&#34;</span>)
-      (<span style="color:#e6db74">&#34;SPC&#34;</span> neotree-quick-look       <span style="color:#e6db74">&#34;Look&#34;</span>)
-      <span style="color:#75715e">;; (&#34;d&#34; neo-open-dired &#34;Dired&#34;)</span>
-      <span style="color:#75715e">;; (&#34;O&#34; neo-open-dir-recursive   &#34;Recursive&#34;)</span>
-      )
-     <span style="color:#e6db74">&#34;Toggle&#34;</span>
-     ((<span style="color:#e6db74">&#34;z&#34;</span> neotree-stretch-toggle     <span style="color:#e6db74">&#34;Size&#34;</span>        :toggle (not (neo-window--minimize-p)))
-      (<span style="color:#e6db74">&#34;h&#34;</span> neotree-hidden-file-toggle <span style="color:#e6db74">&#34;Hidden file&#34;</span> :toggle neo-buffer--show-hidden-file-p)))))
-</code></pre></div><h3 id="キーバインド">キーバインド</h3>
-<h4 id="ナビゲーション">ナビゲーション</h4>
-<table>
+  (setq-local lsp-prefer-flymake <span style="color:#66d9ef">nil</span>)
+  (lsp)
+  (lsp-ui-mode <span style="color:#ae81ff">-1</span>)
+
+  <span style="color:#75715e">;; lsp-ui とかより後に設定しないと上書きされるのでここに移動した</span>
+  (setq-local flycheck-checker <span style="color:#e6db74">&#39;scss-stylelint</span>)
+  (setq-local flycheck-check-syntax-automatically <span style="color:#f92672">&#39;</span>(save new-line idle-change))
+
+  (company-mode <span style="color:#ae81ff">1</span>)
+  (display-line-numbers-mode <span style="color:#ae81ff">1</span>)
+
+  (rainbow-mode))
+(add-hook <span style="color:#e6db74">&#39;scss-mode-hook</span> <span style="color:#e6db74">&#39;my/scss-mode-hook</span>)
+</code></pre></div><ul>
+<li>flycheck-mode の有効化
+<ul>
+<li>これによりリアルタイムに lint 結果が分かって便利になる</li>
+</ul>
+</li>
+<li>lsp-prefer-flymake の無効化
+<ul>
+<li>flycheck が有効にならない問題を防いでいる。どうも自分の設定の書き方が悪い気もするが……。</li>
+</ul>
+</li>
+<li>lsp-mode を有効化しつつ lsp-ui は無効にしている
+<ul>
+<li>lsp-ui が有効だと画面上でガチャガチャ height とかのプロパティの説明をしてうざいので</li>
+</ul>
+</li>
+<li>flycheck-checker, flycheck-check-syntax-automatically の設定
+<ul>
+<li>lsp-ui とかより後に設定しないと上書きされるので、それらより後に設定している</li>
+<li>設定の書き方の悪さのせいな気もする</li>
+</ul>
+</li>
+<li>company-mode の有効化。これがないと補完できなくて厳しいよね</li>
+<li>display-line-numbers-mode の有効化。行数表示も欲しいよね。巨大ファイルだと邪魔だけど巨大にしなきゃいい</li>
+<li><a href="#rainbow-mode">rainbow-mode</a> の有効化</li>
+</ul>
+<h2 id="キーバインド">キーバインド</h2>
+<p>設定しているけど使ってないなあ……。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;major-mode-hydra</span>
+  (major-mode-hydra-define scss-mode (:quit-key <span style="color:#e6db74">&#34;q&#34;</span> :title (<span style="color:#a6e22e">concat</span> (all-the-icons-alltheicon <span style="color:#e6db74">&#34;css3&#34;</span>) <span style="color:#e6db74">&#34; CSS&#34;</span>))
+    (<span style="color:#e6db74">&#34;Edit&#34;</span>
+     ((<span style="color:#e6db74">&#34;v&#34;</span> my/replace-var <span style="color:#e6db74">&#34;replace-var&#34;</span>)))))
+</code></pre></div><table>
 <thead>
 <tr>
 <th>Key</th>
@@ -1873,70 +1887,8 @@ all-the-icons の設定で上書きしている気がするので要確認</p>
 </thead>
 <tbody>
 <tr>
-<td>u</td>
-<td>上のノードに移動</td>
-</tr>
-<tr>
-<td>g</td>
-<td>再描画</td>
-</tr>
-<tr>
-<td>Q</td>
-<td>Neotree を隠す</td>
-</tr>
-</tbody>
-</table>
-<h4 id="ファイル操作">ファイル操作</h4>
-<table>
-<thead>
-<tr>
-<th>Key</th>
-<th>効果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>a</td>
-<td>ファイルを開く。その際に ace-window で開く window を指定する</td>
-</tr>
-<tr>
-<td>N</td>
-<td>新しいノードを作る</td>
-</tr>
-<tr>
-<td>R</td>
-<td>ノードの名前を変える</td>
-</tr>
-<tr>
-<td>C</td>
-<td>ノードのコピー</td>
-</tr>
-<tr>
-<td>D</td>
-<td>ノードの削除</td>
-</tr>
-<tr>
-<td>SPC</td>
-<td>クイックルック</td>
-</tr>
-</tbody>
-</table>
-<h4 id="toggle">Toggle</h4>
-<table>
-<thead>
-<tr>
-<th>Key</th>
-<th>効果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>z</td>
-<td>Neotree のサイズを大きくしたり小さくしたり</td>
-</tr>
-<tr>
-<td>h</td>
-<td>隠しファイルを表示したり隠したり</td>
+<td>v</td>
+<td>リージョンの値で CSS 変数を検索して置き換えるやつ。自作コマンドを利用している</td>
 </tr>
 </tbody>
 </table>
@@ -2332,7 +2284,6 @@ all-the-icons の設定で上書きしている気がするので要確認</p>
             
                 
                     
-                    
                 
                 
 
@@ -2345,9 +2296,6 @@ all-the-icons の設定で上書きしている気がするので要確認</p>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -2493,7 +2441,6 @@ all-the-icons の設定で上書きしている気がするので要確認</p>
             
                 
                     
-                    
                 
                 
 
@@ -2509,9 +2456,6 @@ all-the-icons の設定で上書きしている気がするので要確認</p>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -2724,6 +2668,7 @@ all-the-icons の設定で上書きしている気がするので要確認</p>
             
                 
                     
+                    
                 
                 
 
@@ -2736,6 +2681,9 @@ all-the-icons の設定で上書きしている気がするので要確認</p>
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -2865,6 +2813,7 @@ all-the-icons の設定で上書きしている気がするので要確認</p>
             
                 
                     
+                    
                 
                 
 
@@ -2880,6 +2829,9 @@ all-the-icons の設定で上書きしている気がするので要確認</p>
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3128,10 +3080,10 @@ all-the-icons の設定で上書きしている気がするので要確認</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/ui/ido-mode/" title="ido-mode"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/programming/ruby/" title="ruby"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/ui/posframe/" title="posframe" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/programming/yaml-mode/" title="yaml-mode" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
