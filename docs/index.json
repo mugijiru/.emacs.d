@@ -81,7 +81,7 @@
 	"title": "プログラミング関係の設定",
 	"tags": [],
 	"description": "",
-	"content": "ここでは各言語やフレームワーク毎の設定をまとめている。 markdown-mode とか yaml-mode なんかはプログラム言語ではないけど面倒なので一旦ここにまとめている。\n emacs-lisp Emacs Lisp を書くための設定 Ember.js Web フロントエンド MVC フレームワークである Ember.js 用の設定を書いている es6 ES2015 以降の JS に関する設定。es6 としているのは過去の経緯のため。 flycheck Flycheck の設定について書いている gnuplot-mode グラフ作成ソフト gnuplot を使うための設定 markdown Markdown を書く時の設定 plantuml-mode PlantUML を書く時のメジャーモードの設定 rails Rails 開発をする上での設定 rspec-mode Ruby のテストフレームワーク RSpec を書いたりするのに便利なモード ruby Ruby を書く上での設定 scss SCSS を書く上での設定 yaml-mode YAML を書く時のメジャーモードの設定  "
+	"content": "ここでは各言語やフレームワーク毎の設定をまとめている。 markdown-mode とか yaml-mode なんかはプログラム言語ではないけど面倒なので一旦ここにまとめている。\n emacs-lisp Emacs Lisp を書くための設定 Ember.js Web フロントエンド MVC フレームワークである Ember.js 用の設定を書いている es6 ES2015 以降の JS に関する設定。es6 としているのは過去の経緯のため。 flycheck Flycheck の設定について書いている gnuplot-mode グラフ作成ソフト gnuplot を使うための設定 markdown Markdown を書く時の設定 plantuml-mode PlantUML を書く時のメジャーモードの設定 rails Rails 開発をする上での設定 rspec-mode Ruby のテストフレームワーク RSpec を書いたりするのに便利なモード ruby Ruby を書く上での設定 scss SCSS を書く上での設定 Vue.js Vue.js を書く上での設定 yaml-mode YAML を書く時のメジャーモードの設定  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/external-tool/",
@@ -495,6 +495,13 @@
 	"tags": [],
 	"description": "",
 	"content": ""
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/programming/vue-js/",
+	"title": "Vue.js",
+	"tags": [],
+	"description": "",
+	"content": "概要 ここでは Vue.js アプリケーションを書く上での設定を書いている。\nauto-insert の設定 Vue.js のコンポーネントファイルを新規作成する時にテンプレートが自動挿入できるようにしている\nテンプレート Vue.js の単一ファイルコンポーネントなので template, script, style を出力している。\ntemplate には pug を、CSS には scss を使っている。\n\u0026lt;template lang=\u0026#39;pug\u0026#39;\u0026gt; \u0026lt;/template\u0026gt; \u0026lt;script\u0026gt; export default { }; \u0026lt;/script\u0026gt; \u0026lt;style lang=\u0026#39;scss\u0026#39; scoped\u0026gt; \u0026lt;/style\u0026gt; テンプレートを適用可能にする .vue という拡張子のファイルを新規作成する時には上で定義したテンプレートが自動的に挿入されるようにする。\n(define-auto-insert \u0026#34;\\\\.vue$\u0026#34; \u0026#34;template.vue\u0026#34;) パッケージのインストール ここでは Vue.js 開発に使っている関連パッケージを入れている。\nvue-mode vue-mode は mmm-mode をベースにして作られた Vue.js の単一ファイルコンポーネント用のモード。 mmm-mode ベースなので template, script, css 部分でそれぞれ別のメジャーモードが動くようになっている。\nインストール いつも透り el-get で入れている\n(el-get-bundle vue-mode) 備考 あまり更新は活発でなく微妙な挙動もあるので mmm-mode に乗り換えたり web-mode を使うようにしている人も多い様子。\n自分もそういった乗り換えを検討した方がいいかもと思いつつ最近あまり Vue.js 触ってないから、まあいいかという気持ちもある。\nなお vue-mode では JS 部分は js2-mode は使えないはず。 mmm-mode の方が何かの制限で使えないという話だったはずなので。 https://github.com/mooz/js2-mode/issues/124\npug-mode pug-mode は pug というテンプレートエンジンを使って記述するためのモード。 Vue.js でテンプレートエンジンに pug を利用することが多いので入れている。麦汁さんは HTML をそのまま書くようなことは好きじゃないのです。\nインストール いつも透り el-get で入れている\n(el-get-bundle hlissner/emacs-pug-mode) hooks css-mode と vue-mode だけは hook を定義している。 pug-mode や js-mode についても何か手を入れた方がいいのかもしれない。\ncss-mode Vue.js では style に scss を指定いちえる場合には css-mode が利用されるようになっているので css-mode の hook としている。 https://github.com/AdamNiederer/vue-mode/blob/031edd1f97db6e7d8d6c295c0e6d58dd128b9e71/vue-mode.el#L63\n(defun my/css-mode-hook () (setq-local flycheck-checker \u0026#39;css-stylelint) (rainbow-mode 1)) (add-hook \u0026#39;css-mode-hook \u0026#39;my/css-mode-hook) 見ての透り rainbow-mode と flycheck-checker の設定ぐらいしかしてない。 scss-mode の方ではもう少し手を入れているので同じようなのをここに反映してもいいかもしれない。\nもしくは設定を統合するという手もあるかも。\nvue-mode (defun my/vue-mode-hook () (display-line-numbers-mode t) (lsp) (flycheck-mode 1)) (add-hook \u0026#39;vue-mode-hook \u0026#39;my/vue-mode-hook)  行番号表示 lsp を有効化 flyckeck-mode を有効化  しているだけである。 lsp-ui とか色々設定の余地はありそうな気がする。\nキーバインド これもろくに設定してないし、ろくに使ってないもいないが、一応設定自体はある。\n(with-eval-after-load \u0026#39;major-mode-hydra (major-mode-hydra-define css-mode (:quit-key \u0026#34;q\u0026#34; :title (concat (all-the-icons-alltheicon \u0026#34;css3\u0026#34;) \u0026#34; CSS\u0026#34;)) (\u0026#34;Edit\u0026#34; ((\u0026#34;v\u0026#34; my/replace-var \u0026#34;replace-var\u0026#34;)))))    Key 効果     v リージョンの値で CSS 変数を検索して置き換えるやつ。自作コマンドを利用している    "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/external-tool/wakatime-mode/",

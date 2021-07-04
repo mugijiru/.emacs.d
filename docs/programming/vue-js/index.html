@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>browse-at-remote :: 麦汁&#39;s Emacs Config</title>
+    <title>Vue.js :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1625410670" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/nav/browse-at-remote/">
+  <body class="" data-url="/.emacs.d/programming/vue-js/">
     <nav id="sidebar" class="">
 
 
@@ -984,7 +984,7 @@
   
     
     <li data-nav-id="/.emacs.d/nav/" title="ナビゲーション" class="dd-item
-        parent
+        
         
         
         ">
@@ -1052,7 +1052,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/nav/browse-at-remote/" title="browse-at-remote" class="dd-item active">
+      <li data-nav-id="/.emacs.d/nav/browse-at-remote/" title="browse-at-remote" class="dd-item ">
         <a href="/.emacs.d/nav/browse-at-remote/">
         browse-at-remote
         
@@ -1123,7 +1123,7 @@
   
     
     <li data-nav-id="/.emacs.d/programming/" title="プログラミング関係の設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -1380,7 +1380,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/programming/vue-js/" title="Vue.js" class="dd-item ">
+      <li data-nav-id="/.emacs.d/programming/vue-js/" title="Vue.js" class="dd-item active">
         <a href="/.emacs.d/programming/vue-js/">
         Vue.js
         
@@ -1821,7 +1821,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/nav/'>ナビゲーション</a> > browse-at-remote
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/programming/'>プログラミング関係の設定</a> > Vue.js
           
         
           
@@ -1837,9 +1837,25 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#インストール">インストール</a></li>
-    <li><a href="#使い方">使い方</a></li>
-    <li><a href="#その他">その他</a></li>
+    <li><a href="#auto-insert-の設定">auto-insert の設定</a>
+      <ul>
+        <li><a href="#テンプレート">テンプレート</a></li>
+        <li><a href="#テンプレートを適用可能にする">テンプレートを適用可能にする</a></li>
+      </ul>
+    </li>
+    <li><a href="#パッケージのインストール">パッケージのインストール</a>
+      <ul>
+        <li><a href="#vue-mode">vue-mode</a></li>
+        <li><a href="#pug-mode">pug-mode</a></li>
+      </ul>
+    </li>
+    <li><a href="#hooks">hooks</a>
+      <ul>
+        <li><a href="#css-mode">css-mode</a></li>
+        <li><a href="#vue-mode">vue-mode</a></li>
+      </ul>
+    </li>
+    <li><a href="#キーバインド">キーバインド</a></li>
   </ul>
 </nav>
     </div>
@@ -1857,7 +1873,7 @@
           
             <h1>
               
-              browse-at-remote
+              Vue.js
             </h1>
           
 
@@ -1865,17 +1881,97 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/rmuslimov/browse-at-remote">browse-at-remote</a> は Emacs で見ているファイルについて
-GitHub や GitLab などのサービス上での該当ブランチ、該当ファイル、該当行を開いてくれる便利なやつ。</p>
-<p>業務だとレビュー中に「ここにこういう関数あるよ」みたいに示すことがあるけどその時に Emacs 内で関数を探して browse-at-remote で GitHub 上の位置を開くことでそこへのリンクを拾いやすく便利。</p>
-<h2 id="インストール">インストール</h2>
-<p>いつも透り el-get で入れている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle browse-at-remote)
-</code></pre></div><h2 id="使い方">使い方</h2>
-<p>ブラウザで見たい行の上で <code>M-x browse-at-remote</code> を実行する。</p>
-<p>または Region を選択している状態で実行すると、その範囲を選択している状態で開いてくれる。便利。</p>
-<h2 id="その他">その他</h2>
-<p>Hydra でいつでも使えるようにキーバインドを割り当てている。</p>
+<p>ここでは Vue.js アプリケーションを書く上での設定を書いている。</p>
+<h2 id="auto-insert-の設定">auto-insert の設定</h2>
+<p>Vue.js のコンポーネントファイルを新規作成する時にテンプレートが自動挿入できるようにしている</p>
+<h3 id="テンプレート">テンプレート</h3>
+<p>Vue.js の単一ファイルコンポーネントなので template, script, style を出力している。</p>
+<p>template には <a href="https://pugjs.org/api/getting-started.html">pug</a> を、CSS には scss を使っている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">template</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;pug&#39;</span>&gt;
+&lt;/<span style="color:#f92672">template</span>&gt;
+
+&lt;<span style="color:#f92672">script</span>&gt;
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+
+};
+&lt;/<span style="color:#f92672">script</span>&gt;
+
+&lt;<span style="color:#f92672">style</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;scss&#39;</span> <span style="color:#a6e22e">scoped</span>&gt;
+&lt;/<span style="color:#f92672">style</span>&gt;
+</code></pre></div><h3 id="テンプレートを適用可能にする">テンプレートを適用可能にする</h3>
+<p><code>.vue</code> という拡張子のファイルを新規作成する時には上で定義したテンプレートが自動的に挿入されるようにする。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(define-auto-insert <span style="color:#e6db74">&#34;\\.vue$&#34;</span> <span style="color:#e6db74">&#34;template.vue&#34;</span>)
+</code></pre></div><h2 id="パッケージのインストール">パッケージのインストール</h2>
+<p>ここでは Vue.js 開発に使っている関連パッケージを入れている。</p>
+<h3 id="vue-mode">vue-mode</h3>
+<p><a href="https://github.com/AdamNiederer/vue-mode">vue-mode</a> は <a href="https://github.com/purcell/mmm-mode">mmm-mode</a> をベースにして作られた Vue.js の単一ファイルコンポーネント用のモード。
+mmm-mode ベースなので
+template, script, css 部分でそれぞれ別のメジャーモードが動くようになっている。</p>
+<h4 id="インストール">インストール</h4>
+<p>いつも透り el-get で入れている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle vue-mode)
+</code></pre></div><h4 id="備考">備考</h4>
+<p>あまり更新は活発でなく微妙な挙動もあるので
+mmm-mode に乗り換えたり web-mode を使うようにしている人も多い様子。</p>
+<p>自分もそういった乗り換えを検討した方がいいかもと思いつつ最近あまり Vue.js 触ってないから、まあいいかという気持ちもある。</p>
+<p>なお vue-mode では JS 部分は js2-mode は使えないはず。
+mmm-mode の方が何かの制限で使えないという話だったはずなので。
+<a href="https://github.com/mooz/js2-mode/issues/124">https://github.com/mooz/js2-mode/issues/124</a></p>
+<h3 id="pug-mode">pug-mode</h3>
+<p><a href="https://github.com/hlissner/emacs-pug-mode">pug-mode</a> は <a href="https://pugjs.org/api/getting-started.html">pug</a> というテンプレートエンジンを使って記述するためのモード。
+Vue.js でテンプレートエンジンに pug を利用することが多いので入れている。麦汁さんは HTML をそのまま書くようなことは好きじゃないのです。</p>
+<h4 id="インストール">インストール</h4>
+<p>いつも透り el-get で入れている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle hlissner/emacs-pug-mode)
+</code></pre></div><h2 id="hooks">hooks</h2>
+<p>css-mode と vue-mode だけは hook を定義している。
+pug-mode や js-mode についても何か手を入れた方がいいのかもしれない。</p>
+<h3 id="css-mode">css-mode</h3>
+<p>Vue.js では style に scss を指定いちえる場合には css-mode が利用されるようになっているので
+css-mode の hook としている。
+<a href="https://github.com/AdamNiederer/vue-mode/blob/031edd1f97db6e7d8d6c295c0e6d58dd128b9e71/vue-mode.el#L63">https://github.com/AdamNiederer/vue-mode/blob/031edd1f97db6e7d8d6c295c0e6d58dd128b9e71/vue-mode.el#L63</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/css-mode-hook ()
+  (setq-local flycheck-checker <span style="color:#e6db74">&#39;css-stylelint</span>)
+  (rainbow-mode <span style="color:#ae81ff">1</span>))
+
+(add-hook <span style="color:#e6db74">&#39;css-mode-hook</span> <span style="color:#e6db74">&#39;my/css-mode-hook</span>)
+</code></pre></div><p>見ての透り rainbow-mode と flycheck-checker の設定ぐらいしかしてない。
+<a href="/.emacs.d/programming/scss/#scss-mode">scss-mode</a> の方ではもう少し手を入れているので同じようなのをここに反映してもいいかもしれない。</p>
+<p>もしくは設定を統合するという手もあるかも。</p>
+<h3 id="vue-mode">vue-mode</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/vue-mode-hook ()
+  (display-line-numbers-mode <span style="color:#66d9ef">t</span>)
+  (lsp)
+  (flycheck-mode <span style="color:#ae81ff">1</span>))
+
+(add-hook <span style="color:#e6db74">&#39;vue-mode-hook</span> <span style="color:#e6db74">&#39;my/vue-mode-hook</span>)
+</code></pre></div><ul>
+<li>行番号表示</li>
+<li>lsp を有効化</li>
+<li>flyckeck-mode を有効化</li>
+</ul>
+<p>しているだけである。
+lsp-ui とか色々設定の余地はありそうな気がする。</p>
+<h2 id="キーバインド">キーバインド</h2>
+<p>これもろくに設定してないし、ろくに使ってないもいないが、一応設定自体はある。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;major-mode-hydra</span>
+  (major-mode-hydra-define css-mode (:quit-key <span style="color:#e6db74">&#34;q&#34;</span> :title (<span style="color:#a6e22e">concat</span> (all-the-icons-alltheicon <span style="color:#e6db74">&#34;css3&#34;</span>) <span style="color:#e6db74">&#34; CSS&#34;</span>))
+    (<span style="color:#e6db74">&#34;Edit&#34;</span>
+     ((<span style="color:#e6db74">&#34;v&#34;</span> my/replace-var <span style="color:#e6db74">&#34;replace-var&#34;</span>)))))
+</code></pre></div><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v</td>
+<td>リージョンの値で CSS 変数を検索して置き換えるやつ。自作コマンドを利用している</td>
+</tr>
+</tbody>
+</table>
 
 
 <footer class="footline">
@@ -2556,7 +2652,6 @@ GitHub や GitLab などのサービス上での該当ブランチ、該当フ�
             
                 
                     
-                    
                 
                 
 
@@ -2570,8 +2665,21 @@ GitHub や GitLab などのサービス上での該当ブランチ、該当フ�
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
-                        
+            
+            
+                
                     
                 
                 
@@ -2604,26 +2712,6 @@ GitHub や GitLab などのサービス上での該当ブランチ、該当フ�
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -2660,6 +2748,7 @@ GitHub や GitLab などのサービス上での該当ブランチ、該当フ�
             
                 
                     
+                    
                 
                 
 
@@ -2673,21 +2762,8 @@ GitHub や GitLab などのサービス上での該当ブランチ、該当フ�
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
+                        
                     
                 
                 
@@ -2864,6 +2940,26 @@ GitHub や GitLab などのサービス上での該当ブランチ、該当フ�
             
             
                 
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -3112,10 +3208,10 @@ GitHub や GitLab などのサービス上での該当ブランチ、該当フ�
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/nav/avy/" title="avy"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/programming/scss/" title="scss"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/nav/dumb-jump/" title="dumb-jump" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/programming/yaml-mode/" title="yaml-mode" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
