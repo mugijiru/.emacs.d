@@ -81,7 +81,7 @@
 	"title": "プログラミング関係の設定",
 	"tags": [],
 	"description": "",
-	"content": "ここでは各言語やフレームワーク毎の設定をまとめている。 markdown-mode とか yaml-mode なんかはプログラム言語ではないけど面倒なので一旦ここにまとめている。\n emacs-lisp Emacs Lisp を書くための設定 Ember.js Web フロントエンド MVC フレームワークである Ember.js 用の設定を書いている es6 ES2015 以降の JS に関する設定。es6 としているのは過去の経緯のため。 gnuplot-mode グラフ作成ソフト gnuplot を使うための設定 markdown Markdown を書く時の設定 plantuml-mode PlantUML を書く時のメジャーモードの設定 rspec-mode Ruby のテストフレームワーク RSpec を書いたりするのに便利なモード ruby Ruby を書く上での設定 scss SCSS を書く上での設定 yaml-mode YAML を書く時のメジャーモードの設定  "
+	"content": "ここでは各言語やフレームワーク毎の設定をまとめている。 markdown-mode とか yaml-mode なんかはプログラム言語ではないけど面倒なので一旦ここにまとめている。\n emacs-lisp Emacs Lisp を書くための設定 Ember.js Web フロントエンド MVC フレームワークである Ember.js 用の設定を書いている es6 ES2015 以降の JS に関する設定。es6 としているのは過去の経緯のため。 flycheck Flycheck の設定について書いている gnuplot-mode グラフ作成ソフト gnuplot を使うための設定 markdown Markdown を書く時の設定 plantuml-mode PlantUML を書く時のメジャーモードの設定 rspec-mode Ruby のテストフレームワーク RSpec を書いたりするのに便利なモード ruby Ruby を書く上での設定 scss SCSS を書く上での設定 yaml-mode YAML を書く時のメジャーモードの設定  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/external-tool/",
@@ -222,6 +222,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 Emacs は通常最小限の環境変数しか利用しないようになっている。\nが、それだと普段使う上で「ああ、このコマンドが使えなくてもどかしい……!」と感じてしまう。\nそこで exec-path-from-shell というのを使って Emacs が見える PATH 環境変数をシェルが見てる PATH 環境変数と揃うようにしている。\nインストール いつも通り el-get からインストールしている\n(el-get-bundle exec-path-from-shell) 有効化 理由は忘れたが Mac の環境でのみ有効化している。その内 Linux 環境でも有効化を試みた方が良さそう\n(when (memq window-system \u0026#39;(mac ns)) (exec-path-from-shell-initialize)) なお、これでシェルと共通の環境変数が使われるようになるのは デフォルトでは PATH と MANPATH のみである\nその他 なぜか以下のようなコメントを書いていた。普段使っている zsh で持ってる PATH は使わないのだろうか? :thinking_face:\n;; for exec path ;; use .bashrc setted path "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/programming/flycheck/",
+	"title": "flycheck",
+	"tags": [],
+	"description": "",
+	"content": "概要 flycheck はリアルタイムで文法チェックなんかをするのに便利なモード。 flymake よりモダンなやつだったんだけど最近は flymake に戻る人もいるっぽいのでどっちが良いかよくわかってない\nインストール flycheck と同時にカーソルのそばに pos-tip で通知内容を表示してくれる flycheck-pos-tip をインストールしている\n(el-get-bundle flycheck) (el-get-bundle flycheck-pos-tip) 設定 flycheck を読んだ後で flycheck-pos-tip-mode が有効になるようにしている。これは公式に書かれているやりかたに則っている https://github.com/flycheck/flycheck-pos-tip#installation\n(with-eval-after-load \u0026#39;flycheck (flycheck-pos-tip-mode)) その他 flycheck-posframe flycheck-pos-tip は flycheck 公式のプラグインなので採用しているけど同じことを posframe でやってくれる flycheck-posframe に置き換えた方が見た目麗しくなりそうな気がしている。\n言語毎の設定 各言語向けの設定もあるけどそれは各言語の設定ファイル内に書いているのでここでは書いてない\nプログラミング関係の設定 \u0026gt; ruby とか プログラミング関係の設定 \u0026gt; scss とかに書いているはず\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/basics/font-config/",

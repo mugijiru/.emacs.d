@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>gnuplot-mode :: 麦汁&#39;s Emacs Config</title>
+    <title>flycheck :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1625365727" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/programming/gnuplot-mode/">
+  <body class="" data-url="/.emacs.d/programming/flycheck/">
     <nav id="sidebar" class="">
 
 
@@ -1212,7 +1212,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/programming/flycheck/" title="flycheck" class="dd-item ">
+      <li data-nav-id="/.emacs.d/programming/flycheck/" title="flycheck" class="dd-item active">
         <a href="/.emacs.d/programming/flycheck/">
         flycheck
         
@@ -1233,7 +1233,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/programming/gnuplot-mode/" title="gnuplot-mode" class="dd-item active">
+      <li data-nav-id="/.emacs.d/programming/gnuplot-mode/" title="gnuplot-mode" class="dd-item ">
         <a href="/.emacs.d/programming/gnuplot-mode/">
         gnuplot-mode
         
@@ -1779,7 +1779,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/programming/'>プログラミング関係の設定</a> > gnuplot-mode
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/programming/'>プログラミング関係の設定</a> > flycheck
           
         
           
@@ -1794,9 +1794,13 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#概要">概要</a></li>
-    <li><a href="#インストール">インストール</a></li>
-    <li><a href="#その他">その他</a></li>
+    <li><a href="#概要">概要</a>
+      <ul>
+        <li><a href="#インストール">インストール</a></li>
+        <li><a href="#設定">設定</a></li>
+        <li><a href="#その他">その他</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -1814,7 +1818,7 @@
           
             <h1>
               
-              gnuplot-mode
+              flycheck
             </h1>
           
 
@@ -1822,14 +1826,23 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/emacsorphanage/gnuplot">gnuplot-mode</a> はグラフ作成ソフトである <a href="http://www.gnuplot.info/">gnuplot</a> を Emacs で使うためのパッケージ。
-Syntax Highlight や 補完機能 などを提供する。</p>
-<p>まあほとんど使ってないんだけど。</p>
-<h2 id="インストール">インストール</h2>
-<p>いつも通り el-get で入れている</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle gnuplot-mode)
-</code></pre></div><h2 id="その他">その他</h2>
-<p>org-mode から使ってた記憶があるのでそっちの方で何か設定があるかもしれない</p>
+<p><a href="https://www.flycheck.org/en/latest/">flycheck</a> はリアルタイムで文法チェックなんかをするのに便利なモード。
+flymake よりモダンなやつだったんだけど最近は flymake に戻る人もいるっぽいのでどっちが良いかよくわかってない</p>
+<h3 id="インストール">インストール</h3>
+<p>flycheck と同時にカーソルのそばに pos-tip で通知内容を表示してくれる <a href="https://github.com/flycheck/flycheck-pos-tip">flycheck-pos-tip</a> をインストールしている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle flycheck)
+(el-get-bundle flycheck-pos-tip)
+</code></pre></div><h3 id="設定">設定</h3>
+<p>flycheck を読んだ後で flycheck-pos-tip-mode が有効になるようにしている。これは公式に書かれているやりかたに則っている
+<a href="https://github.com/flycheck/flycheck-pos-tip#installation">https://github.com/flycheck/flycheck-pos-tip#installation</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;flycheck</span>
+  (flycheck-pos-tip-mode))
+</code></pre></div><h3 id="その他">その他</h3>
+<h4 id="flycheck-posframe">flycheck-posframe</h4>
+<p>flycheck-pos-tip は flycheck 公式のプラグインなので採用しているけど同じことを posframe でやってくれる <a href="https://github.com/alexmurray/flycheck-posframe">flycheck-posframe</a> に置き換えた方が見た目麗しくなりそうな気がしている。</p>
+<h4 id="言語毎の設定">言語毎の設定</h4>
+<p>各言語向けの設定もあるけどそれは各言語の設定ファイル内に書いているのでここでは書いてない</p>
+<p><a href="/.emacs.d/programming/ruby/">プログラミング関係の設定 &gt; ruby</a> とか <a href="/.emacs.d/programming/scss/">プログラミング関係の設定 &gt; scss</a> とかに書いているはず</p>
 
 
 <footer class="footline">
@@ -2671,22 +2684,6 @@ Syntax Highlight や 補完機能 などを提供する。</p>
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -2706,6 +2703,22 @@ Syntax Highlight や 補完機能 などを提供する。</p>
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -3034,10 +3047,10 @@ Syntax Highlight や 補完機能 などを提供する。</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/programming/flycheck/" title="flycheck"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/programming/es6/" title="es6"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/programming/markdown/" title="markdown" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/programming/gnuplot-mode/" title="gnuplot-mode" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

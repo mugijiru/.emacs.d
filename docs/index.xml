@@ -310,6 +310,20 @@ Lambda で一括でやる方法もあるけども、関数名つけて分離し�
     </item>
     
     <item>
+      <title>flycheck</title>
+      <link>https://mugijiru.github.io/.emacs.d/programming/flycheck/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/programming/flycheck/</guid>
+      <description>概要 flycheck はリアルタイムで文法チェックなんかをするのに便利なモード。 flymake よりモダンなやつだったんだけど最近は flymake に戻る人もいるっぽいのでどっちが良いかよくわかってない
+インストール flycheck と同時にカーソルのそばに pos-tip で通知内容を表示してくれる flycheck-pos-tip をインストールしている
+(el-get-bundle flycheck) (el-get-bundle flycheck-pos-tip) 設定 flycheck を読んだ後で flycheck-pos-tip-mode が有効になるようにしている。これは公式に書かれているやりかたに則っている https://github.com/flycheck/flycheck-pos-tip#installation
+(with-eval-after-load &amp;#39;flycheck (flycheck-pos-tip-mode)) その他 flycheck-posframe flycheck-pos-tip は flycheck 公式のプラグインなので採用しているけど同じことを posframe でやってくれる flycheck-posframe に置き換えた方が見た目麗しくなりそうな気がしている。
+言語毎の設定 各言語向けの設定もあるけどそれは各言語の設定ファイル内に書いているのでここでは書いてない
+プログラミング関係の設定 &amp;gt; ruby とか プログラミング関係の設定 &amp;gt; scss とかに書いているはず</description>
+    </item>
+    
+    <item>
       <title>font-config</title>
       <link>https://mugijiru.github.io/.emacs.d/basics/font-config/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
