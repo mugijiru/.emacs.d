@@ -2214,6 +2214,7 @@
    - [[*plantuml-mode][plantuml-mode]] :: PlantUML を書く時のメジャーモードの設定
    - [[*rspec-mode][rspec-mode]] :: Ruby のテストフレームワーク RSpec を書いたりするのに便利なモード
    - [[*ruby][ruby]] :: Ruby を書く上での設定
+   - [[*scss][scss]] :: SCSS を書く上での設定
    - [[*yaml-mode][yaml-mode]] :: YAML を書く時のメジャーモードの設定
 
 ** emacs-lisp
