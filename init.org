@@ -2213,6 +2213,7 @@
    - [[*gnuplot-mode][gnuplot-mode]] :: グラフ作成ソフト gnuplot を使うための設定
    - [[*markdown][markdown]] :: Markdown を書く時の設定
    - [[*plantuml-mode][plantuml-mode]] :: PlantUML を書く時のメジャーモードの設定
+   - [[*rails][rails]] :: Rails 開発をする上での設定
    - [[*rspec-mode][rspec-mode]] :: Ruby のテストフレームワーク RSpec を書いたりするのに便利なモード
    - [[*ruby][ruby]] :: Ruby を書く上での設定
    - [[*scss][scss]] :: SCSS を書く上での設定
@@ -2527,6 +2528,173 @@
 *** その他
     最新の develop ブランチだとインデントを調整できる機能が入っているので乗り換えたいけど
     そのためには el-get のレシピを書いてあげる必要がありそうで放置している。
+
+** rails
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: rails
+   :END:
+*** 概要
+    Rails 開発関係だけど Ruby 開発とはちょっと違う設定をここに書いている。
+*** 関連パッケージのインストール
+    テンプレートエンジンには haml を使っているので [[https://github.com/nex3/haml-mode][haml-mode]] を入れていて
+    ファイルナビゲーションには [[*projectile][projectile]] の拡張である [[https://github.com/asok/projectile-rails][projectile-rails]] を利用している。
+
+    #+begin_src emacs-lisp :tangle inits/41-rails.el
+    (el-get-bundle haml-mode)
+    (el-get-bundle projectile-rails)
+    (projectile-rails-global-mode 1)
+    #+end_src
+
+*** projectile-rails 用のコマンド追加
+    自身のプロジェクトだと少しナビゲーション用のコマンドが不足していたので
+    projectile-rails の実装を参考にコマンドを追加している
+
+**** Uploader Finder
+     ~app/uploaders~ に格納している upload に関連するファイルを検索するコマンド
+
+     #+begin_src emacs-lisp :tangle inits/41-rails.el
+     (defun my/projectile-rails-find-uploader ()
+       "Find a Uploader."
+       (interactive)
+       (projectile-rails-find-resource
+        "uploader: "
+        '(("app/uploaders/" "\\(.+\\)\\.rb$"))
+        "app/uploaders/${filename}.rb"))
+     #+end_src
+
+**** Admin Finder
+     Active Admin 用のファイルを検索するためのコマンド
+     #+begin_src emacs-lisp :tangle inits/41-rails.el
+     (defun my/projectile-rails-find-admin ()
+       "Find a ActiveAdmin file."
+       (interactive)
+       (projectile-rails-find-resource
+        "admin: "
+        '(("app/admin/" "\\(.+\\)\\.rb$"))
+        "app/admin/${filename}.rb"))
+     #+end_src
+
+**** Form Object Finder
+     Form Object を探すためのコマンド
+     #+begin_src emacs-lisp :tangle inits/41-rails.el
+     (defun my/projectile-rails-find-form-object ()
+       "Find a Form Object."
+       (interactive)
+       (projectile-rails-find-resource
+        "form object: "
+        '(("app/models/forms/" "\\(.+\\)\\.rb$"))
+        "app/models/forms/${filename}.rb"))
+     #+end_src
+
+**** Vue Finder
+     Vue.js の単一ファイルコンポーネントを探すためのコマンド
+     #+begin_src emacs-lisp :tangle inits/41-rails.el
+     (defun my/projectile-rails-find-vue ()
+       "Find a Vue."
+       (interactive)
+       (projectile-rails-find-resource
+        "vue: "
+        '(("app/javascript/" "\\(.+\\)\\.vue$"))
+        "app/javascript/${filename}.vue"))
+     #+end_src
+
+**** Webpacker 管理の JS 検索コマンド
+     Webpacker で JS を管理していたりもするので必要だった
+
+     #+begin_src emacs-lisp :tangle inits/41-rails.el
+     (defun my/projectile-rails-find-webpack-js ()
+       "Find a Webpack js."
+       (interactive)
+       (projectile-rails-find-resource
+        "webpack js: "
+        '(("app/javascript/" "\\(.+\\)\\.js$"))
+        "app/javascript/${filename}.js"))
+     #+end_src
+
+*** キーバインド
+    もちろん基本的にコマンドなんて覚えられないので
+    いつも通り Hydra を定義して大体キーバインドは忘れている。
+
+    なおこの Hydra は Rails のファイルを開いている時には ~C-c r~ で起動するようにしている。
+    これは通常のセットアップで prefix としてこう設定するといいよ、みたいに書かれているのを流用している。
+    https://github.com/asok/projectile-rails#keymap-prefix
+
+    #+begin_src emacs-lisp :tangle inits/41-rails.el
+    (with-eval-after-load 'pretty-hydra
+      (pretty-hydra-define pretty-hydra-projectile-rails-find (:separator "-" :color blue :foreign-keys warn :title "Projectile Rails" :quit-key "q")
+        ("Current"
+         (("M" projectile-rails-find-current-model      "Current model")
+          ("V" projectile-rails-find-current-view       "Current view")
+          ("C" projectile-rails-find-current-controller "Current controller")
+          ("H" projectile-rails-find-current-helper     "Current helper")
+          ("P" projectile-rails-find-current-spec       "Current spec")
+          ("Z" projectile-rails-find-current-serializer "Current serializer"))
+
+         "App"
+         (("m" projectile-rails-find-model           "Model")
+          ("v" projectile-rails-find-view            "View")
+          ("c" projectile-rails-find-controller      "Controller")
+          ("h" projectile-rails-find-helper          "Helper")
+          ("a" my/projectile-rails-find-admin        "ActiveAdmin")
+          ("f" my/projectile-rails-find-form-object  "Form object")
+          ("@" projectile-rails-find-mailer          "Mailer")
+          ("V" my/projectile-rails-find-vue          "Vue")
+          ("J" my/projectile-rails-find-webpack-js   "Webpack js")
+          ("u" my/projectile-rails-find-uploader     "Controller")
+          ("!" projectile-rails-find-validator       "Validator")
+          ;; ("y" projectile-rails-find-layout       "Layout")
+          ("z" projectile-rails-find-serializer      "Serializer"))
+
+         "Assets"
+         (("j" projectile-rails-find-javascript  "Javascript")
+          ;; ("w" projectile-rails-find-component)
+          ("s" projectile-rails-find-stylesheet  "CSS"))
+
+         "Other"
+         (("n" projectile-rails-find-migration    "Migration")
+          ("r" projectile-rails-find-rake-task    "Rake task")
+          ("i" projectile-rails-find-initializer  "Initializer")
+          ("l" projectile-rails-find-lib          "Lib")
+          ("p" projectile-rails-find-spec         "Spec")
+          ("t" projectile-rails-find-locale       "Translation"))
+
+         "Single Files"
+         (("R" projectile-rails-goto-routes   "routes.rb")
+          ("G" projectile-rails-goto-gemfile  "Gemfile")
+          ("D" projectile-rails-goto-schema   "schema.rb"))))
+      (define-key projectile-rails-mode-map (kbd "C-c r") 'pretty-hydra-projectile-rails-find/body))
+    #+end_src
+
+    | Key | 効果                                               | 備考                                                      |
+    | M   | 現在のファイルに関連する Model を開く              |                                                           |
+    | V   | 現在のファイルに関連する View を開く               | キーが Vue ファイル検索とかぶってしまっていて現在使えない |
+    | C   | 現在のファイルに関連する Controller を開く         |                                                           |
+    | H   | 現在のファイルに関連する Helper を開く             |                                                           |
+    | P   | 現在のファイルに関連する Spec を開く               |                                                           |
+    | Z   | 現在のファイルに関連する Serializer を開く         | [[https://github.com/rails-api/active_model_serializers][ActiveModelSerializer]] を使ってるプロジェクトがある        |
+    | m   | Model ファイルを検索する                           |                                                           |
+    | v   | View ファイルを検索する                            |                                                           |
+    | c   | Controller ファイルを検索する                      |                                                           |
+    | h   | Helper ファイルを検索する                          |                                                           |
+    | a   | ActiveAdmin のファイルを検索する                   |                                                           |
+    | f   | Form Object ファイルを検索する                     |                                                           |
+    | @   | ActionMailer ファイルを検索する                    |                                                           |
+    | V   | Vue の単一ファイルコンポーネントファイルを検索する |                                                           |
+    | J   | Webpacker 管理の JS ファイルを検索する             |                                                           |
+    | u   | Uploader ファイルを検索する                        |                                                           |
+    | !   | Validator ファイルを検索する                       |                                                           |
+    | z   | Serializer ファイルを検索する                      |                                                           |
+    | j   | assets 配架の JS ファイルを検索する                |                                                           |
+    | s   | SCSS ファイルを検索する                            |                                                           |
+    | n   | migration ファイルを検索する                       |                                                           |
+    | r   | rake ファイルを検索する                            |                                                           |
+    | i   | config/initializers 以下のファイルを検索する       |                                                           |
+    | l   | lib 以下のファイルを検索する                       |                                                           |
+    | p   | rspec ファイルを検索する                           |                                                           |
+    | t   | I18n の翻訳ファイルを検索する                      |                                                           |
+    | R   | routes.rb を開く                                   |                                                           |
+    | G   | Gemfile を開く                                     |                                                           |
+    | D   | Schema.rb を開く                                   |                                                           |
 
 ** rspec-mode
    :PROPERTIES:
@@ -3521,98 +3689,6 @@
            (t
             (hl-line-mode 1)
             (view-mode 1))))
-   #+end_src
-
-** 41-rails.el
-
-   #+begin_src emacs-lisp :tangle inits/41-rails.el
-   (el-get-bundle haml-mode)
-   (el-get-bundle projectile-rails)
-   (projectile-rails-global-mode 1)
-
-   (defun my/projectile-rails-find-uploader ()
-     "Find a Uploader."
-     (interactive)
-     (projectile-rails-find-resource
-      "uploader: "
-      '(("app/uploaders/" "\\(.+\\)\\.rb$"))
-      "app/uploaders/${filename}.rb"))
-
-   (defun my/projectile-rails-find-admin ()
-     "Find a ActiveAdmin file."
-     (interactive)
-     (projectile-rails-find-resource
-      "admin: "
-      '(("app/admin/" "\\(.+\\)\\.rb$"))
-      "app/admin/${filename}.rb"))
-
-   (defun my/projectile-rails-find-form-object ()
-     "Find a Form Object."
-     (interactive)
-     (projectile-rails-find-resource
-      "form object: "
-      '(("app/models/forms/" "\\(.+\\)\\.rb$"))
-      "app/models/forms/${filename}.rb"))
-
-   (defun my/projectile-rails-find-vue ()
-     "Find a Vue."
-     (interactive)
-     (projectile-rails-find-resource
-      "vue: "
-      '(("app/javascript/" "\\(.+\\)\\.vue$"))
-      "app/javascript/${filename}.vue"))
-
-   (defun my/projectile-rails-find-webpack-js ()
-     "Find a Webpack js."
-     (interactive)
-     (projectile-rails-find-resource
-      "webpack js: "
-      '(("app/javascript/" "\\(.+\\)\\.js$"))
-      "app/javascript/${filename}.js"))
-
-   (with-eval-after-load 'pretty-hydra
-     (pretty-hydra-define pretty-hydra-projectile-rails-find (:separator "-" :color blue :foreign-keys warn :title "Projectile Rails" :quit-key "q")
-       ("Current"
-        (("M" projectile-rails-find-current-model      "Current model")
-         ("V" projectile-rails-find-current-view       "Current view")
-         ("C" projectile-rails-find-current-controller "Current controller")
-         ("H" projectile-rails-find-current-helper     "Current helper")
-         ("P" projectile-rails-find-current-spec       "Current spec")
-         ("Z" projectile-rails-find-current-serializer "Current serializer"))
-
-        "App"
-        (("m" projectile-rails-find-model           "Model")
-         ("v" projectile-rails-find-view            "View")
-         ("c" projectile-rails-find-controller      "Controller")
-         ("h" projectile-rails-find-helper          "Helper")
-         ("a" my/projectile-rails-find-admin        "ActiveAdmin")
-         ("f" my/projectile-rails-find-form-object  "Form object")
-         ("@" projectile-rails-find-mailer          "Mailer")
-         ("V" my/projectile-rails-find-vue          "Vue")
-         ("J" my/projectile-rails-find-webpack-js   "Webpack js")
-         ("u" my/projectile-rails-find-uploader     "Controller")
-         ("!" projectile-rails-find-validator       "Validator")
-         ;; ("y" projectile-rails-find-layout       "Layout")
-         ("z" projectile-rails-find-serializer      "Serializer"))
-
-        "Assets"
-        (("j" projectile-rails-find-javascript  "Javascript")
-         ;; ("w" projectile-rails-find-component)
-         ("s" projectile-rails-find-stylesheet  "CSS"))
-
-        "Other"
-        (("n" projectile-rails-find-migration    "Migration")
-         ("r" projectile-rails-find-rake-task    "Rake task")
-         ("i" projectile-rails-find-initializer  "Initializer")
-         ("l" projectile-rails-find-lib          "Lib")
-         ("p" projectile-rails-find-spec         "Spec")
-         ("t" projectile-rails-find-locale       "Translation"))
-
-        "Single Files"
-        (("R" projectile-rails-goto-routes   "routes.rb")
-         ("G" projectile-rails-goto-gemfile  "Gemfile")
-         ("D" projectile-rails-goto-schema   "schema.rb"))))
-     (define-key projectile-rails-mode-map (kbd "C-c r") 'pretty-hydra-projectile-rails-find/body))
    #+end_src
 
 ** 41-vue.el
