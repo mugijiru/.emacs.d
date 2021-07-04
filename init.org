@@ -2423,6 +2423,37 @@
      Node.js と連携してステップ実行とかができるようになるらしい。
      便利そう。
 
+** flycheck
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: flycheck
+   :END:
+
+*** 概要
+    [[https://www.flycheck.org/en/latest/][flycheck]] はリアルタイムで文法チェックなんかをするのに便利なモード。
+    flymake よりモダンなやつだったんだけど最近は flymake に戻る人もいるっぽいので
+    どっちが良いかよくわかってない
+
+**** インストール
+     flycheck と同時に
+     カーソルのそばに pos-tip で通知内容を表示してくれる [[https://github.com/flycheck/flycheck-pos-tip][flycheck-pos-tip]] をインストールしている
+
+     #+begin_src emacs-lisp :tangle inits/30-flycheck.el
+     (el-get-bundle flycheck)
+     (el-get-bundle flycheck-pos-tip)
+     #+end_src
+
+**** 設定
+     flycheck を読んだ後で flycheck-pos-tip-mode が有効になるようにしている。
+     これは公式に書かれているやりかたに則っている
+     https://github.com/flycheck/flycheck-pos-tip#installation
+
+     #+begin_src emacs-lisp :tangle inits/30-flycheck.el
+     (with-eval-after-load 'flycheck
+       (flycheck-pos-tip-mode))
+     #+end_src
+**** その他
+     flycheck-pos-tip は flycheck 公式のプラグインなので採用しているけど
+     [[https://github.com/alexmurray/flycheck-posframe][flycheck-posframe]] に置き換えた方が見た目麗しくなりそうな気がしている。
 ** gnuplot-mode
    :PROPERTIES:
    :EXPORT_FILE_NAME: gnuplot-mode
@@ -3355,16 +3386,6 @@
    (el-get-bundle lsp-ui)
    (add-hook 'lsp-mode-hook 'lsp-ui-mode)
    (setq lsp-ui-doc-alignment 'window)
-   #+end_src
-
-** 30-flycheck.el
-
-   #+begin_src emacs-lisp :tangle inits/30-flycheck.el
-   (el-get-bundle flycheck)
-   (el-get-bundle flycheck-pos-tip)
-
-   (with-eval-after-load 'flycheck
-     (flycheck-pos-tip-mode))
    #+end_src
 
 ** 30-notify-slack.el
