@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>helm :: 麦汁&#39;s Emacs Config</title>
+    <title>notify-slack :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1625614399" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/ui/helm/">
+  <body class="" data-url="/.emacs.d/external-tool/notify-slack/">
     <nav id="sidebar" class="">
 
 
@@ -593,7 +593,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        parent
+        
         
         
         ">
@@ -703,7 +703,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/helm/" title="helm" class="dd-item active">
+      <li data-nav-id="/.emacs.d/ui/helm/" title="helm" class="dd-item ">
         <a href="/.emacs.d/ui/helm/">
         helm
         
@@ -1430,7 +1430,7 @@
   
     
     <li data-nav-id="/.emacs.d/external-tool/" title="外部連携ツール設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -1561,7 +1561,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/external-tool/notify-slack/" title="notify-slack" class="dd-item ">
+      <li data-nav-id="/.emacs.d/external-tool/notify-slack/" title="notify-slack" class="dd-item active">
         <a href="/.emacs.d/external-tool/notify-slack/">
         notify-slack
         
@@ -1842,7 +1842,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > helm
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/external-tool/'>外部連携ツール設定</a> > notify-slack
           
         
           
@@ -1858,9 +1858,14 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#インストール">インストール</a></li>
-    <li><a href="#設定">設定</a></li>
-    <li><a href="#その他">その他</a></li>
+    <li><a href="#実装">実装</a>
+      <ul>
+        <li><a href="#送信するコマンド">送信するコマンド</a></li>
+        <li><a href="#slack-連携を-toggle-するコマンド">Slack 連携を Toggle するコマンド</a></li>
+        <li><a href="#分報チャンネル投稿関数">分報チャンネル投稿関数</a></li>
+        <li><a href="#設定">設定</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -1878,7 +1883,7 @@
           
             <h1>
               
-              helm
+              notify-slack
             </h1>
           
 
@@ -1886,30 +1891,40 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/emacs-helm/helm">helm</a> は anything.el の後継であり、インクリメンタルに候補の絞り込みをしたりする UI を提供する便利なパッケージ。</p>
-<p><a href="https://github.com/peco/peco">peco</a> とか <a href="https://github.com/junegunn/fzf">fzf</a> とかと似ているっちゃ似ているかな? fzf 使ったことないけど。</p>
-<p>一時期開発が止まってるようだったけど最近(2021年)はまた更新が活発になっている。</p>
-<p>ただ、麦汁さんは ivy に乗り換えようとしているので helm の設定は頑張っていない。
-helm-for-files が便利なのでまだ捨てられてないけど……。</p>
-<h2 id="インストール">インストール</h2>
-<p>helm で使いたい拡張として
-<a href="https://github.com/emacs-helm/helm-descbinds">helm-descbinds</a> と <a href="https://github.com/emacsorphanage/helm-ag">helm-ag</a> というのがあるのでそれらも同時に入れている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle helm)
-(el-get-bundle helm-descbinds)
-(el-get-bundle helm-ag)
-</code></pre></div><p>ただ descbinds は counsel-descbinds に置き換えたし
-helm-ag ももう使ってない気がする</p>
-<h2 id="設定">設定</h2>
-<p>オススメの設定が helm に同梱されている helm-config に入ってるのでまずはそれを読み込んでいる。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(require <span style="color:#e6db74">&#39;helm-config</span>)
-</code></pre></div><p>また helm-descbinds を使えるように有効にしている。けど、上にも書いたけどもう counsel-descbinds に置き換えちゃったのよね……。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(helm-descbinds-mode)
-</code></pre></div><p>あとは helm-migemo-mode というのを有効にしている。これがあると helm で検索する時に migemo れて便利。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(helm-migemo-mode <span style="color:#ae81ff">1</span>)
-</code></pre></div><p>ivy の方でも migemo 対応したいけどまだできてない……。</p>
-<h2 id="その他">その他</h2>
-<p>helm 系の設定は他の設定にも色々影響も大きそうなので読み込み順は結構早いタイミングにしている(init-loader で 20 を prefix にしている)</p>
-
+<p>Emacs から Slack に通知するための自作関数。実体は同じく自作の外部コマンドを叩いているだけである。</p>
+<p>何に使ってるかというと
+org-clock-in, org-clock-out の時に作業の開始と終了を分報チャンネルに投稿しているだけである。作業の可視化である。</p>
+<h2 id="実装">実装</h2>
+<h3 id="送信するコマンド">送信するコマンド</h3>
+<p>start-process を使って外部コマンドを叩いている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/notify-slack (channel text)
+  (if my/notify-slack-enable-p
+      (<span style="color:#a6e22e">start-process</span> <span style="color:#e6db74">&#34;my/org-clock-slack-notifier&#34;</span> <span style="color:#e6db74">&#34;*my/org-clock-slack-notifier*&#34;</span> <span style="color:#e6db74">&#34;my-slack-notifier&#34;</span> channel text)))
+</code></pre></div><p><code>my/notify-slack-enable-p</code> という変数が nil だと大分コマンドが実行されないようになっている。</p>
+<h3 id="slack-連携を-toggle-するコマンド">Slack 連携を Toggle するコマンド</h3>
+<p>連携したい時としたくない時があるので送信したりしなかったりを切り替えられるコマンドを用意している。</p>
+<p>中身は何をしているかというと上に書いた <code>my/notify-slack-enable-p</code> という変数を切り替えているだけ。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/notify-slack-toggle ()
+  (interactive)
+  (if my/notify-slack-enable-p
+      (setq my/notify-slack-enable-p <span style="color:#66d9ef">nil</span>)
+    (setq my/notify-slack-enable-p <span style="color:#66d9ef">t</span>)))
+</code></pre></div><h3 id="分報チャンネル投稿関数">分報チャンネル投稿関数</h3>
+<p>「分報チャンネル投稿関数」としているけどデフォルト投稿先に投稿するための関数というような扱いの関数。</p>
+<p>単純に前出の <code>my/notify-slack</code> 関数の第一引数に <code>my/notify-slack-times-channel</code> という変数を設定してそのチャンネルに向けて投稿するだけ。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/notify-slack-times (text)
+  (my/notify-slack my/notify-slack-times-channel text))
+</code></pre></div><h3 id="設定">設定</h3>
+<p>あまり見せたくない設定ファイルを別ファイルに分離しているのでそれを読み出している。</p>
+<p>内部では <code>my/notify-slack-times-channel</code> という変数を設定しているだけじゃないだろうか。職場の Slack のチャンネルを指定しているので隠したいという意図があった。</p>
+<p>そのうち .authinfo.gpg に移動しようと思ってる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(my/load-config <span style="color:#e6db74">&#34;my-notify-slack-config&#34;</span>)
+</code></pre></div><p>ちなみに <a href="/.emacs.d/basics/load-path/#my-load-config">my/load-config</a> はこの手の設定ファイルを読み出すために使っている自作関数である。
+load と同じように使えば大体 OK。むしろ load の引数ちゃんと使えばこの関数要らない説まである。</p>
+<p>そして起動直後は連携を ON にしたいので
+<code>my/notify-slack-enable-p</code> を ON にしている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq my/notify-slack-enable-p <span style="color:#66d9ef">t</span>)
+</code></pre></div>
 
 <footer class="footline">
 	
@@ -2301,7 +2316,6 @@ helm-ag ももう使ってない気がする</p>
             
                 
                     
-                    
                 
                 
 
@@ -2314,9 +2328,6 @@ helm-ag ももう使ってない気がする</p>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -2382,7 +2393,6 @@ helm-ag ももう使ってない気がする</p>
             
                 
                     
-                    
                 
                 
 
@@ -2398,9 +2408,6 @@ helm-ag ももう使ってない気がする</p>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -2917,6 +2924,7 @@ helm-ag ももう使ってない気がする</p>
             
                 
                     
+                    
                 
                 
 
@@ -2929,6 +2937,9 @@ helm-ag ももう使ってない気がする</p>
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3010,6 +3021,7 @@ helm-ag ももう使ってない気がする</p>
             
                 
                     
+                    
                 
                 
 
@@ -3025,6 +3037,9 @@ helm-ag ももう使ってない気がする</p>
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3161,10 +3176,10 @@ helm-ag ももう使ってない気がする</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/ui/git-gutter-fringe/" title="git-gutter-fringe"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/external-tool/magit/" title="magit"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/ui/helm-posframe/" title="helm-posframe" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/external-tool/wakatime-mode/" title="wakatime-mode" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
