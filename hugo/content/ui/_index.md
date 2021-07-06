@@ -14,6 +14,9 @@ disableToc = true
 [all-the-icons]({{< relref "all-the-icons" >}})
 : Emacs で様々なアイコンを表示できるようにするやつ
 
+[frame-cmds]({{< relref "frame-cmds" >}})
+: フレーム移動や拡縮などの操作をするコマンド群
+
 [fullscreen]({{< relref "fullscreen" >}})
 : 起動時のフルスクリーン設定
 
