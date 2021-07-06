@@ -23,5 +23,8 @@ disableToc = true
 [magit]({{< relref "magit" >}})
 : Emacs 上で Git の操作をするのにとても便利なパッケージ
 
+[notify-slack]({{< relref "notify-slack" >}})
+: Emacs から外部コマンドを通じて Slack に通知するための関数周りの事を書いている
+
 [wakatime-mode]({{< relref "wakatime-mode" >}})
 : Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ
