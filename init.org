@@ -968,6 +968,7 @@
 
    - [[*alert][alert]] :: 共通インターフェースで色々な通知機能と連携して通知するやつ
    - [[*all-the-icons][all-the-icons]] :: Emacs で様々なアイコンを表示できるようにするやつ
+   - [[*frame-cmds][frame-cmds]] :: フレーム移動や拡縮などの操作をするコマンド群
    - [[*fullscreen][fullscreen]] :: 起動時のフルスクリーン設定
    - [[*git-gutter-fringe][git-gutter-fringe]] :: 最後のコミットからどう弄ったかを fringe 領域に表示してくれるやつ
    - [[*helm][helm]] :: 絞り込みインターフェースを提供するやつ
@@ -1077,6 +1078,49 @@
     |-----+----------------------------------------------------|
 
     フォントのインストールコマンドもここに収めてしまうのが良さそうな気がする
+
+** frame-cmds
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: frame-cmds
+   :END:
+*** 概要
+    [[https://www.emacswiki.org/emacs/frame-cmds.el][frame-cmds]] は Emacs のフレーム操作に関するコマンド集。
+    上下左右に移動したり広げたりといったことができる。
+    いや、他にもできそうなんだけど、私がそれを把握してない。
+
+*** インストール
+    el-get で以下のように書くと emacswiki からインストールされる。
+
+    #+begin_src emacs-lisp :tangle inits/80-frame-cmds.el
+    (el-get-bundle frame-cmds)
+    #+end_src
+*** キーバインド
+    無論キーバインドは覚えられないので以下のように Hydra で定義している
+
+    #+begin_src emacs-lisp :tangle inits/80-frame-cmds.el
+    (pretty-hydra-define window-control-hydra (:separator "-" :title "Window Control" :exit nil :quit-key "q")
+      ("Move"
+       (("h" move-frame-left  "Left")
+        ("j" move-frame-down  "Down")
+        ("k" move-frame-up    "Up")
+        ("l" move-frame-right "Right"))
+
+       "Resize"
+       (("H" shrink-frame-horizontally "H-")
+        ("J" enlarge-frame "V+")
+        ("K" shrink-frame "V-")
+        ("L" enlarge-frame-horizontally "H+"))))
+    #+end_src
+
+    | Key | 効果             |
+    | h   | 左に移動         |
+    | j   | 下に移動         |
+    | k   | 上に移動         |
+    | l   | 右いん移動       |
+    | H   | 左右方向に縮める |
+    | J   | 上下方向に広げる |
+    | K   | 上下方向に縮める |
+    | L   | 左右方向に広げる |
 
 ** fullscreen
    :PROPERTIES:
@@ -4535,25 +4579,6 @@
    #+begin_src emacs-lisp :tangle inits/80-edit.el
    (setq indent-tabs-mode nil) ;; インデントにタブを使わない
    (save-place-mode 1)
-   #+end_src
-
-** 80-frame-cmds.el
-
-   #+begin_src emacs-lisp :tangle inits/80-frame-cmds.el
-   (el-get-bundle frame-cmds)
-
-   (pretty-hydra-define window-control-hydra (:separator "-" :title "Window Control" :exit nil :quit-key "q")
-     ("Move"
-      (("h" move-frame-left  "Left")
-       ("j" move-frame-down  "Down")
-       ("k" move-frame-up    "Up")
-       ("l" move-frame-right "Right"))
-
-      "Resize"
-      (("H" shrink-frame-horizontally "H-")
-       ("J" enlarge-frame "V+")
-       ("K" shrink-frame "V-")
-       ("L" enlarge-frame-horizontally "H+"))))
    #+end_src
 
 ** 80-global-keybinds.el
