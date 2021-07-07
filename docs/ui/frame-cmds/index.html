@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>markdown :: 麦汁&#39;s Emacs Config</title>
+    <title>frame-cmds :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1625616909" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/programming/markdown/">
+  <body class="" data-url="/.emacs.d/ui/frame-cmds/">
     <nav id="sidebar" class="">
 
 
@@ -593,7 +593,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        
+        parent
         
         
         ">
@@ -661,7 +661,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/frame-cmds/" title="frame-cmds" class="dd-item ">
+      <li data-nav-id="/.emacs.d/ui/frame-cmds/" title="frame-cmds" class="dd-item active">
         <a href="/.emacs.d/ui/frame-cmds/">
         frame-cmds
         
@@ -1144,7 +1144,7 @@
   
     
     <li data-nav-id="/.emacs.d/programming/" title="プログラミング関係の設定" class="dd-item
-        parent
+        
         
         
         ">
@@ -1275,7 +1275,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/programming/markdown/" title="markdown" class="dd-item active">
+      <li data-nav-id="/.emacs.d/programming/markdown/" title="markdown" class="dd-item ">
         <a href="/.emacs.d/programming/markdown/">
         markdown
         
@@ -1863,7 +1863,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/programming/'>プログラミング関係の設定</a> > markdown
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > frame-cmds
           
         
           
@@ -1880,6 +1880,7 @@
   <ul>
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
+    <li><a href="#キーバインド">キーバインド</a></li>
   </ul>
 </nav>
     </div>
@@ -1897,7 +1898,7 @@
           
             <h1>
               
-              markdown
+              frame-cmds
             </h1>
           
 
@@ -1905,12 +1906,67 @@
 
 
 <h2 id="概要">概要</h2>
-<p>Markdown を書くための設定。といいつつ markdown-mode を入れてるだけだけども。</p>
-<p>手元でテキストドキュメントを弄るのは org-mode が多いからなあ……</p>
+<p><a href="https://www.emacswiki.org/emacs/frame-cmds.el">frame-cmds</a> は Emacs のフレーム操作に関するコマンド集。上下左右に移動したり広げたりといったことができる。いや、他にもできそうなんだけど、私がそれを把握してない。</p>
 <h2 id="インストール">インストール</h2>
-<p>いつも通り el-get で入れている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle markdown-mode)
-</code></pre></div>
+<p>el-get で以下のように書くと emacswiki からインストールされる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle frame-cmds)
+</code></pre></div><h2 id="キーバインド">キーバインド</h2>
+<p>無論キーバインドは覚えられないので以下のように Hydra で定義している</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(pretty-hydra-define window-control-hydra (:separator <span style="color:#e6db74">&#34;-&#34;</span> :title <span style="color:#e6db74">&#34;Window Control&#34;</span> :exit <span style="color:#66d9ef">nil</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span>)
+  (<span style="color:#e6db74">&#34;Move&#34;</span>
+   ((<span style="color:#e6db74">&#34;h&#34;</span> move-frame-left  <span style="color:#e6db74">&#34;Left&#34;</span>)
+    (<span style="color:#e6db74">&#34;j&#34;</span> move-frame-down  <span style="color:#e6db74">&#34;Down&#34;</span>)
+    (<span style="color:#e6db74">&#34;k&#34;</span> move-frame-up    <span style="color:#e6db74">&#34;Up&#34;</span>)
+    (<span style="color:#e6db74">&#34;l&#34;</span> move-frame-right <span style="color:#e6db74">&#34;Right&#34;</span>))
+
+   <span style="color:#e6db74">&#34;Resize&#34;</span>
+   ((<span style="color:#e6db74">&#34;H&#34;</span> shrink-frame-horizontally <span style="color:#e6db74">&#34;H-&#34;</span>)
+    (<span style="color:#e6db74">&#34;J&#34;</span> enlarge-frame <span style="color:#e6db74">&#34;V+&#34;</span>)
+    (<span style="color:#e6db74">&#34;K&#34;</span> shrink-frame <span style="color:#e6db74">&#34;V-&#34;</span>)
+    (<span style="color:#e6db74">&#34;L&#34;</span> enlarge-frame-horizontally <span style="color:#e6db74">&#34;H+&#34;</span>))))
+</code></pre></div><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>h</td>
+<td>左に移動</td>
+</tr>
+<tr>
+<td>j</td>
+<td>下に移動</td>
+</tr>
+<tr>
+<td>k</td>
+<td>上に移動</td>
+</tr>
+<tr>
+<td>l</td>
+<td>右いん移動</td>
+</tr>
+<tr>
+<td>H</td>
+<td>左右方向に縮める</td>
+</tr>
+<tr>
+<td>J</td>
+<td>上下方向に広げる</td>
+</tr>
+<tr>
+<td>K</td>
+<td>上下方向に縮める</td>
+</tr>
+<tr>
+<td>L</td>
+<td>左右方向に広げる</td>
+</tr>
+</tbody>
+</table>
+
 
 <footer class="footline">
 	
@@ -2302,6 +2358,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -2314,6 +2371,61 @@
             
             
                 
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -2550,54 +2662,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -2702,7 +2766,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -2715,9 +2778,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -2799,7 +2859,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -2815,9 +2874,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -3178,10 +3234,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/programming/gnuplot-mode/" title="gnuplot-mode"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/ui/all-the-icons/" title="all-the-icons"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/programming/plantuml-mode/" title="plantuml-mode" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/ui/fullscreen/" title="fullscreen" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
