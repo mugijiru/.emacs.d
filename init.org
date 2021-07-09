@@ -3474,6 +3474,173 @@
     #+end_src
 
     みたいにして API キーが取れている時だけ有効にするとかね。
+* org-mode
+  :PROPERTIES:
+  :EXPORT_HUGO_SECTION: org-mode
+  :END:
+** org-mode
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: _index
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>9. </b>" :weight 9 :disableToc true
+   :END:
+
+   1. [[*1. 基本設定][基本設定]]
+
+** 1. 基本設定
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: base
+   :END:
+
+*** 概要
+    ここでは org-mode 周りのベースとなる設定を書いているつもり。
+    といいつつ、まだ書き方が雑だなと思っている。
+    またその内にでも修正しよう
+
+*** org-mode のインストール
+    Emacs に標準で入っている org-mode は大体古過ぎるので
+    とりあえずデフォルトで入ってるやつは削除しちゃって
+    el-get でインストールしている。
+
+    #+begin_src emacs-lisp :tangle inits/60-org.el
+    (el-get-bundle org-mode :checkout "release_9.3.6")
+    #+end_src
+
+    なんか入れてるパッケージの問題か、依存関係が解決できなかったので
+    Git から入れた上でバージョンを固定している。
+
+    バージョンぐらいはそのうち上げたいね
+
+*** org-export-blocks-format-plantuml                                :unused:
+    org-mode で PlantUML の図を出力する拡張を入れている。
+
+    #+begin_src emacs-lisp :tangle inits/60-org.el
+    (el-get-bundle org-export-blocks-format-plantuml)
+    #+end_src
+
+    のだけれど
+    https://www.emacswiki.org/emacs/org-export-blocks-format-plantuml.el
+    を見ると Obsolute と書いてますね。
+    今度消さなきゃ。
+
+*** org-babel で評価可能な言語の指定
+
+    なんか普段から使いそうな奴をとりあえず選定しているつもり。
+
+    #+begin_src emacs-lisp :tangle inits/60-org.el
+    (org-babel-do-load-languages 'org-babel-load-languages
+                                 '((plantuml . t)
+                                   (sql . t)
+                                   (gnuplot . t)
+                                   (emacs-lisp . t)
+                                   (shell . t)
+                                   (js . t)
+                                   (ruby . t)))
+    #+end_src
+
+    - js, ruby :: 仕事でメインで使ってる言語なので入れている。
+    - shell :: 入れてる方が便利そう、ぐらいの雑な理由。
+    - sql :: メモしておいて手元から実行できると便利そう
+    - plantuml :: 図の出力。一番使ってる。
+    - gnuplot :: 趣味で入れてみているけど実際使う機会ほとんどないよなって気がしてきている。
+
+*** org 用ディレクトリの指定
+    org-mode のファイルを保存するデフォルトのディレクトリを指定している。
+
+    デフォルトだと ~~/org~ なのだけど
+    ホームディレクトリを汚したくないのと
+    基本的に Mac を使ってるので ~~/Documents/org~ というディレクトリを用意してそこにファイルを置いている。
+
+    #+begin_src emacs-lisp :tangle inits/60-org.el
+    (setq org-directory (expand-file-name "~/Documents/org/"))
+    #+end_src
+
+*** Excel ファイルを OS で指定したアプリで開く
+    org-mode のリンク先の拡張子が xlsx の時に OS 側で指定した標準アプリを開くようにしている。
+    Excel が入っていたらそっちで開かれるし、入ってなければ Numbers で開かれる。はず。
+
+    #+begin_src emacs-lisp :tangle inits/60-org.el
+    (add-to-list 'org-file-apps '("\\.xlsx?\\'" . default))
+    #+end_src
+
+    第二引数に default を指定すると、内部的には open コマンドが使われることを利用している。
+
+*** タスクの状態管理のキーワード指定
+    org-mode といえば TODO 管理で使ってる人も多いと思う。
+    自分も最初はそういう使い方から始めたし、今でもそれをメインにして使っている。
+
+    そして TODO の状態がデフォルトでは
+
+    - TODO
+    - DONE
+
+    の2つしかないけど、それでは足りないので
+    昔見たインターネットのどこかの記事を参考に以下のように設定している。
+
+    #+begin_src emacs-lisp :tangle inits/60-org.el
+    (setq org-todo-keywords
+          '((sequence "TODO" "DOING(!)" "WAIT" "|" "DONE(!)" "SOMEDAY(s)")))
+    #+end_src
+
+    初期状態は TODO で、作業開始時点で DOING にして
+    待ちが発生したら WAIT にして
+    完了したら DONE にしている。
+
+    SOMEDAY は「いつかやる」に付与しているけど
+    最近ほとんど使ってない。
+
+    org-todo-keywords は複数の sequence を指定したり
+    type を指定したりもできるが
+    そこまでの活用ができていないので、どこかで見直したいですね。
+
+*** 完了時間の記録
+    org-clock を使うようにしているしあんまり要らない気がする。
+    もしかしたら habits で必要かもしれないけど。
+
+    #+begin_src emacs-lisp :tangle inits/60-org.el
+    (setq org-log-done 'time)
+    (setq org-log-into-drawer "LOGBOOK")
+    #+end_src
+*** タスク管理ファイルのフォルダの指定
+    タスク管理ファイルがいくつかに分かれているが
+    それらをまとめて ~~/Documents/org/tasks~ フォルダに置いている。
+
+    #+begin_src emacs-lisp :tangle inits/60-org.el
+    (setq my/org-tasks-directory (concat org-directory "tasks/"))
+    #+end_src
+
+    とりあえずこの ~my/org-tasks-directory~ という変数を用意することで
+    あちらこちらでこれを使い回している。
+
+*** org-babel の非同期実行                                      :improvement:
+    非同期に org-babel の source を実行するために
+    [[https://github.com/astahlman/ob-async][ob-async]] を入れている
+
+    #+begin_src emacs-lisp :tangle inits/60-org.el
+    ;; ob-async
+    (el-get-bundle ob-async)
+    (require 'ob-async)
+    #+end_src
+
+    で、ob-async で何のために入れているかというと PlantUML の図の出力である。
+    画像まで作成するからね、時間かかりそうだしね。
+
+    そんで、その時に ~org-plantuml-jar-path~ を強制的に指定している。
+
+    #+begin_src emacs-lisp :tangle inits/60-org.el
+    (add-hook 'ob-async-pre-execute-src-block-hook
+          '(lambda ()
+             (setq org-plantuml-jar-path "~/bin/plantuml.jar")))
+    #+end_src
+
+    多分 custom-set-variables でちゃんと設定したらいいんだろうなあ。
+
+*** org-babel-execute 後に画像を再表示
+    PlantUML の処理をすることが多いので
+    以下の hook を設定することで実行後に画像を再表示するようにしている
+
+    #+begin_src emacs-lisp :tangle inits/60-org.el
+    (add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images)
+    #+end_src
 
 * テスト用ツール
   :PROPERTIES:
@@ -3482,7 +3649,7 @@
 ** テスト用ツール
    :PROPERTIES:
    :EXPORT_FILE_NAME: _index
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>9. </b>" :weight 9 :disableToc true
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>10. </b>" :weight 10 :disableToc true
    :END:
 
    自動テストを実行するにあたり、追加インストールしているパッケージをここに載せている
@@ -3553,7 +3720,7 @@
 ** テストコード
    :PROPERTIES:
    :EXPORT_FILE_NAME: _index
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>10. </b>" :weight 10 :disableToc true
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>11. </b>" :weight 11 :disableToc true
    :END:
 
    一部のコマンドなどの設定を書き始めているので設けたセクション。
@@ -3913,44 +4080,6 @@
    #+begin_src emacs-lisp :tangle inits/50-todoist.el
    (el-get-bundle  abrochard/emacs-todoist)
    (my/load-config "my-todoist-config")
-   #+end_src
-
-** 60-org.el
-
-   #+begin_src emacs-lisp :tangle inits/60-org.el
-   (el-get-bundle org-mode :checkout "release_9.3.6") ;; from Git. because melpa cannot resolve dependencies.
-   (el-get-bundle org-export-blocks-format-plantuml)
-   (org-babel-do-load-languages 'org-babel-load-languages
-                                '((plantuml . t)
-                                  (sql . t)
-                                  (gnuplot . t)
-                                  (emacs-lisp . t)
-                                  (shell . t)
-                                  (js . t)
-                                  (ruby . t)))
-   (setq org-directory (expand-file-name "~/Documents/org/"))
-
-   ;; org-mode のリンク先が xlsx の時に numbers を開くようにした
-   ;; default は内部的には open コマンドが使われる
-   (add-to-list 'org-file-apps '("\\.xlsx?\\'" . default))
-
-   (setq org-todo-keywords
-         '((sequence "TODO" "DOING(!)" "WAIT" "|" "DONE(!)" "SOMEDAY(s)")))
-
-   ;; DONEの時刻を記録
-   (setq org-log-done 'time)
-   (setq org-log-into-drawer "LOGBOOK")
-
-   ;; タスク管理系
-   (setq my/org-tasks-directory (concat org-directory "tasks/"))
-
-   ;; ob-async
-   (el-get-bundle ob-async)
-   (require 'ob-async)
-   (add-hook 'ob-async-pre-execute-src-block-hook
-         '(lambda ()
-            (setq org-plantuml-jar-path "~/bin/plantuml.jar")))
-   (add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images) ;; org-babel-execute 後に画像を再表示
    #+end_src
 
 ** 61-calfw.el
