@@ -91,6 +91,13 @@
 	"content": "ここでは外部のサービスと連携するようなやつをまとめています\n emacs-w3m 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ forge magit と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ google-this Google 検索機能を提供してくれるパッケージ google-translate Emacs から Google 翻訳するためのパッケージ magit Emacs 上で Git の操作をするのにとても便利なパッケージ notify-slack Emacs から外部コマンドを通じて Slack に通知するための関数周りの事を書いている wakatime-mode Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ  "
 },
 {
+	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/",
+	"title": "org-mode",
+	"tags": [],
+	"description": "",
+	"content": " 基本設定  "
+},
+{
 	"uri": "https://mugijiru.github.io/.emacs.d/testing-tool/",
 	"title": "テスト用ツール",
 	"tags": [],
@@ -103,6 +110,13 @@
 	"tags": [],
 	"description": "",
 	"content": "一部のコマンドなどの設定を書き始めているので設けたセクション。\n暫定的にここに置いているが設定と近い方が良さそうなのでいずれドキュメント内の位置を移動しそう。\n 実行方法 とりあえず書かれているテストを動かす方法を書いている。 run-tests テスト全体を動かすための共通設定ファイルの説明 my-org-commands-test org-mode 用に自分が生やしたコマンドのテストファイルの解説  "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/base/",
+	"title": "1. 基本設定",
+	"tags": [],
+	"description": "",
+	"content": "概要 ここでは org-mode 周りのベースとなる設定を書いているつもり。といいつつ、まだ書き方が雑だなと思っている。またその内にでも修正しよう\norg-mode のインストール Emacs に標準で入っている org-mode は大体古過ぎるのでとりあえずデフォルトで入ってるやつは削除しちゃって el-get でインストールしている。\n(el-get-bundle org-mode :checkout \u0026#34;release_9.3.6\u0026#34;) なんか入れてるパッケージの問題か、依存関係が解決できなかったので Git から入れた上でバージョンを固定している。\nバージョンぐらいはそのうち上げたいね\norg-export-blocks-format-plantuml org-mode で PlantUML の図を出力する拡張を入れている。\n(el-get-bundle org-export-blocks-format-plantuml) のだけれど https://www.emacswiki.org/emacs/org-export-blocks-format-plantuml.el を見ると Obsolute と書いてますね。今度消さなきゃ。\norg-babel で評価可能な言語の指定 なんか普段から使いそうな奴をとりあえず選定しているつもり。\n(org-babel-do-load-languages \u0026#39;org-babel-load-languages \u0026#39;((plantuml . t) (sql . t) (gnuplot . t) (emacs-lisp . t) (shell . t) (js . t) (ruby . t)))  js, ruby 仕事でメインで使ってる言語なので入れている。 shell 入れてる方が便利そう、ぐらいの雑な理由。 sql メモしておいて手元から実行できると便利そう plantuml 図の出力。一番使ってる。 gnuplot 趣味で入れてみているけど実際使う機会ほとんどないよなって気がしてきている。  org 用ディレクトリの指定 org-mode のファイルを保存するデフォルトのディレクトリを指定している。\nデフォルトだと ~/org なのだけどホームディレクトリを汚したくないのと基本的に Mac を使ってるので ~/Documents/org というディレクトリを用意してそこにファイルを置いている。\n(setq org-directory (expand-file-name \u0026#34;~/Documents/org/\u0026#34;)) Excel ファイルを OS で指定したアプリで開く org-mode のリンク先の拡張子が xlsx の時に OS 側で指定した標準アプリを開くようにしている。 Excel が入っていたらそっちで開かれるし、入ってなければ Numbers で開かれる。はず。\n(add-to-list \u0026#39;org-file-apps \u0026#39;(\u0026#34;\\\\.xlsx?\\\\\u0026#39;\u0026#34; . default)) 第二引数に default を指定すると、内部的には open コマンドが使われることを利用している。\nタスクの状態管理のキーワード指定 org-mode といえば TODO 管理で使ってる人も多いと思う。自分も最初はそういう使い方から始めたし、今でもそれをメインにして使っている。\nそして TODO の状態がデフォルトでは\n TODO DONE  の2つしかないけど、それでは足りないので昔見たインターネットのどこかの記事を参考に以下のように設定している。\n(setq org-todo-keywords \u0026#39;((sequence \u0026#34;TODO\u0026#34; \u0026#34;DOING(!)\u0026#34; \u0026#34;WAIT\u0026#34; \u0026#34;|\u0026#34; \u0026#34;DONE(!)\u0026#34; \u0026#34;SOMEDAY(s)\u0026#34;))) 初期状態は TODO で、作業開始時点で DOING にして待ちが発生したら WAIT にして完了したら DONE にしている。\nSOMEDAY は「いつかやる」に付与しているけど最近ほとんど使ってない。\norg-todo-keywords は複数の sequence を指定したり type を指定したりもできるがそこまでの活用ができていないので、どこかで見直したいですね。\n完了時間の記録 org-clock を使うようにしているしあんまり要らない気がする。もしかしたら habits で必要かもしれないけど。\n(setq org-log-done \u0026#39;time) (setq org-log-into-drawer \u0026#34;LOGBOOK\u0026#34;) タスク管理ファイルのフォルダの指定 タスク管理ファイルがいくつかに分かれているがそれらをまとめて ~/Documents/org/tasks フォルダに置いている。\n(setq my/org-tasks-directory (concat org-directory \u0026#34;tasks/\u0026#34;)) とりあえずこの my/org-tasks-directory という変数を用意することであちらこちらでこれを使い回している。\norg-babel の非同期実行 非同期に org-babel の source を実行するために ob-async を入れている\n;; ob-async (el-get-bundle ob-async) (require \u0026#39;ob-async) で、ob-async で何のために入れているかというと PlantUML の図の出力である。画像まで作成するからね、時間かかりそうだしね。\nそんで、その時に org-plantuml-jar-path を強制的に指定している。\n(add-hook \u0026#39;ob-async-pre-execute-src-block-hook \u0026#39;(lambda () (setq org-plantuml-jar-path \u0026#34;~/bin/plantuml.jar\u0026#34;))) 多分 custom-set-variables でちゃんと設定したらいいんだろうなあ。\norg-babel-execute 後に画像を再表示 PlantUML の処理をすることが多いので以下の hook を設定することで実行後に画像を再表示するようにしている\n(add-hook \u0026#39;org-babel-after-execute-hook \u0026#39;org-redisplay-inline-images) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/nav/ace-window/",
