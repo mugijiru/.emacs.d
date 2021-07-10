@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>alert :: 麦汁&#39;s Emacs Config</title>
+    <title>3. 予定のカレンダー表示 :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1625900921" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/ui/alert/">
+  <body class="" data-url="/.emacs.d/org-mode/calendar/">
     <nav id="sidebar" class="">
 
 
@@ -593,7 +593,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        parent
+        
         
         
         ">
@@ -619,7 +619,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/alert/" title="alert" class="dd-item active">
+      <li data-nav-id="/.emacs.d/ui/alert/" title="alert" class="dd-item ">
         <a href="/.emacs.d/ui/alert/">
         alert
         
@@ -1632,7 +1632,7 @@
   
     
     <li data-nav-id="/.emacs.d/org-mode/" title="org-mode" class="dd-item
-        
+        parent
         
         
         ">
@@ -1700,7 +1700,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/org-mode/calendar/" title="3. 予定のカレンダー表示" class="dd-item ">
+      <li data-nav-id="/.emacs.d/org-mode/calendar/" title="3. 予定のカレンダー表示" class="dd-item active">
         <a href="/.emacs.d/org-mode/calendar/">
         3. 予定のカレンダー表示
         
@@ -1960,7 +1960,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > alert
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/org-mode/'>org-mode</a> > 3. 予定のカレンダー表示
           
         
           
@@ -1976,8 +1976,8 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#インストール">インストール</a></li>
-    <li><a href="#設定">設定</a></li>
+    <li><a href="#日本の休日">日本の休日</a></li>
+    <li><a href="#calfw">calfw</a></li>
   </ul>
 </nav>
     </div>
@@ -1995,7 +1995,7 @@
           
             <h1>
               
-              alert
+              3. 予定のカレンダー表示
             </h1>
           
 
@@ -2003,21 +2003,25 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/jwiegley/alert">alert</a> は色々な通知システムに対応した通知を飛ばせるパッケージ。
-Mac だと Growl だったり terminal-notifier だったり
-Win だと toast だったり
-Linux だと libnotify だったりを使ってその環境での標準的な通知機能を使って通知ができるやつ。</p>
-<h2 id="インストール">インストール</h2>
-<p>いつも通りに el-get でインストール。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle alert)
-</code></pre></div><h2 id="設定">設定</h2>
-<p>業務では Mac を使ってるので terminal-notifier を設定している。他の環境では大人しく message にしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(if (or (<span style="color:#a6e22e">eq</span> <span style="color:#a6e22e">window-system</span> <span style="color:#e6db74">&#39;ns</span>) (<span style="color:#a6e22e">eq</span> <span style="color:#a6e22e">window-system</span> <span style="color:#e6db74">&#39;mac</span>))
-    (setq alert-default-style <span style="color:#e6db74">&#39;notifier</span>) <span style="color:#75715e">;; use terminal-notifier</span>
-  (setq alert-default-style <span style="color:#e6db74">&#39;message</span>))
-</code></pre></div><p>本当は WSL2 でもいい感じに通知されるようにしたいが
-<a href="https://cobodo.hateblo.jp/entry/2018/03/08/160247">WSLで通知を出すメモ - cobodoのブログ</a>
-とかを見てるとちょっと面倒そうなのでまた今度にする。</p>
+<p>普段の予定をカレンダー表示で見れると嬉しいな〜と思って
+<a href="https://github.com/kiwanami/emacs-calfw">calfw</a> で予定が見れるようにしている。</p>
+<p>が、今ここに書いているのはまだ設定の一部である。
+agenda 部分と関わっていてまだうまく整理しきれてない。</p>
+<h2 id="日本の休日">日本の休日</h2>
+<p>calfw に日本の休日を表示できるように
+<a href="https://github.com/emacs-jp/japanese-holidays">japanese-holidays</a> を入れている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle japanese-holidays)
+(require <span style="color:#e6db74">&#39;japanese-holidays</span>)
+(setq calendar-holidays (<span style="color:#a6e22e">append</span> japanese-holidays))
+</code></pre></div><p>もっとちゃんと設定したら Emacs のデフォルトのカレンダーでも休日表示がわかりやすくなって良いので今度設定し直す。</p>
+<p>その時には多分 org-mode カテゴリではないところに移動するはず。</p>
+<h2 id="calfw">calfw</h2>
+<p>calfw を el-get で入れた上で、
+org-mode と連携するように calfw-org も require している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle calfw)
+(require <span style="color:#e6db74">&#39;calfw</span>)
+(require <span style="color:#e6db74">&#39;calfw-org</span>)
+</code></pre></div><p>ここではまだこれ以上のことはしてない</p>
 
 
 <footer class="footline">
@@ -2410,7 +2414,6 @@ Linux だと libnotify だったりを使ってその環境での標準的な通
             
                 
                     
-                    
                 
                 
 
@@ -2423,7 +2426,6 @@ Linux だと libnotify だったりを使ってその環境での標準的な通
             
             
                 
-                    
                     
                 
                 
@@ -2440,9 +2442,6 @@ Linux だと libnotify だったりを使ってその環境での標準的な通
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -3167,6 +3166,7 @@ Linux だと libnotify だったりを使ってその環境での標準的な通
             
                 
                     
+                    
                 
                 
 
@@ -3179,6 +3179,9 @@ Linux だと libnotify だったりを使ってその環境での標準的な通
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3212,6 +3215,7 @@ Linux だと libnotify だったりを使ってその環境での標準的な通
             
                 
                     
+                    
                 
                 
 
@@ -3230,6 +3234,9 @@ Linux だと libnotify だったりを使ってその環境での標準的な通
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3347,10 +3354,10 @@ Linux だと libnotify だったりを使ってその環境での標準的な通
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/ui/" title="UI"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/org-mode/org-babel/" title="2. org-babel"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/ui/all-the-icons/" title="all-the-icons" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/testing-tool/" title="テスト用ツール" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

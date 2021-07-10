@@ -40,5 +40,20 @@ org-babel で評価可能な言語の指定 なんか普段から使いそうな
 (add-hook &amp;#39;org-babel-after-execute-hook &amp;#39;org-redisplay-inline-images) org-babel の非同期実行 非同期に org-babel の source を実行するために ob-async を入れている</description>
     </item>
     
+    <item>
+      <title>3. 予定のカレンダー表示</title>
+      <link>https://mugijiru.github.io/.emacs.d/org-mode/calendar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/org-mode/calendar/</guid>
+      <description>概要 普段の予定をカレンダー表示で見れると嬉しいな〜と思って calfw で予定が見れるようにしている。
+が、今ここに書いているのはまだ設定の一部である。 agenda 部分と関わっていてまだうまく整理しきれてない。
+日本の休日 calfw に日本の休日を表示できるように japanese-holidays を入れている。
+(el-get-bundle japanese-holidays) (require &amp;#39;japanese-holidays) (setq calendar-holidays (append japanese-holidays)) もっとちゃんと設定したら Emacs のデフォルトのカレンダーでも休日表示がわかりやすくなって良いので今度設定し直す。
+その時には多分 org-mode カテゴリではないところに移動するはず。
+calfw calfw を el-get で入れた上で、 org-mode と連携するように calfw-org も require している。
+(el-get-bundle calfw) (require &amp;#39;calfw) (require &amp;#39;calfw-org) ここではまだこれ以上のことはしてない</description>
+    </item>
+    
   </channel>
 </rss>
