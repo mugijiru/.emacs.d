@@ -1,18 +1,17 @@
 (el-get-bundle org-super-agenda)
 
-;; org-agenda の週の始まりを日曜日に
 (setq org-agenda-start-on-weekday 0)
 
-;; org-agenda のデフォルト表示を1日単位にする
 (setq org-agenda-span 'day)
 
 (setq org-agenda-files
       '("~/Documents/org/ical.org"
         "~/Documents/org/tasks/"))
 
-;; agenda に時間の区切りを入れない
 (setq org-agenda-use-time-grid nil)
+
 (setq org-agenda-block-separator "------------------------------")
+
 (org-super-agenda-mode 1)
 
 (setq org-agenda-custom-commands
