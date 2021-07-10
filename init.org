@@ -3677,7 +3677,7 @@
     calfw を el-get で入れた上で、
     org-mode と連携するように calfw-org も require している。
 
-    #+begin_src emacs-lisp :tangle inits/60-org.el
+    #+begin_src emacs-lisp :tangle inits/61-calfw.el
     (el-get-bundle calfw)
     (require 'calfw)
     (require 'calfw-org)
