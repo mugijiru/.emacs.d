@@ -3634,7 +3634,7 @@
     (require 'ob-async)
     #+end_src
 
-    で、ob-async で何のために入れているかというと PlantUML の図の出力である。
+    で、ob-async を何のために入れているかというと PlantUML の図の出力である。
     画像まで作成するからね、時間かかりそうだしね。
 
     そんで、その時に ~org-plantuml-jar-path~ を強制的に指定している。
