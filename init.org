@@ -3491,7 +3491,6 @@
    :PROPERTIES:
    :EXPORT_FILE_NAME: base
    :END:
-
 *** 概要
     ここでは org-mode 周りのベースとなる設定を書いているつもり。
     といいつつ、まだ書き方が雑だなと思っている。
@@ -3574,7 +3573,8 @@
     Excel が入っていたらそっちで開かれるし、入ってなければ Numbers で開かれる。はず。
 
     #+begin_src emacs-lisp :tangle inits/60-org.el
-    (add-to-list 'org-file-apps '("\\.xlsx?\\'" . default))
+    (with-eval-after-load 'org
+      (add-to-list 'org-file-apps '("\\.xlsx?\\'" . default)))
     #+end_src
 
     第二引数に default を指定すると、内部的には open コマンドが使われることを利用している。

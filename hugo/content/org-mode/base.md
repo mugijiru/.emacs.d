@@ -85,7 +85,8 @@ org-mode のリンク先の拡張子が xlsx の時に OS 側で指定した標�
 Excel が入っていたらそっちで開かれるし、入ってなければ Numbers で開かれる。はず。
 
 ```emacs-lisp
-(add-to-list 'org-file-apps '("\\.xlsx?\\'" . default))
+(with-eval-after-load 'org
+  (add-to-list 'org-file-apps '("\\.xlsx?\\'" . default)))
 ```
 
 第二引数に default を指定すると、内部的には open コマンドが使われることを利用している。

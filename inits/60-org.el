@@ -10,7 +10,8 @@
 (setq org-log-done 'time)
 (setq org-log-into-drawer "LOGBOOK")
 
-(add-to-list 'org-file-apps '("\\.xlsx?\\'" . default))
+(with-eval-after-load 'org
+  (add-to-list 'org-file-apps '("\\.xlsx?\\'" . default)))
 
 (el-get-bundle org-export-blocks-format-plantuml)
 
