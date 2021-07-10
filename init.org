@@ -3485,6 +3485,7 @@
    :END:
 
    1. [[*1. 基本設定][基本設定]]
+   2. [[*2. org-babel][org-babel]]
 
 ** 1. 基本設定
    :PROPERTIES:
@@ -3510,39 +3511,6 @@
 
     バージョンぐらいはそのうち上げたいね
 
-*** org-export-blocks-format-plantuml                                :unused:
-    org-mode で PlantUML の図を出力する拡張を入れている。
-
-    #+begin_src emacs-lisp :tangle inits/60-org.el
-    (el-get-bundle org-export-blocks-format-plantuml)
-    #+end_src
-
-    のだけれど
-    https://www.emacswiki.org/emacs/org-export-blocks-format-plantuml.el
-    を見ると Obsolute と書いてますね。
-    今度消さなきゃ。
-
-*** org-babel で評価可能な言語の指定
-
-    なんか普段から使いそうな奴をとりあえず選定しているつもり。
-
-    #+begin_src emacs-lisp :tangle inits/60-org.el
-    (org-babel-do-load-languages 'org-babel-load-languages
-                                 '((plantuml . t)
-                                   (sql . t)
-                                   (gnuplot . t)
-                                   (emacs-lisp . t)
-                                   (shell . t)
-                                   (js . t)
-                                   (ruby . t)))
-    #+end_src
-
-    - js, ruby :: 仕事でメインで使ってる言語なので入れている。
-    - shell :: 入れてる方が便利そう、ぐらいの雑な理由。
-    - sql :: メモしておいて手元から実行できると便利そう
-    - plantuml :: 図の出力。一番使ってる。
-    - gnuplot :: 趣味で入れてみているけど実際使う機会ほとんどないよなって気がしてきている。
-
 *** org 用ディレクトリの指定
     org-mode のファイルを保存するデフォルトのディレクトリを指定している。
 
@@ -3554,15 +3522,16 @@
     (setq org-directory (expand-file-name "~/Documents/org/"))
     #+end_src
 
-*** Excel ファイルを OS で指定したアプリで開く
-    org-mode のリンク先の拡張子が xlsx の時に OS 側で指定した標準アプリを開くようにしている。
-    Excel が入っていたらそっちで開かれるし、入ってなければ Numbers で開かれる。はず。
+*** タスク管理ファイルのフォルダの指定
+    タスク管理ファイルがいくつかに分かれているが
+    それらをまとめて ~~/Documents/org/tasks~ フォルダに置いている。
 
     #+begin_src emacs-lisp :tangle inits/60-org.el
-    (add-to-list 'org-file-apps '("\\.xlsx?\\'" . default))
+    (setq my/org-tasks-directory (concat org-directory "tasks/"))
     #+end_src
 
-    第二引数に default を指定すると、内部的には open コマンドが使われることを利用している。
+    とりあえずこの ~my/org-tasks-directory~ という変数を用意することで
+    あちらこちらでこれを使い回している。
 
 *** タスクの状態管理のキーワード指定
     org-mode といえば TODO 管理で使ってる人も多いと思う。
@@ -3600,28 +3569,73 @@
     (setq org-log-done 'time)
     (setq org-log-into-drawer "LOGBOOK")
     #+end_src
-*** タスク管理ファイルのフォルダの指定
-    タスク管理ファイルがいくつかに分かれているが
-    それらをまとめて ~~/Documents/org/tasks~ フォルダに置いている。
+*** Excel ファイルを OS で指定したアプリで開く
+    org-mode のリンク先の拡張子が xlsx の時に OS 側で指定した標準アプリを開くようにしている。
+    Excel が入っていたらそっちで開かれるし、入ってなければ Numbers で開かれる。はず。
 
     #+begin_src emacs-lisp :tangle inits/60-org.el
-    (setq my/org-tasks-directory (concat org-directory "tasks/"))
+    (add-to-list 'org-file-apps '("\\.xlsx?\\'" . default))
     #+end_src
 
-    とりあえずこの ~my/org-tasks-directory~ という変数を用意することで
-    あちらこちらでこれを使い回している。
+    第二引数に default を指定すると、内部的には open コマンドが使われることを利用している。
+
+** 2. org-babel
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: org-babel
+   :END:
+*** 概要
+    ここでは org-babel の設定をまとめている。
+
+*** org-export-blocks-format-plantuml                                :unused:
+    org-mode で PlantUML の図を出力する拡張を入れている。
+
+    #+begin_src emacs-lisp :tangle inits/60-org.el
+    (el-get-bundle org-export-blocks-format-plantuml)
+    #+end_src
+
+    のだけれど
+    https://www.emacswiki.org/emacs/org-export-blocks-format-plantuml.el
+    を見ると Obsolute と書いてますね。
+    今度消さなきゃ。
+*** org-babel で評価可能な言語の指定
+
+    なんか普段から使いそうな奴をとりあえず選定しているつもり。
+
+    #+begin_src emacs-lisp :tangle inits/60-org.el
+    (org-babel-do-load-languages 'org-babel-load-languages
+                                 '((plantuml . t)
+                                   (sql . t)
+                                   (gnuplot . t)
+                                   (emacs-lisp . t)
+                                   (shell . t)
+                                   (js . t)
+                                   (ruby . t)))
+    #+end_src
+
+    - js, ruby :: 仕事でメインで使ってる言語なので入れている。
+    - shell :: 入れてる方が便利そう、ぐらいの雑な理由。
+    - sql :: メモしておいて手元から実行できると便利そう
+    - plantuml :: 図の出力。一番使ってる。
+    - gnuplot :: 趣味で入れてみているけど実際使う機会ほとんどないよなって気がしてきている。
+
+*** org-babel-execute 後に画像を再表示
+    PlantUML の処理をすることが多いので
+    以下の hook を設定することで実行後に画像を再表示するようにしている
+
+    #+begin_src emacs-lisp :tangle inits/60-org.el
+    (add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images)
+    #+end_src
 
 *** org-babel の非同期実行                                      :improvement:
     非同期に org-babel の source を実行するために
     [[https://github.com/astahlman/ob-async][ob-async]] を入れている
 
     #+begin_src emacs-lisp :tangle inits/60-org.el
-    ;; ob-async
     (el-get-bundle ob-async)
     (require 'ob-async)
     #+end_src
 
-    で、ob-async で何のために入れているかというと PlantUML の図の出力である。
+    で、ob-async を何のために入れているかというと PlantUML の図の出力である。
     画像まで作成するからね、時間かかりそうだしね。
 
     そんで、その時に ~org-plantuml-jar-path~ を強制的に指定している。
@@ -3633,15 +3647,6 @@
     #+end_src
 
     多分 custom-set-variables でちゃんと設定したらいいんだろうなあ。
-
-*** org-babel-execute 後に画像を再表示
-    PlantUML の処理をすることが多いので
-    以下の hook を設定することで実行後に画像を再表示するようにしている
-
-    #+begin_src emacs-lisp :tangle inits/60-org.el
-    (add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images)
-    #+end_src
-
 * テスト用ツール
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: testing-tool
