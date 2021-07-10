@@ -7,3 +7,4 @@ disableToc = true
 +++
 
 1.  [基本設定]({{< relref "base" >}})
+2.  [org-babel]({{< relref "org-babel" >}})
