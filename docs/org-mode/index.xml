@@ -55,5 +55,27 @@ calfw calfw を el-get で入れた上で、 org-mode と連携するように c
 (el-get-bundle calfw) (require &amp;#39;calfw) (require &amp;#39;calfw-org) ここではまだこれ以上のことはしてない</description>
     </item>
     
+    <item>
+      <title>4. Agenda 関係の設定</title>
+      <link>https://mugijiru.github.io/.emacs.d/org-mode/agenda/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/org-mode/agenda/</guid>
+      <description>概要 org-mode の素晴らしい機能の1つに Agenda というものがある。
+これは色々な org ファイルに散らばった情報を1つのビューに表示するための機能で、使いこなすとファイルがバラけていてもいい感じに情報が抽出できて便利なやつ。
+まあ麦汁さんはまだ使いこなせてないけど。
+それでもいくつか Agenda 用の View を用意したりして日常業務に役立てている。
+org-super-agenda のインストール org-mode のデフォルトの agenda だと表示周りが物足りなかったので org-super-agenda を導入している。
+(el-get-bundle org-super-agenda) 週の始まりを日曜日に設定 麦汁さんは週のスタートを日曜日とする派なので org-agenda の週の始まりも日曜日に設定している
+(setq org-agenda-start-on-weekday 0) 1日単位をデフォルト表示に設定 1週間表示よりも「今日って何するんだっけ」みたいな使い方が多いので 1日を表示単位としている。
+(setq org-agenda-span &amp;#39;day) 週単位で何をするかについては今のところ記憶力で対応している。
+あと、基本的にカスタムビューを使ってるのでこれの影響は受けてるかどうか微妙。
+agenda の対象ファイルを指定 org-agenda を使う時に抽出対象とする org ファイルを指定している。
+(setq org-agenda-files &amp;#39;(&amp;#34;~/Documents/org/ical.org&amp;#34; &amp;#34;~/Documents/org/tasks/&amp;#34;)) けどカスタムビューを多用しているので多分この設定ちゃんと活かしてない。 ical.org とか更新してないし……。
+agenda の表示周りの設定 agenda に時間の区切りを入れない org-agenda-use-time-grid を t にしていると 10:00 とかのキリがいいところに区切り線を表示してくれるのだが日報提出時には邪魔だし、普段使いでもその区切り線はあっても邪魔っぽいので nil にして表示しないようにしている。
+(setq org-agenda-use-time-grid nil) ブロック間の区切り表示 ブロックとブロックの区切りをハイフン繋ぎの文字列で指定している。
+文字列を指定することで固定の長さの区切り文字になるが実は ?</description>
+    </item>
+    
   </channel>
 </rss>
