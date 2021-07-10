@@ -3647,6 +3647,42 @@
     #+end_src
 
     多分 custom-set-variables でちゃんと設定したらいいんだろうなあ。
+** 3. 予定のカレンダー表示
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: calendar
+   :END:
+*** 概要
+    普段の予定をカレンダー表示で見れると嬉しいな〜と思って
+    [[https://github.com/kiwanami/emacs-calfw][calfw]] で予定が見れるようにしている。
+
+    が、今ここに書いているのはまだ設定の一部である。
+    agenda 部分と関わっていてまだうまく整理しきれてない。
+*** 日本の休日
+
+    calfw に日本の休日を表示できるように
+    [[https://github.com/emacs-jp/japanese-holidays][japanese-holidays]] を入れている。
+
+    #+begin_src emacs-lisp :tangle inits/61-calfw.el
+    (el-get-bundle japanese-holidays)
+    (require 'japanese-holidays)
+    (setq calendar-holidays (append japanese-holidays))
+    #+end_src
+
+    もっとちゃんと設定したら Emacs のデフォルトのカレンダーでも休日表示がわかりやすくなって良いので
+    今度設定し直す。
+
+    その時には多分 org-mode カテゴリではないところに移動するはず。
+*** calfw
+    calfw を el-get で入れた上で、
+    org-mode と連携するように calfw-org も require している。
+
+    #+begin_src emacs-lisp :tangle inits/60-org.el
+    (el-get-bundle calfw)
+    (require 'calfw)
+    (require 'calfw-org)
+    #+end_src
+
+    ここではまだこれ以上のことはしてない
 * テスト用ツール
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: testing-tool
@@ -4085,18 +4121,6 @@
    #+begin_src emacs-lisp :tangle inits/50-todoist.el
    (el-get-bundle  abrochard/emacs-todoist)
    (my/load-config "my-todoist-config")
-   #+end_src
-
-** 61-calfw.el
-
-   #+begin_src emacs-lisp :tangle inits/61-calfw.el
-   (el-get-bundle japanese-holidays)
-   (require 'japanese-holidays)
-   (setq calendar-holidays (append japanese-holidays))
-
-   (el-get-bundle calfw)
-   (require 'calfw)
-   (require 'calfw-org)
    #+end_src
 
 ** 61-org-agenda.el
