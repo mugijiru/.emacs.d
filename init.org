@@ -3617,6 +3617,14 @@
     - plantuml :: 図の出力。一番使ってる。
     - gnuplot :: 趣味で入れてみているけど実際使う機会ほとんどないよなって気がしてきている。
 
+*** org-babel-execute 後に画像を再表示
+    PlantUML の処理をすることが多いので
+    以下の hook を設定することで実行後に画像を再表示するようにしている
+
+    #+begin_src emacs-lisp :tangle inits/60-org.el
+    (add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images)
+    #+end_src
+
 *** org-babel の非同期実行                                      :improvement:
     非同期に org-babel の source を実行するために
     [[https://github.com/astahlman/ob-async][ob-async]] を入れている
@@ -3638,14 +3646,6 @@
     #+end_src
 
     多分 custom-set-variables でちゃんと設定したらいいんだろうなあ。
-*** org-babel-execute 後に画像を再表示
-    PlantUML の処理をすることが多いので
-    以下の hook を設定することで実行後に画像を再表示するようにしている
-
-    #+begin_src emacs-lisp :tangle inits/60-org.el
-    (add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images)
-    #+end_src
-
 * テスト用ツール
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: testing-tool
