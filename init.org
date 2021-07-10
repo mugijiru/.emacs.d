@@ -3488,6 +3488,7 @@
    2. [[*2. org-babel][org-babel]]
    3. [[*3. 予定のカレンダー表示][予定のカレンダー表示]]
    4. [[*4. Agenda 関係の設定][Agenda 関係の設定]]
+   5. [[*5. org-capture][org-capture]]
 
 ** 1. 基本設定
    :PROPERTIES:
