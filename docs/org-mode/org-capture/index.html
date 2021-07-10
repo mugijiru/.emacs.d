@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>テストコード :: 麦汁&#39;s Emacs Config</title>
+    <title>5. org-capture :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1625923603" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/testing/">
+  <body class="" data-url="/.emacs.d/org-mode/org-capture/">
     <nav id="sidebar" class="">
 
 
@@ -1632,7 +1632,7 @@
   
     
     <li data-nav-id="/.emacs.d/org-mode/" title="org-mode" class="dd-item
-        
+        parent
         
         
         ">
@@ -1742,7 +1742,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/org-mode/org-capture/" title="5. org-capture" class="dd-item ">
+      <li data-nav-id="/.emacs.d/org-mode/org-capture/" title="5. org-capture" class="dd-item active">
         <a href="/.emacs.d/org-mode/org-capture/">
         5. org-capture
         
@@ -1847,8 +1847,8 @@
   
     
     <li data-nav-id="/.emacs.d/testing/" title="テストコード" class="dd-item
-        parent
-        active
+        
+        
         
         ">
       <a href="/.emacs.d/testing/">
@@ -1986,6 +1986,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -1996,7 +1998,13 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > テストコード
+            
+            
+          
+          
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/org-mode/'>org-mode</a> > 5. org-capture
+          
+        
           
         
           
@@ -2004,6 +2012,20 @@
                  
                   </span>
                 </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#org-capture-ical-file">org-capture-ical-file</a></li>
+    <li><a href="#capture-用ファイルを変数定義">capture 用ファイルを変数定義</a></li>
+    <li><a href="#テンプレートの定義">テンプレートの定義</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
                 
               </div>
             </div>
@@ -2016,30 +2038,144 @@
           
             <h1>
               
-              テストコード
+              5. org-capture
             </h1>
           
 
         
 
 
+<h2 id="概要">概要</h2>
+<p>org-capture は org-mode 用にさくっとメモを取るための機能。</p>
+<h2 id="org-capture-ical-file">org-capture-ical-file</h2>
+<p><a href="https://qiita.com/takaxp/items/0b717ad1d0488b74429d">https://qiita.com/takaxp/items/0b717ad1d0488b74429d</a> を参考に設定したやつ。</p>
+<p>今は別で Google Calendar 連携しているので使ってない……。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#75715e">;; org-capture</span>
+(defvar org-capture-ical-file (<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;ical.org&#34;</span>))
+(setq org-capture-ical-file (<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;ical.org&#34;</span>))
+</code></pre></div><h2 id="capture-用ファイルを変数定義">capture 用ファイルを変数定義</h2>
+<p>変数定義しなくてもいい気がしないでもないけどとりあえず変数定義している。バラバラの変数にするよりも alist とか plist とかにする方が適切な気がする</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq my/org-capture-interrupted-file  (<span style="color:#a6e22e">concat</span> my/org-tasks-directory <span style="color:#e6db74">&#34;interrupted.org&#34;</span>))
+(setq my/org-capture-inbox-file        (<span style="color:#a6e22e">concat</span> my/org-tasks-directory <span style="color:#e6db74">&#34;inbox.org&#34;</span>))
+(setq my/org-capture-pointers-file     (<span style="color:#a6e22e">concat</span> my/org-tasks-directory <span style="color:#e6db74">&#34;pointers.org&#34;</span>))
+(setq my/org-capture-impediments-file  (<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;work/scrum/impediments.org&#34;</span>))
+(setq my/org-capture-memo-file         (<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;memo.org&#34;</span>))
+(setq my/org-capture-sql-file          (<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;work/sql.org&#34;</span>))
+(setq my/org-capture-shopping-file     (<span style="color:#a6e22e">concat</span> my/org-tasks-directory <span style="color:#e6db74">&#34;shopping.org&#34;</span>))
+(setq my/org-capture-2020-summary-file (<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;private/2020_summary.org&#34;</span>))
+</code></pre></div><h2 id="テンプレートの定義">テンプレートの定義</h2>
+<p>上記の変数を使って capture 用テンプレートを登録している。</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>効果</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>g</td>
+<td>GTD でとりあえず最初に放り込む Inbox に相当するファイルに登録</td>
+<td></td>
+</tr>
+<tr>
+<td>m</td>
+<td>とりあえずメモっておきたいやつを放り込む</td>
+<td>最近使ってない。使いにくいのかも</td>
+</tr>
+<tr>
+<td>p</td>
+<td>資料を放り込むやつ</td>
+<td>あとで読むリストになってる。読み終わっても、便利そうなのは DONE のまま置いている</td>
+</tr>
+<tr>
+<td>i</td>
+<td>割込みタスクの登録</td>
+<td><a href="https://grugrut.hatenablog.jp/entry/2016/03/13/085417">org-modeで割り込みにも対応した時間記録をとる方法</a> のやつを流用している。たまに使う。</td>
+</tr>
+<tr>
+<td>I</td>
+<td>開発を進める上での障害をリストアップする用</td>
+<td>最近使ってない。溜めても振り替えってないので溜める気すらなくなった</td>
+</tr>
+<tr>
+<td>R</td>
+<td>2020年の振り返り用</td>
+<td>もう2020年は過去の話なので不要でしょ</td>
+</tr>
+<tr>
+<td>s</td>
+<td>SQL 用のメモに登録</td>
+<td>さくっと書いた SQL を後からまた使えないかな〜と思って溜めてみている</td>
+</tr>
+<tr>
+<td>S</td>
+<td>買物リストに登録</td>
+<td>Inbox から refile でもいい気がする</td>
+</tr>
+<tr>
+<td>b</td>
+<td>Blogネタにエントリー</td>
+<td>最近使ってない……。ブログ止まってるしな。</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Firefox からページの一部を資料として放り込む用</td>
+<td><a href="https://github.com/sprig/org-capture-extension">https://github.com/sprig/org-capture-extension</a> 関係。Win では設定できてない</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Firefox からページURLを資料として放り込む用</td>
+<td><a href="https://github.com/sprig/org-capture-extension">https://github.com/sprig/org-capture-extension</a> 関係。Win では設定できてない</td>
+</tr>
+<tr>
+<td>c</td>
+<td>スケジュール管理用ファイルに登録</td>
+<td>使ってない。対象ファイルを変えて使ってみてもいいかも</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq org-capture-templates
+      <span style="color:#f92672">`</span>((<span style="color:#e6db74">&#34;g&#34;</span> <span style="color:#e6db74">&#34;Inbox にエントリー&#34;</span> entry
+         (file <span style="color:#f92672">,</span>my/org-capture-inbox-file)
+         <span style="color:#e6db74">&#34;* TODO %?\n\t&#34;</span>)
+        (<span style="color:#e6db74">&#34;m&#34;</span> <span style="color:#e6db74">&#34;Memoにエントリー&#34;</span> entry
+         (file+headline <span style="color:#f92672">,</span>my/org-capture-memo-file <span style="color:#e6db74">&#34;未分類&#34;</span>)
+         <span style="color:#e6db74">&#34;*** %?\n\t&#34;</span>)
+        (<span style="color:#e6db74">&#34;p&#34;</span> <span style="color:#e6db74">&#34;Pointersにエントリー&#34;</span> entry
+         (file+headline <span style="color:#f92672">,</span>my/org-capture-pointers-file <span style="color:#e6db74">&#34;Pointers&#34;</span>)
+         <span style="color:#e6db74">&#34;** %?\n\t&#34;</span>)
+        (<span style="color:#e6db74">&#34;i&#34;</span> <span style="color:#e6db74">&#34;割り込みタスクにエントリー&#34;</span> entry <span style="color:#75715e">;; 参考: http://grugrut.hatenablog.jp/entry/2016/03/13/085417</span>
+         (file+headline <span style="color:#f92672">,</span>my/org-capture-interrupted-file <span style="color:#e6db74">&#34;Interrupted&#34;</span>)
+         <span style="color:#e6db74">&#34;** %?\n\t&#34;</span> :clock-in <span style="color:#66d9ef">t</span> :clock-resume <span style="color:#66d9ef">t</span>)
+        (<span style="color:#e6db74">&#34;I&#34;</span> <span style="color:#e6db74">&#34;障害リストにエントリー&#34;</span> entry
+         (file+headline <span style="color:#f92672">,</span>my/org-capture-impediments-file <span style="color:#e6db74">&#34;Impediments&#34;</span>)
+         <span style="color:#e6db74">&#34;** TODO %?\n\t&#34;</span>)
+        (<span style="color:#e6db74">&#34;R&#34;</span> <span style="color:#e6db74">&#34;2020ふりかえりにエントリー&#34;</span> entry
+         (file+headline <span style="color:#f92672">,</span>my/org-capture-2020-summary-file <span style="color:#e6db74">&#34;Timeline&#34;</span>)
+         <span style="color:#e6db74">&#34;** %?\n\t&#34;</span>)
+        (<span style="color:#e6db74">&#34;s&#34;</span> <span style="color:#e6db74">&#34;SQL にエントリー&#34;</span> entry
+         (file+headline <span style="color:#f92672">,</span>my/org-capture-sql-file <span style="color:#e6db74">&#34;SQL&#34;</span>)
+         <span style="color:#e6db74">&#34;** %?\n\t&#34;</span>)
+        (<span style="color:#e6db74">&#34;S&#34;</span> <span style="color:#e6db74">&#34;買い物リストエントリー&#34;</span> entry
+         (file <span style="color:#f92672">,</span>my/org-capture-shopping-file)
+         <span style="color:#e6db74">&#34;* TODO %?\n\t&#34;</span>)
+        (<span style="color:#e6db74">&#34;b&#34;</span> <span style="color:#e6db74">&#34;Blogネタにエントリー&#34;</span> entry
+         (file+headline <span style="color:#f92672">,</span>my/org-capture-memo-file <span style="color:#e6db74">&#34;Blogネタ&#34;</span>)
+         <span style="color:#e6db74">&#34;** %?\n\t&#34;</span>)
+        (<span style="color:#e6db74">&#34;P&#34;</span> <span style="color:#e6db74">&#34;Protocol&#34;</span> entry
+         (file+headline <span style="color:#f92672">,</span>my/org-capture-pointers-file <span style="color:#e6db74">&#34;Pointers&#34;</span>)
+         <span style="color:#e6db74">&#34;** %?\n   #+BEGIN_QUOTE\n   %i\n   #+END_QUOTE\n\n   Source: %u, [[%:link][%:description]]\n&#34;</span>)
+        (<span style="color:#e6db74">&#34;L&#34;</span> <span style="color:#e6db74">&#34;Protocol Link&#34;</span> entry
+         (file+headline <span style="color:#f92672">,</span>my/org-capture-pointers-file <span style="color:#e6db74">&#34;Pointers&#34;</span>)
+         <span style="color:#e6db74">&#34;** %:description\n   %:link\n   %?\n   Captured On: %U&#34;</span>)
+        (<span style="color:#e6db74">&#34;c&#34;</span> <span style="color:#e6db74">&#34;同期カレンダーにエントリー&#34;</span> entry
+         (file+headline <span style="color:#f92672">,</span>org-capture-ical-file <span style="color:#e6db74">&#34;Schedule&#34;</span>)
+         <span style="color:#e6db74">&#34;** TODO %?\n\t&#34;</span>)))
+</code></pre></div>
 
-	<p>一部のコマンドなどの設定を書き始めているので設けたセクション。</p>
-<p>暫定的にここに置いているが設定と近い方が良さそうなのでいずれドキュメント内の位置を移動しそう。</p>
-<dl>
-<dt><a href="/.emacs.d/testing/execution/">実行方法</a></dt>
-<dd>とりあえず書かれているテストを動かす方法を書いている。</dd>
-<dt><a href="/.emacs.d/testing/run-tests/">run-tests</a></dt>
-<dd>テスト全体を動かすための共通設定ファイルの説明</dd>
-<dt><a href="/.emacs.d/testing/my-org-commands-test/">my-org-commands-test</a></dt>
-<dd>org-mode 用に自分が生やしたコマンドのテストファイルの解説</dd>
-</dl>
-
-
-
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -3181,6 +3317,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -3193,6 +3330,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3258,6 +3398,58 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                 
                 
 
@@ -3289,58 +3481,6 @@
             
             
                 
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -3397,10 +3537,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/testing-tool/mocker-el/" title="mocker.el"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/org-mode/agenda/" title="4. Agenda 関係の設定"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/testing/execution/" title="実行方法" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/testing-tool/" title="テスト用ツール" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -3432,3 +3572,4 @@
 
   </body>
 </html>
+
