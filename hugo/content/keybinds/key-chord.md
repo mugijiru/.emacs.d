@@ -26,7 +26,7 @@ draft = false
 同時押し時の許容時間、その前後で別のキーが押されていたら発動しない判断をする、みたいな設定を入れている。
 
 ```emacs-lisp
-(setq key-chord-two-keys-delay           0.15
+(setq key-chord-two-keys-delay           0.25
       key-chord-safety-interval-backward 0.1
       key-chord-safety-interval-forward  0.15)
 ```
