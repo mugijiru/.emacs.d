@@ -90,5 +90,17 @@ org-capture-ical-file https://qiita.com/takaxp/items/0b717ad1d0488b74429d を参
 (setq my/org-capture-interrupted-file (concat my/org-tasks-directory &amp;#34;interrupted.org&amp;#34;)) (setq my/org-capture-inbox-file (concat my/org-tasks-directory &amp;#34;inbox.org&amp;#34;)) (setq my/org-capture-pointers-file (concat my/org-tasks-directory &amp;#34;pointers.org&amp;#34;)) (setq my/org-capture-impediments-file (concat org-directory &amp;#34;work/scrum/impediments.org&amp;#34;)) (setq my/org-capture-memo-file (concat org-directory &amp;#34;memo.org&amp;#34;)) (setq my/org-capture-sql-file (concat org-directory &amp;#34;work/sql.org&amp;#34;)) (setq my/org-capture-shopping-file (concat my/org-tasks-directory &amp;#34;shopping.org&amp;#34;)) (setq my/org-capture-2020-summary-file (concat org-directory &amp;#34;private/2020_summary.</description>
     </item>
     
+    <item>
+      <title>6. org-clock</title>
+      <link>https://mugijiru.github.io/.emacs.d/org-mode/org-clock/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-clock/</guid>
+      <description>概要 org-clock 関係の設定をここにまとめている
+clocktable の設定 clocktable は report 表示などで使う表の設定。
+(setq org-clock-clocktable-default-properties &amp;#39;(:maxlevel 10 :lang &amp;#34;ja&amp;#34; :scope agenda-with-archives :block today :level 4))    項目名 設定内容     maxlevel ツリーの何段目まで表示するかの設定。隠さないで欲しいので大きい値を指定している   lang 日本語ネイティブなので日本語で   scope agenda とそのアーカイブもチェック。結構するアーカイブするので   block 基本的に退勤前に実行するので today にしている   level 最低限表示するレベル。まあ適当    hooks clock-in 時の hook clock-in のタイミングで以下の処理をするための hook を用意している
+ 作業開始したことを Slack 通知する TODO ステータスを DOING に変更   (defun my/org-clock-in-hook () (let* ((task org-clock-current-task) (message (format &amp;#34;開始: %s&amp;#34; task))) (my/notify-slack-times message)) (if (org-clocking-p) (org-todo &amp;#34;DOING&amp;#34;))) (setq org-clock-in-hook &amp;#39;my/org-clock-in-hook) clock-out 時の hook clock-out のタイミングで以下の処理をするための hook を用意している</description>
+    </item>
+    
   </channel>
 </rss>

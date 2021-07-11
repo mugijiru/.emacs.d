@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>plantuml-mode :: 麦汁&#39;s Emacs Config</title>
+    <title>6. org-clock :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1626010910" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/.emacs.d/programming/plantuml-mode/">
+  <body class="" data-url="/.emacs.d/org-mode/org-clock/">
     <nav id="sidebar" class="">
 
 
@@ -1144,7 +1144,7 @@
   
     
     <li data-nav-id="/.emacs.d/programming/" title="プログラミング関係の設定" class="dd-item
-        parent
+        
         
         
         ">
@@ -1296,7 +1296,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/programming/plantuml-mode/" title="plantuml-mode" class="dd-item active">
+      <li data-nav-id="/.emacs.d/programming/plantuml-mode/" title="plantuml-mode" class="dd-item ">
         <a href="/.emacs.d/programming/plantuml-mode/">
         plantuml-mode
         
@@ -1632,7 +1632,7 @@
   
     
     <li data-nav-id="/.emacs.d/org-mode/" title="org-mode" class="dd-item
-        
+        parent
         
         
         ">
@@ -1763,7 +1763,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/org-mode/org-clock/" title="6. org-clock" class="dd-item ">
+      <li data-nav-id="/.emacs.d/org-mode/org-clock/" title="6. org-clock" class="dd-item active">
         <a href="/.emacs.d/org-mode/org-clock/">
         6. org-clock
         
@@ -2023,7 +2023,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/programming/'>プログラミング関係の設定</a> > plantuml-mode
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/org-mode/'>org-mode</a> > 6. org-clock
           
         
           
@@ -2039,9 +2039,14 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#インストール">インストール</a></li>
-    <li><a href="#設定">設定</a></li>
-    <li><a href="#その他">その他</a></li>
+    <li><a href="#clocktable-の設定">clocktable の設定</a></li>
+    <li><a href="#hooks">hooks</a>
+      <ul>
+        <li><a href="#clock-in-時の-hook">clock-in 時の hook</a></li>
+        <li><a href="#clock-out-時の-hook">clock-out 時の hook</a></li>
+      </ul>
+    </li>
+    <li><a href="#org-pomodoro">org-pomodoro</a></li>
   </ul>
 </nav>
     </div>
@@ -2059,7 +2064,7 @@
           
             <h1>
               
-              plantuml-mode
+              6. org-clock
             </h1>
           
 
@@ -2067,18 +2072,84 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/skuro/plantuml-mode">plantuml-mode</a> は <a href="https://plantuml.com/ja/">PlantUML</a> という、テキストだけで UML 図などが描けるツール用のモード。</p>
-<h2 id="インストール">インストール</h2>
-<p>いつも通り el-get で入れてる</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle plantuml-mode)
-</code></pre></div><h2 id="設定">設定</h2>
-<p>実行モードは <code>'jar</code> を指定している。デフォルトは <code>'server</code> なんだけどオフラインの時も使いたいししね。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq plantuml-default-exec-mode <span style="color:#e6db74">&#39;jar</span>)
-</code></pre></div><p>el-get でインスコすると jar ファイルも自動で拾って来て
-plantuml-mode と同じディレクトリに設置して
-<code>plantuml-jar-path</code> も通してくれるからそっち使う方が便利だしね。</p>
-<h2 id="その他">その他</h2>
-<p>最新の develop ブランチだとインデントを調整できる機能が入っているので乗り換えたいけどそのためには el-get のレシピを書いてあげる必要がありそうで放置している。</p>
+<p>org-clock 関係の設定をここにまとめている</p>
+<h2 id="clocktable-の設定">clocktable の設定</h2>
+<p>clocktable は report 表示などで使う表の設定。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq org-clock-clocktable-default-properties
+      <span style="color:#f92672">&#39;</span>(:maxlevel <span style="color:#ae81ff">10</span>
+                 :lang <span style="color:#e6db74">&#34;ja&#34;</span>
+                 :scope agenda-with-archives
+                 :block today
+                 :level <span style="color:#ae81ff">4</span>))
+</code></pre></div><table>
+<thead>
+<tr>
+<th>項目名</th>
+<th>設定内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>maxlevel</td>
+<td>ツリーの何段目まで表示するかの設定。隠さないで欲しいので大きい値を指定している</td>
+</tr>
+<tr>
+<td>lang</td>
+<td>日本語ネイティブなので日本語で</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>agenda とそのアーカイブもチェック。結構するアーカイブするので</td>
+</tr>
+<tr>
+<td>block</td>
+<td>基本的に退勤前に実行するので today にしている</td>
+</tr>
+<tr>
+<td>level</td>
+<td>最低限表示するレベル。まあ適当</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hooks">hooks</h2>
+<h3 id="clock-in-時の-hook">clock-in 時の hook</h3>
+<p>clock-in のタイミングで以下の処理をするための hook を用意している</p>
+<ul>
+<li>作業開始したことを Slack 通知する</li>
+<li>TODO ステータスを DOING に変更</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/org-clock-in-hook ()
+  (let* ((task org-clock-current-task)
+         (<span style="color:#a6e22e">message</span> (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;開始: %s&#34;</span> task)))
+    (my/notify-slack-times <span style="color:#a6e22e">message</span>))
+
+  (if (org-clocking-p)
+      (org-todo <span style="color:#e6db74">&#34;DOING&#34;</span>)))
+
+(setq org-clock-in-hook <span style="color:#e6db74">&#39;my/org-clock-in-hook</span>)
+</code></pre></div><h3 id="clock-out-時の-hook">clock-out 時の hook</h3>
+<p>clock-out のタイミングで以下の処理をするための hook を用意している</p>
+<ul>
+<li>作業終了を Slack 通知する
+<ul>
+<li>中断でも終了扱いになるのでちょっと悩み中。DONE にしたことを hook する必要があるかも。</li>
+</ul>
+</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/org-clock-out-hook ()
+  (let* ((task org-clock-current-task)
+         (<span style="color:#a6e22e">message</span> (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;終了: %s&#34;</span> task)))
+    (my/notify-slack-times <span style="color:#a6e22e">message</span>)))
+
+(setq org-clock-out-hook <span style="color:#e6db74">&#39;my/org-clock-out-hook</span>)
+</code></pre></div><h2 id="org-pomodoro">org-pomodoro</h2>
+<p>ポモドーロテクニックを使うために org-pomodoro を導入している</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle org-pomodoro)
+</code></pre></div><p>で、sound は結構邪魔なのでそれは鳴らないようにしている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq org-pomodoro-play-sounds <span style="color:#66d9ef">nil</span>)
+</code></pre></div><p>まあ普段これ起動してなくて使えてないんだけどw</p>
 
 
 <footer class="footline">
@@ -2871,7 +2942,6 @@ plantuml-mode と同じディレクトリに設置して
             
                 
                     
-                    
                 
                 
 
@@ -2884,9 +2954,6 @@ plantuml-mode と同じディレクトリに設置して
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -2984,7 +3051,6 @@ plantuml-mode と同じディレクトリに設置して
             
                 
                     
-                    
                 
                 
 
@@ -3000,9 +3066,6 @@ plantuml-mode と同じディレクトリに設置して
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -3231,6 +3294,7 @@ plantuml-mode と同じディレクトリに設置して
             
                 
                     
+                    
                 
                 
 
@@ -3243,6 +3307,9 @@ plantuml-mode と同じディレクトリに設置して
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3324,6 +3391,7 @@ plantuml-mode と同じディレクトリに設置して
             
                 
                     
+                    
                 
                 
 
@@ -3342,6 +3410,9 @@ plantuml-mode と同じディレクトリに設置して
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3459,10 +3530,10 @@ plantuml-mode と同じディレクトリに設置して
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/programming/markdown/" title="markdown"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/org-mode/org-capture/" title="5. org-capture"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/programming/rails/" title="rails" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/testing-tool/" title="テスト用ツール" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
