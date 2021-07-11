@@ -11,3 +11,4 @@ disableToc = true
 3.  [予定のカレンダー表示]({{< relref "calendar" >}})
 4.  [Agenda 関係の設定]({{< relref "agenda" >}})
 5.  [org-capture]({{< relref "org-capture" >}})
+6.  [org-clock]({{< relref "org-clock" >}})
