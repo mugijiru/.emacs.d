@@ -66,10 +66,5 @@
 ;; with keychord
 (key-chord-define-global "jk" 'pretty-hydra-usefull-commands/body)
 
-;; `;` とアルファベット小文字をほぼ同時に入力すると大文字入力扱いにする
-(mapc (lambda (key)
-        (key-chord-define-global (concat ";" (char-to-string key)) (char-to-string (- key 32))))
-      (number-sequence ?a ?z))
-
 ;; Don't ask yes or no.
 (defalias 'yes-or-no-p 'y-or-n-p)
