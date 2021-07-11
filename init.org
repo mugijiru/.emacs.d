@@ -572,6 +572,49 @@
     といいつつ現状では Hydra 起動のやつしか使ってないので、
     グローバルキーバインド設定でしか書いてない。
 
+*** sticky-shift
+**** セミコロン+アルファベット入力で大文字とする
+     セミコロンとアルファベットをほぼ同時に叩くことにより
+     対応する大文字を出力できるようにしている。
+
+     これで PascalCase を入力しないといけない時でもシフトキーを叩かずに済む。
+     少し慣れは必要だけども。
+
+     #+begin_src emacs-lisp :tangle inits/70-key-chord.el
+     (mapc (lambda (key)
+             (key-chord-define-global (concat ";" (char-to-string key)) (char-to-string (- key 32))))
+           (number-sequence ?a ?z))
+     #+end_src
+
+**** セミコロン2つでシフトを押した状態にする
+     上に書いたやつだけだと設定が足りなくて
+     何故かというと、
+     magit を使う時なんかは結構 P とかで push したりするけども
+     上記の設定だと ~;p~ を入力しても、あくまで文字の出力が変わるだけになってしまうため
+     magit のコマンドとして成立しない。
+
+     そこでセミコロンを2回叩くことで shift が押されてるという状態を実現する。
+
+     #+begin_src emacs-lisp :tangle inits/70-key-chord.el
+     (key-chord-define key-translation-map
+                       ";;"
+                       'event-apply-shift-modifier)
+     #+end_src
+
+     ここで使っている ~event-apply-shift-modifier~ はデフォルトでは ~C-x @ S~ にバインドされているやつ。
+     お仲間に ~event-apply-control-modifier~ などの各 modifier キーがいるので
+     sticky 的なことをやる上で便利な子達。
+     [[*sticky-control][sticky-control]] の中でも ~event-apply-control-modifier~ が使われているぞい。
+
+**** やりたかったけど実現できてないこと
+***** セミコロン+アルファベット入力で大文字を入力したことにする
+      今だとセミコロン+アルファベット入力ではその文字を出力することしかできてないので
+      magit を操作する時はセミコロンを2回叩く必要があってだるいなって。
+***** セミコロン+数字キー、セミコロン+記号キーの対応
+      [[https://www.emacswiki.org/emacs/sticky.el][sticky.el]] では実現されてそうなことなので、
+      同じことをできるようにしたいのと
+      「セミコロン2回 + 数字または記号キー」みたいな組み合わせも対応していきたい
+
 *** その他
 
     [[*sticky-control][sticky-control]] も control 限定で似たようなことをしているので
@@ -4947,11 +4990,6 @@
 
    ;; with keychord
    (key-chord-define-global "jk" 'pretty-hydra-usefull-commands/body)
-
-   ;; `;` とアルファベット小文字をほぼ同時に入力すると大文字入力扱いにする
-   (mapc (lambda (key)
-           (key-chord-define-global (concat ";" (char-to-string key)) (char-to-string (- key 32))))
-         (number-sequence ?a ?z))
 
    ;; Don't ask yes or no.
    (defalias 'yes-or-no-p 'y-or-n-p)
