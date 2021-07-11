@@ -12,20 +12,20 @@
     <title>key-chord :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1625923603" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1625923603" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1625923603" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1625923603" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1625923603" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1625923603" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1625923603" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1625923603" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1625923603" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1625923603" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1625975537" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1625975537" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1625975537" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1625975537" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1625975537" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1625975537" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1625975537" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1625975537" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1625975537" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1625975537" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1625923603"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1625975537"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -54,14 +54,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1625923603"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1625923603"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1625975537"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1625975537"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1625923603"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1625975537"></script>
 
     
   </div>
@@ -2021,6 +2021,13 @@
     <li><a href="#インストール">インストール</a></li>
     <li><a href="#設定">設定</a></li>
     <li><a href="#有効化">有効化</a></li>
+    <li><a href="#sticky-shift">sticky-shift</a>
+      <ul>
+        <li><a href="#セミコロン-plus-アルファベット入力で大文字とする">セミコロン+アルファベット入力で大文字とする</a></li>
+        <li><a href="#セミコロン2つでシフトを押した状態にする">セミコロン2つでシフトを押した状態にする</a></li>
+        <li><a href="#やりたかったけど実現できてないこと">やりたかったけど実現できてないこと</a></li>
+      </ul>
+    </li>
     <li><a href="#その他">その他</a></li>
   </ul>
 </nav>
@@ -2055,7 +2062,7 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle zk-phi/key-chord)
 </code></pre></div><h2 id="設定">設定</h2>
 <p>同時押し時の許容時間、その前後で別のキーが押されていたら発動しない判断をする、みたいな設定を入れている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq key-chord-two-keys-delay           <span style="color:#ae81ff">0.15</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq key-chord-two-keys-delay           <span style="color:#ae81ff">0.25</span>
       key-chord-safety-interval-backward <span style="color:#ae81ff">0.1</span>
       key-chord-safety-interval-forward  <span style="color:#ae81ff">0.15</span>)
 </code></pre></div><p>キーの同時押し判定は 0.15 秒で、それらのキーが押される直前の 0.1 秒以内、または直後の 0.15 秒に押されていたら発動しない、という設定にしている。</p>
@@ -2065,6 +2072,34 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(key-chord-mode <span style="color:#ae81ff">1</span>)
 </code></pre></div><p>実際のキーバインド設定は各モードだったりグローバルキーバインドを設定しているファイルだったりで書く感じ。</p>
 <p>といいつつ現状では Hydra 起動のやつしか使ってないので、グローバルキーバインド設定でしか書いてない。</p>
+<h2 id="sticky-shift">sticky-shift</h2>
+<h3 id="セミコロン-plus-アルファベット入力で大文字とする">セミコロン+アルファベット入力で大文字とする</h3>
+<p>セミコロンとアルファベットをほぼ同時に叩くことにより対応する大文字を出力できるようにしている。</p>
+<p>これで PascalCase を入力しないといけない時でもシフトキーを叩かずに済む。少し慣れは必要だけども。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#a6e22e">mapc</span> (lambda (key)
+        (key-chord-define-global (<span style="color:#a6e22e">concat</span> <span style="color:#e6db74">&#34;;&#34;</span> (<span style="color:#a6e22e">char-to-string</span> key)) (<span style="color:#a6e22e">char-to-string</span> (<span style="color:#a6e22e">-</span> key <span style="color:#ae81ff">32</span>))))
+      (number-sequence <span style="color:#e6db74">?a</span> <span style="color:#e6db74">?z</span>))
+</code></pre></div><h3 id="セミコロン2つでシフトを押した状態にする">セミコロン2つでシフトを押した状態にする</h3>
+<p>上に書いたやつだけだと設定が足りなくて何故かというと、
+magit を使う時なんかは結構 P とかで push したりするけども上記の設定だと <code>;p</code> を入力しても、あくまで文字の出力が変わるだけになってしまうため
+magit のコマンドとして成立しない。</p>
+<p>そこでセミコロンを2回叩くことで shift が押されてるという状態を実現する。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(key-chord-define-global <span style="color:#e6db74">&#34;;;&#34;</span>
+                         <span style="color:#e6db74">&#39;event-apply-shift-modifier</span>)
+
+(key-chord-define key-translation-map
+                  <span style="color:#e6db74">&#34;;;&#34;</span>
+                  <span style="color:#e6db74">&#39;event-apply-shift-modifier</span>)
+</code></pre></div><p><code>global-key-map</code> と <code>key-translation-map</code> の両方に定義しないと動かないがその原因はよく分かってない。一旦動くから良しとしている。</p>
+<p>ここで使っている <code>event-apply-shift-modifier</code> はデフォルトでは <code>C-x @ S</code> にバインドされているやつ。お仲間に <code>event-apply-control-modifier</code> などの各 modifier キーがいるので
+sticky 的なことをやる上で便利な子達。
+<a href="/.emacs.d/keybinds/sticky-control/">sticky-control</a> の中でも <code>event-apply-control-modifier</code> が使われているぞい。</p>
+<h3 id="やりたかったけど実現できてないこと">やりたかったけど実現できてないこと</h3>
+<h4 id="セミコロン-plus-アルファベット入力で大文字を入力したことにする">セミコロン+アルファベット入力で大文字を入力したことにする</h4>
+<p>今だとセミコロン+アルファベット入力ではその文字を出力することしかできてないので
+magit を操作する時はセミコロンを2回叩く必要があってだるいなって。</p>
+<h4 id="セミコロン-plus-数字キー-セミコロン-plus-記号キーの対応">セミコロン+数字キー、セミコロン+記号キーの対応</h4>
+<p><a href="https://www.emacswiki.org/emacs/sticky.el">sticky.el</a> では実現されてそうなことなので、同じことをできるようにしたいのと「セミコロン2回 + 数字または記号キー」みたいな組み合わせも対応していきたい</p>
 <h2 id="その他">その他</h2>
 <p><a href="/.emacs.d/keybinds/sticky-control/">sticky-control</a> も control 限定で似たようなことをしているので
 key-chord に全部置き換えできるかもしれない。</p>
@@ -3445,19 +3480,19 @@ key-chord に全部置き換えできるかもしれない。</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1625923603"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1625923603"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1625923603"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1625923603"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1625923603"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1625923603"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1625975537"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1625975537"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1625975537"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1625975537"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1625975537"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1625975537"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1625923603"></script>
-    <script src="/.emacs.d/js/learn.js?1625923603"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1625923603"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1625975537"></script>
+    <script src="/.emacs.d/js/learn.js?1625975537"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1625975537"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1625923603"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1625975537"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
