@@ -596,10 +596,16 @@
      そこでセミコロンを2回叩くことで shift が押されてるという状態を実現する。
 
      #+begin_src emacs-lisp :tangle inits/70-key-chord.el
+     (key-chord-define-global ";;"
+                              'event-apply-shift-modifier)
+
      (key-chord-define key-translation-map
                        ";;"
                        'event-apply-shift-modifier)
      #+end_src
+
+     ~global-key-map~ と ~key-translation-map~ の両方に定義しないと動かないが
+     その原因はよく分かってない。一旦動くから良しとしている。
 
      ここで使っている ~event-apply-shift-modifier~ はデフォルトでは ~C-x @ S~ にバインドされているやつ。
      お仲間に ~event-apply-control-modifier~ などの各 modifier キーがいるので

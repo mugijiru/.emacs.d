@@ -10,6 +10,9 @@
         (key-chord-define-global (concat ";" (char-to-string key)) (char-to-string (- key 32))))
       (number-sequence ?a ?z))
 
+(key-chord-define-global ";;"
+                         'event-apply-shift-modifier)
+
 (key-chord-define key-translation-map
                   ";;"
                   'event-apply-shift-modifier)

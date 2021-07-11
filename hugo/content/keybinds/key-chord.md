@@ -74,10 +74,15 @@ magit のコマンドとして成立しない。
 そこでセミコロンを2回叩くことで shift が押されてるという状態を実現する。
 
 ```emacs-lisp
+(key-chord-define-global ";;"
+                         'event-apply-shift-modifier)
+
 (key-chord-define key-translation-map
                   ";;"
                   'event-apply-shift-modifier)
 ```
+
+`global-key-map` と `key-translation-map` の両方に定義しないと動かないがその原因はよく分かってない。一旦動くから良しとしている。
 
 ここで使っている `event-apply-shift-modifier` はデフォルトでは `C-x @ S` にバインドされているやつ。お仲間に `event-apply-control-modifier` などの各 modifier キーがいるので
 sticky 的なことをやる上で便利な子達。
