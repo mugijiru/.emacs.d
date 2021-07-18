@@ -12,20 +12,20 @@
     <title>company-mode :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1626575693" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1626575693" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1626575693" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1626575693" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1626575693" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1626575693" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1626575693" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1626575693" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1626575693" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1626575693" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1626604913" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1626604913" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1626604913" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1626604913" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1626604913" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1626604913" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1626604913" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1626604913" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1626604913" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1626604913" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1626575693"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1626604913"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -54,14 +54,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1626575693"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1626575693"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1626604913"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1626604913"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1626575693"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1626604913"></script>
 
     
   </div>
@@ -2099,7 +2099,10 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;company</span>
   <span style="color:#75715e">;; active</span>
   (<span style="color:#a6e22e">define-key</span> company-active-map (kbd <span style="color:#e6db74">&#34;C-s&#34;</span>) <span style="color:#e6db74">&#39;company-search-candidates</span>))
-</code></pre></div><h2 id="その他">その他</h2>
+</code></pre></div><p>それと最近追加された company-show-quick-access を有効にしている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(custom-set-variables <span style="color:#f92672">&#39;</span>(company-show-quick-access <span style="color:#66d9ef">t</span>))
+</code></pre></div><p>これを有効にしていると補完候補の末尾に quick access key が表示されて例えば4行目なら 4 とか表示されるのでそこで M-4 とか入力すると4行目が選択されて便利</p>
+<h2 id="その他">その他</h2>
 <p>グローバルでは有効にしていなくて各モードで有効にするような hook を入れている。</p>
 <p>グローバルで有効でもいい気がしている。</p>
 
@@ -3511,19 +3514,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1626575693"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1626575693"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1626575693"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1626575693"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1626575693"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1626575693"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1626604913"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1626604913"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1626604913"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1626604913"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1626604913"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1626604913"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1626575693"></script>
-    <script src="/.emacs.d/js/learn.js?1626575693"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1626575693"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1626604913"></script>
+    <script src="/.emacs.d/js/learn.js?1626604913"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1626604913"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1626575693"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1626604913"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
