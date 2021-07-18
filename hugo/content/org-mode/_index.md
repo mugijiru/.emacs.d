@@ -12,3 +12,4 @@ disableToc = true
 4.  [Agenda 関係の設定]({{< relref "agenda" >}})
 5.  [org-capture]({{< relref "org-capture" >}})
 6.  [org-clock]({{< relref "org-clock" >}})
+7.  [org-export]({{< relref "org-export" >}})
