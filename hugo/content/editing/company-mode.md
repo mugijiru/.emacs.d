@@ -31,6 +31,14 @@ draft = false
   (define-key company-active-map (kbd "C-s") 'company-search-candidates))
 ```
 
+それと最近追加された company-show-quick-access を有効にしている。
+
+```emacs-lisp
+(custom-set-variables '(company-show-quick-access t))
+```
+
+これを有効にしていると補完候補の末尾に quick access key が表示されて例えば4行目なら 4 とか表示されるのでそこで M-4 とか入力すると4行目が選択されて便利
+
 
 ## その他 {#その他}
 

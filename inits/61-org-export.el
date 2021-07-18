@@ -15,15 +15,12 @@
 (setq org-export-with-section-numbers nil)
 (setq org-export-with-sub-superscripts nil)
 
-;;; Table of Contents を出さない
 (setq org-export-with-toc nil)
 
-;;; h1でサイト名出さない
 (setq org-export-html-preamble nil)
 (setq org-html-preamble nil)
 
 ;;; *bold* とか /italic/ とか _underline_ とかを<b>とかにしないようにする
 (setq org-export-with-emphasize nil)
 
-;; デフォは日本語設定
 (setq org-export-default-language "ja")
