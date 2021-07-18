@@ -46,6 +46,8 @@
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/org-mode/org-clock/</loc>
   </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/org-mode/org-export/</loc>
+  </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/nav/ace-window/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/ui/alert/</loc>

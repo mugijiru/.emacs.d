@@ -102,5 +102,18 @@ clocktable の設定 clocktable は report 表示などで使う表の設定。
  作業開始したことを Slack 通知する TODO ステータスを DOING に変更   (defun my/org-clock-in-hook () (let* ((task org-clock-current-task) (message (format &amp;#34;開始: %s&amp;#34; task))) (my/notify-slack-times message)) (if (org-clocking-p) (org-todo &amp;#34;DOING&amp;#34;))) (setq org-clock-in-hook &amp;#39;my/org-clock-in-hook) clock-out 時の hook clock-out のタイミングで以下の処理をするための hook を用意している</description>
     </item>
     
+    <item>
+      <title>7. org-export</title>
+      <link>https://mugijiru.github.io/.emacs.d/org-mode/org-export/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-export/</guid>
+      <description>概要 ここではファイルへの出力用の設定をまとめている。というか昔書いた設定をとりあえずここに押し込めている
+footnote や制作者などを出力しない HTML で記事を吐き出す時に邪魔だったの非表示にしている記憶。随分昔に設定したのであんまり覚えてない。
+;; フッターなくしたり (setq org-export-html-footnotes-section &amp;#34;&amp;#34;) (setq org-export-html-footnote-format &amp;#34;&amp;#34;) (setq org-export-with-footnotes nil) (setq org-export-with-creator nil) (setq org-export-with-author nil) (setq org-html-validation-link nil) 以下は seesaa blog への吐き出し用設定なのだけどもう向こうを更新することはないので消しても良さそう
+;; for seesaa blog settings (setq org-export-author-info nil) (setq org-export-email-info nil) (setq org-export-creator-info nil) (setq org-export-time-stamp-file nil) (setq org-export-with-timestamps nil) (setq org-export-with-section-numbers nil) (setq org-export-with-sub-superscripts nil) Table of Contents 出力抑制 これも自分の用途では要らなかったけどファイル単位とかで制御しても良い気がする
+(setq org-export-with-toc nil) サイト名の出力 seesaa blog 用に記事を吐き出していた時はページ全体ではなく記事部分だけ出力したかったのでつまり h1 とかはもうテンプレート側に埋め込まれているので出す必要がなかった</description>
+    </item>
+    
   </channel>
 </rss>

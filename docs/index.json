@@ -95,7 +95,7 @@
 	"title": "org-mode",
 	"tags": [],
 	"description": "",
-	"content": " 基本設定 org-babel 予定のカレンダー表示 Agenda 関係の設定 org-capture org-clock  "
+	"content": " 基本設定 org-babel 予定のカレンダー表示 Agenda 関係の設定 org-capture org-clock org-export  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/testing-tool/",
@@ -152,6 +152,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 org-clock 関係の設定をここにまとめている\nclocktable の設定 clocktable は report 表示などで使う表の設定。\n(setq org-clock-clocktable-default-properties \u0026#39;(:maxlevel 10 :lang \u0026#34;ja\u0026#34; :scope agenda-with-archives :block today :level 4))    項目名 設定内容     maxlevel ツリーの何段目まで表示するかの設定。隠さないで欲しいので大きい値を指定している   lang 日本語ネイティブなので日本語で   scope agenda とそのアーカイブもチェック。結構するアーカイブするので   block 基本的に退勤前に実行するので today にしている   level 最低限表示するレベル。まあ適当    hooks clock-in 時の hook clock-in のタイミングで以下の処理をするための hook を用意している\n 作業開始したことを Slack 通知する TODO ステータスを DOING に変更   (defun my/org-clock-in-hook () (let* ((task org-clock-current-task) (message (format \u0026#34;開始: %s\u0026#34; task))) (my/notify-slack-times message)) (if (org-clocking-p) (org-todo \u0026#34;DOING\u0026#34;))) (setq org-clock-in-hook \u0026#39;my/org-clock-in-hook) clock-out 時の hook clock-out のタイミングで以下の処理をするための hook を用意している\n 作業終了を Slack 通知する  中断でも終了扱いになるのでちょっと悩み中。DONE にしたことを hook する必要があるかも。     (defun my/org-clock-out-hook () (let* ((task org-clock-current-task) (message (format \u0026#34;終了: %s\u0026#34; task))) (my/notify-slack-times message))) (setq org-clock-out-hook \u0026#39;my/org-clock-out-hook) org-pomodoro ポモドーロテクニックを使うために org-pomodoro を導入している\n(el-get-bundle org-pomodoro) で、sound は結構邪魔なのでそれは鳴らないようにしている\n(setq org-pomodoro-play-sounds nil) まあ普段これ起動してなくて使えてないんだけどw\n"
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/org-export/",
+	"title": "7. org-export",
+	"tags": [],
+	"description": "",
+	"content": "概要 ここではファイルへの出力用の設定をまとめている。というか昔書いた設定をとりあえずここに押し込めている\nfootnote や制作者などを出力しない HTML で記事を吐き出す時に邪魔だったの非表示にしている記憶。随分昔に設定したのであんまり覚えてない。\n;; フッターなくしたり (setq org-export-html-footnotes-section \u0026#34;\u0026#34;) (setq org-export-html-footnote-format \u0026#34;\u0026#34;) (setq org-export-with-footnotes nil) (setq org-export-with-creator nil) (setq org-export-with-author nil) (setq org-html-validation-link nil) 以下は seesaa blog への吐き出し用設定なのだけどもう向こうを更新することはないので消しても良さそう\n;; for seesaa blog settings (setq org-export-author-info nil) (setq org-export-email-info nil) (setq org-export-creator-info nil) (setq org-export-time-stamp-file nil) (setq org-export-with-timestamps nil) (setq org-export-with-section-numbers nil) (setq org-export-with-sub-superscripts nil) Table of Contents 出力抑制 これも自分の用途では要らなかったけどファイル単位とかで制御しても良い気がする\n(setq org-export-with-toc nil) サイト名の出力 seesaa blog 用に記事を吐き出していた時はページ全体ではなく記事部分だけ出力したかったのでつまり h1 とかはもうテンプレート側に埋め込まれているので出す必要がなかった\nというわけで h1 でサイト名を出さないようにしている\n(setq org-export-html-preamble nil) (setq org-html-preamble nil) bold, italic などの抑制 アスタリスクで囲ったりスラッシュでアンダースコアで囲ったりすると b タグや i タグ、 u タグにする機能があるが HTML 4.01 Strict 信者だったこともあって抑制している。\nアスタリスクで囲む時、重要と思って囲むので、そういう意味では em とかで出る方が適切だと思う。\n;;; *bold* とか /italic/ とか _underline_ とかを\u0026lt;b\u0026gt;とかにしないようにする (setq org-export-with-emphasize nil) export のデフォルト出力言語は日本語 まあ日本語しか書かないので……\n(setq org-export-default-language \u0026#34;ja\u0026#34;) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/nav/ace-window/",
