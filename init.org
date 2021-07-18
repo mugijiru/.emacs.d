@@ -3539,6 +3539,7 @@
    4. [[*4. Agenda 関係の設定][Agenda 関係の設定]]
    5. [[*5. org-capture][org-capture]]
    6. [[*6. org-clock][org-clock]]
+   7. [[*7. org-export][org-export]]
 
 ** 1. 基本設定
    :PROPERTIES:
