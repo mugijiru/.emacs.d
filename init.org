@@ -4212,6 +4212,81 @@
 
     まあ普段これ起動してなくて使えてないんだけどw
 
+** 7. org-export
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: org-export
+   :END:
+*** 概要
+    ここではファイルへの出力用の設定をまとめている。
+    というか昔書いた設定をとりあえずここに押し込めている
+
+*** footnote や制作者などを出力しない
+
+    HTML で記事を吐き出す時に邪魔だったの非表示にしている記憶。
+    随分昔に設定したのであんまり覚えてない。
+
+    #+begin_src emacs-lisp :tangle inits/61-org-export.el
+    ;; フッターなくしたり
+    (setq org-export-html-footnotes-section "")
+    (setq org-export-html-footnote-format "")
+    (setq org-export-with-footnotes nil)
+    (setq org-export-with-creator nil)
+    (setq org-export-with-author nil)
+    (setq org-html-validation-link nil)
+    #+end_src
+
+    以下は seesaa blog への吐き出し用設定なのだけど
+    もう向こうを更新することはないので消しても良さそう
+
+    #+begin_src emacs-lisp :tangle inits/61-org-export.el
+    ;; for seesaa blog settings
+    (setq org-export-author-info nil)
+    (setq org-export-email-info nil)
+    (setq org-export-creator-info nil)
+    (setq org-export-time-stamp-file nil)
+    (setq org-export-with-timestamps nil)
+    (setq org-export-with-section-numbers nil)
+    (setq org-export-with-sub-superscripts nil)
+    #+end_src
+
+*** Table of Contents 出力抑制
+    これも自分の用途では要らなかったけど
+    ファイル単位とかで制御しても良い気がする
+
+    #+begin_src emacs-lisp :tangle inits/61-org-export.el
+    (setq org-export-with-toc nil)
+    #+end_src
+
+*** サイト名の出力
+    seesaa blog 用に記事を吐き出していた時は
+    ページ全体ではなく記事部分だけ出力したかったので
+    つまり h1 とかはもうテンプレート側に埋め込まれているので出す必要がなかった
+
+    というわけで h1 でサイト名を出さないようにしている
+
+    #+begin_src emacs-lisp :tangle inits/61-org-export.el
+    (setq org-export-html-preamble nil)
+    (setq org-html-preamble nil)
+    #+end_src
+
+*** bold, italic などの抑制
+    アスタリスクで囲ったりスラッシュでアンダースコアで囲ったりすると
+    b タグや i タグ、 u タグにする機能があるが
+    HTML 4.01 Strict 信者だったこともあって抑制している。
+
+    アスタリスクで囲む時、重要と思って囲むので、
+    そういう意味では em とかで出る方が適切だと思う。
+    #+begin_src emacs-lisp :tangle inits/61-org-export.el
+    ;;; *bold* とか /italic/ とか _underline_ とかを<b>とかにしないようにする
+    (setq org-export-with-emphasize nil)
+    #+end_src
+
+*** export のデフォルト出力言語は日本語
+    まあ日本語しか書かないので……
+    #+begin_src emacs-lisp :tangle inits/61-org-export.el
+    (setq org-export-default-language "ja")
+    #+end_src
+
 * テスト用ツール
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: testing-tool
@@ -4650,40 +4725,6 @@
    #+begin_src emacs-lisp :tangle inits/50-todoist.el
    (el-get-bundle  abrochard/emacs-todoist)
    (my/load-config "my-todoist-config")
-   #+end_src
-
-** 61-org-export.el
-
-   #+begin_src emacs-lisp :tangle inits/61-org-export.el
-   ;; フッターなくしたり
-   (setq org-export-html-footnotes-section "")
-   (setq org-export-html-footnote-format "")
-   (setq org-export-with-footnotes nil)
-   (setq org-export-with-creator nil)
-   (setq org-export-with-author nil)
-   (setq org-html-validation-link nil)
-
-   ;; for seesaa blog settings
-   (setq org-export-author-info nil)
-   (setq org-export-email-info nil)
-   (setq org-export-creator-info nil)
-   (setq org-export-time-stamp-file nil)
-   (setq org-export-with-timestamps nil)
-   (setq org-export-with-section-numbers nil)
-   (setq org-export-with-sub-superscripts nil)
-
-   ;;; Table of Contents を出さない
-   (setq org-export-with-toc nil)
-
-   ;;; h1でサイト名出さない
-   (setq org-export-html-preamble nil)
-   (setq org-html-preamble nil)
-
-   ;;; *bold* とか /italic/ とか _underline_ とかを<b>とかにしないようにする
-   (setq org-export-with-emphasize nil)
-
-   ;; デフォは日本語設定
-   (setq org-export-default-language "ja")
    #+end_src
 
 ** 61-org-gcal.el                                               :replacement:
