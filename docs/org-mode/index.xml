@@ -156,5 +156,18 @@ refile 先の候補設定 いくつかの org ファイルを使っているの�
 (setq org-refile-targets `((,(concat org-directory &amp;#34;tasks/projects.org&amp;#34;) :level . 2) (,(concat org-directory &amp;#34;tasks/pointers.org&amp;#34;) :level . 1) (,(concat org-directory &amp;#34;work/scrum/impediments.org&amp;#34;) :level . 3) (,(concat org-directory &amp;#34;tasks/next-actions.org&amp;#34;) :regexp . &amp;#34;today&amp;#34;) (,(concat org-directory &amp;#34;tasks/next-actions.org&amp;#34;) :regexp . &amp;#34;C-&amp;#34;) (,(concat org-directory &amp;#34;private/2020_summary.org&amp;#34;) :level .</description>
     </item>
     
+    <item>
+      <title>org-trello</title>
+      <link>https://mugijiru.github.io/.emacs.d/org-mode/org-trello/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-trello/</guid>
+      <description>概要 org-trello は org-mode を使って Trello のタスクを管理するためのパッケージ。
+インストール いつも通り el-get でインストールしている
+(el-get-bundle org-trello) 同期するコマンドの用意 バッファと Trello との同期する関数はあるのだけどコマンドにはなっていなかったので同期するためのコマンドを用意している
+(defun my/org-trello-fetch-buffer () (interactive) (org-trello-sync-buffer t)) キーバインド設定 キーバインドは覚えられないので、いつも通り pretty-hydra で Hydra のやつを用意している
+(with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define org-trello-hydra (:separator &amp;#34;-&amp;#34; :color teal :foreign-key warn :title (concat (all-the-icons-faicon &amp;#34;trello&amp;#34;) &amp;#34; Org Trello commands&amp;#34;) :quit-key &amp;#34;q&amp;#34;) (&amp;#34;Install&amp;#34; ((&amp;#34;i&amp;#34; org-trello-install-board-metadata &amp;#34;Board metadata&amp;#34;) (&amp;#34;I&amp;#34; org-trello-install-key-and-token &amp;#34;Setup&amp;#34;)) &amp;#34;Sync&amp;#34; ((&amp;#34;s&amp;#34; my/org-trello-fetch-buffer &amp;#34;← Trello&amp;#34;) (&amp;#34;S&amp;#34; org-trello-sync-buffer &amp;#34;→ Trello&amp;#34;)) &amp;#34;Other&amp;#34; ((&amp;#34;V&amp;#34; org-trello-version &amp;#34;Version&amp;#34;)))))    Key 効果     i Board のメタデータをインストールする   I Key と トークンを設定する   s Trello の情報を引っ張ってくる   S Trello の情報を連携する   V バージョン情報を表示    その他 まだ試していないが https://github.</description>
+    </item>
+    
   </channel>
 </rss>

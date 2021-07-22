@@ -9,23 +9,23 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>org-mode :: 麦汁&#39;s Emacs Config</title>
+    <title>org-trello :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1626972324" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1626972324" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1626972324" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1626972324" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1626972324" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1626972324" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1626972324" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1626972324" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1626972324" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1626972324" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1626972323" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1626972323" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1626972323" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1626972323" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1626972323" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1626972323" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1626972323" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1626972323" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1626972323" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1626972323" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1626972324"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1626972323"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/org-mode/">
+  <body class="" data-url="/.emacs.d/org-mode/org-trello/">
     <nav id="sidebar" class="">
 
 
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1626972324"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1626972324"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1626972323"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1626972323"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1626972324"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1626972323"></script>
 
     
   </div>
@@ -1665,7 +1665,7 @@
     
     <li data-nav-id="/.emacs.d/org-mode/" title="org-mode" class="dd-item
         parent
-        active
+        
         
         ">
       <a href="/.emacs.d/org-mode/">
@@ -1900,7 +1900,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/org-mode/org-trello/" title="org-trello" class="dd-item ">
+      <li data-nav-id="/.emacs.d/org-mode/org-trello/" title="org-trello" class="dd-item active">
         <a href="/.emacs.d/org-mode/org-trello/">
         org-trello
         
@@ -2148,6 +2148,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -2158,7 +2160,13 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > org-mode
+            
+            
+          
+          
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/org-mode/'>org-mode</a> > org-trello
+          
+        
           
         
           
@@ -2166,6 +2174,21 @@
                  
                   </span>
                 </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#インストール">インストール</a></li>
+    <li><a href="#同期するコマンドの用意">同期するコマンドの用意</a></li>
+    <li><a href="#キーバインド設定">キーバインド設定</a></li>
+    <li><a href="#その他">その他</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
                 
               </div>
             </div>
@@ -2178,35 +2201,80 @@
           
             <h1>
               
-              org-mode
+              org-trello
             </h1>
           
 
         
 
 
+<h2 id="概要">概要</h2>
+<p><a href="https://org-trello.github.io/">org-trello</a> は org-mode を使って Trello のタスクを管理するためのパッケージ。</p>
+<h2 id="インストール">インストール</h2>
+<p>いつも通り el-get でインストールしている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle org-trello)
+</code></pre></div><h2 id="同期するコマンドの用意">同期するコマンドの用意</h2>
+<p>バッファと Trello との同期する関数はあるのだけどコマンドにはなっていなかったので同期するためのコマンドを用意している</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/org-trello-fetch-buffer ()
+  (interactive)
+  (org-trello-sync-buffer <span style="color:#66d9ef">t</span>))
+</code></pre></div><h2 id="キーバインド設定">キーバインド設定</h2>
+<p>キーバインドは覚えられないので、いつも通り <a href="https://github.com/jerrypnz/major-mode-hydra.el#pretty-hydra">pretty-hydra</a> で Hydra のやつを用意している</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
+  (pretty-hydra-define
+    org-trello-hydra
+    (:separator <span style="color:#e6db74">&#34;-&#34;</span>
+                :color teal
+                :foreign-key <span style="color:#a6e22e">warn</span>
+                :title (<span style="color:#a6e22e">concat</span> (all-the-icons-faicon <span style="color:#e6db74">&#34;trello&#34;</span>) <span style="color:#e6db74">&#34;  Org Trello commands&#34;</span>)
+                :quit-key <span style="color:#e6db74">&#34;q&#34;</span>)
+    (<span style="color:#e6db74">&#34;Install&#34;</span>
+     ((<span style="color:#e6db74">&#34;i&#34;</span> org-trello-install-board-metadata <span style="color:#e6db74">&#34;Board metadata&#34;</span>)
+      (<span style="color:#e6db74">&#34;I&#34;</span> org-trello-install-key-and-token <span style="color:#e6db74">&#34;Setup&#34;</span>))
 
-	<p>ここでは org-mode 周りの設定をまとめている。
-org-mode だけでも書くことが多いからね……。</p>
-<ol>
-<li><a href="basics/.org">基本設定</a></li>
-<li><a href="/.emacs.d/org-mode/org-babel/">org-babel</a></li>
-<li><a href="/.emacs.d/org-mode/calendar/">予定のカレンダー表示</a></li>
-<li><a href="/.emacs.d/org-mode/agenda/">Agenda 関係の設定</a></li>
-<li><a href="/.emacs.d/org-mode/org-capture/">org-capture</a></li>
-<li><a href="/.emacs.d/org-mode/org-clock/">org-clock</a></li>
-<li><a href="/.emacs.d/org-mode/org-export/">org-export</a></li>
-<li><a href="/.emacs.d/org-mode/org-gcal/">org-gcal</a></li>
-<li><a href="/.emacs.d/org-mode/org-ql/">org-ql</a></li>
-<li><a href="/.emacs.d/org-mode/org-refile/">org-refile</a></li>
-<li><a href="/.emacs.d/org-mode/org-trello/">org-trello</a></li>
-</ol>
+     <span style="color:#e6db74">&#34;Sync&#34;</span>
+     ((<span style="color:#e6db74">&#34;s&#34;</span> my/org-trello-fetch-buffer <span style="color:#e6db74">&#34;← Trello&#34;</span>)
+      (<span style="color:#e6db74">&#34;S&#34;</span> org-trello-sync-buffer <span style="color:#e6db74">&#34;→ Trello&#34;</span>))
+
+     <span style="color:#e6db74">&#34;Other&#34;</span>
+     ((<span style="color:#e6db74">&#34;V&#34;</span> org-trello-version <span style="color:#e6db74">&#34;Version&#34;</span>)))))
+</code></pre></div><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i</td>
+<td>Board のメタデータをインストールする</td>
+</tr>
+<tr>
+<td>I</td>
+<td>Key と トークンを設定する</td>
+</tr>
+<tr>
+<td>s</td>
+<td>Trello の情報を引っ張ってくる</td>
+</tr>
+<tr>
+<td>S</td>
+<td>Trello の情報を連携する</td>
+</tr>
+<tr>
+<td>V</td>
+<td>バージョン情報を表示</td>
+</tr>
+</tbody>
+</table>
+<h2 id="その他">その他</h2>
+<p>まだ試していないが
+<a href="https://github.com/gizmomogwai/org-kanban">https://github.com/gizmomogwai/org-kanban</a>
+と組み合わせるとビジュアル的に見れて嬉しいとかあるかもしれない</p>
 
 
-
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -3541,6 +3609,7 @@ org-mode だけでも書くことが多いからね……。</p>
             
                 
                     
+                    
                 
                 
 
@@ -3559,6 +3628,9 @@ org-mode だけでも書くことが多いからね……。</p>
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3676,10 +3748,10 @@ org-mode だけでも書くことが多いからね……。</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/external-tool/wakatime-mode/" title="wakatime-mode"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/org-mode/org-refile/" title="org-refile"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/org-mode/base/" title="基本設定" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/testing-tool/" title="テスト用ツール" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -3689,19 +3761,19 @@ org-mode だけでも書くことが多いからね……。</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1626972324"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1626972324"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1626972324"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1626972324"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1626972324"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1626972324"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1626972323"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1626972323"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1626972323"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1626972323"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1626972323"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1626972323"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1626972324"></script>
-    <script src="/.emacs.d/js/learn.js?1626972324"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1626972324"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1626972323"></script>
+    <script src="/.emacs.d/js/learn.js?1626972323"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1626972323"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1626972324"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1626972323"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
@@ -3711,3 +3783,4 @@ org-mode だけでも書くことが多いからね……。</p>
 
   </body>
 </html>
+

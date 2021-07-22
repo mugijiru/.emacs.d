@@ -151,7 +151,7 @@
 	"title": "org-mode",
 	"tags": [],
 	"description": "",
-	"content": "ここでは org-mode 周りの設定をまとめている。 org-mode だけでも書くことが多いからね……。\n 基本設定 org-babel 予定のカレンダー表示 Agenda 関係の設定 org-capture org-clock org-export org-gcal org-ql org-refile  "
+	"content": "ここでは org-mode 周りの設定をまとめている。 org-mode だけでも書くことが多いからね……。\n 基本設定 org-babel 予定のカレンダー表示 Agenda 関係の設定 org-capture org-clock org-export org-gcal org-ql org-refile org-trello  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/org-ql/",
@@ -173,6 +173,13 @@
 	"tags": [],
 	"description": "",
 	"content": "自動テストを実行するにあたり、追加インストールしているパッケージをここに載せている\n with-simulated-input 入力処理をシミュレートしてくれるパッケージ mocker.el Mock/Stub するためのパッケージ。まだ使ってない  "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/org-trello/",
+	"title": "org-trello",
+	"tags": [],
+	"description": "",
+	"content": "概要 org-trello は org-mode を使って Trello のタスクを管理するためのパッケージ。\nインストール いつも通り el-get でインストールしている\n(el-get-bundle org-trello) 同期するコマンドの用意 バッファと Trello との同期する関数はあるのだけどコマンドにはなっていなかったので同期するためのコマンドを用意している\n(defun my/org-trello-fetch-buffer () (interactive) (org-trello-sync-buffer t)) キーバインド設定 キーバインドは覚えられないので、いつも通り pretty-hydra で Hydra のやつを用意している\n(with-eval-after-load \u0026#39;pretty-hydra (pretty-hydra-define org-trello-hydra (:separator \u0026#34;-\u0026#34; :color teal :foreign-key warn :title (concat (all-the-icons-faicon \u0026#34;trello\u0026#34;) \u0026#34; Org Trello commands\u0026#34;) :quit-key \u0026#34;q\u0026#34;) (\u0026#34;Install\u0026#34; ((\u0026#34;i\u0026#34; org-trello-install-board-metadata \u0026#34;Board metadata\u0026#34;) (\u0026#34;I\u0026#34; org-trello-install-key-and-token \u0026#34;Setup\u0026#34;)) \u0026#34;Sync\u0026#34; ((\u0026#34;s\u0026#34; my/org-trello-fetch-buffer \u0026#34;← Trello\u0026#34;) (\u0026#34;S\u0026#34; org-trello-sync-buffer \u0026#34;→ Trello\u0026#34;)) \u0026#34;Other\u0026#34; ((\u0026#34;V\u0026#34; org-trello-version \u0026#34;Version\u0026#34;)))))    Key 効果     i Board のメタデータをインストールする   I Key と トークンを設定する   s Trello の情報を引っ張ってくる   S Trello の情報を連携する   V バージョン情報を表示    その他 まだ試していないが https://github.com/gizmomogwai/org-kanban と組み合わせるとビジュアル的に見れて嬉しいとかあるかもしれない\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/testing/",
