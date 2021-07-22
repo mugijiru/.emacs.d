@@ -1542,7 +1542,6 @@
      | m   | minor-mode を調べる           |
      | @   | All the icons の Hydra を起動 |
 
-
 **** Text Scale
      文字サイズの切替用。たまに字を大きくしたりしたいので。
 
@@ -3578,6 +3577,7 @@
    8. [[*org-gcal][org-gcal]]
    9. [[*org-ql][org-ql]]
    10. [[*org-refile][org-refile]]
+   11. [[*org-trello][org-trello]]
 ** 基本設定
    :PROPERTIES:
    :EXPORT_FILE_NAME: base
@@ -4454,6 +4454,69 @@
      | shopping.org       | 買物リスト。時々思い出した時に放り込んでるが主に使うのは beorg からなので refile では使ってない        |
      | someday.org        | 遠い将来やるかもしれないリスト。放り込んで忘れるためにあるところ                                       |
 
+** org-trello
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: org-trello
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :weight 11
+   :END:
+*** 概要
+    [[https://org-trello.github.io/][org-trello]] は org-mode を使って Trello のタスクを管理するためのパッケージ。
+
+*** インストール
+    いつも通り el-get でインストールしている
+
+    #+begin_src emacs-lisp :tangle inits/61-org-trello.el
+    (el-get-bundle org-trello)
+    #+end_src
+
+*** 同期するコマンドの用意
+    バッファと Trello との同期する関数はあるのだけど
+    コマンドにはなっていなかったので同期するためのコマンドを用意している
+
+    #+begin_src emacs-lisp :tangle inits/61-org-trello.el
+    (defun my/org-trello-fetch-buffer ()
+      (interactive)
+      (org-trello-sync-buffer t))
+    #+end_src
+
+*** キーバインド設定
+    キーバインドは覚えられないので、
+    いつも通り [[https://github.com/jerrypnz/major-mode-hydra.el#pretty-hydra][pretty-hydra]] で Hydra のやつを用意している
+
+    #+begin_src emacs-lisp :tangle inits/61-org-trello.el
+    (with-eval-after-load 'pretty-hydra
+      (pretty-hydra-define
+        org-trello-hydra
+        (:separator "-"
+                    :color teal
+                    :foreign-key warn
+                    :title (concat (all-the-icons-faicon "trello") "  Org Trello commands")
+                    :quit-key "q")
+        ("Install"
+         (("i" org-trello-install-board-metadata "Board metadata")
+          ("I" org-trello-install-key-and-token "Setup"))
+
+         "Sync"
+         (("s" my/org-trello-fetch-buffer "← Trello")
+          ("S" org-trello-sync-buffer "→ Trello"))
+
+         "Other"
+         (("V" org-trello-version "Version")))))
+    #+end_src
+
+    | Key | 効果                                 |
+    |-----+--------------------------------------|
+    | i   | Board のメタデータをインストールする |
+    | I   | Key と トークンを設定する            |
+    | s   | Trello の情報を引っ張ってくる        |
+    | S   | Trello の情報を連携する              |
+    | V   | バージョン情報を表示                 |
+
+*** その他
+    まだ試していないが
+    https://github.com/gizmomogwai/org-kanban
+    と組み合わせるとビジュアル的に見れて嬉しいとかあるかもしれない
+
 * テスト用ツール
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: testing-tool
@@ -4885,34 +4948,6 @@
            (t
             (hl-line-mode 1)
             (view-mode 1))))
-   #+end_src
-
-** 61-org-trello.el
-
-   #+begin_src emacs-lisp :tangle inits/61-org-trello.el
-   (el-get-bundle org-trello)
-   (defun my/org-trello-fetch-buffer ()
-     (interactive)
-     (org-trello-sync-buffer t))
-
-   (with-eval-after-load 'pretty-hydra
-     (pretty-hydra-define
-       org-trello-hydra
-       (:separator "-"
-                   :color teal
-                   :foreign-key warn
-                   :title (concat (all-the-icons-faicon "trello") "  Org Trello commands")
-                   :quit-key "q")
-       ("Install"
-        (("i" org-trello-install-board-metadata "Board metadata")
-         ("I" org-trello-install-key-and-token "Setup"))
-
-        "Sync"
-        (("s" my/org-trello-fetch-buffer "← Trello")
-         ("S" org-trello-sync-buffer "→ Trello"))
-
-        "Other"
-        (("V" org-trello-version "Version")))))
    #+end_src
 
 ** 61-ox-hugo.el

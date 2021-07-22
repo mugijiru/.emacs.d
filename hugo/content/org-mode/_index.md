@@ -19,3 +19,4 @@ org-mode だけでも書くことが多いからね……。
 8.  [org-gcal]({{< relref "org-gcal" >}})
 9.  [org-ql]({{< relref "org-ql" >}})
 10. [org-refile]({{< relref "org-refile" >}})
+11. [org-trello]({{< relref "org-trello" >}})
