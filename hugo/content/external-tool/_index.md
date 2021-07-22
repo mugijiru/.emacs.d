@@ -28,3 +28,6 @@ disableToc = true
 
 [wakatime-mode]({{< relref "wakatime-mode" >}})
 : Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ
+
+[todoist]({{< relref "todoist" >}})
+: Todoist と連携して org-mode で扱えるようにするパッケージ
