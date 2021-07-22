@@ -19,7 +19,7 @@ home = [ "HTML", "RSS", "JSON"]
     enableGitInfo = false
 
 [[menu.shortcuts]]
-name = "<i class='fab fa-github'></i> Github repo"
+name = "<i class='fab fa-github'></i> GitHub repo"
 url = "https://github.com/mugijiru/.emacs.d"
 weight = 10
 
@@ -31,4 +31,9 @@ weight = 10
 [[menu.shortcuts]]
 name = "<i class='fas fa-home'></i> 麦汁三昧に戻る"
 url = "https://mugijiru.github.io/"
+weight = 10
+
+[[menu.shortcuts]]
+name = "プライバシーポリシー"
+url = "https://mugijiru.github.io/privacy_policy"
 weight = 10
