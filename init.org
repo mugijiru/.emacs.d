@@ -4398,6 +4398,7 @@
 ** org-refile
    :PROPERTIES:
    :EXPORT_FILE_NAME: org-refile
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :weight 10
    :END:
 *** 概要
     org-refile は org-mode の1機能で
