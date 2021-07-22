@@ -3564,6 +3564,10 @@
    :EXPORT_FILE_NAME: _index
    :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>9. </b>" :weight 9 :disableToc true
    :END:
+
+   ここでは org-mode 周りの設定をまとめている。
+   org-mode だけでも書くことが多いからね……。
+
    1. [[*基本設定][基本設定]]
    2. [[*org-babel][org-babel]]
    3. [[*予定のカレンダー表示][予定のカレンダー表示]]
@@ -3573,6 +3577,7 @@
    7. [[*org-export][org-export]]
    8. [[*org-gcal][org-gcal]]
    9. [[*org-ql][org-ql]]
+   10. [[*org-refile][org-refile]]
 ** 基本設定
    :PROPERTIES:
    :EXPORT_FILE_NAME: base
@@ -4395,6 +4400,60 @@
     これを利用している org-super-agenda の方でなんとかするようにしたので
     もう直接は使ってないでござる
 
+** org-refile
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: org-refile
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :weight 10
+   :END:
+*** 概要
+    org-refile は org-mode の1機能で
+    org-mode のエントリを別のファイルなどに移動するための機能。
+    実はコピーもできるけど、コピーは使ったことがない。
+*** 設定
+**** org ファイル内の階層を選択候補に入れる
+     これを nil に設定することで
+     ファイルの選択だけでなく、
+     その中の PATH まで選択できるようになる
+     #+begin_src emacs-lisp :tangle inits/61-org-refile.el
+     (setq org-outline-path-complete-in-steps nil)
+     #+end_src
+
+**** refile ターゲットにファイル名を含める
+     以下のように設定すると
+     refile のターゲット候補としてファイル名とその中の PATH が表示されるようになる。
+
+     #+begin_src emacs-lisp :tangle inits/61-org-refile.el
+     (setq org-refile-use-outline-path 'file)
+     #+end_src
+
+     nil だと移動先候補PATHの最後の部分しか表示されないので
+     どのファイルのどの場所かというのがわかりにくいのでこのように設定している。
+
+**** refile 先の候補設定
+     いくつかの org ファイルを使っているので
+     ターゲットを以下のように設定している。
+
+     #+begin_src emacs-lisp :tangle inits/61-org-refile.el
+     (setq org-refile-targets `((,(concat org-directory "tasks/projects.org") :level . 2)
+                                (,(concat org-directory "tasks/pointers.org") :level . 1)
+                                (,(concat org-directory "work/scrum/impediments.org") :level . 3)
+                                (,(concat org-directory "tasks/next-actions.org") :regexp . "today")
+                                (,(concat org-directory "tasks/next-actions.org") :regexp . "C-")
+                                (,(concat org-directory "private/2020_summary.org") :level . 2)
+                                (,(concat org-directory "tasks/shopping.org") :level . 1)
+                                (,(concat org-directory "tasks/someday.org") :level . 1)))
+     #+end_src
+
+     | ターゲット         | 目的                                                                                                   |
+     | projects.org       | とりあえずその内やるタスクを放り込むところ。Work, Private の階層を設けているので ~:level 2~ としている |
+     | pointers.org       | 読物を突っ込むところとしている。                                                                       |
+     | impediments.org    | スクラムの妨害リストでも作ってみようかと思って用意したやつ。放置中                                     |
+     | next-actions today | その日やる作業を放り込むところ。projects や inbox から移動する時に使う。                               |
+     | next-actions C-    | いくつかの作業を各階層に分けて管理しようとしていたのでターゲット指定している。放置中。                 |
+     | 2020_summary.org   | 2020 年の個人ふりかえり用。もう 2020 年は大昔なので当然もう使っていない                                |
+     | shopping.org       | 買物リスト。時々思い出した時に放り込んでるが主に使うのは beorg からなので refile では使ってない        |
+     | someday.org        | 遠い将来やるかもしれないリスト。放り込んで忘れるためにあるところ                                       |
+
 * テスト用ツール
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: testing-tool
@@ -4826,21 +4885,6 @@
            (t
             (hl-line-mode 1)
             (view-mode 1))))
-   #+end_src
-
-** 61-org-refile.el
-
-   #+begin_src emacs-lisp :tangle inits/61-org-refile.el
-   (setq org-refile-use-outline-path 'file)
-   (setq org-outline-path-complete-in-steps nil)
-   (setq org-refile-targets `((,(concat org-directory "tasks/projects.org") :level . 2)
-                              (,(concat org-directory "tasks/pointers.org") :level . 1)
-                              (,(concat org-directory "work/scrum/impediments.org") :level . 3)
-                              (,(concat org-directory "tasks/next-actions.org") :regexp . "today")
-                              (,(concat org-directory "tasks/next-actions.org") :regexp . "C-")
-                              (,(concat org-directory "private/2020_summary.org") :level . 2)
-                              (,(concat org-directory "tasks/shopping.org") :level . 1)
-                              (,(concat org-directory "tasks/someday.org") :level . 1)))
    #+end_src
 
 ** 61-org-trello.el

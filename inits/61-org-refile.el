@@ -1,5 +1,7 @@
-(setq org-refile-use-outline-path 'file)
 (setq org-outline-path-complete-in-steps nil)
+
+(setq org-refile-use-outline-path 'file)
+
 (setq org-refile-targets `((,(concat org-directory "tasks/projects.org") :level . 2)
                            (,(concat org-directory "tasks/pointers.org") :level . 1)
                            (,(concat org-directory "work/scrum/impediments.org") :level . 3)
