@@ -4298,6 +4298,51 @@
     (setq org-export-default-language "ja")
     #+end_src
 
+** 8. org-gcal                                                  :replacement:
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: org-gcal
+   :END:
+
+*** 概要
+    [[https://github.com/kidd/org-gcal.el][org-gcal]] は org-mode と Google Calendar を連携させるためのパッケージ。
+
+    オリジナルは [[https://github.com/myuhe/org-gcal.el]] なのだけど
+    今は fork されてるやつが MELPA にも登録されていて
+    el-get のレシピもそっちを見ている。
+
+*** インストール
+    org-gcal が依存しているので [[https://elpa.gnu.org/packages/persist.html][parsist]] を入れている。
+
+    #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
+    (el-get-bundle persist) ;; org-gcal に必要
+    #+end_src
+
+    あとは当然 org-gcal 本体を入れないと動かない
+
+    #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
+    (el-get-bundle org-gcal)
+    #+end_src
+
+*** 設定
+    とりあえず require をしないといけない
+
+    #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
+    (require 'org-gcal)
+    #+end_src
+
+    あとは設定ファイルは公開したくないので別ファイルに分けてる。
+
+    #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
+    (my/load-config "my-org-gcal-config")
+    #+end_src
+
+    隠したい部分だけ .authinfo.gpg にでも分離したら公開できるようになるかもしれない。
+
+*** その他
+    [[https://github.com/misohena/gcal][gcal-org]] に乗り換えようかと思ってるが
+    そっちの中身もよくわからないので躊躇している。
+    自分の用途に合うのだろうか?
+
 * テスト用ツール
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: testing-tool
@@ -4736,17 +4781,6 @@
    #+begin_src emacs-lisp :tangle inits/50-todoist.el
    (el-get-bundle  abrochard/emacs-todoist)
    (my/load-config "my-todoist-config")
-   #+end_src
-
-** 61-org-gcal.el                                               :replacement:
-
-   gcal に乗り換えようかと思ってる
-
-   #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
-   (el-get-bundle persist) ;; org-gcal に必要
-   (el-get-bundle org-gcal)
-   (require 'org-gcal)
-   (my/load-config "my-org-gcal-config")
    #+end_src
 
 ** 61-org-ql.el
