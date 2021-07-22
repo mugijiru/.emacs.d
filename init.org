@@ -3573,6 +3573,7 @@
    6. [[*6. org-clock][org-clock]]
    7. [[*7. org-export][org-export]]
    8. [[*8. org-gcal][org-gcal]]
+   9. [[*9. org-ql][org-ql]]
 
 ** 1. 基本設定
    :PROPERTIES:
