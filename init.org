@@ -3564,6 +3564,10 @@
    :EXPORT_FILE_NAME: _index
    :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>9. </b>" :weight 9 :disableToc true
    :END:
+
+   ここでは org-mode 周りの設定をまとめている。
+   org-mode だけでも書くことが多いからね……。
+
    1. [[*基本設定][基本設定]]
    2. [[*org-babel][org-babel]]
    3. [[*予定のカレンダー表示][予定のカレンダー表示]]
@@ -3573,6 +3577,7 @@
    7. [[*org-export][org-export]]
    8. [[*org-gcal][org-gcal]]
    9. [[*org-ql][org-ql]]
+   10. [[*org-refile][org-refile]]
 ** 基本設定
    :PROPERTIES:
    :EXPORT_FILE_NAME: base
