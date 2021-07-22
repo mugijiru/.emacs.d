@@ -14,3 +14,4 @@ disableToc = true
 6.  [org-clock]({{< relref "org-clock" >}})
 7.  [org-export]({{< relref "org-export" >}})
 8.  [org-gcal]({{< relref "org-gcal" >}})
+9.  [org-ql]({{< relref "org-ql" >}})
