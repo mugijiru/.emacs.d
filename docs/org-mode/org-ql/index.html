@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>3. 予定のカレンダー表示 :: 麦汁&#39;s Emacs Config</title>
+    <title>9. org-ql :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1626943003" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/org-mode/calendar/">
+  <body class="" data-url="/.emacs.d/org-mode/org-ql/">
     <nav id="sidebar" class="">
 
 
@@ -1732,7 +1732,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/org-mode/calendar/" title="3. 予定のカレンダー表示" class="dd-item active">
+      <li data-nav-id="/.emacs.d/org-mode/calendar/" title="3. 予定のカレンダー表示" class="dd-item ">
         <a href="/.emacs.d/org-mode/calendar/">
         3. 予定のカレンダー表示
         
@@ -1858,7 +1858,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/org-mode/org-ql/" title="9. org-ql" class="dd-item ">
+      <li data-nav-id="/.emacs.d/org-mode/org-ql/" title="9. org-ql" class="dd-item active">
         <a href="/.emacs.d/org-mode/org-ql/">
         9. org-ql
         
@@ -2122,7 +2122,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/org-mode/'>org-mode</a> > 3. 予定のカレンダー表示
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/org-mode/'>org-mode</a> > 9. org-ql
           
         
           
@@ -2138,8 +2138,8 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#日本の休日">日本の休日</a></li>
-    <li><a href="#calfw">calfw</a></li>
+    <li><a href="#インストール">インストール</a></li>
+    <li><a href="#その他">その他</a></li>
   </ul>
 </nav>
     </div>
@@ -2151,13 +2151,19 @@
             
         <div id="head-tags">
         
+<div class="tags">
+
+  <a class="tag-link" href="/.emacs.d/tags/unused">unused</a>
+
+</div>
+
         </div>
         
         <div id="body-inner">
           
             <h1>
               
-              3. 予定のカレンダー表示
+              9. org-ql
             </h1>
           
 
@@ -2165,25 +2171,12 @@
 
 
 <h2 id="概要">概要</h2>
-<p>普段の予定をカレンダー表示で見れると嬉しいな〜と思って
-<a href="https://github.com/kiwanami/emacs-calfw">calfw</a> で予定が見れるようにしている。</p>
-<p>が、今ここに書いているのはまだ設定の一部である。
-agenda 部分と関わっていてまだうまく整理しきれてない。</p>
-<h2 id="日本の休日">日本の休日</h2>
-<p>calfw に日本の休日を表示できるように
-<a href="https://github.com/emacs-jp/japanese-holidays">japanese-holidays</a> を入れている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle japanese-holidays)
-(require <span style="color:#e6db74">&#39;japanese-holidays</span>)
-(setq calendar-holidays (<span style="color:#a6e22e">append</span> japanese-holidays))
-</code></pre></div><p>もっとちゃんと設定したら Emacs のデフォルトのカレンダーでも休日表示がわかりやすくなって良いので今度設定し直す。</p>
-<p>その時には多分 org-mode カテゴリではないところに移動するはず。</p>
-<h2 id="calfw">calfw</h2>
-<p>calfw を el-get で入れた上で、
-org-mode と連携するように calfw-org も require している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle calfw)
-(require <span style="color:#e6db74">&#39;calfw</span>)
-(require <span style="color:#e6db74">&#39;calfw-org</span>)
-</code></pre></div><p>ここではまだこれ以上のことはしてない</p>
+<p><a href="https://github.com/alphapapa/org-ql">org-ql</a> は org-mode の情報を検索するためのパッケージ。柔軟な検索ができるようになるので貴方好みの検索で業務効率向上ができちゃうかも!?</p>
+<h2 id="インストール">インストール</h2>
+<p>いつも透り el-get でインストールしている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle org-ql)
+</code></pre></div><h2 id="その他">その他</h2>
+<p>一時期は色々試していたけどこれを利用している org-super-agenda の方でなんとかするようにしたのでもう直接は使ってないでござる</p>
 
 
 <footer class="footline">
@@ -3393,26 +3386,6 @@ org-mode と連携するように calfw-org も require している。</p>
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
                 
                 
 
@@ -3504,6 +3477,23 @@ org-mode と連携するように calfw-org も require している。</p>
             
         
                     
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -3511,6 +3501,9 @@ org-mode と連携するように calfw-org も require している。</p>
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3628,10 +3621,10 @@ org-mode と連携するように calfw-org も require している。</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/org-mode/org-babel/" title="2. org-babel"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/org-mode/org-gcal/" title="8. org-gcal"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/org-mode/agenda/" title="4. Agenda 関係の設定" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/testing-tool/" title="テスト用ツール" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
