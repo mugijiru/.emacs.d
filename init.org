@@ -3577,6 +3577,7 @@
    8. [[*org-gcal][org-gcal]]
    9. [[*org-ql][org-ql]]
    10. [[*org-refile][org-refile]]
+   11. [[*org-trello][org-trello]]
 ** 基本設定
    :PROPERTIES:
    :EXPORT_FILE_NAME: base
