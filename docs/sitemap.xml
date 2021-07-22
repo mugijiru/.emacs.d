@@ -6,9 +6,13 @@
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/basics/</loc>
   </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/org-mode/base/</loc>
+  </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/testing/execution/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/testing-tool/mocker-el/</loc>
+  </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/org-mode/org-babel/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/testing/run-tests/</loc>
   </url><url>
@@ -18,39 +22,35 @@
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/keybinds/</loc>
   </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/org-mode/calendar/</loc>
+  </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/org-mode/agenda/</loc>
+  </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/editing/</loc>
+  </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/org-mode/org-capture/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/ui/</loc>
   </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/org-mode/org-clock/</loc>
+  </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/nav/</loc>
   </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/org-mode/org-export/</loc>
+  </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/programming/</loc>
+  </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/org-mode/org-gcal/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/external-tool/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/org-mode/</loc>
   </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/org-mode/org-ql/</loc>
+  </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/testing-tool/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/testing/</loc>
-  </url><url>
-    <loc>https://mugijiru.github.io/.emacs.d/org-mode/base/</loc>
-  </url><url>
-    <loc>https://mugijiru.github.io/.emacs.d/org-mode/org-babel/</loc>
-  </url><url>
-    <loc>https://mugijiru.github.io/.emacs.d/org-mode/calendar/</loc>
-  </url><url>
-    <loc>https://mugijiru.github.io/.emacs.d/org-mode/agenda/</loc>
-  </url><url>
-    <loc>https://mugijiru.github.io/.emacs.d/org-mode/org-capture/</loc>
-  </url><url>
-    <loc>https://mugijiru.github.io/.emacs.d/org-mode/org-clock/</loc>
-  </url><url>
-    <loc>https://mugijiru.github.io/.emacs.d/org-mode/org-export/</loc>
-  </url><url>
-    <loc>https://mugijiru.github.io/.emacs.d/org-mode/org-gcal/</loc>
-  </url><url>
-    <loc>https://mugijiru.github.io/.emacs.d/org-mode/org-ql/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/nav/ace-window/</loc>
   </url><url>

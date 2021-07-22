@@ -22,6 +22,26 @@
     </item>
     
     <item>
+      <title>基本設定</title>
+      <link>https://mugijiru.github.io/.emacs.d/org-mode/base/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/org-mode/base/</guid>
+      <description>概要 ここでは org-mode 周りのベースとなる設定を書いているつもり。といいつつ、まだ書き方が雑だなと思っている。またその内にでも修正しよう
+org-mode のインストール Emacs に標準で入っている org-mode は大体古過ぎるのでとりあえずデフォルトで入ってるやつは削除しちゃって el-get でインストールしている。
+(el-get-bundle org-mode :checkout &amp;#34;release_9.3.6&amp;#34;) なんか入れてるパッケージの問題か、依存関係が解決できなかったので Git から入れた上でバージョンを固定している。
+バージョンぐらいはそのうち上げたいね
+org 用ディレクトリの指定 org-mode のファイルを保存するデフォルトのディレクトリを指定している。
+デフォルトだと ~/org なのだけどホームディレクトリを汚したくないのと基本的に Mac を使ってるので ~/Documents/org というディレクトリを用意してそこにファイルを置いている。
+(setq org-directory (expand-file-name &amp;#34;~/Documents/org/&amp;#34;)) タスク管理ファイルのフォルダの指定 タスク管理ファイルがいくつかに分かれているがそれらをまとめて ~/Documents/org/tasks フォルダに置いている。
+(setq my/org-tasks-directory (concat org-directory &amp;#34;tasks/&amp;#34;)) とりあえずこの my/org-tasks-directory という変数を用意することであちらこちらでこれを使い回している。
+タスクの状態管理のキーワード指定 org-mode といえば TODO 管理で使ってる人も多いと思う。自分も最初はそういう使い方から始めたし、今でもそれをメインにして使っている。
+そして TODO の状態がデフォルトでは
+ TODO DONE  の2つしかないけど、それでは足りないので昔見たインターネットのどこかの記事を参考に以下のように設定している。
+(setq org-todo-keywords &amp;#39;((sequence &amp;#34;TODO&amp;#34; &amp;#34;DOING(!)&amp;#34; &amp;#34;WAIT&amp;#34; &amp;#34;|&amp;#34; &amp;#34;DONE(!)&amp;#34; &amp;#34;SOMEDAY(s)&amp;#34;))) 初期状態は TODO で、作業開始時点で DOING にして待ちが発生したら WAIT にして完了したら DONE にしている。</description>
+    </item>
+    
+    <item>
       <title>実行方法</title>
       <link>https://mugijiru.github.io/.emacs.d/testing/execution/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -44,6 +64,20 @@ emacs -Q --batch -l ~/.emacs.d/inits/test/*-test.el -l ~/.emacs.d/inits/test/run
 便利そうなのでとりあえず置いといている。
 インストール el-get で GitHub から取得している。
 (el-get-bundle sigma/mocker.el) </description>
+    </item>
+    
+    <item>
+      <title>org-babel</title>
+      <link>https://mugijiru.github.io/.emacs.d/org-mode/org-babel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-babel/</guid>
+      <description>概要 ここでは org-babel の設定をまとめている。
+org-export-blocks-format-plantuml org-mode で PlantUML の図を出力する拡張を入れている。
+(el-get-bundle org-export-blocks-format-plantuml) のだけれど https://www.emacswiki.org/emacs/org-export-blocks-format-plantuml.el を見ると Obsolute と書いてますね。今度消さなきゃ。
+org-babel で評価可能な言語の指定 なんか普段から使いそうな奴をとりあえず選定しているつもり。
+(org-babel-do-load-languages &amp;#39;org-babel-load-languages &amp;#39;((plantuml . t) (sql . t) (gnuplot . t) (emacs-lisp . t) (shell . t) (js . t) (ruby . t)))  js, ruby 仕事でメインで使ってる言語なので入れている。 shell 入れてる方が便利そう、ぐらいの雑な理由。 sql メモしておいて手元から実行できると便利そう plantuml 図の出力。一番使ってる。 gnuplot 趣味で入れてみているけど実際使う機会ほとんどないよなって気がしてきている。  org-babel-execute 後に画像を再表示 PlantUML の処理をすることが多いので以下の hook を設定することで実行後に画像を再表示するようにしている
+(add-hook &amp;#39;org-babel-after-execute-hook &amp;#39;org-redisplay-inline-images) org-babel の非同期実行 非同期に org-babel の source を実行するために ob-async を入れている</description>
     </item>
     
     <item>
@@ -74,41 +108,7 @@ swiper ivy-read を使った機能のテストをするので読み込んでい�
     </item>
     
     <item>
-      <title>1. 基本設定</title>
-      <link>https://mugijiru.github.io/.emacs.d/org-mode/base/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mugijiru.github.io/.emacs.d/org-mode/base/</guid>
-      <description>概要 ここでは org-mode 周りのベースとなる設定を書いているつもり。といいつつ、まだ書き方が雑だなと思っている。またその内にでも修正しよう
-org-mode のインストール Emacs に標準で入っている org-mode は大体古過ぎるのでとりあえずデフォルトで入ってるやつは削除しちゃって el-get でインストールしている。
-(el-get-bundle org-mode :checkout &amp;#34;release_9.3.6&amp;#34;) なんか入れてるパッケージの問題か、依存関係が解決できなかったので Git から入れた上でバージョンを固定している。
-バージョンぐらいはそのうち上げたいね
-org 用ディレクトリの指定 org-mode のファイルを保存するデフォルトのディレクトリを指定している。
-デフォルトだと ~/org なのだけどホームディレクトリを汚したくないのと基本的に Mac を使ってるので ~/Documents/org というディレクトリを用意してそこにファイルを置いている。
-(setq org-directory (expand-file-name &amp;#34;~/Documents/org/&amp;#34;)) タスク管理ファイルのフォルダの指定 タスク管理ファイルがいくつかに分かれているがそれらをまとめて ~/Documents/org/tasks フォルダに置いている。
-(setq my/org-tasks-directory (concat org-directory &amp;#34;tasks/&amp;#34;)) とりあえずこの my/org-tasks-directory という変数を用意することであちらこちらでこれを使い回している。
-タスクの状態管理のキーワード指定 org-mode といえば TODO 管理で使ってる人も多いと思う。自分も最初はそういう使い方から始めたし、今でもそれをメインにして使っている。
-そして TODO の状態がデフォルトでは
- TODO DONE  の2つしかないけど、それでは足りないので昔見たインターネットのどこかの記事を参考に以下のように設定している。
-(setq org-todo-keywords &amp;#39;((sequence &amp;#34;TODO&amp;#34; &amp;#34;DOING(!)&amp;#34; &amp;#34;WAIT&amp;#34; &amp;#34;|&amp;#34; &amp;#34;DONE(!)&amp;#34; &amp;#34;SOMEDAY(s)&amp;#34;))) 初期状態は TODO で、作業開始時点で DOING にして待ちが発生したら WAIT にして完了したら DONE にしている。</description>
-    </item>
-    
-    <item>
-      <title>2. org-babel</title>
-      <link>https://mugijiru.github.io/.emacs.d/org-mode/org-babel/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-babel/</guid>
-      <description>概要 ここでは org-babel の設定をまとめている。
-org-export-blocks-format-plantuml org-mode で PlantUML の図を出力する拡張を入れている。
-(el-get-bundle org-export-blocks-format-plantuml) のだけれど https://www.emacswiki.org/emacs/org-export-blocks-format-plantuml.el を見ると Obsolute と書いてますね。今度消さなきゃ。
-org-babel で評価可能な言語の指定 なんか普段から使いそうな奴をとりあえず選定しているつもり。
-(org-babel-do-load-languages &amp;#39;org-babel-load-languages &amp;#39;((plantuml . t) (sql . t) (gnuplot . t) (emacs-lisp . t) (shell . t) (js . t) (ruby . t)))  js, ruby 仕事でメインで使ってる言語なので入れている。 shell 入れてる方が便利そう、ぐらいの雑な理由。 sql メモしておいて手元から実行できると便利そう plantuml 図の出力。一番使ってる。 gnuplot 趣味で入れてみているけど実際使う機会ほとんどないよなって気がしてきている。  org-babel-execute 後に画像を再表示 PlantUML の処理をすることが多いので以下の hook を設定することで実行後に画像を再表示するようにしている
-(add-hook &amp;#39;org-babel-after-execute-hook &amp;#39;org-redisplay-inline-images) org-babel の非同期実行 非同期に org-babel の source を実行するために ob-async を入れている</description>
-    </item>
-    
-    <item>
-      <title>3. 予定のカレンダー表示</title>
+      <title>予定のカレンダー表示</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/calendar/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -123,7 +123,7 @@ calfw calfw を el-get で入れた上で、 org-mode と連携するように c
     </item>
     
     <item>
-      <title>4. Agenda 関係の設定</title>
+      <title>Agenda 関係の設定</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/agenda/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -145,7 +145,7 @@ agenda の表示周りの設定 agenda に時間の区切りを入れない org-
     </item>
     
     <item>
-      <title>5. org-capture</title>
+      <title>org-capture</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/org-capture/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -158,7 +158,7 @@ org-capture-ical-file https://qiita.com/takaxp/items/0b717ad1d0488b74429d を参
     </item>
     
     <item>
-      <title>6. org-clock</title>
+      <title>org-clock</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/org-clock/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -170,7 +170,7 @@ clocktable の設定 clocktable は report 表示などで使う表の設定。
     </item>
     
     <item>
-      <title>7. org-export</title>
+      <title>org-export</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/org-export/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -183,7 +183,7 @@ footnote や制作者などを出力しない HTML で記事を吐き出す時�
     </item>
     
     <item>
-      <title>8. org-gcal</title>
+      <title>org-gcal</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/org-gcal/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -199,7 +199,7 @@ footnote や制作者などを出力しない HTML で記事を吐き出す時�
     </item>
     
     <item>
-      <title>9. org-ql</title>
+      <title>org-ql</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/org-ql/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       

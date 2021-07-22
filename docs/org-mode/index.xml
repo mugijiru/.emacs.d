@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/org-mode/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>1. 基本設定</title>
+      <title>基本設定</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/base/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -27,7 +27,7 @@ org 用ディレクトリの指定 org-mode のファイルを保存するデフ
     </item>
     
     <item>
-      <title>2. org-babel</title>
+      <title>org-babel</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/org-babel/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -41,7 +41,7 @@ org-babel で評価可能な言語の指定 なんか普段から使いそうな
     </item>
     
     <item>
-      <title>3. 予定のカレンダー表示</title>
+      <title>予定のカレンダー表示</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/calendar/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -56,7 +56,7 @@ calfw calfw を el-get で入れた上で、 org-mode と連携するように c
     </item>
     
     <item>
-      <title>4. Agenda 関係の設定</title>
+      <title>Agenda 関係の設定</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/agenda/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -78,7 +78,7 @@ agenda の表示周りの設定 agenda に時間の区切りを入れない org-
     </item>
     
     <item>
-      <title>5. org-capture</title>
+      <title>org-capture</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/org-capture/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -91,7 +91,7 @@ org-capture-ical-file https://qiita.com/takaxp/items/0b717ad1d0488b74429d を参
     </item>
     
     <item>
-      <title>6. org-clock</title>
+      <title>org-clock</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/org-clock/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -103,7 +103,7 @@ clocktable の設定 clocktable は report 表示などで使う表の設定。
     </item>
     
     <item>
-      <title>7. org-export</title>
+      <title>org-export</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/org-export/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -116,7 +116,7 @@ footnote や制作者などを出力しない HTML で記事を吐き出す時�
     </item>
     
     <item>
-      <title>8. org-gcal</title>
+      <title>org-gcal</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/org-gcal/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -132,7 +132,7 @@ footnote や制作者などを出力しない HTML で記事を吐き出す時�
     </item>
     
     <item>
-      <title>9. org-ql</title>
+      <title>org-ql</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/org-ql/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
