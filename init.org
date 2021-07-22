@@ -4366,6 +4366,28 @@
     そっちの中身もよくわからないので躊躇している。
     自分の用途に合うのだろうか?
 
+** 9. org-ql                                                         :unused:
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: org-ql
+   :END:
+
+*** 概要
+    [[https://github.com/alphapapa/org-ql][org-ql]] は org-mode の情報を検索するためのパッケージ。
+    柔軟な検索ができるようになるので
+    貴方好みの検索で業務効率向上ができちゃうかも!?
+
+*** インストール
+    いつも透り el-get でインストールしている
+
+    #+begin_src emacs-lisp :tangle inits/61-org-ql.el
+    (el-get-bundle org-ql)
+    #+end_src
+
+*** その他
+    一時期は色々試していたけど
+    これを利用している org-super-agenda の方でなんとかするようにしたので
+    もう直接は使ってないでござる
+
 * テスト用ツール
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: testing-tool
@@ -4797,12 +4819,6 @@
            (t
             (hl-line-mode 1)
             (view-mode 1))))
-   #+end_src
-
-** 61-org-ql.el
-
-   #+begin_src emacs-lisp :tangle inits/61-org-ql.el
-   (el-get-bundle org-ql)
    #+end_src
 
 ** 61-org-refile.el
