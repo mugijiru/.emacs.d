@@ -95,7 +95,7 @@
 	"title": "org-mode",
 	"tags": [],
 	"description": "",
-	"content": " 基本設定 org-babel 予定のカレンダー表示 Agenda 関係の設定 org-capture org-clock org-export  "
+	"content": " 基本設定 org-babel 予定のカレンダー表示 Agenda 関係の設定 org-capture org-clock org-export org-gcal  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/testing-tool/",
@@ -159,6 +159,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 ここではファイルへの出力用の設定をまとめている。というか昔書いた設定をとりあえずここに押し込めている\nfootnote や制作者などを出力しない HTML で記事を吐き出す時に邪魔だったの非表示にしている記憶。随分昔に設定したのであんまり覚えてない。\n;; フッターなくしたり (setq org-export-html-footnotes-section \u0026#34;\u0026#34;) (setq org-export-html-footnote-format \u0026#34;\u0026#34;) (setq org-export-with-footnotes nil) (setq org-export-with-creator nil) (setq org-export-with-author nil) (setq org-html-validation-link nil) 以下は seesaa blog への吐き出し用設定なのだけどもう向こうを更新することはないので消しても良さそう\n;; for seesaa blog settings (setq org-export-author-info nil) (setq org-export-email-info nil) (setq org-export-creator-info nil) (setq org-export-time-stamp-file nil) (setq org-export-with-timestamps nil) (setq org-export-with-section-numbers nil) (setq org-export-with-sub-superscripts nil) Table of Contents 出力抑制 これも自分の用途では要らなかったけどファイル単位とかで制御しても良い気がする\n(setq org-export-with-toc nil) サイト名の出力 seesaa blog 用に記事を吐き出していた時はページ全体ではなく記事部分だけ出力したかったのでつまり h1 とかはもうテンプレート側に埋め込まれているので出す必要がなかった\nというわけで h1 でサイト名を出さないようにしている\n(setq org-export-html-preamble nil) (setq org-html-preamble nil) bold, italic などの抑制 アスタリスクで囲ったりスラッシュでアンダースコアで囲ったりすると b タグや i タグ、 u タグにする機能があるが HTML 4.01 Strict 信者だったこともあって抑制している。\nアスタリスクで囲む時、重要と思って囲むので、そういう意味では em とかで出る方が適切だと思う。\n;;; *bold* とか /italic/ とか _underline_ とかを\u0026lt;b\u0026gt;とかにしないようにする (setq org-export-with-emphasize nil) export のデフォルト出力言語は日本語 まあ日本語しか書かないので……\n(setq org-export-default-language \u0026#34;ja\u0026#34;) "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/org-gcal/",
+	"title": "8. org-gcal",
+	"tags": ["replacement"],
+	"description": "",
+	"content": "概要 org-gcal は org-mode と Google Calendar を連携させるためのパッケージ。\nオリジナルは https://github.com/myuhe/org-gcal.el なのだけど今は fork されてるやつが MELPA にも登録されていて el-get のレシピもそっちを見ている。\nインストール org-gcal が依存しているので parsist を入れている。\n(el-get-bundle persist) ;; org-gcal に必要 あとは当然 org-gcal 本体を入れないと動かない\n(el-get-bundle org-gcal) 設定 とりあえず require をしないといけない\n(require \u0026#39;org-gcal) あとは設定ファイルは公開したくないので別ファイルに分けてる。\n(my/load-config \u0026#34;my-org-gcal-config\u0026#34;) 隠したい部分だけ .authinfo.gpg にでも分離したら公開できるようになるかもしれない。\nその他 gcal-org に乗り換えようかと思ってるがそっちの中身もよくわからないので躊躇している。自分の用途に合うのだろうか?\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/nav/ace-window/",

@@ -7,6 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/tags/replacement/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>8. org-gcal</title>
+      <link>https://mugijiru.github.io/.emacs.d/org-mode/org-gcal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-gcal/</guid>
+      <description>概要 org-gcal は org-mode と Google Calendar を連携させるためのパッケージ。
+オリジナルは https://github.com/myuhe/org-gcal.el なのだけど今は fork されてるやつが MELPA にも登録されていて el-get のレシピもそっちを見ている。
+インストール org-gcal が依存しているので parsist を入れている。
+(el-get-bundle persist) ;; org-gcal に必要 あとは当然 org-gcal 本体を入れないと動かない
+(el-get-bundle org-gcal) 設定 とりあえず require をしないといけない
+(require &amp;#39;org-gcal) あとは設定ファイルは公開したくないので別ファイルに分けてる。
+(my/load-config &amp;#34;my-org-gcal-config&amp;#34;) 隠したい部分だけ .authinfo.gpg にでも分離したら公開できるようになるかもしれない。
+その他 gcal-org に乗り換えようかと思ってるがそっちの中身もよくわからないので躊躇している。自分の用途に合うのだろうか?</description>
+    </item>
+    
+    <item>
       <title>auto-save</title>
       <link>https://mugijiru.github.io/.emacs.d/basics/auto-save/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
