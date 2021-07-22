@@ -1,6 +1,7 @@
 +++
-title = "7. org-export"
+title = "org-export"
 draft = false
+weight = 7
 +++
 
 ## 概要 {#概要}

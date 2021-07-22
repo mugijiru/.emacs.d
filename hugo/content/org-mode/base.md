@@ -1,6 +1,7 @@
 +++
-title = "1. 基本設定"
+title = "基本設定"
 draft = false
+weight = 1
 +++
 
 ## 概要 {#概要}

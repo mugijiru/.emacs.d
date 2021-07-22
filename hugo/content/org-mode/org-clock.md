@@ -1,6 +1,7 @@
 +++
-title = "6. org-clock"
+title = "org-clock"
 draft = false
+weight = 6
 +++
 
 ## 概要 {#概要}

@@ -1,7 +1,8 @@
 +++
-title = "8. org-gcal"
+title = "org-gcal"
 tags = ["replacement"]
 draft = false
+weight = 8
 +++
 
 ## 概要 {#概要}

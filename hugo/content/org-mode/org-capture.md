@@ -1,6 +1,7 @@
 +++
-title = "5. org-capture"
+title = "org-capture"
 draft = false
+weight = 5
 +++
 
 ## 概要 {#概要}
