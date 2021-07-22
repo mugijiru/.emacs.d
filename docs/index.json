@@ -88,7 +88,7 @@
 	"title": "外部連携ツール設定",
 	"tags": [],
 	"description": "",
-	"content": "ここでは外部のサービスと連携するようなやつをまとめています\n emacs-w3m 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ forge magit と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ google-this Google 検索機能を提供してくれるパッケージ google-translate Emacs から Google 翻訳するためのパッケージ magit Emacs 上で Git の操作をするのにとても便利なパッケージ notify-slack Emacs から外部コマンドを通じて Slack に通知するための関数周りの事を書いている wakatime-mode Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ  "
+	"content": "ここでは外部のサービスと連携するようなやつをまとめています\n emacs-w3m 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ forge magit と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ google-this Google 検索機能を提供してくれるパッケージ google-translate Emacs から Google 翻訳するためのパッケージ magit Emacs 上で Git の操作をするのにとても便利なパッケージ notify-slack Emacs から外部コマンドを通じて Slack に通知するための関数周りの事を書いている wakatime-mode Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ todoist Todoist と連携して org-mode で扱えるようにするパッケージ  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/",
@@ -544,6 +544,13 @@
 	"tags": [],
 	"description": "",
 	"content": ""
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/external-tool/todoist/",
+	"title": "todoist",
+	"tags": [],
+	"description": "",
+	"content": "概要 emacs-todoist は Todo 管理サービスである Todoist と連携するためのパッケージ。 org-mode に依存している。\nインストール (el-get-bundle abrochard/emacs-todoist) 設定 API キーを設定するので別ファイルに分離している。いつか .authinfo.gpg に移動しようかなと思っているけどそもそも最近 TODOIST 使ってない……\n(with-eval-after-load \u0026#39;org (my/load-config \u0026#34;my-todoist-config\u0026#34;)) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/ui/toolbar/",
