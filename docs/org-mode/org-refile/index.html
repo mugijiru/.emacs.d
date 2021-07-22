@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>org-clock :: 麦汁&#39;s Emacs Config</title>
+    <title>org-refile :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1626959854" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/org-mode/org-clock/">
+  <body class="" data-url="/.emacs.d/org-mode/org-refile/">
     <nav id="sidebar" class="">
 
 
@@ -1795,7 +1795,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/org-mode/org-clock/" title="org-clock" class="dd-item active">
+      <li data-nav-id="/.emacs.d/org-mode/org-clock/" title="org-clock" class="dd-item ">
         <a href="/.emacs.d/org-mode/org-clock/">
         org-clock
         
@@ -1879,7 +1879,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/org-mode/org-refile/" title="org-refile" class="dd-item ">
+      <li data-nav-id="/.emacs.d/org-mode/org-refile/" title="org-refile" class="dd-item active">
         <a href="/.emacs.d/org-mode/org-refile/">
         org-refile
         
@@ -2143,7 +2143,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/org-mode/'>org-mode</a> > org-clock
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/org-mode/'>org-mode</a> > org-refile
           
         
           
@@ -2159,14 +2159,13 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#clocktable-の設定">clocktable の設定</a></li>
-    <li><a href="#hooks">hooks</a>
+    <li><a href="#設定">設定</a>
       <ul>
-        <li><a href="#clock-in-時の-hook">clock-in 時の hook</a></li>
-        <li><a href="#clock-out-時の-hook">clock-out 時の hook</a></li>
+        <li><a href="#org-ファイル内の階層を選択候補に入れる">org ファイル内の階層を選択候補に入れる</a></li>
+        <li><a href="#refile-ターゲットにファイル名を含める">refile ターゲットにファイル名を含める</a></li>
+        <li><a href="#refile-先の候補設定">refile 先の候補設定</a></li>
       </ul>
     </li>
-    <li><a href="#org-pomodoro">org-pomodoro</a></li>
   </ul>
 </nav>
     </div>
@@ -2184,7 +2183,7 @@
           
             <h1>
               
-              org-clock
+              org-refile
             </h1>
           
 
@@ -2192,84 +2191,69 @@
 
 
 <h2 id="概要">概要</h2>
-<p>org-clock 関係の設定をここにまとめている</p>
-<h2 id="clocktable-の設定">clocktable の設定</h2>
-<p>clocktable は report 表示などで使う表の設定。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq org-clock-clocktable-default-properties
-      <span style="color:#f92672">&#39;</span>(:maxlevel <span style="color:#ae81ff">10</span>
-                 :lang <span style="color:#e6db74">&#34;ja&#34;</span>
-                 :scope agenda-with-archives
-                 :block today
-                 :level <span style="color:#ae81ff">4</span>))
+<p>org-refile は org-mode の1機能で
+org-mode のエントリを別のファイルなどに移動するための機能。実はコピーもできるけど、コピーは使ったことがない。</p>
+<h2 id="設定">設定</h2>
+<h3 id="org-ファイル内の階層を選択候補に入れる">org ファイル内の階層を選択候補に入れる</h3>
+<p>これを nil に設定することでファイルの選択だけでなく、その中の PATH まで選択できるようになる</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq org-outline-path-complete-in-steps <span style="color:#66d9ef">nil</span>)
+</code></pre></div><h3 id="refile-ターゲットにファイル名を含める">refile ターゲットにファイル名を含める</h3>
+<p>以下のように設定すると
+refile のターゲット候補としてファイル名とその中の PATH が表示されるようになる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq org-refile-use-outline-path <span style="color:#e6db74">&#39;file</span>)
+</code></pre></div><p>nil だと移動先候補PATHの最後の部分しか表示されないのでどのファイルのどの場所かというのがわかりにくいのでこのように設定している。</p>
+<h3 id="refile-先の候補設定">refile 先の候補設定</h3>
+<p>いくつかの org ファイルを使っているのでターゲットを以下のように設定している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq org-refile-targets <span style="color:#f92672">`</span>((<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>) :level <span style="color:#f92672">.</span> <span style="color:#ae81ff">2</span>)
+                           (<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/pointers.org&#34;</span>) :level <span style="color:#f92672">.</span> <span style="color:#ae81ff">1</span>)
+                           (<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;work/scrum/impediments.org&#34;</span>) :level <span style="color:#f92672">.</span> <span style="color:#ae81ff">3</span>)
+                           (<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/next-actions.org&#34;</span>) :regexp <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;today&#34;</span>)
+                           (<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/next-actions.org&#34;</span>) :regexp <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;C-&#34;</span>)
+                           (<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;private/2020_summary.org&#34;</span>) :level <span style="color:#f92672">.</span> <span style="color:#ae81ff">2</span>)
+                           (<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/shopping.org&#34;</span>) :level <span style="color:#f92672">.</span> <span style="color:#ae81ff">1</span>)
+                           (<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/someday.org&#34;</span>) :level <span style="color:#f92672">.</span> <span style="color:#ae81ff">1</span>)))
 </code></pre></div><table>
 <thead>
 <tr>
-<th>項目名</th>
-<th>設定内容</th>
+<th>ターゲット</th>
+<th>目的</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>maxlevel</td>
-<td>ツリーの何段目まで表示するかの設定。隠さないで欲しいので大きい値を指定している</td>
+<td>projects.org</td>
+<td>とりあえずその内やるタスクを放り込むところ。Work, Private の階層を設けているので <code>:level 2</code> としている</td>
 </tr>
 <tr>
-<td>lang</td>
-<td>日本語ネイティブなので日本語で</td>
+<td>pointers.org</td>
+<td>読物を突っ込むところとしている。</td>
 </tr>
 <tr>
-<td>scope</td>
-<td>agenda とそのアーカイブもチェック。結構するアーカイブするので</td>
+<td>impediments.org</td>
+<td>スクラムの妨害リストでも作ってみようかと思って用意したやつ。放置中</td>
 </tr>
 <tr>
-<td>block</td>
-<td>基本的に退勤前に実行するので today にしている</td>
+<td>next-actions today</td>
+<td>その日やる作業を放り込むところ。projects や inbox から移動する時に使う。</td>
 </tr>
 <tr>
-<td>level</td>
-<td>最低限表示するレベル。まあ適当</td>
+<td>next-actions C-</td>
+<td>いくつかの作業を各階層に分けて管理しようとしていたのでターゲット指定している。放置中。</td>
+</tr>
+<tr>
+<td>2020_summary.org</td>
+<td>2020 年の個人ふりかえり用。もう 2020 年は大昔なので当然もう使っていない</td>
+</tr>
+<tr>
+<td>shopping.org</td>
+<td>買物リスト。時々思い出した時に放り込んでるが主に使うのは beorg からなので refile では使ってない</td>
+</tr>
+<tr>
+<td>someday.org</td>
+<td>遠い将来やるかもしれないリスト。放り込んで忘れるためにあるところ</td>
 </tr>
 </tbody>
 </table>
-<h2 id="hooks">hooks</h2>
-<h3 id="clock-in-時の-hook">clock-in 時の hook</h3>
-<p>clock-in のタイミングで以下の処理をするための hook を用意している</p>
-<ul>
-<li>作業開始したことを Slack 通知する</li>
-<li>TODO ステータスを DOING に変更</li>
-</ul>
-<!--listend-->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/org-clock-in-hook ()
-  (let* ((task org-clock-current-task)
-         (<span style="color:#a6e22e">message</span> (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;開始: %s&#34;</span> task)))
-    (my/notify-slack-times <span style="color:#a6e22e">message</span>))
-
-  (if (org-clocking-p)
-      (org-todo <span style="color:#e6db74">&#34;DOING&#34;</span>)))
-
-(setq org-clock-in-hook <span style="color:#e6db74">&#39;my/org-clock-in-hook</span>)
-</code></pre></div><h3 id="clock-out-時の-hook">clock-out 時の hook</h3>
-<p>clock-out のタイミングで以下の処理をするための hook を用意している</p>
-<ul>
-<li>作業終了を Slack 通知する
-<ul>
-<li>中断でも終了扱いになるのでちょっと悩み中。DONE にしたことを hook する必要があるかも。</li>
-</ul>
-</li>
-</ul>
-<!--listend-->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/org-clock-out-hook ()
-  (let* ((task org-clock-current-task)
-         (<span style="color:#a6e22e">message</span> (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;終了: %s&#34;</span> task)))
-    (my/notify-slack-times <span style="color:#a6e22e">message</span>)))
-
-(setq org-clock-out-hook <span style="color:#e6db74">&#39;my/org-clock-out-hook</span>)
-</code></pre></div><h2 id="org-pomodoro">org-pomodoro</h2>
-<p>ポモドーロテクニックを使うために org-pomodoro を導入している</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle org-pomodoro)
-</code></pre></div><p>で、sound は結構邪魔なのでそれは鳴らないようにしている</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq org-pomodoro-play-sounds <span style="color:#66d9ef">nil</span>)
-</code></pre></div><p>まあ普段これ起動してなくて使えてないんだけどw</p>
 
 
 <footer class="footline">
@@ -3527,26 +3511,6 @@
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
                 
                 
 
@@ -3606,6 +3570,23 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -3613,6 +3594,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3730,10 +3714,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/org-mode/org-capture/" title="org-capture"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/org-mode/org-ql/" title="org-ql"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/org-mode/org-export/" title="org-export" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/testing-tool/" title="テスト用ツール" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

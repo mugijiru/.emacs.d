@@ -142,5 +142,19 @@ footnote や制作者などを出力しない HTML で記事を吐き出す時�
 (el-get-bundle org-ql) その他 一時期は色々試していたけどこれを利用している org-super-agenda の方でなんとかするようにしたのでもう直接は使ってないでござる</description>
     </item>
     
+    <item>
+      <title>org-refile</title>
+      <link>https://mugijiru.github.io/.emacs.d/org-mode/org-refile/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-refile/</guid>
+      <description>概要 org-refile は org-mode の1機能で org-mode のエントリを別のファイルなどに移動するための機能。実はコピーもできるけど、コピーは使ったことがない。
+設定 org ファイル内の階層を選択候補に入れる これを nil に設定することでファイルの選択だけでなく、その中の PATH まで選択できるようになる
+(setq org-outline-path-complete-in-steps nil) refile ターゲットにファイル名を含める 以下のように設定すると refile のターゲット候補としてファイル名とその中の PATH が表示されるようになる。
+(setq org-refile-use-outline-path &amp;#39;file) nil だと移動先候補PATHの最後の部分しか表示されないのでどのファイルのどの場所かというのがわかりにくいのでこのように設定している。
+refile 先の候補設定 いくつかの org ファイルを使っているのでターゲットを以下のように設定している。
+(setq org-refile-targets `((,(concat org-directory &amp;#34;tasks/projects.org&amp;#34;) :level . 2) (,(concat org-directory &amp;#34;tasks/pointers.org&amp;#34;) :level . 1) (,(concat org-directory &amp;#34;work/scrum/impediments.org&amp;#34;) :level . 3) (,(concat org-directory &amp;#34;tasks/next-actions.org&amp;#34;) :regexp . &amp;#34;today&amp;#34;) (,(concat org-directory &amp;#34;tasks/next-actions.org&amp;#34;) :regexp . &amp;#34;C-&amp;#34;) (,(concat org-directory &amp;#34;private/2020_summary.org&amp;#34;) :level .</description>
+    </item>
+    
   </channel>
 </rss>
