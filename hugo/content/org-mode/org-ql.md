@@ -1,7 +1,8 @@
 +++
-title = "9. org-ql"
+title = "org-ql"
 tags = ["unused"]
 draft = false
+weight = 9
 +++
 
 ## 概要 {#概要}

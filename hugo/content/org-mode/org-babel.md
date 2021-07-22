@@ -1,6 +1,7 @@
 +++
-title = "2. org-babel"
+title = "org-babel"
 draft = false
+weight = 2
 +++
 
 ## 概要 {#概要}

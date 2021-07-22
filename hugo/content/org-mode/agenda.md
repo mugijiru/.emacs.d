@@ -1,6 +1,7 @@
 +++
-title = "4. Agenda 関係の設定"
+title = "Agenda 関係の設定"
 draft = false
+weight = 4
 +++
 
 ## 概要 {#概要}
