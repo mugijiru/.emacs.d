@@ -3492,6 +3492,24 @@
      #+begin_src emacs-lisp :tangle inits/30-notify-slack.el
      (setq my/notify-slack-enable-p t)
      #+end_src
+** todoist.el
+*** 概要
+    [[https://github.com/abrochard/emacs-todoist][emacs-todoist]] は Todo 管理サービスである Todoist と連携するためのパッケージ。
+    org-mode に依存している。
+*** インストール
+    #+begin_src emacs-lisp :tangle inits/50-todoist.el
+    (el-get-bundle  abrochard/emacs-todoist)
+    #+end_src
+*** 設定
+    API キーを設定するので別ファイルに分離している。
+    いつか .authinfo.gpg に移動しようかなと思っているけど
+    そもそも最近 TODOIST 使ってない……
+
+    #+begin_src emacs-lisp :tangle inits/50-todoist.el
+    (with-eval-after-load 'org
+      (my/load-config "my-todoist-config"))
+    #+end_src
+
 ** wakatime-mode
    :PROPERTIES:
    :EXPORT_FILE_NAME: wakatime-mode
@@ -4775,13 +4793,6 @@
            (t
             (hl-line-mode 1)
             (view-mode 1))))
-   #+end_src
-
-** 50-todoist.el
-
-   #+begin_src emacs-lisp :tangle inits/50-todoist.el
-   (el-get-bundle  abrochard/emacs-todoist)
-   (my/load-config "my-todoist-config")
    #+end_src
 
 ** 61-org-ql.el
