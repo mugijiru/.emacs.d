@@ -3242,6 +3242,7 @@
    - [[*magit][magit]] :: Emacs 上で Git の操作をするのにとても便利なパッケージ
    - [[*notify-slack][notify-slack]] :: Emacs から外部コマンドを通じて Slack に通知するための関数周りの事を書いている
    - [[*wakatime-mode][wakatime-mode]] :: Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ
+   - [[*todoist][todoist]] :: Todoist と連携して org-mode で扱えるようにするパッケージ
 ** emacs-w3m
    :PROPERTIES:
    :EXPORT_FILE_NAME: emacs-w3m
@@ -3492,7 +3493,7 @@
      #+begin_src emacs-lisp :tangle inits/30-notify-slack.el
      (setq my/notify-slack-enable-p t)
      #+end_src
-** todoist.el
+** todoist
 *** 概要
     [[https://github.com/abrochard/emacs-todoist][emacs-todoist]] は Todo 管理サービスである Todoist と連携するためのパッケージ。
     org-mode に依存している。
