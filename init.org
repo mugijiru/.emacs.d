@@ -4841,13 +4841,6 @@
      (require 'ox-hugo))
    #+end_src
 
-** 61-seesaa-blog.el                                                 :unused:
-
-   #+begin_src emacs-lisp :tangle inits/61-seesaa-blog.el
-   (el-get-bundle seesaa-blog-mode) ;; for seesaa blog. dependent org-mdoe
-   (my/load-config "my-seesaa-blog-config")
-   #+end_src
-
 ** 62-nippou.el
 
    #+begin_src emacs-lisp :tangle inits/62-nippou.el
