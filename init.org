@@ -3550,6 +3550,7 @@
    5. [[*5. org-capture][org-capture]]
    6. [[*6. org-clock][org-clock]]
    7. [[*7. org-export][org-export]]
+   8. [[*8. org-gcal][org-gcal]]
 
 ** 1. 基本設定
    :PROPERTIES:
