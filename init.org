@@ -3564,26 +3564,24 @@
    :EXPORT_FILE_NAME: _index
    :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>9. </b>" :weight 9 :disableToc true
    :END:
-
-   1. [[*1. 基本設定][基本設定]]
-   2. [[*2. org-babel][org-babel]]
-   3. [[*3. 予定のカレンダー表示][予定のカレンダー表示]]
-   4. [[*4. Agenda 関係の設定][Agenda 関係の設定]]
-   5. [[*5. org-capture][org-capture]]
-   6. [[*6. org-clock][org-clock]]
-   7. [[*7. org-export][org-export]]
-   8. [[*8. org-gcal][org-gcal]]
-   9. [[*9. org-ql][org-ql]]
-
-** 1. 基本設定
+   1. [[*基本設定][基本設定]]
+   2. [[*org-babel][org-babel]]
+   3. [[*予定のカレンダー表示][予定のカレンダー表示]]
+   4. [[*Agenda 関係の設定][Agenda 関係の設定]]
+   5. [[*org-capture][org-capture]]
+   6. [[*org-clock][org-clock]]
+   7. [[*org-export][org-export]]
+   8. [[*org-gcal][org-gcal]]
+   9. [[*org-ql][org-ql]]
+** 基本設定
    :PROPERTIES:
    :EXPORT_FILE_NAME: base
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "1. " :weight 1
    :END:
 *** 概要
     ここでは org-mode 周りのベースとなる設定を書いているつもり。
     といいつつ、まだ書き方が雑だなと思っている。
     またその内にでも修正しよう
-
 *** org-mode のインストール
     Emacs に標準で入っている org-mode は大体古過ぎるので
     とりあえずデフォルトで入ってるやつは削除しちゃって
@@ -3667,9 +3665,10 @@
 
     第二引数に default を指定すると、内部的には open コマンドが使われることを利用している。
 
-** 2. org-babel
+** org-babel
    :PROPERTIES:
    :EXPORT_FILE_NAME: org-babel
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "2. " :weight 2
    :END:
 *** 概要
     ここでは org-babel の設定をまとめている。
@@ -3735,9 +3734,10 @@
     #+end_src
 
     多分 custom-set-variables でちゃんと設定したらいいんだろうなあ。
-** 3. 予定のカレンダー表示
+** 予定のカレンダー表示
    :PROPERTIES:
    :EXPORT_FILE_NAME: calendar
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "3. " :weight 3
    :END:
 *** 概要
     普段の予定をカレンダー表示で見れると嬉しいな〜と思って
@@ -3771,9 +3771,10 @@
     #+end_src
 
     ここではまだこれ以上のことはしてない
-** 4. Agenda 関係の設定
+** Agenda 関係の設定
    :PROPERTIES:
    :EXPORT_FILE_NAME: agenda
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "4. " :weight 4
    :END:
 *** 概要
     org-mode の素晴らしい機能の1つに Agenda というものがある。
@@ -4080,9 +4081,10 @@
                                          "~/Documents/org/tasks/inbox.org"))))))))
      #+end_src
 
-** 5. org-capture
+** org-capture
    :PROPERTIES:
    :EXPORT_FILE_NAME: org-capture
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "5. " :weight 5
    :END:
 *** 概要
     org-capture は org-mode 用にさくっとメモを取るための機能。
@@ -4171,9 +4173,10 @@
              "** TODO %?\n\t")))
     #+end_src
 
-** 6. org-clock
+** org-clock
    :PROPERTIES:
    :EXPORT_FILE_NAME: org-clock
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "6. " :weight 6
    :END:
 *** 概要
     org-clock 関係の設定をここにまとめている
@@ -4247,9 +4250,10 @@
 
     まあ普段これ起動してなくて使えてないんだけどw
 
-** 7. org-export
+** org-export
    :PROPERTIES:
    :EXPORT_FILE_NAME: org-export
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "7. " :weight 7
    :END:
 *** 概要
     ここではファイルへの出力用の設定をまとめている。
@@ -4322,9 +4326,10 @@
     (setq org-export-default-language "ja")
     #+end_src
 
-** 8. org-gcal                                                  :replacement:
+** org-gcal                                                     :replacement:
    :PROPERTIES:
    :EXPORT_FILE_NAME: org-gcal
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "8. " :weight 8
    :END:
 
 *** 概要
@@ -4367,9 +4372,10 @@
     そっちの中身もよくわからないので躊躇している。
     自分の用途に合うのだろうか?
 
-** 9. org-ql                                                         :unused:
+** org-ql                                                            :unused:
    :PROPERTIES:
    :EXPORT_FILE_NAME: org-ql
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "9. " :weight 9
    :END:
 
 *** 概要
