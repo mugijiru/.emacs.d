@@ -3576,7 +3576,7 @@
 ** 基本設定
    :PROPERTIES:
    :EXPORT_FILE_NAME: base
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "1. " :weight 1
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :weight 1
    :END:
 *** 概要
     ここでは org-mode 周りのベースとなる設定を書いているつもり。
@@ -3668,7 +3668,7 @@
 ** org-babel
    :PROPERTIES:
    :EXPORT_FILE_NAME: org-babel
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "2. " :weight 2
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :weight 2
    :END:
 *** 概要
     ここでは org-babel の設定をまとめている。
@@ -3737,7 +3737,7 @@
 ** 予定のカレンダー表示
    :PROPERTIES:
    :EXPORT_FILE_NAME: calendar
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "3. " :weight 3
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :weight 3
    :END:
 *** 概要
     普段の予定をカレンダー表示で見れると嬉しいな〜と思って
@@ -3774,7 +3774,7 @@
 ** Agenda 関係の設定
    :PROPERTIES:
    :EXPORT_FILE_NAME: agenda
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "4. " :weight 4
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :weight 4
    :END:
 *** 概要
     org-mode の素晴らしい機能の1つに Agenda というものがある。
@@ -4084,7 +4084,7 @@
 ** org-capture
    :PROPERTIES:
    :EXPORT_FILE_NAME: org-capture
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "5. " :weight 5
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :weight 5
    :END:
 *** 概要
     org-capture は org-mode 用にさくっとメモを取るための機能。
@@ -4176,7 +4176,7 @@
 ** org-clock
    :PROPERTIES:
    :EXPORT_FILE_NAME: org-clock
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "6. " :weight 6
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :weight 6
    :END:
 *** 概要
     org-clock 関係の設定をここにまとめている
@@ -4253,7 +4253,7 @@
 ** org-export
    :PROPERTIES:
    :EXPORT_FILE_NAME: org-export
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "7. " :weight 7
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :weight 7
    :END:
 *** 概要
     ここではファイルへの出力用の設定をまとめている。
@@ -4329,7 +4329,7 @@
 ** org-gcal                                                     :replacement:
    :PROPERTIES:
    :EXPORT_FILE_NAME: org-gcal
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "8. " :weight 8
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :weight 8
    :END:
 
 *** 概要
@@ -4375,7 +4375,7 @@
 ** org-ql                                                            :unused:
    :PROPERTIES:
    :EXPORT_FILE_NAME: org-ql
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "9. " :weight 9
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :weight 9
    :END:
 
 *** 概要
