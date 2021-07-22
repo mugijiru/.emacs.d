@@ -6,6 +6,9 @@ weight = 9
 disableToc = true
 +++
 
+ここでは org-mode 周りの設定をまとめている。
+org-mode だけでも書くことが多いからね……。
+
 1.  [基本設定](basics/.org)
 2.  [org-babel]({{< relref "org-babel" >}})
 3.  [予定のカレンダー表示]({{< relref "calendar" >}})
@@ -15,3 +18,4 @@ disableToc = true
 7.  [org-export]({{< relref "org-export" >}})
 8.  [org-gcal]({{< relref "org-gcal" >}})
 9.  [org-ql]({{< relref "org-ql" >}})
+10. [org-refile]({{< relref "org-refile" >}})
