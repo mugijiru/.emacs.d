@@ -3494,6 +3494,9 @@
      (setq my/notify-slack-enable-p t)
      #+end_src
 ** todoist
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: todoist
+   :END:
 *** 概要
     [[https://github.com/abrochard/emacs-todoist][emacs-todoist]] は Todo 管理サービスである Todoist と連携するためのパッケージ。
     org-mode に依存している。
