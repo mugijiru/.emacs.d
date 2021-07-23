@@ -151,7 +151,7 @@
 	"title": "org-mode",
 	"tags": [],
 	"description": "",
-	"content": "ここでは org-mode 周りの設定をまとめている。 org-mode だけでも書くことが多いからね……。\n 基本設定 org-babel 予定のカレンダー表示 Agenda 関係の設定 org-capture org-clock org-export org-gcal org-ql org-refile org-trello  "
+	"content": "ここでは org-mode 周りの設定をまとめている。 org-mode だけでも書くことが多いからね……。\n 基本設定 org-babel 予定のカレンダー表示 Agenda 関係の設定 org-capture org-clock org-export org-gcal org-ql org-refile org-trello ox-hugo  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/org-ql/",
@@ -187,6 +187,13 @@
 	"tags": [],
 	"description": "",
 	"content": "一部のコマンドなどの設定を書き始めているので設けたセクション。\n暫定的にここに置いているが設定と近い方が良さそうなのでいずれドキュメント内の位置を移動しそう。\n 実行方法 とりあえず書かれているテストを動かす方法を書いている。 run-tests テスト全体を動かすための共通設定ファイルの説明 my-org-commands-test org-mode 用に自分が生やしたコマンドのテストファイルの解説  "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/ox-hugo/",
+	"title": "ox-hugo",
+	"tags": [],
+	"description": "",
+	"content": "概要 ox-hugo は org-mode から Hugo 用に md ファイルを出力できる便利なやつ。\n設定にもよるけど、1つのorgファイルに全部の記事を書いておいてツリー毎に md ファイルが生成される、というのがデフォルトの動きなので 1ファイルに詰めておくとファイルが分散しないで済んで良い。\nなお、この 麦汁\u0026rsquo;s Emacs Config も親サイトである 麦汁三昧 も ox-hugo を用いて構築している\nインストール・読み込み いつも通り el-get でインスコしている。\n(el-get-bundle ox-hugo) そして org-mode の ox が先に読まれてないといけないので with-eval-after-load を使って、ox が読まれてから require するようにしている。\n(with-eval-after-load \u0026#39;ox (require \u0026#39;ox-hugo)) その他 デフォルト設定でいい感じに使えているので特に設定変更は加えていない。\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/nav/ace-window/",

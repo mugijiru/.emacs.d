@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>Categories :: 麦汁&#39;s Emacs Config</title>
+    <title>ox-hugo :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1627008935" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/categories/">
+  <body class="" data-url="/.emacs.d/org-mode/ox-hugo/">
     <nav id="sidebar" class="">
 
 
@@ -1664,7 +1664,7 @@
   
     
     <li data-nav-id="/.emacs.d/org-mode/" title="org-mode" class="dd-item
-        
+        parent
         
         
         ">
@@ -1921,7 +1921,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/org-mode/ox-hugo/" title="ox-hugo" class="dd-item ">
+      <li data-nav-id="/.emacs.d/org-mode/ox-hugo/" title="ox-hugo" class="dd-item active">
         <a href="/.emacs.d/org-mode/ox-hugo/">
         ox-hugo
         
@@ -2181,7 +2181,13 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > Categories
+            
+            
+          
+          
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/org-mode/'>org-mode</a> > ox-hugo
+          
+        
           
         
           
@@ -2192,7 +2198,13 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#インストール-読み込み">インストール・読み込み</a></li>
+    <li><a href="#その他">その他</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -2208,24 +2220,31 @@
           
             <h1>
               
-                category ::
-              
-              Categories
+              ox-hugo
             </h1>
           
 
         
 
 
+<h2 id="概要">概要</h2>
+<p><a href="https://ox-hugo.scripter.co/">ox-hugo</a> は org-mode から Hugo 用に md ファイルを出力できる便利なやつ。</p>
+<p>設定にもよるけど、1つのorgファイルに全部の記事を書いておいてツリー毎に md ファイルが生成される、というのがデフォルトの動きなので
+1ファイルに詰めておくとファイルが分散しないで済んで良い。</p>
+<p>なお、この <a href="./.org">麦汁&rsquo;s Emacs Config</a> も親サイトである <a href="https://mugijiru.github.io/.emacs.d/">麦汁三昧</a> も
+ox-hugo を用いて構築している</p>
+<h2 id="インストール-読み込み">インストール・読み込み</h2>
+<p>いつも通り el-get でインスコしている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle ox-hugo)
+</code></pre></div><p>そして org-mode の ox が先に読まれてないといけないので
+with-eval-after-load を使って、ox が読まれてから require するようにしている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;ox</span>
+  (require <span style="color:#e6db74">&#39;ox-hugo</span>))
+</code></pre></div><h2 id="その他">その他</h2>
+<p>デフォルト設定でいい感じに使えているので特に設定変更は加えていない。</p>
 
 
-
-<ul>
-	
-</ul>
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -3383,6 +3402,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -3395,6 +3415,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3572,6 +3595,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -3590,6 +3614,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3707,8 +3734,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/.emacs.d/org-mode/org-trello/" title="org-trello"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/.emacs.d/basics/" title="基本設定" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/.emacs.d/testing-tool/" title="テスト用ツール" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -3740,3 +3769,4 @@
 
   </body>
 </html>
+

@@ -169,5 +169,19 @@ refile 先の候補設定 いくつかの org ファイルを使っているの�
 (with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define org-trello-hydra (:separator &amp;#34;-&amp;#34; :color teal :foreign-key warn :title (concat (all-the-icons-faicon &amp;#34;trello&amp;#34;) &amp;#34; Org Trello commands&amp;#34;) :quit-key &amp;#34;q&amp;#34;) (&amp;#34;Install&amp;#34; ((&amp;#34;i&amp;#34; org-trello-install-board-metadata &amp;#34;Board metadata&amp;#34;) (&amp;#34;I&amp;#34; org-trello-install-key-and-token &amp;#34;Setup&amp;#34;)) &amp;#34;Sync&amp;#34; ((&amp;#34;s&amp;#34; my/org-trello-fetch-buffer &amp;#34;← Trello&amp;#34;) (&amp;#34;S&amp;#34; org-trello-sync-buffer &amp;#34;→ Trello&amp;#34;)) &amp;#34;Other&amp;#34; ((&amp;#34;V&amp;#34; org-trello-version &amp;#34;Version&amp;#34;)))))    Key 効果     i Board のメタデータをインストールする   I Key と トークンを設定する   s Trello の情報を引っ張ってくる   S Trello の情報を連携する   V バージョン情報を表示    その他 まだ試していないが https://github.</description>
     </item>
     
+    <item>
+      <title>ox-hugo</title>
+      <link>https://mugijiru.github.io/.emacs.d/org-mode/ox-hugo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/org-mode/ox-hugo/</guid>
+      <description>概要 ox-hugo は org-mode から Hugo 用に md ファイルを出力できる便利なやつ。
+設定にもよるけど、1つのorgファイルに全部の記事を書いておいてツリー毎に md ファイルが生成される、というのがデフォルトの動きなので 1ファイルに詰めておくとファイルが分散しないで済んで良い。
+なお、この 麦汁&amp;rsquo;s Emacs Config も親サイトである 麦汁三昧 も ox-hugo を用いて構築している
+インストール・読み込み いつも通り el-get でインスコしている。
+(el-get-bundle ox-hugo) そして org-mode の ox が先に読まれてないといけないので with-eval-after-load を使って、ox が読まれてから require するようにしている。
+(with-eval-after-load &amp;#39;ox (require &amp;#39;ox-hugo)) その他 デフォルト設定でいい感じに使えているので特に設定変更は加えていない。</description>
+    </item>
+    
   </channel>
 </rss>
