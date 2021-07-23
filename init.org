@@ -3579,6 +3579,7 @@
    10. [[*org-refile][org-refile]]
    11. [[*org-trello][org-trello]]
    12. [[*ox-hugo][ox-hugo]]
+   13. [[*keybinds][keybinds]]
 ** 基本設定
    :PROPERTIES:
    :EXPORT_FILE_NAME: base
