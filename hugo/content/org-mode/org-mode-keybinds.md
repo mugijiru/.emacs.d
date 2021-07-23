@@ -1,5 +1,5 @@
 +++
-title = "keybinds"
+title = "org-mode 関係の keybinds"
 draft = false
 weight = 13
 +++

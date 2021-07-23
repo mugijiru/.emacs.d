@@ -3579,7 +3579,7 @@
    10. [[*org-refile][org-refile]]
    11. [[*org-trello][org-trello]]
    12. [[*ox-hugo][ox-hugo]]
-   13. [[*keybinds][keybinds]]
+   13. [[*org-mode 関係の keybinds][org-mode 関係の keybinds]]
 ** 基本設定
    :PROPERTIES:
    :EXPORT_FILE_NAME: base
@@ -4554,9 +4554,9 @@
     デフォルト設定でいい感じに使えているので
     特に設定変更は加えていない。
 
-** keybinds
+** org-mode 関係の keybinds
    :PROPERTIES:
-   :EXPORT_FILE_NAME: keybinds
+   :EXPORT_FILE_NAME: org-mode-keybinds
    :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :weight 13
    :END:
 *** 概要
