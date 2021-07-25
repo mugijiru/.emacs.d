@@ -21,4 +21,5 @@ org-mode だけでも書くことが多いからね……。
 10. [org-refile]({{< relref "org-refile" >}})
 11. [org-trello]({{< relref "org-trello" >}})
 12. [ox-hugo]({{< relref "ox-hugo" >}})
-13. [org-mode 関係の keybinds]({{< relref "org-mode-keybinds" >}})
+13. [org-mode 用の独自コマンド]({{< relref "org-commands" >}})
+14. [org-mode 関係の keybinds]({{< relref "org-mode-keybinds" >}})
