@@ -1,4 +1,5 @@
 (el-get-bundle org-trello)
+
 (defun my/org-trello-fetch-buffer ()
   (interactive)
   (org-trello-sync-buffer t))

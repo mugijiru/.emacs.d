@@ -1,6 +1,5 @@
 (defun my/org-clock-toggle-display ()
-  "行の後ろに掛かった作業時間を表示をしたり消したりを切り替える機能。
-Hydra から利用するために定義している。"
+  "各ツリーの末尾に掛かった作業時間を表示/非表示を切り替えるコマンド"
   (interactive)
   (if org-clock-overlays
       (org-clock-remove-overlays)
