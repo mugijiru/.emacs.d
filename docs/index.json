@@ -151,7 +151,7 @@
 	"title": "org-mode",
 	"tags": [],
 	"description": "",
-	"content": "ここでは org-mode 周りの設定をまとめている。 org-mode だけでも書くことが多いからね……。\n 基本設定 org-babel 予定のカレンダー表示 Agenda 関係の設定 org-capture org-clock org-export org-gcal org-ql org-refile org-trello ox-hugo org-mode 関係の keybinds  "
+	"content": "ここでは org-mode 周りの設定をまとめている。 org-mode だけでも書くことが多いからね……。\n 基本設定 org-babel 予定のカレンダー表示 Agenda 関係の設定 org-capture org-clock org-export org-gcal org-ql org-refile org-trello ox-hugo org-mode 用の独自コマンド org-mode 関係の keybinds  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/org-ql/",
@@ -194,6 +194,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 ox-hugo は org-mode から Hugo 用に md ファイルを出力できる便利なやつ。\n設定にもよるけど、1つのorgファイルに全部の記事を書いておいてツリー毎に md ファイルが生成される、というのがデフォルトの動きなので 1ファイルに詰めておくとファイルが分散しないで済んで良い。\nなお、この 麦汁\u0026rsquo;s Emacs Config も親サイトである 麦汁三昧 も ox-hugo を用いて構築している\nインストール・読み込み いつも通り el-get でインスコしている。\n(el-get-bundle ox-hugo) そして org-mode の ox が先に読まれてないといけないので with-eval-after-load を使って、ox が読まれてから require するようにしている。\n(with-eval-after-load \u0026#39;ox (require \u0026#39;ox-hugo)) その他 デフォルト設定でいい感じに使えているので特に設定変更は加えていない。\n"
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/org-commands/",
+	"title": "org-mode 用の独自コマンド",
+	"tags": [],
+	"description": "",
+	"content": "概要 org-mode を使う上で、標準で用意されているコマンド以外に自分でも適当にコマンドを用意しているのでここにまとめている。\n各ツリーの所要時間表示/非表示切替 org-clock-display で各ツリーにおける org-clock で記録された所要時間が表示でき、 org-clock-remove-overlays でそれを非表示にできるが、それを Toggle できるようにコマンド/関数を定義している。\n(defun my/org-clock-toggle-display () \u0026#34;各ツリーの末尾に掛かった作業時間を表示/非表示を切り替えるコマンド\u0026#34; (interactive) (if org-clock-overlays (org-clock-remove-overlays) (org-clock-display))) org-todo-keywords から装飾を省いた文字列のリストを返す関数 ivy で org-todo-keywords を選択可能にするために org-todo-keywords を加工してシンプルな文字列の配列にする関数を定義している。\n後述の my/org-todo で利用している\n(defun my/org-todo-keyword-strings () \u0026#34;org-todo-keywords から装飾を省いた文字列のリストを返す関数\u0026#34; (let* ((keywords (cl-rest (cl-first org-todo-keywords))) (without-delimiter (cl-remove-if (lambda (elm) (string= \u0026#34;|\u0026#34; elm)) keywords))) (mapcar (lambda (element) (replace-regexp-in-string \u0026#34;\\(.+\\)\u0026#34; \u0026#34;\u0026#34; element)) without-delimiter))) Ivy で TODO ステータスを選択し設定するコマンド 標準の org-todo だと画面がガチャガチャ動くのが気になったので ivy で選択できるようにしている。\n(defun my/org-todo () \u0026#34;ivy で TODO ステータスを切り替えるためのコマンド Hydra から利用するために定義している。\u0026#34; (interactive) (ivy-read \u0026#34;Org todo: \u0026#34; (my/org-todo-keyword-strings) :require-match t :sort nil :action (lambda (keyword) (org-todo keyword)))) タグ選択でそのタグがついたヘッドラインをリスト表示 タグ毎に見たいことがありそうなので用意したやつ。存在を忘れてしまっていたのであまり使ってない。\nカスタムアジェンダを頑張る方が良い気もする\n(defun my/org-tags-view-only-todo () (interactive) (org-tags-view t)) calfw で選択したカレンダーを表示 (defun my/open-calendar () (interactive) (ivy-read \u0026#34;Calendar: \u0026#34; my/calendar-targets :require-match t :sort nil :action (lambda (target) (progn (setq cfw:org-icalendars `(,(concat org-directory target \u0026#34;.org\u0026#34;))) (cfw:open-org-calendar))))) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/org-mode-keybinds/",

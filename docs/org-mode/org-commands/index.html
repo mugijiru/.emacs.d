@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>ace-window :: 麦汁&#39;s Emacs Config</title>
+    <title>org-mode 用の独自コマンド :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1627181734" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/nav/ace-window/">
+  <body class="" data-url="/.emacs.d/org-mode/org-commands/">
     <nav id="sidebar" class="">
 
 
@@ -1016,7 +1016,7 @@
   
     
     <li data-nav-id="/.emacs.d/nav/" title="ナビゲーション" class="dd-item
-        parent
+        
         
         
         ">
@@ -1042,7 +1042,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/nav/ace-window/" title="ace-window" class="dd-item active">
+      <li data-nav-id="/.emacs.d/nav/ace-window/" title="ace-window" class="dd-item ">
         <a href="/.emacs.d/nav/ace-window/">
         ace-window
         
@@ -1664,7 +1664,7 @@
   
     
     <li data-nav-id="/.emacs.d/org-mode/" title="org-mode" class="dd-item
-        
+        parent
         
         
         ">
@@ -1942,7 +1942,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/org-mode/org-commands/" title="org-mode 用の独自コマンド" class="dd-item ">
+      <li data-nav-id="/.emacs.d/org-mode/org-commands/" title="org-mode 用の独自コマンド" class="dd-item active">
         <a href="/.emacs.d/org-mode/org-commands/">
         org-mode 用の独自コマンド
         
@@ -2227,7 +2227,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/nav/'>ナビゲーション</a> > ace-window
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/org-mode/'>org-mode</a> > org-mode 用の独自コマンド
           
         
           
@@ -2243,8 +2243,11 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#インストール">インストール</a></li>
-    <li><a href="#設定">設定</a></li>
+    <li><a href="#各ツリーの所要時間表示-非表示切替">各ツリーの所要時間表示/非表示切替</a></li>
+    <li><a href="#org-todo-keywords-から装飾を省いた文字列のリストを返す関数">org-todo-keywords から装飾を省いた文字列のリストを返す関数</a></li>
+    <li><a href="#ivy-で-todo-ステータスを選択し設定するコマンド">Ivy で TODO ステータスを選択し設定するコマンド</a></li>
+    <li><a href="#タグ選択でそのタグがついたヘッドラインをリスト表示">タグ選択でそのタグがついたヘッドラインをリスト表示</a></li>
+    <li><a href="#calfw-で選択したカレンダーを表示">calfw で選択したカレンダーを表示</a></li>
   </ul>
 </nav>
     </div>
@@ -2262,7 +2265,7 @@
           
             <h1>
               
-              ace-window
+              org-mode 用の独自コマンド
             </h1>
           
 
@@ -2270,20 +2273,59 @@
 
 
 <h2 id="概要">概要</h2>
-<p>Window 間の移動を ace-jump や avy のように表示されてる文字の Window に移動するやつ。</p>
-<p>Window が2分割の時は文字も出ないで別の Window に移動してくれる。</p>
-<p><code>C-x o</code> にデフォルトで設定されている <code>other-window</code> は別の window に順番に移動するコマンドなので大量に分割していると移動がしんどいのだが
-ace-window を使うと起動して 1 ストロークで移動できるので
-<code>C-x o</code> をデフォルトの <code>other-window</code> から <code>ace-window</code> そのまま置き換えても便利に使える。</p>
-<h2 id="インストール">インストール</h2>
-<p>いつも通り el-get でインストールしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle ace-window)
-</code></pre></div><h2 id="設定">設定</h2>
-<p>キーバインドは別の箇所で定義しているが
-<code>C-x o</code> で ace-window が起動するようにしている。</p>
-<p>また Hydra からは ace-swap-window が起動できるようにしている。</p>
-<p>ace-window には色々な機能があるからそれ用の Hydra を別途定義してもいいかもしれない。</p>
-
+<p>org-mode を使う上で、標準で用意されているコマンド以外に自分でも適当にコマンドを用意しているのでここにまとめている。</p>
+<h2 id="各ツリーの所要時間表示-非表示切替">各ツリーの所要時間表示/非表示切替</h2>
+<p>org-clock-display で各ツリーにおける org-clock で記録された所要時間が表示でき、
+org-clock-remove-overlays でそれを非表示にできるが、それを Toggle できるようにコマンド/関数を定義している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/org-clock-toggle-display ()
+  <span style="color:#e6db74">&#34;各ツリーの末尾に掛かった作業時間を表示/非表示を切り替えるコマンド&#34;</span>
+  (interactive)
+  (if org-clock-overlays
+      (org-clock-remove-overlays)
+    (org-clock-display)))
+</code></pre></div><h2 id="org-todo-keywords-から装飾を省いた文字列のリストを返す関数">org-todo-keywords から装飾を省いた文字列のリストを返す関数</h2>
+<p>ivy で org-todo-keywords を選択可能にするために
+org-todo-keywords を加工してシンプルな文字列の配列にする関数を定義している。</p>
+<p>後述の <code>my/org-todo</code> で利用している</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/org-todo-keyword-strings ()
+  <span style="color:#e6db74">&#34;org-todo-keywords から装飾を省いた文字列のリストを返す関数&#34;</span>
+  (let* ((keywords (cl-rest (cl-first org-todo-keywords)))
+         (without-delimiter (cl-remove-if (lambda (elm) (string= <span style="color:#e6db74">&#34;|&#34;</span> elm))
+                                          keywords)))
+    (<span style="color:#a6e22e">mapcar</span> (lambda (element)
+              (replace-regexp-in-string <span style="color:#e6db74">&#34;\(.+\)&#34;</span> <span style="color:#e6db74">&#34;&#34;</span> element))
+            without-delimiter)))
+</code></pre></div><h2 id="ivy-で-todo-ステータスを選択し設定するコマンド">Ivy で TODO ステータスを選択し設定するコマンド</h2>
+<p>標準の org-todo だと画面がガチャガチャ動くのが気になったので
+ivy で選択できるようにしている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/org-todo ()
+  <span style="color:#e6db74">&#34;ivy で TODO ステータスを切り替えるためのコマンド
+</span><span style="color:#e6db74">Hydra から利用するために定義している。&#34;</span>
+  (interactive)
+  (ivy-read <span style="color:#e6db74">&#34;Org todo: &#34;</span>
+            (my/org-todo-keyword-strings)
+            :require-match <span style="color:#66d9ef">t</span>
+            :sort <span style="color:#66d9ef">nil</span>
+            :action (lambda (keyword)
+                      (org-todo keyword))))
+</code></pre></div><h2 id="タグ選択でそのタグがついたヘッドラインをリスト表示">タグ選択でそのタグがついたヘッドラインをリスト表示</h2>
+<p>タグ毎に見たいことがありそうなので用意したやつ。存在を忘れてしまっていたのであまり使ってない。</p>
+<p>カスタムアジェンダを頑張る方が良い気もする</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/org-tags-view-only-todo ()
+  (interactive)
+  (org-tags-view <span style="color:#66d9ef">t</span>))
+</code></pre></div><h2 id="calfw-で選択したカレンダーを表示">calfw で選択したカレンダーを表示</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/open-calendar ()
+  (interactive)
+  (ivy-read <span style="color:#e6db74">&#34;Calendar: &#34;</span>
+            my/calendar-targets
+            :require-match <span style="color:#66d9ef">t</span>
+            :sort <span style="color:#66d9ef">nil</span>
+            :action (lambda (target)
+                      (progn
+                        (setq cfw:org-icalendars <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory target <span style="color:#e6db74">&#34;.org&#34;</span>)))
+                        (cfw:open-org-calendar)))))
+</code></pre></div>
 
 <footer class="footline">
 	
@@ -2979,7 +3021,6 @@ ace-window を使うと起動して 1 ストロークで移動できるので
             
                 
                     
-                    
                 
                 
 
@@ -2987,378 +3028,6 @@ ace-window を使うと起動して 1 ストロークで移動できるので
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -3664,10 +3333,386 @@ ace-window を使うと起動して 1 ストロークで移動できるので
             
         
                     
+            
+        
+                    
                         
             
             
                 
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -3804,10 +3849,10 @@ ace-window を使うと起動して 1 ストロークで移動できるので
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/nav/" title="ナビゲーション"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/org-mode/ox-hugo/" title="ox-hugo"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/nav/avy/" title="avy" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/org-mode/org-mode-keybinds/" title="org-mode 関係の keybinds" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
