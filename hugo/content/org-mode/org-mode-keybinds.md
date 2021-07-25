@@ -1,7 +1,7 @@
 +++
 title = "org-mode 関係の keybinds"
 draft = false
-weight = 13
+weight = 14
 +++
 
 ## 概要 {#概要}
