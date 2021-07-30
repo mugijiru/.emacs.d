@@ -16,3 +16,6 @@ disableToc = true
 
 [sticky-control]({{< relref "sticky-control" >}})
 : Control の入力を sticky にしてくれるやつ
+
+[グローバルキーバインド]({{< relref "global-keybinds" >}})
+: いつでもどこでも使えるキーバインド周りの設定をここにまとめている
