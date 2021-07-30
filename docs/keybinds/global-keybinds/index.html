@@ -9,23 +9,23 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>実行方法 :: 麦汁&#39;s Emacs Config</title>
+    <title>グローバルキーバインド :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1627654044" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1627654044" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1627654044" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1627654044" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1627654044" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1627654044" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1627654044" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1627654044" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1627654044" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1627654044" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1627654043" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1627654043" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1627654043" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1627654043" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1627654043" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1627654043" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1627654043" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1627654043" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1627654043" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1627654043" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1627654044"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1627654043"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/testing/execution/">
+  <body class="" data-url="/.emacs.d/keybinds/global-keybinds/">
     <nav id="sidebar" class="">
 
 
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1627654044"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1627654044"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1627654043"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1627654043"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1627654044"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1627654043"></script>
 
     
   </div>
@@ -347,7 +347,7 @@
   
     
     <li data-nav-id="/.emacs.d/keybinds/" title="キーバインド" class="dd-item
-        
+        parent
         
         
         ">
@@ -436,7 +436,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/keybinds/global-keybinds/" title="グローバルキーバインド" class="dd-item ">
+      <li data-nav-id="/.emacs.d/keybinds/global-keybinds/" title="グローバルキーバインド" class="dd-item active">
         <a href="/.emacs.d/keybinds/global-keybinds/">
         グローバルキーバインド
         
@@ -2089,7 +2089,7 @@
   
     
     <li data-nav-id="/.emacs.d/testing/" title="テストコード" class="dd-item
-        parent
+        
         
         
         ">
@@ -2115,7 +2115,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/testing/execution/" title="実行方法" class="dd-item active">
+      <li data-nav-id="/.emacs.d/testing/execution/" title="実行方法" class="dd-item ">
         <a href="/.emacs.d/testing/execution/">
         実行方法
         
@@ -2248,7 +2248,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/testing/'>テストコード</a> > 実行方法
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/keybinds/'>キーバインド</a> > グローバルキーバインド
           
         
           
@@ -2261,7 +2261,32 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#mac-での修飾キー変更">Mac での修飾キー変更</a></li>
+    <li><a href="#c-h-を-backspace-に変更">C-h を backspace に変更</a></li>
+    <li><a href="#m-g-rをstring-replaceに割り当て">M-g rをstring-replaceに割り当て</a></li>
+    <li><a href="#c-で-skk-が有効になるようにする">C-\ で SKK が有効になるようにする</a></li>
+    <li><a href="#c-s-を-swiper-に置き換え">C-s を swiper に置き換え</a></li>
+    <li><a href="#window-間の移動">window 間の移動</a>
+      <ul>
+        <li><a href="#c-x-o-を-ace-window-に置き換え">C-x o を ace-window に置き換え</a></li>
+        <li><a href="#shift-plus-カーソルキーで-window-移動">Shift+カーソルキーで window 移動</a></li>
+      </ul>
+    </li>
+    <li><a href="#undo-redo">undo/redo</a></li>
+    <li><a href="#を入力した時に円マークにならないようにする設定">\ を入力した時に円マークにならないようにする設定</a></li>
+    <li><a href="#multiple-cursors">multiple-cursors</a></li>
+    <li><a href="#helm">Helm</a></li>
+    <li><a href="#ivy">Ivy</a></li>
+    <li><a href="#zoom-window">zoom-window</a></li>
+    <li><a href="#neotree">neotree</a></li>
+    <li><a href="#org-mode">org-mode</a></li>
+    <li><a href="#keychord">keychord</a></li>
+    <li><a href="#yes-or-no-ではなく-y-or-n-で質問する">yes or no ではなく y or n で質問する</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -2277,19 +2302,137 @@
           
             <h1>
               
-              実行方法
+              グローバルキーバインド
             </h1>
           
 
         
 
 
-<p>テストする時は以下のように叩いたら動く。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">emacs -Q --batch -l ~/.emacs.d/inits/test/*-test.el -l ~/.emacs.d/inits/test/run-tests.el
-</code></pre></div><p>今まで <code>.emacs.d</code> にいる状態でしか叩いたことないので他の場所にいる時に実行しても大丈夫かはわからない。</p>
-<p>単体でテストしたい時は</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">-l ~/.emacs.d/inits/test/*-test.el
-</code></pre></div><p>の部分を書き換えたらいいんじゃないかな。やったことないけど。</p>
+<h2 id="概要">概要</h2>
+<p>Emacs では様々なグローバルマイナーモードが存在したりしていていつでも使えるようなコマンドが多数存在するのでここでまとめて定義している。</p>
+<p>が、Hydra 関係もここに書くと項目が大きくなりすぎるので、それはまた別途定義している。</p>
+<h2 id="mac-での修飾キー変更">Mac での修飾キー変更</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(if (<span style="color:#a6e22e">eq</span> <span style="color:#a6e22e">window-system</span> <span style="color:#e6db74">&#39;ns</span>)
+    (progn
+          (setq ns-alternate-modifier (quote super)) <span style="color:#75715e">;; option  =&gt; super</span>
+          (setq ns-command-modifier (quote meta))))  <span style="color:#75715e">;; command =&gt; meta</span>
+</code></pre></div><h2 id="c-h-を-backspace-に変更">C-h を backspace に変更</h2>
+<p>C-h で文字を消せないと不便なのでずっと昔からこの設定は入れている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(keyboard-translate <span style="color:#e6db74">?\C</span>-h <span style="color:#e6db74">?\C</span>-?)
+(global-set-key <span style="color:#e6db74">&#34;\C-h&#34;</span> <span style="color:#66d9ef">nil</span>)
+</code></pre></div><h2 id="m-g-rをstring-replaceに割り当て">M-g rをstring-replaceに割り当て</h2>
+<p>string-replace はよく使うのでそれなりに使いやすいキーにアサインしている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(global-set-key (kbd <span style="color:#e6db74">&#34;M-g r&#34;</span>) <span style="color:#e6db74">&#39;replace-string</span>)
+</code></pre></div><p>replace-regexp もまあまあ使うけどそれはキーを当ててないのでどこかでなんとかしたい。
+Hydra 使う?</p>
+<h2 id="c-で-skk-が有効になるようにする">C-\ で SKK が有効になるようにする</h2>
+<p>C-\ で skk-mode を起動できるようにしている。
+C-x C-j の方も設定は生きているが使ってない。っていうか忘れてた。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(global-set-key (kbd <span style="color:#e6db74">&#34;C-\\&#34;</span>) <span style="color:#e6db74">&#39;skk-mode</span>)
+</code></pre></div><p>余談だけど org-mode とか commit message 書く時とかは自動で有効になるようにしたい気はする。</p>
+<h2 id="c-s-を-swiper-に置き換え">C-s を swiper に置き換え</h2>
+<p>デフォルトだと C-s でインクリメンタルサーチが起動するが
+swiper の方が絞り込みができて便利だしカッチョいいのでそっちを使うようにしている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(global-set-key (kbd <span style="color:#e6db74">&#34;C-s&#34;</span>) <span style="color:#e6db74">&#39;swiper</span>)
+</code></pre></div><h2 id="window-間の移動">window 間の移動</h2>
+<h3 id="c-x-o-を-ace-window-に置き換え">C-x o を ace-window に置き換え</h3>
+<p>C-x o はデフォルトだと順番に window を移動するコマンドだが
+ace-window を使えばたくさん画面分割している時の移動が楽だし
+2分割の時は元の挙動と同様に2つの window を行き来する感じになので完全に置き換えても大丈夫と判断して、置き換えている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(global-set-key (kbd <span style="color:#e6db74">&#34;C-x o&#34;</span>) <span style="color:#e6db74">&#39;ace-window</span>)
+</code></pre></div><p>ace-window は他にもコマンドがあって
+Hydra の方で ace-swap-window は使えるようにしている</p>
+<h3 id="shift-plus-カーソルキーで-window-移動">Shift+カーソルキーで window 移動</h3>
+<p>シフトキーを押しながらカーソルキーを押すことでも
+window を移動できるようにしている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(windmove-default-keybindings)
+</code></pre></div><p>ただし org-mode のキーバインドとぶつかるので実はあまり使ってないしそろそろ無効にしてもいいんじゃないかなという気もしている</p>
+<h2 id="undo-redo">undo/redo</h2>
+<p>undo  と redo には undo-fu を使っている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(global-set-key (kbd <span style="color:#e6db74">&#34;C-/&#34;</span>) <span style="color:#e6db74">&#39;undo-fu-only-undo</span>)
+(global-set-key (kbd <span style="color:#e6db74">&#34;C-M-/&#34;</span>) <span style="color:#e6db74">&#39;undo-fu-only-redo</span>)
+</code></pre></div><h2 id="を入力した時に円マークにならないようにする設定">\ を入力した時に円マークにならないようにする設定</h2>
+<p>Mac だとデフォルト状態だと \ を入れると円マークになるのだがプログラムを書く上ではバックスラッシュであってほしいので円マークが入力された時はバックスラッシュが入力されたように扱われるようにしている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#a6e22e">define-key</span> global-map [<span style="color:#e6db74">?¥</span>] [<span style="color:#e6db74">?\\</span>])
+(<span style="color:#a6e22e">define-key</span> global-map [<span style="color:#e6db74">?\C</span><span style="color:#a6e22e">-</span><span style="color:#960050;background-color:#1e0010">¥</span>] [<span style="color:#e6db74">?\C</span>-\\])
+(<span style="color:#a6e22e">define-key</span> global-map [<span style="color:#e6db74">?\M</span><span style="color:#a6e22e">-</span><span style="color:#960050;background-color:#1e0010">¥</span>] [<span style="color:#e6db74">?\M</span>-\\])
+(<span style="color:#a6e22e">define-key</span> global-map [<span style="color:#e6db74">?\C</span>-\M-<span style="color:#960050;background-color:#1e0010">¥</span>] [<span style="color:#e6db74">?\C</span>-\M-\\])
+</code></pre></div><p>ただ、たまに円マークを出したくなる時があるのでその時はどうすべきかという課題がある。</p>
+<h2 id="multiple-cursors">multiple-cursors</h2>
+<p>カーソルを複数表示できる <a href="https://github.com/magnars/multiple-cursors.el">multiple-cursors</a> 用のキーバインド。基本的には公式 README に従って設定している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#75715e">;; multiple-cursors</span>
+(global-set-key (kbd <span style="color:#e6db74">&#34;C-:&#34;</span>) <span style="color:#e6db74">&#39;mc/edit-lines</span>)
+(global-set-key (kbd <span style="color:#e6db74">&#34;C-&gt;&#34;</span>) <span style="color:#e6db74">&#39;mc/mark-next-like-this</span>)
+(global-set-key (kbd <span style="color:#e6db74">&#34;C-&lt;&#34;</span>) <span style="color:#e6db74">&#39;mc/mark-previous-like-this</span>)
+(global-set-key (kbd <span style="color:#e6db74">&#34;C-c C-&lt;&#34;</span>) <span style="color:#e6db74">&#39;mc/mark-all-like-this</span>)
+</code></pre></div><p>Ladicle さんの <a href="https://ladicle.com/post/config/#multiple-cursor">https://ladicle.com/post/config/#multiple-cursor</a> の設定が便利そうだなって思って気になってるけどまだ試してない。</p>
+<h2 id="helm">Helm</h2>
+<p>最近はほぼ Ivy に乗り換えてるのでほとんど出番はないのだけど
+helm-find-file が便利でそこだけ乗り換えできてないのでそれだけ定義がコメントアウトされずに残っている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#75715e">;; (global-set-key (kbd &#34;M-y&#34;) &#39;helm-show-kill-ring)</span>
+(global-set-key (kbd <span style="color:#e6db74">&#34;C-;&#34;</span>) <span style="color:#e6db74">&#39;helm-for-files</span>)
+<span style="color:#75715e">;; (global-set-key (kbd &#34;M-x&#34;) &#39;helm-M-x)</span>
+<span style="color:#75715e">;; (global-set-key (kbd &#34;C-x b&#34;) &#39;helm-mini)</span>
+<span style="color:#75715e">;; (global-set-key (kbd &#34;C-x C-f&#34;) &#39;helm-find-files)</span>
+</code></pre></div><h2 id="ivy">Ivy</h2>
+<p>Helm から乗り換えて今はこちらをメインで使っている。基本的には既存のキーバインドの持っていた機能が強化されるようなコマンドを代わりに割り当てている。デフォルトより良い感じで良い。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(global-set-key (kbd <span style="color:#e6db74">&#34;M-x&#34;</span>) <span style="color:#e6db74">&#39;counsel-M-x</span>)
+(global-set-key (kbd <span style="color:#e6db74">&#34;M-y&#34;</span>) <span style="color:#e6db74">&#39;counsel-yank-pop</span>)
+(global-set-key (kbd <span style="color:#e6db74">&#34;C-x b&#34;</span>) <span style="color:#e6db74">&#39;counsel-switch-buffer</span>)
+(global-set-key (kbd <span style="color:#e6db74">&#34;C-x C-f&#34;</span>) <span style="color:#e6db74">&#39;counsel-find-file</span>)
+</code></pre></div><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M-x</td>
+<td>コマンド実行。絞り込みができるのでコマンド名がうろ覚えでも実行できて便利</td>
+</tr>
+<tr>
+<td>M-y</td>
+<td>kill-ring の候補表示。適当に複数 kill-ring に入れておいてこれを起動して絞り込んで貼り付けとかできて便利</td>
+</tr>
+<tr>
+<td>C-x b</td>
+<td>バッファ切替。これも適当にバッファを絞り込めて便利</td>
+</tr>
+<tr>
+<td>C-x C-f</td>
+<td>find-file の置き換え。ido より便利な感じの絞り込み選択ができる。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="zoom-window">zoom-window</h2>
+<p><a href="https://github.com/emacsorphanage/zoom-window">zoom-window</a> は tmux の zoom 機能のように選択している window だけを表示したり戻したりができるパッケージ。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(global-set-key (kbd <span style="color:#e6db74">&#34;C-x 1&#34;</span>) <span style="color:#e6db74">&#39;zoom-window-zoom</span>)
+</code></pre></div><p>実は戻すことがあんまりないので、このキーバインドは戻してもいいかもしれないなと思っていたりする。</p>
+<h2 id="neotree">neotree</h2>
+<p><a href="https://github.com/jaypei/emacs-neotree">Neotree</a> は IDE みたいにファイルツリーを表示を表示するパッケージ。有効にしているとちょっぴりモダンな雰囲気になるぞい。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(global-set-key [f8] <span style="color:#e6db74">&#39;neotree-toggle</span>)
+</code></pre></div><p>f8 にバインドしているけど
+Helm でも起動できるようにしているので、こっちの設定は外してもいいかもなとか思っている。</p>
+<h2 id="org-mode">org-mode</h2>
+<p>みんな大好き org-mode 用にもキーバインドを設定している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq my/org-mode-prefix-key <span style="color:#e6db74">&#34;C-c o &#34;</span>)
+(global-set-key (kbd (<span style="color:#a6e22e">concat</span> my/org-mode-prefix-key <span style="color:#e6db74">&#34;a&#34;</span>)) <span style="color:#e6db74">&#39;org-agenda</span>)
+(global-set-key (kbd (<span style="color:#a6e22e">concat</span> my/org-mode-prefix-key <span style="color:#e6db74">&#34;c&#34;</span>)) <span style="color:#e6db74">&#39;org-capture</span>)
+(global-set-key (kbd (<span style="color:#a6e22e">concat</span> my/org-mode-prefix-key <span style="color:#e6db74">&#34;l&#34;</span>)) <span style="color:#e6db74">&#39;org-store-link</span>)
+</code></pre></div><p>けど org-mode 用の Hydra も用意しているのでこれもそろそろ削除かな……</p>
+<h2 id="keychord">keychord</h2>
+<p>keycohrd は2つのキーを同時押しというキーバインドを実現するパッケージ。麦汁は <a href="https://github.com/zk-phi/key-chord/">https://github.com/zk-phi/key-chord/</a> のバージョンを利用している。</p>
+<p>とりあえず jk を入力するとグローバルに使いたいコマンドを載せた Hydra が起動するようにしている。めっちゃ使ってる。便利。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(key-chord-define-global <span style="color:#e6db74">&#34;jk&#34;</span> <span style="color:#e6db74">&#39;pretty-hydra-usefull-commands/body</span>)
+</code></pre></div><h2 id="yes-or-no-ではなく-y-or-n-で質問する">yes or no ではなく y or n で質問する</h2>
+<p>何か質問された時に yes とか入力するのがだるいので
+y だけで済ませられるようにしている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#75715e">;; Don&#39;t ask yes or no.</span>
+(defalias <span style="color:#e6db74">&#39;yes-or-no-p</span> <span style="color:#e6db74">&#39;y-or-n-p</span>)
+</code></pre></div><p>一応 Emacs 的には重要なのは yes/no で回答するようになっていたはずなのでより安全に使いたい人はこの設定は入れない方が良いはず。</p>
 
 
 <footer class="footline">
@@ -2506,6 +2649,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -2518,6 +2662,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -2567,6 +2714,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -2585,6 +2733,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3753,7 +3904,6 @@
             
             
                 
-                    
                     
                 
                 
@@ -3768,7 +3918,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -3784,9 +3933,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -3827,10 +3973,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/testing/" title="テストコード"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/keybinds/sticky-control/" title="sticky-control"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/testing/run-tests/" title="run-tests" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/editing/" title="ファイル編集/入力補助" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -3840,19 +3986,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1627654044"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1627654044"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1627654044"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1627654044"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1627654044"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1627654044"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1627654043"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1627654043"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1627654043"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1627654043"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1627654043"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1627654043"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1627654044"></script>
-    <script src="/.emacs.d/js/learn.js?1627654044"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1627654044"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1627654043"></script>
+    <script src="/.emacs.d/js/learn.js?1627654043"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1627654043"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1627654044"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1627654043"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
