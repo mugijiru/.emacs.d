@@ -516,6 +516,7 @@
    - [[*Google 連携][Google 連携]] :: Google 連携する機能のキーバインドをまとめている
    - [[*key-chord][key-chord]] :: 同時押しというキーバインドを提供してくれるやつ
    - [[*sticky-control][sticky-control]] :: Control の入力を sticky にしてくれるやつ
+   - [[*グローバルキーバインド][グローバルキーバインド]] :: いつでもどこでも使えるキーバインド周りの設定をここにまとめている
 
 ** key-chord
    :PROPERTIES:
