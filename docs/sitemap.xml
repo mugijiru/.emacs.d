@@ -198,6 +198,8 @@
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/keybinds/global-keybinds/</loc>
   </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/basics/load-libraries/</loc>
+  </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/</loc>
   </url>
 </urlset>

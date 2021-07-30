@@ -9,23 +9,23 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>基本設定 :: 麦汁&#39;s Emacs Config</title>
+    <title>ライブラリの読み込み :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1627655761" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1627655761" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1627655761" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1627655761" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1627655761" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1627655761" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1627655761" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1627655761" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1627655761" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1627655761" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1627655760" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1627655760" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1627655760" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1627655760" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1627655760" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1627655760" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1627655760" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1627655760" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1627655760" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1627655760" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1627655761"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1627655760"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/basics/">
+  <body class="" data-url="/.emacs.d/basics/load-libraries/">
     <nav id="sidebar" class="">
 
 
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1627655761"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1627655761"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1627655760"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1627655760"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1627655761"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1627655760"></script>
 
     
   </div>
@@ -101,7 +101,7 @@
     
     <li data-nav-id="/.emacs.d/basics/" title="基本設定" class="dd-item
         parent
-        active
+        
         
         ">
       <a href="/.emacs.d/basics/">
@@ -315,7 +315,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/basics/load-libraries/" title="ライブラリの読み込み" class="dd-item ">
+      <li data-nav-id="/.emacs.d/basics/load-libraries/" title="ライブラリの読み込み" class="dd-item active">
         <a href="/.emacs.d/basics/load-libraries/">
         ライブラリの読み込み
         
@@ -2253,6 +2253,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -2263,7 +2265,13 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > 基本設定
+            
+            
+          
+          
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/basics/'>基本設定</a> > ライブラリの読み込み
+          
+        
           
         
           
@@ -2271,6 +2279,13 @@
                  
                   </span>
                 </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents"></nav>
+    </div>
+</div>
+
                 
               </div>
             </div>
@@ -2283,43 +2298,21 @@
           
             <h1>
               
-              基本設定
+              ライブラリの読み込み
             </h1>
           
 
         
 
 
-
-	<p>Emacs の基本動作に関わる部分をここでは設定している</p>
-<dl>
-<dt><a href="/.emacs.d/basics/auto-save/">auto-save</a></dt>
-<dd>編集中状態の自動保存や編集前の状態のバックアップに関する設定</dd>
-<dt><a href="/.emacs.d/basics/auth-source/">auth-source</a></dt>
-<dd>認証情報の取り扱いファイルの設定</dd>
-<dt><a href="/.emacs.d/basics/custom-file/">custom-file</a></dt>
-<dd>カスタマイズ変数などの保存先を変更している</dd>
-<dt><a href="/.emacs.d/basics/exec-path/">exec-path</a></dt>
-<dd>PATH などの環境変数を shell と合わせる設定</dd>
-<dt><a href="/.emacs.d/basics/font-config/">font-config</a></dt>
-<dd>フォントの設定</dd>
-<dt><a href="/.emacs.d/basics/load-path/">load-path</a></dt>
-<dd>Emacs Lisp が読み込める path の設定</dd>
-<dt><a href="/.emacs.d/basics/savehist/">savehist</a></dt>
-<dd>ミニバッファの履歴などを保存してくれる機能</dd>
-<dt><a href="/.emacs.d/basics/server/">server</a></dt>
-<dd>起動した Emacs がサーバとしても動くように設定している</dd>
-<dt><a href="/.emacs.d/basics/gcmh/">ガベージコレクション</a></dt>
-<dd>メモリの開放関係の設定</dd>
-<dt><a href="/.emacs.d/basics/load-libraries/">ライブラリの読み込み</a></dt>
-<dd>Emacs Lisp を書く上で便利なライブラリの読み込み</dd>
-</dl>
+<p>設定ファイル内で文字列操作をするだろうということで
+<a href="https://github.com/magnars/s.el">s.el</a> を読み込んでいる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle s)
+(require <span style="color:#e6db74">&#39;s</span>)
+</code></pre></div><p>けど、どういう関数があったか覚えてないぐらいには使ってない……。ま、あると便利なのでそのまま入れておくつもり。</p>
 
 
-
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -2515,6 +2508,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -2533,6 +2527,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3866,10 +3863,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/" title="麦汁&#39;s Emacs Config"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/basics/gcmh/" title="ガベージコレクション"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/basics/auth-source/" title="auth-source" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/buffer-management/" title="バッファ管理" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -3879,19 +3876,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1627655761"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1627655761"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1627655761"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1627655761"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1627655761"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1627655761"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1627655760"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1627655760"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1627655760"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1627655760"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1627655760"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1627655760"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1627655761"></script>
-    <script src="/.emacs.d/js/learn.js?1627655761"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1627655761"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1627655760"></script>
+    <script src="/.emacs.d/js/learn.js?1627655760"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1627655760"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1627655761"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1627655760"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
@@ -3901,3 +3898,4 @@
 
   </body>
 </html>
+

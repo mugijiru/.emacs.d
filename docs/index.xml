@@ -1182,5 +1182,15 @@ C-\ で SKK が有効になるようにする C-\ で skk-mode を起動でき�
 (global-set-key (kbd &amp;#34;C-\\&amp;#34;) &amp;#39;skk-mode) 余談だけど org-mode とか commit message 書く時とかは自動で有効になるようにしたい気はする。</description>
     </item>
     
+    <item>
+      <title>ライブラリの読み込み</title>
+      <link>https://mugijiru.github.io/.emacs.d/basics/load-libraries/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/basics/load-libraries/</guid>
+      <description>設定ファイル内で文字列操作をするだろうということで s.el を読み込んでいる。
+(el-get-bundle s) (require &amp;#39;s) けど、どういう関数があったか覚えてないぐらいには使ってない……。ま、あると便利なのでそのまま入れておくつもり。</description>
+    </item>
+    
   </channel>
 </rss>
