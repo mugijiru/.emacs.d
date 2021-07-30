@@ -58,6 +58,7 @@
    - [[*savehist][savehist]] :: ミニバッファの履歴などを保存してくれる機能
    - [[*server][server]] :: 起動した Emacs がサーバとしても動くように設定している
    - [[*ガベージコレクション][ガベージコレクション]] :: メモリの開放関係の設定
+   - [[*ライブラリの読み込み][ライブラリの読み込み]] :: Emacs Lisp を書く上で便利なライブラリの読み込み
 
 ** auth-source
    :PROPERTIES:
@@ -459,6 +460,20 @@
     #+end_src
     #+end_details
 
+** ライブラリの読み込み
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: load-libraries
+   :END:
+   設定ファイル内で文字列操作をするだろうということで
+   [[https://github.com/magnars/s.el][s.el]] を読み込んでいる。
+
+   #+begin_src emacs-lisp :tangle inits/01-load-libraries.el
+   (el-get-bundle s)
+   (require 's)
+   #+end_src
+
+   けど、どういう関数があったか覚えてないぐらいには使ってない……。
+   ま、あると便利なのでそのまま入れておくつもり。
 * バッファ管理
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: buffer-management
@@ -969,7 +984,6 @@
 
     一応 Emacs 的には重要なのは yes/no で回答するようになっていたはずなので
     より安全に使いたい人はこの設定は入れない方が良いはず。
-
 
 * ファイル編集/入力補助
   :PROPERTIES:
@@ -5239,13 +5253,6 @@
 
   ここにはとりあえず inits 以下に出力できるようにしただけの記述を連ねていきます。
   あとで移動する。
-
-** load-libraries
-
-   #+begin_src emacs-lisp :tangle inits/01-load-libraries.el
-   (el-get-bundle s)
-   (require 's)
-   #+end_src
 
 ** override
 
