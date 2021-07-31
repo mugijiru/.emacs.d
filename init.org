@@ -3476,6 +3476,7 @@
    ここでは外部のサービスと連携するようなやつをまとめています
 
    - [[*emacs-w3m][emacs-w3m]] :: 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ
+   - [[*esa.el][esa.el]] :: [[https://esa.io/][esa.io]] と連携するためのパッケージ
    - [[*forge][forge]] :: [[*magit][magit]] と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ
    - [[*google-this][google-this]] :: Google 検索機能を提供してくれるパッケージ
    - [[*google-translate][google-translate]] :: Emacs から Google 翻訳するためのパッケージ
@@ -3500,6 +3501,23 @@
     今はこれだけしか入れてない。
     昔の設定はどこかにいっちゃった……。
 
+** esa.el
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: esa.el
+   :END:
+*** 概要
+    [[https://github.com/nabinno/esa.el][esa.el]] は [[https://esa.io/][esa.io]] と連携するためのパッケージ。
+    大体直接 Web で書くので活用はできてない……
+
+*** インストール・設定
+    いつも通り el-get で入れている。
+
+    設定は別ファイルに分離している。authinfo に移動したい
+
+    #+begin_src emacs-lisp :tangle inits/70-esa.el
+    (el-get-bundle esa)
+    (my/load-config "my-esa-config")
+    #+end_src
 ** forge
    :PROPERTIES:
    :EXPORT_FILE_NAME: forge
@@ -5458,13 +5476,6 @@
        "todo:TODO,DOING,WAIT,DONE ts:on=today"
        :title "日報"
        :super-groups '((:auto-group))))
-   #+end_src
-
-** 70-esa.el
-
-   #+begin_src emacs-lisp :tangle inits/70-esa.el
-   (el-get-bundle esa)
-   (my/load-config "my-esa-config")
    #+end_src
 
 ** 70-my-commands.el

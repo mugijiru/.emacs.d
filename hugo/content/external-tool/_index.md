@@ -11,6 +11,9 @@ disableToc = true
 [emacs-w3m]({{< relref "emacs-w3m" >}})
 : 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ
 
+[esa.el]({{< relref "esa.el" >}})
+: [esa.io](https://esa.io/) と連携するためのパッケージ
+
 [forge]({{< relref "forge" >}})
 : [magit]({{< relref "magit" >}}) と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ
 
