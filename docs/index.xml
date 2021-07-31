@@ -499,6 +499,18 @@ Lambda で一括でやる方法もあるけども、関数名つけて分離し�
     </item>
     
     <item>
+      <title>esa.el</title>
+      <link>https://mugijiru.github.io/.emacs.d/external-tool/esa/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/external-tool/esa/</guid>
+      <description>概要 esa.el は esa.io と連携するためのパッケージ。大体直接 Web で書くので活用はできてない……
+インストール・設定 いつも通り el-get で入れている。
+設定は別ファイルに分離している。authinfo に移動したい
+(el-get-bundle esa) (my/load-config &amp;#34;my-esa-config&amp;#34;) </description>
+    </item>
+    
+    <item>
       <title>exec-path</title>
       <link>https://mugijiru.github.io/.emacs.d/basics/exec-path/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

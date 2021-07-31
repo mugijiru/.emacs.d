@@ -144,7 +144,7 @@
 	"title": "外部連携ツール設定",
 	"tags": [],
 	"description": "",
-	"content": "ここでは外部のサービスと連携するようなやつをまとめています\n emacs-w3m 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ forge magit と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ google-this Google 検索機能を提供してくれるパッケージ google-translate Emacs から Google 翻訳するためのパッケージ magit Emacs 上で Git の操作をするのにとても便利なパッケージ notify-slack Emacs から外部コマンドを通じて Slack に通知するための関数周りの事を書いている wakatime-mode Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ todoist Todoist と連携して org-mode で扱えるようにするパッケージ  "
+	"content": "ここでは外部のサービスと連携するようなやつをまとめています\n emacs-w3m 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ esa.el esa.io と連携するためのパッケージ forge magit と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ google-this Google 検索機能を提供してくれるパッケージ google-translate Emacs から Google 翻訳するためのパッケージ magit Emacs 上で Git の操作をするのにとても便利なパッケージ notify-slack Emacs から外部コマンドを通じて Slack に通知するための関数周りの事を書いている wakatime-mode Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ todoist Todoist と連携して org-mode で扱えるようにするパッケージ  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/",
@@ -320,6 +320,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 ES5 以前ではない JS を書くための設定。 es6 といいつつ ES2016(ES7) などもこの設定のまま書いている。\nsprockets-es6 を使って ES6 対応をしていた時に es6 という拡張子を使っていたのでこのファイル名になっている。\nインストール es6 はつまり JS なのでとりあえず el-get で js2-mode を入れている。\n(el-get-bundle js2-mode) Hook  flycheck を有効にしてリアルタイムに文法チェックをしている  また javascript-eslint を使いたいので他2つは disable にしている   company-mode で補完できるようにしている smartparens-strict-mode でカッコなどの入力補助をしている インデントは空白2文字としている   (defun my/js2-mode-hook () (flycheck-mode 1) (setq flycheck-disabled-checkers \u0026#39;(javascript-standard javascript-jshint)) (company-mode 1) (turn-on-smartparens-strict-mode) (setq js2-basic-offset 2)) という Hook 用関数を用意しておいて\n(add-hook \u0026#39;js2-mode-hook \u0026#39;my/js2-mode-hook) という感じで js2-mode-hook に追加している。\nLambda で一括でやる方法もあるけども、関数名つけて分離しておくと中身を簡単に入れ替えられて便利。\nes6 を js2-mode で扱うようにする (add-to-list \u0026#39;auto-mode-alist \u0026#39;(\u0026#34;\\\\.es6$\u0026#34; . js2-mode)) 他に気になるツール xref-js2 https://github.com/js-emacs/xref-js2\nコード間の移動が楽になるかもしれない。けど dumb-jump があるから別に要らない気もする\njs2-refactor https://github.com/js-emacs/js2-refactor.el\nリファクタリングツール。キーバインドは覚えるのつらそうだから Hydra を用意する必要がありそう。\nskewer-mode https://github.com/skeeto/skewer-mode\nWeb ブラウザと連携して JS の評価をしたりとかしてくれたり一部の変更を反映してくれたりするらしい。\n保存したら自動リロードされる環境はともかくそうじゃない環境だと楽かもしねあい。\njs-import https://github.com/jakoblind/js-import\nimport を書くのを楽にしてくれるっぽい。\nindium https://github.com/NicolasPetton/indium\nNode.js と連携してステップ実行とかができるようになるらしい。便利そう。\n"
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/external-tool/esa/",
+	"title": "esa.el",
+	"tags": [],
+	"description": "",
+	"content": "概要 esa.el は esa.io と連携するためのパッケージ。大体直接 Web で書くので活用はできてない……\nインストール・設定 いつも通り el-get で入れている。\n設定は別ファイルに分離している。authinfo に移動したい\n(el-get-bundle esa) (my/load-config \u0026#34;my-esa-config\u0026#34;) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/basics/exec-path/",
