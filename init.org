@@ -1919,6 +1919,8 @@
 
     が、やっぱり MELPA とかに寄せるべきかなって気になってきているところだったりもする。
 *** なんか設定
+    便利に使えるようにするための設定を書いている。
+    が、何を設定しているのかよく覚えてないので今度調べておこう……
     #+begin_src emacs-lisp :tangle inits/82-ivy.el
     (when (require 'ivy nil t)
       ;; M-o を ivy-dispatching-done-hydra に割り当てる．

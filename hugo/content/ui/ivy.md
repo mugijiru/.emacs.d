@@ -22,6 +22,8 @@ GitHub から直で入れる運用にしている。
 
 ## なんか設定 {#なんか設定}
 
+便利に使えるようにするための設定を書いている。が、何を設定しているのかよく覚えてないので今度調べておこう……
+
 ```emacs-lisp
 (when (require 'ivy nil t)
   ;; M-o を ivy-dispatching-done-hydra に割り当てる．
