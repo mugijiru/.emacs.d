@@ -22,15 +22,12 @@
 
 (counsel-mode 1)
 
-;; posframe を使って中央表示
 (el-get-bundle ivy-posframe)
 (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
 (ivy-posframe-mode 1)
 
 (el-get-bundle ivy-rich)
 
-;; https://ladicle.com/post/config/#ivy
-;; に書かれている関数を丸コピしてきた
 (defun ivy-rich-file-icon (candidate)
   "Display file icons in `ivy-rich'."
   (when (display-graphic-p)
@@ -55,7 +52,6 @@
                             :family ,(all-the-icons-icon-family icon)
                             ))))))
 
-;; https://github.com/Yevgnen/ivy-rich#1312-add-icons-for-ivy-switch-buffer
 (defun ivy-rich-switch-buffer-icon (candidate)
   (with-current-buffer
       (get-buffer candidate)
@@ -64,7 +60,6 @@
           (all-the-icons-icon-for-mode 'fundamental-mode)
         icon))))
 
-;; yank-pop の区切りを変更。ちょっと長めにしている
 (setq counsel-yank-pop-separator "\n--------------------\n")
 
 (setq ivy-rich-display-transformers-list
@@ -95,8 +90,6 @@
 
 (ivy-rich-mode 1)
 
-;; https://www.yewton.net/2020/05/21/migemo-ivy/
-;; 関数名などは書き換えてる
 (defun my/ivy-migemo-re-builder (str)
   (let* ((sep " \\|\\^\\|\\.\\|\\*")
          (splitted (--map (s-join "" it)

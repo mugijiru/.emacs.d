@@ -24,7 +24,7 @@ disableToc = true
 : 最後のコミットからどう弄ったかを fringe 領域に表示してくれるやつ
 
 [helm]({{< relref "helm" >}})
-: 絞り込みインターフェースを提供するやつ
+: 絞り込みインターフェースを提供するやつ。[ivy]({{< relref "ivy" >}}) よりも色々できるやつ。
 
 [helm-posframe]({{< relref "helm-posframe" >}})
 : Helm を posframe で使えるようにするやつ
@@ -37,6 +37,9 @@ disableToc = true
 
 [ido-mode]({{< relref "ido-mode" >}})
 : Emacs 標準添付の補完インターフェース
+
+[ivy]({{< relref "ivy" >}})
+: 絞り込みインターフェーズを提供してくれるやつ。[helm]({{< relref "helm" >}}) よりシンプルな感じ
 
 [Neotree]({{< relref "neotree" >}})
 : フォルダ構造を IDE みたいにツリー表示するやつ
@@ -59,5 +62,5 @@ disableToc = true
 [zoom]({{< relref "zoom" >}})
 : フォーカスが当たってるウインドウを大きく表示してくれるやつ
 
-[zoom-window]({{< relref "zoom-window" >}})
+[zoom-window]({{< relref "global-keybinds#zoom-window" >}})
 : 見ている window を最大化したり戻したりしてくれるやつ

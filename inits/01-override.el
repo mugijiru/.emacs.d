@@ -1,5 +1,3 @@
-;; posframe が最初に空行があると最後の行を表示しないため
-;; 一時的にこちらを直してみている
 (with-eval-after-load 'pretty-hydra
   (defun pretty-hydra--maybe-add-title (title docstring)
   "Add TITLE to the DOCSTRING if it's not nil, other return DOCSTRING unchanged."
