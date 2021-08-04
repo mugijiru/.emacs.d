@@ -250,3 +250,16 @@ swiper は標準だと migemo れないのだが
 なんだけど
 <https://github.com/ROCKTAKEY/ivy-migemo>
 に乗り換えた方がいいのかな〜とも思っている。検証していきたい。
+
+
+## counsel-osx-app. {#counsel-osx-app-dot}
+
+Mac で Emacs を使ってる時に ivy でアプリケーションを起動するためのパッケージ。
+
+```emacs-lisp
+(el-get-bundle counsel-osx-app)
+```
+
+Mac を使ってる時は Emacs がランチャー代わりになるので便利。
+
+WSL 使ってる時に同じようなことをしてみたいんだけどどうしたらいいんだろう。まあできなくてもいいんだけど、このパッケージは Mac でだけ読むようにしたら良いよねって感じではある。
