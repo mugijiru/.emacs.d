@@ -487,6 +487,7 @@
    ここではバッファ管理関係の設定を記載している
 
    - [[*scratch-log][scratch-log]] :: scratch バッファを自動的に永続化してくれるパッケージ
+   - [[*tempbuf][tempbuf]] :: 不要になったと思われるバッファを自動的に kill してくれるパッケージ
 ** scratch-log
 *** 概要
     [[https://github.com/mori-dev/scratch-log][scratch-log]] は、Emacs でちょっとした Emacs Lisp なんかを試し書きする時に使う ~*scratch*~ バッファを永続化してくれるパッケージ。
@@ -516,6 +517,63 @@
     - [[https://github.com/Fanael/persistent-scratch][persistent-scratch]] :: これも scratch を永続化させるやつ。カスタマイズ性はこっちがありそう
     - [[https://github.com/EricCrosson/unkillable-scratch][unkillable-scratch]] :: scratch バッファを kill させないやつ。同じような機能が scratch-log にもある
     - [[https://github.com/kentaro/auto-save-buffers-enhanced][auto-save-buffers-enhanced]] :: 自動保存機能がメインだけど scratch を自動保存する機能もある
+** tempbuf
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: tempbuf
+   :END:
+*** 概要
+    [[https://www.emacswiki.org/emacs/TempbufMode][tempbuf-mode]] は不要になったと思われるバッファを自動的に kill してくれるパッケージ。
+    使っていた時間が長い程、裏に回った時には長い時間保持してくれる。
+
+    つまり、一瞬開いただけのファイルは明示的に kill しなくても勝手にやってくれるので
+    ファイルを開いてそのまま放置みたいなことをしがちなズボラな人間には便利なやつ。
+
+*** インストール
+    いつも通り el-get で入れている。
+
+    #+begin_src emacs-lisp :tangle inits/70-tempbuf.el
+    (el-get-bundle tempbuf)
+    #+end_src
+*** 勝手に kill させないファイルの指定
+    org-clock を使うようなファイルは
+    kill されると org-clock が狂って面倒なことになるので
+    それらのファイルは勝手に kill されないように ignore リストに突っ込んでいる
+
+    #+begin_src emacs-lisp :tangle inits/70-tempbuf.el
+    (setq my/tempbuf-ignore-files '("~/Documents/org/tasks/gtd.org"
+                                    "~/Documents/org/tasks/interrupted.org"
+                                    "~/Documents/org/tasks/next-actions.org"
+                                    ))
+    #+end_src
+*** find-file への hook
+    find-file した時に
+    上でリストアップしたファイルだった場合は kill されないように
+    tempbuf-mode が自動的に無効になるような hook を用意している。
+
+    #+begin_src emacs-lisp :tangle inits/70-tempbuf.el
+    (defun my/find-file-tempbuf-hook ()
+      (let ((ignore-file-names (mapcar 'expand-file-name my/tempbuf-ignore-files)))
+        (unless (member (buffer-file-name) ignore-file-names)
+          (turn-on-tempbuf-mode))))
+    #+end_src
+*** hook の設定
+    find-file では上で作成した hook を使うことで
+    kill されたくないファイルは kill されないようにしている
+
+    #+begin_src emacs-lisp :tangle inits/70-tempbuf.el
+    (add-hook 'find-file-hook 'my/find-file-tempbuf-hook)
+    #+end_src
+
+    また dired buffer も邪魔になりがちだけど、デフォルトだと対象にならないので
+    こいつらも tempbuf-mode の管理対象となるように tempbuf-mode を有効にしている。
+
+    #+begin_src emacs-lisp :tangle inits/70-tempbuf.el
+    (add-hook 'dired-mode-hook 'turn-on-tempbuf-mode)
+    #+end_src
+*** その他
+    [[https://www.emacswiki.org/emacs/MidnightMode][midnight-mode]] という、深夜に処理を実行させるようなやつで
+    夜間にバッファをごっそり消すみたいなことをしている人も結構いるっぽい。
+
 * キーバインド
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: keybinds
@@ -5746,25 +5804,6 @@
      (let* ((cmd (concat "review-requested-prs " my/github-organization " " my/github-repository))
             (response (shell-command-to-string cmd)))
        (insert response)))
-   #+end_src
-
-** 70-tempbuf.el
-
-   #+begin_src emacs-lisp :tangle inits/70-tempbuf.el
-   (el-get-bundle tempbuf)
-
-   (setq my/tempbuf-ignore-files '("~/Documents/org/tasks/gtd.org"
-                                   "~/Documents/org/tasks/interrupted.org"
-                                   "~/Documents/org/tasks/next-actions.org"
-                                   ))
-
-   (defun my/find-file-tempbuf-hook ()
-     (let ((ignore-file-names (mapcar 'expand-file-name my/tempbuf-ignore-files)))
-       (unless (member (buffer-file-name) ignore-file-names)
-         (turn-on-tempbuf-mode))))
-
-   (add-hook 'find-file-hook 'my/find-file-tempbuf-hook)
-   (add-hook 'dired-mode-hook 'turn-on-tempbuf-mode)
    #+end_src
 
 ** 80-edit.el

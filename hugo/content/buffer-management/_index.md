@@ -10,3 +10,6 @@ disableToc = true
 
 [scratch-log](buffer-management/.org)
 : scratch バッファを自動的に永続化してくれるパッケージ
+
+[tempbuf]({{< relref "tempbuf" >}})
+: 不要になったと思われるバッファを自動的に kill してくれるパッケージ
