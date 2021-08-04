@@ -9,23 +9,23 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>基本設定 :: 麦汁&#39;s Emacs Config</title>
+    <title>ivy :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1628084827" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1628084827" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1628084827" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1628084827" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1628084827" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1628084827" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1628084827" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1628084827" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1628084827" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1628084827" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1628084828" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1628084828" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1628084828" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1628084828" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1628084828" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1628084828" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1628084828" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1628084828" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1628084828" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1628084828" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1628084827"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1628084828"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/org-mode/base/">
+  <body class="" data-url="/.emacs.d/ui/ivy/">
     <nav id="sidebar" class="">
 
 
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1628084827"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1628084827"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1628084828"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1628084828"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1628084827"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1628084828"></script>
 
     
   </div>
@@ -646,7 +646,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        
+        parent
         
         
         ">
@@ -882,7 +882,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/ivy/" title="ivy" class="dd-item ">
+      <li data-nav-id="/.emacs.d/ui/ivy/" title="ivy" class="dd-item active">
         <a href="/.emacs.d/ui/ivy/">
         ivy
         
@@ -1748,7 +1748,7 @@
   
     
     <li data-nav-id="/.emacs.d/org-mode/" title="org-mode" class="dd-item
-        parent
+        
         
         
         ">
@@ -1774,7 +1774,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/org-mode/base/" title="基本設定" class="dd-item active">
+      <li data-nav-id="/.emacs.d/org-mode/base/" title="基本設定" class="dd-item ">
         <a href="/.emacs.d/org-mode/base/">
         基本設定
         
@@ -2311,7 +2311,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/org-mode/'>org-mode</a> > 基本設定
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > ivy
           
         
           
@@ -2327,12 +2327,21 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#org-mode-のインストール">org-mode のインストール</a></li>
-    <li><a href="#org-用ディレクトリの指定">org 用ディレクトリの指定</a></li>
-    <li><a href="#タスク管理ファイルのフォルダの指定">タスク管理ファイルのフォルダの指定</a></li>
-    <li><a href="#タスクの状態管理のキーワード指定">タスクの状態管理のキーワード指定</a></li>
-    <li><a href="#完了時間の記録">完了時間の記録</a></li>
-    <li><a href="#excel-ファイルを-os-で指定したアプリで開く">Excel ファイルを OS で指定したアプリで開く</a></li>
+    <li><a href="#インストール">インストール</a></li>
+    <li><a href="#なんか設定">なんか設定</a></li>
+    <li><a href="#counsel-の有効化">counsel の有効化</a></li>
+    <li><a href="#ivy-posframe">ivy-posframe</a></li>
+    <li><a href="#ivy-rich">ivy-rich</a>
+      <ul>
+        <li><a href="#インストール">インストール</a></li>
+        <li><a href="#アイコン設定">アイコン設定</a></li>
+        <li><a href="#switch-buffer-でのアイコン表示">switch-buffer でのアイコン表示</a></li>
+        <li><a href="#yank-pop-の区切り設定">yank-pop の区切り設定</a></li>
+        <li><a href="#ivy-rich-の表示設定">ivy-rich の表示設定</a></li>
+        <li><a href="#ivy-rich-mode-の有効化">ivy-rich-mode の有効化</a></li>
+        <li><a href="#c-s-で-migemo-れるようにする関数設定">C-s で migemo れるようにする関数設定</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -2350,7 +2359,7 @@
           
             <h1>
               
-              基本設定
+              ivy
             </h1>
           
 
@@ -2358,46 +2367,251 @@
 
 
 <h2 id="概要">概要</h2>
-<p>ここでは org-mode 周りのベースとなる設定を書いているつもり。といいつつ、まだ書き方が雑だなと思っている。またその内にでも修正しよう</p>
-<h2 id="org-mode-のインストール">org-mode のインストール</h2>
-<p>Emacs に標準で入っている org-mode は大体古過ぎるのでとりあえずデフォルトで入ってるやつは削除しちゃって
-el-get でインストールしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle org-mode :checkout <span style="color:#e6db74">&#34;release_9.3.6&#34;</span>)
-</code></pre></div><p>なんか入れてるパッケージの問題か、依存関係が解決できなかったので
-Git から入れた上でバージョンを固定している。</p>
-<p>バージョンぐらいはそのうち上げたいね</p>
-<h2 id="org-用ディレクトリの指定">org 用ディレクトリの指定</h2>
-<p>org-mode のファイルを保存するデフォルトのディレクトリを指定している。</p>
-<p>デフォルトだと <code>~/org</code> なのだけどホームディレクトリを汚したくないのと基本的に Mac を使ってるので <code>~/Documents/org</code> というディレクトリを用意してそこにファイルを置いている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq org-directory (<span style="color:#a6e22e">expand-file-name</span> <span style="color:#e6db74">&#34;~/Documents/org/&#34;</span>))
-</code></pre></div><h2 id="タスク管理ファイルのフォルダの指定">タスク管理ファイルのフォルダの指定</h2>
-<p>タスク管理ファイルがいくつかに分かれているがそれらをまとめて <code>~/Documents/org/tasks</code> フォルダに置いている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq my/org-tasks-directory (<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/&#34;</span>))
-</code></pre></div><p>とりあえずこの <code>my/org-tasks-directory</code> という変数を用意することであちらこちらでこれを使い回している。</p>
-<h2 id="タスクの状態管理のキーワード指定">タスクの状態管理のキーワード指定</h2>
-<p>org-mode といえば TODO 管理で使ってる人も多いと思う。自分も最初はそういう使い方から始めたし、今でもそれをメインにして使っている。</p>
-<p>そして TODO の状態がデフォルトでは</p>
-<ul>
-<li>TODO</li>
-<li>DONE</li>
-</ul>
-<p>の2つしかないけど、それでは足りないので昔見たインターネットのどこかの記事を参考に以下のように設定している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq org-todo-keywords
-      <span style="color:#f92672">&#39;</span>((sequence <span style="color:#e6db74">&#34;TODO&#34;</span> <span style="color:#e6db74">&#34;DOING(!)&#34;</span> <span style="color:#e6db74">&#34;WAIT&#34;</span> <span style="color:#e6db74">&#34;|&#34;</span> <span style="color:#e6db74">&#34;DONE(!)&#34;</span> <span style="color:#e6db74">&#34;SOMEDAY(s)&#34;</span>)))
-</code></pre></div><p>初期状態は TODO で、作業開始時点で DOING にして待ちが発生したら WAIT にして完了したら DONE にしている。</p>
-<p>SOMEDAY は「いつかやる」に付与しているけど最近ほとんど使ってない。</p>
-<p>org-todo-keywords は複数の sequence を指定したり
-type を指定したりもできるがそこまでの活用ができていないので、どこかで見直したいですね。</p>
-<h2 id="完了時間の記録">完了時間の記録</h2>
-<p>org-clock を使うようにしているしあんまり要らない気がする。もしかしたら habits で必要かもしれないけど。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq org-log-done <span style="color:#e6db74">&#39;time</span>)
-(setq org-log-into-drawer <span style="color:#e6db74">&#34;LOGBOOK&#34;</span>)
-</code></pre></div><h2 id="excel-ファイルを-os-で指定したアプリで開く">Excel ファイルを OS で指定したアプリで開く</h2>
-<p>org-mode のリンク先の拡張子が xlsx の時に OS 側で指定した標準アプリを開くようにしている。
-Excel が入っていたらそっちで開かれるし、入ってなければ Numbers で開かれる。はず。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;org</span>
-  (add-to-list <span style="color:#e6db74">&#39;org-file-apps</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;\\.xlsx?\\&#39;&#34;</span> <span style="color:#f92672">.</span> default)))
-</code></pre></div><p>第二引数に default を指定すると、内部的には open コマンドが使われることを利用している。</p>
+<h2 id="インストール">インストール</h2>
+<p>el-get を使って GitHub のリポジトリから直で入れている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle abo-abo/swiper) <span style="color:#75715e">;; ivy, swiper, counsel が同時に入って来る</span>
+</code></pre></div><p>MELPA 経由だと org-mode 関係のパッケージ周りでハマったことがあるので
+GitHub から直で入れる運用にしている。</p>
+<p>が、やっぱり MELPA とかに寄せるべきかなって気になってきているところだったりもする。</p>
+<h2 id="なんか設定">なんか設定</h2>
+<p>便利に使えるようにするための設定を書いている。が、何を設定しているのかよく覚えてないので今度調べておこう……</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(when (require <span style="color:#e6db74">&#39;ivy</span> <span style="color:#66d9ef">nil</span> <span style="color:#66d9ef">t</span>)
+  <span style="color:#75715e">;; M-o を ivy-dispatching-done-hydra に割り当てる．</span>
+  (require <span style="color:#e6db74">&#39;ivy-hydra</span>)
+
+  <span style="color:#75715e">;; `ivy-switch-buffer&#39; (C-x b) のリストに recent files と bookmark を含める．</span>
+  (setq ivy-use-virtual-buffers <span style="color:#66d9ef">t</span>)
+
+  <span style="color:#75715e">;; ミニバッファでコマンド発行を認める</span>
+  (when (setq enable-recursive-minibuffers <span style="color:#66d9ef">t</span>)
+    (minibuffer-depth-indicate-mode <span style="color:#ae81ff">1</span>)) <span style="color:#75715e">;; 何回層入ったかプロンプトに表示．</span>
+
+  <span style="color:#75715e">;; ESC連打でミニバッファを閉じる</span>
+  (<span style="color:#a6e22e">define-key</span> ivy-minibuffer-map (kbd <span style="color:#e6db74">&#34;&lt;escape&gt;&#34;</span>) <span style="color:#e6db74">&#39;minibuffer-keyboard-quit</span>)
+
+  <span style="color:#75715e">;; (index/総数) 表示で何番目の候補かわかりやすくする</span>
+  (setq ivy-count-format <span style="color:#e6db74">&#34;(%d/%d) &#34;</span>)
+
+  <span style="color:#75715e">;; アクティベート</span>
+  (ivy-mode <span style="color:#ae81ff">1</span>))
+</code></pre></div><h2 id="counsel-の有効化">counsel の有効化</h2>
+<p>counsel は ivy で提供されているやつで、既存の Emacs のコマンドを置き換えてくれるやつ。</p>
+<p>とても便利なので当然有効にしている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(counsel-mode <span style="color:#ae81ff">1</span>)
+</code></pre></div><h2 id="ivy-posframe">ivy-posframe</h2>
+<p>ivy-posframe は ivy を posframe で表示してくれるようにするやつ。
+posframe 表示だと Emacs の中央に表示できるので視線移動が少なく済んで便利。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle ivy-posframe)
+(setq ivy-posframe-display-functions-alist <span style="color:#f92672">&#39;</span>((<span style="color:#66d9ef">t</span> <span style="color:#f92672">.</span> ivy-posframe-display-at-frame-center)))
+(ivy-posframe-mode <span style="color:#ae81ff">1</span>)
+</code></pre></div><h2 id="ivy-rich">ivy-rich</h2>
+<p>ivy-rich は ivy の見た目をよりモダンにしてくれるやつ。なんだけど、オフにした時の表示どんな感じだったか忘れたな……。</p>
+<h3 id="インストール">インストール</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle ivy-rich)
+</code></pre></div><h3 id="アイコン設定">アイコン設定</h3>
+<p>いい感じにアイコンが表示されるように
+<a href="https://ladicle.com/post/config/#ivy">https://ladicle.com/post/config/#ivy</a> に書かれている関数を丸コピしてきた</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun ivy-rich-file-icon (candidate)
+  <span style="color:#e6db74">&#34;Display file icons in </span><span style="color:#e6db74">`ivy-rich&#39;</span><span style="color:#e6db74">.&#34;</span>
+  (when (display-graphic-p)
+    (let ((icon (if (<span style="color:#a6e22e">file-directory-p</span> candidate)
+                    (cond
+                     ((and (<span style="color:#a6e22e">fboundp</span> <span style="color:#e6db74">&#39;tramp-tramp-file-p</span>)
+                           (tramp-tramp-file-p default-directory))
+                      (all-the-icons-octicon <span style="color:#e6db74">&#34;file-directory&#34;</span>))
+                     ((<span style="color:#a6e22e">file-symlink-p</span> candidate)
+                      (all-the-icons-octicon <span style="color:#e6db74">&#34;file-symlink-directory&#34;</span>))
+                     ((all-the-icons-dir-is-submodule candidate)
+                      (all-the-icons-octicon <span style="color:#e6db74">&#34;file-submodule&#34;</span>))
+                     ((<span style="color:#a6e22e">file-exists-p</span> (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;%s/.git&#34;</span> candidate))
+                      (all-the-icons-octicon <span style="color:#e6db74">&#34;repo&#34;</span>))
+                     (<span style="color:#66d9ef">t</span> (let ((matcher (all-the-icons-match-to-alist candidate all-the-icons-dir-icon-alist)))
+                          (<span style="color:#a6e22e">apply</span> (<span style="color:#a6e22e">car</span> matcher) (<span style="color:#a6e22e">list</span> (cadr matcher))))))
+                  (all-the-icons-icon-for-file candidate))))
+      (unless (<span style="color:#a6e22e">symbolp</span> icon)
+        (<span style="color:#a6e22e">propertize</span> icon
+                    <span style="color:#e6db74">&#39;face</span> <span style="color:#f92672">`</span>(
+                            :height <span style="color:#ae81ff">1.1</span>
+                            :family <span style="color:#f92672">,</span>(all-the-icons-icon-family icon)
+                            ))))))
+</code></pre></div><h3 id="switch-buffer-でのアイコン表示">switch-buffer でのアイコン表示</h3>
+<p>公式に書かれてるように設定することでバッファを切り替える時もアイコンが表示されるようにしている。
+<a href="https://github.com/Yevgnen/ivy-rich#how-i-can-add-icons-for-ivy-switch-buffer">https://github.com/Yevgnen/ivy-rich#how-i-can-add-icons-for-ivy-switch-buffer</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun ivy-rich-switch-buffer-icon (candidate)
+  (with-current-buffer
+      (<span style="color:#a6e22e">get-buffer</span> candidate)
+    (let ((icon (all-the-icons-icon-for-mode major-mode)))
+      (if (<span style="color:#a6e22e">symbolp</span> icon)
+          (all-the-icons-icon-for-mode <span style="color:#e6db74">&#39;fundamental-mode</span>)
+        icon))))
+</code></pre></div><h3 id="yank-pop-の区切り設定">yank-pop の区切り設定</h3>
+<p>yank-pop の区切りをちょっと長めにしている。長い方が区切りだってわかりやすいので。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq counsel-yank-pop-separator <span style="color:#e6db74">&#34;\n--------------------\n&#34;</span>)
+</code></pre></div><h3 id="ivy-rich-の表示設定">ivy-rich の表示設定</h3>
+<p>それぞれのカラムがどのぐらいの幅、みたいな設定をコマンド毎に設定できるようになっている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq ivy-rich-display-transformers-list
+      <span style="color:#f92672">&#39;</span>(ivy-switch-buffer
+        (:columns
+         ((ivy-rich-switch-buffer-icon :width <span style="color:#ae81ff">2</span>)
+          (ivy-rich-candidate (:width <span style="color:#ae81ff">30</span>))
+          (ivy-rich-switch-buffer-size (:width <span style="color:#ae81ff">7</span>))
+          (ivy-rich-switch-buffer-indicators (:width <span style="color:#ae81ff">4</span> :face <span style="color:#a6e22e">error</span> :align right))
+          (ivy-rich-switch-buffer-major-mode (:width <span style="color:#ae81ff">12</span> :face warning))
+          (ivy-rich-switch-buffer-project (:width <span style="color:#ae81ff">15</span> :face success))
+          (ivy-rich-switch-buffer-path (:width (lambda (x) (ivy-rich-switch-buffer-shorten-path x (ivy-rich-minibuffer-width <span style="color:#ae81ff">0.3</span>))))))
+         :predicate
+         (lambda (cand) (<span style="color:#a6e22e">get-buffer</span> cand)))
+        counsel-M-x
+        (:columns
+         ((counsel-M-x-transformer (:width <span style="color:#ae81ff">40</span>))  <span style="color:#75715e">; thr original transformer</span>
+          (ivy-rich-counsel-function-docstring (:face font-lock-doc-face))))  <span style="color:#75715e">; return the docstring of the command</span>
+        counsel-find-file
+        (:columns
+         ((ivy-rich-file-icon)
+          (ivy-rich-candidate)))
+        counsel-recentf
+        (:columns
+         ((ivy-rich-file-icon)
+          (ivy-rich-candidate (:width <span style="color:#ae81ff">110</span>))))
+        ))
+</code></pre></div><h4 id="switch-buffer">switch-buffer</h4>
+<p>以下のような構成になっている。</p>
+<table>
+<thead>
+<tr>
+<th>列名</th>
+<th>幅</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>アイコン</td>
+<td>2</td>
+<td>all-the-icons のアイコン表示幅の設定</td>
+</tr>
+<tr>
+<td>候補名</td>
+<td>30</td>
+<td>選択候補名。バッファ名が表示される。</td>
+</tr>
+<tr>
+<td>バッファサイズ</td>
+<td>7</td>
+<td>容量を示す。120.3k みたいな表示になる</td>
+</tr>
+<tr>
+<td>インジケータ</td>
+<td>4</td>
+<td>保存されてるかなどの表示。正直マーク何が何かわかってない</td>
+</tr>
+<tr>
+<td>メジャーモード</td>
+<td>12</td>
+<td>そのバッファのメジャーモード。Org とか表示されたりする</td>
+</tr>
+<tr>
+<td>プロジェクト名</td>
+<td>15</td>
+<td>プロジェクト名の表示。.git があるフォルダ名が大体出てる</td>
+</tr>
+<tr>
+<td>ファイルパス</td>
+<td>可変</td>
+<td>プロジェクト内でのファイル位置の表示</td>
+</tr>
+</tbody>
+</table>
+<p>正直ファイル名以外あんまり気にしたことがない……。</p>
+<h4 id="m-x">M-x</h4>
+<p>コマンド選択時のやつは以下の構成になっている。</p>
+<table>
+<thead>
+<tr>
+<th>列名</th>
+<th>幅</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>コマンド名</td>
+<td>40</td>
+<td>候補となるコマンド名の表示</td>
+</tr>
+<tr>
+<td>概要</td>
+<td>制限なし</td>
+<td>コマンドの概要。docstring の1行目が表示されてるっぽい</td>
+</tr>
+</tbody>
+</table>
+<h4 id="find-file">find-file</h4>
+<table>
+<thead>
+<tr>
+<th>列名</th>
+<th>幅</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>アイコン</td>
+<td>未設定</td>
+<td>all-the-icons のアイコン表示</td>
+</tr>
+<tr>
+<td>ファイル名</td>
+<td>未設定</td>
+<td>カレントディレクトリ内のファイルが候補として表示される</td>
+</tr>
+</tbody>
+</table>
+<h4 id="recentf">recentf</h4>
+<table>
+<thead>
+<tr>
+<th>列名</th>
+<th>幅</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>アイコン</td>
+<td>未設定</td>
+<td>all-the-icons のアイコン表示</td>
+</tr>
+<tr>
+<td>ファイル名</td>
+<td>110</td>
+<td>最近使われたファイルが候補として表示される</td>
+</tr>
+</tbody>
+</table>
+<p>もうちょっと追加で情報表示できると便利かも。</p>
+<h3 id="ivy-rich-mode-の有効化">ivy-rich-mode の有効化</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(ivy-rich-mode <span style="color:#ae81ff">1</span>)
+</code></pre></div><h3 id="c-s-で-migemo-れるようにする関数設定">C-s で migemo れるようにする関数設定</h3>
+<p>swiper は標準だと migemo れないのだが</p>
+<p><a href="https://www.yewton.net/2020/05/21/migemo-ivy/">https://www.yewton.net/2020/05/21/migemo-ivy/</a></p>
+<p>でそれをできるようにしている記事があったので、それを元に入れている関数を追加して使えるようにしている。関数名などは書き換えてる</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/ivy-migemo-re-builder (str)
+  (let* ((sep <span style="color:#e6db74">&#34; \\|\\^\\|\\.\\|\\*&#34;</span>)
+         (splitted (--map (s-join <span style="color:#e6db74">&#34;&#34;</span> it)
+                          (--partition-by (s-matches-p <span style="color:#e6db74">&#34; \\|\\^\\|\\.\\|\\*&#34;</span> it)
+                                          (s-split <span style="color:#e6db74">&#34;&#34;</span> str <span style="color:#66d9ef">t</span>)))))
+    (s-join <span style="color:#e6db74">&#34;&#34;</span> (--map (cond ((s-equals? it <span style="color:#e6db74">&#34; &#34;</span>) <span style="color:#e6db74">&#34;.*?&#34;</span>)
+                            ((s-matches? sep it) it)
+                            (<span style="color:#66d9ef">t</span> (migemo-get-pattern it)))
+                      splitted))))
+
+(setq ivy-re-builders-alist <span style="color:#f92672">&#39;</span>((<span style="color:#66d9ef">t</span> <span style="color:#f92672">.</span> ivy--regex-plus)
+                              (swiper <span style="color:#f92672">.</span> my/ivy-migemo-re-builder)))
+</code></pre></div><p>なんだけど
+<a href="https://github.com/ROCKTAKEY/ivy-migemo">https://github.com/ROCKTAKEY/ivy-migemo</a>
+に乗り換えた方がいいのかな〜とも思っている。検証していきたい。</p>
 
 
 <footer class="footline">
@@ -2822,6 +3036,7 @@ Excel が入っていたらそっちで開かれるし、入ってなければ N
             
                 
                     
+                    
                 
                 
 
@@ -2834,6 +3049,9 @@ Excel が入っていたらそっちで開かれるし、入ってなければ N
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -2995,6 +3213,26 @@ Excel が入っていたらそっちで開かれるし、入ってなければ N
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
                 
                 
 
@@ -3118,22 +3356,6 @@ Excel が入っていたらそっちで開かれるし、入ってなければ N
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -3149,230 +3371,6 @@ Excel が入っていたらそっちで開かれるし、入ってなければ N
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -3614,28 +3612,10 @@ Excel が入っていたらそっちで開かれるし、入ってなければ N
             
         
                     
-            
-        
-                    
                         
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -3653,8 +3633,245 @@ Excel が入っていたらそっちで開かれるし、入ってなければ N
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -3983,10 +4200,10 @@ Excel が入っていたらそっちで開かれるし、入ってなければ N
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/org-mode/" title="org-mode"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/ui/ido-mode/" title="ido-mode"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/org-mode/org-babel/" title="org-babel" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/ui/neotree/" title="Neotree" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -3996,19 +4213,19 @@ Excel が入っていたらそっちで開かれるし、入ってなければ N
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1628084827"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1628084827"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1628084827"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1628084827"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1628084827"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1628084827"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1628084828"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1628084828"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1628084828"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1628084828"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1628084828"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1628084828"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1628084827"></script>
-    <script src="/.emacs.d/js/learn.js?1628084827"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1628084827"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1628084828"></script>
+    <script src="/.emacs.d/js/learn.js?1628084828"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1628084828"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1628084827"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1628084828"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

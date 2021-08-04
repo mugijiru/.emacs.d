@@ -149,6 +149,19 @@ Hydra 本体のインストール Hydra 本体は el-get で普通に入れて�
     </item>
     
     <item>
+      <title>ivy</title>
+      <link>https://mugijiru.github.io/.emacs.d/ui/ivy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/ui/ivy/</guid>
+      <description>概要 インストール el-get を使って GitHub のリポジトリから直で入れている。
+(el-get-bundle abo-abo/swiper) ;; ivy, swiper, counsel が同時に入って来る MELPA 経由だと org-mode 関係のパッケージ周りでハマったことがあるので GitHub から直で入れる運用にしている。
+が、やっぱり MELPA とかに寄せるべきかなって気になってきているところだったりもする。
+なんか設定 便利に使えるようにするための設定を書いている。が、何を設定しているのかよく覚えてないので今度調べておこう……
+(when (require &amp;#39;ivy nil t) ;; M-o を ivy-dispatching-done-hydra に割り当てる． (require &amp;#39;ivy-hydra) ;; `ivy-switch-buffer&amp;#39; (C-x b) のリストに recent files と bookmark を含める． (setq ivy-use-virtual-buffers t) ;; ミニバッファでコマンド発行を認める (when (setq enable-recursive-minibuffers t) (minibuffer-depth-indicate-mode 1)) ;; 何回層入ったかプロンプトに表示． ;; ESC連打でミニバッファを閉じる (define-key ivy-minibuffer-map (kbd &amp;#34;&amp;lt;escape&amp;gt;&amp;#34;) &amp;#39;minibuffer-keyboard-quit) ;; (index/総数) 表示で何番目の候補かわかりやすくする (setq ivy-count-format &amp;#34;(%d/%d) &amp;#34;) ;; アクティベート (ivy-mode 1)) counsel の有効化 counsel は ivy で提供されているやつで、既存の Emacs のコマンドを置き換えてくれるやつ。</description>
+    </item>
+    
+    <item>
       <title>Neotree</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/neotree/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
