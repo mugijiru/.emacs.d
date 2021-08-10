@@ -8,7 +8,7 @@ disableToc = true
 
 ここではバッファ管理関係の設定を記載している
 
-[scratch-log](buffer-management/.org)
+[scratch-log]({{< relref "scratch-log" >}})
 : scratch バッファを自動的に永続化してくれるパッケージ
 
 [tempbuf]({{< relref "tempbuf" >}})
