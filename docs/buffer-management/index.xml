@@ -7,6 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/buffer-management/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>scratch-log</title>
+      <link>https://mugijiru.github.io/.emacs.d/buffer-management/scratch-log/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/buffer-management/scratch-log/</guid>
+      <description>概要 scratch-log は、Emacs でちょっとした Emacs Lisp なんかを試し書きする時に使う *scratch* バッファを永続化してくれるパッケージ。
+自分なんかは Emacs Lisp だけでなくちょっとメモを置いといたりもするので勝手に永続化してくれるこいつにはとてもお世話になっている。
+GitHub の README には作者のブログへのリンクしかないしそのブログは消えてるので一番まともに解説しているのは http://emacs.rubikitch.com/scratch-log/ だと思う。
+インストール el-get から入れるだけ。
+(el-get-bundle mori-dev/scratch-log) 有効化 どうも明示的に require しないといけないっぽくて、そうしている。ちょっと本当にそうなのか検証したい気はする。
+(require &amp;#39;scratch-log) 類似品など  persistent-scratch これも scratch を永続化させるやつ。カスタマイズ性はこっちがありそう unkillable-scratch scratch バッファを kill させないやつ。同じような機能が scratch-log にもある auto-save-buffers-enhanced 自動保存機能がメインだけど scratch を自動保存する機能もある  </description>
+    </item>
+    
+    <item>
       <title>tempbuf</title>
       <link>https://mugijiru.github.io/.emacs.d/buffer-management/tempbuf/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

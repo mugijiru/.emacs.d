@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>tempbuf :: 麦汁&#39;s Emacs Config</title>
+    <title>scratch-log :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1628607529" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/buffer-management/tempbuf/">
+  <body class="" data-url="/.emacs.d/buffer-management/scratch-log/">
     <nav id="sidebar" class="">
 
 
@@ -391,7 +391,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/buffer-management/scratch-log/" title="scratch-log" class="dd-item ">
+      <li data-nav-id="/.emacs.d/buffer-management/scratch-log/" title="scratch-log" class="dd-item active">
         <a href="/.emacs.d/buffer-management/scratch-log/">
         scratch-log
         
@@ -412,7 +412,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/buffer-management/tempbuf/" title="tempbuf" class="dd-item active">
+      <li data-nav-id="/.emacs.d/buffer-management/tempbuf/" title="tempbuf" class="dd-item ">
         <a href="/.emacs.d/buffer-management/tempbuf/">
         tempbuf
         
@@ -2384,7 +2384,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/buffer-management/'>バッファ管理</a> > tempbuf
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/buffer-management/'>バッファ管理</a> > scratch-log
           
         
           
@@ -2401,10 +2401,8 @@
   <ul>
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
-    <li><a href="#勝手に-kill-させないファイルの指定">勝手に kill させないファイルの指定</a></li>
-    <li><a href="#find-file-への-hook">find-file への hook</a></li>
-    <li><a href="#hook-の設定">hook の設定</a></li>
-    <li><a href="#その他">その他</a></li>
+    <li><a href="#有効化">有効化</a></li>
+    <li><a href="#類似品など">類似品など</a></li>
   </ul>
 </nav>
     </div>
@@ -2422,7 +2420,7 @@
           
             <h1>
               
-              tempbuf
+              scratch-log
             </h1>
           
 
@@ -2430,33 +2428,24 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://www.emacswiki.org/emacs/TempbufMode">tempbuf-mode</a> は不要になったと思われるバッファを自動的に kill してくれるパッケージ。使っていた時間が長い程、裏に回った時には長い時間保持してくれる。</p>
-<p>つまり、一瞬開いただけのファイルは明示的に kill しなくても勝手にやってくれるのでファイルを開いてそのまま放置みたいなことをしがちなズボラな人間には便利なやつ。</p>
+<p><a href="https://github.com/mori-dev/scratch-log">scratch-log</a> は、Emacs でちょっとした Emacs Lisp なんかを試し書きする時に使う <code>*scratch*</code> バッファを永続化してくれるパッケージ。</p>
+<p>自分なんかは Emacs Lisp だけでなくちょっとメモを置いといたりもするので勝手に永続化してくれるこいつにはとてもお世話になっている。</p>
+<p>GitHub の README には作者のブログへのリンクしかないしそのブログは消えてるので一番まともに解説しているのは <a href="http://emacs.rubikitch.com/scratch-log/">http://emacs.rubikitch.com/scratch-log/</a> だと思う。</p>
 <h2 id="インストール">インストール</h2>
-<p>いつも通り el-get で入れている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle tempbuf)
-</code></pre></div><h2 id="勝手に-kill-させないファイルの指定">勝手に kill させないファイルの指定</h2>
-<p>org-clock を使うようなファイルは
-kill されると org-clock が狂って面倒なことになるのでそれらのファイルは勝手に kill されないように ignore リストに突っ込んでいる</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq my/tempbuf-ignore-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/gtd.org&#34;</span>
-                                <span style="color:#e6db74">&#34;~/Documents/org/tasks/interrupted.org&#34;</span>
-                                <span style="color:#e6db74">&#34;~/Documents/org/tasks/next-actions.org&#34;</span>
-                                ))
-</code></pre></div><h2 id="find-file-への-hook">find-file への hook</h2>
-<p>find-file した時に上でリストアップしたファイルだった場合は kill されないように
-tempbuf-mode が自動的に無効になるような hook を用意している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/find-file-tempbuf-hook ()
-  (let ((ignore-file-names (<span style="color:#a6e22e">mapcar</span> <span style="color:#e6db74">&#39;expand-file-name</span> my/tempbuf-ignore-files)))
-    (unless (<span style="color:#a6e22e">member</span> (<span style="color:#a6e22e">buffer-file-name</span>) ignore-file-names)
-      (turn-on-tempbuf-mode))))
-</code></pre></div><h2 id="hook-の設定">hook の設定</h2>
-<p>find-file では上で作成した hook を使うことで
-kill されたくないファイルは kill されないようにしている</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-hook <span style="color:#e6db74">&#39;find-file-hook</span> <span style="color:#e6db74">&#39;my/find-file-tempbuf-hook</span>)
-</code></pre></div><p>また dired buffer も邪魔になりがちだけど、デフォルトだと対象にならないのでこいつらも tempbuf-mode の管理対象となるように tempbuf-mode を有効にしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-hook <span style="color:#e6db74">&#39;dired-mode-hook</span> <span style="color:#e6db74">&#39;turn-on-tempbuf-mode</span>)
-</code></pre></div><h2 id="その他">その他</h2>
-<p><a href="https://www.emacswiki.org/emacs/MidnightMode">midnight-mode</a> という、深夜に処理を実行させるようなやつで夜間にバッファをごっそり消すみたいなことをしている人も結構いるっぽい。</p>
+<p>el-get から入れるだけ。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle mori-dev/scratch-log)
+</code></pre></div><h2 id="有効化">有効化</h2>
+<p>どうも明示的に require しないといけないっぽくて、そうしている。ちょっと本当にそうなのか検証したい気はする。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(require <span style="color:#e6db74">&#39;scratch-log</span>)
+</code></pre></div><h2 id="類似品など">類似品など</h2>
+<dl>
+<dt><a href="https://github.com/Fanael/persistent-scratch">persistent-scratch</a></dt>
+<dd>これも scratch を永続化させるやつ。カスタマイズ性はこっちがありそう</dd>
+<dt><a href="https://github.com/EricCrosson/unkillable-scratch">unkillable-scratch</a></dt>
+<dd>scratch バッファを kill させないやつ。同じような機能が scratch-log にもある</dd>
+<dt><a href="https://github.com/kentaro/auto-save-buffers-enhanced">auto-save-buffers-enhanced</a></dt>
+<dd>自動保存機能がメインだけど scratch を自動保存する機能もある</dd>
+</dl>
 
 
 <footer class="footline">
@@ -2703,8 +2692,6 @@ kill されたくないファイルは kill されないようにしている</p
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -2722,6 +2709,8 @@ kill されたくないファイルは kill されないようにしている</p
             
                 
                     
+                        
+                        
                     
                 
                 
@@ -2741,9 +2730,6 @@ kill されたくないファイルは kill されないようにしている</p
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -4093,10 +4079,10 @@ kill されたくないファイルは kill されないようにしている</p
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/buffer-management/scratch-log/" title="scratch-log"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/buffer-management/" title="バッファ管理"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/keybinds/" title="キーバインド" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/buffer-management/tempbuf/" title="tempbuf" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

@@ -567,6 +567,13 @@
 	"content": "概要 Emacs 標準でついている、ミニバッファの履歴などを保存してくれる機能。\n有効化 標準でついているので以下のようにするだけで有効化可能。\n(savehist-mode 1) 設定 標準で保存されるもの以外だと kill-ring だけを保存対象にしている。これで Emacs を終了させても kill-ring は残るようになるはず。だけど最近使えてない気がするな……。検証が必要そう。\n(setq savehist-additional-variables \u0026#39;(kill-ring)) 他にも有効にしたら便利そうなのがあれば追加したい。が、ぱっとは思い付かない。\n"
 },
 {
+	"uri": "https://mugijiru.github.io/.emacs.d/buffer-management/scratch-log/",
+	"title": "scratch-log",
+	"tags": [],
+	"description": "",
+	"content": "概要 scratch-log は、Emacs でちょっとした Emacs Lisp なんかを試し書きする時に使う *scratch* バッファを永続化してくれるパッケージ。\n自分なんかは Emacs Lisp だけでなくちょっとメモを置いといたりもするので勝手に永続化してくれるこいつにはとてもお世話になっている。\nGitHub の README には作者のブログへのリンクしかないしそのブログは消えてるので一番まともに解説しているのは http://emacs.rubikitch.com/scratch-log/ だと思う。\nインストール el-get から入れるだけ。\n(el-get-bundle mori-dev/scratch-log) 有効化 どうも明示的に require しないといけないっぽくて、そうしている。ちょっと本当にそうなのか検証したい気はする。\n(require \u0026#39;scratch-log) 類似品など  persistent-scratch これも scratch を永続化させるやつ。カスタマイズ性はこっちがありそう unkillable-scratch scratch バッファを kill させないやつ。同じような機能が scratch-log にもある auto-save-buffers-enhanced 自動保存機能がメインだけど scratch を自動保存する機能もある  "
+},
+{
 	"uri": "https://mugijiru.github.io/.emacs.d/programming/scss/",
 	"title": "scss",
 	"tags": [],
