@@ -9,23 +9,23 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>ivy :: 麦汁&#39;s Emacs Config</title>
+    <title>ddskk :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1628607255" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1628607255" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1628607255" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1628607255" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1628607255" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1628607255" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1628607255" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1628607255" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1628607255" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1628607255" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1628607254" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1628607254" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1628607254" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1628607254" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1628607254" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1628607254" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1628607254" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1628607254" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1628607254" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1628607254" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1628607255"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1628607254"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/ui/ivy/">
+  <body class="" data-url="/.emacs.d/basics/ddskk/">
     <nav id="sidebar" class="">
 
 
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1628607255"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1628607255"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1628607254"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1628607254"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1628607255"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1628607254"></script>
 
     
   </div>
@@ -100,7 +100,7 @@
   
     
     <li data-nav-id="/.emacs.d/basics/" title="基本設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -189,7 +189,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/basics/ddskk/" title="ddskk" class="dd-item ">
+      <li data-nav-id="/.emacs.d/basics/ddskk/" title="ddskk" class="dd-item active">
         <a href="/.emacs.d/basics/ddskk/">
         ddskk
         
@@ -698,7 +698,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        parent
+        
         
         
         ">
@@ -934,7 +934,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/ivy/" title="ivy" class="dd-item active">
+      <li data-nav-id="/.emacs.d/ui/ivy/" title="ivy" class="dd-item ">
         <a href="/.emacs.d/ui/ivy/">
         ivy
         
@@ -2363,7 +2363,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > ivy
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/basics/'>基本設定</a> > ddskk
           
         
           
@@ -2380,21 +2380,11 @@
   <ul>
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
-    <li><a href="#なんか設定">なんか設定</a></li>
-    <li><a href="#counsel-の有効化">counsel の有効化</a></li>
-    <li><a href="#ivy-posframe">ivy-posframe</a></li>
-    <li><a href="#ivy-rich">ivy-rich</a>
-      <ul>
-        <li><a href="#インストール">インストール</a></li>
-        <li><a href="#アイコン設定">アイコン設定</a></li>
-        <li><a href="#switch-buffer-でのアイコン表示">switch-buffer でのアイコン表示</a></li>
-        <li><a href="#yank-pop-の区切り設定">yank-pop の区切り設定</a></li>
-        <li><a href="#ivy-rich-の表示設定">ivy-rich の表示設定</a></li>
-        <li><a href="#ivy-rich-mode-の有効化">ivy-rich-mode の有効化</a></li>
-        <li><a href="#c-s-で-migemo-れるようにする関数設定">C-s で migemo れるようにする関数設定</a></li>
-      </ul>
-    </li>
-    <li><a href="#counsel-osx-app-dot">counsel-osx-app.</a></li>
+    <li><a href="#hook-の設定">hook の設定</a></li>
+    <li><a href="#辞書ファイルの指定">辞書ファイルの指定</a></li>
+    <li><a href="#aquaskk-の-l-辞書を使うようにする">AquaSKK の L 辞書を使うようにする</a></li>
+    <li><a href="#ddskk-posframe">ddskk-posframe</a></li>
+    <li><a href="#その他">その他</a></li>
   </ul>
 </nav>
     </div>
@@ -2412,7 +2402,7 @@
           
             <h1>
               
-              ivy
+              ddskk
             </h1>
           
 
@@ -2420,256 +2410,73 @@
 
 
 <h2 id="概要">概要</h2>
+<p><a href="http://openlab.ring.gr.jp/skk/ddskk-ja.html">ddskk</a> は Emacs Lisp 版の SKK 実装。</p>
+<p>一般的な日本語変換ソフトだと文法を自動で認識して変換をしてくれるけど
+SKK ではその自動認識がおかしくておかしな変換になるところを、単語の区切りなんかを一切判定せずに人間がそれを教えてあげることで、そういう自動的に変な挙動をしてしまう煩わしさから開放されるようになっている。</p>
 <h2 id="インストール">インストール</h2>
-<p>el-get を使って GitHub のリポジトリから直で入れている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle abo-abo/swiper) <span style="color:#75715e">;; ivy, swiper, counsel が同時に入って来る</span>
-</code></pre></div><p>MELPA 経由だと org-mode 関係のパッケージ周りでハマったことがあるので
-GitHub から直で入れる運用にしている。</p>
-<p>が、やっぱり MELPA とかに寄せるべきかなって気になってきているところだったりもする。</p>
-<h2 id="なんか設定">なんか設定</h2>
-<p>便利に使えるようにするための設定を書いている。が、何を設定しているのかよく覚えてないので今度調べておこう……</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(when (require <span style="color:#e6db74">&#39;ivy</span> <span style="color:#66d9ef">nil</span> <span style="color:#66d9ef">t</span>)
-  <span style="color:#75715e">;; M-o を ivy-dispatching-done-hydra に割り当てる．</span>
-  (require <span style="color:#e6db74">&#39;ivy-hydra</span>)
+<p>いつも通り el-get で入れている。最近は最新版が GitHub で更新されているのでそちらから引っ張られてくる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle ddskk)
+</code></pre></div><h2 id="hook-の設定">hook の設定</h2>
+<p>ddskk が呼び出された時に色々設定されるようにしている。</p>
+<p>もしかしたら customize-variable とかあるかもしれないので今度見直した方が良さそう。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-hook <span style="color:#e6db74">&#39;skk-load-hook</span>
+          (lambda ()
+            <span style="color:#75715e">;; コード中では自動的に英字にする。</span>
+            (require <span style="color:#e6db74">&#39;context-skk</span>)
 
-  <span style="color:#75715e">;; `ivy-switch-buffer&#39; (C-x b) のリストに recent files と bookmark を含める．</span>
-  (setq ivy-use-virtual-buffers <span style="color:#66d9ef">t</span>)
+            (setq skk-comp-mode <span style="color:#66d9ef">t</span>) <span style="color:#75715e">;; 動的自動補完</span>
+            (setq skk-auto-insert-paren <span style="color:#66d9ef">t</span>)
+            (setq skk-delete-implies-kakutei <span style="color:#66d9ef">nil</span>)
+            (setq skk-sticky-key <span style="color:#e6db74">&#34;;&#34;</span>)
+            (setq skk-henkan-strict-okuri-precedence <span style="color:#66d9ef">t</span>)
+            (setq skk-show-annotation <span style="color:#66d9ef">t</span>) <span style="color:#75715e">;; 単語の意味をアノテーションとして表示。例) いぜん /以前;previous/依然;still/</span>
 
-  <span style="color:#75715e">;; ミニバッファでコマンド発行を認める</span>
-  (when (setq enable-recursive-minibuffers <span style="color:#66d9ef">t</span>)
-    (minibuffer-depth-indicate-mode <span style="color:#ae81ff">1</span>)) <span style="color:#75715e">;; 何回層入ったかプロンプトに表示．</span>
-
-  <span style="color:#75715e">;; ESC連打でミニバッファを閉じる</span>
-  (<span style="color:#a6e22e">define-key</span> ivy-minibuffer-map (kbd <span style="color:#e6db74">&#34;&lt;escape&gt;&#34;</span>) <span style="color:#e6db74">&#39;minibuffer-keyboard-quit</span>)
-
-  <span style="color:#75715e">;; (index/総数) 表示で何番目の候補かわかりやすくする</span>
-  (setq ivy-count-format <span style="color:#e6db74">&#34;(%d/%d) &#34;</span>)
-
-  <span style="color:#75715e">;; アクティベート</span>
-  (ivy-mode <span style="color:#ae81ff">1</span>))
-</code></pre></div><h2 id="counsel-の有効化">counsel の有効化</h2>
-<p>counsel は ivy で提供されているやつで、既存の Emacs のコマンドを置き換えてくれるやつ。</p>
-<p>とても便利なので当然有効にしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(counsel-mode <span style="color:#ae81ff">1</span>)
-</code></pre></div><h2 id="ivy-posframe">ivy-posframe</h2>
-<p>ivy-posframe は ivy を posframe で表示してくれるようにするやつ。
-posframe 表示だと Emacs の中央に表示できるので視線移動が少なく済んで便利。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle ivy-posframe)
-(setq ivy-posframe-display-functions-alist <span style="color:#f92672">&#39;</span>((<span style="color:#66d9ef">t</span> <span style="color:#f92672">.</span> ivy-posframe-display-at-frame-center)))
-(ivy-posframe-mode <span style="color:#ae81ff">1</span>)
-</code></pre></div><h2 id="ivy-rich">ivy-rich</h2>
-<p>ivy-rich は ivy の見た目をよりモダンにしてくれるやつ。なんだけど、オフにした時の表示どんな感じだったか忘れたな……。</p>
-<h3 id="インストール">インストール</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle ivy-rich)
-</code></pre></div><h3 id="アイコン設定">アイコン設定</h3>
-<p>いい感じにアイコンが表示されるように
-<a href="https://ladicle.com/post/config/#ivy">https://ladicle.com/post/config/#ivy</a> に書かれている関数を丸コピしてきた</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun ivy-rich-file-icon (candidate)
-  <span style="color:#e6db74">&#34;Display file icons in </span><span style="color:#e6db74">`ivy-rich&#39;</span><span style="color:#e6db74">.&#34;</span>
-  (when (display-graphic-p)
-    (let ((icon (if (<span style="color:#a6e22e">file-directory-p</span> candidate)
-                    (cond
-                     ((and (<span style="color:#a6e22e">fboundp</span> <span style="color:#e6db74">&#39;tramp-tramp-file-p</span>)
-                           (tramp-tramp-file-p default-directory))
-                      (all-the-icons-octicon <span style="color:#e6db74">&#34;file-directory&#34;</span>))
-                     ((<span style="color:#a6e22e">file-symlink-p</span> candidate)
-                      (all-the-icons-octicon <span style="color:#e6db74">&#34;file-symlink-directory&#34;</span>))
-                     ((all-the-icons-dir-is-submodule candidate)
-                      (all-the-icons-octicon <span style="color:#e6db74">&#34;file-submodule&#34;</span>))
-                     ((<span style="color:#a6e22e">file-exists-p</span> (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;%s/.git&#34;</span> candidate))
-                      (all-the-icons-octicon <span style="color:#e6db74">&#34;repo&#34;</span>))
-                     (<span style="color:#66d9ef">t</span> (let ((matcher (all-the-icons-match-to-alist candidate all-the-icons-dir-icon-alist)))
-                          (<span style="color:#a6e22e">apply</span> (<span style="color:#a6e22e">car</span> matcher) (<span style="color:#a6e22e">list</span> (cadr matcher))))))
-                  (all-the-icons-icon-for-file candidate))))
-      (unless (<span style="color:#a6e22e">symbolp</span> icon)
-        (<span style="color:#a6e22e">propertize</span> icon
-                    <span style="color:#e6db74">&#39;face</span> <span style="color:#f92672">`</span>(
-                            :height <span style="color:#ae81ff">1.1</span>
-                            :family <span style="color:#f92672">,</span>(all-the-icons-icon-family icon)
-                            ))))))
-</code></pre></div><h3 id="switch-buffer-でのアイコン表示">switch-buffer でのアイコン表示</h3>
-<p>公式に書かれてるように設定することでバッファを切り替える時もアイコンが表示されるようにしている。
-<a href="https://github.com/Yevgnen/ivy-rich#how-i-can-add-icons-for-ivy-switch-buffer">https://github.com/Yevgnen/ivy-rich#how-i-can-add-icons-for-ivy-switch-buffer</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun ivy-rich-switch-buffer-icon (candidate)
-  (with-current-buffer
-      (<span style="color:#a6e22e">get-buffer</span> candidate)
-    (let ((icon (all-the-icons-icon-for-mode major-mode)))
-      (if (<span style="color:#a6e22e">symbolp</span> icon)
-          (all-the-icons-icon-for-mode <span style="color:#e6db74">&#39;fundamental-mode</span>)
-        icon))))
-</code></pre></div><h3 id="yank-pop-の区切り設定">yank-pop の区切り設定</h3>
-<p>yank-pop の区切りをちょっと長めにしている。長い方が区切りだってわかりやすいので。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq counsel-yank-pop-separator <span style="color:#e6db74">&#34;\n--------------------\n&#34;</span>)
-</code></pre></div><h3 id="ivy-rich-の表示設定">ivy-rich の表示設定</h3>
-<p>それぞれのカラムがどのぐらいの幅、みたいな設定をコマンド毎に設定できるようになっている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq ivy-rich-display-transformers-list
-      <span style="color:#f92672">&#39;</span>(ivy-switch-buffer
-        (:columns
-         ((ivy-rich-switch-buffer-icon :width <span style="color:#ae81ff">2</span>)
-          (ivy-rich-candidate (:width <span style="color:#ae81ff">30</span>))
-          (ivy-rich-switch-buffer-size (:width <span style="color:#ae81ff">7</span>))
-          (ivy-rich-switch-buffer-indicators (:width <span style="color:#ae81ff">4</span> :face <span style="color:#a6e22e">error</span> :align right))
-          (ivy-rich-switch-buffer-major-mode (:width <span style="color:#ae81ff">12</span> :face warning))
-          (ivy-rich-switch-buffer-project (:width <span style="color:#ae81ff">15</span> :face success))
-          (ivy-rich-switch-buffer-path (:width (lambda (x) (ivy-rich-switch-buffer-shorten-path x (ivy-rich-minibuffer-width <span style="color:#ae81ff">0.3</span>))))))
-         :predicate
-         (lambda (cand) (<span style="color:#a6e22e">get-buffer</span> cand)))
-        counsel-M-x
-        (:columns
-         ((counsel-M-x-transformer (:width <span style="color:#ae81ff">40</span>))  <span style="color:#75715e">; thr original transformer</span>
-          (ivy-rich-counsel-function-docstring (:face font-lock-doc-face))))  <span style="color:#75715e">; return the docstring of the command</span>
-        counsel-find-file
-        (:columns
-         ((ivy-rich-file-icon)
-          (ivy-rich-candidate)))
-        counsel-recentf
-        (:columns
-         ((ivy-rich-file-icon)
-          (ivy-rich-candidate (:width <span style="color:#ae81ff">110</span>))))
-        ))
-</code></pre></div><h4 id="switch-buffer">switch-buffer</h4>
-<p>以下のような構成になっている。</p>
-<table>
-<thead>
-<tr>
-<th>列名</th>
-<th>幅</th>
-<th>内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>アイコン</td>
-<td>2</td>
-<td>all-the-icons のアイコン表示幅の設定</td>
-</tr>
-<tr>
-<td>候補名</td>
-<td>30</td>
-<td>選択候補名。バッファ名が表示される。</td>
-</tr>
-<tr>
-<td>バッファサイズ</td>
-<td>7</td>
-<td>容量を示す。120.3k みたいな表示になる</td>
-</tr>
-<tr>
-<td>インジケータ</td>
-<td>4</td>
-<td>保存されてるかなどの表示。正直マーク何が何かわかってない</td>
-</tr>
-<tr>
-<td>メジャーモード</td>
-<td>12</td>
-<td>そのバッファのメジャーモード。Org とか表示されたりする</td>
-</tr>
-<tr>
-<td>プロジェクト名</td>
-<td>15</td>
-<td>プロジェクト名の表示。.git があるフォルダ名が大体出てる</td>
-</tr>
-<tr>
-<td>ファイルパス</td>
-<td>可変</td>
-<td>プロジェクト内でのファイル位置の表示</td>
-</tr>
-</tbody>
-</table>
-<p>正直ファイル名以外あんまり気にしたことがない……。</p>
-<h4 id="m-x">M-x</h4>
-<p>コマンド選択時のやつは以下の構成になっている。</p>
-<table>
-<thead>
-<tr>
-<th>列名</th>
-<th>幅</th>
-<th>内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>コマンド名</td>
-<td>40</td>
-<td>候補となるコマンド名の表示</td>
-</tr>
-<tr>
-<td>概要</td>
-<td>制限なし</td>
-<td>コマンドの概要。docstring の1行目が表示されてるっぽい</td>
-</tr>
-</tbody>
-</table>
-<h4 id="find-file">find-file</h4>
-<table>
-<thead>
-<tr>
-<th>列名</th>
-<th>幅</th>
-<th>内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>アイコン</td>
-<td>未設定</td>
-<td>all-the-icons のアイコン表示</td>
-</tr>
-<tr>
-<td>ファイル名</td>
-<td>未設定</td>
-<td>カレントディレクトリ内のファイルが候補として表示される</td>
-</tr>
-</tbody>
-</table>
-<h4 id="recentf">recentf</h4>
-<table>
-<thead>
-<tr>
-<th>列名</th>
-<th>幅</th>
-<th>内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>アイコン</td>
-<td>未設定</td>
-<td>all-the-icons のアイコン表示</td>
-</tr>
-<tr>
-<td>ファイル名</td>
-<td>110</td>
-<td>最近使われたファイルが候補として表示される</td>
-</tr>
-</tbody>
-</table>
-<p>もうちょっと追加で情報表示できると便利かも。</p>
-<h3 id="ivy-rich-mode-の有効化">ivy-rich-mode の有効化</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(ivy-rich-mode <span style="color:#ae81ff">1</span>)
-</code></pre></div><h3 id="c-s-で-migemo-れるようにする関数設定">C-s で migemo れるようにする関数設定</h3>
-<p>swiper は標準だと migemo れないのだが</p>
-<p><a href="https://www.yewton.net/2020/05/21/migemo-ivy/">https://www.yewton.net/2020/05/21/migemo-ivy/</a></p>
-<p>でそれをできるようにしている記事があったので、それを元に入れている関数を追加して使えるようにしている。関数名などは書き換えてる</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/ivy-migemo-re-builder (str)
-  (let* ((sep <span style="color:#e6db74">&#34; \\|\\^\\|\\.\\|\\*&#34;</span>)
-         (splitted (--map (s-join <span style="color:#e6db74">&#34;&#34;</span> it)
-                          (--partition-by (s-matches-p <span style="color:#e6db74">&#34; \\|\\^\\|\\.\\|\\*&#34;</span> it)
-                                          (s-split <span style="color:#e6db74">&#34;&#34;</span> str <span style="color:#66d9ef">t</span>)))))
-    (s-join <span style="color:#e6db74">&#34;&#34;</span> (--map (cond ((s-equals? it <span style="color:#e6db74">&#34; &#34;</span>) <span style="color:#e6db74">&#34;.*?&#34;</span>)
-                            ((s-matches? sep it) it)
-                            (<span style="color:#66d9ef">t</span> (migemo-get-pattern it)))
-                      splitted))))
-
-(setq ivy-re-builders-alist <span style="color:#f92672">&#39;</span>((<span style="color:#66d9ef">t</span> <span style="color:#f92672">.</span> ivy--regex-plus)
-                              (swiper <span style="color:#f92672">.</span> my/ivy-migemo-re-builder)))
-</code></pre></div><p>なんだけど
-<a href="https://github.com/ROCKTAKEY/ivy-migemo">https://github.com/ROCKTAKEY/ivy-migemo</a>
-に乗り換えた方がいいのかな〜とも思っている。検証していきたい。</p>
-<h2 id="counsel-osx-app-dot">counsel-osx-app.</h2>
-<p>Mac で Emacs を使ってる時に ivy でアプリケーションを起動するためのパッケージ。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle counsel-osx-app)
-</code></pre></div><p>Mac を使ってる時は Emacs がランチャー代わりになるので便利。</p>
-<p>WSL 使ってる時に同じようなことをしてみたいんだけどどうしたらいいんだろう。まあできなくてもいいんだけど、このパッケージは Mac でだけ読むようにしたら良いよねって感じではある。</p>
+            <span style="color:#75715e">;; 半角で入力したい文字</span>
+            (setq skk-rom-kana-rule-list
+                  (<span style="color:#a6e22e">nconc</span> skk-rom-kana-rule-list
+                         <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;;&#34;</span> <span style="color:#66d9ef">nil</span> <span style="color:#66d9ef">nil</span>)
+                           (<span style="color:#e6db74">&#34;:&#34;</span> <span style="color:#66d9ef">nil</span> <span style="color:#66d9ef">nil</span>)
+                           (<span style="color:#e6db74">&#34;?&#34;</span> <span style="color:#66d9ef">nil</span> <span style="color:#66d9ef">nil</span>)
+                           (<span style="color:#e6db74">&#34;!&#34;</span> <span style="color:#66d9ef">nil</span> <span style="color:#66d9ef">nil</span>))))))
+</code></pre></div><dl>
+<dt>skk-comp-mode</dt>
+<dd>自動補完関係らしいが、ググっても出て来ないし死んだ設定かもしれない</dd>
+<dt>skk-auto-insert-paren</dt>
+<dd>カッコを入力するとコッカも入れてくれる便利機能の切替</dd>
+<dt>skk-delete-implies-kakutei</dt>
+<dd>nil にすると▼モードで <BS> を押した時 に一つ前の候補を表示するようになる</dd>
+<dt>skk-sticky-key</dt>
+<dd>設定すると、その指定したキーを押した時に変換開始状態などにする Sticky Shift を提供する</dd>
+<dt>skk-henkan-strict-okuri-precedence</dt>
+<dd>正しい送り仮名の変換が優先的に表示されるようにする設定</dd>
+<dt>skk-show-annotation</dt>
+<dd>単語の意味をアノテーションとして表示する設定</dd>
+<dt>skk-rom-kana-rules-list</dt>
+<dd>キー入力時の挙動を指定する。とりあえず自分は : とかが全角になるのが嫌なので半角になるようにしている</dd>
+</dl>
+<h2 id="辞書ファイルの指定">辞書ファイルの指定</h2>
+<p>共有辞書や個人辞書以外の追加辞書を指定している。が、このマシンではそんなところに辞書置いてないな……。見直しの必要あり</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq skk-extra-jisyo-file-list (<span style="color:#a6e22e">list</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/.emacs.d/skk-jisyo/SKK-JISYO.lisp&#34;</span> <span style="color:#f92672">.</span> japanese-iso-8bit-unix)))
+</code></pre></div><h2 id="aquaskk-の-l-辞書を使うようにする">AquaSKK の L 辞書を使うようにする</h2>
+<p>これはもう Mac 用の設定ですね。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(let ((l-dict (<span style="color:#a6e22e">expand-file-name</span> <span style="color:#e6db74">&#34;~/Library/Application Support/AquaSKK/SKK-JISYO.L&#34;</span>)))
+  (if (<span style="color:#a6e22e">file-exists-p</span> l-dict)
+      (setq skk-large-jisyo l-dict)))
+</code></pre></div><p>WSL で動かしている Emacs では
+CurvusSKK の辞書を見るように設定した方が良さそう。</p>
+<p>そう、WSL2 では L 辞書が使えなくて変換がちょっとだるいけど放置しているのである!
+なのでそういう意味で見直しが必要。</p>
+<h2 id="ddskk-posframe">ddskk-posframe</h2>
+<p><a href="https://github.com/conao3/ddskk-posframe.el/">ddskk-posframe</a> は ddskk ツールチップを posframe で表示してくれるやつ。便利。</p>
+<p><a href="https://emacs-jp.github.io/packages/ddskk-posframe">https://emacs-jp.github.io/packages/ddskk-posframe</a>
+に作った本人が解説記事を日本語で載せてるので詳細はそっちを見てもらう方が早い。</p>
+<p>とりあえず以下でインストール、有効化している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle conao3/ddskk-posframe.el)
+(ddskk-posframe-mode <span style="color:#ae81ff">1</span>)
+</code></pre></div><h2 id="その他">その他</h2>
+<p>漢字の変換すらも機械任せではなく自分で決めるみたいな漢字直接入力という方式もあり、
+SKK とそれを組み合わせると入力キーを覚えている漢字は漢直で入力しそうでない漢字は SKK で入力する、といった使い分けができるらしい。</p>
+<p>特に同音意義語が多い場合に便利そう。</p>
 
 
 <footer class="footline">
@@ -2707,8 +2514,429 @@ posframe 表示だと Emacs の中央に表示できるので視線移動が少�
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -2894,434 +3122,10 @@ posframe 表示だと Emacs の中央に表示できるので視線移動が少�
             
         
                     
-            
-        
-                    
                         
             
             
                 
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -4290,10 +4094,10 @@ posframe 表示だと Emacs の中央に表示できるので視線移動が少�
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/ui/ido-mode/" title="ido-mode"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/basics/custom-file/" title="custom-file"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/ui/neotree/" title="Neotree" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/basics/exec-path/" title="exec-path" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -4303,19 +4107,19 @@ posframe 表示だと Emacs の中央に表示できるので視線移動が少�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1628607255"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1628607255"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1628607255"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1628607255"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1628607255"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1628607255"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1628607254"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1628607254"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1628607254"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1628607254"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1628607254"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1628607254"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1628607255"></script>
-    <script src="/.emacs.d/js/learn.js?1628607255"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1628607255"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1628607254"></script>
+    <script src="/.emacs.d/js/learn.js?1628607254"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1628607254"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1628607255"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1628607254"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
