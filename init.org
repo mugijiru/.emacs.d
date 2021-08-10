@@ -587,6 +587,9 @@
    - [[*scratch-log][scratch-log]] :: scratch バッファを自動的に永続化してくれるパッケージ
    - [[*tempbuf][tempbuf]] :: 不要になったと思われるバッファを自動的に kill してくれるパッケージ
 ** scratch-log
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: scratch-log
+   :END:
 *** 概要
     [[https://github.com/mori-dev/scratch-log][scratch-log]] は、Emacs でちょっとした Emacs Lisp なんかを試し書きする時に使う ~*scratch*~ バッファを永続化してくれるパッケージ。
 
