@@ -17,6 +17,9 @@ Emacs の基本動作に関わる部分をここでは設定している
 [custom-file]({{< relref "custom-file" >}})
 : カスタマイズ変数などの保存先を変更している
 
+[ddskk]({{< relref "ddskk" >}})
+: ちょっと変わった日本語入力 SKK の Emacs Lisp 版
+
 [exec-path]({{< relref "exec-path" >}})
 : PATH などの環境変数を shell と合わせる設定
 
