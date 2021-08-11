@@ -2306,6 +2306,118 @@
     まあできなくてもいいんだけど、
     このパッケージは Mac でだけ読むようにしたら良いよねって感じではある。
 
+** mode-line
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: mode-line
+   :END:
+*** 概要
+    Emacs のバッファ下部に表示されるモードライン関連の設定をここにまとめている。
+    このメニューの並びとかはどこかで直した方が良さそう。
+
+*** hide-mode-line
+    [[https://github.com/hlissner/emacs-hide-mode-line][hide-mode-line]] は mode-line を隠してくれるパッケージ。
+    ここでは neotree-mode-hook で引っ掛けて Neotree では mode-line を隠すように設定している
+
+    #+begin_src emacs-lisp :tangle inits/90-mode-line.el
+    (el-get-bundle hlissner/emacs-hide-mode-line)
+    (add-hook 'neotree-mode-hook #'hide-mode-line-mode)
+    #+end_src
+
+    他にも mode-line の表示が不要なモードとかってありそうだけど
+    特に思い付かないから今のところ Neotree 専用になっている。
+
+*** 日時を mode-line で表示する
+    mode-line に日時も表示されてる方が便利な気がしてとりあえず表示している。
+
+    #+begin_src emacs-lisp :tangle inits/90-mode-line.el
+    (display-time-mode 1)
+    #+end_src
+
+*** smart-mode-line 関連の設定                                       :unused:
+    [[https://github.com/Malabarba/smart-mode-line][smart-mode-line]] は mode-line をセクシーな感じにしてくれるパッケージ。
+    というわけで昔入れていたけどもう使ってない。
+    一応コードの残骸があったから一旦残しておく。
+
+    多分アイコン表示周りをゴリゴリ設定するのがだるくなって doom-modeline に乗り換えたんだと思う。
+
+    #+begin_src emacs-lisp
+    ;; (el-get-bundle smart-mode-line)
+    ;; (defvar sml/no-confirm-load-theme t)
+    ;; (defvar sml/theme 'dark)
+    ;; (sml/setup)
+
+    ;; major-mode
+    ;; (add-hook 'emacs-lisp-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon "elisp"))))
+    ;; (add-hook 'enh-ruby-mode-hook (lambda () (setq mode-name (concat "e" (all-the-icons-alltheicon "ruby-alt")))))
+    ;; (add-hook 'ruby-mode-hook (lambda () (setq mode-name (all-the-icons-alltheicon "ruby-alt"))))
+    ;; (add-hook 'vue-mode-hook (lambda ()
+    ;;                            (make-local-variable 'mmm-submode-mode-line-format)
+    ;;                            (setq mmm-submode-mode-line-format "~M:~m")
+    ;;                            (make-local-variable 'mmm-buffer-mode-display-name)
+    ;;                            (setq mmm-buffer-mode-display-name "V")))
+    ;; (add-hook 'js-mode-hook (lambda () (setq mode-name "")))
+    ;; (add-hook 'pug-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon "pug"))))
+    ;; (add-hook 'css-mode-hook (lambda () (setq mode-name (all-the-icons-faicon "css3"))))
+    ;; (add-hook 'twittering-mode-hook (lambda () (setq mode-name (all-the-icons-faicon "twitter-square"))))
+    ;; (add-hook 'org-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon "org"))))
+    #+end_src
+
+*** diminish
+    [[https://github.com/emacsmirror/diminish][diminish]] は minor-mode の表示をカスタマイズするためのモード。
+
+    これも昔使ってたけど今は使ってない。
+    というか最近はマイナーモードを mode-line で表示してない。
+    表示しなくなったから要らなくなった感じ。
+
+**** インストール・有効化
+     el-get-bundle で入れて require したら有効になる
+     #+begin_src emacs-lisp :tangle inits/90-mode-line.el
+     (el-get-bundle diminish)
+     (require 'diminish)
+     #+end_src
+
+**** マクロ定義
+     各パッケージが読まれた後に
+     指定した表示が設定されるようにするマクロを書いている。
+
+     #+begin_src emacs-lisp :tangle inits/90-mode-line.el
+     (defmacro my/diminish (file mode &optional new-name)
+       "https://github.com/larstvei/dot-emacs/blob/master/init.org"
+       `(with-eval-after-load ,file
+          (diminish ,mode ,new-name)))
+     #+end_src
+
+     https://github.com/larstvei/dot-emacs/blob/master/init.org
+     に書かれているのを流用しただけであるはずだが、
+     リンク先にその記述が見当たらないな……。
+
+**** マイナーモード毎の表示指定
+     上で用意したマクロを用いて各マイナーモード毎の設定を行っていた。
+     今は使ってないので全部コメントアウトしている
+
+     #+begin_src emacs-lisp :tangle inits/90-mode-line.el
+     ;; (my/diminish "helm" 'helm-mode ":helmet-with-cross:")
+     ;; (my/diminish "git-gutter" 'git-gutter-mode (all-the-icons-octicon "git-compare"))
+     ;; (my/diminish "yasnippet" 'yas-minor-mode " Ys")
+     ;; (my/diminish "whitespace" 'whitespace-mode "◽")
+     ;; (my/diminish "whitespace" 'global-whitespace-mode "◽")
+     ;; (my/diminish "tempbuf" 'tempbuf-mode "")
+     ;; (my/diminish "flycheck" 'flycheck-mode "")
+     ;; (my/diminish "zoom" 'zoom-mode "")
+     ;; (my/diminish "rainbow" 'rainbow-mode "🌈")
+     ;; (my/diminish "projectile-rails" 'projectile-rails-mode "🛤")
+     ;; (my/diminish "company" 'company-mode "")
+     ;; (my/diminish "ElDoc" 'eldoc-mode "")
+     #+end_src
+
+     結構頑張ったけど絵文字周りで思うような表示にならなかったりして
+     最終的にはマイナーモードを mode-line に表示しないようになっている。
+
+     使ってる minor-mode どうやって把握したりしたらいいんだろうね。
+     ま、表示されなくてもなんとなくで把握しているから、困ってはいないんだけど。
+
+*** その他
+    バッテリー残量表示とかもしているけどそのあたりの設定どこでやってんだっけ?
 ** Neotree                                                      :replacement:
    :PROPERTIES:
    :EXPORT_FILE_NAME: neotree
@@ -5885,59 +5997,6 @@
    (el-get-bundle raxod502/prescient.el)
    (ivy-prescient-mode 1)
    (setq prescient-sort-length-enable nil)
-   #+end_src
-
-** 90-mode-line.el
-
-   #+begin_src emacs-lisp :tangle inits/90-mode-line.el
-   ;; 一部のモードでは mode-line を表示しないようにする
-   (el-get-bundle hlissner/emacs-hide-mode-line)
-   (add-hook 'neotree-mode-hook #'hide-mode-line-mode)
-
-   ;; 日時を modeline で表示
-   (display-time-mode 1)
-
-   ;; (el-get-bundle smart-mode-line)
-   ;; (defvar sml/no-confirm-load-theme t)
-   ;; (defvar sml/theme 'dark)
-   ;; (sml/setup)
-
-   ;; major-mode
-   ;; (add-hook 'emacs-lisp-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon "elisp"))))
-   ;; (add-hook 'enh-ruby-mode-hook (lambda () (setq mode-name (concat "e" (all-the-icons-alltheicon "ruby-alt")))))
-   ;; (add-hook 'ruby-mode-hook (lambda () (setq mode-name (all-the-icons-alltheicon "ruby-alt"))))
-   ;; (add-hook 'vue-mode-hook (lambda ()
-   ;;                            (make-local-variable 'mmm-submode-mode-line-format)
-   ;;                            (setq mmm-submode-mode-line-format "~M:~m")
-   ;;                            (make-local-variable 'mmm-buffer-mode-display-name)
-   ;;                            (setq mmm-buffer-mode-display-name "V")))
-   ;; (add-hook 'js-mode-hook (lambda () (setq mode-name "")))
-   ;; (add-hook 'pug-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon "pug"))))
-   ;; (add-hook 'css-mode-hook (lambda () (setq mode-name (all-the-icons-faicon "css3"))))
-   ;; (add-hook 'twittering-mode-hook (lambda () (setq mode-name (all-the-icons-faicon "twitter-square"))))
-   ;; (add-hook 'org-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon "org"))))
-
-   (el-get-bundle diminish)
-   (require 'diminish)
-
-   (defmacro my/diminish (file mode &optional new-name)
-     "https://github.com/larstvei/dot-emacs/blob/master/init.org"
-     `(with-eval-after-load ,file
-        (diminish ,mode ,new-name)))
-
-   ;; minor-mode
-   ;; (my/diminish "helm" 'helm-mode ":helmet-with-cross:")
-   ;; (my/diminish "git-gutter" 'git-gutter-mode (all-the-icons-octicon "git-compare"))
-   ;; (my/diminish "yasnippet" 'yas-minor-mode " Ys")
-   ;; (my/diminish "whitespace" 'whitespace-mode "◽")
-   ;; (my/diminish "whitespace" 'global-whitespace-mode "◽")
-   ;; (my/diminish "tempbuf" 'tempbuf-mode "")
-   ;; (my/diminish "flycheck" 'flycheck-mode "")
-   ;; (my/diminish "zoom" 'zoom-mode "")
-   ;; (my/diminish "rainbow" 'rainbow-mode "🌈")
-   ;; (my/diminish "projectile-rails" 'projectile-rails-mode "🛤")
-   ;; (my/diminish "company" 'company-mode "")
-   ;; (my/diminish "ElDoc" 'eldoc-mode "")
    #+end_src
 
 ** 90-theme.el
