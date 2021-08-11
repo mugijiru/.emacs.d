@@ -1412,6 +1412,7 @@
    - [[*hydra][hydra]] :: サブコマンドをビジュアル的に表示してくれるメニューを提供してくれるやつ
    - [[*ido-mode][ido-mode]] :: Emacs 標準添付の補完インターフェース
    - [[*ivy][ivy]] :: 絞り込みインターフェーズを提供してくれるやつ。[[*helm][helm]] よりシンプルな感じ
+   - [[*mode-line][mode-line]] :: モードラインに関する設定をここにまとめている
    - [[*Neotree][Neotree]] :: フォルダ構造を IDE みたいにツリー表示するやつ
    - [[*posframe][posframe]] :: いい感じの位置に child frame を表示する機能を提供するやつ
    - [[*show-paren-mode][show-paren-mode]] :: 対応するカッコとコッカをハイライトしてくれたりするやつ
