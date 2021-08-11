@@ -41,6 +41,9 @@ disableToc = true
 [ivy]({{< relref "ivy" >}})
 : 絞り込みインターフェーズを提供してくれるやつ。[helm]({{< relref "helm" >}}) よりシンプルな感じ
 
+[mode-line]({{< relref "mode-line" >}})
+: モードラインに関する設定をここにまとめている
+
 [Neotree]({{< relref "neotree" >}})
 : フォルダ構造を IDE みたいにツリー表示するやつ
 
