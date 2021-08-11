@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>ace-window :: 麦汁&#39;s Emacs Config</title>
+    <title>mode-line :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1628693126" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/nav/ace-window/">
+  <body class="" data-url="/.emacs.d/ui/mode-line/">
     <nav id="sidebar" class="">
 
 
@@ -719,7 +719,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        
+        parent
         
         
         ">
@@ -976,7 +976,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/mode-line/" title="mode-line" class="dd-item ">
+      <li data-nav-id="/.emacs.d/ui/mode-line/" title="mode-line" class="dd-item active">
         <a href="/.emacs.d/ui/mode-line/">
         mode-line
         
@@ -1173,7 +1173,7 @@
   
     
     <li data-nav-id="/.emacs.d/nav/" title="ナビゲーション" class="dd-item
-        parent
+        
         
         
         ">
@@ -1199,7 +1199,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/nav/ace-window/" title="ace-window" class="dd-item active">
+      <li data-nav-id="/.emacs.d/nav/ace-window/" title="ace-window" class="dd-item ">
         <a href="/.emacs.d/nav/ace-window/">
         ace-window
         
@@ -2405,7 +2405,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/nav/'>ナビゲーション</a> > ace-window
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > mode-line
           
         
           
@@ -2421,8 +2421,17 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#インストール">インストール</a></li>
-    <li><a href="#設定">設定</a></li>
+    <li><a href="#hide-mode-line">hide-mode-line</a></li>
+    <li><a href="#日時を-mode-line-で表示する">日時を mode-line で表示する</a></li>
+    <li><a href="#smart-mode-line-関連の設定">smart-mode-line 関連の設定</a></li>
+    <li><a href="#diminish">diminish</a>
+      <ul>
+        <li><a href="#インストール-有効化">インストール・有効化</a></li>
+        <li><a href="#マクロ定義">マクロ定義</a></li>
+        <li><a href="#マイナーモード毎の表示指定">マイナーモード毎の表示指定</a></li>
+      </ul>
+    </li>
+    <li><a href="#その他">その他</a></li>
   </ul>
 </nav>
     </div>
@@ -2440,7 +2449,7 @@
           
             <h1>
               
-              ace-window
+              mode-line
             </h1>
           
 
@@ -2448,19 +2457,70 @@
 
 
 <h2 id="概要">概要</h2>
-<p>Window 間の移動を ace-jump や avy のように表示されてる文字の Window に移動するやつ。</p>
-<p>Window が2分割の時は文字も出ないで別の Window に移動してくれる。</p>
-<p><code>C-x o</code> にデフォルトで設定されている <code>other-window</code> は別の window に順番に移動するコマンドなので大量に分割していると移動がしんどいのだが
-ace-window を使うと起動して 1 ストロークで移動できるので
-<code>C-x o</code> をデフォルトの <code>other-window</code> から <code>ace-window</code> そのまま置き換えても便利に使える。</p>
-<h2 id="インストール">インストール</h2>
-<p>いつも通り el-get でインストールしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle ace-window)
-</code></pre></div><h2 id="設定">設定</h2>
-<p>キーバインドは別の箇所で定義しているが
-<code>C-x o</code> で ace-window が起動するようにしている。</p>
-<p>また Hydra からは ace-swap-window が起動できるようにしている。</p>
-<p>ace-window には色々な機能があるからそれ用の Hydra を別途定義してもいいかもしれない。</p>
+<p>Emacs のバッファ下部に表示されるモードライン関連の設定をここにまとめている。このメニューの並びとかはどこかで直した方が良さそう。</p>
+<h2 id="hide-mode-line">hide-mode-line</h2>
+<p><a href="https://github.com/hlissner/emacs-hide-mode-line">hide-mode-line</a> は mode-line を隠してくれるパッケージ。ここでは neotree-mode-hook で引っ掛けて Neotree では mode-line を隠すように設定している</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle hlissner/emacs-hide-mode-line)
+(add-hook <span style="color:#e6db74">&#39;neotree-mode-hook</span> <span style="color:#a6e22e">#&#39;</span>hide-mode-line-mode)
+</code></pre></div><p>他にも mode-line の表示が不要なモードとかってありそうだけど特に思い付かないから今のところ Neotree 専用になっている。</p>
+<h2 id="日時を-mode-line-で表示する">日時を mode-line で表示する</h2>
+<p>mode-line に日時も表示されてる方が便利な気がしてとりあえず表示している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(display-time-mode <span style="color:#ae81ff">1</span>)
+</code></pre></div><h2 id="smart-mode-line-関連の設定">smart-mode-line 関連の設定</h2>
+<p><a href="https://github.com/Malabarba/smart-mode-line">smart-mode-line</a> は mode-line をセクシーな感じにしてくれるパッケージ。というわけで昔入れていたけどもう使ってない。一応コードの残骸があったから一旦残しておく。</p>
+<p>多分アイコン表示周りをゴリゴリ設定するのがだるくなって doom-modeline に乗り換えたんだと思う。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#75715e">;; (el-get-bundle smart-mode-line)</span>
+<span style="color:#75715e">;; (defvar sml/no-confirm-load-theme t)</span>
+<span style="color:#75715e">;; (defvar sml/theme &#39;dark)</span>
+<span style="color:#75715e">;; (sml/setup)</span>
+
+<span style="color:#75715e">;; major-mode</span>
+<span style="color:#75715e">;; (add-hook &#39;emacs-lisp-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon &#34;elisp&#34;))))</span>
+<span style="color:#75715e">;; (add-hook &#39;enh-ruby-mode-hook (lambda () (setq mode-name (concat &#34;e&#34; (all-the-icons-alltheicon &#34;ruby-alt&#34;)))))</span>
+<span style="color:#75715e">;; (add-hook &#39;ruby-mode-hook (lambda () (setq mode-name (all-the-icons-alltheicon &#34;ruby-alt&#34;))))</span>
+<span style="color:#75715e">;; (add-hook &#39;vue-mode-hook (lambda ()</span>
+<span style="color:#75715e">;;                            (make-local-variable &#39;mmm-submode-mode-line-format)</span>
+<span style="color:#75715e">;;                            (setq mmm-submode-mode-line-format &#34;~M:~m&#34;)</span>
+<span style="color:#75715e">;;                            (make-local-variable &#39;mmm-buffer-mode-display-name)</span>
+<span style="color:#75715e">;;                            (setq mmm-buffer-mode-display-name &#34;V&#34;)))</span>
+<span style="color:#75715e">;; (add-hook &#39;js-mode-hook (lambda () (setq mode-name &#34;&#34;)))</span>
+<span style="color:#75715e">;; (add-hook &#39;pug-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon &#34;pug&#34;))))</span>
+<span style="color:#75715e">;; (add-hook &#39;css-mode-hook (lambda () (setq mode-name (all-the-icons-faicon &#34;css3&#34;))))</span>
+<span style="color:#75715e">;; (add-hook &#39;twittering-mode-hook (lambda () (setq mode-name (all-the-icons-faicon &#34;twitter-square&#34;))))</span>
+<span style="color:#75715e">;; (add-hook &#39;org-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon &#34;org&#34;))))</span>
+</code></pre></div><h2 id="diminish">diminish</h2>
+<p><a href="https://github.com/emacsmirror/diminish">diminish</a> は minor-mode の表示をカスタマイズするためのモード。</p>
+<p>これも昔使ってたけど今は使ってない。というか最近はマイナーモードを mode-line で表示してない。表示しなくなったから要らなくなった感じ。</p>
+<h3 id="インストール-有効化">インストール・有効化</h3>
+<p>el-get-bundle で入れて require したら有効になる</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle diminish)
+(require <span style="color:#e6db74">&#39;diminish</span>)
+</code></pre></div><h3 id="マクロ定義">マクロ定義</h3>
+<p>各パッケージが読まれた後に指定した表示が設定されるようにするマクロを書いている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defmacro my/diminish (file mode <span style="color:#66d9ef">&amp;optional</span> new-name)
+  <span style="color:#e6db74">&#34;https://github.com/larstvei/dot-emacs/blob/master/init.org&#34;</span>
+  <span style="color:#f92672">`</span>(with-eval-after-load <span style="color:#f92672">,</span>file
+     (diminish <span style="color:#f92672">,</span>mode <span style="color:#f92672">,</span>new-name)))
+</code></pre></div><p><a href="https://github.com/larstvei/dot-emacs/blob/master/init.org">https://github.com/larstvei/dot-emacs/blob/master/init.org</a>
+に書かれているのを流用しただけであるはずだが、リンク先にその記述が見当たらないな……。</p>
+<h3 id="マイナーモード毎の表示指定">マイナーモード毎の表示指定</h3>
+<p>上で用意したマクロを用いて各マイナーモード毎の設定を行っていた。今は使ってないので全部コメントアウトしている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#75715e">;; (my/diminish &#34;helm&#34; &#39;helm-mode &#34;:helmet-with-cross:&#34;)</span>
+<span style="color:#75715e">;; (my/diminish &#34;git-gutter&#34; &#39;git-gutter-mode (all-the-icons-octicon &#34;git-compare&#34;))</span>
+<span style="color:#75715e">;; (my/diminish &#34;yasnippet&#34; &#39;yas-minor-mode &#34; Ys&#34;)</span>
+<span style="color:#75715e">;; (my/diminish &#34;whitespace&#34; &#39;whitespace-mode &#34;◽&#34;)</span>
+<span style="color:#75715e">;; (my/diminish &#34;whitespace&#34; &#39;global-whitespace-mode &#34;◽&#34;)</span>
+<span style="color:#75715e">;; (my/diminish &#34;tempbuf&#34; &#39;tempbuf-mode &#34;&#34;)</span>
+<span style="color:#75715e">;; (my/diminish &#34;flycheck&#34; &#39;flycheck-mode &#34;&#34;)</span>
+<span style="color:#75715e">;; (my/diminish &#34;zoom&#34; &#39;zoom-mode &#34;&#34;)</span>
+<span style="color:#75715e">;; (my/diminish &#34;rainbow&#34; &#39;rainbow-mode &#34;🌈&#34;)</span>
+<span style="color:#75715e">;; (my/diminish &#34;projectile-rails&#34; &#39;projectile-rails-mode &#34;🛤&#34;)</span>
+<span style="color:#75715e">;; (my/diminish &#34;company&#34; &#39;company-mode &#34;&#34;)</span>
+<span style="color:#75715e">;; (my/diminish &#34;ElDoc&#34; &#39;eldoc-mode &#34;&#34;)</span>
+</code></pre></div><p>結構頑張ったけど絵文字周りで思うような表示にならなかったりして最終的にはマイナーモードを mode-line に表示しないようになっている。</p>
+<p>使ってる minor-mode どうやって把握したりしたらいいんだろうね。ま、表示されなくてもなんとなくで把握しているから、困ってはいないんだけど。</p>
+<h2 id="その他">その他</h2>
+<p>バッテリー残量表示とかもしているけどそのあたりの設定どこでやってんだっけ?</p>
 
 
 <footer class="footline">
@@ -2933,6 +2993,7 @@ ace-window を使うと起動して 1 ストロークで移動できるので
             
                 
                     
+                    
                 
                 
 
@@ -2945,6 +3006,9 @@ ace-window を使うと起動して 1 ストロークで移動できるので
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3122,6 +3186,26 @@ ace-window を使うと起動して 1 ストロークで移動できるので
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
                 
                 
 
@@ -3245,6 +3329,22 @@ ace-window を使うと起動して 1 ストロークで移動できるので
             
         
                     
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
                         
             
             
@@ -3261,47 +3361,10 @@ ace-window を使うと起動して 1 ストロークで移動できるので
             
         
                     
-            
-        
-                    
                         
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -4110,10 +4173,10 @@ ace-window を使うと起動して 1 ストロークで移動できるので
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/nav/" title="ナビゲーション"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/ui/ivy/" title="ivy"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/nav/avy/" title="avy" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/ui/neotree/" title="Neotree" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

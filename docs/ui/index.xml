@@ -162,6 +162,21 @@ Hydra 本体のインストール Hydra 本体は el-get で普通に入れて�
     </item>
     
     <item>
+      <title>mode-line</title>
+      <link>https://mugijiru.github.io/.emacs.d/ui/mode-line/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/ui/mode-line/</guid>
+      <description>概要 Emacs のバッファ下部に表示されるモードライン関連の設定をここにまとめている。このメニューの並びとかはどこかで直した方が良さそう。
+hide-mode-line hide-mode-line は mode-line を隠してくれるパッケージ。ここでは neotree-mode-hook で引っ掛けて Neotree では mode-line を隠すように設定している
+(el-get-bundle hlissner/emacs-hide-mode-line) (add-hook &amp;#39;neotree-mode-hook #&amp;#39;hide-mode-line-mode) 他にも mode-line の表示が不要なモードとかってありそうだけど特に思い付かないから今のところ Neotree 専用になっている。
+日時を mode-line で表示する mode-line に日時も表示されてる方が便利な気がしてとりあえず表示している。
+(display-time-mode 1) smart-mode-line 関連の設定 smart-mode-line は mode-line をセクシーな感じにしてくれるパッケージ。というわけで昔入れていたけどもう使ってない。一応コードの残骸があったから一旦残しておく。
+多分アイコン表示周りをゴリゴリ設定するのがだるくなって doom-modeline に乗り換えたんだと思う。
+;; (el-get-bundle smart-mode-line) ;; (defvar sml/no-confirm-load-theme t) ;; (defvar sml/theme &amp;#39;dark) ;; (sml/setup) ;; major-mode ;; (add-hook &amp;#39;emacs-lisp-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon &amp;#34;elisp&amp;#34;)))) ;; (add-hook &amp;#39;enh-ruby-mode-hook (lambda () (setq mode-name (concat &amp;#34;e&amp;#34; (all-the-icons-alltheicon &amp;#34;ruby-alt&amp;#34;))))) ;; (add-hook &amp;#39;ruby-mode-hook (lambda () (setq mode-name (all-the-icons-alltheicon &amp;#34;ruby-alt&amp;#34;)))) ;; (add-hook &amp;#39;vue-mode-hook (lambda () ;; (make-local-variable &amp;#39;mmm-submode-mode-line-format) ;; (setq mmm-submode-mode-line-format &amp;#34;~M:~m&amp;#34;) ;; (make-local-variable &amp;#39;mmm-buffer-mode-display-name) ;; (setq mmm-buffer-mode-display-name &amp;#34;V&amp;#34;))) ;; (add-hook &amp;#39;js-mode-hook (lambda () (setq mode-name &amp;#34;&amp;#34;))) ;; (add-hook &amp;#39;pug-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon &amp;#34;pug&amp;#34;)))) ;; (add-hook &amp;#39;css-mode-hook (lambda () (setq mode-name (all-the-icons-faicon &amp;#34;css3&amp;#34;)))) ;; (add-hook &amp;#39;twittering-mode-hook (lambda () (setq mode-name (all-the-icons-faicon &amp;#34;twitter-square&amp;#34;)))) ;; (add-hook &amp;#39;org-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon &amp;#34;org&amp;#34;)))) diminish diminish は minor-mode の表示をカスタマイズするためのモード。</description>
+    </item>
+    
+    <item>
       <title>Neotree</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/neotree/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
