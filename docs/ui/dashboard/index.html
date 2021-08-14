@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>Agenda 関係の設定 :: 麦汁&#39;s Emacs Config</title>
+    <title>dashboard :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1628954743" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/org-mode/agenda/">
+  <body class="" data-url="/.emacs.d/ui/dashboard/">
     <nav id="sidebar" class="">
 
 
@@ -824,7 +824,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        
+        parent
         
         
         ">
@@ -913,7 +913,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/dashboard/" title="dashboard" class="dd-item ">
+      <li data-nav-id="/.emacs.d/ui/dashboard/" title="dashboard" class="dd-item active">
         <a href="/.emacs.d/ui/dashboard/">
         dashboard
         
@@ -2031,7 +2031,7 @@
   
     
     <li data-nav-id="/.emacs.d/org-mode/" title="org-mode" class="dd-item
-        parent
+        
         
         
         ">
@@ -2120,7 +2120,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/org-mode/agenda/" title="Agenda 関係の設定" class="dd-item active">
+      <li data-nav-id="/.emacs.d/org-mode/agenda/" title="Agenda 関係の設定" class="dd-item ">
         <a href="/.emacs.d/org-mode/agenda/">
         Agenda 関係の設定
         
@@ -2615,7 +2615,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/org-mode/'>org-mode</a> > Agenda 関係の設定
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > dashboard
           
         
           
@@ -2631,18 +2631,13 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#org-super-agenda-のインストール">org-super-agenda のインストール</a></li>
-    <li><a href="#週の始まりを日曜日に設定">週の始まりを日曜日に設定</a></li>
-    <li><a href="#1日単位をデフォルト表示に設定">1日単位をデフォルト表示に設定</a></li>
-    <li><a href="#agenda-の対象ファイルを指定">agenda の対象ファイルを指定</a></li>
-    <li><a href="#agenda-の表示周りの設定">agenda の表示周りの設定</a>
-      <ul>
-        <li><a href="#agenda-に時間の区切りを入れない">agenda に時間の区切りを入れない</a></li>
-        <li><a href="#ブロック間の区切り表示">ブロック間の区切り表示</a></li>
-        <li><a href="#org-super-agnda-mode-の有効化">org-super-agnda-mode の有効化</a></li>
-        <li><a href="#カスタムビュー">カスタムビュー</a></li>
-      </ul>
-    </li>
+    <li><a href="#インストール">インストール</a></li>
+    <li><a href="#表示するアイコンをロゴに変更">表示するアイコンをロゴに変更</a></li>
+    <li><a href="#表示する情報の設定">表示する情報の設定</a></li>
+    <li><a href="#各セクションのタイトル部の先頭にアイコンを表示">各セクションのタイトル部の先頭にアイコンを表示</a></li>
+    <li><a href="#各ファイルの先頭にアイコンを表示">各ファイルの先頭にアイコンを表示</a></li>
+    <li><a href="#最後に設定を反映">最後に設定を反映</a></li>
+    <li><a href="#その他">その他</a></li>
   </ul>
 </nav>
     </div>
@@ -2660,7 +2655,7 @@
           
             <h1>
               
-              Agenda 関係の設定
+              dashboard
             </h1>
           
 
@@ -2668,322 +2663,37 @@
 
 
 <h2 id="概要">概要</h2>
-<p>org-mode の素晴らしい機能の1つに Agenda というものがある。</p>
-<p>これは色々な org ファイルに散らばった情報を1つのビューに表示するための機能で、使いこなすとファイルがバラけていてもいい感じに情報が抽出できて便利なやつ。</p>
-<p>まあ麦汁さんはまだ使いこなせてないけど。</p>
-<p>それでもいくつか Agenda 用の View を用意したりして日常業務に役立てている。</p>
-<h2 id="org-super-agenda-のインストール">org-super-agenda のインストール</h2>
-<p>org-mode のデフォルトの agenda だと表示周りが物足りなかったので
-<a href="https://github.com/alphapapa/org-super-agenda">org-super-agenda</a> を導入している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle org-super-agenda)
-</code></pre></div><h2 id="週の始まりを日曜日に設定">週の始まりを日曜日に設定</h2>
-<p>麦汁さんは週のスタートを日曜日とする派なので
-org-agenda の週の始まりも日曜日に設定している</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq org-agenda-start-on-weekday <span style="color:#ae81ff">0</span>)
-</code></pre></div><h2 id="1日単位をデフォルト表示に設定">1日単位をデフォルト表示に設定</h2>
-<p>1週間表示よりも「今日って何するんだっけ」みたいな使い方が多いので
-1日を表示単位としている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq org-agenda-span <span style="color:#e6db74">&#39;day</span>)
-</code></pre></div><p>週単位で何をするかについては今のところ記憶力で対応している。</p>
-<p>あと、基本的にカスタムビューを使ってるのでこれの影響は受けてるかどうか微妙。</p>
-<h2 id="agenda-の対象ファイルを指定">agenda の対象ファイルを指定</h2>
-<p>org-agenda を使う時に抽出対象とする org ファイルを指定している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq org-agenda-files
-      <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/ical.org&#34;</span>
-        <span style="color:#e6db74">&#34;~/Documents/org/tasks/&#34;</span>))
-</code></pre></div><p>けどカスタムビューを多用しているので多分この設定ちゃんと活かしてない。
-ical.org とか更新してないし……。</p>
-<h2 id="agenda-の表示周りの設定">agenda の表示周りの設定</h2>
-<h3 id="agenda-に時間の区切りを入れない">agenda に時間の区切りを入れない</h3>
-<p><code>org-agenda-use-time-grid</code> を t にしていると
-10:00 とかのキリがいいところに区切り線を表示してくれるのだが日報提出時には邪魔だし、普段使いでもその区切り線はあっても邪魔っぽいので
-nil にして表示しないようにしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq org-agenda-use-time-grid <span style="color:#66d9ef">nil</span>)
-</code></pre></div><h3 id="ブロック間の区切り表示">ブロック間の区切り表示</h3>
-<p>ブロックとブロックの区切りをハイフン繋ぎの文字列で指定している。</p>
-<p>文字列を指定することで固定の長さの区切り文字になるが実は <code>?-</code> とか指定して長さが無限に伸びるようにしてもいいかもしれない。と思いつつ、多分 zoom-mode とかでバッファの幅が切り替わる時に邪魔になるから固定でいいか。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq org-agenda-block-separator <span style="color:#e6db74">&#34;------------------------------&#34;</span>)
-</code></pre></div><h3 id="org-super-agnda-mode-の有効化">org-super-agnda-mode の有効化</h3>
-<p>なんでここで有効化しているのかね。インストールのやつと近付けた方がいい気がする。</p>
-<p>とりあえず有効化して使えるようにしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(org-super-agenda-mode <span style="color:#ae81ff">1</span>)
-</code></pre></div><h3 id="カスタムビュー">カスタムビュー</h3>
-<p>色々なカスタムビューを定義している。かといって全部使ってるわけではないし、つまり使いこなせているかというと微妙。</p>
-<table>
-<thead>
-<tr>
-<th>キー</th>
-<th>内容</th>
-<th>備考</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>hs</td>
-<td>稼動日の始業直後に実施する習慣タスクの表示</td>
-<td>よく使っている。その日やるタスクを決めたりしている</td>
-</tr>
-<tr>
-<td>hf</td>
-<td>稼動日の退勤直前に実施する習慣タスクの表示</td>
-<td>よく使っている。その日の日報を書くなどしている</td>
-</tr>
-<tr>
-<td>hw</td>
-<td>週間隔または隔週で実施する習慣タスクの表示</td>
-<td>週1で使う感じ。この中に放置しているタスクもある</td>
-</tr>
-<tr>
-<td>hh</td>
-<td>休日の習慣タスク</td>
-<td>最近使ってない。。。真面目にタスクを作り過ぎてだるくなってるやつ</td>
-</tr>
-<tr>
-<td>d</td>
-<td>今日の予定などを表示</td>
-<td>普段は会議部分しか見てないので改善が必要そう</td>
-</tr>
-<tr>
-<td>D</td>
-<td>休日タスクの表示</td>
-<td>使ってない。。。</td>
-</tr>
-<tr>
-<td>pp</td>
-<td>GTD の Projects の表示</td>
-<td>たまに使う程度。もうちょっと洗練させたい</td>
-</tr>
-<tr>
-<td>pP</td>
-<td>GTD の Projects の内、環境整備系以外</td>
-<td>環境整備はやっても業務に直接寄与しないので忙しい時は見たくないでござる</td>
-</tr>
-<tr>
-<td>P</td>
-<td>GTD の Pointers の表示</td>
-<td>たまーに使う。資料が貯まり過ぎて取り扱いに困っている</td>
-</tr>
-<tr>
-<td>X</td>
-<td>終了したタスクを表示</td>
-<td>まとめてお掃除する時に使っている</td>
-</tr>
-<tr>
-<td>z</td>
-<td>日報用表示</td>
-<td>毎日業務日報の提出が要求されているのでそれっぽく表示されるようにしている</td>
-</tr>
-<tr>
-<td>H</td>
-<td>GTD の Projects の中の家事を抽出</td>
-<td>最近は使ってない</td>
-</tr>
-<tr>
-<td>EO</td>
-<td>org-mode 関連の環境整備タスク</td>
-<td>最近見てない</td>
-</tr>
-<tr>
-<td>EE</td>
-<td>Emacs 関係かつ org-mode 以外の環境整備タスク</td>
-<td>貯まる一方</td>
-</tr>
-<tr>
-<td>Ee</td>
-<td>Emacs 以外の環境整備タスク</td>
-<td>これも貯まる。Emacs 設定ほどじゃないけど</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq org-agenda-custom-commands
-<span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;h&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;Habits&#34;</span>)
-  (<span style="color:#e6db74">&#34;hs&#34;</span> <span style="color:#e6db74">&#34;Weekday Start&#34;</span>
-   ((tags <span style="color:#e6db74">&#34;Weekday&amp;Start|Daily&#34;</span>
-          ((org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
-                                      (:name <span style="color:#e6db74">&#34;今日の作業&#34;</span> :scheduled today)
-                                      (:discard (:anything <span style="color:#66d9ef">t</span>))))))))
-  (<span style="color:#e6db74">&#34;hf&#34;</span> <span style="color:#e6db74">&#34;Weekday Finish&#34;</span>
-   ((tags <span style="color:#e6db74">&#34;Weekday&amp;Finish&#34;</span>
-          ((org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
-                                      (:name <span style="color:#e6db74">&#34;今日の作業&#34;</span> :scheduled today)
-                                      (:discard (:anything <span style="color:#66d9ef">t</span>))))))))
-  (<span style="color:#e6db74">&#34;hw&#34;</span> <span style="color:#e6db74">&#34;Weekly&#34;</span>
-   ((tags <span style="color:#e6db74">&#34;Weekly&#34;</span>
-          ((org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
-                                      (:name <span style="color:#e6db74">&#34;今週の作業&#34;</span> :scheduled today)
-                                      (:discard (:anything <span style="color:#66d9ef">t</span>))))))))
-  (<span style="color:#e6db74">&#34;hh&#34;</span> <span style="color:#e6db74">&#34;Holiday&#34;</span>
-   ((tags <span style="color:#e6db74">&#34;Weekend|Holiday|Daily&#34;</span>
-          ((org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
-                                      (:name <span style="color:#e6db74">&#34;今日の作業&#34;</span> :scheduled today)
-                                      (:discard (:anything <span style="color:#66d9ef">t</span>))))))))
-  (<span style="color:#e6db74">&#34;d&#34;</span> <span style="color:#e6db74">&#34;Today&#34;</span>
-   ((agenda <span style="color:#e6db74">&#34;会議など&#34;</span>
-            ((org-agenda-span <span style="color:#e6db74">&#39;day</span>)
-             (org-agenda-files my/org-agenda-calendar-files)))
-    (tags-todo <span style="color:#e6db74">&#34;-Weekday-Daily-Holiday-Weekly-Weekend&#34;</span>
-               ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
-                (org-agenda-overriding-header <span style="color:#e6db74">&#34;今日の作業&#34;</span>)
-                (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
-                (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
-                (org-agenda-todo-keyword-format <span style="color:#e6db74">&#34;-&#34;</span>)
-                (org-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
-                (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/next-actions.org&#34;</span>))
-                (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;仕掛かり中&#34;</span> :todo <span style="color:#e6db74">&#34;DOING&#34;</span>)
-                                           (:name <span style="color:#e6db74">&#34;TODO&#34;</span> :todo <span style="color:#e6db74">&#34;TODO&#34;</span>)
-                                           (:name <span style="color:#e6db74">&#34;待ち&#34;</span> :todo <span style="color:#e6db74">&#34;WAIT&#34;</span>)
-                                           (:discard (:anything <span style="color:#66d9ef">t</span>))))))
-    (alltodo <span style="color:#e6db74">&#34;&#34;</span>
-               ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
-                (org-agenda-overriding-header <span style="color:#e6db74">&#34;予定作業&#34;</span>)
-                (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
-                (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
-                (org-agenda-todo-keyword-format <span style="color:#e6db74">&#34;-&#34;</span>)
-                (org-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
-                (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))
-                (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;〆切が過ぎてる作業&#34;</span> :deadline past)
-                                           (:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
-                                           (:name <span style="color:#e6db74">&#34;今日〆切の作業&#34;</span> :deadline today)
-                                           (:name <span style="color:#e6db74">&#34;今日予定の作業&#34;</span> :scheduled today)
-                                           (:discard (:anything <span style="color:#66d9ef">t</span>))))))
-    (tags-todo <span style="color:#e6db74">&#34;Weekday|Daily|Weekly&#34;</span>
-               ((org-agenda-overriding-header <span style="color:#e6db74">&#34;習慣&#34;</span>)
-                (org-habit-show-habits <span style="color:#66d9ef">t</span>)
-                (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/next-actions.org&#34;</span>))
-                (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
-                                           (:name <span style="color:#e6db74">&#34;今日予定&#34;</span> :scheduled today)
-                                           (:discard (:anything <span style="color:#66d9ef">t</span>))))))))
-  (<span style="color:#e6db74">&#34;D&#34;</span> <span style="color:#e6db74">&#34;Holiday&#34;</span>
-   ((tags-todo <span style="color:#e6db74">&#34;-Weekday-Daily-Holiday-Weekly-Weekend&#34;</span>
-               ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
-                (org-agenda-overriding-header <span style="color:#e6db74">&#34;休日の作業&#34;</span>)
-                (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
-                (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
-                (org-agenda-todo-keyword-format <span style="color:#e6db74">&#34;-&#34;</span>)
-                (org-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
-                (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/next-actions.org&#34;</span>))
-                (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;仕掛かり中&#34;</span> :todo <span style="color:#e6db74">&#34;DOING&#34;</span>)
-                                           (:name <span style="color:#e6db74">&#34;TODO&#34;</span> :todo <span style="color:#e6db74">&#34;TODO&#34;</span>)
-                                           (:name <span style="color:#e6db74">&#34;待ち&#34;</span> :todo <span style="color:#e6db74">&#34;WAIT&#34;</span>)
-                                           (:discard (:anything <span style="color:#66d9ef">t</span>))))))
-    (tags-todo <span style="color:#e6db74">&#34;Holiday|Weekend|Daily&#34;</span>
-               ((org-agenda-overriding-header <span style="color:#e6db74">&#34;習慣&#34;</span>)
-                (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/next-actions.org&#34;</span>))
-                (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
-                                           (:name <span style="color:#e6db74">&#34;今日予定の作業&#34;</span> :scheduled today)
-                                           (:discard (:anything <span style="color:#66d9ef">t</span>))))))))
-  (<span style="color:#e6db74">&#34;p&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;Projects&#34;</span>)
-  (<span style="color:#e6db74">&#34;pp&#34;</span> <span style="color:#e6db74">&#34;Projects&#34;</span>
-   ((alltodo <span style="color:#e6db74">&#34;&#34;</span> ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
-                 (org-agenda-overriding-header <span style="color:#e6db74">&#34;今日のタスク&#34;</span>)
-                 (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
-                 (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
-                 (org-agenda-todo-keyword-format <span style="color:#e6db74">&#34;-&#34;</span>)
-                 (org-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
-                 (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/next-actions.org&#34;</span>))
-                 (org-super-agenda-groups (<span style="color:#a6e22e">append</span>
-                                           (<span style="color:#a6e22e">mapcar</span> (lambda (key) <span style="color:#f92672">`</span>(:name <span style="color:#f92672">,</span>key :and (:category <span style="color:#f92672">,</span>key :todo (<span style="color:#e6db74">&#34;DOING&#34;</span> <span style="color:#e6db74">&#34;WAIT&#34;</span>)))) (if (<span style="color:#a6e22e">boundp</span> <span style="color:#e6db74">&#39;my/nippou-categories</span>) my/nippou-categories <span style="color:#66d9ef">nil</span>))
-                                           <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;その他&#34;</span> :scheduled <span style="color:#66d9ef">nil</span>)
-                                             (:discard (:anything <span style="color:#66d9ef">t</span>)))))))
-    (alltodo <span style="color:#e6db74">&#34;&#34;</span> ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
-                 (org-agenda-overriding-header <span style="color:#e6db74">&#34;予定に入ってる作業&#34;</span>)
-                 (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
-                 (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
-                 (org-agenda-todo-keyword-format <span style="color:#e6db74">&#34;-&#34;</span>)
-                 (org-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
-                 (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))
-                 (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;〆切が過ぎてる作業&#34;</span> :deadline past)
-                                            (:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
-                                            (:name <span style="color:#e6db74">&#34;今日〆切の作業&#34;</span> :deadline today)
-                                            (:name <span style="color:#e6db74">&#34;今日予定の作業&#34;</span> :scheduled today)
-                                            (:discard (:anything <span style="color:#66d9ef">t</span>))))))
-    (todo <span style="color:#e6db74">&#34;DOING&#34;</span> ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))))
-    (todo <span style="color:#e6db74">&#34;TODO&#34;</span>  ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))))))
-  (<span style="color:#e6db74">&#34;pP&#34;</span> <span style="color:#e6db74">&#34;Projects without Env&#34;</span>
-   ((alltodo <span style="color:#e6db74">&#34;&#34;</span> ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
-                 (org-agenda-overriding-header <span style="color:#e6db74">&#34;今日のタスク&#34;</span>)
-                 (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
-                 (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
-                 (org-agenda-todo-keyword-format <span style="color:#e6db74">&#34;-&#34;</span>)
-                 (org-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
-                 (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/next-actions.org&#34;</span>))
-                 (org-super-agenda-groups (<span style="color:#a6e22e">append</span>
-                                           (<span style="color:#a6e22e">mapcar</span> (lambda (key) <span style="color:#f92672">`</span>(:name <span style="color:#f92672">,</span>key :and (:category <span style="color:#f92672">,</span>key :todo (<span style="color:#e6db74">&#34;DOING&#34;</span> <span style="color:#e6db74">&#34;WAIT&#34;</span>)))) (if (<span style="color:#a6e22e">boundp</span> <span style="color:#e6db74">&#39;my/nippou-categories</span>) my/nippou-categories <span style="color:#66d9ef">nil</span>))
-                                           <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;その他&#34;</span> :scheduled <span style="color:#66d9ef">nil</span>)
-                                             (:discard (:anything <span style="color:#66d9ef">t</span>)))))))
-    (alltodo <span style="color:#e6db74">&#34;&#34;</span> ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
-                 (org-agenda-overriding-header <span style="color:#e6db74">&#34;予定に入ってる作業&#34;</span>)
-                 (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
-                 (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
-                 (org-agenda-todo-keyword-format <span style="color:#e6db74">&#34;-&#34;</span>)
-                 (org-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
-                 (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))
-                 (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;〆切が過ぎてる作業&#34;</span> :deadline past)
-                                            (:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
-                                            (:name <span style="color:#e6db74">&#34;今日〆切の作業&#34;</span> :deadline today)
-                                            (:name <span style="color:#e6db74">&#34;今日予定の作業&#34;</span> :scheduled today)
-                                            (:discard (:anything <span style="color:#66d9ef">t</span>))))))
-    (tags-todo <span style="color:#e6db74">&#34;-Emacs-org-Env-Hugo&#34;</span> ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))))))
-  (<span style="color:#e6db74">&#34;P&#34;</span> <span style="color:#e6db74">&#34;Pointers&#34;</span>
-   ((todo <span style="color:#e6db74">&#34;DOING&#34;</span> ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/pointers.org&#34;</span>))))
-    (todo <span style="color:#e6db74">&#34;TODO&#34;</span>  ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/pointers.org&#34;</span>))))))
-  (<span style="color:#e6db74">&#34;X&#34;</span> <span style="color:#e6db74">&#34;Finished&#34;</span>
-   ((todo <span style="color:#e6db74">&#34;DONE&#34;</span>    ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>
-                                         <span style="color:#e6db74">&#34;~/Documents/org/tasks/inbox.org&#34;</span>
-                                         <span style="color:#e6db74">&#34;~/Documents/org/tasks/shopping.org&#34;</span>
-                                         <span style="color:#e6db74">&#34;~/Documents/org/tasks/next-actions.org&#34;</span>))))
-    (todo <span style="color:#e6db74">&#34;SOMEDAY&#34;</span> ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>
-                                         <span style="color:#e6db74">&#34;~/Documents/org/tasks/inbox.org&#34;</span>
-                                         <span style="color:#e6db74">&#34;~/Documents/org/tasks/shopping.org&#34;</span>
-                                         <span style="color:#e6db74">&#34;~/Documents/org/tasks/next-actions.org&#34;</span>))))))
+<p><a href="https://github.com/emacs-dashboard/emacs-dashboard">emacs-dashboard</a> は
+Emacs の起動時に色々な情報を表示してくれるパッケージ。</p>
+<h2 id="インストール">インストール</h2>
+<p>いつも通り el-get で入れている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle dashboard)
+</code></pre></div><h2 id="表示するアイコンをロゴに変更">表示するアイコンをロゴに変更</h2>
+<p>ロゴ、画像にした方がカッコいいよねってことで logo に変更している</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq dashboard-startup-banner <span style="color:#e6db74">&#39;logo</span>)
+</code></pre></div><p>なお CUI で起動すると自動でテキストでの表示になる</p>
+<h2 id="表示する情報の設定">表示する情報の設定</h2>
+<p>dashboard-items を弄ることで表示する情報を設定している</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq dashboard-items <span style="color:#f92672">&#39;</span>((recents  <span style="color:#f92672">.</span> <span style="color:#ae81ff">5</span>)
+                        <span style="color:#75715e">;; (bookmarks . 5) ;; bookmarks は使ってない</span>
+                        (projects <span style="color:#f92672">.</span> <span style="color:#ae81ff">5</span>)
+                        (agenda <span style="color:#f92672">.</span> <span style="color:#ae81ff">5</span>)
+                        <span style="color:#75715e">;; (registers . 5) ;; registers は使ってない</span>
+                        ))
+</code></pre></div><p>Emacs の bookmarks と register は使ってない(使えてない)のでコメントアウトしている。</p>
+<p>あとは最近開いたファイルとプロジェクトとagendaを表示するようにしているがイマイチ活用できてないので色々設定を詰める必要がありそう</p>
+<h2 id="各セクションのタイトル部の先頭にアイコンを表示">各セクションのタイトル部の先頭にアイコンを表示</h2>
+<p>これは見た目をちょっとだけカッコよくするために all-the-icons で装飾するための設定</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq dashboard-set-heading-icons <span style="color:#66d9ef">t</span>)
+</code></pre></div><h2 id="各ファイルの先頭にアイコンを表示">各ファイルの先頭にアイコンを表示</h2>
+<p>これも見た目をちょっとだエカッコよくするために all-the-icons で装飾するための設定。だけどファイルの種類がアイコンでわかるので便利。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq dashboard-set-file-icons <span style="color:#66d9ef">t</span>)
+</code></pre></div><h2 id="最後に設定を反映">最後に設定を反映</h2>
+<p>多分設定を反映するための関数だと思ってる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(dashboard-setup-startup-hook)
+</code></pre></div><h2 id="その他">その他</h2>
+<p>agenda などは表示する内容を絞ったりした方が dashboard として使い勝手が良さそう。今日の会議何があるとかが出ると便利かもね。</p>
 
-  (<span style="color:#e6db74">&#34;z&#34;</span> <span style="color:#e6db74">&#34;日報&#34;</span>
-   ((agenda <span style="color:#e6db74">&#34;&#34;</span> ((org-agenda-span <span style="color:#e6db74">&#39;day</span>)
-                (org-agenda-overriding-header <span style="color:#e6db74">&#34;&#34;</span>)
-                (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
-                (org-agenda-format-date <span style="color:#e6db74">&#34;## %Y/%m/%d (%a) 日報&#34;</span>)
-                (org-agenda-prefix-format <span style="color:#e6db74">&#34; %?-12t&#34;</span>)
-                (org-agenda-files my/org-agenda-calendar-files)
-                (org-super-agenda-groups
-                 <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;会議など&#34;</span> :time-grid <span style="color:#66d9ef">t</span>)
-                   (:discard (:anything <span style="color:#66d9ef">t</span>))))))
-    (todo <span style="color:#e6db74">&#34;DONE&#34;</span> ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
-                  (org-agenda-overriding-header <span style="color:#e6db74">&#34;対応済&#34;</span>)
-                  (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
-                  (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
-                  (org-agenda-todo-keyword-format <span style="color:#e6db74">&#34;-&#34;</span>)
-                  <span style="color:#75715e">;; (org-overriding-columns-format &#34;%25ITEM %TODO %CATEGORY&#34;)</span>
-                  (org-columns-default-format-for-agenda <span style="color:#e6db74">&#34;%25ITEM %TODO %3PRIORITY&#34;</span>)
-                  (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/next-actions.org&#34;</span>))
-                  (org-super-agenda-groups (<span style="color:#a6e22e">append</span>
-                                            (<span style="color:#a6e22e">mapcar</span> (lambda (key) <span style="color:#f92672">`</span>(:name <span style="color:#f92672">,</span>key :and (:category <span style="color:#f92672">,</span>key :todo (<span style="color:#e6db74">&#34;DONE&#34;</span>)))) (if (<span style="color:#a6e22e">boundp</span> <span style="color:#e6db74">&#39;my/nippou-categories</span>) my/nippou-categories <span style="color:#66d9ef">nil</span>))
-                                            <span style="color:#f92672">&#39;</span>((:discard (:anything <span style="color:#66d9ef">t</span> :name <span style="color:#e6db74">&#34;discard&#34;</span>)))))))
-    (alltodo <span style="color:#e6db74">&#34;&#34;</span> ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
-                 (org-agenda-overriding-header <span style="color:#e6db74">&#34;仕掛かり中&#34;</span>)
-                 (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
-                 (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
-                 (org-agenda-todo-keyword-format <span style="color:#e6db74">&#34;-&#34;</span>)
-                 (org-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
-                 (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/next-actions.org&#34;</span>))
-                 (org-super-agenda-groups (<span style="color:#a6e22e">append</span>
-                                           (<span style="color:#a6e22e">mapcar</span> (lambda (key) <span style="color:#f92672">`</span>(:name <span style="color:#f92672">,</span>key :and (:category <span style="color:#f92672">,</span>key :todo (<span style="color:#e6db74">&#34;DOING&#34;</span> <span style="color:#e6db74">&#34;WAIT&#34;</span>)))) (if (<span style="color:#a6e22e">boundp</span> <span style="color:#e6db74">&#39;my/nippou-categories</span>) my/nippou-categories <span style="color:#66d9ef">nil</span>))
-                                           <span style="color:#f92672">&#39;</span>((:discard (:anything <span style="color:#66d9ef">t</span> :name <span style="color:#e6db74">&#34;discard&#34;</span>)))))))))
-
-  (<span style="color:#e6db74">&#34;H&#34;</span> <span style="color:#e6db74">&#34;HouseWork&#34;</span> ((tags <span style="color:#e6db74">&#34;HouseWork&#34;</span>)))
-  (<span style="color:#e6db74">&#34;E&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;Env&#34;</span>)
-  (<span style="color:#e6db74">&#34;EO&#34;</span> <span style="color:#e6db74">&#34;org&#34;</span>
-   ((tags-todo <span style="color:#e6db74">&#34;+org&#34;</span>
-               ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>
-                                    <span style="color:#e6db74">&#34;~/Documents/org/tasks/inbox.org&#34;</span>))))))
-  (<span style="color:#e6db74">&#34;EE&#34;</span> <span style="color:#e6db74">&#34;Emacs without org&#34;</span>
-   ((tags-todo <span style="color:#e6db74">&#34;+Emacs-org&#34;</span>
-               ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>
-                                    <span style="color:#e6db74">&#34;~/Documents/org/tasks/inbox.org&#34;</span>))))))
-  (<span style="color:#e6db74">&#34;Ee&#34;</span> <span style="color:#e6db74">&#34;without Emacs&#34;</span>
-   ((tags-todo <span style="color:#e6db74">&#34;+Env-Emacs-org&#34;</span>
-               ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>
-                                    <span style="color:#e6db74">&#34;~/Documents/org/tasks/inbox.org&#34;</span>))))))))
-</code></pre></div>
 
 <footer class="footline">
 	
@@ -3535,6 +3245,7 @@ nil にして表示しないようにしている。</p>
             
                 
                     
+                    
                 
                 
 
@@ -3547,6 +3258,77 @@ nil にして表示しないようにしている。</p>
             
             
                 
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -3622,390 +3404,6 @@ nil にして表示しないようにしている。</p>
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
                         
             
@@ -4311,6 +3709,22 @@ nil にして表示しないようにしている。</p>
             
         
                     
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
                         
             
             
@@ -4407,30 +3821,10 @@ nil にして表示しないようにしている。</p>
             
         
                     
-            
-        
-                    
                         
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -4480,6 +3874,21 @@ nil にして表示しないようにしている。</p>
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -4497,8 +3906,309 @@ nil にして表示しないようにしている。</p>
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -4795,10 +4505,10 @@ nil にして表示しないようにしている。</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/org-mode/calendar/" title="予定のカレンダー表示"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/ui/color-theme-molokai/" title="color-theme-molokai"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/org-mode/org-capture/" title="org-capture" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/ui/frame-cmds/" title="frame-cmds" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
