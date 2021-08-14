@@ -89,6 +89,17 @@ strict モードだとペアが崩れないように強制するので雑に C-k
     </item>
     
     <item>
+      <title>view-mode</title>
+      <link>https://mugijiru.github.io/.emacs.d/editing/view-mode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/editing/view-mode/</guid>
+      <description>概要 view-mode は Emacs に標準で組込まれているモードで、バッファを閲覧専用にする機能を提供してくれるやつ。コードを眺めたい時などに使っている。
+キーバインド view-mode の時は文字入力をする必要がないので通常のモードの時とは違うキーバインドが使えるようにしている。
+(defun my/setup-view-mode-keymap () (let ((keymap view-mode-map)) (define-key keymap (kbd &amp;#34;h&amp;#34;) &amp;#39;backward-char) (define-key keymap (kbd &amp;#34;j&amp;#34;) &amp;#39;next-line) (define-key keymap (kbd &amp;#34;k&amp;#34;) &amp;#39;previous-line) (define-key keymap (kbd &amp;#34;l&amp;#34;) &amp;#39;forward-char) (define-key keymap (kbd &amp;#34;e&amp;#34;) &amp;#39;forward-word) (define-key keymap (kbd &amp;#34;b&amp;#34;) &amp;#39;scroll-down) (define-key keymap (kbd &amp;#34;SPC&amp;#34;) &amp;#39;scroll-up) (define-key keymap (kbd &amp;#34;g&amp;#34;) &amp;#39;beginning-of-buffer) (define-key keymap (kbd &amp;#34;G&amp;#34;) &amp;#39;end-of-buffer) (define-key keymap (kbd &amp;#34;&amp;lt;&amp;#34;) &amp;#39;beginning-of-buffer) (define-key keymap (kbd &amp;#34;&amp;gt;&amp;#34;) &amp;#39;end-of-buffer)))    Key 効果     h 1文字戻る   j 1行下がる   k 1行上がる   l 1文字進む   e 単語の直後に移動   b 1スクロール戻る   SPC 1スクロール進む   g, &amp;lt; バッファの先頭に移動   G, &amp;gt; バッファの末尾に移動    適当だけど Vim の通常モードの時みたいな操作ができるようにしている。</description>
+    </item>
+    
+    <item>
       <title>whitespace</title>
       <link>https://mugijiru.github.io/.emacs.d/editing/whitespace/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

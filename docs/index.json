@@ -88,7 +88,7 @@
 	"title": "ファイル編集/入力補助",
 	"tags": [],
 	"description": "",
-	"content": "ここにはファイル編集や入力補助の設定をまとめている\n auto-insert ファイル新規作成時にテンプレートを挿入する機能 company-mode プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ emojify Slack や GitHub みたいに :smile: とか入れると笑顔の絵文字を表示する、みたいなやつ multiple-cursors カーソルを増やして複数箇所を同時に編集できるようになるやつ smartparens カッコや引用符などのペアになるやつの入力補助をしてくれるやつ undo-fu シンプルな undo/redo の機能を提供してくれるやつ whitespace 空白文字を可視化したり自動的に消したりする便利なやつ yasnippet テンプレート挿入機能を提供してくれるやつ  "
+	"content": "ここにはファイル編集や入力補助の設定をまとめている\n auto-insert ファイル新規作成時にテンプレートを挿入する機能 company-mode プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ emojify Slack や GitHub みたいに :smile: とか入れると笑顔の絵文字を表示する、みたいなやつ multiple-cursors カーソルを増やして複数箇所を同時に編集できるようになるやつ smartparens カッコや引用符などのペアになるやつの入力補助をしてくれるやつ undo-fu シンプルな undo/redo の機能を提供してくれるやつ view-mode Emacs に組込まれてる閲覧専用のモード。コードリーディングの時に有効にすると便利 whitespace 空白文字を可視化したり自動的に消したりする便利なやつ yasnippet テンプレート挿入機能を提供してくれるやつ  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/org-capture/",
@@ -698,6 +698,13 @@
 	"tags": [],
 	"description": "",
 	"content": ""
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/editing/view-mode/",
+	"title": "view-mode",
+	"tags": [],
+	"description": "",
+	"content": "概要 view-mode は Emacs に標準で組込まれているモードで、バッファを閲覧専用にする機能を提供してくれるやつ。コードを眺めたい時などに使っている。\nキーバインド view-mode の時は文字入力をする必要がないので通常のモードの時とは違うキーバインドが使えるようにしている。\n(defun my/setup-view-mode-keymap () (let ((keymap view-mode-map)) (define-key keymap (kbd \u0026#34;h\u0026#34;) \u0026#39;backward-char) (define-key keymap (kbd \u0026#34;j\u0026#34;) \u0026#39;next-line) (define-key keymap (kbd \u0026#34;k\u0026#34;) \u0026#39;previous-line) (define-key keymap (kbd \u0026#34;l\u0026#34;) \u0026#39;forward-char) (define-key keymap (kbd \u0026#34;e\u0026#34;) \u0026#39;forward-word) (define-key keymap (kbd \u0026#34;b\u0026#34;) \u0026#39;scroll-down) (define-key keymap (kbd \u0026#34;SPC\u0026#34;) \u0026#39;scroll-up) (define-key keymap (kbd \u0026#34;g\u0026#34;) \u0026#39;beginning-of-buffer) (define-key keymap (kbd \u0026#34;G\u0026#34;) \u0026#39;end-of-buffer) (define-key keymap (kbd \u0026#34;\u0026lt;\u0026#34;) \u0026#39;beginning-of-buffer) (define-key keymap (kbd \u0026#34;\u0026gt;\u0026#34;) \u0026#39;end-of-buffer)))    Key 効果     h 1文字戻る   j 1行下がる   k 1行上がる   l 1文字進む   e 単語の直後に移動   b 1スクロール戻る   SPC 1スクロール進む   g, \u0026lt; バッファの先頭に移動   G, \u0026gt; バッファの末尾に移動    適当だけど Vim の通常モードの時みたいな操作ができるようにしている。\nこれで不要に左手小指を痛める可能性が下がるであろう。\nhook 上でキーバインドを設定できる関数を用意してあるので view-mode が有効になる時にそれを hook して設定されるようにしている。\nが、 hook する必要あるのか疑問ではあるな。ま、動いているからとりあえずいいけど。\n(defun my/view-mode-hook () (my/setup-view-mode-keymap)) (add-hook \u0026#39;view-mode-hook \u0026#39;my/view-mode-hook) Toggle するコマンド view-mode にしたり戻したりするコマンドを用意している。\nview-mode を有効にする時には hl-line-mode も有効にしているのでその時眺めている行がハイライトされるようになっている。普段はそれがあるかどうかでどっちもモードかざっくり判断している。\n他にも mode-line の色を変更するなどの技があるようだがひとまず今の設定でそう困ってないのでいいかな。\n(defun my/toggle-view-mode () \u0026#34;view-mode と通常モードの切り替えコマンド\u0026#34; (interactive) (cond (view-mode (hl-line-mode -1) (view-mode -1)) (t (hl-line-mode 1) (view-mode 1)))) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/programming/vue-js/",

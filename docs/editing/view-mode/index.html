@@ -9,23 +9,23 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>highlight-indent-guides :: 麦汁&#39;s Emacs Config</title>
+    <title>view-mode :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1628952330" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1628952330" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1628952330" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1628952330" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1628952330" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1628952330" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1628952330" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1628952330" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1628952330" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1628952330" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1628952329" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1628952329" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1628952329" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1628952329" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1628952329" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1628952329" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1628952329" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1628952329" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1628952329" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1628952329" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1628952330"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1628952329"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/ui/highlight-indent-guides/">
+  <body class="" data-url="/.emacs.d/editing/view-mode/">
     <nav id="sidebar" class="">
 
 
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1628952330"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1628952330"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1628952329"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1628952329"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1628952330"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1628952329"></script>
 
     
   </div>
@@ -580,7 +580,7 @@
   
     
     <li data-nav-id="/.emacs.d/editing/" title="ファイル編集/入力補助" class="dd-item
-        
+        parent
         
         
         ">
@@ -732,7 +732,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/editing/view-mode/" title="view-mode" class="dd-item ">
+      <li data-nav-id="/.emacs.d/editing/view-mode/" title="view-mode" class="dd-item active">
         <a href="/.emacs.d/editing/view-mode/">
         view-mode
         
@@ -803,7 +803,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        parent
+        
         
         
         ">
@@ -997,7 +997,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/highlight-indent-guides/" title="highlight-indent-guides" class="dd-item active">
+      <li data-nav-id="/.emacs.d/ui/highlight-indent-guides/" title="highlight-indent-guides" class="dd-item ">
         <a href="/.emacs.d/ui/highlight-indent-guides/">
         highlight-indent-guides
         
@@ -2573,7 +2573,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > highlight-indent-guides
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/editing/'>ファイル編集/入力補助</a> > view-mode
           
         
           
@@ -2589,8 +2589,9 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#インストール">インストール</a></li>
-    <li><a href="#設定">設定</a></li>
+    <li><a href="#キーバインド">キーバインド</a></li>
+    <li><a href="#hook">hook</a></li>
+    <li><a href="#toggle-するコマンド">Toggle するコマンド</a></li>
   </ul>
 </nav>
     </div>
@@ -2608,7 +2609,7 @@
           
             <h1>
               
-              highlight-indent-guides
+              view-mode
             </h1>
           
 
@@ -2616,18 +2617,95 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/DarthFennec/highlight-indent-guides">highlight-indent-guides</a> はインデント毎にラインを引いたりして見易くしてくれるパッケージ。通常のプログラムを書く時にも便利だけど、
-YAML などのインデントがそのまま構造になるような言語を弄る時にとても便利。</p>
-<h2 id="インストール">インストール</h2>
-<p>これもいつも通り el-get でインストールしている。また GitHub にあるので、そこから直接インストールしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle DarthFennec/highlight-indent-guides)
-</code></pre></div><h2 id="設定">設定</h2>
-<p>今いる行がどのインデントにいるのかをわかりやすくするために
-responsive モードを有効にしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq highlight-indent-guides-responsive <span style="color:#e6db74">&#34;stack&#34;</span>)
-</code></pre></div><p>defcustom で定義されてる変数なので
-custom-set-variables で設定した方がいいかもしれない。</p>
+<p><a href="https://www.emacswiki.org/emacs/ViewMode">view-mode</a> は Emacs に標準で組込まれているモードで、バッファを閲覧専用にする機能を提供してくれるやつ。コードを眺めたい時などに使っている。</p>
+<h2 id="キーバインド">キーバインド</h2>
+<p>view-mode の時は文字入力をする必要がないので通常のモードの時とは違うキーバインドが使えるようにしている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/setup-view-mode-keymap ()
+    (let ((keymap view-mode-map))
+      (<span style="color:#a6e22e">define-key</span> keymap (kbd <span style="color:#e6db74">&#34;h&#34;</span>) <span style="color:#e6db74">&#39;backward-char</span>)
+      (<span style="color:#a6e22e">define-key</span> keymap (kbd <span style="color:#e6db74">&#34;j&#34;</span>) <span style="color:#e6db74">&#39;next-line</span>)
+      (<span style="color:#a6e22e">define-key</span> keymap (kbd <span style="color:#e6db74">&#34;k&#34;</span>) <span style="color:#e6db74">&#39;previous-line</span>)
+      (<span style="color:#a6e22e">define-key</span> keymap (kbd <span style="color:#e6db74">&#34;l&#34;</span>) <span style="color:#e6db74">&#39;forward-char</span>)
 
+      (<span style="color:#a6e22e">define-key</span> keymap (kbd <span style="color:#e6db74">&#34;e&#34;</span>) <span style="color:#e6db74">&#39;forward-word</span>)
+
+      (<span style="color:#a6e22e">define-key</span> keymap (kbd <span style="color:#e6db74">&#34;b&#34;</span>)   <span style="color:#e6db74">&#39;scroll-down</span>)
+      (<span style="color:#a6e22e">define-key</span> keymap (kbd <span style="color:#e6db74">&#34;SPC&#34;</span>) <span style="color:#e6db74">&#39;scroll-up</span>)
+
+      (<span style="color:#a6e22e">define-key</span> keymap (kbd <span style="color:#e6db74">&#34;g&#34;</span>) <span style="color:#e6db74">&#39;beginning-of-buffer</span>)
+      (<span style="color:#a6e22e">define-key</span> keymap (kbd <span style="color:#e6db74">&#34;G&#34;</span>) <span style="color:#e6db74">&#39;end-of-buffer</span>)
+      (<span style="color:#a6e22e">define-key</span> keymap (kbd <span style="color:#e6db74">&#34;&lt;&#34;</span>) <span style="color:#e6db74">&#39;beginning-of-buffer</span>)
+      (<span style="color:#a6e22e">define-key</span> keymap (kbd <span style="color:#e6db74">&#34;&gt;&#34;</span>) <span style="color:#e6db74">&#39;end-of-buffer</span>)))
+</code></pre></div><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>h</td>
+<td>1文字戻る</td>
+</tr>
+<tr>
+<td>j</td>
+<td>1行下がる</td>
+</tr>
+<tr>
+<td>k</td>
+<td>1行上がる</td>
+</tr>
+<tr>
+<td>l</td>
+<td>1文字進む</td>
+</tr>
+<tr>
+<td>e</td>
+<td>単語の直後に移動</td>
+</tr>
+<tr>
+<td>b</td>
+<td>1スクロール戻る</td>
+</tr>
+<tr>
+<td>SPC</td>
+<td>1スクロール進む</td>
+</tr>
+<tr>
+<td>g, &lt;</td>
+<td>バッファの先頭に移動</td>
+</tr>
+<tr>
+<td>G, &gt;</td>
+<td>バッファの末尾に移動</td>
+</tr>
+</tbody>
+</table>
+<p>適当だけど Vim の通常モードの時みたいな操作ができるようにしている。</p>
+<p>これで不要に左手小指を痛める可能性が下がるであろう。</p>
+<h2 id="hook">hook</h2>
+<p>上でキーバインドを設定できる関数を用意してあるので
+view-mode が有効になる時にそれを hook して設定されるようにしている。</p>
+<p>が、 hook する必要あるのか疑問ではあるな。ま、動いているからとりあえずいいけど。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/view-mode-hook ()
+  (my/setup-view-mode-keymap))
+
+(add-hook <span style="color:#e6db74">&#39;view-mode-hook</span> <span style="color:#e6db74">&#39;my/view-mode-hook</span>)
+</code></pre></div><h2 id="toggle-するコマンド">Toggle するコマンド</h2>
+<p>view-mode にしたり戻したりするコマンドを用意している。</p>
+<p>view-mode を有効にする時には hl-line-mode も有効にしているのでその時眺めている行がハイライトされるようになっている。普段はそれがあるかどうかでどっちもモードかざっくり判断している。</p>
+<p>他にも mode-line の色を変更するなどの技があるようだがひとまず今の設定でそう困ってないのでいいかな。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/toggle-view-mode ()
+  <span style="color:#e6db74">&#34;view-mode と通常モードの切り替えコマンド&#34;</span>
+  (interactive)
+  (cond (view-mode
+         (hl-line-mode <span style="color:#ae81ff">-1</span>)
+         (view-mode <span style="color:#ae81ff">-1</span>))
+        (<span style="color:#66d9ef">t</span>
+         (hl-line-mode <span style="color:#ae81ff">1</span>)
+         (view-mode <span style="color:#ae81ff">1</span>))))
+</code></pre></div>
 
 <footer class="footline">
 	
@@ -3003,6 +3081,174 @@ custom-set-variables で設定した方がいいかもしれない。</p>
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                 
                 
 
@@ -3155,178 +3401,10 @@ custom-set-variables で設定した方がいいかもしれない。</p>
             
         
                     
-            
-        
-                    
                         
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -4407,10 +4485,10 @@ custom-set-variables で設定した方がいいかもしれない。</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/ui/helm-posframe/" title="helm-posframe"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/editing/undo-fu/" title="undo-fu"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/ui/hydra/" title="hydra" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/editing/whitespace/" title="whitespace" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -4420,19 +4498,19 @@ custom-set-variables で設定した方がいいかもしれない。</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1628952330"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1628952330"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1628952330"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1628952330"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1628952330"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1628952330"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1628952329"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1628952329"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1628952329"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1628952329"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1628952329"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1628952329"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1628952330"></script>
-    <script src="/.emacs.d/js/learn.js?1628952330"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1628952330"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1628952329"></script>
+    <script src="/.emacs.d/js/learn.js?1628952329"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1628952329"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1628952330"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1628952329"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
