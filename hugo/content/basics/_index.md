@@ -29,6 +29,9 @@ Emacs の基本動作に関わる部分をここでは設定している
 [load-path]({{< relref "load-path" >}})
 : Emacs Lisp が読み込める path の設定
 
+[migemo]({{< relref "migemo" >}})
+: 日本語入力オフのままローマ字で検索できるようにするやつ
+
 [savehist]({{< relref "savehist" >}})
 : ミニバッファの履歴などを保存してくれる機能
 
