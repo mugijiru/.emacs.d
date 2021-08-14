@@ -6016,6 +6016,25 @@
                             (cfw:open-org-calendar)))))
     #+end_src
 
+*** レビュー依頼がされてる PR を取得してバッファに挿入
+    review-requested-prs というコマンドで
+    レビュー対象の PR を取得できるようにしているのでそれを Emacs から叩けるようにしているコマンド。
+
+    #+begin_src emacs-lisp :tangle inits/68-my-org-commands.el
+    (defun my/insert-review-requested-prs-as-string ()
+      (interactive)
+      (let* ((cmd (concat "review-requested-prs " my/github-organization " " my/github-repository))
+             (response (shell-command-to-string cmd)))
+        (insert response)))
+    #+end_src
+
+    実際のところこの Emacs のコマンドは使わず
+    Terminal で review-requested-prs というコマンドを直で叩いているから
+    何かしら工夫が必要そうである。
+
+    あと、そもそも既にバッファにあるやつとマージしたいとか
+    色々やりたいことはあるのでそれをなんとかしたいですね。
+
 ** org-mode 関係の keybinds
    :PROPERTIES:
    :EXPORT_FILE_NAME: org-mode-keybinds
@@ -6488,18 +6507,6 @@
    (el-get-bundle lsp-ui)
    (add-hook 'lsp-mode-hook 'lsp-ui-mode)
    (setq lsp-ui-doc-alignment 'window)
-   #+end_src
-
-** 70-my-commands.el
-
-   #+begin_src emacs-lisp :tangle inits/70-my-commands.el
-
-
-   (defun my/insert-review-requested-prs-as-string ()
-     (interactive)
-     (let* ((cmd (concat "review-requested-prs " my/github-organization " " my/github-repository))
-            (response (shell-command-to-string cmd)))
-       (insert response)))
    #+end_src
 
 * Footnotes

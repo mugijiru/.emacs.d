@@ -103,3 +103,21 @@ Hydra から利用するために定義している。"
                         (setq cfw:org-icalendars `(,(concat org-directory target ".org")))
                         (cfw:open-org-calendar)))))
 ```
+
+
+## レビュー依頼がされてる PR を取得してバッファに挿入 {#レビュー依頼がされてる-pr-を取得してバッファに挿入}
+
+review-requested-prs というコマンドでレビュー対象の PR を取得できるようにしているのでそれを Emacs から叩けるようにしているコマンド。
+
+```emacs-lisp
+(defun my/insert-review-requested-prs-as-string ()
+  (interactive)
+  (let* ((cmd (concat "review-requested-prs " my/github-organization " " my/github-repository))
+         (response (shell-command-to-string cmd)))
+    (insert response)))
+```
+
+実際のところこの Emacs のコマンドは使わず
+Terminal で review-requested-prs というコマンドを直で叩いているから何かしら工夫が必要そうである。
+
+あと、そもそも既にバッファにあるやつとマージしたいとか色々やりたいことはあるのでそれをなんとかしたいですね。
