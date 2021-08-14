@@ -9,6 +9,20 @@ weight = 13
 org-mode を使う上で、標準で用意されているコマンド以外に自分でも適当にコマンドを用意しているのでここにまとめている。
 
 
+## org-mode 用のファイルを作成するコマンド {#org-mode-用のファイルを作成するコマンド}
+
+指定したフォルダに org-mode なファイルを作るためのコマンドを用意している。
+
+が、使ってないし意味をあまり感じないし消して良さそう。
+
+```emacs-lisp
+(setq my/org-document-dir (expand-file-name "~/Documents/org/"))
+(defun my/create-org-document ()
+  (interactive)
+  (find-file-other-window my/org-document-dir))
+```
+
+
 ## 各ツリーの所要時間表示/非表示切替 {#各ツリーの所要時間表示-非表示切替}
 
 org-clock-display で各ツリーにおける org-clock で記録された所要時間が表示でき、
