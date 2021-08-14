@@ -23,8 +23,8 @@ disableToc = true
 [undo-fu]({{< relref "undo-fu" >}})
 : シンプルな undo/redo の機能を提供してくれるやつ
 
-[yasnippet]({{< relref "yasnippet" >}})
-: テンプレート挿入機能を提供してくれるやつ
-
 [whitespace]({{< relref "whitespace" >}})
 : 空白文字を可視化したり自動的に消したりする便利なやつ
+
+[yasnippet]({{< relref "yasnippet" >}})
+: テンプレート挿入機能を提供してくれるやつ
