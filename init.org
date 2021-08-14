@@ -1232,6 +1232,7 @@
    - [[*multiple-cursors][multiple-cursors]] :: カーソルを増やして複数箇所を同時に編集できるようになるやつ
    - [[*smartparens][smartparens]] :: カッコや引用符などのペアになるやつの入力補助をしてくれるやつ
    - [[*undo-fu][undo-fu]] :: シンプルな undo/redo の機能を提供してくれるやつ
+   - [[*view-mode][view-mode]] :: Emacs に組込まれてる閲覧専用のモード。コードリーディングの時に有効にすると便利
    - [[*whitespace][whitespace]] :: 空白文字を可視化したり自動的に消したりする便利なやつ
    - [[*yasnippet][yasnippet]] :: テンプレート挿入機能を提供してくれるやつ
 
