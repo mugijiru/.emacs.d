@@ -1158,6 +1158,19 @@ strict モードだとペアが崩れないように強制するので雑に C-k
     </item>
     
     <item>
+      <title>twmode</title>
+      <link>https://mugijiru.github.io/.emacs.d/external-tool/twmode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/external-tool/twmode/</guid>
+      <description>概要 twmode は Emacs 上で動く Twitter クライアント。
+今でもたまーに使っている。勉強会に参加して実況する時などに。
+インストール いつも通り el-get でインスコしている。
+(el-get-bundle twittering-mode) 設定 (setq twittering-username &amp;#34;mugijiru&amp;#34;) (setq twittering-jojo-mode t) (setq twittering-timer-interval 60) ;(setq twittering-auth-method &amp;#39;xauth) (setq twittering-auth-method &amp;#39;oauth) (setq twittering-update-status-function &amp;#39;twittering-update-status-from-minibuffer) (setq twittering-status-format &amp;#34;%i %S(%s)%p, %@:\n%FILL{ %T // from %f%L%r%R}\n &amp;#34;) (setq twittering-retweet-format &amp;#34;RT @%s %t&amp;#34;) (setq twittering-display-remaining t) なんか色々設定しているけど、まあ大体こんな感じ。
+ ユーザー名の指定 twittering-jojo-mode を有効化 自動リロードの間隔を60秒に設定 OAuth で認証するように設定 投稿時にミニバッファから投稿するように設定 各ツイートのフォーマット指定 旧式の Retweet 時のフォーマット指定 late limit をmode-line に表示  キーバインド (let ((km twittering-mode-map)) (define-key km (kbd &amp;#34;SPC&amp;#34;) &amp;#39;scroll-up) (define-key km (kbd &amp;#34;b&amp;#34;) &amp;#39;scroll-down) (define-key km (kbd &amp;#34;g&amp;#34;) &amp;#39;beginning-of-buffer) (define-key km (kbd &amp;#34;G&amp;#34;) &amp;#39;end-of-buffer) (define-key km (kbd &amp;#34;&amp;lt;&amp;#34;) &amp;#39;beginning-of-buffer) (define-key km (kbd &amp;#34;&amp;gt;&amp;#34;) &amp;#39;end-of-buffer) (define-key km (kbd &amp;#34;R&amp;#34;) &amp;#39;twittering-current-timeline) (define-key km (kbd &amp;#34;F&amp;#34;) &amp;#39;twittering-favorite) (define-key km (kbd &amp;#34;\C-cfd&amp;#34;) &amp;#39;twittering-unfavorite) (define-key km (kbd &amp;#34;\C-c[&amp;#34;) &amp;#39;twittering-follow) (define-key km (kbd &amp;#34;\C-c]&amp;#34;) &amp;#39;twittering-unfollow) nil)    Key 効果     SPC スクロールする   b 上にスクロールする   g, &amp;lt; バッファの先頭に移動   G, &amp;gt; バッファの末尾に移動   R 現在のタイムラインを更新   F ふぁぼる   C-c f d ふぁぼ取り消し   C-c [ フォローする   C-c ] アンフォロー    </description>
+    </item>
+    
+    <item>
       <title>undo-fu</title>
       <link>https://mugijiru.github.io/.emacs.d/editing/undo-fu/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

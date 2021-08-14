@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>smartparens :: 麦汁&#39;s Emacs Config</title>
+    <title>twmode :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1628944340" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/editing/smartparens/">
+  <body class="" data-url="/.emacs.d/external-tool/twmode/">
     <nav id="sidebar" class="">
 
 
@@ -580,7 +580,7 @@
   
     
     <li data-nav-id="/.emacs.d/editing/" title="ファイル編集/入力補助" class="dd-item
-        parent
+        
         
         
         ">
@@ -690,7 +690,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/editing/smartparens/" title="smartparens" class="dd-item active">
+      <li data-nav-id="/.emacs.d/editing/smartparens/" title="smartparens" class="dd-item ">
         <a href="/.emacs.d/editing/smartparens/">
         smartparens
         
@@ -1682,7 +1682,7 @@
   
     
     <li data-nav-id="/.emacs.d/external-tool/" title="外部連携ツール設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -1876,7 +1876,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/external-tool/twmode/" title="twmode" class="dd-item ">
+      <li data-nav-id="/.emacs.d/external-tool/twmode/" title="twmode" class="dd-item active">
         <a href="/.emacs.d/external-tool/twmode/">
         twmode
         
@@ -2531,7 +2531,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/editing/'>ファイル編集/入力補助</a> > smartparens
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/external-tool/'>外部連携ツール設定</a> > twmode
           
         
           
@@ -2549,7 +2549,7 @@
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
     <li><a href="#設定">設定</a></li>
-    <li><a href="#その他">その他</a></li>
+    <li><a href="#キーバインド">キーバインド</a></li>
   </ul>
 </nav>
     </div>
@@ -2567,7 +2567,7 @@
           
             <h1>
               
-              smartparens
+              twmode
             </h1>
           
 
@@ -2575,16 +2575,92 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/Fuco1/smartparens">smartparens</a> はカッコとかクォートとかのペアになるようなものの入力補助をしてくれるやつ。</p>
-<p>strict モードだとペアが崩れないように強制するので雑に C-k で行削除しててもペアが維持されて便利。</p>
+<p><a href="https://github.com/hayamiz/twittering-mode">twmode</a> は Emacs 上で動く Twitter クライアント。</p>
+<p>今でもたまーに使っている。勉強会に参加して実況する時などに。</p>
 <h2 id="インストール">インストール</h2>
-<p>いつも透り el-get で導入している</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle smartparens)
+<p>いつも通り el-get でインスコしている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle twittering-mode)
 </code></pre></div><h2 id="設定">設定</h2>
-<p>実は導入して間もないので、提供されてるオススメ設定のみ突っ込んでいる。オススメ設定は別途 reqiure したら良いという作りなので、以下のようにして突っ込んでいる。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(require <span style="color:#e6db74">&#39;smartparens-config</span>)
-</code></pre></div><h2 id="その他">その他</h2>
-<p>各言語の hook で <code>smartparens-strict-mode</code> を有効にしている。なんか常に有効だと困りそうな気がしたので。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq twittering-username <span style="color:#e6db74">&#34;mugijiru&#34;</span>)
+(setq twittering-jojo-mode <span style="color:#66d9ef">t</span>)
+(setq twittering-timer-interval <span style="color:#ae81ff">60</span>)
+<span style="color:#75715e">;(setq twittering-auth-method &#39;xauth)</span>
+(setq twittering-auth-method <span style="color:#e6db74">&#39;oauth</span>)
+(setq twittering-update-status-function <span style="color:#e6db74">&#39;twittering-update-status-from-minibuffer</span>)
+(setq twittering-status-format <span style="color:#e6db74">&#34;%i %S(%s)%p, %@:\n%FILL{  %T // from %f%L%r%R}\n &#34;</span>)
+(setq twittering-retweet-format <span style="color:#e6db74">&#34;RT @%s %t&#34;</span>)
+(setq twittering-display-remaining <span style="color:#66d9ef">t</span>)
+</code></pre></div><p>なんか色々設定しているけど、まあ大体こんな感じ。</p>
+<ul>
+<li>ユーザー名の指定</li>
+<li>twittering-jojo-mode を有効化</li>
+<li>自動リロードの間隔を60秒に設定</li>
+<li>OAuth で認証するように設定</li>
+<li>投稿時にミニバッファから投稿するように設定</li>
+<li>各ツイートのフォーマット指定</li>
+<li>旧式の Retweet 時のフォーマット指定</li>
+<li>late limit をmode-line に表示</li>
+</ul>
+<h2 id="キーバインド">キーバインド</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(let ((km twittering-mode-map))
+  (<span style="color:#a6e22e">define-key</span> km (kbd <span style="color:#e6db74">&#34;SPC&#34;</span>) <span style="color:#e6db74">&#39;scroll-up</span>)
+  (<span style="color:#a6e22e">define-key</span> km (kbd <span style="color:#e6db74">&#34;b&#34;</span>) <span style="color:#e6db74">&#39;scroll-down</span>)
+  (<span style="color:#a6e22e">define-key</span> km (kbd <span style="color:#e6db74">&#34;g&#34;</span>) <span style="color:#e6db74">&#39;beginning-of-buffer</span>)
+  (<span style="color:#a6e22e">define-key</span> km (kbd <span style="color:#e6db74">&#34;G&#34;</span>) <span style="color:#e6db74">&#39;end-of-buffer</span>)
+  (<span style="color:#a6e22e">define-key</span> km (kbd <span style="color:#e6db74">&#34;&lt;&#34;</span>) <span style="color:#e6db74">&#39;beginning-of-buffer</span>)
+  (<span style="color:#a6e22e">define-key</span> km (kbd <span style="color:#e6db74">&#34;&gt;&#34;</span>) <span style="color:#e6db74">&#39;end-of-buffer</span>)
+  (<span style="color:#a6e22e">define-key</span> km (kbd <span style="color:#e6db74">&#34;R&#34;</span>) <span style="color:#e6db74">&#39;twittering-current-timeline</span>)
+  (<span style="color:#a6e22e">define-key</span> km (kbd <span style="color:#e6db74">&#34;F&#34;</span>) <span style="color:#e6db74">&#39;twittering-favorite</span>)
+  (<span style="color:#a6e22e">define-key</span> km (kbd <span style="color:#e6db74">&#34;\C-cfd&#34;</span>) <span style="color:#e6db74">&#39;twittering-unfavorite</span>)
+  (<span style="color:#a6e22e">define-key</span> km (kbd <span style="color:#e6db74">&#34;\C-c[&#34;</span>) <span style="color:#e6db74">&#39;twittering-follow</span>)
+  (<span style="color:#a6e22e">define-key</span> km (kbd <span style="color:#e6db74">&#34;\C-c]&#34;</span>) <span style="color:#e6db74">&#39;twittering-unfollow</span>)
+  <span style="color:#66d9ef">nil</span>)
+</code></pre></div><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SPC</td>
+<td>スクロールする</td>
+</tr>
+<tr>
+<td>b</td>
+<td>上にスクロールする</td>
+</tr>
+<tr>
+<td>g, &lt;</td>
+<td>バッファの先頭に移動</td>
+</tr>
+<tr>
+<td>G, &gt;</td>
+<td>バッファの末尾に移動</td>
+</tr>
+<tr>
+<td>R</td>
+<td>現在のタイムラインを更新</td>
+</tr>
+<tr>
+<td>F</td>
+<td>ふぁぼる</td>
+</tr>
+<tr>
+<td>C-c f d</td>
+<td>ふぁぼ取り消し</td>
+</tr>
+<tr>
+<td>C-c [</td>
+<td>フォローする</td>
+</tr>
+<tr>
+<td>C-c ]</td>
+<td>アンフォロー</td>
+</tr>
+</tbody>
+</table>
 
 
 <footer class="footline">
@@ -2961,7 +3037,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -2974,9 +3049,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -3042,7 +3114,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -3058,9 +3129,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -3769,6 +3837,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -3781,6 +3850,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3910,6 +3982,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -3925,6 +3998,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -4333,10 +4409,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/editing/multiple-cursors/" title="multiple-cursors"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/external-tool/todoist/" title="todoist"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/editing/undo-fu/" title="undo-fu" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/external-tool/wakatime-mode/" title="wakatime-mode" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

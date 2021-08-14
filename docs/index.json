@@ -144,7 +144,7 @@
 	"title": "外部連携ツール設定",
 	"tags": [],
 	"description": "",
-	"content": "ここでは外部のサービスと連携するようなやつをまとめています\n emacs-w3m 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ esa.el esa.io と連携するためのパッケージ forge magit と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ google-this Google 検索機能を提供してくれるパッケージ google-translate Emacs から Google 翻訳するためのパッケージ magit Emacs 上で Git の操作をするのにとても便利なパッケージ notify-slack Emacs から外部コマンドを通じて Slack に通知するための関数周りの事を書いている wakatime-mode Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ todoist Todoist と連携して org-mode で扱えるようにするパッケージ ブラウザ設定 ブラウザ連携周りの設定  "
+	"content": "ここでは外部のサービスと連携するようなやつをまとめています\n emacs-w3m 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ esa.el esa.io と連携するためのパッケージ forge magit と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ google-this Google 検索機能を提供してくれるパッケージ google-translate Emacs から Google 翻訳するためのパッケージ magit Emacs 上で Git の操作をするのにとても便利なパッケージ notify-slack Emacs から外部コマンドを通じて Slack に通知するための関数周りの事を書いている wakatime-mode Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ todoist Todoist と連携して org-mode で扱えるようにするパッケージ twmode Emacs 上で動く Twitter クライアント ブラウザ設定 ブラウザ連携周りの設定  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/",
@@ -663,6 +663,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 Emacs 標準の toolbar の設定。麦汁さんは使わないし幅を取るので隠す派。\n設定 単に無効にして隠している\n(tool-bar-mode -1) "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/external-tool/twmode/",
+	"title": "twmode",
+	"tags": [],
+	"description": "",
+	"content": "概要 twmode は Emacs 上で動く Twitter クライアント。\n今でもたまーに使っている。勉強会に参加して実況する時などに。\nインストール いつも通り el-get でインスコしている。\n(el-get-bundle twittering-mode) 設定 (setq twittering-username \u0026#34;mugijiru\u0026#34;) (setq twittering-jojo-mode t) (setq twittering-timer-interval 60) ;(setq twittering-auth-method \u0026#39;xauth) (setq twittering-auth-method \u0026#39;oauth) (setq twittering-update-status-function \u0026#39;twittering-update-status-from-minibuffer) (setq twittering-status-format \u0026#34;%i %S(%s)%p, %@:\\n%FILL{ %T // from %f%L%r%R}\\n \u0026#34;) (setq twittering-retweet-format \u0026#34;RT @%s %t\u0026#34;) (setq twittering-display-remaining t) なんか色々設定しているけど、まあ大体こんな感じ。\n ユーザー名の指定 twittering-jojo-mode を有効化 自動リロードの間隔を60秒に設定 OAuth で認証するように設定 投稿時にミニバッファから投稿するように設定 各ツイートのフォーマット指定 旧式の Retweet 時のフォーマット指定 late limit をmode-line に表示  キーバインド (let ((km twittering-mode-map)) (define-key km (kbd \u0026#34;SPC\u0026#34;) \u0026#39;scroll-up) (define-key km (kbd \u0026#34;b\u0026#34;) \u0026#39;scroll-down) (define-key km (kbd \u0026#34;g\u0026#34;) \u0026#39;beginning-of-buffer) (define-key km (kbd \u0026#34;G\u0026#34;) \u0026#39;end-of-buffer) (define-key km (kbd \u0026#34;\u0026lt;\u0026#34;) \u0026#39;beginning-of-buffer) (define-key km (kbd \u0026#34;\u0026gt;\u0026#34;) \u0026#39;end-of-buffer) (define-key km (kbd \u0026#34;R\u0026#34;) \u0026#39;twittering-current-timeline) (define-key km (kbd \u0026#34;F\u0026#34;) \u0026#39;twittering-favorite) (define-key km (kbd \u0026#34;\\C-cfd\u0026#34;) \u0026#39;twittering-unfavorite) (define-key km (kbd \u0026#34;\\C-c[\u0026#34;) \u0026#39;twittering-follow) (define-key km (kbd \u0026#34;\\C-c]\u0026#34;) \u0026#39;twittering-unfollow) nil)    Key 効果     SPC スクロールする   b 上にスクロールする   g, \u0026lt; バッファの先頭に移動   G, \u0026gt; バッファの末尾に移動   R 現在のタイムラインを更新   F ふぁぼる   C-c f d ふぁぼ取り消し   C-c [ フォローする   C-c ] アンフォロー    "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/editing/undo-fu/",
