@@ -4298,6 +4298,22 @@
     - company-mode の有効化。これがないと補完できなくて厳しいよね
     - display-line-numbers-mode の有効化。行数表示も欲しいよね。巨大ファイルだと邪魔だけど巨大にしなきゃいい
     - [[*rainbow-mode][rainbow-mode]] の有効化
+*** カラーコード→ CSS Variable の置き換え
+    外部コマンドで fetch-color-var というのを定義して
+    そいつにカラーコードを渡すとプロジェクトで使ってる CSS Variable を返してくるようにしている。
+
+    で、それを Emacs から叩いて使えるようにしているのが以下のコマンド
+
+    #+begin_src emacs-lisp :tangle inits/40-scss.el
+    (defun my/replace-var (point mark)
+      (interactive "r")
+      (let* ((str (buffer-substring point mark))
+             (cmd (concat "fetch-color-var '" str "'"))
+             (response (shell-command-to-string cmd)))
+        (delete-region point mark)
+        (insert response)))
+    #+end_src
+
 *** キーバインド
     設定しているけど使ってないなあ……。
 
@@ -6467,13 +6483,6 @@
 ** 70-my-commands.el
 
    #+begin_src emacs-lisp :tangle inits/70-my-commands.el
-   (defun my/replace-var (point mark)
-     (interactive "r")
-     (let* ((str (buffer-substring point mark))
-            (cmd (concat "fetch-color-var '" str "'"))
-            (response (shell-command-to-string cmd)))
-       (delete-region point mark)
-       (insert response)))
 
    (setq my/org-document-dir (expand-file-name "~/Documents/org/"))
    (defun my/create-org-document ()

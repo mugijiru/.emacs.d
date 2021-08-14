@@ -81,6 +81,23 @@ scss を使う上で hook を使って色々有効化したりしている。
 -   [rainbow-mode](#rainbow-mode) の有効化
 
 
+## カラーコード→ CSS Variable の置き換え {#カラーコード-css-variable-の置き換え}
+
+外部コマンドで fetch-color-var というのを定義してそいつにカラーコードを渡すとプロジェクトで使ってる CSS Variable を返してくるようにしている。
+
+で、それを Emacs から叩いて使えるようにしているのが以下のコマンド
+
+```emacs-lisp
+(defun my/replace-var (point mark)
+  (interactive "r")
+  (let* ((str (buffer-substring point mark))
+         (cmd (concat "fetch-color-var '" str "'"))
+         (response (shell-command-to-string cmd)))
+    (delete-region point mark)
+    (insert response)))
+```
+
+
 ## キーバインド {#キーバインド}
 
 設定しているけど使ってないなあ……。
