@@ -35,5 +35,8 @@ disableToc = true
 [todoist]({{< relref "todoist" >}})
 : Todoist と連携して org-mode で扱えるようにするパッケージ
 
+[twmode]({{< relref "twmode" >}})
+: Emacs 上で動く Twitter クライアント
+
 [ブラウザ設定]({{< relref "browse-url" >}})
 : ブラウザ連携周りの設定

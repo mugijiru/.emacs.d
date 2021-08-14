@@ -4251,6 +4251,7 @@
    - [[*notify-slack][notify-slack]] :: Emacs から外部コマンドを通じて Slack に通知するための関数周りの事を書いている
    - [[*wakatime-mode][wakatime-mode]] :: Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ
    - [[*todoist][todoist]] :: Todoist と連携して org-mode で扱えるようにするパッケージ
+   - [[*twmode][twmode]] :: Emacs 上で動く Twitter クライアント
    - [[*ブラウザ設定][ブラウザ設定]] :: ブラウザ連携周りの設定
 ** emacs-w3m
    :PROPERTIES:
@@ -4539,6 +4540,77 @@
     (with-eval-after-load 'org
       (my/load-config "my-todoist-config"))
     #+end_src
+
+** twmode
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: twmode
+   :END:
+*** 概要
+    [[https://github.com/hayamiz/twittering-mode][twmode]] は Emacs 上で動く Twitter クライアント。
+
+    今でもたまーに使っている。
+    勉強会に参加して実況する時などに。
+
+*** インストール
+    いつも通り el-get でインスコしている。
+
+    #+begin_src emacs-lisp :tangle inits/90-twmode.el
+    (el-get-bundle twittering-mode)
+    #+end_src
+*** 設定
+    #+begin_src emacs-lisp :tangle inits/90-twmode.el
+    (setq twittering-username "mugijiru")
+    (setq twittering-jojo-mode t)
+    (setq twittering-timer-interval 60)
+    ;(setq twittering-auth-method 'xauth)
+    (setq twittering-auth-method 'oauth)
+    (setq twittering-update-status-function 'twittering-update-status-from-minibuffer)
+    (setq twittering-status-format "%i %S(%s)%p, %@:\n%FILL{  %T // from %f%L%r%R}\n ")
+    (setq twittering-retweet-format "RT @%s %t")
+    (setq twittering-display-remaining t)
+    #+end_src
+
+    なんか色々設定しているけど、まあ大体こんな感じ。
+
+    - ユーザー名の指定
+    - twittering-jojo-mode を有効化
+    - 自動リロードの間隔を60秒に設定
+    - OAuth で認証するように設定
+    - 投稿時にミニバッファから投稿するように設定
+    - 各ツイートのフォーマット指定
+    - 旧式の Retweet 時のフォーマット指定
+    - late limit をmode-line に表示
+
+*** キーバインド
+    #+begin_src emacs-lisp :tangle inits/90-twmode.el
+    (let ((km twittering-mode-map))
+      (define-key km (kbd "SPC") 'scroll-up)
+      (define-key km (kbd "b") 'scroll-down)
+      (define-key km (kbd "g") 'beginning-of-buffer)
+      (define-key km (kbd "G") 'end-of-buffer)
+      (define-key km (kbd "<") 'beginning-of-buffer)
+      (define-key km (kbd ">") 'end-of-buffer)
+      (define-key km (kbd "R") 'twittering-current-timeline)
+      (define-key km (kbd "F") 'twittering-favorite)
+      (define-key km (kbd "\C-cfd") 'twittering-unfavorite)
+      (define-key km (kbd "\C-c[") 'twittering-follow)
+      (define-key km (kbd "\C-c]") 'twittering-unfollow)
+      nil)
+    #+end_src
+
+    |---------+--------------------------|
+    | Key     | 効果                     |
+    |---------+--------------------------|
+    | SPC     | スクロールする           |
+    | b       | 上にスクロールする       |
+    | g, <    | バッファの先頭に移動     |
+    | G, >    | バッファの末尾に移動     |
+    | R       | 現在のタイムラインを更新 |
+    | F       | ふぁぼる                 |
+    | C-c f d | ふぁぼ取り消し           |
+    | C-c [   | フォローする             |
+    | C-c ]   | アンフォロー             |
+    |---------+--------------------------|
 
 ** wakatime-mode
    :PROPERTIES:
@@ -6243,35 +6315,6 @@
    (el-get-bundle alloy-d/color-theme-molokai)
    (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/el-get/color-theme-molokai"))
    (load-theme 'molokai t)
-   #+end_src
-
-** 90-twmode.el
-
-   #+begin_src emacs-lisp :tangle inits/90-twmode.el
-   (el-get-bundle twittering-mode)
-
-   (setq twittering-username "mugijiru")
-   (setq twittering-jojo-mode t)
-   (setq twittering-timer-interval 60)
-   ;(setq twittering-auth-method 'xauth)
-   (setq twittering-auth-method 'oauth)
-   (setq twittering-update-status-function 'twittering-update-status-from-minibuffer)
-   (setq twittering-status-format "%i %S(%s)%p, %@:\n%FILL{  %T // from %f%L%r%R}\n ")
-   (setq twittering-retweet-format "RT @%s %t")
-   (setq twittering-display-remaining t)
-   (let ((km twittering-mode-map))
-     (define-key km (kbd "SPC") 'scroll-up)
-     (define-key km (kbd "b") 'scroll-down)
-     (define-key km (kbd "g") 'beginning-of-buffer)
-     (define-key km (kbd "G") 'end-of-buffer)
-     (define-key km (kbd "<") 'beginning-of-buffer)
-     (define-key km (kbd ">") 'end-of-buffer)
-     (define-key km (kbd "R") 'twittering-current-timeline)
-     (define-key km (kbd "F") 'twittering-favorite)
-     (define-key km (kbd "\C-cfd") 'twittering-unfavorite)
-     (define-key km (kbd "\C-c[") 'twittering-follow)
-     (define-key km (kbd "\C-c]") 'twittering-unfollow)
-     nil)
    #+end_src
 
 ** 92-dashboard.el
