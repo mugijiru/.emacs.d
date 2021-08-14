@@ -24,6 +24,9 @@ markdown-mode とか yaml-mode なんかはプログラム言語ではないけ�
 [gnuplot-mode]({{< relref "gnuplot-mode" >}})
 : グラフ作成ソフト gnuplot を使うための設定
 
+[lsp-mode]({{< relref "lsp-mode" >}})
+: Emacs の LSP クライアントの一種である lsp-mode に関する設定
+
 [markdown]({{< relref "markdown" >}})
 : Markdown を書く時の設定
 
