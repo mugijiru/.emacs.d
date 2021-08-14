@@ -4552,6 +4552,7 @@
    12. [[*ox-hugo][ox-hugo]]
    13. [[*org-mode 用の独自コマンド][org-mode 用の独自コマンド]]
    14. [[*org-mode 関係の keybinds][org-mode 関係の keybinds]]
+   15. [[*日報用の設定(旧)][日報用の設定(旧)]]
 ** 基本設定
    :PROPERTIES:
    :EXPORT_FILE_NAME: base
@@ -5759,6 +5760,74 @@
 *** その他
     org-agenda 用の Hydra も用意しておいた方が良さそうだなというのが最近の実感。
     同じコマンド体系で操作できるようにしておいたら考えることが減って楽。
+** 日報用の設定(旧)                                                    :unused:
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: nippou
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :weight 15
+   :END:
+*** 概要
+    業務で日報を提出する必要があったので
+    それっぽいのを作れるようにしていた。
+
+    今では org-super-agenda を使っているので
+    これは使ってないが、とりあえず載せておく。
+
+*** シークレット設定の読み込み
+    表に出したくない情報については別ファイルに分離して setq している。
+    が、内容的に本名が露出する程度の情報ではある。
+
+    #+begin_src emacs-lisp :tangle inits/62-nippou.el
+    (my/load-config "my-nippou-config")
+    #+end_src
+
+    これの中で ~my/org-nippou-additional-files~ を定義していて
+    そのファイル名に名前が含まれてるだけであった。
+
+    ~me.org~ とでもしておけば解決しそう……。
+*** 日報構築の対象となるファイルをリストアップする関数の定義
+    ~~/Documenets/org/tasks~ に作業記録用ファイルなどを find コマンドを使ってリストアップする関数。
+
+    #+begin_src emacs-lisp :tangle inits/62-nippou.el
+    (defun my/org-nippou-files ()
+      (let* ((dir my/org-tasks-directory)
+             (cmd (format "find \"%s\" -name '*.org' -or -name '*.org_archive'" dir))
+             (result (shell-command-to-string cmd))
+             (file-names (split-string result "\n")))
+        (-remove (lambda (file-name) (string= "" file-name))
+                 file-names)))
+    #+end_src
+
+    org-agenda-files を使えば要らないっぽいけどね。
+    agenda 全然使えてなかったらこんなことに。
+*** 日報構築元ファイルを取得する関数の定義
+    シークレット設定で定義した変数と
+    上で定義した ~my/org-nippou-files~ を結合して
+    1つのリストにするだけの関数を用意している。
+    1つにまとまってる方が扱いやすいので。
+
+    #+begin_src emacs-lisp :tangle inits/62-nippou.el
+    (defun my/org-nippou-targets ()
+          (-concat (my/org-nippou-files) my/org-nippou-additional-files))
+    #+end_src
+*** 日報を出力する関数
+    上記の関数群で target になるファイルから
+    日報用に TODO 項目を引っ張り出してくる関数を用意している。
+
+    #+begin_src emacs-lisp :tangle inits/62-nippou.el
+    (defun my/nippou-query ()
+      (interactive)
+      (org-ql-search
+        (my/org-nippou-targets)
+        "todo:TODO,DOING,WAIT,DONE ts:on=today"
+        :title "日報"
+        :super-groups '((:auto-group))))
+    #+end_src
+
+    その中では [[https://github.com/alphapapa/org-ql][org-ql]] の org-ql-search という関数を叩いている。
+    org-ql は使いこなすと色々なことができそうではあるが
+    それを内部で使ってる [[https://github.com/alphapapa/org-super-agenda][org-super-agenda]] を使えば十分な感じではある。
+
+
 * テスト用ツール
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: testing-tool
@@ -6065,31 +6134,6 @@
            (t
             (hl-line-mode 1)
             (view-mode 1))))
-   #+end_src
-
-** 62-nippou.el
-
-   #+begin_src emacs-lisp :tangle inits/62-nippou.el
-   (my/load-config "my-nippou-config")
-
-   (defun my/org-nippou-targets ()
-         (-concat (my/org-nippou-files) my/org-nippou-additional-files))
-
-   (defun my/org-nippou-files ()
-     (let* ((dir my/org-tasks-directory)
-            (cmd (format "find \"%s\" -name '*.org' -or -name '*.org_archive'" dir))
-            (result (shell-command-to-string cmd))
-            (file-names (split-string result "\n")))
-       (-remove (lambda (file-name) (string= "" file-name))
-                file-names)))
-
-   (defun my/nippou-query ()
-     (interactive)
-     (org-ql-search
-       (my/org-nippou-targets)
-       "todo:TODO,DOING,WAIT,DONE ts:on=today"
-       :title "日報"
-       :super-groups '((:auto-group))))
    #+end_src
 
 ** 70-my-commands.el
