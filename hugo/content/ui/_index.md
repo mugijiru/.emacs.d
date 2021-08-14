@@ -14,6 +14,9 @@ disableToc = true
 [all-the-icons]({{< relref "all-the-icons" >}})
 : Emacs で様々なアイコンを表示できるようにするやつ
 
+[color-theme-molokai]({{< relref "color-theme-molokai" >}})
+: ダークグレーベースのカラーテーマ
+
 [frame-cmds]({{< relref "frame-cmds" >}})
 : フレーム移動や拡縮などの操作をするコマンド群
 
