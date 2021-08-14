@@ -12,20 +12,20 @@
     <title>mode-line :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1628939513" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1628939513" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1628939513" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1628939513" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1628939513" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1628939513" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1628939513" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1628939513" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1628939513" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1628939513" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1628941723" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1628941723" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1628941723" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1628941723" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1628941723" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1628941723" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1628941723" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1628941723" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1628941723" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1628941723" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1628939513"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1628941723"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1628939513"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1628939513"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1628941723"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1628941723"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1628939513"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1628941723"></script>
 
     
   </div>
@@ -2536,6 +2536,15 @@
         <li><a href="#マイナーモード毎の表示指定">マイナーモード毎の表示指定</a></li>
       </ul>
     </li>
+    <li><a href="#doom-modeline">doom-modeline</a>
+      <ul>
+        <li><a href="#インストール">インストール</a></li>
+        <li><a href="#有効化">有効化</a></li>
+        <li><a href="#vcs-用表示の長さ変更">VCS 用表示の長さ変更</a></li>
+        <li><a href="#バッテリー残量表示">バッテリー残量表示</a></li>
+        <li><a href="#その他">その他</a></li>
+      </ul>
+    </li>
     <li><a href="#その他">その他</a></li>
   </ul>
 </nav>
@@ -2624,8 +2633,27 @@
 <span style="color:#75715e">;; (my/diminish &#34;ElDoc&#34; &#39;eldoc-mode &#34;&#34;)</span>
 </code></pre></div><p>結構頑張ったけど絵文字周りで思うような表示にならなかったりして最終的にはマイナーモードを mode-line に表示しないようになっている。</p>
 <p>使ってる minor-mode どうやって把握したりしたらいいんだろうね。ま、表示されなくてもなんとなくで把握しているから、困ってはいないんだけど。</p>
+<h2 id="doom-modeline">doom-modeline</h2>
+<p><a href="https://github.com/seagle0128/doom-modeline">doom-modeline</a> は Emacs の mode-line を装飾するパッケージの1つ。結構スッキリした見た目になるので気に入ってる。</p>
+<h3 id="インストール">インストール</h3>
+<p>いつも通り el-get で入れてるだけ</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle doom-modeline)
+</code></pre></div><h3 id="有効化">有効化</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(doom-modeline-mode <span style="color:#ae81ff">1</span>)
+</code></pre></div><h3 id="vcs-用表示の長さ変更">VCS 用表示の長さ変更</h3>
+<p>デフォルトだと 12 なんだけどそれだと短かくて何のブランチかよくわからんので
+30 まえのばしている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq doom-modeline-vcs-max-length <span style="color:#ae81ff">30</span>)
+</code></pre></div><h3 id="バッテリー残量表示">バッテリー残量表示</h3>
+<p>これは doom-modeline 専用の設定ではないけど
+doom-modeline で見た目をカッコよくしているのでこっちに設定を書いている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(display-battery-mode <span style="color:#ae81ff">1</span>)
+</code></pre></div><h3 id="その他">その他</h3>
+<p><code>doom-modeline-github</code> を t にしたら GitHub の通知数も表示されるらしいがちょっと試しに t にしているけどどうも表示されない。</p>
+<p>あとはメジャーモード名はアイコンの方があるから消したいな。
+<code>doom-modeline-def-modeline</code> で自分用に作れば良さそうな雰囲気はある</p>
 <h2 id="その他">その他</h2>
-<p>バッテリー残量表示とかもしているけどそのあたりの設定どこでやってんだっけ?</p>
+<p>多分 mode-line 周りはもうちょっと整理した方が設定は読み易いんだろうなという気がしている</p>
 
 
 <footer class="footline">
@@ -4371,19 +4399,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1628939513"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1628939513"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1628939513"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1628939513"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1628939513"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1628939513"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1628941723"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1628941723"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1628941723"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1628941723"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1628941723"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1628941723"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1628939513"></script>
-    <script src="/.emacs.d/js/learn.js?1628939513"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1628939513"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1628941723"></script>
+    <script src="/.emacs.d/js/learn.js?1628941723"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1628941723"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1628939513"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1628941723"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
