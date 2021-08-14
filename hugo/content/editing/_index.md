@@ -8,7 +8,7 @@ disableToc = true
 
 ここにはファイル編集や入力補助の設定をまとめている
 
-[基本設定]({{< relref "base" >}})
+[基本設定]({{< relref "editing-base" >}})
 : 編集周りの基本的な設定
 
 [auto-insert]({{< relref "auto-insert" >}})

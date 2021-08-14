@@ -1239,8 +1239,9 @@
 
 ** 基本設定
    :PROPERTIES:
-   :EXPORT_FILE_NAME: base
+   :EXPORT_FILE_NAME: editing-base
    :CUSTOM_ID: editing-base-config
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :weight 1
    :END:
 
 *** 概要
