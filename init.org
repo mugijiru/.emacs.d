@@ -2515,6 +2515,28 @@
     まあできなくてもいいんだけど、
     このパッケージは Mac でだけ読むようにしたら良いよねって感じではある。
 
+*** prescient.el
+    [[https://github.com/raxod502/prescient.el][prescient.el]] は強力なソート・フィルタ機能を提供してくれるパッケージ。
+    ivy などの絞り込み系ツールと組み合わせて使う。
+
+    とりあえずいつも通り el-get でインストールしている。
+    #+begin_src emacs-lisp :tangle inits/83-prescient.el
+    (el-get-bundle raxod502/prescient.el)
+    #+end_src
+
+    そんで ivy でそれが使われるように ivy-prescient-mode を有効にしている。
+    #+begin_src emacs-lisp :tangle inits/83-prescient.el
+    (ivy-prescient-mode 1)
+    #+end_src
+
+    ただ候補文字列の長さで sort されるのはどうも微妙さを感じるので無効にしている。
+    #+begin_src emacs-lisp :tangle inits/83-prescient.el
+    (setq prescient-sort-length-enable nil)
+    #+end_src
+
+    どうやら company-mode でも使えるらしいので
+    設定は別のところに分離した方がいいかもしれない。
+
 ** mode-line
    :PROPERTIES:
    :EXPORT_FILE_NAME: mode-line
@@ -6299,14 +6321,6 @@
    #+begin_src emacs-lisp :tangle inits/80-edit.el
    (setq indent-tabs-mode nil) ;; インデントにタブを使わない
    (save-place-mode 1)
-   #+end_src
-
-** 83-prescient.el
-
-   #+begin_src emacs-lisp :tangle inits/83-prescient.el
-   (el-get-bundle raxod502/prescient.el)
-   (ivy-prescient-mode 1)
-   (setq prescient-sort-length-enable nil)
    #+end_src
 
 ** 90-theme.el

@@ -263,3 +263,29 @@ Mac で Emacs を使ってる時に ivy でアプリケーションを起動す�
 Mac を使ってる時は Emacs がランチャー代わりになるので便利。
 
 WSL 使ってる時に同じようなことをしてみたいんだけどどうしたらいいんだろう。まあできなくてもいいんだけど、このパッケージは Mac でだけ読むようにしたら良いよねって感じではある。
+
+
+## prescient.el {#prescient-dot-el}
+
+[prescient.el](https://github.com/raxod502/prescient.el) は強力なソート・フィルタ機能を提供してくれるパッケージ。
+ivy などの絞り込み系ツールと組み合わせて使う。
+
+とりあえずいつも通り el-get でインストールしている。
+
+```emacs-lisp
+(el-get-bundle raxod502/prescient.el)
+```
+
+そんで ivy でそれが使われるように ivy-prescient-mode を有効にしている。
+
+```emacs-lisp
+(ivy-prescient-mode 1)
+```
+
+ただ候補文字列の長さで sort されるのはどうも微妙さを感じるので無効にしている。
+
+```emacs-lisp
+(setq prescient-sort-length-enable nil)
+```
+
+どうやら company-mode でも使えるらしいので設定は別のところに分離した方がいいかもしれない。
