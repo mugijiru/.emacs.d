@@ -9,6 +9,20 @@ weight = 13
 org-mode を使う上で、標準で用意されているコマンド以外に自分でも適当にコマンドを用意しているのでここにまとめている。
 
 
+## org-mode 用のファイルを作成するコマンド {#org-mode-用のファイルを作成するコマンド}
+
+指定したフォルダに org-mode なファイルを作るためのコマンドを用意している。
+
+が、使ってないし意味をあまり感じないし消して良さそう。
+
+```emacs-lisp
+(setq my/org-document-dir (expand-file-name "~/Documents/org/"))
+(defun my/create-org-document ()
+  (interactive)
+  (find-file-other-window my/org-document-dir))
+```
+
+
 ## 各ツリーの所要時間表示/非表示切替 {#各ツリーの所要時間表示-非表示切替}
 
 org-clock-display で各ツリーにおける org-clock で記録された所要時間が表示でき、
@@ -89,3 +103,21 @@ Hydra から利用するために定義している。"
                         (setq cfw:org-icalendars `(,(concat org-directory target ".org")))
                         (cfw:open-org-calendar)))))
 ```
+
+
+## レビュー依頼がされてる PR を取得してバッファに挿入 {#レビュー依頼がされてる-pr-を取得してバッファに挿入}
+
+review-requested-prs というコマンドでレビュー対象の PR を取得できるようにしているのでそれを Emacs から叩けるようにしているコマンド。
+
+```emacs-lisp
+(defun my/insert-review-requested-prs-as-string ()
+  (interactive)
+  (let* ((cmd (concat "review-requested-prs " my/github-organization " " my/github-repository))
+         (response (shell-command-to-string cmd)))
+    (insert response)))
+```
+
+実際のところこの Emacs のコマンドは使わず
+Terminal で review-requested-prs というコマンドを直で叩いているから何かしら工夫が必要そうである。
+
+あと、そもそも既にバッファにあるやつとマージしたいとか色々やりたいことはあるのでそれをなんとかしたいですね。

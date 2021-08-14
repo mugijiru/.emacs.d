@@ -11,4 +11,5 @@
       (turn-on-tempbuf-mode))))
 
 (add-hook 'find-file-hook 'my/find-file-tempbuf-hook)
+
 (add-hook 'dired-mode-hook 'turn-on-tempbuf-mode)

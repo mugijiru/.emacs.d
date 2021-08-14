@@ -1,2 +1,3 @@
-(setq indent-tabs-mode nil) ;; インデントにタブを使わない
+(setq indent-tabs-mode nil)
+
 (save-place-mode 1)

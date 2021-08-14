@@ -1,4 +1,4 @@
-(el-get-bundle persist) ;; org-gcal に必要
+(el-get-bundle persist)
 
 (el-get-bundle org-gcal)
 

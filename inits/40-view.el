@@ -1,7 +1,3 @@
-;; view-mode 用の設定
-
-;; (define-key projectile-rails-mode-map (kbd "C-c r") 'pretty-hydra-projectile-rails-find/body)
-
 (defun my/setup-view-mode-keymap ()
     (let ((keymap view-mode-map))
       (define-key keymap (kbd "h") 'backward-char)

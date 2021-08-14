@@ -4298,6 +4298,22 @@
     - company-mode の有効化。これがないと補完できなくて厳しいよね
     - display-line-numbers-mode の有効化。行数表示も欲しいよね。巨大ファイルだと邪魔だけど巨大にしなきゃいい
     - [[*rainbow-mode][rainbow-mode]] の有効化
+*** カラーコード→ CSS Variable の置き換え
+    外部コマンドで fetch-color-var というのを定義して
+    そいつにカラーコードを渡すとプロジェクトで使ってる CSS Variable を返してくるようにしている。
+
+    で、それを Emacs から叩いて使えるようにしているのが以下のコマンド
+
+    #+begin_src emacs-lisp :tangle inits/40-scss.el
+    (defun my/replace-var (point mark)
+      (interactive "r")
+      (let* ((str (buffer-substring point mark))
+             (cmd (concat "fetch-color-var '" str "'"))
+             (response (shell-command-to-string cmd)))
+        (delete-region point mark)
+        (insert response)))
+    #+end_src
+
 *** キーバインド
     設定しているけど使ってないなあ……。
 
@@ -5916,6 +5932,16 @@
     org-mode を使う上で、標準で用意されているコマンド以外に
     自分でも適当にコマンドを用意しているのでここにまとめている。
 
+*** org-mode 用のファイルを作成するコマンド                          :unused:
+    指定したフォルダに org-mode なファイルを作るためのコマンドを用意している。
+
+    が、使ってないし意味をあまり感じないし消して良さそう。
+    #+begin_src emacs-lisp :tangle inits/68-my-org-commands.el
+    (setq my/org-document-dir (expand-file-name "~/Documents/org/"))
+    (defun my/create-org-document ()
+      (interactive)
+      (find-file-other-window my/org-document-dir))
+    #+end_src
 *** 各ツリーの所要時間表示/非表示切替
     org-clock-display で各ツリーにおける org-clock で記録された所要時間が表示でき、
     org-clock-remove-overlays でそれを非表示にできるが、
@@ -5989,6 +6015,25 @@
                             (setq cfw:org-icalendars `(,(concat org-directory target ".org")))
                             (cfw:open-org-calendar)))))
     #+end_src
+
+*** レビュー依頼がされてる PR を取得してバッファに挿入
+    review-requested-prs というコマンドで
+    レビュー対象の PR を取得できるようにしているのでそれを Emacs から叩けるようにしているコマンド。
+
+    #+begin_src emacs-lisp :tangle inits/68-my-org-commands.el
+    (defun my/insert-review-requested-prs-as-string ()
+      (interactive)
+      (let* ((cmd (concat "review-requested-prs " my/github-organization " " my/github-repository))
+             (response (shell-command-to-string cmd)))
+        (insert response)))
+    #+end_src
+
+    実際のところこの Emacs のコマンドは使わず
+    Terminal で review-requested-prs というコマンドを直で叩いているから
+    何かしら工夫が必要そうである。
+
+    あと、そもそも既にバッファにあるやつとマージしたいとか
+    色々やりたいことはあるのでそれをなんとかしたいですね。
 
 ** org-mode 関係の keybinds
    :PROPERTIES:
@@ -6462,29 +6507,6 @@
    (el-get-bundle lsp-ui)
    (add-hook 'lsp-mode-hook 'lsp-ui-mode)
    (setq lsp-ui-doc-alignment 'window)
-   #+end_src
-
-** 70-my-commands.el
-
-   #+begin_src emacs-lisp :tangle inits/70-my-commands.el
-   (defun my/replace-var (point mark)
-     (interactive "r")
-     (let* ((str (buffer-substring point mark))
-            (cmd (concat "fetch-color-var '" str "'"))
-            (response (shell-command-to-string cmd)))
-       (delete-region point mark)
-       (insert response)))
-
-   (setq my/org-document-dir (expand-file-name "~/Documents/org/"))
-   (defun my/create-org-document ()
-     (interactive)
-     (find-file-other-window my/org-document-dir))
-
-   (defun my/insert-review-requested-prs-as-string ()
-     (interactive)
-     (let* ((cmd (concat "review-requested-prs " my/github-organization " " my/github-repository))
-            (response (shell-command-to-string cmd)))
-       (insert response)))
    #+end_src
 
 * Footnotes
