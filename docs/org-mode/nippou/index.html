@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>rspec-mode :: 麦汁&#39;s Emacs Config</title>
+    <title>日報用の設定(旧) :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1628932454" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/programming/rspec-mode/">
+  <body class="" data-url="/.emacs.d/org-mode/nippou/">
     <nav id="sidebar" class="">
 
 
@@ -1354,7 +1354,7 @@
   
     
     <li data-nav-id="/.emacs.d/programming/" title="プログラミング関係の設定" class="dd-item
-        parent
+        
         
         
         ">
@@ -1548,7 +1548,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/programming/rspec-mode/" title="rspec-mode" class="dd-item active">
+      <li data-nav-id="/.emacs.d/programming/rspec-mode/" title="rspec-mode" class="dd-item ">
         <a href="/.emacs.d/programming/rspec-mode/">
         rspec-mode
         
@@ -1905,7 +1905,7 @@
   
     
     <li data-nav-id="/.emacs.d/org-mode/" title="org-mode" class="dd-item
-        
+        parent
         
         
         ">
@@ -2225,7 +2225,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/org-mode/nippou/" title="日報用の設定(旧)" class="dd-item ">
+      <li data-nav-id="/.emacs.d/org-mode/nippou/" title="日報用の設定(旧)" class="dd-item active">
         <a href="/.emacs.d/org-mode/nippou/">
         日報用の設定(旧)
         
@@ -2489,7 +2489,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/programming/'>プログラミング関係の設定</a> > rspec-mode
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/org-mode/'>org-mode</a> > 日報用の設定(旧)
           
         
           
@@ -2505,9 +2505,10 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#インストール">インストール</a></li>
-    <li><a href="#有効化">有効化</a></li>
-    <li><a href="#キーバインド">キーバインド</a></li>
+    <li><a href="#シークレット設定の読み込み">シークレット設定の読み込み</a></li>
+    <li><a href="#日報構築の対象となるファイルをリストアップする関数の定義">日報構築の対象となるファイルをリストアップする関数の定義</a></li>
+    <li><a href="#日報構築元ファイルを取得する関数の定義">日報構築元ファイルを取得する関数の定義</a></li>
+    <li><a href="#日報を出力する関数">日報を出力する関数</a></li>
   </ul>
 </nav>
     </div>
@@ -2519,13 +2520,19 @@
             
         <div id="head-tags">
         
+<div class="tags">
+
+  <a class="tag-link" href="/.emacs.d/tags/unused">unused</a>
+
+</div>
+
         </div>
         
         <div id="body-inner">
           
             <h1>
               
-              rspec-mode
+              日報用の設定(旧)
             </h1>
           
 
@@ -2533,17 +2540,41 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/pezra/rspec-mode">rspec-mode</a> は Emacs で RSpec を実行したりする時に便利なパッケージ。といいつつ麦汁さんはちゃんと使いこなしていない……</p>
-<h2 id="インストール">インストール</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle rspec-mode)
-</code></pre></div><h2 id="有効化">有効化</h2>
-<p>rspec 実行バッファで byebug などで止まった際に C-x C-q したら inf-ruby が動くようにしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-hook <span style="color:#e6db74">&#39;after-init-hook</span> <span style="color:#e6db74">&#39;inf-ruby-switch-setup</span>)
-</code></pre></div><p>binding.pry は何故かまともに動かないので byebug か binding.irb 推奨。麦汁さんはいつも <code>debugger</code> とコードに入れて使っている。</p>
-<h2 id="キーバインド">キーバインド</h2>
-<p>C-c C-c で開いている rspec ファイルのカーソルがある行のテストを実行できるようにしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#a6e22e">define-key</span> rspec-mode-map (kbd <span style="color:#e6db74">&#34;C-c C-c&#34;</span>) <span style="color:#e6db74">&#39;rspec-verify-single</span>)
-</code></pre></div><p>他にも色々な機能があるのだけどキーバインド未設定なのでこれだけしか使ってない。</p>
+<p>業務で日報を提出する必要があったのでそれっぽいのを作れるようにしていた。</p>
+<p>今では org-super-agenda を使っているのでこれは使ってないが、とりあえず載せておく。</p>
+<h2 id="シークレット設定の読み込み">シークレット設定の読み込み</h2>
+<p>表に出したくない情報については別ファイルに分離して setq している。が、内容的に本名が露出する程度の情報ではある。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(my/load-config <span style="color:#e6db74">&#34;my-nippou-config&#34;</span>)
+</code></pre></div><p>これの中で <code>my/org-nippou-additional-files</code> を定義していてそのファイル名に名前が含まれてるだけであった。</p>
+<p><code>me.org</code> とでもしておけば解決しそう……。</p>
+<h2 id="日報構築の対象となるファイルをリストアップする関数の定義">日報構築の対象となるファイルをリストアップする関数の定義</h2>
+<p><code>~/Documenets/org/tasks</code> に作業記録用ファイルなどを find コマンドを使ってリストアップする関数。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/org-nippou-files ()
+  (let* ((dir my/org-tasks-directory)
+         (cmd (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;find \&#34;%s\&#34; -name &#39;*.org&#39; -or -name &#39;*.org_archive&#39;&#34;</span> dir))
+         (result (shell-command-to-string cmd))
+         (file-names (split-string result <span style="color:#e6db74">&#34;\n&#34;</span>)))
+    (-remove (lambda (file-name) (string= <span style="color:#e6db74">&#34;&#34;</span> file-name))
+             file-names)))
+</code></pre></div><p>org-agenda-files を使えば要らないっぽいけどね。
+agenda 全然使えてなかったらこんなことに。</p>
+<h2 id="日報構築元ファイルを取得する関数の定義">日報構築元ファイルを取得する関数の定義</h2>
+<p>シークレット設定で定義した変数と上で定義した <code>my/org-nippou-files</code> を結合して
+1つのリストにするだけの関数を用意している。
+1つにまとまってる方が扱いやすいので。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/org-nippou-targets ()
+      (-concat (my/org-nippou-files) my/org-nippou-additional-files))
+</code></pre></div><h2 id="日報を出力する関数">日報を出力する関数</h2>
+<p>上記の関数群で target になるファイルから日報用に TODO 項目を引っ張り出してくる関数を用意している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/nippou-query ()
+  (interactive)
+  (org-ql-search
+    (my/org-nippou-targets)
+    <span style="color:#e6db74">&#34;todo:TODO,DOING,WAIT,DONE ts:on=today&#34;</span>
+    :title <span style="color:#e6db74">&#34;日報&#34;</span>
+    :super-groups <span style="color:#f92672">&#39;</span>((:auto-group))))
+</code></pre></div><p>その中では <a href="https://github.com/alphapapa/org-ql">org-ql</a> の org-ql-search という関数を叩いている。
+org-ql は使いこなすと色々なことができそうではあるがそれを内部で使ってる <a href="https://github.com/alphapapa/org-super-agenda">org-super-agenda</a> を使えば十分な感じではある。</p>
 
 
 <footer class="footline">
@@ -3480,7 +3511,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -3488,41 +3518,6 @@
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -3571,154 +3566,6 @@
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
                         
             
@@ -4056,6 +3903,106 @@
             
         
                     
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
             
             
@@ -4136,6 +4083,19 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
             
         
                     
@@ -4143,6 +4103,77 @@
             
             
                 
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -4260,10 +4291,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/programming/rails/" title="rails"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/org-mode/org-mode-keybinds/" title="org-mode 関係の keybinds"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/programming/ruby/" title="ruby" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/testing-tool/" title="テスト用ツール" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
