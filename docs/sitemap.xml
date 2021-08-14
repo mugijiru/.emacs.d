@@ -148,6 +148,8 @@
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/basics/load-path/</loc>
   </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/programming/lsp-mode/</loc>
+  </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/external-tool/magit/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/programming/markdown/</loc>

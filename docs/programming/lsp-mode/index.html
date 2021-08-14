@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>ブラウザ設定 :: 麦汁&#39;s Emacs Config</title>
+    <title>lsp-mode :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1628956947" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/external-tool/browse-url/">
+  <body class="" data-url="/.emacs.d/programming/lsp-mode/">
     <nav id="sidebar" class="">
 
 
@@ -1459,7 +1459,7 @@
   
     
     <li data-nav-id="/.emacs.d/programming/" title="プログラミング関係の設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -1590,7 +1590,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/programming/lsp-mode/" title="lsp-mode" class="dd-item ">
+      <li data-nav-id="/.emacs.d/programming/lsp-mode/" title="lsp-mode" class="dd-item active">
         <a href="/.emacs.d/programming/lsp-mode/">
         lsp-mode
         
@@ -1787,7 +1787,7 @@
   
     
     <li data-nav-id="/.emacs.d/external-tool/" title="外部連携ツール設定" class="dd-item
-        parent
+        
         
         
         ">
@@ -2023,7 +2023,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/external-tool/browse-url/" title="ブラウザ設定" class="dd-item active">
+      <li data-nav-id="/.emacs.d/external-tool/browse-url/" title="ブラウザ設定" class="dd-item ">
         <a href="/.emacs.d/external-tool/browse-url/">
         ブラウザ設定
         
@@ -2636,7 +2636,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/external-tool/'>外部連携ツール設定</a> > ブラウザ設定
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/programming/'>プログラミング関係の設定</a> > lsp-mode
           
         
           
@@ -2649,7 +2649,13 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#インストール">インストール</a></li>
+    <li><a href="#設定">設定</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -2659,31 +2665,34 @@
             
         <div id="head-tags">
         
-<div class="tags">
-
-  <a class="tag-link" href="/.emacs.d/tags/unused">unused</a>
-
-</div>
-
         </div>
         
         <div id="body-inner">
           
             <h1>
               
-              ブラウザ設定
+              lsp-mode
             </h1>
           
 
         
 
 
-<p>browse-url の時の開くプログラムの指定。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq browse-url-generic-program <span style="color:#e6db74">&#34;vivaldi&#34;</span>)
-</code></pre></div><p>Vivaldi を指定しているが、最近 Emacs から何かブラウザ立ち上げても Firefox がいつも開いているし、この設定ほんとうに生きてる? って感じ。</p>
-<p>WSL2 を入れてる Windows の方は Vivladi 入れてないし
-Mac の方は入れてるけど別に Emacs から Vivaldi が立ち上がるのも観測してないしほんと謎……。</p>
-
+<h2 id="概要">概要</h2>
+<p><a href="https://github.com/emacs-lsp/lsp-mode">lsp-mode</a> は Emacs で Language server protocol が使えるようにするパッケージ。</p>
+<p>より軽そうなやつに <a href="https://github.com/joaotavora/eglot">eglot</a> というのもあるがこっちは試したことがない。</p>
+<h2 id="インストール">インストール</h2>
+<p>lsp-mode 本体と
+UI 周りを担当する lsp-ui-mode の両方をインストールしている。また lsp-mode が有効になる際に lsp-ui-mode も同時に有効になるようにしている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle lsp-mode)
+(el-get-bundle lsp-ui)
+(add-hook <span style="color:#e6db74">&#39;lsp-mode-hook</span> <span style="color:#e6db74">&#39;lsp-ui-mode</span>)
+</code></pre></div><h2 id="設定">設定</h2>
+<p>lsp-ui-doc はカーソル位置にある変数や関数などの説明を child frame で表示してくれるやつ。</p>
+<p>これがデフォルトではフレーム基準で右上に表示するのだが大きめの画面を分割して使っていると大分遠くに表示されてしまうので
+window 基準で表示するように設定を変更している</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq lsp-ui-doc-alignment <span style="color:#e6db74">&#39;window</span>)
+</code></pre></div>
 
 <footer class="footline">
 	
@@ -3699,6 +3708,254 @@ Mac の方は入れてるけど別に Emacs から Vivaldi が立ち上がるの
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                 
                 
 
@@ -3883,19 +4140,6 @@ Mac の方は入れてるけど別に Emacs から Vivaldi が立ち上がるの
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
             
         
                     
@@ -3903,241 +4147,6 @@ Mac の方は入れてるけど別に Emacs から Vivaldi が立ち上がるの
             
             
                 
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -4511,10 +4520,10 @@ Mac の方は入れてるけど別に Emacs から Vivaldi が立ち上がるの
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/external-tool/wakatime-mode/" title="wakatime-mode"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/programming/gnuplot-mode/" title="gnuplot-mode"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/org-mode/" title="org-mode" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/programming/markdown/" title="markdown" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

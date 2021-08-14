@@ -137,7 +137,7 @@
 	"title": "プログラミング関係の設定",
 	"tags": [],
 	"description": "",
-	"content": "ここでは各言語やフレームワーク毎の設定をまとめている。 markdown-mode とか yaml-mode なんかはプログラム言語ではないけど面倒なので一旦ここにまとめている。\n emacs-lisp Emacs Lisp を書くための設定 Ember.js Web フロントエンド MVC フレームワークである Ember.js 用の設定を書いている es6 ES2015 以降の JS に関する設定。es6 としているのは過去の経緯のため。 flycheck Flycheck の設定について書いている gnuplot-mode グラフ作成ソフト gnuplot を使うための設定 markdown Markdown を書く時の設定 plantuml-mode PlantUML を書く時のメジャーモードの設定 rails Rails 開発をする上での設定 rspec-mode Ruby のテストフレームワーク RSpec を書いたりするのに便利なモード ruby Ruby を書く上での設定 scss SCSS を書く上での設定 Vue.js Vue.js を書く上での設定 yaml-mode YAML を書く時のメジャーモードの設定  "
+	"content": "ここでは各言語やフレームワーク毎の設定をまとめている。 markdown-mode とか yaml-mode なんかはプログラム言語ではないけど面倒なので一旦ここにまとめている。\n emacs-lisp Emacs Lisp を書くための設定 Ember.js Web フロントエンド MVC フレームワークである Ember.js 用の設定を書いている es6 ES2015 以降の JS に関する設定。es6 としているのは過去の経緯のため。 flycheck Flycheck の設定について書いている gnuplot-mode グラフ作成ソフト gnuplot を使うための設定 lsp-mode Emacs の LSP クライアントの一種である lsp-mode に関する設定 markdown Markdown を書く時の設定 plantuml-mode PlantUML を書く時のメジャーモードの設定 rails Rails 開発をする上での設定 rspec-mode Ruby のテストフレームワーク RSpec を書いたりするのに便利なモード ruby Ruby を書く上での設定 scss SCSS を書く上での設定 Vue.js Vue.js を書く上での設定 yaml-mode YAML を書く時のメジャーモードの設定  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/org-gcal/",
@@ -509,6 +509,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 load-path は Emacs の設定でも重要な項目でこのリストに追加されている path は load または require する際に走査される path となっている。\n即ち load-path を通しておけば、そこに置いている emacs lisp のファイルは簡単に読み出せるようになる。\nなお package-install や el-get を使っておけば基本的に自分で load-path を通す必要はない。\n秘匿情報を入れてるフォルダを読み込み可能にする パスワードなどの秘匿情報を持っている部分は ~/.emacs.d/secret というフォルダで管理している。そのためここに入ってる emacs lisp のファイルも読み込めるように load-path に追加している。\n(add-to-list \u0026#39;load-path (expand-file-name \u0026#34;~/.emacs.d/secret\u0026#34;)) my/load-config ~/.emacs.d/secret は個人マシンか会社マシンかによって置いてるデータが異なったりするためもしもファイルがなくてもエラーにならないような方法で load する方法が必要だった。\nというわけでファイルがなかったら読み込まずにメッセージを出力して終了するような関数を用意している。\n(defun my/load-config (file) (condition-case nil (load file) (file-missing (message \u0026#34;Load error: %s\u0026#34; file)))) ただ、これって結局\n(load file nil t) で十分な気もするので、置き換えを検討した方が良さそう。\n"
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/programming/lsp-mode/",
+	"title": "lsp-mode",
+	"tags": [],
+	"description": "",
+	"content": "概要 lsp-mode は Emacs で Language server protocol が使えるようにするパッケージ。\nより軽そうなやつに eglot というのもあるがこっちは試したことがない。\nインストール lsp-mode 本体と UI 周りを担当する lsp-ui-mode の両方をインストールしている。また lsp-mode が有効になる際に lsp-ui-mode も同時に有効になるようにしている。\n(el-get-bundle lsp-mode) (el-get-bundle lsp-ui) (add-hook \u0026#39;lsp-mode-hook \u0026#39;lsp-ui-mode) 設定 lsp-ui-doc はカーソル位置にある変数や関数などの説明を child frame で表示してくれるやつ。\nこれがデフォルトではフレーム基準で右上に表示するのだが大きめの画面を分割して使っていると大分遠くに表示されてしまうので window 基準で表示するように設定を変更している\n(setq lsp-ui-doc-alignment \u0026#39;window) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/external-tool/magit/",

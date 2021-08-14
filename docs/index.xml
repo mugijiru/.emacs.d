@@ -876,6 +876,20 @@ sticky-shift セミコロン+アルファベット入力で大文字とする �
     </item>
     
     <item>
+      <title>lsp-mode</title>
+      <link>https://mugijiru.github.io/.emacs.d/programming/lsp-mode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/programming/lsp-mode/</guid>
+      <description>概要 lsp-mode は Emacs で Language server protocol が使えるようにするパッケージ。
+より軽そうなやつに eglot というのもあるがこっちは試したことがない。
+インストール lsp-mode 本体と UI 周りを担当する lsp-ui-mode の両方をインストールしている。また lsp-mode が有効になる際に lsp-ui-mode も同時に有効になるようにしている。
+(el-get-bundle lsp-mode) (el-get-bundle lsp-ui) (add-hook &amp;#39;lsp-mode-hook &amp;#39;lsp-ui-mode) 設定 lsp-ui-doc はカーソル位置にある変数や関数などの説明を child frame で表示してくれるやつ。
+これがデフォルトではフレーム基準で右上に表示するのだが大きめの画面を分割して使っていると大分遠くに表示されてしまうので window 基準で表示するように設定を変更している
+(setq lsp-ui-doc-alignment &amp;#39;window) </description>
+    </item>
+    
+    <item>
       <title>magit</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/magit/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
