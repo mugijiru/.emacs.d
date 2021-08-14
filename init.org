@@ -2625,8 +2625,48 @@
      使ってる minor-mode どうやって把握したりしたらいいんだろうね。
      ま、表示されなくてもなんとなくで把握しているから、困ってはいないんだけど。
 
+*** doom-modeline
+    [[https://github.com/seagle0128/doom-modeline][doom-modeline]] は Emacs の mode-line を装飾するパッケージの1つ。
+    結構スッキリした見た目になるので気に入ってる。
+
+**** インストール
+     いつも通り el-get で入れてるだけ
+     #+begin_src emacs-lisp :tangle inits/91-doom-modeline.el
+     (el-get-bundle doom-modeline)
+     #+end_src
+
+**** 有効化
+     #+begin_src emacs-lisp :tangle inits/91-doom-modeline.el
+     (doom-modeline-mode 1)
+     #+end_src
+
+**** VCS 用表示の長さ変更
+     デフォルトだと 12 なんだけど
+     それだと短かくて何のブランチかよくわからんので
+     30 まえのばしている。
+
+     #+begin_src emacs-lisp :tangle inits/91-doom-modeline.el
+     (setq doom-modeline-vcs-max-length 30)
+     #+end_src
+
+**** バッテリー残量表示
+     これは doom-modeline 専用の設定ではないけど
+     doom-modeline で見た目をカッコよくしているのでこっちに設定を書いている。
+
+     #+begin_src emacs-lisp :tangle inits/91-doom-modeline.el
+     (display-battery-mode 1)
+     #+end_src
+
+**** その他
+     ~doom-modeline-github~ を t にしたら GitHub の通知数も表示されるらしいが
+     ちょっと試しに t にしているけどどうも表示されない。
+
+     あとはメジャーモード名はアイコンの方があるから消したいな。
+     ~doom-modeline-def-modeline~ で自分用に作れば良さそうな雰囲気はある
+
 *** その他
-    バッテリー残量表示とかもしているけどそのあたりの設定どこでやってんだっけ?
+    多分 mode-line 周りはもうちょっと整理した方が設定は読み易いんだろうなという気がしている
+
 ** Neotree                                                      :replacement:
    :PROPERTIES:
    :EXPORT_FILE_NAME: neotree
@@ -6232,15 +6272,6 @@
      (define-key km (kbd "\C-c[") 'twittering-follow)
      (define-key km (kbd "\C-c]") 'twittering-unfollow)
      nil)
-   #+end_src
-
-** 91-doom-modeline.el
-
-   #+begin_src emacs-lisp :tangle inits/91-doom-modeline.el
-   (el-get-bundle doom-modeline)
-   (doom-modeline-mode 1)
-   (setq doom-modeline-vcs-max-length 30)
-   (display-battery-mode 1)
    #+end_src
 
 ** 92-dashboard.el
