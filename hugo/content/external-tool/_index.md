@@ -34,3 +34,6 @@ disableToc = true
 
 [todoist]({{< relref "todoist" >}})
 : Todoist と連携して org-mode で扱えるようにするパッケージ
+
+[ブラウザ設定]({{< relref "browse-url" >}})
+: ブラウザ連携周りの設定
