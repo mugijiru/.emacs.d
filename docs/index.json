@@ -14,6 +14,13 @@
 	"content": "Emacs の基本動作に関わる部分をここでは設定している\n auto-save 編集中状態の自動保存や編集前の状態のバックアップに関する設定 auth-source 認証情報の取り扱いファイルの設定 custom-file カスタマイズ変数などの保存先を変更している ddskk ちょっと変わった日本語入力 SKK の Emacs Lisp 版 exec-path PATH などの環境変数を shell と合わせる設定 font-config フォントの設定 load-path Emacs Lisp が読み込める path の設定 migemo 日本語入力オフのままローマ字で検索できるようにするやつ savehist ミニバッファの履歴などを保存してくれる機能 server 起動した Emacs がサーバとしても動くように設定している ガベージコレクション メモリの開放関係の設定 ライブラリの読み込み Emacs Lisp を書く上で便利なライブラリの読み込み  "
 },
 {
+	"uri": "https://mugijiru.github.io/.emacs.d/editing/editing-base/",
+	"title": "基本設定",
+	"tags": [],
+	"description": "",
+	"content": "概要 なんか編集周りの基本的な設定としてまとめられていたのでここに置いとく\nインデントにタブを使わないようにする 最近の開発スタイルではインデントにタブを混ぜないスタイルなのでそのように設定している。\n(setq indent-tabs-mode nil) 以前に開いていた位置を保存/復元する save-place-mode を有効にしていると以前に開いたことのあるファイルの、開いていた場所を覚えておいてくれる。\n一度閉じてまた開いた時なんかに再度移動しないで済んで地味に便利なやつ\n(save-place-mode 1) "
+},
+{
 	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/base/",
 	"title": "基本設定",
 	"tags": [],
@@ -88,7 +95,7 @@
 	"title": "ファイル編集/入力補助",
 	"tags": [],
 	"description": "",
-	"content": "ここにはファイル編集や入力補助の設定をまとめている\n auto-insert ファイル新規作成時にテンプレートを挿入する機能 company-mode プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ emojify Slack や GitHub みたいに :smile: とか入れると笑顔の絵文字を表示する、みたいなやつ multiple-cursors カーソルを増やして複数箇所を同時に編集できるようになるやつ smartparens カッコや引用符などのペアになるやつの入力補助をしてくれるやつ undo-fu シンプルな undo/redo の機能を提供してくれるやつ view-mode Emacs に組込まれてる閲覧専用のモード。コードリーディングの時に有効にすると便利 whitespace 空白文字を可視化したり自動的に消したりする便利なやつ yasnippet テンプレート挿入機能を提供してくれるやつ  "
+	"content": "ここにはファイル編集や入力補助の設定をまとめている\n 基本設定 編集周りの基本的な設定 auto-insert ファイル新規作成時にテンプレートを挿入する機能 company-mode プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ emojify Slack や GitHub みたいに :smile: とか入れると笑顔の絵文字を表示する、みたいなやつ multiple-cursors カーソルを増やして複数箇所を同時に編集できるようになるやつ smartparens カッコや引用符などのペアになるやつの入力補助をしてくれるやつ undo-fu シンプルな undo/redo の機能を提供してくれるやつ view-mode Emacs に組込まれてる閲覧専用のモード。コードリーディングの時に有効にすると便利 whitespace 空白文字を可視化したり自動的に消したりする便利なやつ yasnippet テンプレート挿入機能を提供してくれるやつ  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/org-capture/",

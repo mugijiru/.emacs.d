@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>キーバインド :: 麦汁&#39;s Emacs Config</title>
+    <title>基本設定 :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1628953265" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/keybinds/">
+  <body class="" data-url="/.emacs.d/editing/editing-base/">
     <nav id="sidebar" class="">
 
 
@@ -462,8 +462,8 @@
   
     
     <li data-nav-id="/.emacs.d/keybinds/" title="キーバインド" class="dd-item
-        parent
-        active
+        
+        
         
         ">
       <a href="/.emacs.d/keybinds/">
@@ -580,7 +580,7 @@
   
     
     <li data-nav-id="/.emacs.d/editing/" title="ファイル編集/入力補助" class="dd-item
-        
+        parent
         
         
         ">
@@ -606,7 +606,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/editing/editing-base/" title="基本設定" class="dd-item ">
+      <li data-nav-id="/.emacs.d/editing/editing-base/" title="基本設定" class="dd-item active">
         <a href="/.emacs.d/editing/editing-base/">
         基本設定
         
@@ -2578,6 +2578,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -2588,7 +2590,13 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > キーバインド
+            
+            
+          
+          
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/editing/'>ファイル編集/入力補助</a> > 基本設定
+          
+        
           
         
           
@@ -2596,6 +2604,19 @@
                  
                   </span>
                 </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#インデントにタブを使わないようにする">インデントにタブを使わないようにする</a></li>
+    <li><a href="#以前に開いていた位置を保存-復元する">以前に開いていた位置を保存/復元する</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
                 
               </div>
             </div>
@@ -2608,31 +2629,25 @@
           
             <h1>
               
-              キーバインド
+              基本設定
             </h1>
           
 
         
 
 
+<h2 id="概要">概要</h2>
+<p>なんか編集周りの基本的な設定としてまとめられていたのでここに置いとく</p>
+<h2 id="インデントにタブを使わないようにする">インデントにタブを使わないようにする</h2>
+<p>最近の開発スタイルではインデントにタブを混ぜないスタイルなのでそのように設定している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq indent-tabs-mode <span style="color:#66d9ef">nil</span>)
+</code></pre></div><h2 id="以前に開いていた位置を保存-復元する">以前に開いていた位置を保存/復元する</h2>
+<p>save-place-mode を有効にしていると以前に開いたことのあるファイルの、開いていた場所を覚えておいてくれる。</p>
+<p>一度閉じてまた開いた時なんかに再度移動しないで済んで地味に便利なやつ</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(save-place-mode <span style="color:#ae81ff">1</span>)
+</code></pre></div>
 
-	<p>ここでは全体に関わるキーバインド系の設定を記載している。</p>
-<dl>
-<dt><a href="/.emacs.d/keybinds/google-integration/">Google 連携</a></dt>
-<dd>Google 連携する機能のキーバインドをまとめている</dd>
-<dt><a href="/.emacs.d/keybinds/key-chord/">key-chord</a></dt>
-<dd>同時押しというキーバインドを提供してくれるやつ</dd>
-<dt><a href="/.emacs.d/keybinds/sticky-control/">sticky-control</a></dt>
-<dd>Control の入力を sticky にしてくれるやつ</dd>
-<dt><a href="/.emacs.d/keybinds/global-keybinds/">グローバルキーバインド</a></dt>
-<dd>いつでもどこでも使えるキーバインド周りの設定をここにまとめている</dd>
-</dl>
-
-
-
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -2926,7 +2941,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -2940,8 +2954,21 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
-                        
+            
+            
+                
                     
                 
                 
@@ -2986,22 +3013,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -3010,6 +3021,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -3022,6 +3034,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -3038,6 +3051,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -4422,10 +4438,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/buffer-management/tempbuf/" title="tempbuf"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/editing/" title="ファイル編集/入力補助"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/keybinds/google-integration/" title="Google 連携" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/editing/auto-insert/" title="auto-insert" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -4457,3 +4473,4 @@
 
   </body>
 </html>
+

@@ -7,6 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/editing/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>基本設定</title>
+      <link>https://mugijiru.github.io/.emacs.d/editing/editing-base/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/editing/editing-base/</guid>
+      <description>概要 なんか編集周りの基本的な設定としてまとめられていたのでここに置いとく
+インデントにタブを使わないようにする 最近の開発スタイルではインデントにタブを混ぜないスタイルなのでそのように設定している。
+(setq indent-tabs-mode nil) 以前に開いていた位置を保存/復元する save-place-mode を有効にしていると以前に開いたことのあるファイルの、開いていた場所を覚えておいてくれる。
+一度閉じてまた開いた時なんかに再度移動しないで済んで地味に便利なやつ
+(save-place-mode 1) </description>
+    </item>
+    
+    <item>
       <title>auto-insert</title>
       <link>https://mugijiru.github.io/.emacs.d/editing/auto-insert/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
