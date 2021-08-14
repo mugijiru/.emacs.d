@@ -12,20 +12,20 @@
     <title>scss :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1628954743" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1628954743" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1628954743" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1628954743" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1628954743" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1628954743" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1628954743" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1628954743" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1628954743" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1628954743" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1628955993" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1628955993" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1628955993" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1628955993" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1628955993" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1628955993" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1628955993" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1628955993" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1628955993" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1628955993" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1628954743"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1628955993"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1628954743"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1628954743"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1628955993"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1628955993"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1628954743"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1628955993"></script>
 
     
   </div>
@@ -2642,6 +2642,7 @@
       </ul>
     </li>
     <li><a href="#hook">hook</a></li>
+    <li><a href="#カラーコード-css-variable-の置き換え">カラーコード→ CSS Variable の置き換え</a></li>
     <li><a href="#キーバインド">キーバインド</a></li>
   </ul>
 </nav>
@@ -2729,7 +2730,17 @@
 <li>display-line-numbers-mode の有効化。行数表示も欲しいよね。巨大ファイルだと邪魔だけど巨大にしなきゃいい</li>
 <li><a href="#rainbow-mode">rainbow-mode</a> の有効化</li>
 </ul>
-<h2 id="キーバインド">キーバインド</h2>
+<h2 id="カラーコード-css-variable-の置き換え">カラーコード→ CSS Variable の置き換え</h2>
+<p>外部コマンドで fetch-color-var というのを定義してそいつにカラーコードを渡すとプロジェクトで使ってる CSS Variable を返してくるようにしている。</p>
+<p>で、それを Emacs から叩いて使えるようにしているのが以下のコマンド</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/replace-var (<span style="color:#a6e22e">point</span> mark)
+  (interactive <span style="color:#e6db74">&#34;r&#34;</span>)
+  (let* ((str (<span style="color:#a6e22e">buffer-substring</span> <span style="color:#a6e22e">point</span> mark))
+         (cmd (<span style="color:#a6e22e">concat</span> <span style="color:#e6db74">&#34;fetch-color-var &#39;&#34;</span> str <span style="color:#e6db74">&#34;&#39;&#34;</span>))
+         (response (shell-command-to-string cmd)))
+    (<span style="color:#a6e22e">delete-region</span> <span style="color:#a6e22e">point</span> mark)
+    (<span style="color:#a6e22e">insert</span> response)))
+</code></pre></div><h2 id="キーバインド">キーバインド</h2>
 <p>設定しているけど使ってないなあ……。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;major-mode-hydra</span>
   (major-mode-hydra-define scss-mode (:quit-key <span style="color:#e6db74">&#34;q&#34;</span> :title (<span style="color:#a6e22e">concat</span> (all-the-icons-alltheicon <span style="color:#e6db74">&#34;css3&#34;</span>) <span style="color:#e6db74">&#34; CSS&#34;</span>))
@@ -4574,19 +4585,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1628954743"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1628954743"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1628954743"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1628954743"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1628954743"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1628954743"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1628955993"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1628955993"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1628955993"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1628955993"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1628955993"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1628955993"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1628954743"></script>
-    <script src="/.emacs.d/js/learn.js?1628954743"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1628954743"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1628955993"></script>
+    <script src="/.emacs.d/js/learn.js?1628955993"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1628955993"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1628954743"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1628955993"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

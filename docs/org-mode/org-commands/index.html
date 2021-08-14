@@ -12,20 +12,20 @@
     <title>org-mode 用の独自コマンド :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1628954743" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1628954743" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1628954743" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1628954743" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1628954743" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1628954743" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1628954743" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1628954743" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1628954743" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1628954743" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1628955993" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1628955993" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1628955993" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1628955993" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1628955993" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1628955993" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1628955993" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1628955993" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1628955993" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1628955993" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1628954743"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1628955993"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1628954743"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1628954743"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1628955993"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1628955993"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1628954743"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1628955993"></script>
 
     
   </div>
@@ -2631,11 +2631,13 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
+    <li><a href="#org-mode-用のファイルを作成するコマンド">org-mode 用のファイルを作成するコマンド</a></li>
     <li><a href="#各ツリーの所要時間表示-非表示切替">各ツリーの所要時間表示/非表示切替</a></li>
     <li><a href="#org-todo-keywords-から装飾を省いた文字列のリストを返す関数">org-todo-keywords から装飾を省いた文字列のリストを返す関数</a></li>
     <li><a href="#ivy-で-todo-ステータスを選択し設定するコマンド">Ivy で TODO ステータスを選択し設定するコマンド</a></li>
     <li><a href="#タグ選択でそのタグがついたヘッドラインをリスト表示">タグ選択でそのタグがついたヘッドラインをリスト表示</a></li>
     <li><a href="#calfw-で選択したカレンダーを表示">calfw で選択したカレンダーを表示</a></li>
+    <li><a href="#レビュー依頼がされてる-pr-を取得してバッファに挿入">レビュー依頼がされてる PR を取得してバッファに挿入</a></li>
   </ul>
 </nav>
     </div>
@@ -2662,7 +2664,14 @@
 
 <h2 id="概要">概要</h2>
 <p>org-mode を使う上で、標準で用意されているコマンド以外に自分でも適当にコマンドを用意しているのでここにまとめている。</p>
-<h2 id="各ツリーの所要時間表示-非表示切替">各ツリーの所要時間表示/非表示切替</h2>
+<h2 id="org-mode-用のファイルを作成するコマンド">org-mode 用のファイルを作成するコマンド</h2>
+<p>指定したフォルダに org-mode なファイルを作るためのコマンドを用意している。</p>
+<p>が、使ってないし意味をあまり感じないし消して良さそう。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq my/org-document-dir (<span style="color:#a6e22e">expand-file-name</span> <span style="color:#e6db74">&#34;~/Documents/org/&#34;</span>))
+(defun my/create-org-document ()
+  (interactive)
+  (find-file-other-window my/org-document-dir))
+</code></pre></div><h2 id="各ツリーの所要時間表示-非表示切替">各ツリーの所要時間表示/非表示切替</h2>
 <p>org-clock-display で各ツリーにおける org-clock で記録された所要時間が表示でき、
 org-clock-remove-overlays でそれを非表示にできるが、それを Toggle できるようにコマンド/関数を定義している。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/org-clock-toggle-display ()
@@ -2713,7 +2722,17 @@ ivy で選択できるようにしている。</p>
                       (progn
                         (setq cfw:org-icalendars <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory target <span style="color:#e6db74">&#34;.org&#34;</span>)))
                         (cfw:open-org-calendar)))))
-</code></pre></div>
+</code></pre></div><h2 id="レビュー依頼がされてる-pr-を取得してバッファに挿入">レビュー依頼がされてる PR を取得してバッファに挿入</h2>
+<p>review-requested-prs というコマンドでレビュー対象の PR を取得できるようにしているのでそれを Emacs から叩けるようにしているコマンド。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/insert-review-requested-prs-as-string ()
+  (interactive)
+  (let* ((cmd (<span style="color:#a6e22e">concat</span> <span style="color:#e6db74">&#34;review-requested-prs &#34;</span> my/github-organization <span style="color:#e6db74">&#34; &#34;</span> my/github-repository))
+         (response (shell-command-to-string cmd)))
+    (<span style="color:#a6e22e">insert</span> response)))
+</code></pre></div><p>実際のところこの Emacs のコマンドは使わず
+Terminal で review-requested-prs というコマンドを直で叩いているから何かしら工夫が必要そうである。</p>
+<p>あと、そもそも既にバッファにあるやつとマージしたいとか色々やりたいことはあるのでそれをなんとかしたいですね。</p>
+
 
 <footer class="footline">
 	
@@ -4538,19 +4557,19 @@ ivy で選択できるようにしている。</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1628954743"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1628954743"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1628954743"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1628954743"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1628954743"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1628954743"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1628955993"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1628955993"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1628955993"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1628955993"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1628955993"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1628955993"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1628954743"></script>
-    <script src="/.emacs.d/js/learn.js?1628954743"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1628954743"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1628955993"></script>
+    <script src="/.emacs.d/js/learn.js?1628955993"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1628955993"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1628954743"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1628955993"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

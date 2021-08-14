@@ -270,11 +270,12 @@ refile 先の候補設定 いくつかの org ファイルを使っているの�
       
       <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-commands/</guid>
       <description>概要 org-mode を使う上で、標準で用意されているコマンド以外に自分でも適当にコマンドを用意しているのでここにまとめている。
-各ツリーの所要時間表示/非表示切替 org-clock-display で各ツリーにおける org-clock で記録された所要時間が表示でき、 org-clock-remove-overlays でそれを非表示にできるが、それを Toggle できるようにコマンド/関数を定義している。
+org-mode 用のファイルを作成するコマンド 指定したフォルダに org-mode なファイルを作るためのコマンドを用意している。
+が、使ってないし意味をあまり感じないし消して良さそう。
+(setq my/org-document-dir (expand-file-name &amp;#34;~/Documents/org/&amp;#34;)) (defun my/create-org-document () (interactive) (find-file-other-window my/org-document-dir)) 各ツリーの所要時間表示/非表示切替 org-clock-display で各ツリーにおける org-clock で記録された所要時間が表示でき、 org-clock-remove-overlays でそれを非表示にできるが、それを Toggle できるようにコマンド/関数を定義している。
 (defun my/org-clock-toggle-display () &amp;#34;各ツリーの末尾に掛かった作業時間を表示/非表示を切り替えるコマンド&amp;#34; (interactive) (if org-clock-overlays (org-clock-remove-overlays) (org-clock-display))) org-todo-keywords から装飾を省いた文字列のリストを返す関数 ivy で org-todo-keywords を選択可能にするために org-todo-keywords を加工してシンプルな文字列の配列にする関数を定義している。
 後述の my/org-todo で利用している
-(defun my/org-todo-keyword-strings () &amp;#34;org-todo-keywords から装飾を省いた文字列のリストを返す関数&amp;#34; (let* ((keywords (cl-rest (cl-first org-todo-keywords))) (without-delimiter (cl-remove-if (lambda (elm) (string= &amp;#34;|&amp;#34; elm)) keywords))) (mapcar (lambda (element) (replace-regexp-in-string &amp;#34;\(.+\)&amp;#34; &amp;#34;&amp;#34; element)) without-delimiter))) Ivy で TODO ステータスを選択し設定するコマンド 標準の org-todo だと画面がガチャガチャ動くのが気になったので ivy で選択できるようにしている。
-(defun my/org-todo () &amp;#34;ivy で TODO ステータスを切り替えるためのコマンド Hydra から利用するために定義している。&amp;#34; (interactive) (ivy-read &amp;#34;Org todo: &amp;#34; (my/org-todo-keyword-strings) :require-match t :sort nil :action (lambda (keyword) (org-todo keyword)))) タグ選択でそのタグがついたヘッドラインをリスト表示 タグ毎に見たいことがありそうなので用意したやつ。存在を忘れてしまっていたのであまり使ってない。</description>
+(defun my/org-todo-keyword-strings () &amp;#34;org-todo-keywords から装飾を省いた文字列のリストを返す関数&amp;#34; (let* ((keywords (cl-rest (cl-first org-todo-keywords))) (without-delimiter (cl-remove-if (lambda (elm) (string= &amp;#34;|&amp;#34; elm)) keywords))) (mapcar (lambda (element) (replace-regexp-in-string &amp;#34;\(.</description>
     </item>
     
     <item>
@@ -1104,7 +1105,7 @@ scss-mode scss-mode は Emacs 組込みの css-mode の中で定義されてい�
 設定 インデントはデフォルトだと半角空白 4 つとなっているが麦汁さん的には 2 の方が良いのでそのように変更している。
 (with-eval-after-load &amp;#39;scss-mode (setq css-indent-offset 2)) with-eval-after-load を使っているが css-indent-offset は defcustom で定義されているので custom-set-variables を使うように修正した方が良さそう
 hook scss を使う上で hook を使って色々有効化したりしている。
-(defun my/scss-mode-hook () (flycheck-mode 1) (setq-local lsp-prefer-flymake nil) (lsp) (lsp-ui-mode -1) ;; lsp-ui とかより後に設定しないと上書きされるのでここに移動した (setq-local flycheck-checker &amp;#39;scss-stylelint) (setq-local flycheck-check-syntax-automatically &amp;#39;(save new-line idle-change)) (company-mode 1) (display-line-numbers-mode 1) (rainbow-mode)) (add-hook &amp;#39;scss-mode-hook &amp;#39;my/scss-mode-hook)  flycheck-mode の有効化  これによりリアルタイムに lint 結果が分かって便利になる   lsp-prefer-flymake の無効化  flycheck が有効にならない問題を防いでいる。どうも自分の設定の書き方が悪い気もするが……。   lsp-mode を有効化しつつ lsp-ui は無効にしている  lsp-ui が有効だと画面上でガチャガチャ height とかのプロパティの説明をしてうざいので   flycheck-checker, flycheck-check-syntax-automatically の設定  lsp-ui とかより後に設定しないと上書きされるので、それらより後に設定している 設定の書き方の悪さのせいな気もする   company-mode の有効化。これがないと補完できなくて厳しいよね display-line-numbers-mode の有効化。行数表示も欲しいよね。巨大ファイルだと邪魔だけど巨大にしなきゃいい rainbow-mode の有効化  キーバインド 設定しているけど使ってないなあ……。</description>
+(defun my/scss-mode-hook () (flycheck-mode 1) (setq-local lsp-prefer-flymake nil) (lsp) (lsp-ui-mode -1) ;; lsp-ui とかより後に設定しないと上書きされるのでここに移動した (setq-local flycheck-checker &amp;#39;scss-stylelint) (setq-local flycheck-check-syntax-automatically &amp;#39;(save new-line idle-change)) (company-mode 1) (display-line-numbers-mode 1) (rainbow-mode)) (add-hook &amp;#39;scss-mode-hook &amp;#39;my/scss-mode-hook)  flycheck-mode の有効化  これによりリアルタイムに lint 結果が分かって便利になる   lsp-prefer-flymake の無効化  flycheck が有効にならない問題を防いでいる。どうも自分の設定の書き方が悪い気もするが……。   lsp-mode を有効化しつつ lsp-ui は無効にしている  lsp-ui が有効だと画面上でガチャガチャ height とかのプロパティの説明をしてうざいので   flycheck-checker, flycheck-check-syntax-automatically の設定  lsp-ui とかより後に設定しないと上書きされるので、それらより後に設定している 設定の書き方の悪さのせいな気もする   company-mode の有効化。これがないと補完できなくて厳しいよね display-line-numbers-mode の有効化。行数表示も欲しいよね。巨大ファイルだと邪魔だけど巨大にしなきゃいい rainbow-mode の有効化  カラーコード→ CSS Variable の置き換え 外部コマンドで fetch-color-var というのを定義してそいつにカラーコードを渡すとプロジェクトで使ってる CSS Variable を返してくるようにしている。</description>
     </item>
     
     <item>
