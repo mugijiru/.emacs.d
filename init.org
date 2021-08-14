@@ -3826,6 +3826,34 @@
 *** その他
     org-mode から使ってた記憶があるのでそっちの方で何か設定があるかもしれない
 
+** lsp-mode
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: lsp-mode
+   :END:
+*** 概要
+    [[https://github.com/emacs-lsp/lsp-mode][lsp-mode]] は Emacs で Language server protocol が使えるようにするパッケージ。
+
+    より軽そうなやつに [[https://github.com/joaotavora/eglot][eglot]] というのもあるがこっちは試したことがない。
+*** インストール
+    lsp-mode 本体と
+    UI 周りを担当する lsp-ui-mode の両方をインストールしている。
+    また lsp-mode が有効になる際に lsp-ui-mode も同時に有効になるようにしている。
+
+    #+begin_src emacs-lisp :tangle inits/20-lsp.el
+    (el-get-bundle lsp-mode)
+    (el-get-bundle lsp-ui)
+    (add-hook 'lsp-mode-hook 'lsp-ui-mode)
+    #+end_src
+*** 設定
+    lsp-ui-doc はカーソル位置にある変数や関数などの説明を child frame で表示してくれるやつ。
+
+    これがデフォルトではフレーム基準で右上に表示するのだが
+    大きめの画面を分割して使っていると大分遠くに表示されてしまうので
+    window 基準で表示するように設定を変更している
+
+    #+begin_src emacs-lisp :tangle inits/20-lsp.el
+    (setq lsp-ui-doc-alignment 'window)
+    #+end_src
 ** markdown
    :PROPERTIES:
    :EXPORT_FILE_NAME: markdown
@@ -6494,20 +6522,6 @@
      何度も使うならこの差し替え処理自体をテストヘルパーにしても良いかもしれない。
 
      また ivy で選択するので with-simulated-input を使って入力操作を代替している。便利。
-
-* 未整理
-
-  ここにはとりあえず inits 以下に出力できるようにしただけの記述を連ねていきます。
-  あとで移動する。
-
-** lsp
-
-   #+begin_src emacs-lisp :tangle inits/20-lsp.el
-   (el-get-bundle lsp-mode)
-   (el-get-bundle lsp-ui)
-   (add-hook 'lsp-mode-hook 'lsp-ui-mode)
-   (setq lsp-ui-doc-alignment 'window)
-   #+end_src
 
 * Footnotes
 * COMMENT Local Variables                          :ARCHIVE:
