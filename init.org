@@ -4251,6 +4251,7 @@
    - [[*notify-slack][notify-slack]] :: Emacs から外部コマンドを通じて Slack に通知するための関数周りの事を書いている
    - [[*wakatime-mode][wakatime-mode]] :: Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ
    - [[*todoist][todoist]] :: Todoist と連携して org-mode で扱えるようにするパッケージ
+   - [[*twmode][twmode]] :: Emacs 上で動く Twitter クライアント
    - [[*ブラウザ設定][ブラウザ設定]] :: ブラウザ連携周りの設定
 ** emacs-w3m
    :PROPERTIES:
