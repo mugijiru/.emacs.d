@@ -26,6 +26,9 @@ disableToc = true
 [undo-fu]({{< relref "undo-fu" >}})
 : シンプルな undo/redo の機能を提供してくれるやつ
 
+[view-mode]({{< relref "view-mode" >}})
+: Emacs に組込まれてる閲覧専用のモード。コードリーディングの時に有効にすると便利
+
 [whitespace]({{< relref "whitespace" >}})
 : 空白文字を可視化したり自動的に消したりする便利なやつ
 
