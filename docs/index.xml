@@ -820,6 +820,22 @@ forge を使うと GitHub や GitLab とも連携できてさらに便利、な�
     </item>
     
     <item>
+      <title>migemo</title>
+      <link>https://mugijiru.github.io/.emacs.d/basics/migemo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/basics/migemo/</guid>
+      <description>概要 migemo.el は cmigemo などと通信して、日本語入力オフのままローマ字入力をして日本語検索ができるようにするパッケージ。
+これとても便利で抜け出せない。
+インストール いつも通り el-get でインストール。
+(el-get-bundle migemo) (load &amp;#34;migemo&amp;#34;) load はする必要あるのかわからんけど、そういう設定が既に入ってるのでそのままにしている。
+Mac での辞書の位置の指定 Homebrew で cmigemo を入れているのでそれに合わせて辞書の位置を指定している。
+;; Mac (let ((path &amp;#34;/usr/local/share/migemo/utf-8/migemo-dict&amp;#34;)) (if (file-exists-p path) (setq migemo-dictionary path))) Ubuntu での辞書の位置の指定 apt で cmigemo を入れているのでそれに合わせて辞書の位置を指定している。
+;; Ubuntu (let ((path &amp;#34;/usr/share/cmigemo/utf-8/migemo-dict&amp;#34;)) (if (file-exists-p path) (setq migemo-dictionary path))) cmigemo コマンドの PATH 指定 環境で PATH が変わるので which コマンドの結果を migemo-command に設定している。
+(let ((path (s-chomp (shell-command-to-string &amp;#34;which cmigemo&amp;#34;)))) (if (s-ends-with? &amp;#34;not found&amp;#34; path) (message &amp;#34;cmigemo not found&amp;#34;) (setq migemo-command path))) オプション設定 裏側で動くのでうるさくならないように -q を指定しているのと Emacs から叩くから --emacs を指定しているだけ。</description>
+    </item>
+    
+    <item>
       <title>mode-line</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/mode-line/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

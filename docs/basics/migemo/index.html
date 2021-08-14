@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>avy :: 麦汁&#39;s Emacs Config</title>
+    <title>migemo :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1628923816" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/nav/avy/">
+  <body class="" data-url="/.emacs.d/basics/migemo/">
     <nav id="sidebar" class="">
 
 
@@ -100,7 +100,7 @@
   
     
     <li data-nav-id="/.emacs.d/basics/" title="基本設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -273,7 +273,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/basics/migemo/" title="migemo" class="dd-item ">
+      <li data-nav-id="/.emacs.d/basics/migemo/" title="migemo" class="dd-item active">
         <a href="/.emacs.d/basics/migemo/">
         migemo
         
@@ -1215,7 +1215,7 @@
   
     
     <li data-nav-id="/.emacs.d/nav/" title="ナビゲーション" class="dd-item
-        parent
+        
         
         
         ">
@@ -1262,7 +1262,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/nav/avy/" title="avy" class="dd-item active">
+      <li data-nav-id="/.emacs.d/nav/avy/" title="avy" class="dd-item ">
         <a href="/.emacs.d/nav/avy/">
         avy
         
@@ -2447,7 +2447,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/nav/'>ナビゲーション</a> > avy
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/basics/'>基本設定</a> > migemo
           
         
           
@@ -2464,8 +2464,12 @@
   <ul>
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
-    <li><a href="#設定">設定</a></li>
-    <li><a href="#キーバインド">キーバインド</a></li>
+    <li><a href="#mac-での辞書の位置の指定">Mac での辞書の位置の指定</a></li>
+    <li><a href="#ubuntu-での辞書の位置の指定">Ubuntu での辞書の位置の指定</a></li>
+    <li><a href="#cmigemo-コマンドの-path-指定">cmigemo コマンドの PATH 指定</a></li>
+    <li><a href="#オプション設定">オプション設定</a></li>
+    <li><a href="#coding-system-の指定">coding system の指定</a></li>
+    <li><a href="#初期化">初期化</a></li>
   </ul>
 </nav>
     </div>
@@ -2483,7 +2487,7 @@
           
             <h1>
               
-              avy
+              migemo
             </h1>
           
 
@@ -2491,72 +2495,43 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/abo-abo/avy">avy</a> は好きな文字とか単語など、表示されてる場所にさくっとジャンプするためのパッケージ。
-Vimium の f とかに似てる。</p>
+<p><a href="https://github.com/emacs-jp/migemo">migemo.el</a> は <a href="https://github.com/koron/cmigemo">cmigemo</a> などと通信して、日本語入力オフのままローマ字入力をして日本語検索ができるようにするパッケージ。</p>
+<p>これとても便利で抜け出せない。</p>
 <h2 id="インストール">インストール</h2>
-<p>el-get で普通にインストールしている</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle avy)
-</code></pre></div><h2 id="設定">設定</h2>
-<p>文字の上に重なると元の文字列がよくわからなくなるので、移動先の文字の前に表示するようにしている</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq avy-style <span style="color:#e6db74">&#39;pre</span>)
-</code></pre></div><h2 id="キーバインド">キーバインド</h2>
-<p>グローバルなキーバインドを汚染したくなかったのでひとまず Hydra を定義している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
-  (pretty-hydra-define avy-hydra
-    (:separator <span style="color:#e6db74">&#34;-&#34;</span> :title <span style="color:#e6db74">&#34;avy&#34;</span> :foreign-key <span style="color:#a6e22e">warn</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :exit <span style="color:#66d9ef">t</span>)
-    (<span style="color:#e6db74">&#34;Char&#34;</span>
-     ((<span style="color:#e6db74">&#34;c&#34;</span> avy-goto-char       <span style="color:#e6db74">&#34;Char&#34;</span>)
-      (<span style="color:#e6db74">&#34;C&#34;</span> avy-goto-char-2     <span style="color:#e6db74">&#34;Char 2&#34;</span>)
-      (<span style="color:#e6db74">&#34;x&#34;</span> avy-goto-char-timer <span style="color:#e6db74">&#34;Char Timer&#34;</span>))
-
-     <span style="color:#e6db74">&#34;Word&#34;</span>
-     ((<span style="color:#e6db74">&#34;w&#34;</span> avy-goto-word-1 <span style="color:#e6db74">&#34;Word&#34;</span>)
-      (<span style="color:#e6db74">&#34;W&#34;</span> avy-goto-word-0 <span style="color:#e6db74">&#34;Word 0&#34;</span>))
-
-     <span style="color:#e6db74">&#34;Line&#34;</span>
-     ((<span style="color:#e6db74">&#34;l&#34;</span> avy-goto-line <span style="color:#e6db74">&#34;Line&#34;</span>))
-
-     <span style="color:#e6db74">&#34;Other&#34;</span>
-     ((<span style="color:#e6db74">&#34;r&#34;</span> avy-resume <span style="color:#e6db74">&#34;Resume&#34;</span>)))))
-</code></pre></div><table>
-<thead>
-<tr>
-<th>Key</th>
-<th>効果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>c</td>
-<td>1文字からの絞り込み</td>
-</tr>
-<tr>
-<td>C</td>
-<td>2文字から絞り込み</td>
-</tr>
-<tr>
-<td>x</td>
-<td>任意の文字列からの絞り込み</td>
-</tr>
-<tr>
-<td>w</td>
-<td>1文字絞り込んで単語先頭に移動</td>
-</tr>
-<tr>
-<td>W</td>
-<td>絞り込みなしの単語移動</td>
-</tr>
-<tr>
-<td>l</td>
-<td>列移動</td>
-</tr>
-<tr>
-<td>r</td>
-<td>繰り返し同じコマンドを実行</td>
-</tr>
-</tbody>
-</table>
-
+<p>いつも通り el-get でインストール。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle migemo)
+(<span style="color:#a6e22e">load</span> <span style="color:#e6db74">&#34;migemo&#34;</span>)
+</code></pre></div><p>load はする必要あるのかわからんけど、そういう設定が既に入ってるのでそのままにしている。</p>
+<h2 id="mac-での辞書の位置の指定">Mac での辞書の位置の指定</h2>
+<p>Homebrew で cmigemo を入れているのでそれに合わせて辞書の位置を指定している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#75715e">;; Mac</span>
+(let ((path <span style="color:#e6db74">&#34;/usr/local/share/migemo/utf-8/migemo-dict&#34;</span>))
+  (if (<span style="color:#a6e22e">file-exists-p</span> path)
+      (setq migemo-dictionary path)))
+</code></pre></div><h2 id="ubuntu-での辞書の位置の指定">Ubuntu での辞書の位置の指定</h2>
+<p>apt で cmigemo を入れているのでそれに合わせて辞書の位置を指定している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#75715e">;; Ubuntu</span>
+(let ((path <span style="color:#e6db74">&#34;/usr/share/cmigemo/utf-8/migemo-dict&#34;</span>))
+  (if (<span style="color:#a6e22e">file-exists-p</span> path)
+      (setq migemo-dictionary path)))
+</code></pre></div><h2 id="cmigemo-コマンドの-path-指定">cmigemo コマンドの PATH 指定</h2>
+<p>環境で PATH が変わるので which コマンドの結果を migemo-command に設定している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(let ((path (s-chomp (shell-command-to-string <span style="color:#e6db74">&#34;which cmigemo&#34;</span>))))
+  (if (s-ends-with? <span style="color:#e6db74">&#34;not found&#34;</span> path)
+      (<span style="color:#a6e22e">message</span> <span style="color:#e6db74">&#34;cmigemo not found&#34;</span>)
+    (setq migemo-command path)))
+</code></pre></div><h2 id="オプション設定">オプション設定</h2>
+<p>裏側で動くのでうるさくならないように <code>-q</code> を指定しているのと
+Emacs から叩くから <code>--emacs</code> を指定しているだけ。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq migemo-options <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;-q&#34;</span> <span style="color:#e6db74">&#34;--emacs&#34;</span>))
+</code></pre></div><h2 id="coding-system-の指定">coding system の指定</h2>
+<p>Mac と Ubuntu でしか使わないしそれらの環境だと統一で utf-8-unix でいいよねってことでそれを指定している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq migemo-coding-system <span style="color:#e6db74">&#39;utf-8-unix</span>)
+</code></pre></div><p>今時なら euc とかにする必要もないだろうしね。</p>
+<h2 id="初期化">初期化</h2>
+<p>以上の設定を入れた上で初期化をしている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(migemo-init)
+</code></pre></div>
 
 <footer class="footline">
 	
@@ -2593,8 +2568,477 @@ Vimium の f とかに似てる。</p>
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -2796,22 +3240,6 @@ Vimium の f とかに似てる。</p>
             
         
                     
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
                         
             
             
@@ -2827,118 +3255,6 @@ Vimium の f とかに似てる。</p>
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
                         
             
@@ -3104,350 +3420,6 @@ Vimium の f とかに似てる。</p>
             
             
                 
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -4240,10 +4212,10 @@ Vimium の f とかに似てる。</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/nav/ace-window/" title="ace-window"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/basics/load-path/" title="load-path"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/nav/browse-at-remote/" title="browse-at-remote" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/basics/savehist/" title="savehist" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

@@ -11,7 +11,7 @@
 	"title": "基本設定",
 	"tags": [],
 	"description": "",
-	"content": "Emacs の基本動作に関わる部分をここでは設定している\n auto-save 編集中状態の自動保存や編集前の状態のバックアップに関する設定 auth-source 認証情報の取り扱いファイルの設定 custom-file カスタマイズ変数などの保存先を変更している ddskk ちょっと変わった日本語入力 SKK の Emacs Lisp 版 exec-path PATH などの環境変数を shell と合わせる設定 font-config フォントの設定 load-path Emacs Lisp が読み込める path の設定 savehist ミニバッファの履歴などを保存してくれる機能 server 起動した Emacs がサーバとしても動くように設定している ガベージコレクション メモリの開放関係の設定 ライブラリの読み込み Emacs Lisp を書く上で便利なライブラリの読み込み  "
+	"content": "Emacs の基本動作に関わる部分をここでは設定している\n auto-save 編集中状態の自動保存や編集前の状態のバックアップに関する設定 auth-source 認証情報の取り扱いファイルの設定 custom-file カスタマイズ変数などの保存先を変更している ddskk ちょっと変わった日本語入力 SKK の Emacs Lisp 版 exec-path PATH などの環境変数を shell と合わせる設定 font-config フォントの設定 load-path Emacs Lisp が読み込める path の設定 migemo 日本語入力オフのままローマ字で検索できるようにするやつ savehist ミニバッファの履歴などを保存してくれる機能 server 起動した Emacs がサーバとしても動くように設定している ガベージコレクション メモリの開放関係の設定 ライブラリの読み込み Emacs Lisp を書く上で便利なライブラリの読み込み  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/base/",
@@ -488,6 +488,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 Markdown を書くための設定。といいつつ markdown-mode を入れてるだけだけども。\n手元でテキストドキュメントを弄るのは org-mode が多いからなあ……\nインストール いつも通り el-get で入れている。\n(el-get-bundle markdown-mode) "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/basics/migemo/",
+	"title": "migemo",
+	"tags": [],
+	"description": "",
+	"content": "概要 migemo.el は cmigemo などと通信して、日本語入力オフのままローマ字入力をして日本語検索ができるようにするパッケージ。\nこれとても便利で抜け出せない。\nインストール いつも通り el-get でインストール。\n(el-get-bundle migemo) (load \u0026#34;migemo\u0026#34;) load はする必要あるのかわからんけど、そういう設定が既に入ってるのでそのままにしている。\nMac での辞書の位置の指定 Homebrew で cmigemo を入れているのでそれに合わせて辞書の位置を指定している。\n;; Mac (let ((path \u0026#34;/usr/local/share/migemo/utf-8/migemo-dict\u0026#34;)) (if (file-exists-p path) (setq migemo-dictionary path))) Ubuntu での辞書の位置の指定 apt で cmigemo を入れているのでそれに合わせて辞書の位置を指定している。\n;; Ubuntu (let ((path \u0026#34;/usr/share/cmigemo/utf-8/migemo-dict\u0026#34;)) (if (file-exists-p path) (setq migemo-dictionary path))) cmigemo コマンドの PATH 指定 環境で PATH が変わるので which コマンドの結果を migemo-command に設定している。\n(let ((path (s-chomp (shell-command-to-string \u0026#34;which cmigemo\u0026#34;)))) (if (s-ends-with? \u0026#34;not found\u0026#34; path) (message \u0026#34;cmigemo not found\u0026#34;) (setq migemo-command path))) オプション設定 裏側で動くのでうるさくならないように -q を指定しているのと Emacs から叩くから --emacs を指定しているだけ。\n(setq migemo-options \u0026#39;(\u0026#34;-q\u0026#34; \u0026#34;--emacs\u0026#34;)) coding system の指定 Mac と Ubuntu でしか使わないしそれらの環境だと統一で utf-8-unix でいいよねってことでそれを指定している。\n(setq migemo-coding-system \u0026#39;utf-8-unix) 今時なら euc とかにする必要もないだろうしね。\n初期化 以上の設定を入れた上で初期化をしている。\n(migemo-init) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/ui/mode-line/",
