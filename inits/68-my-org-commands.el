@@ -1,3 +1,8 @@
+(setq my/org-document-dir (expand-file-name "~/Documents/org/"))
+(defun my/create-org-document ()
+  (interactive)
+  (find-file-other-window my/org-document-dir))
+
 (defun my/org-clock-toggle-display ()
   "各ツリーの末尾に掛かった作業時間を表示/非表示を切り替えるコマンド"
   (interactive)
@@ -39,3 +44,9 @@ Hydra から利用するために定義している。"
                       (progn
                         (setq cfw:org-icalendars `(,(concat org-directory target ".org")))
                         (cfw:open-org-calendar)))))
+
+(defun my/insert-review-requested-prs-as-string ()
+  (interactive)
+  (let* ((cmd (concat "review-requested-prs " my/github-organization " " my/github-repository))
+         (response (shell-command-to-string cmd)))
+    (insert response)))

@@ -20,6 +20,14 @@
   (rainbow-mode))
 (add-hook 'scss-mode-hook 'my/scss-mode-hook)
 
+(defun my/replace-var (point mark)
+  (interactive "r")
+  (let* ((str (buffer-substring point mark))
+         (cmd (concat "fetch-color-var '" str "'"))
+         (response (shell-command-to-string cmd)))
+    (delete-region point mark)
+    (insert response)))
+
 (with-eval-after-load 'major-mode-hydra
   (major-mode-hydra-define scss-mode (:quit-key "q" :title (concat (all-the-icons-alltheicon "css3") " CSS"))
     ("Edit"
