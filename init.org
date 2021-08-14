@@ -4450,7 +4450,7 @@
    ここでは org-mode 周りの設定をまとめている。
    org-mode だけでも書くことが多いからね……。
 
-   1. [[*基本設定][基本設定]]
+   1. [[#org-mode-base-config][基本設定]]
    2. [[*org-babel][org-babel]]
    3. [[*予定のカレンダー表示][予定のカレンダー表示]]
    4. [[*Agenda 関係の設定][Agenda 関係の設定]]
@@ -4468,6 +4468,7 @@
    :PROPERTIES:
    :EXPORT_FILE_NAME: base
    :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :weight 1
+   :CUSTOM_ID: org-mode-base-config
    :END:
 *** 概要
     ここでは org-mode 周りのベースとなる設定を書いているつもり。
