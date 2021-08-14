@@ -14,6 +14,9 @@ disableToc = true
 [company-mode]({{< relref "company-mode" >}})
 : プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ
 
+[emojify]({{< relref "emojify" >}})
+: Slack や GitHub みたいに `:smile:` とか入れると笑顔の絵文字を表示する、みたいなやつ
+
 [multiple-cursors]({{< relref "global-keybinds#multiple-cursors" >}})
 : カーソルを増やして複数箇所を同時に編集できるようになるやつ
 
