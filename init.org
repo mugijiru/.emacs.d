@@ -1723,6 +1723,7 @@
    - [[*alert][alert]] :: 共通インターフェースで色々な通知機能と連携して通知するやつ
    - [[*all-the-icons][all-the-icons]] :: Emacs で様々なアイコンを表示できるようにするやつ
    - [[*color-theme-molokai][color-theme-molokai]] :: ダークグレーベースのカラーテーマ
+   - [[*dashboard][dashboard]] :: Emacs 起動時の表示を便利にしてくれるパッケージ
    - [[*frame-cmds][frame-cmds]] :: フレーム移動や拡縮などの操作をするコマンド群
    - [[*fullscreen][fullscreen]] :: 起動時のフルスクリーン設定
    - [[*git-gutter-fringe][git-gutter-fringe]] :: 最後のコミットからどう弄ったかを fringe 領域に表示してくれるやつ

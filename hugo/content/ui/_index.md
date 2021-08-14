@@ -17,6 +17,9 @@ disableToc = true
 [color-theme-molokai]({{< relref "color-theme-molokai" >}})
 : ダークグレーベースのカラーテーマ
 
+[dashboard]({{< relref "dashboard" >}})
+: Emacs 起動時の表示を便利にしてくれるパッケージ
+
 [frame-cmds]({{< relref "frame-cmds" >}})
 : フレーム移動や拡縮などの操作をするコマンド群
 
