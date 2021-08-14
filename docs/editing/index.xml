@@ -74,6 +74,19 @@ strict モードだとペアが崩れないように強制するので雑に C-k
     </item>
     
     <item>
+      <title>whitespace</title>
+      <link>https://mugijiru.github.io/.emacs.d/editing/whitespace/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/editing/whitespace/</guid>
+      <description>概要 whitespace-mode は Emacs に標準添付されている、空白文字を可視化したりするためのモード。
+全角空白を可視化したり、行末の空白を可視化したりしておくと便利なので入れている。
+設定 (require &amp;#39;whitespace) 可視化対象 可視化対象の空白について設定している。
+(setq whitespace-style &amp;#39;(face trailing tabs spaces empty space-mark tab-mark))    値 意味     face face による可視化を有効にする。これがないと *-mark 以外が有効にならない   trailing 行末の空白を可視化する   tabs タブ文字の可視化   spaces 空白の可視化。ただし後の設定で全角のみを可視化するようにている   empty バッファの前後に空行があれば可視化   space-mark 空白文字を別の文字に置き換える設定。置き換え文字は後述   tab-mark タブ文字を別の文字に置き換える設定。置き換え文字は後述    他にも lines, lines-tail, indentation, big-indent, newline-mark などがある
+lines-tail あたりを使うと1行80文字制限でコーディングする時などに便利かもしれないなって思ってる。設定したことがないからわからんが……。</description>
+    </item>
+    
+    <item>
       <title>yasnippet</title>
       <link>https://mugijiru.github.io/.emacs.d/editing/yasnippet/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

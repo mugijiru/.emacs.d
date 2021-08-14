@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>rails :: 麦汁&#39;s Emacs Config</title>
+    <title>whitespace :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1628921217" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/programming/rails/">
+  <body class="" data-url="/.emacs.d/editing/whitespace/">
     <nav id="sidebar" class="">
 
 
@@ -559,7 +559,7 @@
   
     
     <li data-nav-id="/.emacs.d/editing/" title="ファイル編集/入力補助" class="dd-item
-        
+        parent
         
         
         ">
@@ -690,7 +690,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/editing/whitespace/" title="whitespace" class="dd-item ">
+      <li data-nav-id="/.emacs.d/editing/whitespace/" title="whitespace" class="dd-item active">
         <a href="/.emacs.d/editing/whitespace/">
         whitespace
         
@@ -1333,7 +1333,7 @@
   
     
     <li data-nav-id="/.emacs.d/programming/" title="プログラミング関係の設定" class="dd-item
-        parent
+        
         
         
         ">
@@ -1506,7 +1506,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/programming/rails/" title="rails" class="dd-item active">
+      <li data-nav-id="/.emacs.d/programming/rails/" title="rails" class="dd-item ">
         <a href="/.emacs.d/programming/rails/">
         rails
         
@@ -2426,7 +2426,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/programming/'>プログラミング関係の設定</a> > rails
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/editing/'>ファイル編集/入力補助</a> > whitespace
           
         
           
@@ -2442,17 +2442,13 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#関連パッケージのインストール">関連パッケージのインストール</a></li>
-    <li><a href="#projectile-rails-用のコマンド追加">projectile-rails 用のコマンド追加</a>
-      <ul>
-        <li><a href="#uploader-finder">Uploader Finder</a></li>
-        <li><a href="#admin-finder">Admin Finder</a></li>
-        <li><a href="#form-object-finder">Form Object Finder</a></li>
-        <li><a href="#vue-finder">Vue Finder</a></li>
-        <li><a href="#webpacker-管理の-js-検索コマンド">Webpacker 管理の JS 検索コマンド</a></li>
-      </ul>
-    </li>
-    <li><a href="#キーバインド">キーバインド</a></li>
+    <li><a href="#設定">設定</a></li>
+    <li><a href="#可視化対象">可視化対象</a></li>
+    <li><a href="#置き換え表示用の文字の設定">置き換え表示用の文字の設定</a></li>
+    <li><a href="#スペースは全角のみを可視化">スペースは全角のみを可視化</a></li>
+    <li><a href="#行末の空白も表示">行末の空白も表示</a></li>
+    <li><a href="#保存前に自動でクリーンアップ">保存前に自動でクリーンアップ</a></li>
+    <li><a href="#emacs-全体で有効化">Emacs 全体で有効化</a></li>
   </ul>
 </nav>
     </div>
@@ -2470,7 +2466,7 @@
           
             <h1>
               
-              rails
+              whitespace
             </h1>
           
 
@@ -2478,264 +2474,103 @@
 
 
 <h2 id="概要">概要</h2>
-<p>Rails 開発関係だけど Ruby 開発とはちょっと違う設定をここに書いている。</p>
-<h2 id="関連パッケージのインストール">関連パッケージのインストール</h2>
-<p>テンプレートエンジンには haml を使っているので <a href="https://github.com/nex3/haml-mode">haml-mode</a> を入れていてファイルナビゲーションには <a href="/.emacs.d/nav/projectile/">projectile</a> の拡張である <a href="https://github.com/asok/projectile-rails">projectile-rails</a> を利用している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle haml-mode)
-(el-get-bundle projectile-rails)
-(projectile-rails-global-mode <span style="color:#ae81ff">1</span>)
-</code></pre></div><h2 id="projectile-rails-用のコマンド追加">projectile-rails 用のコマンド追加</h2>
-<p>自身のプロジェクトだと少しナビゲーション用のコマンドが不足していたので
-projectile-rails の実装を参考にコマンドを追加している</p>
-<h3 id="uploader-finder">Uploader Finder</h3>
-<p><code>app/uploaders</code> に格納している upload に関連するファイルを検索するコマンド</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/projectile-rails-find-uploader ()
-  <span style="color:#e6db74">&#34;Find a Uploader.&#34;</span>
-  (interactive)
-  (projectile-rails-find-resource
-   <span style="color:#e6db74">&#34;uploader: &#34;</span>
-   <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;app/uploaders/&#34;</span> <span style="color:#e6db74">&#34;\\(.+\\)\\.rb$&#34;</span>))
-   <span style="color:#e6db74">&#34;app/uploaders/${filename}.rb&#34;</span>))
-</code></pre></div><h3 id="admin-finder">Admin Finder</h3>
-<p>Active Admin 用のファイルを検索するためのコマンド</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/projectile-rails-find-admin ()
-  <span style="color:#e6db74">&#34;Find a ActiveAdmin file.&#34;</span>
-  (interactive)
-  (projectile-rails-find-resource
-   <span style="color:#e6db74">&#34;admin: &#34;</span>
-   <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;app/admin/&#34;</span> <span style="color:#e6db74">&#34;\\(.+\\)\\.rb$&#34;</span>))
-   <span style="color:#e6db74">&#34;app/admin/${filename}.rb&#34;</span>))
-</code></pre></div><h3 id="form-object-finder">Form Object Finder</h3>
-<p>Form Object を探すためのコマンド</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/projectile-rails-find-form-object ()
-  <span style="color:#e6db74">&#34;Find a Form Object.&#34;</span>
-  (interactive)
-  (projectile-rails-find-resource
-   <span style="color:#e6db74">&#34;form object: &#34;</span>
-   <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;app/models/forms/&#34;</span> <span style="color:#e6db74">&#34;\\(.+\\)\\.rb$&#34;</span>))
-   <span style="color:#e6db74">&#34;app/models/forms/${filename}.rb&#34;</span>))
-</code></pre></div><h3 id="vue-finder">Vue Finder</h3>
-<p>Vue.js の単一ファイルコンポーネントを探すためのコマンド</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/projectile-rails-find-vue ()
-  <span style="color:#e6db74">&#34;Find a Vue.&#34;</span>
-  (interactive)
-  (projectile-rails-find-resource
-   <span style="color:#e6db74">&#34;vue: &#34;</span>
-   <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;app/javascript/&#34;</span> <span style="color:#e6db74">&#34;\\(.+\\)\\.vue$&#34;</span>))
-   <span style="color:#e6db74">&#34;app/javascript/${filename}.vue&#34;</span>))
-</code></pre></div><h3 id="webpacker-管理の-js-検索コマンド">Webpacker 管理の JS 検索コマンド</h3>
-<p>Webpacker で JS を管理していたりもするので必要だった</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/projectile-rails-find-webpack-js ()
-  <span style="color:#e6db74">&#34;Find a Webpack js.&#34;</span>
-  (interactive)
-  (projectile-rails-find-resource
-   <span style="color:#e6db74">&#34;webpack js: &#34;</span>
-   <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;app/javascript/&#34;</span> <span style="color:#e6db74">&#34;\\(.+\\)\\.js$&#34;</span>))
-   <span style="color:#e6db74">&#34;app/javascript/${filename}.js&#34;</span>))
-</code></pre></div><h2 id="キーバインド">キーバインド</h2>
-<p>もちろん基本的にコマンドなんて覚えられないのでいつも通り Hydra を定義して大体キーバインドは忘れている。</p>
-<p>なおこの Hydra は Rails のファイルを開いている時には <code>C-c r</code> で起動するようにしている。これは通常のセットアップで prefix としてこう設定するといいよ、みたいに書かれているのを流用している。
-<a href="https://github.com/asok/projectile-rails#keymap-prefix">https://github.com/asok/projectile-rails#keymap-prefix</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
-  (pretty-hydra-define pretty-hydra-projectile-rails-find (:separator <span style="color:#e6db74">&#34;-&#34;</span> :color blue :foreign-keys <span style="color:#a6e22e">warn</span> :title <span style="color:#e6db74">&#34;Projectile Rails&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span>)
-    (<span style="color:#e6db74">&#34;Current&#34;</span>
-     ((<span style="color:#e6db74">&#34;M&#34;</span> projectile-rails-find-current-model      <span style="color:#e6db74">&#34;Current model&#34;</span>)
-      (<span style="color:#e6db74">&#34;V&#34;</span> projectile-rails-find-current-view       <span style="color:#e6db74">&#34;Current view&#34;</span>)
-      (<span style="color:#e6db74">&#34;C&#34;</span> projectile-rails-find-current-controller <span style="color:#e6db74">&#34;Current controller&#34;</span>)
-      (<span style="color:#e6db74">&#34;H&#34;</span> projectile-rails-find-current-helper     <span style="color:#e6db74">&#34;Current helper&#34;</span>)
-      (<span style="color:#e6db74">&#34;P&#34;</span> projectile-rails-find-current-spec       <span style="color:#e6db74">&#34;Current spec&#34;</span>)
-      (<span style="color:#e6db74">&#34;Z&#34;</span> projectile-rails-find-current-serializer <span style="color:#e6db74">&#34;Current serializer&#34;</span>))
-
-     <span style="color:#e6db74">&#34;App&#34;</span>
-     ((<span style="color:#e6db74">&#34;m&#34;</span> projectile-rails-find-model           <span style="color:#e6db74">&#34;Model&#34;</span>)
-      (<span style="color:#e6db74">&#34;v&#34;</span> projectile-rails-find-view            <span style="color:#e6db74">&#34;View&#34;</span>)
-      (<span style="color:#e6db74">&#34;c&#34;</span> projectile-rails-find-controller      <span style="color:#e6db74">&#34;Controller&#34;</span>)
-      (<span style="color:#e6db74">&#34;h&#34;</span> projectile-rails-find-helper          <span style="color:#e6db74">&#34;Helper&#34;</span>)
-      (<span style="color:#e6db74">&#34;a&#34;</span> my/projectile-rails-find-admin        <span style="color:#e6db74">&#34;ActiveAdmin&#34;</span>)
-      (<span style="color:#e6db74">&#34;f&#34;</span> my/projectile-rails-find-form-object  <span style="color:#e6db74">&#34;Form object&#34;</span>)
-      (<span style="color:#e6db74">&#34;@&#34;</span> projectile-rails-find-mailer          <span style="color:#e6db74">&#34;Mailer&#34;</span>)
-      (<span style="color:#e6db74">&#34;V&#34;</span> my/projectile-rails-find-vue          <span style="color:#e6db74">&#34;Vue&#34;</span>)
-      (<span style="color:#e6db74">&#34;J&#34;</span> my/projectile-rails-find-webpack-js   <span style="color:#e6db74">&#34;Webpack js&#34;</span>)
-      (<span style="color:#e6db74">&#34;u&#34;</span> my/projectile-rails-find-uploader     <span style="color:#e6db74">&#34;Controller&#34;</span>)
-      (<span style="color:#e6db74">&#34;!&#34;</span> projectile-rails-find-validator       <span style="color:#e6db74">&#34;Validator&#34;</span>)
-      <span style="color:#75715e">;; (&#34;y&#34; projectile-rails-find-layout       &#34;Layout&#34;)</span>
-      (<span style="color:#e6db74">&#34;z&#34;</span> projectile-rails-find-serializer      <span style="color:#e6db74">&#34;Serializer&#34;</span>))
-
-     <span style="color:#e6db74">&#34;Assets&#34;</span>
-     ((<span style="color:#e6db74">&#34;j&#34;</span> projectile-rails-find-javascript  <span style="color:#e6db74">&#34;Javascript&#34;</span>)
-      <span style="color:#75715e">;; (&#34;w&#34; projectile-rails-find-component)</span>
-      (<span style="color:#e6db74">&#34;s&#34;</span> projectile-rails-find-stylesheet  <span style="color:#e6db74">&#34;CSS&#34;</span>))
-
-     <span style="color:#e6db74">&#34;Other&#34;</span>
-     ((<span style="color:#e6db74">&#34;n&#34;</span> projectile-rails-find-migration    <span style="color:#e6db74">&#34;Migration&#34;</span>)
-      (<span style="color:#e6db74">&#34;r&#34;</span> projectile-rails-find-rake-task    <span style="color:#e6db74">&#34;Rake task&#34;</span>)
-      (<span style="color:#e6db74">&#34;i&#34;</span> projectile-rails-find-initializer  <span style="color:#e6db74">&#34;Initializer&#34;</span>)
-      (<span style="color:#e6db74">&#34;l&#34;</span> projectile-rails-find-lib          <span style="color:#e6db74">&#34;Lib&#34;</span>)
-      (<span style="color:#e6db74">&#34;p&#34;</span> projectile-rails-find-spec         <span style="color:#e6db74">&#34;Spec&#34;</span>)
-      (<span style="color:#e6db74">&#34;t&#34;</span> projectile-rails-find-locale       <span style="color:#e6db74">&#34;Translation&#34;</span>))
-
-     <span style="color:#e6db74">&#34;Single Files&#34;</span>
-     ((<span style="color:#e6db74">&#34;R&#34;</span> projectile-rails-goto-routes   <span style="color:#e6db74">&#34;routes.rb&#34;</span>)
-      (<span style="color:#e6db74">&#34;G&#34;</span> projectile-rails-goto-gemfile  <span style="color:#e6db74">&#34;Gemfile&#34;</span>)
-      (<span style="color:#e6db74">&#34;D&#34;</span> projectile-rails-goto-schema   <span style="color:#e6db74">&#34;schema.rb&#34;</span>))))
-  (<span style="color:#a6e22e">define-key</span> projectile-rails-mode-map (kbd <span style="color:#e6db74">&#34;C-c r&#34;</span>) <span style="color:#e6db74">&#39;pretty-hydra-projectile-rails-find/body</span>))
+<p>whitespace-mode は Emacs に標準添付されている、空白文字を可視化したりするためのモード。</p>
+<p>全角空白を可視化したり、行末の空白を可視化したりしておくと便利なので入れている。</p>
+<h2 id="設定">設定</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(require <span style="color:#e6db74">&#39;whitespace</span>)
+</code></pre></div><h2 id="可視化対象">可視化対象</h2>
+<p>可視化対象の空白について設定している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq whitespace-style <span style="color:#f92672">&#39;</span>(face
+                         trailing
+                         tabs
+                         spaces
+                         empty
+                         space-mark
+                         tab-mark))
 </code></pre></div><table>
 <thead>
 <tr>
-<th>Key</th>
-<th>効果</th>
-<th>備考</th>
+<th>値</th>
+<th>意味</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>M</td>
-<td>現在のファイルに関連する Model を開く</td>
-<td></td>
+<td>face</td>
+<td>face による可視化を有効にする。これがないと *-mark 以外が有効にならない</td>
 </tr>
 <tr>
-<td>V</td>
-<td>現在のファイルに関連する View を開く</td>
-<td>キーが Vue ファイル検索とかぶってしまっていて現在使えない</td>
+<td>trailing</td>
+<td>行末の空白を可視化する</td>
 </tr>
 <tr>
-<td>C</td>
-<td>現在のファイルに関連する Controller を開く</td>
-<td></td>
+<td>tabs</td>
+<td>タブ文字の可視化</td>
 </tr>
 <tr>
-<td>H</td>
-<td>現在のファイルに関連する Helper を開く</td>
-<td></td>
+<td>spaces</td>
+<td>空白の可視化。ただし後の設定で全角のみを可視化するようにている</td>
 </tr>
 <tr>
-<td>P</td>
-<td>現在のファイルに関連する Spec を開く</td>
-<td></td>
+<td>empty</td>
+<td>バッファの前後に空行があれば可視化</td>
 </tr>
 <tr>
-<td>Z</td>
-<td>現在のファイルに関連する Serializer を開く</td>
-<td><a href="https://github.com/rails-api/active%5Fmodel%5Fserializers">ActiveModelSerializer</a> を使ってるプロジェクトがある</td>
+<td>space-mark</td>
+<td>空白文字を別の文字に置き換える設定。置き換え文字は後述</td>
 </tr>
 <tr>
-<td>m</td>
-<td>Model ファイルを検索する</td>
-<td></td>
-</tr>
-<tr>
-<td>v</td>
-<td>View ファイルを検索する</td>
-<td></td>
-</tr>
-<tr>
-<td>c</td>
-<td>Controller ファイルを検索する</td>
-<td></td>
-</tr>
-<tr>
-<td>h</td>
-<td>Helper ファイルを検索する</td>
-<td></td>
-</tr>
-<tr>
-<td>a</td>
-<td>ActiveAdmin のファイルを検索する</td>
-<td></td>
-</tr>
-<tr>
-<td>f</td>
-<td>Form Object ファイルを検索する</td>
-<td></td>
-</tr>
-<tr>
-<td>@</td>
-<td>ActionMailer ファイルを検索する</td>
-<td></td>
-</tr>
-<tr>
-<td>V</td>
-<td>Vue の単一ファイルコンポーネントファイルを検索する</td>
-<td></td>
-</tr>
-<tr>
-<td>J</td>
-<td>Webpacker 管理の JS ファイルを検索する</td>
-<td></td>
-</tr>
-<tr>
-<td>u</td>
-<td>Uploader ファイルを検索する</td>
-<td></td>
-</tr>
-<tr>
-<td>!</td>
-<td>Validator ファイルを検索する</td>
-<td></td>
-</tr>
-<tr>
-<td>z</td>
-<td>Serializer ファイルを検索する</td>
-<td></td>
-</tr>
-<tr>
-<td>j</td>
-<td>assets 配架の JS ファイルを検索する</td>
-<td></td>
-</tr>
-<tr>
-<td>s</td>
-<td>SCSS ファイルを検索する</td>
-<td></td>
-</tr>
-<tr>
-<td>n</td>
-<td>migration ファイルを検索する</td>
-<td></td>
-</tr>
-<tr>
-<td>r</td>
-<td>rake ファイルを検索する</td>
-<td></td>
-</tr>
-<tr>
-<td>i</td>
-<td>config/initializers 以下のファイルを検索する</td>
-<td></td>
-</tr>
-<tr>
-<td>l</td>
-<td>lib 以下のファイルを検索する</td>
-<td></td>
-</tr>
-<tr>
-<td>p</td>
-<td>rspec ファイルを検索する</td>
-<td></td>
-</tr>
-<tr>
-<td>t</td>
-<td>I18n の翻訳ファイルを検索する</td>
-<td></td>
-</tr>
-<tr>
-<td>R</td>
-<td>routes.rb を開く</td>
-<td></td>
-</tr>
-<tr>
-<td>G</td>
-<td>Gemfile を開く</td>
-<td></td>
-</tr>
-<tr>
-<td>D</td>
-<td>Schema.rb を開く</td>
-<td></td>
+<td>tab-mark</td>
+<td>タブ文字を別の文字に置き換える設定。置き換え文字は後述</td>
 </tr>
 </tbody>
 </table>
-
+<p>他にも lines, lines-tail, indentation, big-indent, newline-mark などがある</p>
+<p>lines-tail あたりを使うと1行80文字制限でコーディングする時などに便利かもしれないなって思ってる。設定したことがないからわからんが……。</p>
+<h2 id="置き換え表示用の文字の設定">置き換え表示用の文字の設定</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq whitespace-display-mappings
+      <span style="color:#f92672">&#39;</span>((space-mark <span style="color:#e6db74">?\u</span><span style="color:#ae81ff">3000</span> [<span style="color:#e6db74">?\u</span>25a1])
+        <span style="color:#75715e">;; WARNING: the mapping below has a problem.</span>
+        <span style="color:#75715e">;; When a TAB occupies exactly one column, it will display the</span>
+        <span style="color:#75715e">;; character ?\xBB at that column followed by a TAB which goes to</span>
+        <span style="color:#75715e">;; the next TAB column.</span>
+        <span style="color:#75715e">;; If this is a problem for you, please, comment the line below.</span>
+        (tab-mark <span style="color:#e6db74">?\t</span> [<span style="color:#e6db74">?\u</span>00BB <span style="color:#e6db74">?\t</span>] [<span style="color:#e6db74">?\\</span> <span style="color:#e6db74">?\t</span>])))
+</code></pre></div><table>
+<thead>
+<tr>
+<th>置き換え元</th>
+<th>置き換え先</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>空白文字</td>
+<td>　</td>
+</tr>
+<tr>
+<td>タブ文字</td>
+<td>» + TAB を表示する。もしそれが表示できない時は \ + TAB で代替する</td>
+</tr>
+</tbody>
+</table>
+<p>どこかからコピペしてきたやつなので英語のコメントもあるが「なんかうまく動かなかったらコメントアウトしてくれよな」って感じ。ま、うまく動いてそうなのでヨシッ!</p>
+<h2 id="スペースは全角のみを可視化">スペースは全角のみを可視化</h2>
+<p>半角スペースまでいちいち可視化されてたら邪魔だし気付きたいのは全角スペースが紛れてるかどうかなので、空白文字ではそれだけを可視化するようにしている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq whitespace-space-regexp <span style="color:#e6db74">&#34;\\(\u3000+\\)&#34;</span>)
+</code></pre></div><h2 id="行末の空白も表示">行末の空白も表示</h2>
+<p>通常の半角空白と No Break Space(<code>&amp;nbsp;</code> で表示されるやつ) を行末での可視化対象としている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq whitespace-trailing-regexp  <span style="color:#e6db74">&#34;\\([ \u00A0]+\\)$&#34;</span>)
+</code></pre></div><p>タブも入れてもまあいいんだろうけど、別途可視化しているからわざわざ入れなくても良いということでこうしている気がする。</p>
+<h2 id="保存前に自動でクリーンアップ">保存前に自動でクリーンアップ</h2>
+<p>保存時なんかに自動的に余計な空白を消すような設定。保存する時に、バッファ前後の無駄な空白や末尾の空白なんかを取り除いてくれる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq whitespace-action <span style="color:#f92672">&#39;</span>(auto-cleanup))
+</code></pre></div><p>実はスペースとタブが混ざってる時などもいい感じに対応してくれそうな雰囲気があるけどそもそもスペースとタブが混ざるような設定にしてないのでそれは観測できてない。</p>
+<h2 id="emacs-全体で有効化">Emacs 全体で有効化</h2>
+<p>とまあ、上で設定してきたように、色々可視化されたり余計な空白を処理してくれたりで便利なやつなので、
+Emacs 全体で有効にしている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(global-whitespace-mode <span style="color:#ae81ff">1</span>)
+</code></pre></div>
 
 <footer class="footline">
 	
@@ -3095,6 +2930,7 @@ projectile-rails の実装を参考にコマンドを追加している</p>
             
                 
                     
+                    
                 
                 
 
@@ -3107,6 +2943,9 @@ projectile-rails の実装を参考にコマンドを追加している</p>
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3188,53 +3027,6 @@ projectile-rails の実装を参考にコマンドを追加している</p>
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -3252,6 +3044,9 @@ projectile-rails の実装を参考にコマンドを追加している</p>
             
                 
                     
+                        
+                        
+                    
                 
                 
 
@@ -3259,6 +3054,9 @@ projectile-rails の実装を参考にコマンドを追加している</p>
                     
                     
 
+                    
+            
+        
                     
             
         
@@ -3275,73 +3073,6 @@ projectile-rails の実装を参考にコマンドを追加している</p>
                     
                     
 
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -3551,126 +3282,10 @@ projectile-rails の実装を参考にコマンドを追加している</p>
             
         
                     
-            
-        
-                    
                         
             
             
                 
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -3779,11 +3394,26 @@ projectile-rails の実装を参考にコマンドを追加している</p>
             
         
                     
+            
+        
+                    
                         
             
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -3801,8 +3431,213 @@ projectile-rails の実装を参考にコマンドを追加している</p>
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -4403,10 +4238,10 @@ projectile-rails の実装を参考にコマンドを追加している</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/programming/plantuml-mode/" title="plantuml-mode"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/editing/undo-fu/" title="undo-fu"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/programming/rspec-mode/" title="rspec-mode" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/editing/yasnippet/" title="yasnippet" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

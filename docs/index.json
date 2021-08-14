@@ -88,7 +88,7 @@
 	"title": "ファイル編集/入力補助",
 	"tags": [],
 	"description": "",
-	"content": "ここにはファイル編集や入力補助の設定をまとめている\n auto-insert ファイル新規作成時にテンプレートを挿入する機能 company-mode プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ multiple-cursors カーソルを増やして複数箇所を同時に編集できるようになるやつ smartparens カッコや引用符などのペアになるやつの入力補助をしてくれるやつ undo-fu シンプルな undo/redo の機能を提供してくれるやつ yasnippet テンプレート挿入機能を提供してくれるやつ  "
+	"content": "ここにはファイル編集や入力補助の設定をまとめている\n auto-insert ファイル新規作成時にテンプレートを挿入する機能 company-mode プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ multiple-cursors カーソルを増やして複数箇所を同時に編集できるようになるやつ smartparens カッコや引用符などのペアになるやつの入力補助をしてくれるやつ undo-fu シンプルな undo/redo の機能を提供してくれるやつ whitespace 空白文字を可視化したり自動的に消したりする便利なやつ yasnippet テンプレート挿入機能を提供してくれるやつ  "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/org-capture/",
@@ -677,6 +677,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 wakatime-mode は WakaTime というサービスと連携するためのパッケージ。\nWakaTime は自分がどのプロジェクトの作業をしているかを計測してくれるようなツール。普段の行動の改善に使えるかもしれないので、なんとなく連携してみている。\nインストール いつも通り el-get から入れている\n(el-get-bundle wakatime-mode) APIキーの設定 APIキーは .authinfo.gpg に保存しているのでそこから引っ張り出している。\n(custom-set-variables \u0026#39;(wakatime-api-key (funcall (plist-get (nth 0 (auth-source-search :host \u0026#34;wakatime.com\u0026#34; :max 1)) :secret)))) 有効化 Emacs を使っている間は常に有効になっていて欲しいので global-wakatime-mode を有効にしている。\n(global-wakatime-mode 1) APIキーが取れてない時はやたらエラーを吐くので何かしら調整はしてもいいかもしれない。\n(if (boundp \u0026#39;wakatime-api-key) (global-wakatime-mode 1)) みたいにして API キーが取れている時だけ有効にするとかね。\n"
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/editing/whitespace/",
+	"title": "whitespace",
+	"tags": [],
+	"description": "",
+	"content": "概要 whitespace-mode は Emacs に標準添付されている、空白文字を可視化したりするためのモード。\n全角空白を可視化したり、行末の空白を可視化したりしておくと便利なので入れている。\n設定 (require \u0026#39;whitespace) 可視化対象 可視化対象の空白について設定している。\n(setq whitespace-style \u0026#39;(face trailing tabs spaces empty space-mark tab-mark))    値 意味     face face による可視化を有効にする。これがないと *-mark 以外が有効にならない   trailing 行末の空白を可視化する   tabs タブ文字の可視化   spaces 空白の可視化。ただし後の設定で全角のみを可視化するようにている   empty バッファの前後に空行があれば可視化   space-mark 空白文字を別の文字に置き換える設定。置き換え文字は後述   tab-mark タブ文字を別の文字に置き換える設定。置き換え文字は後述    他にも lines, lines-tail, indentation, big-indent, newline-mark などがある\nlines-tail あたりを使うと1行80文字制限でコーディングする時などに便利かもしれないなって思ってる。設定したことがないからわからんが……。\n置き換え表示用の文字の設定 (setq whitespace-display-mappings \u0026#39;((space-mark ?\\u3000 [?\\u25a1]) ;; WARNING: the mapping below has a problem. ;; When a TAB occupies exactly one column, it will display the ;; character ?\\xBB at that column followed by a TAB which goes to ;; the next TAB column. ;; If this is a problem for you, please, comment the line below. (tab-mark ?\\t [?\\u00BB ?\\t] [?\\\\ ?\\t])))    置き換え元 置き換え先     空白文字 　   タブ文字 » + TAB を表示する。もしそれが表示できない時は \\ + TAB で代替する    どこかからコピペしてきたやつなので英語のコメントもあるが「なんかうまく動かなかったらコメントアウトしてくれよな」って感じ。ま、うまく動いてそうなのでヨシッ!\nスペースは全角のみを可視化 半角スペースまでいちいち可視化されてたら邪魔だし気付きたいのは全角スペースが紛れてるかどうかなので、空白文字ではそれだけを可視化するようにしている。\n(setq whitespace-space-regexp \u0026#34;\\\\(\\u3000+\\\\)\u0026#34;) 行末の空白も表示 通常の半角空白と No Break Space(\u0026amp;nbsp; で表示されるやつ) を行末での可視化対象としている。\n(setq whitespace-trailing-regexp \u0026#34;\\\\([ \\u00A0]+\\\\)$\u0026#34;) タブも入れてもまあいいんだろうけど、別途可視化しているからわざわざ入れなくても良いということでこうしている気がする。\n保存前に自動でクリーンアップ 保存時なんかに自動的に余計な空白を消すような設定。保存する時に、バッファ前後の無駄な空白や末尾の空白なんかを取り除いてくれる。\n(setq whitespace-action \u0026#39;(auto-cleanup)) 実はスペースとタブが混ざってる時などもいい感じに対応してくれそうな雰囲気があるけどそもそもスペースとタブが混ざるような設定にしてないのでそれは観測できてない。\nEmacs 全体で有効化 とまあ、上で設定してきたように、色々可視化されたり余計な空白を処理してくれたりで便利なやつなので、 Emacs 全体で有効にしている。\n(global-whitespace-mode 1) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/programming/yaml-mode/",
