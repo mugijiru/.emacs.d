@@ -127,5 +127,16 @@ WakaTime は自分がどのプロジェクトの作業をしているかを計�
 (if (boundp &amp;#39;wakatime-api-key) (global-wakatime-mode 1)) みたいにして API キーが取れている時だけ有効にするとかね。</description>
     </item>
     
+    <item>
+      <title>ブラウザ設定</title>
+      <link>https://mugijiru.github.io/.emacs.d/external-tool/browse-url/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/external-tool/browse-url/</guid>
+      <description>browse-url の時の開くプログラムの指定。
+(setq browse-url-generic-program &amp;#34;vivaldi&amp;#34;) Vivaldi を指定しているが、最近 Emacs から何かブラウザ立ち上げても Firefox がいつも開いているし、この設定ほんとうに生きてる? って感じ。
+WSL2 を入れてる Windows の方は Vivladi 入れてないし Mac の方は入れてるけど別に Emacs から Vivaldi が立ち上がるのも観測してないしほんと謎……。</description>
+    </item>
+    
   </channel>
 </rss>
