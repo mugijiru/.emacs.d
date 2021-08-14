@@ -9,23 +9,23 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>show-paren-mode :: 麦汁&#39;s Emacs Config</title>
+    <title>color-theme-molokai :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1628946622" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1628946622" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1628946622" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1628946622" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1628946622" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1628946622" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1628946622" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1628946622" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1628946622" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1628946622" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1628946621" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1628946621" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1628946621" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1628946621" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1628946621" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1628946621" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1628946621" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1628946621" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1628946621" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1628946621" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1628946622"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1628946621"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/ui/show-paren-mode/">
+  <body class="" data-url="/.emacs.d/ui/color-theme-molokai/">
     <nav id="sidebar" class="">
 
 
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1628946622"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1628946622"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1628946621"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1628946621"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1628946622"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1628946621"></script>
 
     
   </div>
@@ -850,7 +850,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/color-theme-molokai/" title="color-theme-molokai" class="dd-item ">
+      <li data-nav-id="/.emacs.d/ui/color-theme-molokai/" title="color-theme-molokai" class="dd-item active">
         <a href="/.emacs.d/ui/color-theme-molokai/">
         color-theme-molokai
         
@@ -1123,7 +1123,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/show-paren-mode/" title="show-paren-mode" class="dd-item active">
+      <li data-nav-id="/.emacs.d/ui/show-paren-mode/" title="show-paren-mode" class="dd-item ">
         <a href="/.emacs.d/ui/show-paren-mode/">
         show-paren-mode
         
@@ -2552,7 +2552,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > show-paren-mode
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > color-theme-molokai
           
         
           
@@ -2568,7 +2568,9 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#有効化">有効化</a></li>
+    <li><a href="#インストール">インストール</a></li>
+    <li><a href="#テーマへの-path-を通す">テーマへの PATH を通す</a></li>
+    <li><a href="#テーマの読み込み">テーマの読み込み</a></li>
     <li><a href="#その他">その他</a></li>
   </ul>
 </nav>
@@ -2587,7 +2589,7 @@
           
             <h1>
               
-              show-paren-mode
+              color-theme-molokai
             </h1>
           
 
@@ -2595,16 +2597,21 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://www.emacswiki.org/emacs/ShowParenMode">show-paren-mode</a> は Emacs に標準で入っているやつで開き括弧と閉じ括弧の対応を示してくれたり括弧の中身を強調表示したりする機能を提供してくれるやつ。</p>
-<h2 id="有効化">有効化</h2>
-<p>デフォで入ってるので以下のようにするだけで有効化される。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(show-paren-mode <span style="color:#ae81ff">1</span>)
-</code></pre></div><p>デフォ設定だと対応する括弧を強調表示するだけだけどまあそれで悪くないと思ってるので今のところデフォルト設定のままである。</p>
-<h2 id="その他">その他</h2>
-<p><a href="http://syohex.hatenablog.com/entry/20110331/1301584188">http://syohex.hatenablog.com/entry/20110331/1301584188</a></p>
-<p>の記事へのリンクを設定ファイルの中に残していたけど設定は特に弄ってないのでまたその記事読んだりで設定弄ってみてもいいかもしれない。</p>
-<p>また smartparens.el にも似た機能はあるようだけど
-Emacs 標準機能の方が軽そうなのでとりあえずこのままにするつもり。</p>
+<p><a href="https://github.com/sonatard/color-theme-molokai">color-theme-molokai</a> は多分 vim の molokai をベースにしたテーマ。更に元はどうも TextMate っぽい。</p>
+<p>ダークグレイ背景をベースにしたテーマでもう何年もこのテーマを使っている。</p>
+<h2 id="インストール">インストール</h2>
+<p>いつも通り el-get で入れている。
+MELPA に登録されてないのかわからんけど直接 GitHub から入れている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle alloy-d/color-theme-molokai)
+</code></pre></div><h2 id="テーマへの-path-を通す">テーマへの PATH を通す</h2>
+<p>インストールしただけでは custom-theme-load-path には追加されないので自分で add-to-list を使って PATH を通している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-to-list <span style="color:#e6db74">&#39;custom-theme-load-path</span> (<span style="color:#a6e22e">expand-file-name</span> <span style="color:#e6db74">&#34;~/.emacs.d/el-get/color-theme-molokai&#34;</span>))
+</code></pre></div><h2 id="テーマの読み込み">テーマの読み込み</h2>
+<p>最後に load-theme で molokai を読み込んでいる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(load-theme <span style="color:#e6db74">&#39;molokai</span> <span style="color:#66d9ef">t</span>)
+</code></pre></div><h2 id="その他">その他</h2>
+<p>もう長年これを使っているが、近年ではもっと良いテーマも出ているかもしれないのでそのうち乗り換えるかも。</p>
+<p>なんだけど、テーマ乗り換えるのちょっとだるいのよね〜。</p>
 
 
 <footer class="footline">
@@ -3174,6 +3181,26 @@ Emacs 標準機能の方が軽そうなのでとりあえずこのままにす�
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
                 
                 
 
@@ -3381,26 +3408,6 @@ Emacs 標準機能の方が軽そうなのでとりあえずこのままにす�
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -4369,10 +4376,10 @@ Emacs 標準機能の方が軽そうなのでとりあえずこのままにす�
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/ui/posframe/" title="posframe"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/ui/all-the-icons/" title="all-the-icons"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/ui/toolbar/" title="toolbar" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/ui/frame-cmds/" title="frame-cmds" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -4382,19 +4389,19 @@ Emacs 標準機能の方が軽そうなのでとりあえずこのままにす�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1628946622"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1628946622"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1628946622"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1628946622"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1628946622"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1628946622"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1628946621"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1628946621"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1628946621"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1628946621"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1628946621"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1628946621"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1628946622"></script>
-    <script src="/.emacs.d/js/learn.js?1628946622"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1628946622"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1628946621"></script>
+    <script src="/.emacs.d/js/learn.js?1628946621"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1628946621"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1628946622"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1628946621"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
