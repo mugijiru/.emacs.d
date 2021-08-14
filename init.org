@@ -1162,6 +1162,7 @@
    - [[*smartparens][smartparens]] :: カッコや引用符などのペアになるやつの入力補助をしてくれるやつ
    - [[*undo-fu][undo-fu]] :: シンプルな undo/redo の機能を提供してくれるやつ
    - [[*yasnippet][yasnippet]] :: テンプレート挿入機能を提供してくれるやつ
+   - [[*whitespace][whitespace]] :: 空白文字を可視化したり自動的に消したりする便利なやつ
 
 ** auto-insert
    :PROPERTIES:
