@@ -1433,6 +1433,89 @@
     | C-/   | undo |
     | C-M-/ | redo |
 
+** view-mode
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: view-mode
+   :END:
+*** 概要
+    [[https://www.emacswiki.org/emacs/ViewMode][view-mode]] は Emacs に標準で組込まれているモードで、バッファを閲覧専用にする機能を提供してくれるやつ。
+    コードを眺めたい時などに使っている。
+
+*** キーバインド
+    view-mode の時は文字入力をする必要がないので
+    通常のモードの時とは違うキーバインドが使えるようにしている。
+
+    #+begin_src emacs-lisp :tangle inits/40-view.el
+    (defun my/setup-view-mode-keymap ()
+        (let ((keymap view-mode-map))
+          (define-key keymap (kbd "h") 'backward-char)
+          (define-key keymap (kbd "j") 'next-line)
+          (define-key keymap (kbd "k") 'previous-line)
+          (define-key keymap (kbd "l") 'forward-char)
+
+          (define-key keymap (kbd "e") 'forward-word)
+
+          (define-key keymap (kbd "b")   'scroll-down)
+          (define-key keymap (kbd "SPC") 'scroll-up)
+
+          (define-key keymap (kbd "g") 'beginning-of-buffer)
+          (define-key keymap (kbd "G") 'end-of-buffer)
+          (define-key keymap (kbd "<") 'beginning-of-buffer)
+          (define-key keymap (kbd ">") 'end-of-buffer)))
+    #+end_src
+
+    |------+----------------------|
+    | Key  | 効果                 |
+    |------+----------------------|
+    | h    | 1文字戻る            |
+    | j    | 1行下がる            |
+    | k    | 1行上がる            |
+    | l    | 1文字進む            |
+    | e    | 単語の直後に移動     |
+    | b    | 1スクロール戻る      |
+    | SPC  | 1スクロール進む      |
+    | g, < | バッファの先頭に移動 |
+    | G, > | バッファの末尾に移動 |
+    |------+----------------------|
+
+    適当だけど Vim の通常モードの時みたいな操作ができるようにしている。
+
+    これで不要に左手小指を痛める可能性が下がるであろう。
+
+*** hook
+    上でキーバインドを設定できる関数を用意してあるので
+    view-mode が有効になる時にそれを hook して設定されるようにしている。
+
+    が、 hook する必要あるのか疑問ではあるな。ま、動いているからとりあえずいいけど。
+
+    #+begin_src emacs-lisp :tangle inits/40-view.el
+    (defun my/view-mode-hook ()
+      (my/setup-view-mode-keymap))
+
+    (add-hook 'view-mode-hook 'my/view-mode-hook)
+    #+end_src
+*** Toggle するコマンド
+    view-mode にしたり戻したりするコマンドを用意している。
+
+    view-mode を有効にする時には hl-line-mode も有効にしているので
+    その時眺めている行がハイライトされるようになっている。
+    普段はそれがあるかどうかでどっちもモードかざっくり判断している。
+
+    他にも mode-line の色を変更するなどの技があるようだが
+    ひとまず今の設定でそう困ってないのでいいかな。
+
+    #+begin_src emacs-lisp :tangle inits/40-view.el
+    (defun my/toggle-view-mode ()
+      "view-mode と通常モードの切り替えコマンド"
+      (interactive)
+      (cond (view-mode
+             (hl-line-mode -1)
+             (view-mode -1))
+            (t
+             (hl-line-mode 1)
+             (view-mode 1))))
+    #+end_src
+
 ** whitespace
    :PROPERTIES:
    :EXPORT_FILE_NAME: whitespace
@@ -6289,46 +6372,6 @@
    (el-get-bundle lsp-ui)
    (add-hook 'lsp-mode-hook 'lsp-ui-mode)
    (setq lsp-ui-doc-alignment 'window)
-   #+end_src
-
-** 40-view.el
-
-   #+begin_src emacs-lisp :tangle inits/40-view.el
-   ;; view-mode 用の設定
-
-   ;; (define-key projectile-rails-mode-map (kbd "C-c r") 'pretty-hydra-projectile-rails-find/body)
-
-   (defun my/setup-view-mode-keymap ()
-       (let ((keymap view-mode-map))
-         (define-key keymap (kbd "h") 'backward-char)
-         (define-key keymap (kbd "j") 'next-line)
-         (define-key keymap (kbd "k") 'previous-line)
-         (define-key keymap (kbd "l") 'forward-char)
-
-         (define-key keymap (kbd "e") 'forward-word)
-
-         (define-key keymap (kbd "b")   'scroll-down)
-         (define-key keymap (kbd "SPC") 'scroll-up)
-
-         (define-key keymap (kbd "g") 'beginning-of-buffer)
-         (define-key keymap (kbd "G") 'end-of-buffer)
-         (define-key keymap (kbd "<") 'beginning-of-buffer)
-         (define-key keymap (kbd ">") 'end-of-buffer)))
-
-   (defun my/view-mode-hook ()
-     (my/setup-view-mode-keymap))
-
-   (add-hook 'view-mode-hook 'my/view-mode-hook)
-
-   (defun my/toggle-view-mode ()
-     "view-mode と通常モードの切り替えコマンド"
-     (interactive)
-     (cond (view-mode
-            (hl-line-mode -1)
-            (view-mode -1))
-           (t
-            (hl-line-mode 1)
-            (view-mode 1))))
    #+end_src
 
 ** 70-my-commands.el
