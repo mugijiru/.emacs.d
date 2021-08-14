@@ -5324,7 +5324,7 @@
     org-gcal が依存しているので [[https://elpa.gnu.org/packages/persist.html][parsist]] を入れている。
 
     #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
-    (el-get-bundle persist) ;; org-gcal に必要
+    (el-get-bundle persist)
     #+end_src
 
     あとは当然 org-gcal 本体を入れないと動かない

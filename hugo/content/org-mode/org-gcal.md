@@ -18,7 +18,7 @@ el-get のレシピもそっちを見ている。
 org-gcal が依存しているので [parsist](https://elpa.gnu.org/packages/persist.html) を入れている。
 
 ```emacs-lisp
-(el-get-bundle persist) ;; org-gcal に必要
+(el-get-bundle persist)
 ```
 
 あとは当然 org-gcal 本体を入れないと動かない
