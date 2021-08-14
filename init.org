@@ -1724,6 +1724,44 @@
 
     フォントのインストールコマンドもここに収めてしまうのが良さそうな気がする
 
+** color-theme-molokai
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: color-theme-molokai
+   :END:
+*** 概要
+    [[https://github.com/sonatard/color-theme-molokai][color-theme-molokai]] は
+    多分 vim の molokai をベースにしたテーマ。
+    更に元はどうも TextMate っぽい。
+
+    ダークグレイ背景をベースにしたテーマで
+    もう何年もこのテーマを使っている。
+*** インストール
+    いつも通り el-get で入れている。
+    MELPA に登録されてないのかわからんけど直接 GitHub から入れている。
+
+    #+begin_src emacs-lisp :tangle inits/90-theme.el
+    (el-get-bundle alloy-d/color-theme-molokai)
+    #+end_src
+*** テーマへの PATH を通す
+    インストールしただけでは custom-theme-load-path には追加されないので
+    自分で add-to-list を使って PATH を通している。
+
+    #+begin_src emacs-lisp :tangle inits/90-theme.el
+    (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/el-get/color-theme-molokai"))
+    #+end_src
+*** テーマの読み込み
+    最後に load-theme で molokai を読み込んでいる。
+
+    #+begin_src emacs-lisp :tangle inits/90-theme.el
+    (load-theme 'molokai t)
+    #+end_src
+*** その他
+    もう長年これを使っているが、
+    近年ではもっと良いテーマも出ているかもしれないので
+    そのうち乗り換えるかも。
+
+    なんだけど、テーマ乗り換えるのちょっとだるいのよね〜。
+
 ** frame-cmds
    :PROPERTIES:
    :EXPORT_FILE_NAME: frame-cmds
@@ -6321,14 +6359,6 @@
    #+begin_src emacs-lisp :tangle inits/80-edit.el
    (setq indent-tabs-mode nil) ;; インデントにタブを使わない
    (save-place-mode 1)
-   #+end_src
-
-** 90-theme.el
-
-   #+begin_src emacs-lisp :tangle inits/90-theme.el
-   (el-get-bundle alloy-d/color-theme-molokai)
-   (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/el-get/color-theme-molokai"))
-   (load-theme 'molokai t)
    #+end_src
 
 ** 92-dashboard.el
