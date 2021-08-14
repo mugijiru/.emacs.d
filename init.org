@@ -1226,6 +1226,7 @@
 
    ここにはファイル編集や入力補助の設定をまとめている
 
+   - [[#editing-base-config][基本設定]] :: 編集周りの基本的な設定
    - [[*auto-insert][auto-insert]] :: ファイル新規作成時にテンプレートを挿入する機能
    - [[*company-mode][company-mode]] :: プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ
    - [[*emojify][emojify]] :: Slack や GitHub みたいに ~:smile:~ とか入れると笑顔の絵文字を表示する、みたいなやつ
@@ -1236,6 +1237,33 @@
    - [[*whitespace][whitespace]] :: 空白文字を可視化したり自動的に消したりする便利なやつ
    - [[*yasnippet][yasnippet]] :: テンプレート挿入機能を提供してくれるやつ
 
+** 基本設定
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: editing-base
+   :CUSTOM_ID: editing-base-config
+   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :weight 1
+   :END:
+
+*** 概要
+    なんか編集周りの基本的な設定としてまとめられていたのでここに置いとく
+
+*** インデントにタブを使わないようにする
+    最近の開発スタイルではインデントにタブを混ぜないスタイルなので
+    そのように設定している。
+
+    #+begin_src emacs-lisp :tangle inits/80-edit.el
+    (setq indent-tabs-mode nil)
+    #+end_src
+
+*** 以前に開いていた位置を保存/復元する
+    save-place-mode を有効にしていると
+    以前に開いたことのあるファイルの、開いていた場所を覚えておいてくれる。
+
+    一度閉じてまた開いた時なんかに再度移動しないで済んで地味に便利なやつ
+
+    #+begin_src emacs-lisp :tangle inits/80-edit.el
+    (save-place-mode 1)
+    #+end_src
 ** auto-insert
    :PROPERTIES:
    :EXPORT_FILE_NAME: auto-insert
@@ -6398,12 +6426,6 @@
        (insert response)))
    #+end_src
 
-** 80-edit.el
-
-   #+begin_src emacs-lisp :tangle inits/80-edit.el
-   (setq indent-tabs-mode nil) ;; インデントにタブを使わない
-   (save-place-mode 1)
-   #+end_src
 
 ** 92-dashboard.el
 
