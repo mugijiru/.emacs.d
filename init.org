@@ -4552,6 +4552,7 @@
    12. [[*ox-hugo][ox-hugo]]
    13. [[*org-mode 用の独自コマンド][org-mode 用の独自コマンド]]
    14. [[*org-mode 関係の keybinds][org-mode 関係の keybinds]]
+   15. [[*日報用の設定(旧)][日報用の設定(旧)]]
 ** 基本設定
    :PROPERTIES:
    :EXPORT_FILE_NAME: base

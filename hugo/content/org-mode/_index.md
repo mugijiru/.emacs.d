@@ -23,3 +23,4 @@ org-mode だけでも書くことが多いからね……。
 12. [ox-hugo]({{< relref "ox-hugo" >}})
 13. [org-mode 用の独自コマンド]({{< relref "org-commands" >}})
 14. [org-mode 関係の keybinds]({{< relref "org-mode-keybinds" >}})
+15. [日報用の設定(旧)]({{< relref "nippou" >}})
