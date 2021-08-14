@@ -9,6 +9,7 @@
 (setq twittering-status-format "%i %S(%s)%p, %@:\n%FILL{  %T // from %f%L%r%R}\n ")
 (setq twittering-retweet-format "RT @%s %t")
 (setq twittering-display-remaining t)
+
 (let ((km twittering-mode-map))
   (define-key km (kbd "SPC") 'scroll-up)
   (define-key km (kbd "b") 'scroll-down)

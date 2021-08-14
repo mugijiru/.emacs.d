@@ -17,5 +17,7 @@
     (setq migemo-command path)))
 
 (setq migemo-options '("-q" "--emacs"))
+
 (setq migemo-coding-system 'utf-8-unix)
+
 (migemo-init)
