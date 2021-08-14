@@ -4507,6 +4507,23 @@
     #+end_src
 
     みたいにして API キーが取れている時だけ有効にするとかね。
+** ブラウザ設定                                                      :unused:
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: browse-url
+   :END:
+
+   browse-url の時の開くプログラムの指定。
+
+   #+begin_src emacs-lisp :tangle inits/20-browse-url.el
+   (setq browse-url-generic-program "vivaldi")
+   #+end_src
+
+   Vivaldi を指定しているが、最近 Emacs から何かブラウザ立ち上げても Firefox がいつも開いているし、
+   この設定ほんとうに生きてる? って感じ。
+
+   WSL2 を入れてる Windows の方は Vivladi 入れてないし
+   Mac の方は入れてるけど別に Emacs から Vivaldi が立ち上がるのも観測してないしほんと謎……。
+
 * org-mode
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: org-mode
@@ -5990,12 +6007,6 @@
 
   ここにはとりあえず inits 以下に出力できるようにしただけの記述を連ねていきます。
   あとで移動する。
-
-** browse-url
-
-   #+begin_src emacs-lisp :tangle inits/20-browse-url.el
-   (setq browse-url-generic-program "vivaldi")
-   #+end_src
 
 ** emojify
 
