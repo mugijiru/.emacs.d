@@ -14,7 +14,7 @@ disableToc = true
 [company-mode]({{< relref "company-mode" >}})
 : プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ
 
-[multiple-cursors]({{< relref "multiple-cursors" >}})
+[multiple-cursors]({{< relref "global-keybinds#multiple-cursors" >}})
 : カーソルを増やして複数箇所を同時に編集できるようになるやつ
 
 [smartparens]({{< relref "smartparens" >}})
@@ -22,6 +22,9 @@ disableToc = true
 
 [undo-fu]({{< relref "undo-fu" >}})
 : シンプルな undo/redo の機能を提供してくれるやつ
+
+[whitespace]({{< relref "whitespace" >}})
+: 空白文字を可視化したり自動的に消したりする便利なやつ
 
 [yasnippet]({{< relref "yasnippet" >}})
 : テンプレート挿入機能を提供してくれるやつ
