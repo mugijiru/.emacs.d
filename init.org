@@ -1226,6 +1226,7 @@
 
    ここにはファイル編集や入力補助の設定をまとめている
 
+   - [[#editing-base-config][基本設定]] :: 編集周りの基本的な設定
    - [[*auto-insert][auto-insert]] :: ファイル新規作成時にテンプレートを挿入する機能
    - [[*company-mode][company-mode]] :: プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ
    - [[*emojify][emojify]] :: Slack や GitHub みたいに ~:smile:~ とか入れると笑顔の絵文字を表示する、みたいなやつ
