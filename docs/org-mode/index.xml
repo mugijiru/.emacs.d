@@ -124,7 +124,7 @@ footnote や制作者などを出力しない HTML で記事を吐き出す時�
       <description>概要 org-gcal は org-mode と Google Calendar を連携させるためのパッケージ。
 オリジナルは https://github.com/myuhe/org-gcal.el なのだけど今は fork されてるやつが MELPA にも登録されていて el-get のレシピもそっちを見ている。
 インストール org-gcal が依存しているので parsist を入れている。
-(el-get-bundle persist) ;; org-gcal に必要 あとは当然 org-gcal 本体を入れないと動かない
+(el-get-bundle persist) あとは当然 org-gcal 本体を入れないと動かない
 (el-get-bundle org-gcal) 設定 とりあえず require をしないといけない
 (require &amp;#39;org-gcal) あとは設定ファイルは公開したくないので別ファイルに分けてる。
 (my/load-config &amp;#34;my-org-gcal-config&amp;#34;) 隠したい部分だけ .authinfo.gpg にでも分離したら公開できるようになるかもしれない。

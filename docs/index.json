@@ -137,7 +137,7 @@
 	"title": "org-gcal",
 	"tags": ["replacement"],
 	"description": "",
-	"content": "概要 org-gcal は org-mode と Google Calendar を連携させるためのパッケージ。\nオリジナルは https://github.com/myuhe/org-gcal.el なのだけど今は fork されてるやつが MELPA にも登録されていて el-get のレシピもそっちを見ている。\nインストール org-gcal が依存しているので parsist を入れている。\n(el-get-bundle persist) ;; org-gcal に必要 あとは当然 org-gcal 本体を入れないと動かない\n(el-get-bundle org-gcal) 設定 とりあえず require をしないといけない\n(require \u0026#39;org-gcal) あとは設定ファイルは公開したくないので別ファイルに分けてる。\n(my/load-config \u0026#34;my-org-gcal-config\u0026#34;) 隠したい部分だけ .authinfo.gpg にでも分離したら公開できるようになるかもしれない。\nその他 gcal-org に乗り換えようかと思ってるがそっちの中身もよくわからないので躊躇している。自分の用途に合うのだろうか?\n"
+	"content": "概要 org-gcal は org-mode と Google Calendar を連携させるためのパッケージ。\nオリジナルは https://github.com/myuhe/org-gcal.el なのだけど今は fork されてるやつが MELPA にも登録されていて el-get のレシピもそっちを見ている。\nインストール org-gcal が依存しているので parsist を入れている。\n(el-get-bundle persist) あとは当然 org-gcal 本体を入れないと動かない\n(el-get-bundle org-gcal) 設定 とりあえず require をしないといけない\n(require \u0026#39;org-gcal) あとは設定ファイルは公開したくないので別ファイルに分けてる。\n(my/load-config \u0026#34;my-org-gcal-config\u0026#34;) 隠したい部分だけ .authinfo.gpg にでも分離したら公開できるようになるかもしれない。\nその他 gcal-org に乗り換えようかと思ってるがそっちの中身もよくわからないので躊躇している。自分の用途に合うのだろうか?\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/external-tool/",
