@@ -114,6 +114,55 @@ el-get-bundle で入れて require したら有効になる
 使ってる minor-mode どうやって把握したりしたらいいんだろうね。ま、表示されなくてもなんとなくで把握しているから、困ってはいないんだけど。
 
 
+## doom-modeline {#doom-modeline}
+
+[doom-modeline](https://github.com/seagle0128/doom-modeline) は Emacs の mode-line を装飾するパッケージの1つ。結構スッキリした見た目になるので気に入ってる。
+
+
+### インストール {#インストール}
+
+いつも通り el-get で入れてるだけ
+
+```emacs-lisp
+(el-get-bundle doom-modeline)
+```
+
+
+### 有効化 {#有効化}
+
+```emacs-lisp
+(doom-modeline-mode 1)
+```
+
+
+### VCS 用表示の長さ変更 {#vcs-用表示の長さ変更}
+
+デフォルトだと 12 なんだけどそれだと短かくて何のブランチかよくわからんので
+30 まえのばしている。
+
+```emacs-lisp
+(setq doom-modeline-vcs-max-length 30)
+```
+
+
+### バッテリー残量表示 {#バッテリー残量表示}
+
+これは doom-modeline 専用の設定ではないけど
+doom-modeline で見た目をカッコよくしているのでこっちに設定を書いている。
+
+```emacs-lisp
+(display-battery-mode 1)
+```
+
+
+### その他 {#その他}
+
+`doom-modeline-github` を t にしたら GitHub の通知数も表示されるらしいがちょっと試しに t にしているけどどうも表示されない。
+
+あとはメジャーモード名はアイコンの方があるから消したいな。
+`doom-modeline-def-modeline` で自分用に作れば良さそうな雰囲気はある
+
+
 ## その他 {#その他}
 
-バッテリー残量表示とかもしているけどそのあたりの設定どこでやってんだっけ?
+多分 mode-line 周りはもうちょっと整理した方が設定は読み易いんだろうなという気がしている
