@@ -36,6 +36,9 @@ markdown-mode とか yaml-mode なんかはプログラム言語ではないけ�
 [rails]({{< relref "rails" >}})
 : Rails 開発をする上での設定
 
+[React.js]({{< relref "react-js" >}})
+: React.js アプリを開発するための設定
+
 [rspec-mode]({{< relref "rspec-mode" >}})
 : Ruby のテストフレームワーク RSpec を書いたりするのに便利なモード
 
