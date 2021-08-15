@@ -4070,6 +4070,9 @@
     | D   | Schema.rb を開く                                   |                                                           |
 
 ** React.js
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: react-js
+   :END:
 *** 概要
     React.js を書くための設定をここにまとめている
 *** dap-mode
