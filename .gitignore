@@ -19,6 +19,7 @@ request
 .mc-lists.el
 .org-generic-id-locations
 .org-id-locations
+.dap-breakpoints
 bookmarks
 forge-database.sqlite
 ido.last
