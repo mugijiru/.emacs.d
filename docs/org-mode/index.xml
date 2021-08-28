@@ -23,7 +23,7 @@ org 用ディレクトリの指定 org-mode のファイルを保存するデフ
 タスクの状態管理のキーワード指定 org-mode といえば TODO 管理で使ってる人も多いと思う。自分も最初はそういう使い方から始めたし、今でもそれをメインにして使っている。
 そして TODO の状態がデフォルトでは
  TODO DONE  の2つしかないけど、それでは足りないので昔見たインターネットのどこかの記事を参考に以下のように設定している。
-(setq org-todo-keywords &amp;#39;((sequence &amp;#34;TODO&amp;#34; &amp;#34;DOING(!)&amp;#34; &amp;#34;WAIT&amp;#34; &amp;#34;|&amp;#34; &amp;#34;DONE(!)&amp;#34; &amp;#34;SOMEDAY(s)&amp;#34;))) 初期状態は TODO で、作業開始時点で DOING にして待ちが発生したら WAIT にして完了したら DONE にしている。</description>
+(setq org-todo-keywords &amp;#39;((sequence &amp;#34;TODO&amp;#34; &amp;#34;EXAMINATION(e)&amp;#34; &amp;#34;READY(r)&amp;#34; &amp;#34;DOING(!)&amp;#34; &amp;#34;WAIT&amp;#34; &amp;#34;|&amp;#34; &amp;#34;DONE(!)&amp;#34; &amp;#34;SOMEDAY(s)&amp;#34;))) 初期状態は TODO で、作業開始時点で DOING にして待ちが発生したら WAIT にして完了したら DONE にしている。</description>
     </item>
     
     <item>
