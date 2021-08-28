@@ -14,7 +14,7 @@
 (setq org-capture-templates
       `(("g" "Inbox にエントリー" entry
          (file ,my/org-capture-inbox-file)
-         "* TODO %?\n\t")
+         "* TODO %?\n** Why?\n** Goal\n** How?\n\t")
         ("m" "Memoにエントリー" entry
          (file+headline ,my/org-capture-memo-file "未分類")
          "*** %?\n\t")
