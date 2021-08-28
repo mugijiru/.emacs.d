@@ -5584,7 +5584,7 @@
     上記の変数を使って capture 用テンプレートを登録している。
 
     | Key | 効果                                                          | 備考                                                                                |
-    | g   | GTD でとりあえず最初に放り込む Inbox に相当するファイルに登録 |                                                                                     |
+    | g   | GTD でとりあえず最初に放り込む Inbox に相当するファイルに登録 | Why?, Goal, How? の欄を設けることでそのタスクの諸々をハッキリさせようとしている     |
     | m   | とりあえずメモっておきたいやつを放り込む                      | 最近使ってない。使いにくいのかも                                                    |
     | p   | 資料を放り込むやつ                                            | あとで読むリストになってる。読み終わっても、便利そうなのは DONE のまま置いている    |
     | i   | 割込みタスクの登録                                            | [[https://grugrut.hatenablog.jp/entry/2016/03/13/085417][org-modeで割り込みにも対応した時間記録をとる方法]] のやつを流用している。たまに使う。 |
@@ -5601,7 +5601,7 @@
     (setq org-capture-templates
           `(("g" "Inbox にエントリー" entry
              (file ,my/org-capture-inbox-file)
-             "* TODO %?\n\t")
+             "* TODO %?\n** Why?\n** Goal\n** How?\n\t")
             ("m" "Memoにエントリー" entry
              (file+headline ,my/org-capture-memo-file "未分類")
              "*** %?\n\t")
