@@ -59,7 +59,7 @@ org-mode といえば TODO 管理で使ってる人も多いと思う。自分�
 
 ```emacs-lisp
 (setq org-todo-keywords
-      '((sequence "TODO" "DOING(!)" "WAIT" "|" "DONE(!)" "SOMEDAY(s)")))
+      '((sequence "TODO" "EXAMINATION(e)" "READY(r)" "DOING(!)" "WAIT" "|" "DONE(!)" "SOMEDAY(s)")))
 ```
 
 初期状態は TODO で、作業開始時点で DOING にして待ちが発生したら WAIT にして完了したら DONE にしている。
