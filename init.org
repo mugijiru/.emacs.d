@@ -5096,7 +5096,7 @@
 
     #+begin_src emacs-lisp :tangle inits/60-org.el
     (setq org-todo-keywords
-          '((sequence "TODO" "DOING(!)" "WAIT" "|" "DONE(!)" "SOMEDAY(s)")))
+          '((sequence "TODO" "EXAMINATION(e)" "READY(r)" "DOING(!)" "WAIT" "|" "DONE(!)" "SOMEDAY(s)")))
     #+end_src
 
     初期状態は TODO で、作業開始時点で DOING にして

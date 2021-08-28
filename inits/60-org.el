@@ -5,7 +5,7 @@
 (setq my/org-tasks-directory (concat org-directory "tasks/"))
 
 (setq org-todo-keywords
-      '((sequence "TODO" "DOING(!)" "WAIT" "|" "DONE(!)" "SOMEDAY(s)")))
+      '((sequence "TODO" "EXAMINATION(e)" "READY(r)" "DOING(!)" "WAIT" "|" "DONE(!)" "SOMEDAY(s)")))
 
 (setq org-log-done 'time)
 (setq org-log-into-drawer "LOGBOOK")
