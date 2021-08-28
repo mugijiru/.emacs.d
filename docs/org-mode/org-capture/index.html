@@ -12,20 +12,20 @@
     <title>org-capture :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1629032478" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1629032478" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1629032478" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1629032478" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1629032478" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1629032478" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1629032478" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1629032478" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1629032478" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1629032478" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1630152521" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1630152521" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1630152521" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1630152521" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1630152521" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1630152521" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1630152521" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1630152521" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1630152521" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1630152521" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1629032478"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1630152521"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1629032478"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1629032478"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1630152521"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1630152521"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1629032478"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1630152521"></script>
 
     
   </div>
@@ -2732,7 +2732,7 @@
 <tr>
 <td>g</td>
 <td>GTD でとりあえず最初に放り込む Inbox に相当するファイルに登録</td>
-<td></td>
+<td>Why?, Goal, How? の欄を設けることでそのタスクの諸々をハッキリさせようとしている</td>
 </tr>
 <tr>
 <td>m</td>
@@ -2794,7 +2794,7 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq org-capture-templates
       <span style="color:#f92672">`</span>((<span style="color:#e6db74">&#34;g&#34;</span> <span style="color:#e6db74">&#34;Inbox にエントリー&#34;</span> entry
          (file <span style="color:#f92672">,</span>my/org-capture-inbox-file)
-         <span style="color:#e6db74">&#34;* TODO %?\n\t&#34;</span>)
+         <span style="color:#e6db74">&#34;* TODO %?\n** Why?\n** Goal\n** How?\n\t&#34;</span>)
         (<span style="color:#e6db74">&#34;m&#34;</span> <span style="color:#e6db74">&#34;Memoにエントリー&#34;</span> entry
          (file+headline <span style="color:#f92672">,</span>my/org-capture-memo-file <span style="color:#e6db74">&#34;未分類&#34;</span>)
          <span style="color:#e6db74">&#34;*** %?\n\t&#34;</span>)
@@ -4685,19 +4685,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1629032478"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1629032478"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1629032478"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1629032478"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1629032478"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1629032478"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1630152521"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1630152521"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1630152521"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1630152521"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1630152521"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1630152521"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1629032478"></script>
-    <script src="/.emacs.d/js/learn.js?1629032478"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1629032478"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1630152521"></script>
+    <script src="/.emacs.d/js/learn.js?1630152521"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1630152521"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1629032478"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1630152521"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
