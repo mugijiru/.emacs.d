@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((web-mode :checksum "8ef47935d638902ba35a557cae5edd6ab6ab1346")
+      '((tree-mode :checksum "56a765fe2023909b37d430ab1fc70963fb41c845")
+        (web-mode :checksum "8ef47935d638902ba35a557cae5edd6ab6ab1346")
         (dap-mode :checksum "8ec7e98986ea46e3c36b7ecbdf9a6562c90c7632")
         (lsp-treemacs :checksum "905cc74726438cf06d8ad7cabb2efae75aeb2359")
         (treemacs :checksum "e90abcdf86f289c0f4079a4c2ebb0152001fa408")
