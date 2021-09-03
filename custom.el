@@ -59,7 +59,7 @@
    (expand-file-name "~/.emacs.d/el-get/plantuml-mode/plantuml.jar"))
  '(package-selected-packages
    (quote
-    (tree-mode gcmh peg persist gnu-elpa-keyring-update oauth2 rainbow-mode xml-rpc)))
+    (rainbow-mode persist peg gcmh gnu-elpa-keyring-update oauth2 xml-rpc)))
  '(projectile-mode-line-prefix "")
  '(pug-tab-width 2)
  '(recentf-auto-cleanup (quote never))
