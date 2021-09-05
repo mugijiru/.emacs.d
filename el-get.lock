@@ -140,7 +140,7 @@
         (counsel-osx-app :checksum "b1c54cbc033c4939966910d85ce035503079e108")
         (frame-cmds :checksum "3911fbe2b11b8494a14a4d99e989e7e07b243b69")
         (frame-fns :checksum "251f37fe805af7a8b3e0e5af9af76263f663a366")
-        (el-get :checksum "ec47ecf257bf010cf1f3061e2061c26f78e61540")
+        (el-get :checksum "b5a5a405d04f61ec9c5fcb19357a50a4b9e36a25")
         (dashboard :checksum "f7287f026103a44cf290fe737b6b9d841eddcaca")
         (page-break-lines :checksum "3b8549cd414d4d7ee0168ab9917124133566d3db")
         (org-trello :checksum "9c1c94dff1a46631669023286078b887d077c305")
