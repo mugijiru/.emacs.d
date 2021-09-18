@@ -1061,7 +1061,7 @@ web-mode とりあえず tsx を弄る上では web-mode が良いという話�
 (el-get-bundle web-mode) メジャーモードの紐付け jsx/tsx ファイルを開いた時には web-mode で動いてほしいので auto-mode-alist で関連付けをする
 (add-to-list &amp;#39;auto-mode-alist &amp;#39;(&amp;#34;\\.[jt]sx&amp;#34; . web-mode)) lsp-mode などの有効化 jsx/tsx ファイルを開く時に web-mode が有効になるようにしているのでその web-mode の hook で
  display-line-numbers-mode lsp lsp-ui-mode  を有効にしている。
-(defun my/web-mode-tsx-hook () (let ((ext (file-name-extension buffer-file-name))) (when (or (string-equal &amp;#34;jsx&amp;#34; ext) (string-equal &amp;#34;tsx&amp;#34; ext)) (setq web-mode-markup-indent-offset 2) (setq web-mode-code-indent-offset 2) (display-line-numbers-mode t) (lsp) (lsp-ui-mode 1)))) (add-hook &amp;#39;web-mode-hook &amp;#39;my/web-mode-tsx-hook) </description>
+(defun my/web-mode-tsx-hook () (let ((ext (file-name-extension buffer-file-name))) (when (or (string-equal &amp;#34;jsx&amp;#34; ext) (string-equal &amp;#34;tsx&amp;#34; ext)) (setq web-mode-markup-indent-offset 2) (setq web-mode-code-indent-offset 2) (turn-on-smartparens-mode) (display-line-numbers-mode t) (lsp) (lsp-ui-mode 1)))) (add-hook &amp;#39;web-mode-hook &amp;#39;my/web-mode-tsx-hook) </description>
     </item>
     
     <item>
