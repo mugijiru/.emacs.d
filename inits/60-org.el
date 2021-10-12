@@ -1,4 +1,4 @@
-(el-get-bundle org-mode :checkout "release_9.3.6")
+(el-get-bundle org-mode)
 
 (setq org-directory (expand-file-name "~/Documents/org/"))
 
