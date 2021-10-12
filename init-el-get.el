@@ -11,4 +11,5 @@
 
 ;; el-get のバージョンロック機構の導入
 (el-get-bundle tarao/el-get-lock)
+(require 'cl)
 (el-get-lock)
