@@ -12,13 +12,14 @@
             (setq skk-henkan-strict-okuri-precedence t)
             (setq skk-show-annotation t) ;; 単語の意味をアノテーションとして表示。例) いぜん /以前;previous/依然;still/
 
-            ;; 半角で入力したい文字
-            (setq skk-rom-kana-rule-list
-                  (nconc skk-rom-kana-rule-list
-                         '((";" nil nil)
-                           (":" nil nil)
-                           ("?" nil nil)
-                           ("!" nil nil))))))
+            ;; ;; 半角で入力したい文字
+            ;; (setq skk-rom-kana-rule-list
+            ;;       (nconc skk-rom-kana-rule-list
+            ;;              '((";" nil nil)
+            ;;                (":" nil nil)
+            ;;                ("?" nil nil)
+            ;;                ("!" nil nil))))
+            ))
 
 (setq skk-extra-jisyo-file-list (list '("~/.emacs.d/skk-jisyo/SKK-JISYO.lisp" . japanese-iso-8bit-unix)))
 
