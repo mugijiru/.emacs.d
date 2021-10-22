@@ -5054,7 +5054,7 @@
     el-get でインストールしている。
 
     #+begin_src emacs-lisp :tangle inits/60-org.el
-    (el-get-bundle org-mode :checkout "release_9.3.6")
+    (el-get-bundle org-mode)
     #+end_src
 
     なんか入れてるパッケージの問題か、依存関係が解決できなかったので

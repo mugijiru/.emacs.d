@@ -15,7 +15,7 @@ Emacs に標準で入っている org-mode は大体古過ぎるのでとりあ�
 el-get でインストールしている。
 
 ```emacs-lisp
-(el-get-bundle org-mode :checkout "release_9.3.6")
+(el-get-bundle org-mode)
 ```
 
 なんか入れてるパッケージの問題か、依存関係が解決できなかったので
