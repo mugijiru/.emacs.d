@@ -39,13 +39,14 @@ ddskk が呼び出された時に色々設定されるようにしている。
             (setq skk-henkan-strict-okuri-precedence t)
             (setq skk-show-annotation t) ;; 単語の意味をアノテーションとして表示。例) いぜん /以前;previous/依然;still/
 
-            ;; 半角で入力したい文字
-            (setq skk-rom-kana-rule-list
-                  (nconc skk-rom-kana-rule-list
-                         '((";" nil nil)
-                           (":" nil nil)
-                           ("?" nil nil)
-                           ("!" nil nil))))))
+            ;; ;; 半角で入力したい文字
+            ;; (setq skk-rom-kana-rule-list
+            ;;       (nconc skk-rom-kana-rule-list
+            ;;              '((";" nil nil)
+            ;;                (":" nil nil)
+            ;;                ("?" nil nil)
+            ;;                ("!" nil nil))))
+            ))
 ```
 
 skk-comp-mode
