@@ -70,7 +70,7 @@ Emacs ではデフォルトでも編集中ファイルの自動保存や、編�
 インストール いつも通り el-get で入れている。最近は最新版が GitHub で更新されているのでそちらから引っ張られてくる。
 (el-get-bundle ddskk) hook の設定 ddskk が呼び出された時に色々設定されるようにしている。
 もしかしたら customize-variable とかあるかもしれないので今度見直した方が良さそう。
-(add-hook &amp;#39;skk-load-hook (lambda () ;; コード中では自動的に英字にする。 (require &amp;#39;context-skk) (setq skk-comp-mode t) ;; 動的自動補完 (setq skk-auto-insert-paren t) (setq skk-delete-implies-kakutei nil) (setq skk-sticky-key &amp;#34;;&amp;#34;) (setq skk-henkan-strict-okuri-precedence t) (setq skk-show-annotation t) ;; 単語の意味をアノテーションとして表示。例) いぜん /以前;previous/依然;still/ ;; 半角で入力したい文字 (setq skk-rom-kana-rule-list (nconc skk-rom-kana-rule-list &amp;#39;((&amp;#34;;&amp;#34; nil nil) (&amp;#34;:&amp;#34; nil nil) (&amp;#34;?</description>
+(add-hook &amp;#39;skk-load-hook (lambda () ;; コード中では自動的に英字にする。 (require &amp;#39;context-skk) (setq skk-comp-mode t) ;; 動的自動補完 (setq skk-auto-insert-paren t) (setq skk-delete-implies-kakutei nil) (setq skk-sticky-key &amp;#34;;&amp;#34;) (setq skk-henkan-strict-okuri-precedence t) (setq skk-show-annotation t) ;; 単語の意味をアノテーションとして表示。例) いぜん /以前;previous/依然;still/ ;; ;; 半角で入力したい文字 ;; (setq skk-rom-kana-rule-list ;; (nconc skk-rom-kana-rule-list ;; &amp;#39;((&amp;#34;;&amp;#34; nil nil) ;; (&amp;#34;:&amp;#34; nil nil) ;; (&amp;#34;?</description>
     </item>
     
     <item>

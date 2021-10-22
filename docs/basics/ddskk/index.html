@@ -12,20 +12,20 @@
     <title>ddskk :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1631953903" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1631953903" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1631953903" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1631953903" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1631953903" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1631953903" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1631953903" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1631953903" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1631953903" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1631953903" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1634878136" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1634878136" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1634878136" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1634878136" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1634878136" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1634878136" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1634878136" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1634878136" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1634878136" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1634878136" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1631953903"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1634878136"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1631953903"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1631953903"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1634878136"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1634878136"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1631953903"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1634878136"></script>
 
     
   </div>
@@ -2725,13 +2725,14 @@ SKK ではその自動認識がおかしくておかしな変換になるとこ�
             (setq skk-henkan-strict-okuri-precedence <span style="color:#66d9ef">t</span>)
             (setq skk-show-annotation <span style="color:#66d9ef">t</span>) <span style="color:#75715e">;; 単語の意味をアノテーションとして表示。例) いぜん /以前;previous/依然;still/</span>
 
-            <span style="color:#75715e">;; 半角で入力したい文字</span>
-            (setq skk-rom-kana-rule-list
-                  (<span style="color:#a6e22e">nconc</span> skk-rom-kana-rule-list
-                         <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;;&#34;</span> <span style="color:#66d9ef">nil</span> <span style="color:#66d9ef">nil</span>)
-                           (<span style="color:#e6db74">&#34;:&#34;</span> <span style="color:#66d9ef">nil</span> <span style="color:#66d9ef">nil</span>)
-                           (<span style="color:#e6db74">&#34;?&#34;</span> <span style="color:#66d9ef">nil</span> <span style="color:#66d9ef">nil</span>)
-                           (<span style="color:#e6db74">&#34;!&#34;</span> <span style="color:#66d9ef">nil</span> <span style="color:#66d9ef">nil</span>))))))
+            <span style="color:#75715e">;; ;; 半角で入力したい文字</span>
+            <span style="color:#75715e">;; (setq skk-rom-kana-rule-list</span>
+            <span style="color:#75715e">;;       (nconc skk-rom-kana-rule-list</span>
+            <span style="color:#75715e">;;              &#39;((&#34;;&#34; nil nil)</span>
+            <span style="color:#75715e">;;                (&#34;:&#34; nil nil)</span>
+            <span style="color:#75715e">;;                (&#34;?&#34; nil nil)</span>
+            <span style="color:#75715e">;;                (&#34;!&#34; nil nil))))</span>
+            ))
 </code></pre></div><dl>
 <dt>skk-comp-mode</dt>
 <dd>自動補完関係らしいが、ググっても出て来ないし死んだ設定かもしれない</dd>
@@ -4625,19 +4626,19 @@ SKK とそれを組み合わせると入力キーを覚えている漢字は漢�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1631953903"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1631953903"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1631953903"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1631953903"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1631953903"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1631953903"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1634878136"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1634878136"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1634878136"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1634878136"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1634878136"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1634878136"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1631953903"></script>
-    <script src="/.emacs.d/js/learn.js?1631953903"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1631953903"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1634878136"></script>
+    <script src="/.emacs.d/js/learn.js?1634878136"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1634878136"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1631953903"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1634878136"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
