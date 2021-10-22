@@ -146,6 +146,6 @@
         (org-trello :checksum "fc63ed580101e6160edfb6f43215fb3200ce1ea7")
         (undo-fu :checksum "71c474e29f6ad726386604a5058761892951782e")
         (emacs-todoist :checksum "3662c323f02e89d48c206103b43a185b930220e7")
-        (org-mode :checksum "66810d2121aa1d936238fc53cc155e6eda425313")))
+        (org-mode :checksum "abedf386b3f13af2769728755d00c4698ac5d3b0")))
 (setq el-get-lock-locked-packages 'nil)
 (setq el-get-lock-unlocked-packages 'nil)
