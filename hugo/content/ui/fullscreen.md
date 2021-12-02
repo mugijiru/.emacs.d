@@ -20,16 +20,17 @@ Mac の場合にフルスクリーンにする設定を入れていた。けど 
 ```
 
 
-## Linux(X Window system) の設定 {#linux--x-window-system--の設定}
+## WSL の設定 {#wsl-の設定}
 
-X Window system の場合にはフルスクリーンにする。まあ Linux って書いているけど WSL2 用なのである。
+X Window system の場合かつ WSLENV という環境変数が設定されている場合にはフルスクリーンにする。新しく Linux マシンを導入したらこれの影響を受けていたので後から WSLENV による判定を追加した次第。
 
 ```emacs-lisp
-(if (eq window-system 'x)
+(if (and (eq window-system 'x) (getenv "WSLENV"))
     (add-hook 'window-setup-hook
               (lambda ()
                 (set-frame-parameter nil 'fullscreen 'fullboth)
                 (set-frame-position nil 0 0))))
 ```
 
-微妙に画面の下の方がちゃんとフルになってくれてないけどそこは今は我慢して使っている。
+微妙に画面の下の方がちゃんとフルになってくれてないけどそこは今は我慢して使っている。ちなみにその病はどうやら WSLg になっても残りそう。
+<https://w.atwiki.jp/ntemacs/pages/69.html>
