@@ -14,6 +14,15 @@ org-clock-in, org-clock-out の時に作業の開始と終了を分報チャン�
 ## 実装 {#実装}
 
 
+### 分報チャンネル設定用の変数 {#分報チャンネル設定用の変数}
+
+通知先のチャンネル名を格納する変数が必要なので `defvar` で定義しておく
+
+```emacs-lisp
+(defvar my/notify-slack-times-channel nil)
+```
+
+
 ### 送信するコマンド {#送信するコマンド}
 
 start-process を使って外部コマンドを叩いている。
@@ -50,7 +59,8 @@ start-process を使って外部コマンドを叩いている。
 
 ```emacs-lisp
 (defun my/notify-slack-times (text)
-  (my/notify-slack my/notify-slack-times-channel text))
+  (if my/notify-slack-times-channel
+      (my/notify-slack my/notify-slack-times-channel text)))
 ```
 
 
