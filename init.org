@@ -384,20 +384,23 @@
    :PROPERTIES:
    :EXPORT_FILE_NAME: font-config
    :END:
-
 *** 概要
     Emacs で利用するフォントの設定。
     それなりの設定をしないとガタついたりするので
     通常あまり手を入れないで済ませている。
 
 *** 設定
-    Mac では 14, それ以外(Linux) では 12 を基準としている。
+    Mac では 14, それ以外(Linux) では 18 を基準としている。
 
     Mac と Linux で基準のサイズを変えているが
     なぜかこの方がガタガタもしないし大き過ぎもしないしでいい感じになる。
 
+    といいつつ元々 Linux の方は WSL2 環境に合わせて 12 にしていたが
+    Manjaro 環境に合わせて 18 に変更しているので
+    またその内 WSL2 でも Manjaro でもどっちいい感じに使えるように調整するかもしれない
+
     #+begin_src emacs-lisp :tangle inits/90-font.el
-    (let* ((size (if (or (eq window-system 'ns) (eq window-system 'mac)) 14 12))
+    (let* ((size (if (or (eq window-system 'ns) (eq window-system 'mac)) 14 18))
            (asciifont "Ricty Diminished")      ; ASCII fonts
            (jpfont "Ricty Diminished")         ; Japanese fonts
            (h (* size 10))
