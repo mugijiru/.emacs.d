@@ -90,15 +90,14 @@ forge を使うと GitHub や GitLab とも連携できてさらに便利、な�
       <guid>https://mugijiru.github.io/.emacs.d/external-tool/notify-slack/</guid>
       <description>概要 Emacs から Slack に通知するための自作関数。実体は同じく自作の外部コマンドを叩いているだけである。
 何に使ってるかというと org-clock-in, org-clock-out の時に作業の開始と終了を分報チャンネルに投稿しているだけである。作業の可視化である。
-実装 送信するコマンド start-process を使って外部コマンドを叩いている。
+実装 分報チャンネル設定用の変数 通知先のチャンネル名を格納する変数が必要なので defvar で定義しておく
+(defvar my/notify-slack-times-channel nil) 送信するコマンド start-process を使って外部コマンドを叩いている。
 (defun my/notify-slack (channel text) (if my/notify-slack-enable-p (start-process &amp;#34;my/org-clock-slack-notifier&amp;#34; &amp;#34;*my/org-clock-slack-notifier*&amp;#34; &amp;#34;my-slack-notifier&amp;#34; channel text))) my/notify-slack-enable-p という変数が nil だと大分コマンドが実行されないようになっている。
 Slack 連携を Toggle するコマンド 連携したい時としたくない時があるので送信したりしなかったりを切り替えられるコマンドを用意している。
 中身は何をしているかというと上に書いた my/notify-slack-enable-p という変数を切り替えているだけ。
 (defun my/notify-slack-toggle () (interactive) (if my/notify-slack-enable-p (setq my/notify-slack-enable-p nil) (setq my/notify-slack-enable-p t))) 分報チャンネル投稿関数 「分報チャンネル投稿関数」としているけどデフォルト投稿先に投稿するための関数というような扱いの関数。
 単純に前出の my/notify-slack 関数の第一引数に my/notify-slack-times-channel という変数を設定してそのチャンネルに向けて投稿するだけ。
-(defun my/notify-slack-times (text) (my/notify-slack my/notify-slack-times-channel text)) 設定 あまり見せたくない設定ファイルを別ファイルに分離しているのでそれを読み出している。
-内部では my/notify-slack-times-channel という変数を設定しているだけじゃないだろうか。職場の Slack のチャンネルを指定しているので隠したいという意図があった。
-そのうち .</description>
+(defun my/notify-slack-times (text) (if my/notify-slack-times-channel (my/notify-slack my/notify-slack-times-channel text))) 設定 あまり見せたくない設定ファイルを別ファイルに分離しているのでそれを読み出している。</description>
     </item>
     
     <item>

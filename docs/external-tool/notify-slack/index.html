@@ -12,20 +12,20 @@
     <title>notify-slack :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1638437557" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1638437557" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1638437557" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1638437557" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1638437557" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1638437557" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1638437557" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1638437557" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1638437557" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1638437557" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1638439159" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1638439159" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1638439159" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1638439159" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1638439159" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1638439159" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1638439159" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1638439159" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1638439159" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1638439159" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1638437557"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1638439159"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1638437557"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1638437557"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1638439159"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1638439159"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1638437557"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1638439159"></script>
 
     
   </div>
@@ -2675,6 +2675,7 @@
     <li><a href="#概要">概要</a></li>
     <li><a href="#実装">実装</a>
       <ul>
+        <li><a href="#分報チャンネル設定用の変数">分報チャンネル設定用の変数</a></li>
         <li><a href="#送信するコマンド">送信するコマンド</a></li>
         <li><a href="#slack-連携を-toggle-するコマンド">Slack 連携を Toggle するコマンド</a></li>
         <li><a href="#分報チャンネル投稿関数">分報チャンネル投稿関数</a></li>
@@ -2710,7 +2711,10 @@
 <p>何に使ってるかというと
 org-clock-in, org-clock-out の時に作業の開始と終了を分報チャンネルに投稿しているだけである。作業の可視化である。</p>
 <h2 id="実装">実装</h2>
-<h3 id="送信するコマンド">送信するコマンド</h3>
+<h3 id="分報チャンネル設定用の変数">分報チャンネル設定用の変数</h3>
+<p>通知先のチャンネル名を格納する変数が必要なので <code>defvar</code> で定義しておく</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defvar my/notify-slack-times-channel <span style="color:#66d9ef">nil</span>)
+</code></pre></div><h3 id="送信するコマンド">送信するコマンド</h3>
 <p>start-process を使って外部コマンドを叩いている。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/notify-slack (channel text)
   (if my/notify-slack-enable-p
@@ -2728,7 +2732,8 @@ org-clock-in, org-clock-out の時に作業の開始と終了を分報チャン�
 <p>「分報チャンネル投稿関数」としているけどデフォルト投稿先に投稿するための関数というような扱いの関数。</p>
 <p>単純に前出の <code>my/notify-slack</code> 関数の第一引数に <code>my/notify-slack-times-channel</code> という変数を設定してそのチャンネルに向けて投稿するだけ。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/notify-slack-times (text)
-  (my/notify-slack my/notify-slack-times-channel text))
+  (if my/notify-slack-times-channel
+      (my/notify-slack my/notify-slack-times-channel text)))
 </code></pre></div><h3 id="設定">設定</h3>
 <p>あまり見せたくない設定ファイルを別ファイルに分離しているのでそれを読み出している。</p>
 <p>内部では <code>my/notify-slack-times-channel</code> という変数を設定しているだけじゃないだろうか。職場の Slack のチャンネルを指定しているので隠したいという意図があった。</p>
@@ -4596,19 +4601,19 @@ load と同じように使えば大体 OK。むしろ load の引数ちゃんと
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1638437557"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1638437557"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1638437557"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1638437557"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1638437557"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1638437557"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1638439159"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1638439159"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1638439159"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1638439159"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1638439159"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1638439159"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1638437557"></script>
-    <script src="/.emacs.d/js/learn.js?1638437557"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1638437557"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1638439159"></script>
+    <script src="/.emacs.d/js/learn.js?1638439159"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1638439159"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1638437557"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1638439159"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
