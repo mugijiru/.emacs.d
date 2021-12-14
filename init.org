@@ -301,7 +301,8 @@
     #+end_src
 
 *** AquaSKK の L 辞書を使うようにする                           :improvement:
-    これはもう Mac 用の設定ですね。
+    Mac では AquaSKK の L 辞書を、
+    Linux では ~/usr/share/skk/SKK-JISYO.L~ を読むようにしている。
 
     #+begin_src emacs-lisp :tangle inits/30-skk.el
     (let ((l-dict
@@ -313,10 +314,10 @@
     #+end_src
 
     WSL で動かしている Emacs では
-    CurvusSKK の辞書を見るように設定した方が良さそう。
+    CurvusSKK の辞書を見るように設定した方が良さそうな気もするけどひとまず放置。
 
-    そう、WSL2 では L 辞書が使えなくて変換がちょっとだるいけど放置しているのである!
-    なのでそういう意味で見直しが必要。
+    そもそも今の WSL の Ubuntu 環境の ~/usr/share/skk/SKK-JISYO.L~ に辞書あるんだっけ……?
+    ま、今度調べる……
 
 *** ddskk-posframe
     [[https://github.com/conao3/ddskk-posframe.el/][ddskk-posframe]] は ddskk ツールチップを posframe で表示してくれるやつ。便利。
