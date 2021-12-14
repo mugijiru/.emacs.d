@@ -82,19 +82,23 @@ skk-rom-kana-rules-list
 
 ## AquaSKK の L 辞書を使うようにする {#aquaskk-の-l-辞書を使うようにする}
 
-これはもう Mac 用の設定ですね。
+Mac では AquaSKK の L 辞書を、
+Linux では `/usr/share/skk/SKK-JISYO.L` を読むようにしている。
 
 ```emacs-lisp
-(let ((l-dict (expand-file-name "~/Library/Application Support/AquaSKK/SKK-JISYO.L")))
+(let ((l-dict
+       (if (eq window-system 'ns)
+           (expand-file-name "~/Library/Application Support/AquaSKK/SKK-JISYO.L")
+         "/usr/share/skk/SKK-JISYO.L")))
   (if (file-exists-p l-dict)
       (setq skk-large-jisyo l-dict)))
 ```
 
 WSL で動かしている Emacs では
-CurvusSKK の辞書を見るように設定した方が良さそう。
+CurvusSKK の辞書を見るように設定した方が良さそうな気もするけどひとまず放置。
 
-そう、WSL2 では L 辞書が使えなくて変換がちょっとだるいけど放置しているのである!
-なのでそういう意味で見直しが必要。
+そもそも今の WSL の Ubuntu 環境の `/usr/share/skk/SKK-JISYO.L` に辞書あるんだっけ……?
+ま、今度調べる……
 
 
 ## ddskk-posframe {#ddskk-posframe}
