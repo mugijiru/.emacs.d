@@ -85,7 +85,10 @@ skk-rom-kana-rules-list
 これはもう Mac 用の設定ですね。
 
 ```emacs-lisp
-(let ((l-dict (expand-file-name "~/Library/Application Support/AquaSKK/SKK-JISYO.L")))
+(let ((l-dict
+       (if (eq window-system 'ns)
+           (expand-file-name "~/Library/Application Support/AquaSKK/SKK-JISYO.L")
+         "/usr/share/skk/SKK-JISYO.L")))
   (if (file-exists-p l-dict)
       (setq skk-large-jisyo l-dict)))
 ```
