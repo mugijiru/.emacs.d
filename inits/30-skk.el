@@ -23,7 +23,10 @@
 
 (setq skk-extra-jisyo-file-list (list '("~/.emacs.d/skk-jisyo/SKK-JISYO.lisp" . japanese-iso-8bit-unix)))
 
-(let ((l-dict (expand-file-name "~/Library/Application Support/AquaSKK/SKK-JISYO.L")))
+(let ((l-dict
+       (if (eq window-system 'ns)
+           (expand-file-name "~/Library/Application Support/AquaSKK/SKK-JISYO.L")
+         "/usr/share/skk/SKK-JISYO.L")))
   (if (file-exists-p l-dict)
       (setq skk-large-jisyo l-dict)))
 
