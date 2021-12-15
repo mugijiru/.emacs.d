@@ -314,11 +314,8 @@
     #+end_src
 
     WSL で動かしている Emacs では
-    CurvusSKK の辞書を見るように設定した方が良さそうな気もするけどひとまず放置。
-
-    そもそも今の WSL の Ubuntu 環境の ~/usr/share/skk/SKK-JISYO.L~ に辞書あるんだっけ……?
-    ま、今度調べる……
-
+    CurvusSKK の辞書を見るように設定した方が良さそうな気もするけど
+    ~/usr/share/skk/SKK-JISYO.L~ にもあるのでひとまずこれにしておけば良さそう
 *** ddskk-posframe
     [[https://github.com/conao3/ddskk-posframe.el/][ddskk-posframe]] は ddskk ツールチップを posframe で表示してくれるやつ。便利。
 
