@@ -95,10 +95,8 @@ Linux では `/usr/share/skk/SKK-JISYO.L` を読むようにしている。
 ```
 
 WSL で動かしている Emacs では
-CurvusSKK の辞書を見るように設定した方が良さそうな気もするけどひとまず放置。
-
-そもそも今の WSL の Ubuntu 環境の `/usr/share/skk/SKK-JISYO.L` に辞書あるんだっけ……?
-ま、今度調べる……
+CurvusSKK の辞書を見るように設定した方が良さそうな気もするけど
+`/usr/share/skk/SKK-JISYO.L` にもあるのでひとまずこれにしておけば良さそう
 
 
 ## ddskk-posframe {#ddskk-posframe}
