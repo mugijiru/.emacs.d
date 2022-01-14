@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>org-refile :: 麦汁&#39;s Emacs Config</title>
+    <title>TypeScript :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1642172181" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/org-mode/org-refile/">
+  <body class="" data-url="/.emacs.d/programming/typescript/">
     <nav id="sidebar" class="">
 
 
@@ -1459,7 +1459,7 @@
   
     
     <li data-nav-id="/.emacs.d/programming/" title="プログラミング関係の設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -1758,7 +1758,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/programming/typescript/" title="TypeScript" class="dd-item ">
+      <li data-nav-id="/.emacs.d/programming/typescript/" title="TypeScript" class="dd-item active">
         <a href="/.emacs.d/programming/typescript/">
         TypeScript
         
@@ -2094,7 +2094,7 @@
   
     
     <li data-nav-id="/.emacs.d/org-mode/" title="org-mode" class="dd-item
-        parent
+        
         
         
         ">
@@ -2309,7 +2309,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/org-mode/org-refile/" title="org-refile" class="dd-item active">
+      <li data-nav-id="/.emacs.d/org-mode/org-refile/" title="org-refile" class="dd-item ">
         <a href="/.emacs.d/org-mode/org-refile/">
         org-refile
         
@@ -2678,7 +2678,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/org-mode/'>org-mode</a> > org-refile
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/programming/'>プログラミング関係の設定</a> > TypeScript
           
         
           
@@ -2694,11 +2694,12 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#設定">設定</a>
+    <li><a href="#typescript-mode">typescript-mode</a>
       <ul>
-        <li><a href="#org-ファイル内の階層を選択候補に入れる">org ファイル内の階層を選択候補に入れる</a></li>
-        <li><a href="#refile-ターゲットにファイル名を含める">refile ターゲットにファイル名を含める</a></li>
-        <li><a href="#refile-先の候補設定">refile 先の候補設定</a></li>
+        <li><a href="#インストール">インストール</a></li>
+        <li><a href="#カスタム変数">カスタム変数</a></li>
+        <li><a href="#hook">hook</a></li>
+        <li><a href="#拡張子による有効化">拡張子による有効化</a></li>
       </ul>
     </li>
   </ul>
@@ -2718,7 +2719,7 @@
           
             <h1>
               
-              org-refile
+              TypeScript
             </h1>
           
 
@@ -2726,70 +2727,34 @@
 
 
 <h2 id="概要">概要</h2>
-<p>org-refile は org-mode の1機能で
-org-mode のエントリを別のファイルなどに移動するための機能。実はコピーもできるけど、コピーは使ったことがない。</p>
-<h2 id="設定">設定</h2>
-<h3 id="org-ファイル内の階層を選択候補に入れる">org ファイル内の階層を選択候補に入れる</h3>
-<p>これを nil に設定することでファイルの選択だけでなく、その中の PATH まで選択できるようになる</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq org-outline-path-complete-in-steps <span style="color:#66d9ef">nil</span>)
-</code></pre></div><h3 id="refile-ターゲットにファイル名を含める">refile ターゲットにファイル名を含める</h3>
-<p>以下のように設定すると
-refile のターゲット候補としてファイル名とその中の PATH が表示されるようになる。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq org-refile-use-outline-path <span style="color:#e6db74">&#39;file</span>)
-</code></pre></div><p>nil だと移動先候補PATHの最後の部分しか表示されないのでどのファイルのどの場所かというのがわかりにくいのでこのように設定している。</p>
-<h3 id="refile-先の候補設定">refile 先の候補設定</h3>
-<p>いくつかの org ファイルを使っているのでターゲットを以下のように設定している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq org-refile-targets <span style="color:#f92672">`</span>((<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>) :level <span style="color:#f92672">.</span> <span style="color:#ae81ff">1</span>)
-                           (<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/pointers.org&#34;</span>) :level <span style="color:#f92672">.</span> <span style="color:#ae81ff">1</span>)
-                           (<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;work/scrum/impediments.org&#34;</span>) :level <span style="color:#f92672">.</span> <span style="color:#ae81ff">3</span>)
-                           (<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/next-actions.org&#34;</span>) :regexp <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;today&#34;</span>)
-                           (<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/next-actions.org&#34;</span>) :regexp <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;C-&#34;</span>)
-                           (<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;private/2020_summary.org&#34;</span>) :level <span style="color:#f92672">.</span> <span style="color:#ae81ff">2</span>)
-                           (<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/shopping.org&#34;</span>) :level <span style="color:#f92672">.</span> <span style="color:#ae81ff">1</span>)
-                           (<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/someday.org&#34;</span>) :level <span style="color:#f92672">.</span> <span style="color:#ae81ff">1</span>)))
-</code></pre></div><table>
-<thead>
-<tr>
-<th>ターゲット</th>
-<th>目的</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>projects.org</td>
-<td>とりあえずその内やるタスクを放り込むところ。Work, Private の階層を設けているので <code>:level 2</code> としている</td>
-</tr>
-<tr>
-<td>pointers.org</td>
-<td>読物を突っ込むところとしている。</td>
-</tr>
-<tr>
-<td>impediments.org</td>
-<td>スクラムの妨害リストでも作ってみようかと思って用意したやつ。放置中</td>
-</tr>
-<tr>
-<td>next-actions today</td>
-<td>その日やる作業を放り込むところ。projects や inbox から移動する時に使う。</td>
-</tr>
-<tr>
-<td>next-actions C-</td>
-<td>いくつかの作業を各階層に分けて管理しようとしていたのでターゲット指定している。放置中。</td>
-</tr>
-<tr>
-<td>2020_summary.org</td>
-<td>2020 年の個人ふりかえり用。もう 2020 年は大昔なので当然もう使っていない</td>
-</tr>
-<tr>
-<td>shopping.org</td>
-<td>買物リスト。時々思い出した時に放り込んでるが主に使うのは beorg からなので refile では使ってない</td>
-</tr>
-<tr>
-<td>someday.org</td>
-<td>遠い将来やるかもしれないリスト。放り込んで忘れるためにあるところ</td>
-</tr>
-</tbody>
-</table>
-
+<p>TypeScript ファイル(.ts) を使う上での設定を書いている。とりあえず簡単な設定だけ。</p>
+<h2 id="typescript-mode">typescript-mode</h2>
+<p><a href="https://github.com/emacs-typescript/typescript.el">typescript-mode</a> は TypeScript 向けの Syntax Highlight とかを提供してくれるメジャーモード。</p>
+<h3 id="インストール">インストール</h3>
+<p>自分はいつも通り el-get で入れている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle typescript-mode)
+</code></pre></div><h3 id="カスタム変数">カスタム変数</h3>
+<p>indent は2文字がいいのでデフォルトから変更している</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(custom-set-variables
+ <span style="color:#f92672">&#39;</span>(typescript-indent-level <span style="color:#ae81ff">2</span>))
+</code></pre></div><h3 id="hook">hook</h3>
+<p>company-mode などのプログラミングで便利な各種のモードを
+hook を使って有効化している</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/ts-mode-hook ()
+  (company-mode <span style="color:#ae81ff">1</span>)
+  (turn-on-smartparens-strict-mode)
+  (display-line-numbers-mode <span style="color:#66d9ef">t</span>)
+  (lsp)
+  (lsp-ui-mode <span style="color:#ae81ff">1</span>))
+</code></pre></div><p>という関数を用意して</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-hook <span style="color:#e6db74">&#39;typescript-mode-hook</span> <span style="color:#e6db74">&#39;my/ts-mode-hook</span>)
+</code></pre></div><p>として hook に追加している。</p>
+<p>直接 lambda で add-hook に書くという手もあるが関数を分離しておくと修正の反映が用意なのでこのようにしている</p>
+<h3 id="拡張子による有効化">拡張子による有効化</h3>
+<p>.ts ファイルであれば typescript-mode で動いてほしいので
+auto-mode-alist に突っ込んでいる</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-to-list <span style="color:#e6db74">&#39;auto-mode-alist</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;\\.ts&#34;</span> <span style="color:#f92672">.</span> typescript-mode))
+</code></pre></div>
 
 <footer class="footline">
 	
@@ -3805,6 +3770,7 @@ refile のターゲット候補としてファイル名とその中の PATH が�
             
                 
                     
+                    
                 
                 
 
@@ -3818,69 +3784,8 @@ refile のターゲット候補としてファイル名とその中の PATH が�
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -4069,6 +3974,266 @@ refile のターゲット候補としてファイル名とその中の PATH が�
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -4249,206 +4414,6 @@ refile のターゲット候補としてファイル名とその中の PATH が�
             
             
                 
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -4649,10 +4614,10 @@ refile のターゲット候補としてファイル名とその中の PATH が�
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/org-mode/org-ql/" title="org-ql"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/programming/scss/" title="scss"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/org-mode/org-trello/" title="org-trello" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/programming/vue-js/" title="Vue.js" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

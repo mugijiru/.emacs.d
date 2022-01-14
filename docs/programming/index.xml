@@ -197,6 +197,24 @@ hook scss を使う上で hook を使って色々有効化したりしている�
     </item>
     
     <item>
+      <title>TypeScript</title>
+      <link>https://mugijiru.github.io/.emacs.d/programming/typescript/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/programming/typescript/</guid>
+      <description>概要 TypeScript ファイル(.ts) を使う上での設定を書いている。とりあえず簡単な設定だけ。
+typescript-mode typescript-mode は TypeScript 向けの Syntax Highlight とかを提供してくれるメジャーモード。
+インストール 自分はいつも通り el-get で入れている
+(el-get-bundle typescript-mode) カスタム変数 indent は2文字がいいのでデフォルトから変更している
+(custom-set-variables &amp;#39;(typescript-indent-level 2)) hook company-mode などのプログラミングで便利な各種のモードを hook を使って有効化している
+(defun my/ts-mode-hook () (company-mode 1) (turn-on-smartparens-strict-mode) (display-line-numbers-mode t) (lsp) (lsp-ui-mode 1)) という関数を用意して
+(add-hook &amp;#39;typescript-mode-hook &amp;#39;my/ts-mode-hook) として hook に追加している。
+直接 lambda で add-hook に書くという手もあるが関数を分離しておくと修正の反映が用意なのでこのようにしている
+拡張子による有効化 .ts ファイルであれば typescript-mode で動いてほしいので auto-mode-alist に突っ込んでいる
+(add-to-list &amp;#39;auto-mode-alist &amp;#39;(&amp;#34;\\.ts&amp;#34; . typescript-mode)) </description>
+    </item>
+    
+    <item>
       <title>Vue.js</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/vue-js/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
