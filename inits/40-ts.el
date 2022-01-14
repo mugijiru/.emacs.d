@@ -11,4 +11,5 @@
   (lsp-ui-mode 1))
 
 (add-hook 'typescript-mode-hook 'my/ts-mode-hook)
+
 (add-to-list 'auto-mode-alist '("\\.ts" . typescript-mode))

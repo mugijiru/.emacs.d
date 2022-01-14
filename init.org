@@ -3569,6 +3569,7 @@
    - [[*rspec-mode][rspec-mode]] :: Ruby のテストフレームワーク RSpec を書いたりするのに便利なモード
    - [[*ruby][ruby]] :: Ruby を書く上での設定
    - [[*scss][scss]] :: SCSS を書く上での設定
+   - [[TypeScript][TypeScript]] :: TypeScript を書く上での設定
    - [[*Vue.js][Vue.js]] :: Vue.js を書く上での設定
    - [[*yaml-mode][yaml-mode]] :: YAML を書く時のメジャーモードの設定
 
@@ -4422,6 +4423,60 @@
 
     | Key | 効果                                                                          |
     | v   | リージョンの値で CSS 変数を検索して置き換えるやつ。自作コマンドを利用している |
+** TypeScript
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: typescript
+   :END:
+*** 概要
+    TypeScript ファイル(.ts) を使う上での設定を書いている。
+    とりあえず簡単な設定だけ。
+*** typescript-mode
+    [[https://github.com/emacs-typescript/typescript.el][typescript-mode]] は TypeScript 向けの Syntax Highlight とかを提供してくれるメジャーモード。
+**** インストール
+     自分はいつも通り el-get で入れている
+
+     #+begin_src emacs-lisp :tangle inits/40-ts.el
+     (el-get-bundle typescript-mode)
+     #+end_src
+**** カスタム変数
+     indent は2文字がいいのでデフォルトから変更している
+
+     #+begin_src emacs-lisp :tangle inits/40-ts.el
+     (custom-set-variables
+      '(typescript-indent-level 2))
+     #+end_src
+**** hook
+     company-mode などのプログラミングで便利な各種のモードを
+     hook を使って有効化している
+
+     #+begin_src emacs-lisp :tangle inits/40-ts.el
+     (defun my/ts-mode-hook ()
+       (company-mode 1)
+       (turn-on-smartparens-strict-mode)
+       (display-line-numbers-mode t)
+       (lsp)
+       (lsp-ui-mode 1))
+     #+end_src
+
+     という関数を用意して
+
+     #+begin_src emacs-lisp :tangle inits/40-ts.el
+     (add-hook 'typescript-mode-hook 'my/ts-mode-hook)
+     #+end_src
+
+     として hook に追加している。
+
+     直接 lambda で add-hook に書くという手もあるが
+     関数を分離しておくと修正の反映が用意なのでこのようにしている
+
+**** 拡張子による有効化
+     .ts ファイルであれば typescript-mode で動いてほしいので
+     auto-mode-alist に突っ込んでいる
+
+     #+begin_src emacs-lisp :tangle inits/40-ts.el
+     (add-to-list 'auto-mode-alist '("\\.ts" . typescript-mode))
+     #+end_src
+
 ** Vue.js
    :PROPERTIES:
    :EXPORT_FILE_NAME: vue-js
