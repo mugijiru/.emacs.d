@@ -48,6 +48,9 @@ markdown-mode とか yaml-mode なんかはプログラム言語ではないけ�
 [scss]({{< relref "scss" >}})
 : SCSS を書く上での設定
 
+[TypeScript]({{< relref "typescript" >}})
+: TypeScript を書く上での設定
+
 [Vue.js]({{< relref "vue-js" >}})
 : Vue.js を書く上での設定
 

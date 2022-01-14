@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((yaml :checksum "84b88c9ed178af16da18b230c1f61c57cefedf28")
+      '((typescript-mode :checksum "e82416205158d4b21d42d6b60c4385f68f0ae1b1")
+        (yaml :checksum "84b88c9ed178af16da18b230c1f61c57cefedf28")
         (tree-mode :checksum "56a765fe2023909b37d430ab1fc70963fb41c845")
         (web-mode :checksum "61f057a6baeba6b3595e412ba79b3080dca17dcc")
         (dap-mode :checksum "76cad34de8984f57c2b1e374e9c985cc7ec8dad0")
