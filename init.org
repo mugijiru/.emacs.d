@@ -255,6 +255,18 @@
     #+begin_src emacs-lisp :tangle inits/30-skk.el
     (el-get-bundle ddskk)
     #+end_src
+
+*** 常時有効化
+    find-file-hooks で有効化することでファイルを開いた時には常に skk が使える状態にしている。
+    また skk-latin-mode にしておくことで、
+    基本は英語入力ですぐに日本語入力に切り替えられる状態にしている。
+
+    #+begin_src emacs-lisp :tangle inits/30-skk.el
+    (defun my/always-enable-skk-latin-mode-hook ()
+      (skk-latin-mode 1))
+
+    (add-hook 'find-file-hooks 'my/always-enable-skk-latin-mode-hook)
+    #+end_src
 *** hook の設定
     ddskk が呼び出された時に色々設定されるようにしている。
 

@@ -20,6 +20,18 @@ SKK ではその自動認識がおかしくておかしな変換になるとこ�
 ```
 
 
+## 常時有効化 {#常時有効化}
+
+find-file-hooks で有効化することでファイルを開いた時には常に skk が使える状態にしている。また skk-latin-mode にしておくことで、基本は英語入力ですぐに日本語入力に切り替えられる状態にしている。
+
+```emacs-lisp
+(defun my/always-enable-skk-latin-mode-hook ()
+  (skk-latin-mode 1))
+
+(add-hook 'find-file-hooks 'my/always-enable-skk-latin-mode-hook)
+```
+
+
 ## hook の設定 {#hook-の設定}
 
 ddskk が呼び出された時に色々設定されるようにしている。
