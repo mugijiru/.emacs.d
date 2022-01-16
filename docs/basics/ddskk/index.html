@@ -12,20 +12,20 @@
     <title>ddskk :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1642297854" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1642297854" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1642297854" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1642297854" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1642297854" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1642297854" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1642297854" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1642297854" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1642297854" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1642297854" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1642315526" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1642315526" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1642315526" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1642315526" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1642315526" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1642315526" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1642315526" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1642315526" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1642315526" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1642315526" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1642297854"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1642315526"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1642297854"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1642297854"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1642315526"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1642315526"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1642297854"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1642315526"></script>
 
     
   </div>
@@ -2697,8 +2697,7 @@
     <li><a href="#インストール">インストール</a></li>
     <li><a href="#常時有効化">常時有効化</a></li>
     <li><a href="#hook-の設定">hook の設定</a></li>
-    <li><a href="#辞書ファイルの指定">辞書ファイルの指定</a></li>
-    <li><a href="#aquaskk-の-l-辞書を使うようにする">AquaSKK の L 辞書を使うようにする</a></li>
+    <li><a href="#l-辞書を使うようにする">L 辞書を使うようにする</a></li>
     <li><a href="#ddskk-posframe">ddskk-posframe</a></li>
     <li><a href="#その他">その他</a></li>
   </ul>
@@ -2777,10 +2776,7 @@ SKK ではその自動認識がおかしくておかしな変換になるとこ�
 <dt>skk-rom-kana-rules-list</dt>
 <dd>キー入力時の挙動を指定する。とりあえず自分は : とかが全角になるのが嫌なので半角になるようにしている</dd>
 </dl>
-<h2 id="辞書ファイルの指定">辞書ファイルの指定</h2>
-<p>共有辞書や個人辞書以外の追加辞書を指定している。が、このマシンではそんなところに辞書置いてないな……。見直しの必要あり</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq skk-extra-jisyo-file-list (<span style="color:#a6e22e">list</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/.emacs.d/skk-jisyo/SKK-JISYO.lisp&#34;</span> <span style="color:#f92672">.</span> japanese-iso-8bit-unix)))
-</code></pre></div><h2 id="aquaskk-の-l-辞書を使うようにする">AquaSKK の L 辞書を使うようにする</h2>
+<h2 id="l-辞書を使うようにする">L 辞書を使うようにする</h2>
 <p>Mac では AquaSKK の L 辞書を、
 Linux では <code>/usr/share/skk/SKK-JISYO.L</code> を読むようにしている。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(let ((l-dict
@@ -4673,19 +4669,19 @@ SKK とそれを組み合わせると入力キーを覚えている漢字は漢�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1642297854"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1642297854"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1642297854"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1642297854"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1642297854"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1642297854"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1642315526"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1642315526"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1642315526"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1642315526"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1642315526"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1642315526"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1642297854"></script>
-    <script src="/.emacs.d/js/learn.js?1642297854"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1642297854"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1642315526"></script>
+    <script src="/.emacs.d/js/learn.js?1642315526"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1642315526"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1642297854"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1642315526"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
