@@ -83,16 +83,7 @@ skk-rom-kana-rules-list
 : キー入力時の挙動を指定する。とりあえず自分は : とかが全角になるのが嫌なので半角になるようにしている
 
 
-## 辞書ファイルの指定 {#辞書ファイルの指定}
-
-共有辞書や個人辞書以外の追加辞書を指定している。が、このマシンではそんなところに辞書置いてないな……。見直しの必要あり
-
-```emacs-lisp
-(setq skk-extra-jisyo-file-list (list '("~/.emacs.d/skk-jisyo/SKK-JISYO.lisp" . japanese-iso-8bit-unix)))
-```
-
-
-## AquaSKK の L 辞書を使うようにする {#aquaskk-の-l-辞書を使うようにする}
+## L 辞書を使うようにする {#l-辞書を使うようにする}
 
 Mac では AquaSKK の L 辞書を、
 Linux では `/usr/share/skk/SKK-JISYO.L` を読むようにしている。
