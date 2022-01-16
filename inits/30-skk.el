@@ -1,5 +1,10 @@
 (el-get-bundle ddskk)
 
+(defun my/always-enable-skk-latin-mode-hook ()
+  (skk-latin-mode 1))
+
+(add-hook 'find-file-hooks 'my/always-enable-skk-latin-mode-hook)
+
 (add-hook 'skk-load-hook
           (lambda ()
             ;; コード中では自動的に英字にする。
