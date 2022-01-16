@@ -501,7 +501,8 @@ Emacs ではデフォルトでも編集中ファイルの自動保存や、編�
       <description>概要 ddskk は Emacs Lisp 版の SKK 実装。
 一般的な日本語変換ソフトだと文法を自動で認識して変換をしてくれるけど SKK ではその自動認識がおかしくておかしな変換になるところを、単語の区切りなんかを一切判定せずに人間がそれを教えてあげることで、そういう自動的に変な挙動をしてしまう煩わしさから開放されるようになっている。
 インストール いつも通り el-get で入れている。最近は最新版が GitHub で更新されているのでそちらから引っ張られてくる。
-(el-get-bundle ddskk) hook の設定 ddskk が呼び出された時に色々設定されるようにしている。
+(el-get-bundle ddskk) 常時有効化 find-file-hooks で有効化することでファイルを開いた時には常に skk が使える状態にしている。また skk-latin-mode にしておくことで、基本は英語入力ですぐに日本語入力に切り替えられる状態にしている。
+(defun my/always-enable-skk-latin-mode-hook () (skk-latin-mode 1)) (add-hook &amp;#39;find-file-hooks &amp;#39;my/always-enable-skk-latin-mode-hook) hook の設定 ddskk が呼び出された時に色々設定されるようにしている。
 もしかしたら customize-variable とかあるかもしれないので今度見直した方が良さそう。
 (add-hook &amp;#39;skk-load-hook (lambda () ;; コード中では自動的に英字にする。 (require &amp;#39;context-skk) (setq skk-comp-mode t) ;; 動的自動補完 (setq skk-auto-insert-paren t) (setq skk-delete-implies-kakutei nil) (setq skk-sticky-key &amp;#34;;&amp;#34;) (setq skk-henkan-strict-okuri-precedence t) (setq skk-show-annotation t) ;; 単語の意味をアノテーションとして表示。例) いぜん /以前;previous/依然;still/ ;; ;; 半角で入力したい文字 ;; (setq skk-rom-kana-rule-list ;; (nconc skk-rom-kana-rule-list ;; &amp;#39;((&amp;#34;;&amp;#34; nil nil) ;; (&amp;#34;:&amp;#34; nil nil) ;; (&amp;#34;?</description>
     </item>

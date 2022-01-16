@@ -12,20 +12,20 @@
     <title>ddskk :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1642172181" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1642172181" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1642172181" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1642172181" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1642172181" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1642172181" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1642172181" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1642172181" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1642172181" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1642172181" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1642297854" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1642297854" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1642297854" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1642297854" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1642297854" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1642297854" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1642297854" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1642297854" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1642297854" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1642297854" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1642172181"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1642297854"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1642172181"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1642172181"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1642297854"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1642297854"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1642172181"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1642297854"></script>
 
     
   </div>
@@ -2695,6 +2695,7 @@
   <ul>
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
+    <li><a href="#常時有効化">常時有効化</a></li>
     <li><a href="#hook-の設定">hook の設定</a></li>
     <li><a href="#辞書ファイルの指定">辞書ファイルの指定</a></li>
     <li><a href="#aquaskk-の-l-辞書を使うようにする">AquaSKK の L 辞書を使うようにする</a></li>
@@ -2731,6 +2732,12 @@ SKK ではその自動認識がおかしくておかしな変換になるとこ�
 <h2 id="インストール">インストール</h2>
 <p>いつも通り el-get で入れている。最近は最新版が GitHub で更新されているのでそちらから引っ張られてくる。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle ddskk)
+</code></pre></div><h2 id="常時有効化">常時有効化</h2>
+<p>find-file-hooks で有効化することでファイルを開いた時には常に skk が使える状態にしている。また skk-latin-mode にしておくことで、基本は英語入力ですぐに日本語入力に切り替えられる状態にしている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/always-enable-skk-latin-mode-hook ()
+  (skk-latin-mode <span style="color:#ae81ff">1</span>))
+
+(add-hook <span style="color:#e6db74">&#39;find-file-hooks</span> <span style="color:#e6db74">&#39;my/always-enable-skk-latin-mode-hook</span>)
 </code></pre></div><h2 id="hook-の設定">hook の設定</h2>
 <p>ddskk が呼び出された時に色々設定されるようにしている。</p>
 <p>もしかしたら customize-variable とかあるかもしれないので今度見直した方が良さそう。</p>
@@ -4666,19 +4673,19 @@ SKK とそれを組み合わせると入力キーを覚えている漢字は漢�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1642172181"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1642172181"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1642172181"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1642172181"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1642172181"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1642172181"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1642297854"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1642297854"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1642297854"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1642297854"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1642297854"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1642297854"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1642172181"></script>
-    <script src="/.emacs.d/js/learn.js?1642172181"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1642172181"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1642297854"></script>
+    <script src="/.emacs.d/js/learn.js?1642297854"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1642297854"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1642172181"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1642297854"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
