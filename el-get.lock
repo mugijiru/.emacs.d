@@ -13,7 +13,6 @@
         (with-simulated-input :checksum "0f43fe46d4ab098c18a90b9df18cb96bab8e4a35")
         (flycheck-pos-tip :checksum "dc57beac0e59669926ad720c7af38b27c3a30467")
         (pos-tip :checksum "179cc126b363f72ca12fab1e0dc462ce0ee79742")
-        (emacs-neotree :checksum "5e1271655170f4cdc6849258e383c548a4e6e3d0")
         (emacs-w3m :checksum "6112c6a9e13c00c2c7aecd96820a46b4800d4cda")
         (browse-at-remote :checksum "cef26f2c063f2473af42d0e126c8613fe2f709e4")
         (ox-hugo :checksum "60c4b74ff1eabeacff4802d59a9cea546183af69")
