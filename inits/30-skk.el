@@ -26,8 +26,6 @@
             ;;                ("!" nil nil))))
             ))
 
-(setq skk-extra-jisyo-file-list (list '("~/.emacs.d/skk-jisyo/SKK-JISYO.lisp" . japanese-iso-8bit-unix)))
-
 (let ((l-dict
        (if (eq window-system 'ns)
            (expand-file-name "~/Library/Application Support/AquaSKK/SKK-JISYO.L")
