@@ -3,6 +3,11 @@
 (custom-set-variables
  '(typescript-indent-level 2))
 
+(defun my/auto-fix-mode-hook-for-ts ()
+  (add-hook 'before-save-hook 'auto-fix-before-save))
+
+(add-hook 'auto-fix-mode-hook 'my/auto-fix-mode-hook-for-ts)
+
 (defun my/ts-mode-hook ()
   (company-mode 1)
   (turn-on-smartparens-strict-mode)
