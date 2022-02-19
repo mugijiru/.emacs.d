@@ -8,7 +8,11 @@
   (turn-on-smartparens-strict-mode)
   (display-line-numbers-mode t)
   (lsp)
-  (lsp-ui-mode 1))
+  (lsp-ui-mode 1)
+  (flycheck-mode 1)
+  (setq flycheck-disabled-checkers '(javascript-standard javascript-jshint))
+  (flycheck-add-next-checker 'lsp '(warning . javascript-eslint))
+  )
 
 (add-hook 'typescript-mode-hook 'my/ts-mode-hook)
 
