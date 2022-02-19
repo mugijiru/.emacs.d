@@ -6,6 +6,10 @@
 
 (el-get-bundle jerrypnz/major-mode-hydra.el)
 
+(defun my/download-from-beorg ()
+  (interactive)
+  (async-shell-command "java -jar ~/bin/webdav_sync1_1_9.jar -c ~/.config/webdav-sync/download.xml && notify-send 'WebDAV Sync' 'Downloaded from WebDAV'"))
+
 (pretty-hydra-define el-get-hydra (:separator "-" :title "el-get" :foreign-key warn :quit-key "q" :exit t)
   ("Install"
    (("i" el-get-install   "Install")
@@ -60,7 +64,8 @@
 
    ;; ("P"   my/open-review-requested-pr "Open Requested PR")
    "Other"
-   (("@"   all-the-icons-hydra/body "List icons"))))
+   (("@" all-the-icons-hydra/body "List icons")
+    ("D" my/download-from-beorg))))
 
 (pretty-hydra-define text-scale-hydra (:separator "-" :title (concat (all-the-icons-material "text_fields") " Text Scale") :exit nil :quit-key "q")
   ("Scale"
