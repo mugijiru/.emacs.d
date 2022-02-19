@@ -3,9 +3,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(auth-sources '("~/.emacs.d/.authinfo.gpg"))
+ '(auto-insert-directory "~/.emacs.d/insert/")
  '(aw-background t)
  '(column-number-mode t)
- '(counsel-locate-cmd (quote counsel-locate-cmd-mdfind))
+ '(company-show-quick-access t)
+ '(counsel-locate-cmd 'counsel-locate-cmd-mdfind)
  '(counsel-projectile-switch-project-action
    '(1
      ("o" counsel-projectile-switch-project-action "jump to a project buffer or file")
@@ -40,6 +43,9 @@
  '(google-this-browse-url-function 'w3m-browse-url)
  '(google-this-keybind "")
  '(google-this-location-suffix "co.jp")
+ '(google-translate-default-source-language "en")
+ '(google-translate-default-target-language "ja")
+ '(google-translate-output-destination 'popup)
  '(helm-for-files-preferred-list
    '(helm-source-buffers-list helm-source-recentf helm-source-bookmarks helm-source-projectile-files-list helm-source-file-cache helm-source-files-in-current-dir helm-source-locate))
  '(helm-locate-command "mdfind %s %s")
@@ -47,6 +53,7 @@
  '(js-indent-level 2)
  '(line-number-mode nil)
  '(major-mode-hydra-separator "=")
+ '(org-agenda-files '("~/Documents/org/tasks/"))
  '(org-confirm-babel-evaluate nil)
  '(org-html-doctype "html5")
  '(org-modules
@@ -64,7 +71,9 @@
  '(scroll-bar-mode nil)
  '(wakatime-cli-path (expand-file-name "~/.anyenv/envs/pyenv/shims/wakatime"))
  '(wakatime-python-bin nil)
- '(yascroll:delay-to-hide nil))
+ '(yascroll:delay-to-hide nil)
+ '(zoom-mode t nil (zoom))
+ '(zoom-size '(0.618 . 0.618)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
