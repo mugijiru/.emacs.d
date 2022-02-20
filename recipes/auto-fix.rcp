@@ -1,0 +1,6 @@
+(:name auto-fix
+       :website "https://github.com/mugijiru/auto-fix.el"
+       :description "Fix current buffer automatically"
+       :type github
+       :branch "accept-multiple-args"
+       :pkgname "mugijiru/auto-fix.el")
