@@ -61,7 +61,7 @@
         (ddskk :checksum "251df5b02c91311140d2375b019c1de836655fd0")
         (ddskk-posframe\.el :checksum "299493dd951e5a0b43b8213321e3dc0bac10f762")
         (deferred :checksum "2239671d94b38d92e9b28d4e12fd79814cfb9c16")
-        (doom-modeline :checksum "bd21ee28cc25da400fb32b1e9e65b09514fa7f57")
+        (doom-modeline :checksum "d9b64bc56283c7816f8124dcb3a5c7ea22732643")
         (el-get-lock :checksum "df8cfe55441695865a64b97946750b6413a40425")
         (eldoc-eval :checksum "e91800503c90cb75dc70abe42f1d6ae499346cc1")
         (emacs-async :checksum "0d52411d3accc3e11a2c64838703a8ce9755c77c")
