@@ -1,6 +1,5 @@
 (progn
   (load (expand-file-name "~/.emacs.d/init-el-get.el"))
-  ;; (load (expand-file-name "~/.emacs.d/el-get.lock"))
   (let ((obsolute-packages '())
         (cannot-get-url-packages '())
         (cannot-get-hash-packages '())
