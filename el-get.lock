@@ -132,7 +132,7 @@
         (websocket :checksum "be99c4636ad72bcea535392d9097c32b98ec0056")
         (with-editor :checksum "a4e720b12a0946a271a274bbe0b45ae07f83520b")
         (yaml-mode :checksum "535273d5a1eb76999d20afbcf4d9f056d8ffd2da")
-        (yascroll :checksum "42750d23b47c6c8a3aa77088eb7dcf289ffbca4b")
+        (yascroll :checksum "d8674bbbc9d4d7bdba374f0c0473ebb1912bcac2")
         (yasnippet :checksum "5cbdbf0d2015540c59ed8ee0fcf4788effdf75b6")
         (zoom-window :checksum "474ca4723517d95356145950b134652d5dc0c7f7")
         (ace-window :checksum "0577c426a9833ab107bab46c60d1885c611b2fb9")
