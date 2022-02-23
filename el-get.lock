@@ -75,7 +75,7 @@
         (f :checksum "50af874cd19042f17c8686813d52569b1025c76a")
         (flex-autopair :checksum "4bb757f2556a4a51828e2fed8fb81e31e83052cb")
         (flycheck :checksum "784f184cdd9f9cb4e3dbb997c09d93e954142842")
-        (forge :checksum "ab637b74d1a72432bba1f960f30d987a3dc07057")
+        (forge :checksum "e3357860886ea9c930f552afb1ec3cd60467aeb9")
         (fringe-helper :checksum "ef4a9c023bae18ec1ddd7265f1f2d6d2e775efdd")
         (ghub :checksum "d36c2b2419b04d7bc559756d37d39d615add6395")
         (git-gutter :checksum "9174c74cd607e297d7f14c0595d4c20ebb53847d")
