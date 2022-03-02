@@ -44,7 +44,7 @@
         (vue-mode :checksum "031edd1f97db6e7d8d6c295c0e6d58dd128b9e71")
         (mmm-mode :checksum "0d00cdf4d02cc166304f6967a20fa22e2eaf208b")
         (ssass-mode :checksum "96f557887ad97a0066a60c54f92b7234b8407016")
-        (edit-indirect :checksum "7fffd87ac3b027d10a26e8492629da01a4cd7633")
+        (edit-indirect :checksum "e3d86416bcf8ddca951d7d112e57ad30c5f9a081")
         (vue-html-mode :checksum "1514939804bad558584feeb6298b38d22eadf64e")
         (emacs-pug-mode :checksum "73f8c2f95eba695f701df20c8436f49abadebdc1")
         (zoom :checksum "c7beef180bc4037404e2d56b9ab9b7c76d1713a0")
