@@ -1,3 +1,3 @@
-(el-get-bundle tumashu/helm-posframe)
+(el-get-bundle helm-posframe)
 
 (helm-posframe-enable)

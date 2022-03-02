@@ -1,0 +1,5 @@
+(:name helm-posframe
+       :website "https://github.com/tumashu/helm-posframe"
+       :description "helm-posframe is a helm extension, which let helm use posframe to show its candidate menu."
+       :type github
+       :pkgname "tumashu/helm-posframe")
