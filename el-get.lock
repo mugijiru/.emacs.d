@@ -32,7 +32,6 @@
         (ivy-posframe :checksum "533a8e368fcabfd534761a5c685ce713376fa594")
         (dumb-jump :checksum "dbb915441a2b66f2fbb954ff5de2723c5a4771d4")
         (ember-mode :checksum "a587c423041b2fcb065fd5b6a03b2899b764e462")
-        (font-lock+ :checksum "829cf337e9ec10116f6ec47e759fc72b7a8dda48")
         (emacs-hide-mode-line :checksum "bc5d293576c5e08c29e694078b96a5ed85631942")
         (highlight-indent-guides :checksum "cf352c85cd15dd18aa096ba9d9ab9b7ab493e8f6")
         (org-export-blocks-format-plantuml :checksum "9d8b93ae4f30e61ef6dbbf6d24118aa577c501ec")
