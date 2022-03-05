@@ -117,7 +117,6 @@
         (rspec-mode :checksum "4215ff1f2d1cee24a144ff08297276dc7b971c25")
         (s :checksum "08661efb075d1c6b4fa812184c1e5e90c08795a9")
         (shrink-path :checksum "c14882c8599aec79a6e8ef2d06454254bb3e1e41")
-        (smart-mode-line :checksum "abcb0ab6f7110a03d6c7428bae67cf8731496433")
         (spinner :checksum "bca794fa6f6b007292cdac9b0a850a3711986db5")
         (swiper :checksum "c97ea72285f2428ed61b519269274d27f2b695f9")
         (transient :checksum "7c771c94c8fc31d859c1e083bf32fbce403f4766")
