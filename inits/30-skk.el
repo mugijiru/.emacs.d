@@ -33,5 +33,5 @@
   (if (file-exists-p l-dict)
       (setq skk-large-jisyo l-dict)))
 
-(el-get-bundle conao3/ddskk-posframe.el)
+(el-get-bundle ddskk-posframe.el)
 (ddskk-posframe-mode 1)
