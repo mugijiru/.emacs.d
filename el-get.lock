@@ -24,7 +24,6 @@
         (ts :checksum "3fee71ceefac71ba55eb34829d7e94bb3df37cee")
         (ov :checksum "c5b9aa4e1b00d702eb2caedd61c69a22a5fa1fab")
         (diminish :checksum "73669b69e5f9a0c9261c5b53624329d0e24d1ed8")
-        (open-junk-file :checksum "f87b93ec26e92dc747da43499d0cbf5ab70fd8c2")
         (htmlize :checksum "dd27bc3f26efd728f2b1f01f9e4ac4f61f2ffbf9")
         (ivy-rich :checksum "600b8183ed0be8668dcc548cc2c8cb94b001363b")
         (emacs-neotree-dev :checksum "98fe21334affaffe2334bf7c987edaf1980d2d0b")
