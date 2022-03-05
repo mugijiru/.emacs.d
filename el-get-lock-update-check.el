@@ -35,7 +35,7 @@
                              (hash (if (>= (string-width result) 40)
                                        (substring result 0 40)
                                      nil)))
-                        (if hash
+                        (if (and hash (string-match-p "^[0-9a-z]\\{40\\}$" hash))
                             (if (string-equal checksum hash)
                                 (progn
                                   (princ "no updates."))
