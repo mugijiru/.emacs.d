@@ -1,0 +1,5 @@
+(:name ddskk-posframe.el
+       :website "https://github.com/conao3/ddskk-posframe.el"
+       :description "ddskk-posframe.el provides Henkan tooltip for ddskk via posframe."
+       :type github
+       :pkgname "conao3/ddskk-posframe.el")
