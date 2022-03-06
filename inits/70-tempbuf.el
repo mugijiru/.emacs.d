@@ -1,4 +1,4 @@
-(el-get-bundle tempbuf)
+(el-get-bundle tempbuf-mode)
 
 (setq my/tempbuf-ignore-files '("~/Documents/org/tasks/gtd.org"
                                 "~/Documents/org/tasks/interrupted.org"
