@@ -34,7 +34,6 @@
         (ember-mode :checksum "a587c423041b2fcb065fd5b6a03b2899b764e462")
         (emacs-hide-mode-line :checksum "bc5d293576c5e08c29e694078b96a5ed85631942")
         (highlight-indent-guides :checksum "cf352c85cd15dd18aa096ba9d9ab9b7ab493e8f6")
-        (org-export-blocks-format-plantuml :checksum "9d8b93ae4f30e61ef6dbbf6d24118aa577c501ec")
         (scratch-log :checksum "1168f7f16d36ca0f4ddf2bb98881f8db62cc5dc0")
         (tempbuf :checksum "5222c25acc2e60539af0f4d30e2e263ec56c43fc")
         (vue-mode :checksum "031edd1f97db6e7d8d6c295c0e6d58dd128b9e71")

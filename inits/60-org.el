@@ -13,8 +13,6 @@
 (with-eval-after-load 'org
   (add-to-list 'org-file-apps '("\\.xlsx?\\'" . default)))
 
-(el-get-bundle org-export-blocks-format-plantuml)
-
 (org-babel-do-load-languages 'org-babel-load-languages
                              '((plantuml . t)
                                (sql . t)
