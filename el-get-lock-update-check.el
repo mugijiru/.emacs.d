@@ -7,7 +7,7 @@
         (message list-item))
       (message ""))))
 
-(progn
+(defun el-get-lock-update-check-execute ()
   (load (expand-file-name "~/.emacs.d/init-el-get.el"))
   (let ((obsolute-packages '())
         (cannot-get-url-packages '())
@@ -69,3 +69,5 @@
     (el-get-lock-update-check-print-list 'cannot-get-hash-packages)
     (el-get-lock-update-check-print-list 'emacswiki-packages)
     (el-get-lock-update-check-print-list 'cannot-get-url-packages)))
+
+(el-get-lock-update-check-execute)
