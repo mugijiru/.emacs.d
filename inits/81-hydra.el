@@ -4,7 +4,7 @@
 
 (add-hook 'after-init-hook 'hydra-posframe-enable)
 
-(el-get-bundle jerrypnz/major-mode-hydra.el)
+(el-get-bundle major-mode-hydra.el)
 
 (defun my/download-from-beorg ()
   (interactive)
