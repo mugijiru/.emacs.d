@@ -13,6 +13,18 @@
   (if el-get-lock-update-check-verbose-flag
       (princ message)))
 
+(defun el-get-lock-update-check-build-git-command (recipe url)
+  (let* ((branch (plist-get recipe :branch))
+         (tag (plist-get recipe :checkout))
+         (grep-regexp-prefix "refs/")
+         (grep-options (if branch
+                           (list "-e" (concat grep-regexp-prefix "heads/" branch))
+                         (if tag
+                             (list "-e" (concat grep-regexp-prefix "tags/" tag "^{}"))
+                           (list "-e" (concat grep-regexp-prefix "heads/master") "-e" (concat grep-regexp-prefix "heads/main")))))
+         (command-list (append (list "git" "ls-remote" url "|" "grep") grep-options)))
+    (mapconcat #'shell-quote-argument command-list " ")))
+
 (defun el-get-lock-update-check-execute ()
   (load (expand-file-name "~/.emacs.d/init-el-get.el"))
   (message "check updates...")
@@ -31,22 +43,13 @@
             (progn
               (let* ((recipe (ignore-errors (el-get-package-def package)))
                      (type (plist-get recipe :type))
-                     (branch (plist-get recipe :branch))
-                     (tag (plist-get recipe :checkout))
                      (pkgname (plist-get recipe :pkgname))
                      (url (if (eq type 'github)
                               (concat "git://github.com/" pkgname ".git")
                             (plist-get recipe :url))))
                 (if url
                     (progn
-                      (let* ((grep-regexp-prefix "refs/")
-                             (grep-options (if branch
-                                               (list "-e" (concat grep-regexp-prefix "heads/" branch))
-                                             (if tag
-                                                 (list "-e" (concat grep-regexp-prefix "tags/" tag "^{}"))
-                                               (list "-e" (concat grep-regexp-prefix "heads/master") "-e" (concat grep-regexp-prefix "heads/main")))))
-                             (command-list (append (list "git" "ls-remote" url "|" "grep") grep-options))
-                             (command (mapconcat #'shell-quote-argument command-list " "))
+                      (let* ((command (el-get-lock-update-check-build-git-command recipe url))
                              (result (shell-command-to-string command))
                              (hash (if (>= (string-width result) 40)
                                        (substring result 0 40)
