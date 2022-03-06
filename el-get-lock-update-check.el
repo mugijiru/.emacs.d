@@ -32,6 +32,19 @@
         (substring result 0 40)
       nil)))
 
+(defun el-get-lock-update-check-process-hash (hash checksum)
+  (cond ((or (null hash) (not (string-match-p "^[0-9a-z]\\{40\\}$" hash)))
+         '(cannot-get-hash-packages . (concat "cannot get hash. got hash string is " hash)))
+        ((string-equal checksum hash)
+         '(nil . "no updates."))
+        (t
+         '(obsolute-packages . (concat "update found! " checksum "..." hash)))))
+
+(defun el-get-lock-update-check-process-maybe-emacswiki (type)
+  (if (eq type 'emacswiki)
+      '(emacswiki-packages . "cannot get url because install from emacswiki")
+    '(cannot-get-url-packages . "cannot get url.")))
+
 (defun el-get-lock-update-check-execute ()
   (load (expand-file-name "~/.emacs.d/init-el-get.el"))
   (message "check updates...")
@@ -57,21 +70,13 @@
                               (concat "git://github.com/" pkgname ".git")
                             (plist-get recipe :url))))
                 (if url
-                    (progn
-                      (let ((hash (el-get-lock-update-check-get-git-hash-string recipe url)))
-                        (if (and hash (string-match-p "^[0-9a-z]\\{40\\}$" hash))
-                            (if (string-equal checksum hash)
-                                (setq message "no updates.")
-                              (setq message (concat "update found! " checksum "..." hash))
-                              (setq list-name 'obsolute-packages))
-                          (setq list-name 'cannot-get-hash-packages)
-                          (setq message (concat "cannot get hash. got hash string is " hash)))))
-                  (if (eq type 'emacswiki)
-                      (progn
-                        (setq list-name 'emacswiki-packages)
-                        (setq message "cannot get url because install from emacswiki"))
-                    (setq list-name 'cannot-get-url-packages)
-                    (setq message "cannot get url.")))))
+                    (let* ((hash (el-get-lock-update-check-get-git-hash-string recipe url))
+                           (list-name-and-message (el-get-lock-update-check-process-hash hash checksum)))
+                      (setq list-name (car list-name-and-message))
+                      (setq message (cdr list-name-and-message)))
+                  (let* ((list-name-and-message el-get-lock-update-check-process-maybe-emacswiki))
+                    (setq list-name (car list-name-and-message))
+                    (setq message (cdr list-name-and-message))))))
           (setq list-name 'not-installed-packages)
           (setq message "not installed."))
         (if list-name (add-to-list list-name package))
