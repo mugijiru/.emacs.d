@@ -1,0 +1,5 @@
+(:name emacs-todoist
+       :website "https://github.com/abrochard/emacs-todoist"
+       :description "Emacs interface to Todoist"
+       :type github
+       :pkgname "abrochard/emacs-todoist")
