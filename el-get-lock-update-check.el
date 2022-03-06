@@ -13,6 +13,22 @@
   (if el-get-lock-update-check-verbose-flag
       (princ message)))
 
+(defun el-get-lock-update-check-use-main-p (package)
+  (let* ((recipe (ignore-errors (el-get-package-def package)))
+         (type (plist-get recipe :type))
+         (pkgname (plist-get recipe :pkgname))
+         (url (if (eq type 'github)
+                  (concat "git://github.com/" pkgname ".git")
+                (plist-get recipe :url)))
+         (grep-regexp-prefix "refs/")
+         (grep-options (list "-e" (concat grep-regexp-prefix "heads/main")))
+         (command-list (append (list "git" "ls-remote" url "|" "grep") grep-options))
+         (command (mapconcat #'shell-quote-argument command-list " "))
+         (result (shell-command-to-string command)))
+    (if (> (string-width result) 0)
+        (message "has main branch")
+      (message "has not main branch"))))
+
 (defun el-get-lock-update-check-build-git-command (recipe url)
   (let* ((branch (plist-get recipe :branch))
          (tag (plist-get recipe :checkout))
