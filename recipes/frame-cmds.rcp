@@ -1,0 +1,6 @@
+(:name frame-cmds
+       :website "https://github.com/emacsmirror/frame-cmds"
+       :description "Frame and window commands (interactive functions)."
+       :type github
+       :depends (frame-fns)
+       :pkgname "emacsmirror/frame-cmds")
