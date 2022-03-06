@@ -1,0 +1,5 @@
+(:name raxod502/prescient.el
+       :website "https://github.com/raxod502/prescient.el"
+       :description "simple but effective sorting and filtering for Emacs."
+       :type github
+       :pkgname "raxod502/prescient.el")
