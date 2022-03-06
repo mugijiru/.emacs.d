@@ -1,3 +1,5 @@
+(defvar el-get-lock-update-check-verbose-flag nil)
+
 (defun el-get-lock-update-check-print-list (list-name-symbol)
   (let ((list (symbol-value list-name-symbol))
         (list-name (symbol-name list-name-symbol)))
@@ -7,8 +9,13 @@
         (message list-item))
       (message ""))))
 
+(defun el-get-lock-update-check-verbose-print (message)
+  (if el-get-lock-update-check-verbose-flag
+      (princ message)))
+
 (defun el-get-lock-update-check-execute ()
   (load (expand-file-name "~/.emacs.d/init-el-get.el"))
+  (message "check updates...")
   (let ((obsolute-packages '())
         (cannot-get-url-packages '())
         (emacswiki-packages '())
@@ -19,8 +26,7 @@
     (dolist (version versions)
       (let ((package (replace-regexp-in-string "\\\\\\\." "\\\." (symbol-name (car version))))
             (checksum (plist-get (cdr version) :checksum)))
-        (princ package)
-        (princ " checking...")
+        (el-get-lock-update-check-verbose-print (concat package " checking..."))
         (if (el-get-package-installed-p package)
             (progn
               (let* ((recipe (ignore-errors (el-get-package-def package)))
@@ -47,22 +53,20 @@
                                      nil)))
                         (if (and hash (string-match-p "^[0-9a-z]\\{40\\}$" hash))
                             (if (string-equal checksum hash)
-                                (progn
-                                  (princ "no updates."))
-                              (princ (concat "update found! " checksum "..." hash))
+                                (el-get-lock-update-check-verbose-print "no updates.")
+                              (el-get-lock-update-check-verbose-print (concat "update found! " checksum "..." hash))
                               (add-to-list 'obsolute-packages package))
                           (add-to-list 'cannot-get-hash-packages package)
-                          (princ hash)
-                          (princ "cannot get hash"))))
+                          (el-get-lock-update-check-verbose-print (concat "cannot get hash. got hash string is " hash)))))
                   (if (eq type 'emacswiki)
                       (progn
                         (add-to-list 'emacswiki-packages package)
-                        (princ "cannot get url because install from emacswiki"))
+                        (el-get-lock-update-check-verbose-print "cannot get url because install from emacswiki"))
                     (add-to-list 'cannot-get-url-packages package)
-                    (princ "cannot get url.")))))
+                    (el-get-lock-update-check-verbose-print "cannot get url.")))))
           (add-to-list 'not-installed-packages package)
-          (princ "not installed.")))
-      (princ "\n"))
+          (el-get-lock-update-check-verbose-print "not installed.")))
+      (el-get-lock-update-check-verbose-print "\n"))
 
     (el-get-lock-update-check-print-list 'obsolute-packages)
     (el-get-lock-update-check-print-list 'not-installed-packages)
