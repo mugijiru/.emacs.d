@@ -1,11 +1,11 @@
 (setq el-get-lock-package-versions
-      '((frame-fns :checksum "b675ee568c0133709c2c39a125395486cdf1c610")
+      '((tree-mode :checksum "b06078826d5875d74b0e7b7ac47b0d0917610534")
+        (frame-fns :checksum "b675ee568c0133709c2c39a125395486cdf1c610")
         (frame-cmds :checksum "3911fbe2b11b8494a14a4d99e989e7e07b243b69")
         (tempbuf-mode :checksum "17a005da886436090d3812899d553deb7bdbebb2")
         (auto-fix :checksum "783e78f601d0ca42792aff40d6a72434be167900")
         (typescript-mode :checksum "88f317f0b6aef8f8d232e912fdbc679799580c56")
         (yaml :checksum "84b88c9ed178af16da18b230c1f61c57cefedf28")
-        (tree-mode :checksum "56a765fe2023909b37d430ab1fc70963fb41c845")
         (web-mode :checksum "f70277774a725e177774cc81ecbd228792cd6656")
         (dap-mode :checksum "6933fca0b53ea5d2d65a0545e5a4ae6424d32e9b")
         (lsp-treemacs :checksum "72d367757a89453a712f6ba1df9b6e789ece2bbd")

@@ -1,0 +1,5 @@
+(:name tree-mode
+       :website "https://github.com/emacsorphanage/tree-mode"
+       :description "A mode to manage tree widgets"
+       :type github
+       :pkgname "emacsorphanage/tree-mode")
