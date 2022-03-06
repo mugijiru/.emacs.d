@@ -1,4 +1,4 @@
-(el-get-bundle raxod502/prescient.el)
+(el-get-bundle prescient.el)
 
 (ivy-prescient-mode 1)
 
