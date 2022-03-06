@@ -102,7 +102,7 @@
       (el-get-lock-update-check-verbose-print "\n"))
 
     (if only-obsolute-count
-        (princ (length obsolute-packages))
+        (princ (concat (number-to-string (length obsolute-packages)) "\n"))
       (el-get-lock-update-check-print-list 'obsolute-packages)
       (el-get-lock-update-check-print-list 'not-installed-packages)
       (el-get-lock-update-check-print-list 'cannot-get-hash-packages)
