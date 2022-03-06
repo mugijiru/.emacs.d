@@ -25,6 +25,13 @@
          (command-list (append (list "git" "ls-remote" url "|" "grep") grep-options)))
     (mapconcat #'shell-quote-argument command-list " ")))
 
+(defun el-get-lock-update-check-get-git-hash-string (recipe url)
+  (let* ((command (el-get-lock-update-check-build-git-command recipe url))
+         (result (shell-command-to-string command)))
+    (if (>= (string-width result) 40)
+        (substring result 0 40)
+      nil)))
+
 (defun el-get-lock-update-check-execute ()
   (load (expand-file-name "~/.emacs.d/init-el-get.el"))
   (message "check updates...")
@@ -49,11 +56,7 @@
                             (plist-get recipe :url))))
                 (if url
                     (progn
-                      (let* ((command (el-get-lock-update-check-build-git-command recipe url))
-                             (result (shell-command-to-string command))
-                             (hash (if (>= (string-width result) 40)
-                                       (substring result 0 40)
-                                     nil)))
+                      (let ((hash (el-get-lock-update-check-get-git-hash-string recipe url)))
                         (if (and hash (string-match-p "^[0-9a-z]\\{40\\}$" hash))
                             (if (string-equal checksum hash)
                                 (el-get-lock-update-check-verbose-print "no updates.")
