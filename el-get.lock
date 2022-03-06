@@ -76,7 +76,6 @@
         (git-gutter :checksum "9174c74cd607e297d7f14c0595d4c20ebb53847d")
         (git-gutter-fringe :checksum "648cb5b57faec55711803cdc9434e55a733c3eba")
         (google-this :checksum "8a2e3ca5da6a8c89bfe99a21486c6c7db125dc84")
-        (graphql :checksum "e2b309689f4faf9225f290080f836e988c5a576d")
         (haml-mode :checksum "bf5b6c11b1206759d2b28af48765e04882dd1fc4")
         (handlebars-mode :checksum "81f6b73fea8f397807781a1b51568397af21a6ef")
         (helm-ag :checksum "7cfed5d3e861717466ae6d3f76c759548a9fad04")
