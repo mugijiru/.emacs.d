@@ -1,0 +1,5 @@
+(:name major-mode-hydra.el
+       :website "https://github.com/jerrypnz/major-mode-hydra.el"
+       :description "this package offers an alternative way to manage your major mode specific key bindings."
+       :type github
+       :pkgname "jerrypnz/major-mode-hydra.el")
