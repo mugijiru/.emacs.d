@@ -46,7 +46,7 @@
         (emacs-pug-mode :checksum "73f8c2f95eba695f701df20c8436f49abadebdc1")
         (zoom :checksum "c7beef180bc4037404e2d56b9ab9b7c76d1713a0")
         (request :checksum "3336eaa97de923f74b90dda3e35985e122d40805")
-        (helm :checksum "f2e6d91c943d7ba0c69fbfc832a9e88fecd124b9")
+        (helm :checksum "4fa1255970d575ec24f07a935a054efd65e6ce57")
         (avy :checksum "ba5f035be33693d1a136a5cbeedb24327f551a92")
         (all-the-icons :checksum "2c963ebb75f211d2f7ac3d2db5f4a9ee2f3e27da")
         (alert :checksum "7046393272686c7a1a9b3e7f7b1d825d2e5250a6")
