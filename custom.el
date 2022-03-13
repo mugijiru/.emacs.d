@@ -46,9 +46,6 @@
  '(google-translate-default-source-language "en")
  '(google-translate-default-target-language "ja")
  '(google-translate-output-destination 'popup)
- '(helm-for-files-preferred-list
-   '(helm-source-buffers-list helm-source-recentf helm-source-bookmarks helm-source-projectile-files-list helm-source-file-cache helm-source-files-in-current-dir helm-source-locate))
- '(helm-locate-command "mdfind %s %s")
  '(indent-tabs-mode nil)
  '(js-indent-level 2)
  '(line-number-mode nil)

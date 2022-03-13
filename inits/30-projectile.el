@@ -1,8 +1,5 @@
 (el-get-bundle projectile)
 
-(el-get-bundle helm-projectile)
-(helm-projectile-on)
-
 (projectile-mode)
 
 (add-to-list 'projectile-globally-ignored-directories "tmp")

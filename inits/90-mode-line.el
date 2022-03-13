@@ -11,7 +11,6 @@
   `(with-eval-after-load ,file
      (diminish ,mode ,new-name)))
 
-;; (my/diminish "helm" 'helm-mode ":helmet-with-cross:")
 ;; (my/diminish "git-gutter" 'git-gutter-mode (all-the-icons-octicon "git-compare"))
 ;; (my/diminish "yasnippet" 'yas-minor-mode " Ys")
 ;; (my/diminish "whitespace" 'whitespace-mode "◽")
