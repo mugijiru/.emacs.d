@@ -79,7 +79,6 @@
         (haml-mode :checksum "bf5b6c11b1206759d2b28af48765e04882dd1fc4")
         (handlebars-mode :checksum "81f6b73fea8f397807781a1b51568397af21a6ef")
         (helm-ag :checksum "7cfed5d3e861717466ae6d3f76c759548a9fad04")
-        (helm-descbinds :checksum "b72515982396b6e336ad7beb6767e95a80fca192")
         (ht :checksum "c4c1be487d6ecb353d07881526db05d7fc90ea87")
         (hydra :checksum "9e9e00cb240ea1903ffd36a54956b3902c379d29")
         (hydra-posframe :checksum "94405b5fbec1ae9447c976c3deef41043b9b7de3")
