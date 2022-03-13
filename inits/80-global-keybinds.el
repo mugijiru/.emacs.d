@@ -30,12 +30,6 @@
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
-;; (global-set-key (kbd "M-y") 'helm-show-kill-ring)
-(global-set-key (kbd "C-;") 'helm-for-files)
-;; (global-set-key (kbd "M-x") 'helm-M-x)
-;; (global-set-key (kbd "C-x b") 'helm-mini)
-;; (global-set-key (kbd "C-x C-f") 'helm-find-files)
-
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "M-y") 'counsel-yank-pop)
 (global-set-key (kbd "C-x b") 'counsel-switch-buffer)
