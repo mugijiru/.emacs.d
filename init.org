@@ -2074,10 +2074,20 @@
 *** インストール
 
     これもいつも通り el-get でインストールしている。
-    また GitHub にあるので、そこから直接インストールしている。
+    GitHub にあるのでそこを直接指定してインストールもできるのだけど
+    el-get.lock からアップデートをチェックする都合上、
+    レシピを用意してそれを使ってインストールしている
+
+    #+begin_src emacs-lisp :tangle recipes/highlight-indent-guides.rcp
+    (:name highlight-indent-guides
+           :website "https://github.com/DarthFennec/highlight-indent-guides"
+           :description "This minor mode highlights indentation levels via font-lock"
+           :type github
+           :pkgname "DarthFennec/highlight-indent-guides")
+    #+end_src
 
     #+begin_src emacs-lisp :tangle inits/30-highlight-indent-guides.el
-    (el-get-bundle DarthFennec/highlight-indent-guides)
+    (el-get-bundle highlight-indent-guides)
     #+end_src
 
 *** 設定                                                        :improvement:

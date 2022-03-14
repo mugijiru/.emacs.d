@@ -11,14 +11,24 @@ YAML などのインデントがそのまま構造になるような言語を弄
 
 ## インストール {#インストール}
 
-これもいつも通り el-get でインストールしている。また GitHub にあるので、そこから直接インストールしている。
+これもいつも通り el-get でインストールしている。
+GitHub にあるのでそこを直接指定してインストールもできるのだけど
+el-get.lock からアップデートをチェックする都合上、レシピを用意してそれを使ってインストールしている
 
 ```emacs-lisp
-(el-get-bundle DarthFennec/highlight-indent-guides)
+(:name highlight-indent-guides
+       :website "https://github.com/DarthFennec/highlight-indent-guides"
+       :description "This minor mode highlights indentation levels via font-lock"
+       :type github
+       :pkgname "DarthFennec/highlight-indent-guides")
+```
+
+```emacs-lisp
+(el-get-bundle highlight-indent-guides)
 ```
 
 
-## 設定 {#設定}
+## 設定 <span class="tag"><span class="improvement">improvement</span></span> {#設定}
 
 今いる行がどのインデントにいるのかをわかりやすくするために
 responsive モードを有効にしている。
