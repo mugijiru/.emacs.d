@@ -3690,8 +3690,22 @@
     ついでにいうとキーバインドもだるい系なので
     使う時は Hydra を用意した方が良さそう
 
+    インストールは GitHub からできるが
+    el-get.lock を用いたバージョン更新確認スクリプトのため
+    レシピを追加している
+
+    #+begin_src emacs-lisp :tangle recipes/ember-mode.rcp
+    (:name madnificent/ember-mode
+           :website "https://github.com/madnificent/ember-mode"
+           :description "Ember-mode speeds up navigation in EmberJS projects."
+           :type github
+           :pkgname "madnificent/ember-mode")
+    #+end_src
+
+    このレシピを用意した上で以下でインストール
+
     #+begin_src emacs-lisp :tangle inits/40-ember.el
-    (el-get-bundle madnificent/ember-mode)
+    (el-get-bundle ember-mode)
     #+end_src
 
 *** handlebars-mode                                             :improvement:

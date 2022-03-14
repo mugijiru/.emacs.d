@@ -9,7 +9,7 @@ Ember.js 用の Emacs の拡張としては
 `ember-mode` と `handlebars-mode` が存在する
 
 
-## ember-mode {#ember-mode}
+## ember-mode <span class="tag"><span class="unused">unused</span></span> {#ember-mode}
 
 [ember-mode](https://github.com/madnificent/ember-mode) は
 Ember.js アプリケーションのファイルナビゲーションや生成を行ってくれるモード。実は麦汁さんは使えてない。
@@ -24,12 +24,25 @@ projectile なんかがやってるようにフォルダ構成から判定させ
 
 ついでにいうとキーバインドもだるい系なので使う時は Hydra を用意した方が良さそう
 
+インストールは GitHub からできるが
+el-get.lock を用いたバージョン更新確認スクリプトのためレシピを追加している
+
 ```emacs-lisp
-(el-get-bundle madnificent/ember-mode)
+(:name madnificent/ember-mode
+       :website "https://github.com/madnificent/ember-mode"
+       :description "Ember-mode speeds up navigation in EmberJS projects."
+       :type github
+       :pkgname "madnificent/ember-mode")
+```
+
+このレシピを用意した上で以下でインストール
+
+```emacs-lisp
+(el-get-bundle ember-mode)
 ```
 
 
-## handlebars-mode {#handlebars-mode}
+## handlebars-mode <span class="tag"><span class="improvement">improvement</span></span> {#handlebars-mode}
 
 [handlebars-mode](https://github.com/danielevans/handlebars-mode) は Ember.js のテンプレートエンジンとして採用されている
 Handlebars を書くためのモード。
