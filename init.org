@@ -4970,8 +4970,20 @@
     [[https://github.com/abrochard/emacs-todoist][emacs-todoist]] は Todo 管理サービスである Todoist と連携するためのパッケージ。
     org-mode に依存している。
 *** インストール
+    まず以下のレシピを用意している
+
+    #+begin_src emacs-lisp :tangle recipes/emacs-todoist.rcp
+      (:name emacs-todoist
+             :website "https://github.com/abrochard/emacs-todoist"
+             :description "Emacs interface to Todoist"
+             :type github
+             :pkgname "abrochard/emacs-todoist")
+    #+end_src
+
+    その上で以下のようにしてインストールしている
+
     #+begin_src emacs-lisp :tangle inits/50-todoist.el
-    (el-get-bundle  abrochard/emacs-todoist)
+    (el-get-bundle emacs-todoist)
     #+end_src
 *** 設定
     API キーを設定するので別ファイルに分離している。
