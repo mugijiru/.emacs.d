@@ -3468,15 +3468,6 @@
     #+begin_src emacs-lisp :tangle inits/30-projectile.el
     (el-get-bundle projectile)
     #+end_src
-*** helm との連携                                                    :unused:
-    [[https://github.com/bbatsov/helm-projectile][helm-projectile]] を使って helm と連携できるようにしている。
-    けど ivy に乗り換えを進めているので多分これ使ってないんだよな……。
-    というわけでこの設定は消す候補に入っている。
-
-    #+begin_src emacs-lisp :tangle inits/30-projectile.el
-    (el-get-bundle helm-projectile)
-    (helm-projectile-on)
-    #+end_src
 *** 有効化
     このあたりで有効化しておいている。
     この順序に意味があったかは忘れた……。

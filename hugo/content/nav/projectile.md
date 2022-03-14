@@ -17,16 +17,6 @@ draft = false
 ```
 
 
-## helm との連携 {#helm-との連携}
-
-[helm-projectile](https://github.com/bbatsov/helm-projectile) を使って helm と連携できるようにしている。けど ivy に乗り換えを進めているので多分これ使ってないんだよな……。というわけでこの設定は消す候補に入っている。
-
-```emacs-lisp
-(el-get-bundle helm-projectile)
-(helm-projectile-on)
-```
-
-
 ## 有効化 {#有効化}
 
 このあたりで有効化しておいている。この順序に意味があったかは忘れた……。
@@ -53,7 +43,7 @@ draft = false
 (add-to-list 'projectile-globally-ignored-directories "log")
 ```
 
-node\_modules もここに突っ込んでも良いかもしれない。
+node_modules もここに突っ込んでも良いかもしれない。
 
 
 ### 無視するファイル {#無視するファイル}
