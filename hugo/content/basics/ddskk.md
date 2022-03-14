@@ -68,7 +68,7 @@ skk-auto-insert-paren
 : カッコを入力するとコッカも入れてくれる便利機能の切替
 
 skk-delete-implies-kakutei
-: nil にすると▼モードで <BS> を押した時 に一つ前の候補を表示するようになる
+: nil にすると▼モードで &lt;BS&gt; を押した時 に一つ前の候補を表示するようになる
 
 skk-sticky-key
 : 設定すると、その指定したキーを押した時に変換開始状態などにする Sticky Shift を提供する
@@ -83,7 +83,7 @@ skk-rom-kana-rules-list
 : キー入力時の挙動を指定する。とりあえず自分は : とかが全角になるのが嫌なので半角になるようにしている
 
 
-## L 辞書を使うようにする {#l-辞書を使うようにする}
+## L 辞書を使うようにする <span class="tag"><span class="improvement">improvement</span></span> {#l-辞書を使うようにする}
 
 Mac では AquaSKK の L 辞書を、
 Linux では `/usr/share/skk/SKK-JISYO.L` を読むようにしている。
@@ -112,8 +112,18 @@ CurvusSKK の辞書を見るように設定した方が良さそうな気もす�
 とりあえず以下でインストール、有効化している。
 
 ```emacs-lisp
-(el-get-bundle conao3/ddskk-posframe.el)
+(el-get-bundle ddskk-posframe.el)
 (ddskk-posframe-mode 1)
+```
+
+なお el-get.lock を使ったバージョン更新確認のためにレシピも必要だったので登録している
+
+```emacs-lisp
+(:name ddskk-posframe.el
+       :website "https://github.com/conao3/ddskk-posframe.el"
+       :description "ddskk-posframe.el provides Henkan tooltip for ddskk via posframe."
+       :type github
+       :pkgname "conao3/ddskk-posframe.el")
 ```
 
 
