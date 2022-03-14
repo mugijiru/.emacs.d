@@ -10,6 +10,8 @@
   (lsp)
   (lsp-ui-mode -1)
 
+  (smartparens-strict-mode 1)
+
   ;; lsp-ui とかより後に設定しないと上書きされるのでここに移動した
   (setq-local flycheck-checker 'scss-stylelint)
   (setq-local flycheck-check-syntax-automatically '(save new-line idle-change))
