@@ -30,7 +30,7 @@ scss-mode は Emacs 組込みの css-mode の中で定義されているメジ�
 `.scss` という拡張子なら自動的に scss-mode で開いてくれるようになっている。
 
 
-### 設定 {#設定}
+### 設定 <span class="tag"><span class="improvement">improvement</span></span> {#設定}
 
 インデントはデフォルトだと半角空白 4 つとなっているが麦汁さん的には 2 の方が良いのでそのように変更している。
 
@@ -44,7 +44,7 @@ scss-mode は Emacs 組込みの css-mode の中で定義されているメジ�
 `custom-set-variables` を使うように修正した方が良さそう
 
 
-## hook {#hook}
+## hook <span class="tag"><span class="improvement">improvement</span></span> {#hook}
 
 scss を使う上で hook を使って色々有効化したりしている。
 
@@ -55,6 +55,8 @@ scss を使う上で hook を使って色々有効化したりしている。
   (setq-local lsp-prefer-flymake nil)
   (lsp)
   (lsp-ui-mode -1)
+
+  (smartparens-strict-mode 1)
 
   ;; lsp-ui とかより後に設定しないと上書きされるのでここに移動した
   (setq-local flycheck-checker 'scss-stylelint)
@@ -73,6 +75,7 @@ scss を使う上で hook を使って色々有効化したりしている。
     -   flycheck が有効にならない問題を防いでいる。どうも自分の設定の書き方が悪い気もするが……。
 -   lsp-mode を有効化しつつ lsp-ui は無効にしている
     -   lsp-ui が有効だと画面上でガチャガチャ height とかのプロパティの説明をしてうざいので
+-   smartparens-strict-mode を入れることで {} のペアが維持されるようにしている
 -   flycheck-checker, flycheck-check-syntax-automatically の設定
     -   lsp-ui とかより後に設定しないと上書きされるので、それらより後に設定している
     -   設定の書き方の悪さのせいな気もする

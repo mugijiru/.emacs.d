@@ -49,8 +49,9 @@
 
    Emacs の基本動作に関わる部分をここでは設定している
 
-   - [[*auto-save][auto-save]] :: 編集中状態の自動保存や編集前の状態のバックアップに関する設定
    - [[*auth-source][auth-source]] :: 認証情報の取り扱いファイルの設定
+   - [[*auto-format][auto-format]] :: ファイル保存時に自動で整形してくれるやつ
+   - [[*auto-save][auto-save]] :: 編集中状態の自動保存や編集前の状態のバックアップに関する設定
    - [[*custom-file][custom-file]] :: カスタマイズ変数などの保存先を変更している
    - [[*ddskk][ddskk]] :: ちょっと変わった日本語入力 SKK の Emacs Lisp 版
    - [[*exec-path][exec-path]] :: PATH などの環境変数を shell と合わせる設定
@@ -83,6 +84,34 @@
 
     #+begin_src emacs-lisp :tangle inits/00-authinfo.el
     (custom-set-variables '(auth-sources (quote ("~/.emacs.d/.authinfo.gpg"))))
+    #+end_src
+** auto-format
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: auto-format
+   :END:
+*** 概要
+    保存時に自動で整形してくれるように
+    [[https://github.com/mugijiru/auto-fix.el][fork した auto-fix.el]] を使っている。
+
+    これを入れて各 major-mode で設定をすると
+    ファイル保存時に自動で整形してくれて便利だったりする
+
+*** インストール
+    fork しているので自前で recipe も用意している
+
+    #+begin_src emacs-lisp :tangle recipes/auto-fix.rcp
+      (:name auto-fix
+             :website "https://github.com/mugijiru/auto-fix.el"
+             :description "Fix current buffer automatically"
+             :type github
+             :branch "accept-multiple-args"
+             :pkgname "mugijiru/auto-fix.el")
+    #+end_src
+
+    これを以下のようにして el-get でインスコしている
+
+    #+begin_src emacs-lisp :tangle inits/10-auto-format.el
+      (el-get-bundle auto-fix)
     #+end_src
 ** auto-save                                                    :replacement:
    :PROPERTIES:
@@ -329,9 +358,21 @@
     とりあえず以下でインストール、有効化している。
 
     #+begin_src emacs-lisp :tangle inits/30-skk.el
-    (el-get-bundle conao3/ddskk-posframe.el)
+    (el-get-bundle ddskk-posframe.el)
     (ddskk-posframe-mode 1)
     #+end_src
+
+    なお el-get.lock を使ったバージョン更新確認のために
+    レシピも必要だったので登録している
+
+    #+begin_src emacs-lisp :tangle recipes/ddskk-posframe.el.rcp
+    (:name ddskk-posframe.el
+           :website "https://github.com/conao3/ddskk-posframe.el"
+           :description "ddskk-posframe.el provides Henkan tooltip for ddskk via posframe."
+           :type github
+           :pkgname "conao3/ddskk-posframe.el")
+    #+end_src
+
 *** その他
     漢字の変換すらも機械任せではなく自分で決めるみたいな漢字直接入力という方式もあり、
     SKK とそれを組み合わせると
@@ -712,7 +753,7 @@
     いつも通り el-get で入れている。
 
     #+begin_src emacs-lisp :tangle inits/70-tempbuf.el
-    (el-get-bundle tempbuf)
+    (el-get-bundle tempbuf-mode)
     #+end_src
 *** 勝手に kill させないファイルの指定
     org-clock を使うようなファイルは
@@ -827,27 +868,12 @@
     グローバルキーバインド設定でしか書いてない。
 
 *** sticky-shift
-**** セミコロン+アルファベット入力で大文字とする
-     セミコロンとアルファベットをほぼ同時に叩くことにより
-     対応する大文字を出力できるようにしている。
-
-     これで PascalCase を入力しないといけない時でもシフトキーを叩かずに済む。
-     少し慣れは必要だけども。
-
-     #+begin_src emacs-lisp :tangle inits/70-key-chord.el
-     (mapc (lambda (key)
-             (key-chord-define-global (concat ";" (char-to-string key)) (char-to-string (- key 32))))
-           (number-sequence ?a ?z))
-     #+end_src
-
 **** セミコロン2つでシフトを押した状態にする
-     上に書いたやつだけだと設定が足りなくて
-     何故かというと、
-     magit を使う時なんかは結構 P とかで push したりするけども
-     上記の設定だと ~;p~ を入力しても、あくまで文字の出力が変わるだけになってしまうため
-     magit のコマンドとして成立しない。
+     セミコロンを2回叩くことで shift が押されてるという状態を実現する。
 
-     そこでセミコロンを2回叩くことで shift が押されてるという状態を実現する。
+     これにより magit で P などを入力したい時にも ~;;p~ で入力できるし
+     通常の英字入力時にも大文字にできるので
+     左手小指が痛い時には Shift を使わずに操作ができるようになる。
 
      #+begin_src emacs-lisp :tangle inits/70-key-chord.el
      (key-chord-define-global ";;"
@@ -867,14 +893,9 @@
      [[*sticky-control][sticky-control]] の中でも ~event-apply-control-modifier~ が使われているぞい。
 
 **** やりたかったけど実現できてないこと
-***** セミコロン+アルファベット入力で大文字を入力したことにする
-      今だとセミコロン+アルファベット入力ではその文字を出力することしかできてないので
-      magit を操作する時はセミコロンを2回叩く必要があってだるいなって。
-***** セミコロン+数字キー、セミコロン+記号キーの対応
+***** セミコロン*2+数字キー、セミコロン*2+記号キーの対応
       [[https://www.emacswiki.org/emacs/sticky.el][sticky.el]] では実現されてそうなことなので、
-      同じことをできるようにしたいのと
-      「セミコロン2回 + 数字または記号キー」みたいな組み合わせも対応していきたい
-
+      同じことをできるようにしたい
 *** その他
 
     [[*sticky-control][sticky-control]] も control 限定で似たようなことをしているので
@@ -1132,19 +1153,6 @@
     #+end_src
 
     Ladicle さんの https://ladicle.com/post/config/#multiple-cursor の設定が便利そうだなって思って気になってるけどまだ試してない。
-
-*** Helm
-    最近はほぼ Ivy に乗り換えてるのでほとんど出番はないのだけど
-    helm-find-file が便利でそこだけ乗り換えできてないので
-    それだけ定義がコメントアウトされずに残っている。
-
-    #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
-    ;; (global-set-key (kbd "M-y") 'helm-show-kill-ring)
-    (global-set-key (kbd "C-;") 'helm-for-files)
-    ;; (global-set-key (kbd "M-x") 'helm-M-x)
-    ;; (global-set-key (kbd "C-x b") 'helm-mini)
-    ;; (global-set-key (kbd "C-x C-f") 'helm-find-files)
-    #+end_src
 
 *** Ivy
     Helm から乗り換えて今はこちらをメインで使っている。
@@ -1736,12 +1744,10 @@
    - [[*frame-cmds][frame-cmds]] :: フレーム移動や拡縮などの操作をするコマンド群
    - [[*fullscreen][fullscreen]] :: 起動時のフルスクリーン設定
    - [[*git-gutter-fringe][git-gutter-fringe]] :: 最後のコミットからどう弄ったかを fringe 領域に表示してくれるやつ
-   - [[*helm][helm]] :: 絞り込みインターフェースを提供するやつ。[[*ivy][ivy]] よりも色々できるやつ。
-   - [[*helm-posframe][helm-posframe]] :: Helm を posframe で使えるようにするやつ
    - [[*highlight-indent-guides][highlight-indent-guides]] :: インデント毎にラインを引いたりして見易くしてくれるやつ
    - [[*hydra][hydra]] :: サブコマンドをビジュアル的に表示してくれるメニューを提供してくれるやつ
    - [[*ido-mode][ido-mode]] :: Emacs 標準添付の補完インターフェース
-   - [[*ivy][ivy]] :: 絞り込みインターフェーズを提供してくれるやつ。[[*helm][helm]] よりシンプルな感じ
+   - [[*ivy][ivy]] :: 絞り込みインターフェーズを提供してくれるやつ。
    - [[*mode-line][mode-line]] :: モードラインに関する設定をここにまとめている
    - [[*Neotree][Neotree]] :: フォルダ構造を IDE みたいにツリー表示するやつ
    - [[*posframe][posframe]] :: いい感じの位置に child frame を表示する機能を提供するやつ
@@ -2074,10 +2080,20 @@
 *** インストール
 
     これもいつも通り el-get でインストールしている。
-    また GitHub にあるので、そこから直接インストールしている。
+    GitHub にあるのでそこを直接指定してインストールもできるのだけど
+    el-get.lock からアップデートをチェックする都合上、
+    レシピを用意してそれを使ってインストールしている
+
+    #+begin_src emacs-lisp :tangle recipes/highlight-indent-guides.rcp
+    (:name highlight-indent-guides
+           :website "https://github.com/DarthFennec/highlight-indent-guides"
+           :description "This minor mode highlights indentation levels via font-lock"
+           :type github
+           :pkgname "DarthFennec/highlight-indent-guides")
+    #+end_src
 
     #+begin_src emacs-lisp :tangle inits/30-highlight-indent-guides.el
-    (el-get-bundle DarthFennec/highlight-indent-guides)
+    (el-get-bundle highlight-indent-guides)
     #+end_src
 
 *** 設定                                                        :improvement:
@@ -2091,97 +2107,6 @@
 
     defcustom で定義されてる変数なので
     custom-set-variables で設定した方がいいかもしれない。
-
-** helm
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: helm
-   :END:
-
-*** 概要
-
-    [[https://github.com/emacs-helm/helm][helm]] は anything.el の後継であり、
-    インクリメンタルに候補の絞り込みをしたりする UI を提供する便利なパッケージ。
-
-    [[https://github.com/peco/peco][peco]] とか [[https://github.com/junegunn/fzf][fzf]] とかと似ているっちゃ似ているかな? fzf 使ったことないけど。
-
-    一時期開発が止まってるようだったけど最近(2021年)はまた更新が活発になっている。
-
-    ただ、麦汁さんは ivy に乗り換えようとしているので helm の設定は頑張っていない。
-    helm-for-files が便利なのでまだ捨てられてないけど……。
-
-*** インストール                                                :improvement:
-
-    helm で使いたい拡張として
-    [[https://github.com/emacs-helm/helm-descbinds][helm-descbinds]] と [[https://github.com/emacsorphanage/helm-ag][helm-ag]] というのがあるのでそれらも同時に入れている。
-
-    #+begin_src emacs-lisp :tangle inits/20-helm.el
-    (el-get-bundle helm)
-    (el-get-bundle helm-descbinds)
-    (el-get-bundle helm-ag)
-    #+end_src
-
-    ただ descbinds は counsel-descbinds に置き換えたし
-    helm-ag ももう使ってない気がする
-
-*** 設定
-
-    オススメの設定が helm に同梱されている helm-config に入ってるので
-    まずはそれを読み込んでいる。
-
-    #+begin_src emacs-lisp :tangle inits/20-helm.el
-    (require 'helm-config)
-    #+end_src
-
-    また helm-descbinds を使えるように有効にしている。
-    けど、上にも書いたけどもう counsel-descbinds に置き換えちゃったのよね……。
-
-    #+begin_src emacs-lisp :tangle inits/20-helm.el
-    (helm-descbinds-mode)
-    #+end_src
-
-    あとは helm-migemo-mode というのを有効にしている。
-    これがあると helm で検索する時に migemo れて便利。
-
-    #+begin_src emacs-lisp :tangle inits/20-helm.el
-    (helm-migemo-mode 1)
-    #+end_src
-
-    ivy の方でも migemo 対応したいけどまだできてない……。
-
-*** その他
-
-    helm 系の設定は他の設定にも色々影響も大きそうなので
-    読み込み順は結構早いタイミングにしている(init-loader で 20 を prefix にしている)
-
-** helm-posframe
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: helm-posframe
-   :END:
-
-*** 概要
-
-    [[https://github.com/tumashu/helm-posframe][helm-posframe]] は [[https://github.com/emacs-helm/helm][helm]] の拡張で
-    Helm のバッファの表示を [[https://github.com/tumashu/posframe][posframe]] を使うようにしてくれるやつ。
-
-    実は helm 本体の方でも posframe 対応しているのであまり使う必要もなさそうなので
-    いずれ外すかもしれない。
-
-    ただ確か本体の方の挙動が気に入らなかったような気はする。
-
-*** インストール
-
-    いつも通り el-get でインストール。
-    GitHub にあるのでそれを取得するようにしている。
-
-    #+begin_src emacs-lisp :tangle inits/21-helm-posframe.el
-    (el-get-bundle tumashu/helm-posframe)
-    #+end_src
-
-*** 有効化
-
-    #+begin_src emacs-lisp :tangle inits/21-helm-posframe.el
-    (helm-posframe-enable)
-    #+end_src
 
 ** hydra
    :PROPERTIES:
@@ -2222,6 +2147,19 @@
      (add-hook 'after-init-hook 'hydra-posframe-enable)
      #+end_src
 
+**** WebDAV Sync download の設定
+     作業管理用の org-mode のドキュメントは WebDAV サーバにも上げて
+     beorg でも使えるようにしているが
+     それを拾って来るためのコマンドを用意している。
+
+     #+begin_src emacs-lisp :tangle inits/81-hydra.el
+       (defun my/download-from-beorg ()
+         (interactive)
+         (async-shell-command "java -jar ~/bin/webdav_sync1_1_9.jar -c ~/.config/webdav-sync/download.xml && notify-send 'WebDAV Sync' 'Downloaded from WebDAV'"))
+     #+end_src
+
+     簡単に ~async-shell-command~ を使って済ませている
+
 **** major-mode-hydra のインストール
      自分以外で使っている人を見たことはないけど
      麦汁さんは [[https://github.com/jerrypnz/major-mode-hydra.el][major-mode-hydra]] というものを利用している。
@@ -2240,7 +2178,17 @@
      ってことでそれを el-get を使って GitHub からインストールしている。
 
      #+begin_src emacs-lisp :tangle inits/81-hydra.el
-     (el-get-bundle jerrypnz/major-mode-hydra.el)
+     (el-get-bundle major-mode-hydra.el)
+     #+end_src
+
+     なおレシピは自前で用意している
+
+     #+begin_src emacs-lisp :tangle recipes/major-mode-hydra.el.rcp
+       (:name major-mode-hydra.el
+              :website "https://github.com/jerrypnz/major-mode-hydra.el"
+              :description "this package offers an alternative way to manage your major mode specific key bindings."
+              :type github
+              :pkgname "jerrypnz/major-mode-hydra.el")
      #+end_src
 
 **** pretty-hydra の関数上書き
@@ -2348,31 +2296,33 @@
      最初に起動した Hydra からは外してるけど、そこそこ使うコマンド群を適当に詰めてるやつ。
 
      #+begin_src emacs-lisp :tangle inits/81-hydra.el
-     (pretty-hydra-define
-       subtools-hydra
-       (:separator "-"
-                   :color teal
-                   :foreign-key warn
-                   :title (concat (all-the-icons-material "build") " Sub tools")
-                   :quit-key "q"
-                   :exit t)
-       ("Describe"
-        (("b" counsel-descbinds "Keybind")
-         ("f" counsel-describe-function "Function")
-         ("v" counsel-describe-variable "Variable")
-         ("m" describe-minor-mode "Minor mode"))
+            (pretty-hydra-define
+              subtools-hydra
+              (:separator "-"
+                          :color teal
+                          :foreign-key warn
+                          :title (concat (all-the-icons-material "build") " Sub tools")
+                          :quit-key "q"
+                          :exit t)
+              ("Describe"
+               (("b" counsel-descbinds "Keybind")
+                ("f" counsel-describe-function "Function")
+                ("v" counsel-describe-variable "Variable")
+                ("m" describe-minor-mode "Minor mode"))
 
-        ;; ("P"   my/open-review-requested-pr "Open Requested PR")
-        "Other"
-        (("@"   all-the-icons-hydra/body "List icons"))))
+               ;; ("P"   my/open-review-requested-pr "Open Requested PR")
+               "Other"
+               (("@" all-the-icons-hydra/body "List icons")
+                ("D" my/download-from-beorg))))
      #+end_src
 
-     | Key | 効果                          |
-     | b   | キーバインドを調べる          |
-     | f   | Emacs Lisp の関数を調べる     |
-     | v   | Emacs Lisp の変数を調べる     |
-     | m   | minor-mode を調べる           |
-     | @   | All the icons の Hydra を起動 |
+     | Key | 効果                                               |
+     | b   | キーバインドを調べる                               |
+     | f   | Emacs Lisp の関数を調べる                          |
+     | v   | Emacs Lisp の変数を調べる                          |
+     | m   | minor-mode を調べる                                |
+     | @   | All the icons の Hydra を起動                      |
+     | D   | beorg 連携に使ってる WebDAV サーバからダウンロード |
 
 **** Text Scale
      文字サイズの切替用。たまに字を大きくしたりしたいので。
@@ -2743,7 +2693,17 @@
 
     とりあえずいつも通り el-get でインストールしている。
     #+begin_src emacs-lisp :tangle inits/83-prescient.el
-    (el-get-bundle raxod502/prescient.el)
+    (el-get-bundle prescient.el)
+    #+end_src
+
+    レシピは自前で追加している
+
+    #+begin_src emacs-lisp :tangle recipes/prescient.el.rcp
+      (:name raxod502/prescient.el
+             :website "https://github.com/raxod502/prescient.el"
+             :description "simple but effective sorting and filtering for Emacs."
+             :type github
+             :pkgname "raxod502/prescient.el")
     #+end_src
 
     そんで ivy でそれが使われるように ivy-prescient-mode を有効にしている。
@@ -2849,7 +2809,6 @@
      今は使ってないので全部コメントアウトしている
 
      #+begin_src emacs-lisp :tangle inits/90-mode-line.el
-     ;; (my/diminish "helm" 'helm-mode ":helmet-with-cross:")
      ;; (my/diminish "git-gutter" 'git-gutter-mode (all-the-icons-octicon "git-compare"))
      ;; (my/diminish "yasnippet" 'yas-minor-mode " Ys")
      ;; (my/diminish "whitespace" 'whitespace-mode "◽")
@@ -3458,15 +3417,6 @@
     #+begin_src emacs-lisp :tangle inits/30-projectile.el
     (el-get-bundle projectile)
     #+end_src
-*** helm との連携                                                    :unused:
-    [[https://github.com/bbatsov/helm-projectile][helm-projectile]] を使って helm と連携できるようにしている。
-    けど ivy に乗り換えを進めているので多分これ使ってないんだよな……。
-    というわけでこの設定は消す候補に入っている。
-
-    #+begin_src emacs-lisp :tangle inits/30-projectile.el
-    (el-get-bundle helm-projectile)
-    (helm-projectile-on)
-    #+end_src
 *** 有効化
     このあたりで有効化しておいている。
     この順序に意味があったかは忘れた……。
@@ -3677,8 +3627,22 @@
     ついでにいうとキーバインドもだるい系なので
     使う時は Hydra を用意した方が良さそう
 
+    インストールは GitHub からできるが
+    el-get.lock を用いたバージョン更新確認スクリプトのため
+    レシピを追加している
+
+    #+begin_src emacs-lisp :tangle recipes/ember-mode.rcp
+    (:name madnificent/ember-mode
+           :website "https://github.com/madnificent/ember-mode"
+           :description "Ember-mode speeds up navigation in EmberJS projects."
+           :type github
+           :pkgname "madnificent/ember-mode")
+    #+end_src
+
+    このレシピを用意した上で以下でインストール
+
     #+begin_src emacs-lisp :tangle inits/40-ember.el
-    (el-get-bundle madnificent/ember-mode)
+    (el-get-bundle ember-mode)
     #+end_src
 
 *** handlebars-mode                                             :improvement:
@@ -3806,9 +3770,13 @@
      これは公式に書かれているやりかたに則っている
      https://github.com/flycheck/flycheck-pos-tip#installation
 
+     また web-mode はデフォルトでは flycheck が使えないので
+     flycheck-add-mode を使って web-mode でも flycheck が使えるようにしている
+
      #+begin_src emacs-lisp :tangle inits/30-flycheck.el
-     (with-eval-after-load 'flycheck
-       (flycheck-pos-tip-mode))
+       (with-eval-after-load 'flycheck
+         (flycheck-pos-tip-mode)
+         (flycheck-add-mode 'javascript-eslint 'web-mode))
      #+end_src
 **** その他
 ***** flycheck-posframe
@@ -4124,21 +4092,34 @@
     - display-line-numbers-mode
     - lsp
     - lsp-ui-mode
+    - company-mode
+    - flycheck
 
     を有効にしている。
 
-    #+begin_src emacs-lisp :tangle inits/41-react.el
-    (defun my/web-mode-tsx-hook ()
-      (let ((ext (file-name-extension buffer-file-name)))
-        (when (or (string-equal "jsx" ext) (string-equal "tsx" ext))
-          (setq web-mode-markup-indent-offset 2)
-          (setq web-mode-code-indent-offset 2)
-          (turn-on-smartparens-mode)
-          (display-line-numbers-mode t)
-          (lsp)
-          (lsp-ui-mode 1))))
+    flycheck では lsp と eslint を使いたいのでそれ以外の JS の checker は disable にしている
 
-    (add-hook 'web-mode-hook 'my/web-mode-tsx-hook)
+    また web-mode の設定も少し弄っていて
+    indent は2桁スペースになるようにしているが
+    自動インデントだとそれが反映されないっぽいので自動インデントはオフにしている。
+
+    #+begin_src emacs-lisp :tangle inits/41-react.el
+      (defun my/web-mode-tsx-hook ()
+        (let ((ext (file-name-extension buffer-file-name)))
+          (when (or (string-equal "jsx" ext) (string-equal "tsx" ext))
+            (setq web-mode-markup-indent-offset 2)
+            (setq web-mode-code-indent-offset 2)
+            (setq web-mode-enable-auto-indentation nil)
+            (company-mode 1)
+            (turn-on-smartparens-mode)
+            (display-line-numbers-mode t)
+            (lsp)
+            (lsp-ui-mode 1)
+            (flycheck-mode 1)
+            (setq flycheck-disabled-checkers '(javascript-standard javascript-jshint))
+            (flycheck-add-next-checker 'lsp '(warning . javascript-eslint)))))
+
+      (add-hook 'web-mode-hook 'my/web-mode-tsx-hook)
     #+end_src
 
 ** rspec-mode
@@ -4376,6 +4357,8 @@
       (lsp)
       (lsp-ui-mode -1)
 
+      (smartparens-strict-mode 1)
+
       ;; lsp-ui とかより後に設定しないと上書きされるのでここに移動した
       (setq-local flycheck-checker 'scss-stylelint)
       (setq-local flycheck-check-syntax-automatically '(save new-line idle-change))
@@ -4393,6 +4376,7 @@
       - flycheck が有効にならない問題を防いでいる。どうも自分の設定の書き方が悪い気もするが……。
     - lsp-mode を有効化しつつ lsp-ui は無効にしている
       - lsp-ui が有効だと画面上でガチャガチャ height とかのプロパティの説明をしてうざいので
+    - smartparens-strict-mode を入れることで {} のペアが維持されるようにしている
     - flycheck-checker, flycheck-check-syntax-automatically の設定
       - lsp-ui とかより後に設定しないと上書きされるので、それらより後に設定している
       - 設定の書き方の悪さのせいな気もする
@@ -4449,20 +4433,49 @@
      (custom-set-variables
       '(typescript-indent-level 2))
      #+end_src
-**** hook
-     company-mode などのプログラミングで便利な各種のモードを
-     hook を使って有効化している
+
+**** auto-fix の hook 関数
+     保存した時に自動で整形してほしいなと思ったので
+     auto-fix.el で自動で保存されるように hook 関数を用意している
 
      #+begin_src emacs-lisp :tangle inits/40-ts.el
-     (defun my/ts-mode-hook ()
-       (company-mode 1)
-       (turn-on-smartparens-strict-mode)
-       (display-line-numbers-mode t)
-       (lsp)
-       (lsp-ui-mode 1))
+       (defun my/auto-fix-mode-hook-for-ts ()
+         (add-hook 'before-save-hook 'auto-fix-before-save))
+
+       (add-hook 'auto-fix-mode-hook 'my/auto-fix-mode-hook-for-ts)
+     #+end_src
+**** hook
+     - company-mode
+     - smartparens-strict-mode
+     - lsp/lsp-ui
+     - flycheck
+
+     などのプログラミングで便利な各種のモードを
+     hook を使って有効化している
+
+     auto-fix はここでもなんか設定しているので
+     なんか設定まとめたいなあって感じはある。
+
+     #+begin_src emacs-lisp :tangle inits/40-ts.el
+       (defun my/ts-mode-hook ()
+         (company-mode 1)
+         (turn-on-smartparens-strict-mode)
+         (display-line-numbers-mode t)
+         (lsp)
+         (lsp-ui-mode 1)
+         (flycheck-mode 1)
+         (setq flycheck-disabled-checkers '(javascript-standard javascript-jshint))
+         (flycheck-add-next-checker 'lsp '(warning . javascript-eslint))
+
+         (let* ((args (list "run" "eslint" "--fix"))
+                (args-string (mapconcat #'shell-quote-argument args " ")))
+           (setq-local auto-fix-option args-string))
+         (setq-local auto-fix-options '("run" "eslint" "--fix"))
+         (setq-local auto-fix-command "yarn")
+         (auto-fix-mode 1))
      #+end_src
 
-     という関数を用意して
+     この関数を
 
      #+begin_src emacs-lisp :tangle inits/40-ts.el
      (add-hook 'typescript-mode-hook 'my/ts-mode-hook)
@@ -4940,8 +4953,20 @@
     [[https://github.com/abrochard/emacs-todoist][emacs-todoist]] は Todo 管理サービスである Todoist と連携するためのパッケージ。
     org-mode に依存している。
 *** インストール
+    まず以下のレシピを用意している
+
+    #+begin_src emacs-lisp :tangle recipes/emacs-todoist.rcp
+      (:name emacs-todoist
+             :website "https://github.com/abrochard/emacs-todoist"
+             :description "Emacs interface to Todoist"
+             :type github
+             :pkgname "abrochard/emacs-todoist")
+    #+end_src
+
+    その上で以下のようにしてインストールしている
+
     #+begin_src emacs-lisp :tangle inits/50-todoist.el
-    (el-get-bundle  abrochard/emacs-todoist)
+    (el-get-bundle emacs-todoist)
     #+end_src
 *** 設定
     API キーを設定するので別ファイルに分離している。
@@ -5211,17 +5236,6 @@
 *** 概要
     ここでは org-babel の設定をまとめている。
 
-*** org-export-blocks-format-plantuml                                :unused:
-    org-mode で PlantUML の図を出力する拡張を入れている。
-
-    #+begin_src emacs-lisp :tangle inits/60-org.el
-    (el-get-bundle org-export-blocks-format-plantuml)
-    #+end_src
-
-    のだけれど
-    https://www.emacswiki.org/emacs/org-export-blocks-format-plantuml.el
-    を見ると Obsolute と書いてますね。
-    今度消さなきゃ。
 *** org-babel で評価可能な言語の指定
 
     なんか普段から使いそうな奴をとりあえず選定しているつもり。
@@ -5398,6 +5412,14 @@
 
      #+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      (org-super-agenda-mode 1)
+     #+end_src
+
+**** agenda で使う変数の初期化
+     ~my/org-agenda-calendar-files~ という変数でカレンダーの情報を取り込んで agenda を表示できるようにしている。
+     けど今はカレンダー連携をしていないので空で初期化している。
+
+     #+begin_src emacs-lisp :tangle inits/61-org-agenda.el
+       (setq my/org-agenda-calendar-files '())
      #+end_src
 
 **** カスタムビュー

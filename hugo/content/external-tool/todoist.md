@@ -11,8 +11,20 @@ org-mode に依存している。
 
 ## インストール {#インストール}
 
+まず以下のレシピを用意している
+
 ```emacs-lisp
-(el-get-bundle  abrochard/emacs-todoist)
+(:name emacs-todoist
+       :website "https://github.com/abrochard/emacs-todoist"
+       :description "Emacs interface to Todoist"
+       :type github
+       :pkgname "abrochard/emacs-todoist")
+```
+
+その上で以下のようにしてインストールしている
+
+```emacs-lisp
+(el-get-bundle emacs-todoist)
 ```
 
 

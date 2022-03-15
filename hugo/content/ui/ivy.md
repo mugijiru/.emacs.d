@@ -252,7 +252,7 @@ swiper は標準だと migemo れないのだが
 に乗り換えた方がいいのかな〜とも思っている。検証していきたい。
 
 
-## counsel-osx-app. {#counsel-osx-app-dot}
+## counsel-osx-app. <span class="tag"><span class="improvement">improvement</span></span> {#counsel-osx-app-dot}
 
 Mac で Emacs を使ってる時に ivy でアプリケーションを起動するためのパッケージ。
 
@@ -273,7 +273,17 @@ ivy などの絞り込み系ツールと組み合わせて使う。
 とりあえずいつも通り el-get でインストールしている。
 
 ```emacs-lisp
-(el-get-bundle raxod502/prescient.el)
+(el-get-bundle prescient.el)
+```
+
+レシピは自前で追加している
+
+```emacs-lisp
+(:name raxod502/prescient.el
+       :website "https://github.com/raxod502/prescient.el"
+       :description "simple but effective sorting and filtering for Emacs."
+       :type github
+       :pkgname "raxod502/prescient.el")
 ```
 
 そんで ivy でそれが使われるように ivy-prescient-mode を有効にしている。

@@ -8,11 +8,14 @@ disableToc = true
 
 Emacs の基本動作に関わる部分をここでは設定している
 
-[auto-save]({{< relref "auto-save" >}})
-: 編集中状態の自動保存や編集前の状態のバックアップに関する設定
-
 [auth-source]({{< relref "auth-source" >}})
 : 認証情報の取り扱いファイルの設定
+
+[auto-format]({{< relref "auto-format" >}})
+: ファイル保存時に自動で整形してくれるやつ
+
+[auto-save]({{< relref "auto-save" >}})
+: 編集中状態の自動保存や編集前の状態のバックアップに関する設定
 
 [custom-file]({{< relref "custom-file" >}})
 : カスタマイズ変数などの保存先を変更している

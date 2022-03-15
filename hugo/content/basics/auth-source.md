@@ -5,14 +5,14 @@ draft = false
 
 ## 概要 {#概要}
 
-[auth-source](https://www.gnu.org/software/emacs/manual/html%5Fmono/auth.html) は Emacs でパスワードのような秘匿情報を扱うための仕組み。
+[auth-source](https://www.gnu.org/software/emacs/manual/html_mono/auth.html) は Emacs でパスワードのような秘匿情報を扱うための仕組み。
 Emacs の各パッケージが認証情報を要求する時にこいつ経由で取得できるようにしておくと秘匿もできて便利っぽい。
 
 パスワードの保存先はデフォルトだと
 `("~/.authinfo" "~/.authinfo.gpg" "~/.netrc")`
 となっている。
 
-拡張子が gpg だと [EagyPG Assistant](https://www.gnu.org/software/emacs/manual/html%5Fmono/epa.html) で保存時に暗号化されるので便利。
+拡張子が gpg だと [EagyPG Assistant](https://www.gnu.org/software/emacs/manual/html_mono/epa.html) で保存時に暗号化されるので便利。
 
 
 ## ファイル指定 {#ファイル指定}

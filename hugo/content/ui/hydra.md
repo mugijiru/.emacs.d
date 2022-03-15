@@ -42,6 +42,20 @@ hydra-posframe を使って画面中央に表示されるようにしている�
 ```
 
 
+### WebDAV Sync download の設定 {#webdav-sync-download-の設定}
+
+作業管理用の org-mode のドキュメントは WebDAV サーバにも上げて
+beorg でも使えるようにしているがそれを拾って来るためのコマンドを用意している。
+
+```emacs-lisp
+(defun my/download-from-beorg ()
+  (interactive)
+  (async-shell-command "java -jar ~/bin/webdav_sync1_1_9.jar -c ~/.config/webdav-sync/download.xml && notify-send 'WebDAV Sync' 'Downloaded from WebDAV'"))
+```
+
+簡単に `async-shell-command` を使って済ませている
+
+
 ### major-mode-hydra のインストール {#major-mode-hydra-のインストール}
 
 自分以外で使っている人を見たことはないけど麦汁さんは [major-mode-hydra](https://github.com/jerrypnz/major-mode-hydra.el) というものを利用している。
@@ -56,7 +70,17 @@ js2-mode 用の Hydra などを定義できて便利。
 ってことでそれを el-get を使って GitHub からインストールしている。
 
 ```emacs-lisp
-(el-get-bundle jerrypnz/major-mode-hydra.el)
+(el-get-bundle major-mode-hydra.el)
+```
+
+なおレシピは自前で用意している
+
+```emacs-lisp
+(:name major-mode-hydra.el
+       :website "https://github.com/jerrypnz/major-mode-hydra.el"
+       :description "this package offers an alternative way to manage your major mode specific key bindings."
+       :type github
+       :pkgname "jerrypnz/major-mode-hydra.el")
 ```
 
 
@@ -187,16 +211,18 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
 
    ;; ("P"   my/open-review-requested-pr "Open Requested PR")
    "Other"
-   (("@"   all-the-icons-hydra/body "List icons"))))
+   (("@" all-the-icons-hydra/body "List icons")
+    ("D" my/download-from-beorg))))
 ```
 
-| Key | 効果                      |
-|-----|-------------------------|
-| b   | キーバインドを調べる      |
-| f   | Emacs Lisp の関数を調べる |
-| v   | Emacs Lisp の変数を調べる |
-| m   | minor-mode を調べる       |
-| @   | All the icons の Hydra を起動 |
+| Key | 効果                             |
+|-----|--------------------------------|
+| b   | キーバインドを調べる             |
+| f   | Emacs Lisp の関数を調べる        |
+| v   | Emacs Lisp の変数を調べる        |
+| m   | minor-mode を調べる              |
+| @   | All the icons の Hydra を起動    |
+| D   | beorg 連携に使ってる WebDAV サーバからダウンロード |
 
 
 ### Text Scale {#text-scale}

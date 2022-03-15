@@ -15,7 +15,7 @@ draft = false
 いつも通り el-get で入れている。
 
 ```emacs-lisp
-(el-get-bundle tempbuf)
+(el-get-bundle tempbuf-mode)
 ```
 
 
