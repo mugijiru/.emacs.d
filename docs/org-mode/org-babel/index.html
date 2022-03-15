@@ -12,20 +12,20 @@
     <title>org-babel :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1642315526" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1642315526" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1642315526" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1642315526" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1642315526" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1642315526" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1642315526" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1642315526" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1642315526" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1642315526" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1647359644" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1642315526"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1647359644"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1642315526"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1642315526"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1647359644"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1647359644"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1642315526"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1647359644"></script>
 
     
   </div>
@@ -129,6 +129,27 @@
       <li data-nav-id="/.emacs.d/basics/auth-source/" title="auth-source" class="dd-item ">
         <a href="/.emacs.d/basics/auth-source/">
         auth-source
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/basics/auto-format/" title="auto-format" class="dd-item ">
+        <a href="/.emacs.d/basics/auto-format/">
+        auto-format
         
         </a>
     </li>
@@ -2694,10 +2715,9 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#org-export-blocks-format-plantuml">org-export-blocks-format-plantuml</a></li>
     <li><a href="#org-babel-で評価可能な言語の指定">org-babel で評価可能な言語の指定</a></li>
     <li><a href="#org-babel-execute-後に画像を再表示">org-babel-execute 後に画像を再表示</a></li>
-    <li><a href="#org-babel-の非同期実行">org-babel の非同期実行</a></li>
+    <li><a href="#org-babel-の非同期実行">org-babel の非同期実行 <span class="tag"><span class="improvement">improvement</span></span></a></li>
   </ul>
 </nav>
     </div>
@@ -2724,12 +2744,6 @@
 
 <h2 id="概要">概要</h2>
 <p>ここでは org-babel の設定をまとめている。</p>
-<h2 id="org-export-blocks-format-plantuml">org-export-blocks-format-plantuml</h2>
-<p>org-mode で PlantUML の図を出力する拡張を入れている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle org-export-blocks-format-plantuml)
-</code></pre></div><p>のだけれど
-<a href="https://www.emacswiki.org/emacs/org-export-blocks-format-plantuml.el">https://www.emacswiki.org/emacs/org-export-blocks-format-plantuml.el</a>
-を見ると Obsolute と書いてますね。今度消さなきゃ。</p>
 <h2 id="org-babel-で評価可能な言語の指定">org-babel で評価可能な言語の指定</h2>
 <p>なんか普段から使いそうな奴をとりあえず選定しているつもり。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(org-babel-do-load-languages <span style="color:#e6db74">&#39;org-babel-load-languages</span>
@@ -2755,7 +2769,7 @@
 <h2 id="org-babel-execute-後に画像を再表示">org-babel-execute 後に画像を再表示</h2>
 <p>PlantUML の処理をすることが多いので以下の hook を設定することで実行後に画像を再表示するようにしている</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-hook <span style="color:#e6db74">&#39;org-babel-after-execute-hook</span> <span style="color:#e6db74">&#39;org-redisplay-inline-images</span>)
-</code></pre></div><h2 id="org-babel-の非同期実行">org-babel の非同期実行</h2>
+</code></pre></div><h2 id="org-babel-の非同期実行">org-babel の非同期実行 <span class="tag"><span class="improvement">improvement</span></span></h2>
 <p>非同期に org-babel の source を実行するために
 <a href="https://github.com/astahlman/ob-async">ob-async</a> を入れている</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle ob-async)
@@ -2813,6 +2827,22 @@
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -4639,19 +4669,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1642315526"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1642315526"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1642315526"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1642315526"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1642315526"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1642315526"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1647359644"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1647359644"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1647359644"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1647359644"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1647359644"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1647359644"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1642315526"></script>
-    <script src="/.emacs.d/js/learn.js?1642315526"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1642315526"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1647359644"></script>
+    <script src="/.emacs.d/js/learn.js?1647359644"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1647359644"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1642315526"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1647359644"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

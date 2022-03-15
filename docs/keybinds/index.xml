@@ -32,9 +32,9 @@
 有効化 設定を入れた後は有効にするだけである。
 (key-chord-mode 1) 実際のキーバインド設定は各モードだったりグローバルキーバインドを設定しているファイルだったりで書く感じ。
 といいつつ現状では Hydra 起動のやつしか使ってないので、グローバルキーバインド設定でしか書いてない。
-sticky-shift セミコロン+アルファベット入力で大文字とする セミコロンとアルファベットをほぼ同時に叩くことにより対応する大文字を出力できるようにしている。
-これで PascalCase を入力しないといけない時でもシフトキーを叩かずに済む。少し慣れは必要だけども。
-(mapc (lambda (key) (key-chord-define-global (concat &amp;#34;;&amp;#34; (char-to-string key)) (char-to-string (- key 32)))) (number-sequence ?a ?z)) セミコロン2つでシフトを押した状態にする 上に書いたやつだけだと設定が足りなくて何故かというと、 magit を使う時なんかは結構 P とかで push したりするけども上記の設定だと ;p を入力しても、あくまで文字の出力が変わるだけになってしまうため magit のコマンドとして成立しない。</description>
+sticky-shift セミコロン2つでシフトを押した状態にする セミコロンを2回叩くことで shift が押されてるという状態を実現する。
+これにより magit で P などを入力したい時にも ;;p で入力できるし通常の英字入力時にも大文字にできるので左手小指が痛い時には Shift を使わずに操作ができるようになる。
+(key-chord-define-global &amp;#34;;;&amp;#34; &amp;#39;event-apply-shift-modifier) (key-chord-define key-translation-map &amp;#34;;;&amp;#34; &amp;#39;event-apply-shift-modifier) global-key-map と key-translation-map の両方に定義しないと動かないがその原因はよく分かってない。一旦動くから良しとしている。</description>
     </item>
     
     <item>

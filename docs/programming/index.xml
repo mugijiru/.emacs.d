@@ -26,12 +26,14 @@ Hook Hook 用の関数を定義してその中に色々書いている。
       
       <guid>https://mugijiru.github.io/.emacs.d/programming/ember-js/</guid>
       <description>概要 Ember.js 用の Emacs の拡張としては ember-mode と handlebars-mode が存在する
-ember-mode ember-mode は Ember.js アプリケーションのファイルナビゲーションや生成を行ってくれるモード。実は麦汁さんは使えてない。
+ember-mode unused ember-mode は Ember.js アプリケーションのファイルナビゲーションや生成を行ってくれるモード。実は麦汁さんは使えてない。
 インストールするだけではダメで、 ember-mode を明示的に起動しないといけない。
 そのためには dir-locals を使うとか projectile なんかがやってるようにフォルダ構成から判定させるみたいなことが必要そう。だるい。
 というわけで死蔵中。
 ついでにいうとキーバインドもだるい系なので使う時は Hydra を用意した方が良さそう
-(el-get-bundle madnificent/ember-mode) handlebars-mode handlebars-mode は Ember.js のテンプレートエンジンとして採用されている Handlebars を書くためのモード。
+インストールは GitHub からできるが el-get.lock を用いたバージョン更新確認スクリプトのためレシピを追加している
+(:name madnificent/ember-mode :website &amp;#34;https://github.com/madnificent/ember-mode&amp;#34; :description &amp;#34;Ember-mode speeds up navigation in EmberJS projects.&amp;#34; :type github :pkgname &amp;#34;madnificent/ember-mode&amp;#34;) このレシピを用意した上で以下でインストール
+(el-get-bundle ember-mode) handlebars-mode improvement handlebars-mode は Ember.js のテンプレートエンジンとして採用されている Handlebars を書くためのモード。
 syntax highlight と、いくつかの編集機能を備えている。が、今のところ麦汁さんは syntax highlight しか使えてない。
 編集コマンドは major-mode-hydra で使えるようにしてあげれば良さそう
 (el-get-bundle handlebars-mode) </description>
@@ -60,7 +62,8 @@ Lambda で一括でやる方法もあるけども、関数名つけて分離し�
       <description>概要 flycheck はリアルタイムで文法チェックなんかをするのに便利なモード。 flymake よりモダンなやつだったんだけど最近は flymake に戻る人もいるっぽいのでどっちが良いかよくわかってない
 インストール flycheck と同時にカーソルのそばに pos-tip で通知内容を表示してくれる flycheck-pos-tip をインストールしている
 (el-get-bundle flycheck) (el-get-bundle flycheck-pos-tip) 設定 flycheck を読んだ後で flycheck-pos-tip-mode が有効になるようにしている。これは公式に書かれているやりかたに則っている https://github.com/flycheck/flycheck-pos-tip#installation
-(with-eval-after-load &amp;#39;flycheck (flycheck-pos-tip-mode)) その他 flycheck-posframe flycheck-pos-tip は flycheck 公式のプラグインなので採用しているけど同じことを posframe でやってくれる flycheck-posframe に置き換えた方が見た目麗しくなりそうな気がしている。
+また web-mode はデフォルトでは flycheck が使えないので flycheck-add-mode を使って web-mode でも flycheck が使えるようにしている
+(with-eval-after-load &amp;#39;flycheck (flycheck-pos-tip-mode) (flycheck-add-mode &amp;#39;javascript-eslint &amp;#39;web-mode)) その他 flycheck-posframe flycheck-pos-tip は flycheck 公式のプラグインなので採用しているけど同じことを posframe でやってくれる flycheck-posframe に置き換えた方が見た目麗しくなりそうな気がしている。
 言語毎の設定 各言語向けの設定もあるけどそれは各言語の設定ファイル内に書いているのでここでは書いてない
 プログラミング関係の設定 &amp;gt; ruby とか プログラミング関係の設定 &amp;gt; scss とかに書いているはず</description>
     </item>
@@ -143,8 +146,8 @@ lsp-mode の仲間なので、本当はそっち側で入れるようにした�
 web-mode とりあえず tsx を弄る上では web-mode が良いという話もあるので入れておく。
 (el-get-bundle web-mode) メジャーモードの紐付け jsx/tsx ファイルを開いた時には web-mode で動いてほしいので auto-mode-alist で関連付けをする
 (add-to-list &amp;#39;auto-mode-alist &amp;#39;(&amp;#34;\\.[jt]sx&amp;#34; . web-mode)) lsp-mode などの有効化 jsx/tsx ファイルを開く時に web-mode が有効になるようにしているのでその web-mode の hook で
- display-line-numbers-mode lsp lsp-ui-mode  を有効にしている。
-(defun my/web-mode-tsx-hook () (let ((ext (file-name-extension buffer-file-name))) (when (or (string-equal &amp;#34;jsx&amp;#34; ext) (string-equal &amp;#34;tsx&amp;#34; ext)) (setq web-mode-markup-indent-offset 2) (setq web-mode-code-indent-offset 2) (turn-on-smartparens-mode) (display-line-numbers-mode t) (lsp) (lsp-ui-mode 1)))) (add-hook &amp;#39;web-mode-hook &amp;#39;my/web-mode-tsx-hook) </description>
+ display-line-numbers-mode lsp lsp-ui-mode company-mode flycheck  を有効にしている。
+flycheck では lsp と eslint を使いたいのでそれ以外の JS の checker は disable にしている</description>
     </item>
     
     <item>
@@ -190,10 +193,10 @@ rainbow-mode rainbow-mode はカラーコードを入力した際に、そのカ
 インストール 自分はel-get で入れている。
 (el-get-bundle rainbow-mode) ELPA に登録されているので package-install でもいける
 scss-mode scss-mode は Emacs 組込みの css-mode の中で定義されているメジャーモード。なのでインストール不要で使えるし .scss という拡張子なら自動的に scss-mode で開いてくれるようになっている。
-設定 インデントはデフォルトだと半角空白 4 つとなっているが麦汁さん的には 2 の方が良いのでそのように変更している。
+設定 improvement インデントはデフォルトだと半角空白 4 つとなっているが麦汁さん的には 2 の方が良いのでそのように変更している。
 (with-eval-after-load &amp;#39;scss-mode (setq css-indent-offset 2)) with-eval-after-load を使っているが css-indent-offset は defcustom で定義されているので custom-set-variables を使うように修正した方が良さそう
-hook scss を使う上で hook を使って色々有効化したりしている。
-(defun my/scss-mode-hook () (flycheck-mode 1) (setq-local lsp-prefer-flymake nil) (lsp) (lsp-ui-mode -1) ;; lsp-ui とかより後に設定しないと上書きされるのでここに移動した (setq-local flycheck-checker &amp;#39;scss-stylelint) (setq-local flycheck-check-syntax-automatically &amp;#39;(save new-line idle-change)) (company-mode 1) (display-line-numbers-mode 1) (rainbow-mode)) (add-hook &amp;#39;scss-mode-hook &amp;#39;my/scss-mode-hook)  flycheck-mode の有効化  これによりリアルタイムに lint 結果が分かって便利になる   lsp-prefer-flymake の無効化  flycheck が有効にならない問題を防いでいる。どうも自分の設定の書き方が悪い気もするが……。   lsp-mode を有効化しつつ lsp-ui は無効にしている  lsp-ui が有効だと画面上でガチャガチャ height とかのプロパティの説明をしてうざいので   flycheck-checker, flycheck-check-syntax-automatically の設定  lsp-ui とかより後に設定しないと上書きされるので、それらより後に設定している 設定の書き方の悪さのせいな気もする   company-mode の有効化。これがないと補完できなくて厳しいよね display-line-numbers-mode の有効化。行数表示も欲しいよね。巨大ファイルだと邪魔だけど巨大にしなきゃいい rainbow-mode の有効化  カラーコード→ CSS Variable の置き換え 外部コマンドで fetch-color-var というのを定義してそいつにカラーコードを渡すとプロジェクトで使ってる CSS Variable を返してくるようにしている。</description>
+hook improvement scss を使う上で hook を使って色々有効化したりしている。
+(defun my/scss-mode-hook () (flycheck-mode 1) (setq-local lsp-prefer-flymake nil) (lsp) (lsp-ui-mode -1) (smartparens-strict-mode 1) ;; lsp-ui とかより後に設定しないと上書きされるのでここに移動した (setq-local flycheck-checker &amp;#39;scss-stylelint) (setq-local flycheck-check-syntax-automatically &amp;#39;(save new-line idle-change)) (company-mode 1) (display-line-numbers-mode 1) (rainbow-mode)) (add-hook &amp;#39;scss-mode-hook &amp;#39;my/scss-mode-hook)  flycheck-mode の有効化  これによりリアルタイムに lint 結果が分かって便利になる   lsp-prefer-flymake の無効化  flycheck が有効にならない問題を防いでいる。どうも自分の設定の書き方が悪い気もするが……。   lsp-mode を有効化しつつ lsp-ui は無効にしている  lsp-ui が有効だと画面上でガチャガチャ height とかのプロパティの説明をしてうざいので   smartparens-strict-mode を入れることで {} のペアが維持されるようにしている flycheck-checker, flycheck-check-syntax-automatically の設定  lsp-ui とかより後に設定しないと上書きされるので、それらより後に設定している 設定の書き方の悪さのせいな気もする   company-mode の有効化。これがないと補完できなくて厳しいよね display-line-numbers-mode の有効化。行数表示も欲しいよね。巨大ファイルだと邪魔だけど巨大にしなきゃいい rainbow-mode の有効化  カラーコード→ CSS Variable の置き換え 外部コマンドで fetch-color-var というのを定義してそいつにカラーコードを渡すとプロジェクトで使ってる CSS Variable を返してくるようにしている。</description>
     </item>
     
     <item>
@@ -206,12 +209,10 @@ hook scss を使う上で hook を使って色々有効化したりしている�
 typescript-mode typescript-mode は TypeScript 向けの Syntax Highlight とかを提供してくれるメジャーモード。
 インストール 自分はいつも通り el-get で入れている
 (el-get-bundle typescript-mode) カスタム変数 indent は2文字がいいのでデフォルトから変更している
-(custom-set-variables &amp;#39;(typescript-indent-level 2)) hook company-mode などのプログラミングで便利な各種のモードを hook を使って有効化している
-(defun my/ts-mode-hook () (company-mode 1) (turn-on-smartparens-strict-mode) (display-line-numbers-mode t) (lsp) (lsp-ui-mode 1)) という関数を用意して
-(add-hook &amp;#39;typescript-mode-hook &amp;#39;my/ts-mode-hook) として hook に追加している。
-直接 lambda で add-hook に書くという手もあるが関数を分離しておくと修正の反映が用意なのでこのようにしている
-拡張子による有効化 .ts ファイルであれば typescript-mode で動いてほしいので auto-mode-alist に突っ込んでいる
-(add-to-list &amp;#39;auto-mode-alist &amp;#39;(&amp;#34;\\.ts&amp;#34; . typescript-mode)) </description>
+(custom-set-variables &amp;#39;(typescript-indent-level 2)) auto-fix の hook 関数 保存した時に自動で整形してほしいなと思ったので auto-fix.el で自動で保存されるように hook 関数を用意している
+(defun my/auto-fix-mode-hook-for-ts () (add-hook &amp;#39;before-save-hook &amp;#39;auto-fix-before-save)) (add-hook &amp;#39;auto-fix-mode-hook &amp;#39;my/auto-fix-mode-hook-for-ts) hook  company-mode smartparens-strict-mode lsp/lsp-ui flycheck  などのプログラミングで便利な各種のモードを hook を使って有効化している
+auto-fix はここでもなんか設定しているのでなんか設定まとめたいなあって感じはある。
+(defun my/ts-mode-hook () (company-mode 1) (turn-on-smartparens-strict-mode) (display-line-numbers-mode t) (lsp) (lsp-ui-mode 1) (flycheck-mode 1) (setq flycheck-disabled-checkers &amp;#39;(javascript-standard javascript-jshint)) (flycheck-add-next-checker &amp;#39;lsp &amp;#39;(warning .</description>
     </item>
     
     <item>

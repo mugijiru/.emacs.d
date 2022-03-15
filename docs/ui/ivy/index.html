@@ -12,20 +12,20 @@
     <title>ivy :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1642315527" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1647359645" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1647359645" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1647359645" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1647359645" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1647359645" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1647359645" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1647359645" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1647359645" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1647359645" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1647359645" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1642315527"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1647359645"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1642315527"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1642315527"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1647359645"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1647359645"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1642315527"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1647359645"></script>
 
     
   </div>
@@ -129,6 +129,27 @@
       <li data-nav-id="/.emacs.d/basics/auth-source/" title="auth-source" class="dd-item ">
         <a href="/.emacs.d/basics/auth-source/">
         auth-source
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/basics/auto-format/" title="auto-format" class="dd-item ">
+        <a href="/.emacs.d/basics/auto-format/">
+        auto-format
         
         </a>
     </li>
@@ -2709,7 +2730,7 @@
         <li><a href="#c-s-で-migemo-れるようにする関数設定">C-s で migemo れるようにする関数設定</a></li>
       </ul>
     </li>
-    <li><a href="#counsel-osx-app-dot">counsel-osx-app.</a></li>
+    <li><a href="#counsel-osx-app-dot">counsel-osx-app. <span class="tag"><span class="improvement">improvement</span></span></a></li>
     <li><a href="#prescient-dot-el">prescient.el</a></li>
   </ul>
 </nav>
@@ -2981,7 +3002,7 @@ posframe 表示だと Emacs の中央に表示できるので視線移動が少�
 </code></pre></div><p>なんだけど
 <a href="https://github.com/ROCKTAKEY/ivy-migemo">https://github.com/ROCKTAKEY/ivy-migemo</a>
 に乗り換えた方がいいのかな〜とも思っている。検証していきたい。</p>
-<h2 id="counsel-osx-app-dot">counsel-osx-app.</h2>
+<h2 id="counsel-osx-app-dot">counsel-osx-app. <span class="tag"><span class="improvement">improvement</span></span></h2>
 <p>Mac で Emacs を使ってる時に ivy でアプリケーションを起動するためのパッケージ。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle counsel-osx-app)
 </code></pre></div><p>Mac を使ってる時は Emacs がランチャー代わりになるので便利。</p>
@@ -2990,7 +3011,13 @@ posframe 表示だと Emacs の中央に表示できるので視線移動が少�
 <p><a href="https://github.com/raxod502/prescient.el">prescient.el</a> は強力なソート・フィルタ機能を提供してくれるパッケージ。
 ivy などの絞り込み系ツールと組み合わせて使う。</p>
 <p>とりあえずいつも通り el-get でインストールしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle raxod502/prescient.el)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle prescient.el)
+</code></pre></div><p>レシピは自前で追加している</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(:name raxod502/prescient.el
+       :website <span style="color:#e6db74">&#34;https://github.com/raxod502/prescient.el&#34;</span>
+       :description <span style="color:#e6db74">&#34;simple but effective sorting and filtering for Emacs.&#34;</span>
+       :type github
+       :pkgname <span style="color:#e6db74">&#34;raxod502/prescient.el&#34;</span>)
 </code></pre></div><p>そんで ivy でそれが使われるように ivy-prescient-mode を有効にしている。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(ivy-prescient-mode <span style="color:#ae81ff">1</span>)
 </code></pre></div><p>ただ候補文字列の長さで sort されるのはどうも微妙さを感じるので無効にしている。</p>
@@ -3043,6 +3070,22 @@ ivy などの絞り込み系ツールと組み合わせて使う。</p>
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -4869,19 +4912,19 @@ ivy などの絞り込み系ツールと組み合わせて使う。</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1642315527"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1642315527"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1642315527"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1642315527"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1642315527"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1642315527"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1647359645"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1647359645"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1647359645"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1647359645"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1647359645"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1647359645"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1642315527"></script>
-    <script src="/.emacs.d/js/learn.js?1642315527"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1642315527"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1647359645"></script>
+    <script src="/.emacs.d/js/learn.js?1647359645"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1647359645"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1642315527"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1647359645"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

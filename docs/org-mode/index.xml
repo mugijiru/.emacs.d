@@ -33,11 +33,10 @@ org 用ディレクトリの指定 org-mode のファイルを保存するデフ
       
       <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-babel/</guid>
       <description>概要 ここでは org-babel の設定をまとめている。
-org-export-blocks-format-plantuml org-mode で PlantUML の図を出力する拡張を入れている。
-(el-get-bundle org-export-blocks-format-plantuml) のだけれど https://www.emacswiki.org/emacs/org-export-blocks-format-plantuml.el を見ると Obsolute と書いてますね。今度消さなきゃ。
 org-babel で評価可能な言語の指定 なんか普段から使いそうな奴をとりあえず選定しているつもり。
 (org-babel-do-load-languages &amp;#39;org-babel-load-languages &amp;#39;((plantuml . t) (sql . t) (gnuplot . t) (emacs-lisp . t) (shell . t) (js . t) (ruby . t)))  js, ruby 仕事でメインで使ってる言語なので入れている。 shell 入れてる方が便利そう、ぐらいの雑な理由。 sql メモしておいて手元から実行できると便利そう plantuml 図の出力。一番使ってる。 gnuplot 趣味で入れてみているけど実際使う機会ほとんどないよなって気がしてきている。  org-babel-execute 後に画像を再表示 PlantUML の処理をすることが多いので以下の hook を設定することで実行後に画像を再表示するようにしている
-(add-hook &amp;#39;org-babel-after-execute-hook &amp;#39;org-redisplay-inline-images) org-babel の非同期実行 非同期に org-babel の source を実行するために ob-async を入れている</description>
+(add-hook &amp;#39;org-babel-after-execute-hook &amp;#39;org-redisplay-inline-images) org-babel の非同期実行 improvement 非同期に org-babel の source を実行するために ob-async を入れている
+(el-get-bundle ob-async) (require &amp;#39;ob-async) で、ob-async を何のために入れているかというと PlantUML の図の出力である。画像まで作成するからね、時間かかりそうだしね。</description>
     </item>
     
     <item>

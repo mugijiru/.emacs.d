@@ -12,20 +12,20 @@
     <title>TypeScript :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1642315527" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1647359644" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1642315527"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1647359644"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1642315527"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1642315527"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1647359644"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1647359644"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1642315527"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1647359644"></script>
 
     
   </div>
@@ -129,6 +129,27 @@
       <li data-nav-id="/.emacs.d/basics/auth-source/" title="auth-source" class="dd-item ">
         <a href="/.emacs.d/basics/auth-source/">
         auth-source
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/basics/auto-format/" title="auto-format" class="dd-item ">
+        <a href="/.emacs.d/basics/auto-format/">
+        auto-format
         
         </a>
     </li>
@@ -2698,6 +2719,7 @@
       <ul>
         <li><a href="#インストール">インストール</a></li>
         <li><a href="#カスタム変数">カスタム変数</a></li>
+        <li><a href="#auto-fix-の-hook-関数">auto-fix の hook 関数</a></li>
         <li><a href="#hook">hook</a></li>
         <li><a href="#拡張子による有効化">拡張子による有効化</a></li>
       </ul>
@@ -2737,16 +2759,40 @@
 <p>indent は2文字がいいのでデフォルトから変更している</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(custom-set-variables
  <span style="color:#f92672">&#39;</span>(typescript-indent-level <span style="color:#ae81ff">2</span>))
+</code></pre></div><h3 id="auto-fix-の-hook-関数">auto-fix の hook 関数</h3>
+<p>保存した時に自動で整形してほしいなと思ったので
+auto-fix.el で自動で保存されるように hook 関数を用意している</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/auto-fix-mode-hook-for-ts ()
+  (add-hook <span style="color:#e6db74">&#39;before-save-hook</span> <span style="color:#e6db74">&#39;auto-fix-before-save</span>))
+
+(add-hook <span style="color:#e6db74">&#39;auto-fix-mode-hook</span> <span style="color:#e6db74">&#39;my/auto-fix-mode-hook-for-ts</span>)
 </code></pre></div><h3 id="hook">hook</h3>
-<p>company-mode などのプログラミングで便利な各種のモードを
+<ul>
+<li>company-mode</li>
+<li>smartparens-strict-mode</li>
+<li>lsp/lsp-ui</li>
+<li>flycheck</li>
+</ul>
+<p>などのプログラミングで便利な各種のモードを
 hook を使って有効化している</p>
+<p>auto-fix はここでもなんか設定しているのでなんか設定まとめたいなあって感じはある。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/ts-mode-hook ()
   (company-mode <span style="color:#ae81ff">1</span>)
   (turn-on-smartparens-strict-mode)
   (display-line-numbers-mode <span style="color:#66d9ef">t</span>)
   (lsp)
-  (lsp-ui-mode <span style="color:#ae81ff">1</span>))
-</code></pre></div><p>という関数を用意して</p>
+  (lsp-ui-mode <span style="color:#ae81ff">1</span>)
+  (flycheck-mode <span style="color:#ae81ff">1</span>)
+  (setq flycheck-disabled-checkers <span style="color:#f92672">&#39;</span>(javascript-standard javascript-jshint))
+  (flycheck-add-next-checker <span style="color:#e6db74">&#39;lsp</span> <span style="color:#f92672">&#39;</span>(warning <span style="color:#f92672">.</span> javascript-eslint))
+
+  (let* ((args (<span style="color:#a6e22e">list</span> <span style="color:#e6db74">&#34;run&#34;</span> <span style="color:#e6db74">&#34;eslint&#34;</span> <span style="color:#e6db74">&#34;--fix&#34;</span>))
+         (args-string (<span style="color:#a6e22e">mapconcat</span> <span style="color:#a6e22e">#&#39;</span>shell-quote-argument args <span style="color:#e6db74">&#34; &#34;</span>)))
+    (setq-local auto-fix-option args-string))
+  (setq-local auto-fix-options <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;run&#34;</span> <span style="color:#e6db74">&#34;eslint&#34;</span> <span style="color:#e6db74">&#34;--fix&#34;</span>))
+  (setq-local auto-fix-command <span style="color:#e6db74">&#34;yarn&#34;</span>)
+  (auto-fix-mode <span style="color:#ae81ff">1</span>))
+</code></pre></div><p>この関数を</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-hook <span style="color:#e6db74">&#39;typescript-mode-hook</span> <span style="color:#e6db74">&#39;my/ts-mode-hook</span>)
 </code></pre></div><p>として hook に追加している。</p>
 <p>直接 lambda で add-hook に書くという手もあるが関数を分離しておくと修正の反映が用意なのでこのようにしている</p>
@@ -2801,6 +2847,22 @@ auto-mode-alist に突っ込んでいる</p>
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -4627,19 +4689,19 @@ auto-mode-alist に突っ込んでいる</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1642315527"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1642315527"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1642315527"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1642315527"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1642315527"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1642315527"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1647359644"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1647359644"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1647359644"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1647359644"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1647359644"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1647359644"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1642315527"></script>
-    <script src="/.emacs.d/js/learn.js?1642315527"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1642315527"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1647359644"></script>
+    <script src="/.emacs.d/js/learn.js?1647359644"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1647359644"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1642315527"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1647359644"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

@@ -107,7 +107,9 @@ Slack 連携を Toggle するコマンド 連携したい時としたくない�
       
       <guid>https://mugijiru.github.io/.emacs.d/external-tool/todoist/</guid>
       <description>概要 emacs-todoist は Todo 管理サービスである Todoist と連携するためのパッケージ。 org-mode に依存している。
-インストール (el-get-bundle abrochard/emacs-todoist) 設定 API キーを設定するので別ファイルに分離している。いつか .authinfo.gpg に移動しようかなと思っているけどそもそも最近 TODOIST 使ってない……
+インストール まず以下のレシピを用意している
+(:name emacs-todoist :website &amp;#34;https://github.com/abrochard/emacs-todoist&amp;#34; :description &amp;#34;Emacs interface to Todoist&amp;#34; :type github :pkgname &amp;#34;abrochard/emacs-todoist&amp;#34;) その上で以下のようにしてインストールしている
+(el-get-bundle emacs-todoist) 設定 API キーを設定するので別ファイルに分離している。いつか .authinfo.gpg に移動しようかなと思っているけどそもそも最近 TODOIST 使ってない……
 (with-eval-after-load &amp;#39;org (my/load-config &amp;#34;my-todoist-config&amp;#34;)) </description>
     </item>
     

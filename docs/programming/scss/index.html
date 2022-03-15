@@ -12,20 +12,20 @@
     <title>scss :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1642315527" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1647359644" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1642315527"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1647359644"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1642315527"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1642315527"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1647359644"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1647359644"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1642315527"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1647359644"></script>
 
     
   </div>
@@ -129,6 +129,27 @@
       <li data-nav-id="/.emacs.d/basics/auth-source/" title="auth-source" class="dd-item ">
         <a href="/.emacs.d/basics/auth-source/">
         auth-source
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/basics/auto-format/" title="auto-format" class="dd-item ">
+        <a href="/.emacs.d/basics/auto-format/">
+        auto-format
         
         </a>
     </li>
@@ -2701,10 +2722,10 @@
     </li>
     <li><a href="#scss-mode">scss-mode</a>
       <ul>
-        <li><a href="#設定">設定</a></li>
+        <li><a href="#設定">設定 <span class="tag"><span class="improvement">improvement</span></span></a></li>
       </ul>
     </li>
-    <li><a href="#hook">hook</a></li>
+    <li><a href="#hook">hook <span class="tag"><span class="improvement">improvement</span></span></a></li>
     <li><a href="#カラーコード-css-variable-の置き換え">カラーコード→ CSS Variable の置き換え</a></li>
     <li><a href="#キーバインド">キーバインド</a></li>
   </ul>
@@ -2742,14 +2763,14 @@
 <h2 id="scss-mode">scss-mode</h2>
 <p>scss-mode は Emacs 組込みの css-mode の中で定義されているメジャーモード。なのでインストール不要で使えるし
 <code>.scss</code> という拡張子なら自動的に scss-mode で開いてくれるようになっている。</p>
-<h3 id="設定">設定</h3>
+<h3 id="設定">設定 <span class="tag"><span class="improvement">improvement</span></span></h3>
 <p>インデントはデフォルトだと半角空白 4 つとなっているが麦汁さん的には 2 の方が良いのでそのように変更している。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;scss-mode</span>
   (setq css-indent-offset <span style="color:#ae81ff">2</span>))
 </code></pre></div><p><code>with-eval-after-load</code> を使っているが
 <code>css-indent-offset</code> は <code>defcustom</code> で定義されているので
 <code>custom-set-variables</code> を使うように修正した方が良さそう</p>
-<h2 id="hook">hook</h2>
+<h2 id="hook">hook <span class="tag"><span class="improvement">improvement</span></span></h2>
 <p>scss を使う上で hook を使って色々有効化したりしている。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/scss-mode-hook ()
   (flycheck-mode <span style="color:#ae81ff">1</span>)
@@ -2757,6 +2778,8 @@
   (setq-local lsp-prefer-flymake <span style="color:#66d9ef">nil</span>)
   (lsp)
   (lsp-ui-mode <span style="color:#ae81ff">-1</span>)
+
+  (smartparens-strict-mode <span style="color:#ae81ff">1</span>)
 
   <span style="color:#75715e">;; lsp-ui とかより後に設定しないと上書きされるのでここに移動した</span>
   (setq-local flycheck-checker <span style="color:#e6db74">&#39;scss-stylelint</span>)
@@ -2783,6 +2806,7 @@
 <li>lsp-ui が有効だと画面上でガチャガチャ height とかのプロパティの説明をしてうざいので</li>
 </ul>
 </li>
+<li>smartparens-strict-mode を入れることで {} のペアが維持されるようにしている</li>
 <li>flycheck-checker, flycheck-check-syntax-automatically の設定
 <ul>
 <li>lsp-ui とかより後に設定しないと上書きされるので、それらより後に設定している</li>
@@ -2870,6 +2894,22 @@
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -4696,19 +4736,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1642315527"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1642315527"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1642315527"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1642315527"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1642315527"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1642315527"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1647359644"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1647359644"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1647359644"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1647359644"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1647359644"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1647359644"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1642315527"></script>
-    <script src="/.emacs.d/js/learn.js?1642315527"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1642315527"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1647359644"></script>
+    <script src="/.emacs.d/js/learn.js?1647359644"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1647359644"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1642315527"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1647359644"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

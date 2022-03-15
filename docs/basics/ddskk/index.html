@@ -12,20 +12,20 @@
     <title>ddskk :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1642315526" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1642315526" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1642315526" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1642315526" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1642315526" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1642315526" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1642315526" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1642315526" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1642315526" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1642315526" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1647359644" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1642315526"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1647359644"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1642315526"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1642315526"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1647359644"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1647359644"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1642315526"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1647359644"></script>
 
     
   </div>
@@ -129,6 +129,27 @@
       <li data-nav-id="/.emacs.d/basics/auth-source/" title="auth-source" class="dd-item ">
         <a href="/.emacs.d/basics/auth-source/">
         auth-source
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/basics/auto-format/" title="auto-format" class="dd-item ">
+        <a href="/.emacs.d/basics/auto-format/">
+        auto-format
         
         </a>
     </li>
@@ -2697,7 +2718,7 @@
     <li><a href="#インストール">インストール</a></li>
     <li><a href="#常時有効化">常時有効化</a></li>
     <li><a href="#hook-の設定">hook の設定</a></li>
-    <li><a href="#l-辞書を使うようにする">L 辞書を使うようにする</a></li>
+    <li><a href="#l-辞書を使うようにする">L 辞書を使うようにする <span class="tag"><span class="improvement">improvement</span></span></a></li>
     <li><a href="#ddskk-posframe">ddskk-posframe</a></li>
     <li><a href="#その他">その他</a></li>
   </ul>
@@ -2766,7 +2787,7 @@ SKK ではその自動認識がおかしくておかしな変換になるとこ�
 <dt>skk-auto-insert-paren</dt>
 <dd>カッコを入力するとコッカも入れてくれる便利機能の切替</dd>
 <dt>skk-delete-implies-kakutei</dt>
-<dd>nil にすると▼モードで <BS> を押した時 に一つ前の候補を表示するようになる</dd>
+<dd>nil にすると▼モードで &lt;BS&gt; を押した時 に一つ前の候補を表示するようになる</dd>
 <dt>skk-sticky-key</dt>
 <dd>設定すると、その指定したキーを押した時に変換開始状態などにする Sticky Shift を提供する</dd>
 <dt>skk-henkan-strict-okuri-precedence</dt>
@@ -2776,7 +2797,7 @@ SKK ではその自動認識がおかしくておかしな変換になるとこ�
 <dt>skk-rom-kana-rules-list</dt>
 <dd>キー入力時の挙動を指定する。とりあえず自分は : とかが全角になるのが嫌なので半角になるようにしている</dd>
 </dl>
-<h2 id="l-辞書を使うようにする">L 辞書を使うようにする</h2>
+<h2 id="l-辞書を使うようにする">L 辞書を使うようにする <span class="tag"><span class="improvement">improvement</span></span></h2>
 <p>Mac では AquaSKK の L 辞書を、
 Linux では <code>/usr/share/skk/SKK-JISYO.L</code> を読むようにしている。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(let ((l-dict
@@ -2793,8 +2814,14 @@ CurvusSKK の辞書を見るように設定した方が良さそうな気もす�
 <p><a href="https://emacs-jp.github.io/packages/ddskk-posframe">https://emacs-jp.github.io/packages/ddskk-posframe</a>
 に作った本人が解説記事を日本語で載せてるので詳細はそっちを見てもらう方が早い。</p>
 <p>とりあえず以下でインストール、有効化している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle conao3/ddskk-posframe.el)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle ddskk-posframe.el)
 (ddskk-posframe-mode <span style="color:#ae81ff">1</span>)
+</code></pre></div><p>なお el-get.lock を使ったバージョン更新確認のためにレシピも必要だったので登録している</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(:name ddskk-posframe.el
+       :website <span style="color:#e6db74">&#34;https://github.com/conao3/ddskk-posframe.el&#34;</span>
+       :description <span style="color:#e6db74">&#34;ddskk-posframe.el provides Henkan tooltip for ddskk via posframe.&#34;</span>
+       :type github
+       :pkgname <span style="color:#e6db74">&#34;conao3/ddskk-posframe.el&#34;</span>)
 </code></pre></div><h2 id="その他">その他</h2>
 <p>漢字の変換すらも機械任せではなく自分で決めるみたいな漢字直接入力という方式もあり、
 SKK とそれを組み合わせると入力キーを覚えている漢字は漢直で入力しそうでない漢字は SKK で入力する、といった使い分けができるらしい。</p>
@@ -2852,6 +2879,22 @@ SKK とそれを組み合わせると入力キーを覚えている漢字は漢�
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -4669,19 +4712,19 @@ SKK とそれを組み合わせると入力キーを覚えている漢字は漢�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1642315526"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1642315526"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1642315526"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1642315526"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1642315526"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1642315526"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1647359644"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1647359644"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1647359644"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1647359644"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1647359644"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1647359644"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1642315526"></script>
-    <script src="/.emacs.d/js/learn.js?1642315526"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1642315526"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1647359644"></script>
+    <script src="/.emacs.d/js/learn.js?1647359644"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1647359644"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1642315526"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1647359644"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

@@ -12,20 +12,20 @@
     <title>hydra :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1642315527" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1647359644" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1642315527"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1647359644"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1642315527"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1642315527"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1647359644"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1647359644"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1642315527"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1647359644"></script>
 
     
   </div>
@@ -129,6 +129,27 @@
       <li data-nav-id="/.emacs.d/basics/auth-source/" title="auth-source" class="dd-item ">
         <a href="/.emacs.d/basics/auth-source/">
         auth-source
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/basics/auto-format/" title="auto-format" class="dd-item ">
+        <a href="/.emacs.d/basics/auto-format/">
+        auto-format
         
         </a>
     </li>
@@ -2698,6 +2719,7 @@
       <ul>
         <li><a href="#hydra-本体のインストール">Hydra 本体のインストール</a></li>
         <li><a href="#hydra-posframe-のインストール">hydra-posframe のインストール</a></li>
+        <li><a href="#webdav-sync-download-の設定">WebDAV Sync download の設定</a></li>
         <li><a href="#major-mode-hydra-のインストール">major-mode-hydra のインストール</a></li>
         <li><a href="#pretty-hydra-の関数上書き">pretty-hydra の関数上書き</a></li>
       </ul>
@@ -2750,14 +2772,27 @@ hydra-posframe を使って画面中央に表示されるようにしている�
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle hydra-posframe)
 </code></pre></div><p>そして Emacs の初期化処理が完了したタイミングでそれが使われるように after-init-hook で hydra-posframe を有効化している</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-hook <span style="color:#e6db74">&#39;after-init-hook</span> <span style="color:#e6db74">&#39;hydra-posframe-enable</span>)
-</code></pre></div><h3 id="major-mode-hydra-のインストール">major-mode-hydra のインストール</h3>
+</code></pre></div><h3 id="webdav-sync-download-の設定">WebDAV Sync download の設定</h3>
+<p>作業管理用の org-mode のドキュメントは WebDAV サーバにも上げて
+beorg でも使えるようにしているがそれを拾って来るためのコマンドを用意している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/download-from-beorg ()
+  (interactive)
+  (async-shell-command <span style="color:#e6db74">&#34;java -jar ~/bin/webdav_sync1_1_9.jar -c ~/.config/webdav-sync/download.xml &amp;&amp; notify-send &#39;WebDAV Sync&#39; &#39;Downloaded from WebDAV&#39;&#34;</span>))
+</code></pre></div><p>簡単に <code>async-shell-command</code> を使って済ませている</p>
+<h3 id="major-mode-hydra-のインストール">major-mode-hydra のインストール</h3>
 <p>自分以外で使っている人を見たことはないけど麦汁さんは <a href="https://github.com/jerrypnz/major-mode-hydra.el">major-mode-hydra</a> というものを利用している。</p>
 <p>これは major mode 用に簡単に Hydra の設定ができるというやつ。なので emacs-lisp-mode 用の Hydra とか
 js2-mode 用の Hydra などを定義できて便利。</p>
 <p>どちらの場合も <code>M-x major-mode-hydra</code> で起動するので迷わないで済むのも良い。</p>
 <p>内部では同じリポジトリにある pretty-hydra というのを利用していてそいつが UI の定義をせずともそれなりの感じに Hydra のメニューを構築してくれるようになっている。これもズボラな麦汁さんは気に入っている。導入していても表示にこだわりたい場合は直接 <code>defhydra</code> したらいいだけだしね。</p>
 <p>ってことでそれを el-get を使って GitHub からインストールしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle jerrypnz/major-mode-hydra.el)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle major-mode-hydra.el)
+</code></pre></div><p>なおレシピは自前で用意している</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(:name major-mode-hydra.el
+       :website <span style="color:#e6db74">&#34;https://github.com/jerrypnz/major-mode-hydra.el&#34;</span>
+       :description <span style="color:#e6db74">&#34;this package offers an alternative way to manage your major mode specific key bindings.&#34;</span>
+       :type github
+       :pkgname <span style="color:#e6db74">&#34;jerrypnz/major-mode-hydra.el&#34;</span>)
 </code></pre></div><h3 id="pretty-hydra-の関数上書き">pretty-hydra の関数上書き</h3>
 <p>Hydra の表示には hydra-posframe を使っているが
 hydra-posframe は最初に空行があると最後の行を表示しないようなので一時的に pretty-hydra&ndash;maybe-add-title を上書きして使ってみている。</p>
@@ -2928,7 +2963,8 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
 
    <span style="color:#75715e">;; (&#34;P&#34;   my/open-review-requested-pr &#34;Open Requested PR&#34;)</span>
    <span style="color:#e6db74">&#34;Other&#34;</span>
-   ((<span style="color:#e6db74">&#34;@&#34;</span>   all-the-icons-hydra/body <span style="color:#e6db74">&#34;List icons&#34;</span>))))
+   ((<span style="color:#e6db74">&#34;@&#34;</span> all-the-icons-hydra/body <span style="color:#e6db74">&#34;List icons&#34;</span>)
+    (<span style="color:#e6db74">&#34;D&#34;</span> my/download-from-beorg))))
 </code></pre></div><table>
 <thead>
 <tr>
@@ -2956,6 +2992,10 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
 <tr>
 <td>@</td>
 <td>All the icons の Hydra を起動</td>
+</tr>
+<tr>
+<td>D</td>
+<td>beorg 連携に使ってる WebDAV サーバからダウンロード</td>
 </tr>
 </tbody>
 </table>
@@ -3184,6 +3224,22 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -5010,19 +5066,19 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1642315527"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1642315527"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1642315527"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1642315527"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1642315527"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1642315527"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1647359645"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1647359645"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1647359645"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1647359645"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1647359645"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1647359645"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1642315527"></script>
-    <script src="/.emacs.d/js/learn.js?1642315527"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1642315527"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1647359645"></script>
+    <script src="/.emacs.d/js/learn.js?1647359645"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1647359645"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1642315527"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1647359645"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

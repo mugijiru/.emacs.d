@@ -12,20 +12,20 @@
     <title>highlight-indent-guides :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1642315527" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1642315527" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1647359644" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1642315527"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1647359644"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1642315527"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1642315527"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1647359644"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1647359644"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1642315527"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1647359644"></script>
 
     
   </div>
@@ -129,6 +129,27 @@
       <li data-nav-id="/.emacs.d/basics/auth-source/" title="auth-source" class="dd-item ">
         <a href="/.emacs.d/basics/auth-source/">
         auth-source
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/basics/auto-format/" title="auto-format" class="dd-item ">
+        <a href="/.emacs.d/basics/auto-format/">
+        auto-format
         
         </a>
     </li>
@@ -2695,7 +2716,7 @@
   <ul>
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
-    <li><a href="#設定">設定</a></li>
+    <li><a href="#設定">設定 <span class="tag"><span class="improvement">improvement</span></span></a></li>
   </ul>
 </nav>
     </div>
@@ -2724,9 +2745,16 @@
 <p><a href="https://github.com/DarthFennec/highlight-indent-guides">highlight-indent-guides</a> はインデント毎にラインを引いたりして見易くしてくれるパッケージ。通常のプログラムを書く時にも便利だけど、
 YAML などのインデントがそのまま構造になるような言語を弄る時にとても便利。</p>
 <h2 id="インストール">インストール</h2>
-<p>これもいつも通り el-get でインストールしている。また GitHub にあるので、そこから直接インストールしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle DarthFennec/highlight-indent-guides)
-</code></pre></div><h2 id="設定">設定</h2>
+<p>これもいつも通り el-get でインストールしている。
+GitHub にあるのでそこを直接指定してインストールもできるのだけど
+el-get.lock からアップデートをチェックする都合上、レシピを用意してそれを使ってインストールしている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(:name highlight-indent-guides
+       :website <span style="color:#e6db74">&#34;https://github.com/DarthFennec/highlight-indent-guides&#34;</span>
+       :description <span style="color:#e6db74">&#34;This minor mode highlights indentation levels via font-lock&#34;</span>
+       :type github
+       :pkgname <span style="color:#e6db74">&#34;DarthFennec/highlight-indent-guides&#34;</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle highlight-indent-guides)
+</code></pre></div><h2 id="設定">設定 <span class="tag"><span class="improvement">improvement</span></span></h2>
 <p>今いる行がどのインデントにいるのかをわかりやすくするために
 responsive モードを有効にしている。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq highlight-indent-guides-responsive <span style="color:#e6db74">&#34;stack&#34;</span>)
@@ -2779,6 +2807,22 @@ custom-set-variables で設定した方がいいかもしれない。</p>
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -4605,19 +4649,19 @@ custom-set-variables で設定した方がいいかもしれない。</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1642315527"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1642315527"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1642315527"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1642315527"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1642315527"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1642315527"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1647359645"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1647359645"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1647359645"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1647359645"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1647359645"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1647359645"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1642315527"></script>
-    <script src="/.emacs.d/js/learn.js?1642315527"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1642315527"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1647359645"></script>
+    <script src="/.emacs.d/js/learn.js?1647359645"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1647359645"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1642315527"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1647359645"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

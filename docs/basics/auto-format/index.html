@@ -9,23 +9,23 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>テストコード :: 麦汁&#39;s Emacs Config</title>
+    <title>auto-format :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1647359645" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1647359645" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1647359645" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1647359645" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1647359645" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1647359645" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1647359645" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1647359645" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1647359645" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1647359645" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1647359644" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1647359645"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1647359644"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/testing/">
+  <body class="" data-url="/.emacs.d/basics/auto-format/">
     <nav id="sidebar" class="">
 
 
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1647359645"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1647359645"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1647359644"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1647359644"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1647359645"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1647359644"></script>
 
     
   </div>
@@ -100,7 +100,7 @@
   
     
     <li data-nav-id="/.emacs.d/basics/" title="基本設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -147,7 +147,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/basics/auto-format/" title="auto-format" class="dd-item ">
+      <li data-nav-id="/.emacs.d/basics/auto-format/" title="auto-format" class="dd-item active">
         <a href="/.emacs.d/basics/auto-format/">
         auto-format
         
@@ -2540,8 +2540,8 @@
   
     
     <li data-nav-id="/.emacs.d/testing/" title="テストコード" class="dd-item
-        parent
-        active
+        
+        
         
         ">
       <a href="/.emacs.d/testing/">
@@ -2683,6 +2683,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -2693,7 +2695,13 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > テストコード
+            
+            
+          
+          
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/basics/'>基本設定</a> > auto-format
+          
+        
           
         
           
@@ -2701,6 +2709,18 @@
                  
                   </span>
                 </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#インストール">インストール</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
                 
               </div>
             </div>
@@ -2713,30 +2733,30 @@
           
             <h1>
               
-              テストコード
+              auto-format
             </h1>
           
 
         
 
 
+<h2 id="概要">概要</h2>
+<p>保存時に自動で整形してくれるように
+<a href="https://github.com/mugijiru/auto-fix.el">fork した auto-fix.el</a> を使っている。</p>
+<p>これを入れて各 major-mode で設定をするとファイル保存時に自動で整形してくれて便利だったりする</p>
+<h2 id="インストール">インストール</h2>
+<p>fork しているので自前で recipe も用意している</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(:name auto-fix
+       :website <span style="color:#e6db74">&#34;https://github.com/mugijiru/auto-fix.el&#34;</span>
+       :description <span style="color:#e6db74">&#34;Fix current buffer automatically&#34;</span>
+       :type github
+       :branch <span style="color:#e6db74">&#34;accept-multiple-args&#34;</span>
+       :pkgname <span style="color:#e6db74">&#34;mugijiru/auto-fix.el&#34;</span>)
+</code></pre></div><p>これを以下のようにして el-get でインスコしている</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle auto-fix)
+</code></pre></div>
 
-	<p>一部のコマンドなどの設定を書き始めているので設けたセクション。</p>
-<p>暫定的にここに置いているが設定と近い方が良さそうなのでいずれドキュメント内の位置を移動しそう。</p>
-<dl>
-<dt><a href="/.emacs.d/testing/execution/">実行方法</a></dt>
-<dd>とりあえず書かれているテストを動かす方法を書いている。</dd>
-<dt><a href="/.emacs.d/testing/run-tests/">run-tests</a></dt>
-<dd>テスト全体を動かすための共通設定ファイルの説明</dd>
-<dt><a href="/.emacs.d/testing/my-org-commands-test/">my-org-commands-test</a></dt>
-<dd>org-mode 用に自分が生やしたコマンドのテストファイルの解説</dd>
-</dl>
-
-
-
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -2771,8 +2791,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -2786,6 +2804,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -2802,6 +2823,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -2819,6 +2841,9 @@
             
                 
                     
+                        
+                        
+                    
                 
                 
 
@@ -4534,7 +4559,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -4547,9 +4571,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -4606,10 +4627,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/testing-tool/mocker-el/" title="mocker.el"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/basics/auth-source/" title="auth-source"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/testing/execution/" title="実行方法" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/basics/auto-save/" title="auto-save" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -4619,19 +4640,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1647359645"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1647359645"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1647359645"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1647359645"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1647359645"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1647359645"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1647359644"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1647359644"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1647359644"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1647359644"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1647359644"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1647359644"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1647359645"></script>
-    <script src="/.emacs.d/js/learn.js?1647359645"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1647359645"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1647359644"></script>
+    <script src="/.emacs.d/js/learn.js?1647359644"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1647359644"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1647359645"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1647359644"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
@@ -4641,3 +4662,4 @@
 
   </body>
 </html>
+
