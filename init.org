@@ -2224,6 +2224,19 @@
      (add-hook 'after-init-hook 'hydra-posframe-enable)
      #+end_src
 
+**** WebDAV Sync download の設定
+     作業管理用の org-mode のドキュメントは WebDAV サーバにも上げて
+     beorg でも使えるようにしているが
+     それを拾って来るためのコマンドを用意している。
+
+     #+begin_src emacs-lisp :tangle inits/81-hydra.el
+       (defun my/download-from-beorg ()
+         (interactive)
+         (async-shell-command "java -jar ~/bin/webdav_sync1_1_9.jar -c ~/.config/webdav-sync/download.xml && notify-send 'WebDAV Sync' 'Downloaded from WebDAV'"))
+     #+end_src
+
+     簡単に ~async-shell-command~ を使って済ませている
+
 **** major-mode-hydra のインストール
      自分以外で使っている人を見たことはないけど
      麦汁さんは [[https://github.com/jerrypnz/major-mode-hydra.el][major-mode-hydra]] というものを利用している。
@@ -2350,31 +2363,33 @@
      最初に起動した Hydra からは外してるけど、そこそこ使うコマンド群を適当に詰めてるやつ。
 
      #+begin_src emacs-lisp :tangle inits/81-hydra.el
-     (pretty-hydra-define
-       subtools-hydra
-       (:separator "-"
-                   :color teal
-                   :foreign-key warn
-                   :title (concat (all-the-icons-material "build") " Sub tools")
-                   :quit-key "q"
-                   :exit t)
-       ("Describe"
-        (("b" counsel-descbinds "Keybind")
-         ("f" counsel-describe-function "Function")
-         ("v" counsel-describe-variable "Variable")
-         ("m" describe-minor-mode "Minor mode"))
+            (pretty-hydra-define
+              subtools-hydra
+              (:separator "-"
+                          :color teal
+                          :foreign-key warn
+                          :title (concat (all-the-icons-material "build") " Sub tools")
+                          :quit-key "q"
+                          :exit t)
+              ("Describe"
+               (("b" counsel-descbinds "Keybind")
+                ("f" counsel-describe-function "Function")
+                ("v" counsel-describe-variable "Variable")
+                ("m" describe-minor-mode "Minor mode"))
 
-        ;; ("P"   my/open-review-requested-pr "Open Requested PR")
-        "Other"
-        (("@"   all-the-icons-hydra/body "List icons"))))
+               ;; ("P"   my/open-review-requested-pr "Open Requested PR")
+               "Other"
+               (("@" all-the-icons-hydra/body "List icons")
+                ("D" my/download-from-beorg))))
      #+end_src
 
-     | Key | 効果                          |
-     | b   | キーバインドを調べる          |
-     | f   | Emacs Lisp の関数を調べる     |
-     | v   | Emacs Lisp の変数を調べる     |
-     | m   | minor-mode を調べる           |
-     | @   | All the icons の Hydra を起動 |
+     | Key | 効果                                               |
+     | b   | キーバインドを調べる                               |
+     | f   | Emacs Lisp の関数を調べる                          |
+     | v   | Emacs Lisp の変数を調べる                          |
+     | m   | minor-mode を調べる                                |
+     | @   | All the icons の Hydra を起動                      |
+     | D   | beorg 連携に使ってる WebDAV サーバからダウンロード |
 
 **** Text Scale
      文字サイズの切替用。たまに字を大きくしたりしたいので。
