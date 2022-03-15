@@ -48,8 +48,12 @@ jsx/tsx ファイルを開く時に web-mode が有効になるようにして�
 -   display-line-numbers-mode
 -   lsp
 -   lsp-ui-mode
+-   company-mode
 
 を有効にしている。
+
+また web-mode の設定も少し弄っていて
+indent は2桁スペースになるようにしているが自動インデントだとそれが反映されないっぽいので自動インデントはオフにしている。
 
 ```emacs-lisp
 (defun my/web-mode-tsx-hook ()
@@ -57,6 +61,8 @@ jsx/tsx ファイルを開く時に web-mode が有効になるようにして�
     (when (or (string-equal "jsx" ext) (string-equal "tsx" ext))
       (setq web-mode-markup-indent-offset 2)
       (setq web-mode-code-indent-offset 2)
+      (setq web-mode-enable-auto-indentation nil)
+      (company-mode 1)
       (turn-on-smartparens-mode)
       (display-line-numbers-mode t)
       (lsp)

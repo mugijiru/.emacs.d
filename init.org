@@ -4059,21 +4059,29 @@
     - display-line-numbers-mode
     - lsp
     - lsp-ui-mode
+    - company-mode
+
 
     を有効にしている。
 
-    #+begin_src emacs-lisp :tangle inits/41-react.el
-    (defun my/web-mode-tsx-hook ()
-      (let ((ext (file-name-extension buffer-file-name)))
-        (when (or (string-equal "jsx" ext) (string-equal "tsx" ext))
-          (setq web-mode-markup-indent-offset 2)
-          (setq web-mode-code-indent-offset 2)
-          (turn-on-smartparens-mode)
-          (display-line-numbers-mode t)
-          (lsp)
-          (lsp-ui-mode 1))))
+    また web-mode の設定も少し弄っていて
+    indent は2桁スペースになるようにしているが
+    自動インデントだとそれが反映されないっぽいので自動インデントはオフにしている。
 
-    (add-hook 'web-mode-hook 'my/web-mode-tsx-hook)
+    #+begin_src emacs-lisp :tangle inits/41-react.el
+      (defun my/web-mode-tsx-hook ()
+        (let ((ext (file-name-extension buffer-file-name)))
+          (when (or (string-equal "jsx" ext) (string-equal "tsx" ext))
+            (setq web-mode-markup-indent-offset 2)
+            (setq web-mode-code-indent-offset 2)
+            (setq web-mode-enable-auto-indentation nil)
+            (company-mode 1)
+            (turn-on-smartparens-mode)
+            (display-line-numbers-mode t)
+            (lsp)
+            (lsp-ui-mode 1))))
+
+      (add-hook 'web-mode-hook 'my/web-mode-tsx-hook)
     #+end_src
 
 ** rspec-mode
