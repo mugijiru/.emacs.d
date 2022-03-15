@@ -32,6 +32,19 @@ indent は2文字がいいのでデフォルトから変更している
 ```
 
 
+### auto-fix の hook 関数 {#auto-fix-の-hook-関数}
+
+保存した時に自動で整形してほしいなと思ったので
+auto-fix.el で自動で保存されるように hook 関数を用意している
+
+```emacs-lisp
+(defun my/auto-fix-mode-hook-for-ts ()
+  (add-hook 'before-save-hook 'auto-fix-before-save))
+
+(add-hook 'auto-fix-mode-hook 'my/auto-fix-mode-hook-for-ts)
+```
+
+
 ### hook {#hook}
 
 -   company-mode
@@ -42,6 +55,8 @@ indent は2文字がいいのでデフォルトから変更している
 などのプログラミングで便利な各種のモードを
 hook を使って有効化している
 
+auto-fix はここでもなんか設定しているのでなんか設定まとめたいなあって感じはある。
+
 ```emacs-lisp
 (defun my/ts-mode-hook ()
   (company-mode 1)
@@ -51,10 +66,17 @@ hook を使って有効化している
   (lsp-ui-mode 1)
   (flycheck-mode 1)
   (setq flycheck-disabled-checkers '(javascript-standard javascript-jshint))
-  (flycheck-add-next-checker 'lsp '(warning . javascript-eslint)))
+  (flycheck-add-next-checker 'lsp '(warning . javascript-eslint))
+
+  (let* ((args (list "run" "eslint" "--fix"))
+         (args-string (mapconcat #'shell-quote-argument args " ")))
+    (setq-local auto-fix-option args-string))
+  (setq-local auto-fix-options '("run" "eslint" "--fix"))
+  (setq-local auto-fix-command "yarn")
+  (auto-fix-mode 1))
 ```
 
-という関数を用意して
+この関数を
 
 ```emacs-lisp
 (add-hook 'typescript-mode-hook 'my/ts-mode-hook)
