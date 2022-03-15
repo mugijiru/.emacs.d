@@ -14,7 +14,7 @@
 
 (org-super-agenda-mode 1)
 
-(setq my/org-agenda-calendar-files '()) ;; 今はカレンダー連携していないので空を設定しておく
+(setq my/org-agenda-calendar-files '())
 
 (setq org-agenda-custom-commands
 '(("h" . "Habits")

@@ -5431,6 +5431,14 @@
      (org-super-agenda-mode 1)
      #+end_src
 
+**** agenda で使う変数の初期化
+     ~my/org-agenda-calendar-files~ という変数でカレンダーの情報を取り込んで agenda を表示できるようにしている。
+     けど今はカレンダー連携をしていないので空で初期化している。
+
+     #+begin_src emacs-lisp :tangle inits/61-org-agenda.el
+       (setq my/org-agenda-calendar-files '())
+     #+end_src
+
 **** カスタムビュー
      色々なカスタムビューを定義している。
      かといって全部使ってるわけではないし、つまり使いこなせているかというと微妙。
