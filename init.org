@@ -49,8 +49,9 @@
 
    Emacs の基本動作に関わる部分をここでは設定している
 
-   - [[*auto-save][auto-save]] :: 編集中状態の自動保存や編集前の状態のバックアップに関する設定
    - [[*auth-source][auth-source]] :: 認証情報の取り扱いファイルの設定
+   - [[*auto-format][auto-format]] :: ファイル保存時に自動で整形してくれるやつ
+   - [[*auto-save][auto-save]] :: 編集中状態の自動保存や編集前の状態のバックアップに関する設定
    - [[*custom-file][custom-file]] :: カスタマイズ変数などの保存先を変更している
    - [[*ddskk][ddskk]] :: ちょっと変わった日本語入力 SKK の Emacs Lisp 版
    - [[*exec-path][exec-path]] :: PATH などの環境変数を shell と合わせる設定
@@ -83,6 +84,34 @@
 
     #+begin_src emacs-lisp :tangle inits/00-authinfo.el
     (custom-set-variables '(auth-sources (quote ("~/.emacs.d/.authinfo.gpg"))))
+    #+end_src
+** auto-format
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: auto-format
+   :END:
+*** 概要
+    保存時に自動で整形してくれるように
+    [[https://github.com/mugijiru/auto-fix.el][fork した auto-fix.el]] を使っている。
+
+    これを入れて各 major-mode で設定をすると
+    ファイル保存時に自動で整形してくれて便利だったりする
+
+*** インストール
+    fork しているので自前で recipe も用意している
+
+    #+begin_src emacs-lisp :tangle recipes/auto-fix.rcp
+      (:name auto-fix
+             :website "https://github.com/mugijiru/auto-fix.el"
+             :description "Fix current buffer automatically"
+             :type github
+             :branch "accept-multiple-args"
+             :pkgname "mugijiru/auto-fix.el")
+    #+end_src
+
+    これを以下のようにして el-get でインスコしている
+
+    #+begin_src emacs-lisp :tangle inits/10-auto-format.el
+      (el-get-bundle auto-fix)
     #+end_src
 ** auto-save                                                    :replacement:
    :PROPERTIES:
