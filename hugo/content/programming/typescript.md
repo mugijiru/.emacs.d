@@ -34,7 +34,12 @@ indent は2文字がいいのでデフォルトから変更している
 
 ### hook {#hook}
 
-company-mode などのプログラミングで便利な各種のモードを
+-   company-mode
+-   smartparens-strict-mode
+-   lsp/lsp-ui
+-   flycheck
+
+などのプログラミングで便利な各種のモードを
 hook を使って有効化している
 
 ```emacs-lisp
@@ -43,7 +48,10 @@ hook を使って有効化している
   (turn-on-smartparens-strict-mode)
   (display-line-numbers-mode t)
   (lsp)
-  (lsp-ui-mode 1))
+  (lsp-ui-mode 1)
+  (flycheck-mode 1)
+  (setq flycheck-disabled-checkers '(javascript-standard javascript-jshint))
+  (flycheck-add-next-checker 'lsp '(warning . javascript-eslint)))
 ```
 
 という関数を用意して

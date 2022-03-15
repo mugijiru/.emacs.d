@@ -4405,16 +4405,24 @@
       '(typescript-indent-level 2))
      #+end_src
 **** hook
-     company-mode などのプログラミングで便利な各種のモードを
+     - company-mode
+     - smartparens-strict-mode
+     - lsp/lsp-ui
+     - flycheck
+
+     などのプログラミングで便利な各種のモードを
      hook を使って有効化している
 
      #+begin_src emacs-lisp :tangle inits/40-ts.el
-     (defun my/ts-mode-hook ()
-       (company-mode 1)
-       (turn-on-smartparens-strict-mode)
-       (display-line-numbers-mode t)
-       (lsp)
-       (lsp-ui-mode 1))
+       (defun my/ts-mode-hook ()
+         (company-mode 1)
+         (turn-on-smartparens-strict-mode)
+         (display-line-numbers-mode t)
+         (lsp)
+         (lsp-ui-mode 1)
+         (flycheck-mode 1)
+         (setq flycheck-disabled-checkers '(javascript-standard javascript-jshint))
+         (flycheck-add-next-checker 'lsp '(warning . javascript-eslint)))
      #+end_src
 
      という関数を用意して
