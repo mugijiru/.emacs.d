@@ -5253,17 +5253,6 @@
 *** 概要
     ここでは org-babel の設定をまとめている。
 
-*** org-export-blocks-format-plantuml                                :unused:
-    org-mode で PlantUML の図を出力する拡張を入れている。
-
-    #+begin_src emacs-lisp :tangle inits/60-org.el
-    (el-get-bundle org-export-blocks-format-plantuml)
-    #+end_src
-
-    のだけれど
-    https://www.emacswiki.org/emacs/org-export-blocks-format-plantuml.el
-    を見ると Obsolute と書いてますね。
-    今度消さなきゃ。
 *** org-babel で評価可能な言語の指定
 
     なんか普段から使いそうな奴をとりあえず選定しているつもり。

@@ -9,19 +9,6 @@ weight = 2
 ここでは org-babel の設定をまとめている。
 
 
-## org-export-blocks-format-plantuml {#org-export-blocks-format-plantuml}
-
-org-mode で PlantUML の図を出力する拡張を入れている。
-
-```emacs-lisp
-(el-get-bundle org-export-blocks-format-plantuml)
-```
-
-のだけれど
-<https://www.emacswiki.org/emacs/org-export-blocks-format-plantuml.el>
-を見ると Obsolute と書いてますね。今度消さなきゃ。
-
-
 ## org-babel で評価可能な言語の指定 {#org-babel-で評価可能な言語の指定}
 
 なんか普段から使いそうな奴をとりあえず選定しているつもり。
@@ -62,7 +49,7 @@ PlantUML の処理をすることが多いので以下の hook を設定する�
 ```
 
 
-## org-babel の非同期実行 {#org-babel-の非同期実行}
+## org-babel の非同期実行 <span class="tag"><span class="improvement">improvement</span></span> {#org-babel-の非同期実行}
 
 非同期に org-babel の source を実行するために
 [ob-async](https://github.com/astahlman/ob-async) を入れている
