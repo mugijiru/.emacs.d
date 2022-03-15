@@ -2745,7 +2745,17 @@
 
     とりあえずいつも通り el-get でインストールしている。
     #+begin_src emacs-lisp :tangle inits/83-prescient.el
-    (el-get-bundle raxod502/prescient.el)
+    (el-get-bundle prescient.el)
+    #+end_src
+
+    レシピは自前で追加している
+
+    #+begin_src emacs-lisp :tangle recipes/prescient.el.rcp
+      (:name raxod502/prescient.el
+             :website "https://github.com/raxod502/prescient.el"
+             :description "simple but effective sorting and filtering for Emacs."
+             :type github
+             :pkgname "raxod502/prescient.el")
     #+end_src
 
     そんで ivy でそれが使われるように ivy-prescient-mode を有効にしている。
