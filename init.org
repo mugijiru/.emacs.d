@@ -724,7 +724,7 @@
     いつも通り el-get で入れている。
 
     #+begin_src emacs-lisp :tangle inits/70-tempbuf.el
-    (el-get-bundle tempbuf)
+    (el-get-bundle tempbuf-mode)
     #+end_src
 *** 勝手に kill させないファイルの指定
     org-clock を使うようなファイルは
