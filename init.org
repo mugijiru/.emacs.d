@@ -3741,9 +3741,13 @@
      これは公式に書かれているやりかたに則っている
      https://github.com/flycheck/flycheck-pos-tip#installation
 
+     また web-mode はデフォルトでは flycheck が使えないので
+     flycheck-add-mode を使って web-mode でも flycheck が使えるようにしている
+
      #+begin_src emacs-lisp :tangle inits/30-flycheck.el
-     (with-eval-after-load 'flycheck
-       (flycheck-pos-tip-mode))
+       (with-eval-after-load 'flycheck
+         (flycheck-pos-tip-mode)
+         (flycheck-add-mode 'javascript-eslint 'web-mode))
      #+end_src
 **** その他
 ***** flycheck-posframe

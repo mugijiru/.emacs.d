@@ -24,9 +24,13 @@ flycheck と同時にカーソルのそばに pos-tip で通知内容を表示�
 flycheck を読んだ後で flycheck-pos-tip-mode が有効になるようにしている。これは公式に書かれているやりかたに則っている
 <https://github.com/flycheck/flycheck-pos-tip#installation>
 
+また web-mode はデフォルトでは flycheck が使えないので
+flycheck-add-mode を使って web-mode でも flycheck が使えるようにしている
+
 ```emacs-lisp
 (with-eval-after-load 'flycheck
-  (flycheck-pos-tip-mode))
+  (flycheck-pos-tip-mode)
+  (flycheck-add-mode 'javascript-eslint 'web-mode))
 ```
 
 
@@ -42,4 +46,4 @@ flycheck-pos-tip は flycheck 公式のプラグインなので採用してい�
 
 各言語向けの設定もあるけどそれは各言語の設定ファイル内に書いているのでここでは書いてない
 
-[プログラミング関係の設定 > ruby]({{< relref "ruby" >}}) とか [プログラミング関係の設定 > scss]({{< relref "scss" >}}) とかに書いているはず
+[プログラミング関係の設定 &gt; ruby]({{< relref "ruby" >}}) とか [プログラミング関係の設定 &gt; scss]({{< relref "scss" >}}) とかに書いているはず
