@@ -4064,9 +4064,11 @@
     - lsp
     - lsp-ui-mode
     - company-mode
-
+    - flycheck
 
     を有効にしている。
+
+    flycheck では lsp と eslint を使いたいのでそれ以外の JS の checker は disable にしている
 
     また web-mode の設定も少し弄っていて
     indent は2桁スペースになるようにしているが
@@ -4083,7 +4085,10 @@
             (turn-on-smartparens-mode)
             (display-line-numbers-mode t)
             (lsp)
-            (lsp-ui-mode 1))))
+            (lsp-ui-mode 1)
+            (flycheck-mode 1)
+            (setq flycheck-disabled-checkers '(javascript-standard javascript-jshint))
+            (flycheck-add-next-checker 'lsp '(warning . javascript-eslint)))))
 
       (add-hook 'web-mode-hook 'my/web-mode-tsx-hook)
     #+end_src

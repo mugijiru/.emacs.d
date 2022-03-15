@@ -49,8 +49,11 @@ jsx/tsx ファイルを開く時に web-mode が有効になるようにして�
 -   lsp
 -   lsp-ui-mode
 -   company-mode
+-   flycheck
 
 を有効にしている。
+
+flycheck では lsp と eslint を使いたいのでそれ以外の JS の checker は disable にしている
 
 また web-mode の設定も少し弄っていて
 indent は2桁スペースになるようにしているが自動インデントだとそれが反映されないっぽいので自動インデントはオフにしている。
@@ -66,7 +69,10 @@ indent は2桁スペースになるようにしているが自動インデント
       (turn-on-smartparens-mode)
       (display-line-numbers-mode t)
       (lsp)
-      (lsp-ui-mode 1))))
+      (lsp-ui-mode 1)
+      (flycheck-mode 1)
+      (setq flycheck-disabled-checkers '(javascript-standard javascript-jshint))
+      (flycheck-add-next-checker 'lsp '(warning . javascript-eslint)))))
 
 (add-hook 'web-mode-hook 'my/web-mode-tsx-hook)
 ```
