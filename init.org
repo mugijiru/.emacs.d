@@ -2255,7 +2255,17 @@
      ってことでそれを el-get を使って GitHub からインストールしている。
 
      #+begin_src emacs-lisp :tangle inits/81-hydra.el
-     (el-get-bundle jerrypnz/major-mode-hydra.el)
+     (el-get-bundle major-mode-hydra.el)
+     #+end_src
+
+     なおレシピは自前で用意している
+
+     #+begin_src emacs-lisp :tangle recipes/major-mode-hydra.el.rcp
+       (:name major-mode-hydra.el
+              :website "https://github.com/jerrypnz/major-mode-hydra.el"
+              :description "this package offers an alternative way to manage your major mode specific key bindings."
+              :type github
+              :pkgname "jerrypnz/major-mode-hydra.el")
      #+end_src
 
 **** pretty-hydra の関数上書き

@@ -4,11 +4,11 @@
 
 (add-hook 'after-init-hook 'hydra-posframe-enable)
 
-(el-get-bundle major-mode-hydra.el)
-
 (defun my/download-from-beorg ()
   (interactive)
   (async-shell-command "java -jar ~/bin/webdav_sync1_1_9.jar -c ~/.config/webdav-sync/download.xml && notify-send 'WebDAV Sync' 'Downloaded from WebDAV'"))
+
+(el-get-bundle major-mode-hydra.el)
 
 (pretty-hydra-define el-get-hydra (:separator "-" :title "el-get" :foreign-key warn :quit-key "q" :exit t)
   ("Install"

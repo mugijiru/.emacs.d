@@ -70,7 +70,17 @@ js2-mode 用の Hydra などを定義できて便利。
 ってことでそれを el-get を使って GitHub からインストールしている。
 
 ```emacs-lisp
-(el-get-bundle jerrypnz/major-mode-hydra.el)
+(el-get-bundle major-mode-hydra.el)
+```
+
+なおレシピは自前で用意している
+
+```emacs-lisp
+(:name major-mode-hydra.el
+       :website "https://github.com/jerrypnz/major-mode-hydra.el"
+       :description "this package offers an alternative way to manage your major mode specific key bindings."
+       :type github
+       :pkgname "jerrypnz/major-mode-hydra.el")
 ```
 
 
