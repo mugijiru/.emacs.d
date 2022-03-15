@@ -29,12 +29,6 @@ disableToc = true
 [git-gutter-fringe]({{< relref "git-gutter-fringe" >}})
 : 最後のコミットからどう弄ったかを fringe 領域に表示してくれるやつ
 
-[helm]({{< relref "helm" >}})
-: 絞り込みインターフェースを提供するやつ。[ivy]({{< relref "ivy" >}}) よりも色々できるやつ。
-
-[helm-posframe]({{< relref "helm-posframe" >}})
-: Helm を posframe で使えるようにするやつ
-
 [highlight-indent-guides]({{< relref "highlight-indent-guides" >}})
 : インデント毎にラインを引いたりして見易くしてくれるやつ
 
@@ -45,7 +39,7 @@ disableToc = true
 : Emacs 標準添付の補完インターフェース
 
 [ivy]({{< relref "ivy" >}})
-: 絞り込みインターフェーズを提供してくれるやつ。[helm]({{< relref "helm" >}}) よりシンプルな感じ
+: 絞り込みインターフェーズを提供してくれるやつ。
 
 [mode-line]({{< relref "mode-line" >}})
 : モードラインに関する設定をここにまとめている

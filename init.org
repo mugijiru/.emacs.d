@@ -1125,19 +1125,6 @@
 
     Ladicle さんの https://ladicle.com/post/config/#multiple-cursor の設定が便利そうだなって思って気になってるけどまだ試してない。
 
-*** Helm
-    最近はほぼ Ivy に乗り換えてるのでほとんど出番はないのだけど
-    helm-find-file が便利でそこだけ乗り換えできてないので
-    それだけ定義がコメントアウトされずに残っている。
-
-    #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
-    ;; (global-set-key (kbd "M-y") 'helm-show-kill-ring)
-    (global-set-key (kbd "C-;") 'helm-for-files)
-    ;; (global-set-key (kbd "M-x") 'helm-M-x)
-    ;; (global-set-key (kbd "C-x b") 'helm-mini)
-    ;; (global-set-key (kbd "C-x C-f") 'helm-find-files)
-    #+end_src
-
 *** Ivy
     Helm から乗り換えて今はこちらをメインで使っている。
     基本的には既存のキーバインドの持っていた機能が強化されるようなコマンドを代わりに割り当てている。
@@ -1728,12 +1715,10 @@
    - [[*frame-cmds][frame-cmds]] :: フレーム移動や拡縮などの操作をするコマンド群
    - [[*fullscreen][fullscreen]] :: 起動時のフルスクリーン設定
    - [[*git-gutter-fringe][git-gutter-fringe]] :: 最後のコミットからどう弄ったかを fringe 領域に表示してくれるやつ
-   - [[*helm][helm]] :: 絞り込みインターフェースを提供するやつ。[[*ivy][ivy]] よりも色々できるやつ。
-   - [[*helm-posframe][helm-posframe]] :: Helm を posframe で使えるようにするやつ
    - [[*highlight-indent-guides][highlight-indent-guides]] :: インデント毎にラインを引いたりして見易くしてくれるやつ
    - [[*hydra][hydra]] :: サブコマンドをビジュアル的に表示してくれるメニューを提供してくれるやつ
    - [[*ido-mode][ido-mode]] :: Emacs 標準添付の補完インターフェース
-   - [[*ivy][ivy]] :: 絞り込みインターフェーズを提供してくれるやつ。[[*helm][helm]] よりシンプルな感じ
+   - [[*ivy][ivy]] :: 絞り込みインターフェーズを提供してくれるやつ。
    - [[*mode-line][mode-line]] :: モードラインに関する設定をここにまとめている
    - [[*Neotree][Neotree]] :: フォルダ構造を IDE みたいにツリー表示するやつ
    - [[*posframe][posframe]] :: いい感じの位置に child frame を表示する機能を提供するやつ
@@ -2093,97 +2078,6 @@
 
     defcustom で定義されてる変数なので
     custom-set-variables で設定した方がいいかもしれない。
-
-** helm
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: helm
-   :END:
-
-*** 概要
-
-    [[https://github.com/emacs-helm/helm][helm]] は anything.el の後継であり、
-    インクリメンタルに候補の絞り込みをしたりする UI を提供する便利なパッケージ。
-
-    [[https://github.com/peco/peco][peco]] とか [[https://github.com/junegunn/fzf][fzf]] とかと似ているっちゃ似ているかな? fzf 使ったことないけど。
-
-    一時期開発が止まってるようだったけど最近(2021年)はまた更新が活発になっている。
-
-    ただ、麦汁さんは ivy に乗り換えようとしているので helm の設定は頑張っていない。
-    helm-for-files が便利なのでまだ捨てられてないけど……。
-
-*** インストール                                                :improvement:
-
-    helm で使いたい拡張として
-    [[https://github.com/emacs-helm/helm-descbinds][helm-descbinds]] と [[https://github.com/emacsorphanage/helm-ag][helm-ag]] というのがあるのでそれらも同時に入れている。
-
-    #+begin_src emacs-lisp :tangle inits/20-helm.el
-    (el-get-bundle helm)
-    (el-get-bundle helm-descbinds)
-    (el-get-bundle helm-ag)
-    #+end_src
-
-    ただ descbinds は counsel-descbinds に置き換えたし
-    helm-ag ももう使ってない気がする
-
-*** 設定
-
-    オススメの設定が helm に同梱されている helm-config に入ってるので
-    まずはそれを読み込んでいる。
-
-    #+begin_src emacs-lisp :tangle inits/20-helm.el
-    (require 'helm-config)
-    #+end_src
-
-    また helm-descbinds を使えるように有効にしている。
-    けど、上にも書いたけどもう counsel-descbinds に置き換えちゃったのよね……。
-
-    #+begin_src emacs-lisp :tangle inits/20-helm.el
-    (helm-descbinds-mode)
-    #+end_src
-
-    あとは helm-migemo-mode というのを有効にしている。
-    これがあると helm で検索する時に migemo れて便利。
-
-    #+begin_src emacs-lisp :tangle inits/20-helm.el
-    (helm-migemo-mode 1)
-    #+end_src
-
-    ivy の方でも migemo 対応したいけどまだできてない……。
-
-*** その他
-
-    helm 系の設定は他の設定にも色々影響も大きそうなので
-    読み込み順は結構早いタイミングにしている(init-loader で 20 を prefix にしている)
-
-** helm-posframe
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: helm-posframe
-   :END:
-
-*** 概要
-
-    [[https://github.com/tumashu/helm-posframe][helm-posframe]] は [[https://github.com/emacs-helm/helm][helm]] の拡張で
-    Helm のバッファの表示を [[https://github.com/tumashu/posframe][posframe]] を使うようにしてくれるやつ。
-
-    実は helm 本体の方でも posframe 対応しているのであまり使う必要もなさそうなので
-    いずれ外すかもしれない。
-
-    ただ確か本体の方の挙動が気に入らなかったような気はする。
-
-*** インストール
-
-    いつも通り el-get でインストール。
-    GitHub にあるのでそれを取得するようにしている。
-
-    #+begin_src emacs-lisp :tangle inits/21-helm-posframe.el
-    (el-get-bundle tumashu/helm-posframe)
-    #+end_src
-
-*** 有効化
-
-    #+begin_src emacs-lisp :tangle inits/21-helm-posframe.el
-    (helm-posframe-enable)
-    #+end_src
 
 ** hydra
    :PROPERTIES:
@@ -2886,7 +2780,6 @@
      今は使ってないので全部コメントアウトしている
 
      #+begin_src emacs-lisp :tangle inits/90-mode-line.el
-     ;; (my/diminish "helm" 'helm-mode ":helmet-with-cross:")
      ;; (my/diminish "git-gutter" 'git-gutter-mode (all-the-icons-octicon "git-compare"))
      ;; (my/diminish "yasnippet" 'yas-minor-mode " Ys")
      ;; (my/diminish "whitespace" 'whitespace-mode "◽")
