@@ -67,7 +67,7 @@
          (type (plist-get recipe :type))
          (pkgname (plist-get recipe :pkgname))
          (url (if (eq type 'github)
-                  (concat "git://github.com/" pkgname ".git")
+                  (concat "https://github.com/" pkgname ".git")
                 (plist-get recipe :url))))
     (if url
         (el-get-lock-update-check-process-hash recipe url checksum)
