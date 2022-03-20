@@ -22,7 +22,7 @@
         (browse-at-remote :checksum "cef26f2c063f2473af42d0e126c8613fe2f709e4")
         (ox-hugo :checksum "2f7f26cd18917e2e1fefa09b09a43e6b96eea0ac")
         (sticky-control :checksum "25e15e41174725600626b8dc13852aced691bd3b")
-        (org-pomodoro :checksum "aa07c11318f91219336197e62c47bc7a3d090479")
+        (org-pomodoro :checksum "3f5bcfb80d61556d35fc29e5ddb09750df962cc6")
         (org-ql :checksum "af18eac2b80b2f56c135f37fcbdcce19fbc34b65")
         (org-super-agenda :checksum "3108bc3f725818f0e868520d2c243abe9acbef4e")
         (ts :checksum "3fee71ceefac71ba55eb34829d7e94bb3df37cee")
