@@ -44,7 +44,7 @@
         (vue-html-mode :checksum "1514939804bad558584feeb6298b38d22eadf64e")
         (emacs-pug-mode :checksum "73f8c2f95eba695f701df20c8436f49abadebdc1")
         (zoom :checksum "c7beef180bc4037404e2d56b9ab9b7c76d1713a0")
-        (request :checksum "3336eaa97de923f74b90dda3e35985e122d40805")
+        (request :checksum "c769cf33f2ac0a1a9798b508935c4b260e856ab5")
         (avy :checksum "ba5f035be33693d1a136a5cbeedb24327f551a92")
         (all-the-icons :checksum "5bc4cbc5d7ef5c1869bdcc4800267a13950857d5")
         (alert :checksum "7046393272686c7a1a9b3e7f7b1d825d2e5250a6")
