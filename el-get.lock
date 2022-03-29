@@ -46,7 +46,7 @@
         (zoom :checksum "c7beef180bc4037404e2d56b9ab9b7c76d1713a0")
         (request :checksum "c769cf33f2ac0a1a9798b508935c4b260e856ab5")
         (avy :checksum "ba5f035be33693d1a136a5cbeedb24327f551a92")
-        (all-the-icons :checksum "5bc4cbc5d7ef5c1869bdcc4800267a13950857d5")
+        (all-the-icons :checksum "65c496d3d1d1298345beb9845840067bffb2ffd8")
         (alert :checksum "7046393272686c7a1a9b3e7f7b1d825d2e5250a6")
         (calfw :checksum "03abce97620a4a7f7ec5f911e669da9031ab9088")
         (closql :checksum "1ba85ce9f7094aeddce25044689278eda6739531")
