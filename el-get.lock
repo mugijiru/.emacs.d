@@ -68,7 +68,7 @@
         (esqlite :checksum "08a779a821f8d32c1a1985d8d9eb6cf21646ce2e")
         (exec-path-from-shell :checksum "3a8d97c096c2c5714b667130fd8a80d5622ee067")
         (f :checksum "50af874cd19042f17c8686813d52569b1025c76a")
-        (flycheck :checksum "278d0810f05eb03600d835c2bdd67d6b55a58034")
+        (flycheck :checksum "55f25fd98abc145c0c464756504132c271f0f039")
         (forge :checksum "bc99603b5a0cd5b3a5f209772b7f818d205b8a3f")
         (fringe-helper :checksum "ef4a9c023bae18ec1ddd7265f1f2d6d2e775efdd")
         (ghub :checksum "bd6e02b884368f26aeef9fd67107809f355c2c3d")
