@@ -50,7 +50,7 @@
         (alert :checksum "7046393272686c7a1a9b3e7f7b1d825d2e5250a6")
         (calfw :checksum "03abce97620a4a7f7ec5f911e669da9031ab9088")
         (closql :checksum "d823ff6d9d9d9ee2c97e902a026ec724c60ec398")
-        (company-mode :checksum "073aef72ddf93f897a856c246c58dcdfe003674e")
+        (company-mode :checksum "1005540b1cdf176cbcf893b2fa83d2075cbbe3ca")
         (counsel-projectile :checksum "40d1e1d4bb70acb00fddd6f4df9778bf2c52734b")
         (dash :checksum "da167c51e9fd167a48d06c7c0ee8e3ac7abd9718")
         (ddskk :checksum "5c209e0306364118abf9d9440d7b8b9613183072")
