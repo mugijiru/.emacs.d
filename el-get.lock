@@ -128,7 +128,7 @@
         (page-break-lines :checksum "cc283621c64e4f1133a63e0945658a4abecf42ef")
         (org-trello :checksum "fc63ed580101e6160edfb6f43215fb3200ce1ea7")
         (undo-fu :checksum "e81c8da4416b15cac9d5ac7574e11471417a65ca")
-        (emacs-todoist :checksum "383d139a4627f4199cdda99f08551ed3237595a2")
+        (emacs-todoist :checksum "f6906be346073f082a6d1f9ae14932ec2bfd99f5")
         (org-mode :checksum "abedf386b3f13af2769728755d00c4698ac5d3b0")))
 (setq el-get-lock-locked-packages 'nil)
 (setq el-get-lock-unlocked-packages 'nil)
