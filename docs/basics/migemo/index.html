@@ -12,20 +12,20 @@
     <title>migemo :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1647359644" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1647359644" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1647359644" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1647359644" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1647359644" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1647359644" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1647359644" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1647359644" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1647359644" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1647359644" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1651571389" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1651571389" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1651571389" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1651571389" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1651571389" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1651571389" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1651571389" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1651571389" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1651571389" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1651571389" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1647359644"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1651571389"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1647359644"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1647359644"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1651571389"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1651571389"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1647359644"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1651571389"></script>
 
     
   </div>
@@ -2718,6 +2718,7 @@
     <li><a href="#インストール">インストール</a></li>
     <li><a href="#mac-での辞書の位置の指定">Mac での辞書の位置の指定</a></li>
     <li><a href="#ubuntu-での辞書の位置の指定">Ubuntu での辞書の位置の指定</a></li>
+    <li><a href="#manjaro-での辞書の位置の指定">Manjaro での辞書の位置の指定</a></li>
     <li><a href="#cmigemo-コマンドの-path-指定">cmigemo コマンドの PATH 指定</a></li>
     <li><a href="#オプション設定">オプション設定</a></li>
     <li><a href="#coding-system-の指定">coding system の指定</a></li>
@@ -2764,6 +2765,12 @@
 <p>apt で cmigemo を入れているのでそれに合わせて辞書の位置を指定している。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#75715e">;; Ubuntu</span>
 (let ((path <span style="color:#e6db74">&#34;/usr/share/cmigemo/utf-8/migemo-dict&#34;</span>))
+  (if (<span style="color:#a6e22e">file-exists-p</span> path)
+      (setq migemo-dictionary path)))
+</code></pre></div><h2 id="manjaro-での辞書の位置の指定">Manjaro での辞書の位置の指定</h2>
+<p>yay で cmigemo-git を入れているのでそれに合わせて辞書の位置を指定している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#75715e">;; Manjaro</span>
+(let ((path <span style="color:#e6db74">&#34;/usr/share/migemo/utf-8/migemo-dict&#34;</span>))
   (if (<span style="color:#a6e22e">file-exists-p</span> path)
       (setq migemo-dictionary path)))
 </code></pre></div><h2 id="cmigemo-コマンドの-path-指定">cmigemo コマンドの PATH 指定</h2>
@@ -4669,19 +4676,19 @@ Emacs から叩くから <code>--emacs</code> を指定しているだけ。</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1647359644"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1647359644"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1647359644"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1647359644"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1647359644"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1647359644"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1651571389"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1651571389"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1651571389"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1651571389"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1651571389"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1651571389"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1647359644"></script>
-    <script src="/.emacs.d/js/learn.js?1647359644"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1647359644"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1651571389"></script>
+    <script src="/.emacs.d/js/learn.js?1651571389"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1651571389"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1647359644"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1651571389"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
