@@ -100,5 +100,8 @@
                             (t (migemo-get-pattern it)))
                       splitted))))
 
+;; ivy-migemo
+(el-get-bundle ivy-migemo)
+
 (setq ivy-re-builders-alist '((t . ivy--regex-plus)
                               (swiper . my/ivy-migemo-re-builder)))
