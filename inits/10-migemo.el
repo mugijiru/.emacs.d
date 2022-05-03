@@ -11,6 +11,11 @@
   (if (file-exists-p path)
       (setq migemo-dictionary path)))
 
+;; Manjaro
+(let ((path "/usr/share/migemo/utf-8/migemo-dict"))
+  (if (file-exists-p path)
+      (setq migemo-dictionary path)))
+
 (let ((path (s-chomp (shell-command-to-string "which cmigemo"))))
   (if (s-ends-with? "not found" path)
       (message "cmigemo not found")

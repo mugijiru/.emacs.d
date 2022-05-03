@@ -90,15 +90,13 @@
 
 (ivy-rich-mode 1)
 
-(defun my/ivy-migemo-re-builder (str)
-  (let* ((sep " \\|\\^\\|\\.\\|\\*")
-         (splitted (--map (s-join "" it)
-                          (--partition-by (s-matches-p " \\|\\^\\|\\.\\|\\*" it)
-                                          (s-split "" str t)))))
-    (s-join "" (--map (cond ((s-equals? it " ") ".*?")
-                            ((s-matches? sep it) it)
-                            (t (migemo-get-pattern it)))
-                      splitted))))
+(el-get-bundle ivy-migemo)
+
+(define-key ivy-minibuffer-map (kbd "M-f") #'ivy-migemo-toggle-fuzzy)
+(define-key ivy-minibuffer-map (kbd "M-m") #'ivy-migemo-toggle-migemo)
 
 (setq ivy-re-builders-alist '((t . ivy--regex-plus)
-                              (swiper . my/ivy-migemo-re-builder)))
+                              (swiper . ivy-migemo--regex-plus)
+                              (counsel-find-file . ivy-migemo--regex-plus))
+                              ;(counsel-other-function . ivy-migemo--regex-plus)
+                              )

@@ -1,0 +1,5 @@
+(:name ivy-migemo
+       :website "https://github.com/ROCKTAKEY/ivy-migemo"
+       :description "Use migemo on ivy."
+       :type github
+       :pkgname "ROCKTAKEY/ivy-migemo")

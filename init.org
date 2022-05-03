@@ -543,6 +543,16 @@
       (if (file-exists-p path)
           (setq migemo-dictionary path)))
     #+end_src
+*** Manjaro での辞書の位置の指定
+    yay で cmigemo-git を入れているので
+    それに合わせて辞書の位置を指定している。
+
+    #+begin_src emacs-lisp :tangle inits/10-migemo.el
+    ;; Manjaro
+    (let ((path "/usr/share/migemo/utf-8/migemo-dict"))
+      (if (file-exists-p path)
+          (setq migemo-dictionary path)))
+    #+end_src
 *** cmigemo コマンドの PATH 指定
     環境で PATH が変わるので which コマンドの結果を migemo-command に設定している。
 
@@ -2645,34 +2655,55 @@
      (ivy-rich-mode 1)
      #+end_src
 
-**** C-s で migemo れるようにする関数設定
+**** C-s で migemo れるように ivy-migemo を導入・設定
      swiper は標準だと migemo れないのだが
 
-     https://www.yewton.net/2020/05/21/migemo-ivy/
-
-     でそれをできるようにしている記事があったので、
-     それを元に入れている関数を追加して使えるようにしている。
-     関数名などは書き換えてる
-
-     #+begin_src emacs-lisp :tangle inits/82-ivy.el
-     (defun my/ivy-migemo-re-builder (str)
-       (let* ((sep " \\|\\^\\|\\.\\|\\*")
-              (splitted (--map (s-join "" it)
-                               (--partition-by (s-matches-p " \\|\\^\\|\\.\\|\\*" it)
-                                               (s-split "" str t)))))
-         (s-join "" (--map (cond ((s-equals? it " ") ".*?")
-                                 ((s-matches? sep it) it)
-                                 (t (migemo-get-pattern it)))
-                           splitted))))
-
-     (setq ivy-re-builders-alist '((t . ivy--regex-plus)
-                                   (swiper . my/ivy-migemo-re-builder)))
-     #+end_src
-
-     なんだけど
      https://github.com/ROCKTAKEY/ivy-migemo
-     に乗り換えた方がいいのかな〜とも思っている。
-     検証していきたい。
+
+     でそれをできるようにした。
+
+***** インストール
+      #+begin_src emacs-lisp :tangle recipes/ivy-migemo.rcp
+      (:name ivy-migemo
+             :website "https://github.com/ROCKTAKEY/ivy-migemo"
+             :description "Use migemo on ivy."
+             :type github
+             :pkgname "ROCKTAKEY/ivy-migemo")
+      #+end_src
+
+      でレシピを用意して
+
+      #+begin_src emacs-lisp :tangle inits/82-ivy.el
+      (el-get-bundle ivy-migemo)
+      #+end_src
+
+      で入れている。
+
+***** キーバインドの設定
+      以下を入れておくと migemo を使ったり fuzzy を使ったりを切り替えられるようなので
+      とりあえず設定している。
+
+      #+begin_src emacs-lisp :tangle inits/82-ivy.el
+      (define-key ivy-minibuffer-map (kbd "M-f") #'ivy-migemo-toggle-fuzzy)
+      (define-key ivy-minibuffer-map (kbd "M-m") #'ivy-migemo-toggle-migemo)
+      #+end_src
+
+      なおこれは公式に記載されている設定である。
+
+***** デフォルトで migemo を有効にする
+      swiper を使う時はデフォで有効になっててほしいのでその設定も入れている。
+      なおこれも公式ページに記述されている設定である。
+
+      #+begin_src emacs-lisp :tangle inits/82-ivy.el
+      (setq ivy-re-builders-alist '((t . ivy--regex-plus)
+                                    (swiper . ivy-migemo--regex-plus)
+                                    (counsel-find-file . ivy-migemo--regex-plus))
+                                    ;(counsel-other-function . ivy-migemo--regex-plus)
+                                    )
+      #+end_src
+
+      また fuzzy matchi を有効にする設定も記載されているが
+      そちらは自分は設定していない。なんとなく。
 
 *** counsel-osx-app.                                            :improvement:
     Mac で Emacs を使ってる時に ivy でアプリケーションを起動するためのパッケージ。

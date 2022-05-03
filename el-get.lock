@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((frame-cmds :checksum "7c9a30bae30c113e267dee3364e618a682fbaac8")
+      '((ivy-migemo :checksum "f31a2b314b81e328ce0222d8796b808230ddaa0e")
+        (frame-cmds :checksum "7c9a30bae30c113e267dee3364e618a682fbaac8")
         (diminish :checksum "fd486ef76e4c1d8211ae337a43b8bba106d4bca7")
         (tree-mode :checksum "b06078826d5875d74b0e7b7ac47b0d0917610534")
         (frame-fns :checksum "b675ee568c0133709c2c39a125395486cdf1c610")
