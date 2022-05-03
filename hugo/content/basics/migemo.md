@@ -46,6 +46,18 @@ apt で cmigemo を入れているのでそれに合わせて辞書の位置を�
 ```
 
 
+## Manjaro での辞書の位置の指定 {#manjaro-での辞書の位置の指定}
+
+yay で cmigemo-git を入れているのでそれに合わせて辞書の位置を指定している。
+
+```emacs-lisp
+;; Manjaro
+(let ((path "/usr/share/migemo/utf-8/migemo-dict"))
+  (if (file-exists-p path)
+      (setq migemo-dictionary path)))
+```
+
+
 ## cmigemo コマンドの PATH 指定 {#cmigemo-コマンドの-path-指定}
 
 環境で PATH が変わるので which コマンドの結果を migemo-command に設定している。

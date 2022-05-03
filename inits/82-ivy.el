@@ -90,14 +90,11 @@
 
 (ivy-rich-mode 1)
 
-;; ivy-migemo
 (el-get-bundle ivy-migemo)
 
-;; Toggle migemo and fuzzy by command.
 (define-key ivy-minibuffer-map (kbd "M-f") #'ivy-migemo-toggle-fuzzy)
 (define-key ivy-minibuffer-map (kbd "M-m") #'ivy-migemo-toggle-migemo)
 
-;; If you want to defaultly use migemo on swiper and counsel-find-file:
 (setq ivy-re-builders-alist '((t . ivy--regex-plus)
                               (swiper . ivy-migemo--regex-plus)
                               (counsel-find-file . ivy-migemo--regex-plus))

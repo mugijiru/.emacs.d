@@ -224,32 +224,59 @@ yank-pop の区切りをちょっと長めにしている。長い方が区切�
 ```
 
 
-### C-s で migemo れるようにする関数設定 {#c-s-で-migemo-れるようにする関数設定}
+### C-s で migemo れるように ivy-migemo を導入・設定 {#c-s-で-migemo-れるように-ivy-migemo-を導入-設定}
 
 swiper は標準だと migemo れないのだが
 
-<https://www.yewton.net/2020/05/21/migemo-ivy/>
+<https://github.com/ROCKTAKEY/ivy-migemo>
 
-でそれをできるようにしている記事があったので、それを元に入れている関数を追加して使えるようにしている。関数名などは書き換えてる
+でそれをできるようにした。
+
+
+#### インストール {#インストール}
 
 ```emacs-lisp
-(defun my/ivy-migemo-re-builder (str)
-  (let* ((sep " \\|\\^\\|\\.\\|\\*")
-         (splitted (--map (s-join "" it)
-                          (--partition-by (s-matches-p " \\|\\^\\|\\.\\|\\*" it)
-                                          (s-split "" str t)))))
-    (s-join "" (--map (cond ((s-equals? it " ") ".*?")
-                            ((s-matches? sep it) it)
-                            (t (migemo-get-pattern it)))
-                      splitted))))
-
-(setq ivy-re-builders-alist '((t . ivy--regex-plus)
-                              (swiper . my/ivy-migemo-re-builder)))
+(:name ivy-migemo
+       :website "https://github.com/ROCKTAKEY/ivy-migemo"
+       :description "Use migemo on ivy."
+       :type github
+       :pkgname "ROCKTAKEY/ivy-migemo")
 ```
 
-なんだけど
-<https://github.com/ROCKTAKEY/ivy-migemo>
-に乗り換えた方がいいのかな〜とも思っている。検証していきたい。
+でレシピを用意して
+
+```emacs-lisp
+(el-get-bundle ivy-migemo)
+```
+
+で入れている。
+
+
+#### キーバインドの設定 {#キーバインドの設定}
+
+以下を入れておくと migemo を使ったり fuzzy を使ったりを切り替えられるようなのでとりあえず設定している。
+
+```emacs-lisp
+(define-key ivy-minibuffer-map (kbd "M-f") #'ivy-migemo-toggle-fuzzy)
+(define-key ivy-minibuffer-map (kbd "M-m") #'ivy-migemo-toggle-migemo)
+```
+
+なおこれは公式に記載されている設定である。
+
+
+#### デフォルトで migemo を有効にする {#デフォルトで-migemo-を有効にする}
+
+swiper を使う時はデフォで有効になっててほしいのでその設定も入れている。なおこれも公式ページに記述されている設定である。
+
+```emacs-lisp
+(setq ivy-re-builders-alist '((t . ivy--regex-plus)
+                              (swiper . ivy-migemo--regex-plus)
+                              (counsel-find-file . ivy-migemo--regex-plus))
+                              ;(counsel-other-function . ivy-migemo--regex-plus)
+                              )
+```
+
+また fuzzy matchi を有効にする設定も記載されているがそちらは自分は設定していない。なんとなく。
 
 
 ## counsel-osx-app. <span class="tag"><span class="improvement">improvement</span></span> {#counsel-osx-app-dot}
