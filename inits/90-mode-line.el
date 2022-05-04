@@ -1,6 +1,7 @@
 (el-get-bundle hlissner/emacs-hide-mode-line)
 (add-hook 'neotree-mode-hook #'hide-mode-line-mode)
 
+(custom-set-variables '(display-time-24hr-format t))
 (display-time-mode 1)
 
 (el-get-bundle diminish)
