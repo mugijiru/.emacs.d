@@ -22,14 +22,15 @@ Emacs のバッファ下部に表示されるモードライン関連の設定�
 
 ## 日時を mode-line で表示する {#日時を-mode-line-で表示する}
 
-mode-line に日時も表示されてる方が便利な気がしてとりあえず表示している。
+mode-line に日時も表示されてる方が便利な気がしてとりあえず表示している。表示形式は24時間表記。「午前」とか「午後」とかの表示邪魔だしね。
 
 ```emacs-lisp
+(custom-set-variables '(display-time-24hr-format t))
 (display-time-mode 1)
 ```
 
 
-## smart-mode-line 関連の設定 {#smart-mode-line-関連の設定}
+## smart-mode-line 関連の設定 <span class="tag"><span class="unused">unused</span></span> {#smart-mode-line-関連の設定}
 
 [smart-mode-line](https://github.com/Malabarba/smart-mode-line) は mode-line をセクシーな感じにしてくれるパッケージ。というわけで昔入れていたけどもう使ってない。一応コードの残骸があったから一旦残しておく。
 
@@ -95,7 +96,6 @@ el-get-bundle で入れて require したら有効になる
 上で用意したマクロを用いて各マイナーモード毎の設定を行っていた。今は使ってないので全部コメントアウトしている
 
 ```emacs-lisp
-;; (my/diminish "helm" 'helm-mode ":helmet-with-cross:")
 ;; (my/diminish "git-gutter" 'git-gutter-mode (all-the-icons-octicon "git-compare"))
 ;; (my/diminish "yasnippet" 'yas-minor-mode " Ys")
 ;; (my/diminish "whitespace" 'whitespace-mode "◽")
