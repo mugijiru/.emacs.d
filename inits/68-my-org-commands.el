@@ -34,6 +34,11 @@ Hydra から利用するために定義している。"
   (interactive)
   (org-tags-view t))
 
+(defun my/org-gcal-refresh-appt ()
+  (interactive)
+  (let ((org-agenda-files my/org-agenda-calendar-files))
+    (org-agenda-to-appt t)))
+
 (defun my/open-calendar ()
   (interactive)
   (ivy-read "Calendar: "

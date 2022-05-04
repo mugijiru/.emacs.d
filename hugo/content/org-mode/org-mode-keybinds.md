@@ -72,7 +72,7 @@ major-mode-hydra で、org-mode のファイルを開いている時によく使
 | P   | プロパティ設定              | よく使う                            |
 | .   | タイムスタンプ挿入          | 使ってない。使い慣れると便利かも    |
 | !   | アジェンダのエントリに反映されないタイムスタンプ挿入 | 使ってない。こっちも慣れると便利かも? |
-| S   | <s TAB とかのテンプレートの挿入 | 使ってないなあ。慣れたら便利かも    |
+| S   | &lt;s TAB とかのテンプレートの挿入 | 使ってないなあ。慣れたら便利かも    |
 | a   | サブツリーをアーカイブ      | よく使う                            |
 | r   | サブツリーの移動(refile)    | よく使う                            |
 | Q   | タグ設定                    | 時々使う。C-c C-q の方が使うか      |
@@ -116,7 +116,8 @@ pretty-hydra を使って Global に使える org-mode のコマンドを叩け�
 
      "Calendar"
      (("F" org-gcal-fetch "Fetch Calendar")
-      ("C" my/open-calendar "Calendar"))
+      ("C" my/open-calendar "Calendar")
+      ("A" my/org-gcal-refresh-appt "Appt"))
 
      "Clock"
      (("i" org-clock-in       "In")
@@ -132,21 +133,22 @@ pretty-hydra を使って Global に使える org-mode のコマンドを叩け�
      (("p" org-pomodoro "Pomodoro")))))
 ```
 
-| Key | 効果                    | 使用頻度                                      |
-|-----|-----------------------|-------------------------------------------|
-| a   | Agenda 選択             | よく使う                                      |
-| c   | Capture                 | よく使う                                      |
-| l   | その場所へのリンクを保存 | 使ってない                                    |
+| Key | 効果                        | 使用頻度                                      |
+|-----|---------------------------|-------------------------------------------|
+| a   | Agenda 選択                 | よく使う                                      |
+| c   | Capture                     | よく使う                                      |
+| l   | その場所へのリンクを保存    | 使ってない                                    |
 | t   | 選択したタグが付与された TODO のみ表示 | 使ってない。使うと便利かもなあ                |
-| F   | Google Calendar の情報取得 | 平日は毎日使っている                          |
-| C   | カレンダーを calfw で開く | 最近使ってない                                |
-| i   | Clock In                | 使ってないというか major-mode-hydra の方があれば良い |
-| o   | Clock Out               | 使ってない。使ってもいい気がする              |
+| F   | Google Calendar の情報取得  | 平日は毎日使っている                          |
+| C   | カレンダーを calfw で開く   | 最近使ってない                                |
+| A   | org-gcal で拾って来た情報を appt に登録 | appt.el 経由で通知できるようにしている        |
+| i   | Clock In                    | 使ってないというか major-mode-hydra の方があれば良い |
+| o   | Clock Out                   | 使ってない。使ってもいい気がする              |
 | r   | 最後に Clock In したやつを再開 | 使ってない。大体常に Clock しているから最後がいつも切り替わってるので使う機会がない |
-| x   | Clock Cancel            | 作業は発生しているからキャンセルしないで普通に Clock out しているなあ |
+| x   | Clock Cancel                | 作業は発生しているからキャンセルしないで普通に Clock out しているなあ |
 | j   | 最後に Clock In したやつの場所に移動 | ちょくちょく使う。便利                        |
-| H   | Heading の検索          | 使ってない。インクリメンタルに検索できればいいのに |
-| p   | ポモドーロタイマー      | これも major-mode-hydra にあれば十分かな      |
+| H   | Heading の検索              | 使ってない。インクリメンタルに検索できればいいのに |
+| p   | ポモドーロタイマー          | これも major-mode-hydra にあれば十分かな      |
 
 
 ## その他 {#その他}
