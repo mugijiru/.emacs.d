@@ -3,4 +3,4 @@
        :type github
        :pkgname "kaushalmodi/ox-hugo"
        :branch "main"
-       :depends (org-mode))
+       :depends (org-mode tomelr))
