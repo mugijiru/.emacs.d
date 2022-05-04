@@ -207,7 +207,11 @@ footnote や制作者などを出力しない HTML で記事を吐き出す時�
 (el-get-bundle org-gcal) 設定 とりあえず require をしないといけない
 (require &amp;#39;org-gcal) あとは設定ファイルは公開したくないので別ファイルに分けてる。
 (my/load-config &amp;#34;my-org-gcal-config&amp;#34;) 隠したい部分だけ .authinfo.gpg にでも分離したら公開できるようになるかもしれない。
-その他 gcal-org に乗り換えようかと思ってるがそっちの中身もよくわからないので躊躇している。自分の用途に合うのだろうか?</description>
+appt Emacs にはデフォルトで約束の通知ができる機能が appt.el で定義されている。 org-gcal で取得したデータをそれで通知できるように appt の設定をここで行っている
+通知形式の設定 window 通知を使う設定にしている。
+(setq appt-display-format &amp;#39;window) これだけだと、通知する時間になったらピョコッと window が生えて来るのだけど、後の方で、この設定の時に使う関数を差し替えている
+通知用関数の定義 通知には alert.el を使いたいので自前で関数を定義。 alert.el は別のところで設定していてそこで dunst を使って通知するようにしている。
+(defun my/appt-alert (min-to-app _new-time msg) (interactive) (let ((title (format &amp;#34;あと %s 分&amp;#34; min-to-app))) (alert msg :title title))) この関数を使うように appt-disp-window-function を変更している。</description>
     </item>
     
     <item>
@@ -269,7 +273,7 @@ refile 先の候補設定 いくつかの org ファイルを使っているの�
       
       <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-commands/</guid>
       <description>概要 org-mode を使う上で、標準で用意されているコマンド以外に自分でも適当にコマンドを用意しているのでここにまとめている。
-org-mode 用のファイルを作成するコマンド 指定したフォルダに org-mode なファイルを作るためのコマンドを用意している。
+org-mode 用のファイルを作成するコマンド unused 指定したフォルダに org-mode なファイルを作るためのコマンドを用意している。
 が、使ってないし意味をあまり感じないし消して良さそう。
 (setq my/org-document-dir (expand-file-name &amp;#34;~/Documents/org/&amp;#34;)) (defun my/create-org-document () (interactive) (find-file-other-window my/org-document-dir)) 各ツリーの所要時間表示/非表示切替 org-clock-display で各ツリーにおける org-clock で記録された所要時間が表示でき、 org-clock-remove-overlays でそれを非表示にできるが、それを Toggle できるようにコマンド/関数を定義している。
 (defun my/org-clock-toggle-display () &amp;#34;各ツリーの末尾に掛かった作業時間を表示/非表示を切り替えるコマンド&amp;#34; (interactive) (if org-clock-overlays (org-clock-remove-overlays) (org-clock-display))) org-todo-keywords から装飾を省いた文字列のリストを返す関数 ivy で org-todo-keywords を選択可能にするために org-todo-keywords を加工してシンプルな文字列の配列にする関数を定義している。
@@ -329,8 +333,9 @@ ace-window には色々な機能があるからそれ用の Hydra を別途定�
       <guid>https://mugijiru.github.io/.emacs.d/ui/alert/</guid>
       <description>概要 alert は色々な通知システムに対応した通知を飛ばせるパッケージ。 Mac だと Growl だったり terminal-notifier だったり Win だと toast だったり Linux だと libnotify だったりを使ってその環境での標準的な通知機能を使って通知ができるやつ。
 インストール いつも通りに el-get でインストール。
-(el-get-bundle alert) 設定 業務では Mac を使ってるので terminal-notifier を設定している。他の環境では大人しく message にしている。
-(if (or (eq window-system &amp;#39;ns) (eq window-system &amp;#39;mac)) (setq alert-default-style &amp;#39;notifier) ;; use terminal-notifier (setq alert-default-style &amp;#39;message)) 本当は WSL2 でもいい感じに通知されるようにしたいが WSLで通知を出すメモ - cobodoのブログ とかを見てるとちょっと面倒そうなのでまた今度にする。</description>
+(el-get-bundle alert) 設定 業務では Mac を使ってるので terminal-notifier を設定している。他の環境では libnotify にしている。
+(if (or (eq window-system &amp;#39;ns) (eq window-system &amp;#39;mac)) (setq alert-default-style &amp;#39;notifier) ;; use terminal-notifier (setq alert-default-style &amp;#39;libnotify)) 「他の環境」が WSL 上の Emacs と Manjaro 上の Emacs なのだけども、後者は最近使ってないので無視して libnotify で通知するように設定を変えた。
+本当は WSL2 でもいい感じに通知されるようにしたいが WSLで通知を出すメモ - cobodoのブログ とかを見てるとちょっと面倒そう。</description>
     </item>
     
     <item>

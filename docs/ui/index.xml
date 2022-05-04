@@ -14,8 +14,9 @@
       <guid>https://mugijiru.github.io/.emacs.d/ui/alert/</guid>
       <description>概要 alert は色々な通知システムに対応した通知を飛ばせるパッケージ。 Mac だと Growl だったり terminal-notifier だったり Win だと toast だったり Linux だと libnotify だったりを使ってその環境での標準的な通知機能を使って通知ができるやつ。
 インストール いつも通りに el-get でインストール。
-(el-get-bundle alert) 設定 業務では Mac を使ってるので terminal-notifier を設定している。他の環境では大人しく message にしている。
-(if (or (eq window-system &amp;#39;ns) (eq window-system &amp;#39;mac)) (setq alert-default-style &amp;#39;notifier) ;; use terminal-notifier (setq alert-default-style &amp;#39;message)) 本当は WSL2 でもいい感じに通知されるようにしたいが WSLで通知を出すメモ - cobodoのブログ とかを見てるとちょっと面倒そうなのでまた今度にする。</description>
+(el-get-bundle alert) 設定 業務では Mac を使ってるので terminal-notifier を設定している。他の環境では libnotify にしている。
+(if (or (eq window-system &amp;#39;ns) (eq window-system &amp;#39;mac)) (setq alert-default-style &amp;#39;notifier) ;; use terminal-notifier (setq alert-default-style &amp;#39;libnotify)) 「他の環境」が WSL 上の Emacs と Manjaro 上の Emacs なのだけども、後者は最近使ってないので無視して libnotify で通知するように設定を変えた。
+本当は WSL2 でもいい感じに通知されるようにしたいが WSLで通知を出すメモ - cobodoのブログ とかを見てるとちょっと面倒そう。</description>
     </item>
     
     <item>

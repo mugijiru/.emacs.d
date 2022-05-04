@@ -19,7 +19,11 @@
 (el-get-bundle org-gcal) 設定 とりあえず require をしないといけない
 (require &amp;#39;org-gcal) あとは設定ファイルは公開したくないので別ファイルに分けてる。
 (my/load-config &amp;#34;my-org-gcal-config&amp;#34;) 隠したい部分だけ .authinfo.gpg にでも分離したら公開できるようになるかもしれない。
-その他 gcal-org に乗り換えようかと思ってるがそっちの中身もよくわからないので躊躇している。自分の用途に合うのだろうか?</description>
+appt Emacs にはデフォルトで約束の通知ができる機能が appt.el で定義されている。 org-gcal で取得したデータをそれで通知できるように appt の設定をここで行っている
+通知形式の設定 window 通知を使う設定にしている。
+(setq appt-display-format &amp;#39;window) これだけだと、通知する時間になったらピョコッと window が生えて来るのだけど、後の方で、この設定の時に使う関数を差し替えている
+通知用関数の定義 通知には alert.el を使いたいので自前で関数を定義。 alert.el は別のところで設定していてそこで dunst を使って通知するようにしている。
+(defun my/appt-alert (min-to-app _new-time msg) (interactive) (let ((title (format &amp;#34;あと %s 分&amp;#34; min-to-app))) (alert msg :title title))) この関数を使うように appt-disp-window-function を変更している。</description>
     </item>
     
     <item>

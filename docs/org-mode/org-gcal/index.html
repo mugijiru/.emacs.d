@@ -12,20 +12,20 @@
     <title>org-gcal :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1651633257" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1651633257" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1651633257" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1651633257" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1651633257" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1651633257" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1651633257" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1651633257" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1651633257" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1651633257" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1651643879" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1651643879" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1651643879" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1651643879" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1651643879" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1651643879" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1651643879" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1651643879" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1651643879" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1651643879" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1651633257"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1651643879"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1651633257"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1651633257"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1651643879"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1651643879"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1651633257"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1651643879"></script>
 
     
   </div>
@@ -2717,6 +2717,12 @@
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
     <li><a href="#設定">設定</a></li>
+    <li><a href="#appt">appt</a>
+      <ul>
+        <li><a href="#通知形式の設定">通知形式の設定</a></li>
+        <li><a href="#通知用関数の定義">通知用関数の定義</a></li>
+      </ul>
+    </li>
     <li><a href="#その他">その他</a></li>
   </ul>
 </nav>
@@ -2763,7 +2769,24 @@ el-get のレシピもそっちを見ている。</p>
 </code></pre></div><p>あとは設定ファイルは公開したくないので別ファイルに分けてる。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(my/load-config <span style="color:#e6db74">&#34;my-org-gcal-config&#34;</span>)
 </code></pre></div><p>隠したい部分だけ .authinfo.gpg にでも分離したら公開できるようになるかもしれない。</p>
-<h2 id="その他">その他</h2>
+<h2 id="appt">appt</h2>
+<p>Emacs にはデフォルトで約束の通知ができる機能が appt.el で定義されている。
+org-gcal で取得したデータをそれで通知できるように
+appt の設定をここで行っている</p>
+<h3 id="通知形式の設定">通知形式の設定</h3>
+<p>window 通知を使う設定にしている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq appt-display-format <span style="color:#e6db74">&#39;window</span>)
+</code></pre></div><p>これだけだと、通知する時間になったらピョコッと window が生えて来るのだけど、後の方で、この設定の時に使う関数を差し替えている</p>
+<h3 id="通知用関数の定義">通知用関数の定義</h3>
+<p>通知には <a href="/.emacs.d/ui/alert/">alert.el</a> を使いたいので自前で関数を定義。
+alert.el は別のところで設定していてそこで dunst を使って通知するようにしている。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/appt-alert (min-to-app _new-time msg)
+  (interactive)
+  (let ((title (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;あと %s 分&#34;</span> min-to-app)))
+    (alert msg :title title)))
+</code></pre></div><p>この関数を使うように <code>appt-disp-window-function</code> を変更している。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq appt-disp-window-function <span style="color:#e6db74">&#39;my/appt-alert</span>)
+</code></pre></div><h2 id="その他">その他</h2>
 <p><a href="https://github.com/misohena/gcal">gcal-org</a> に乗り換えようかと思ってるがそっちの中身もよくわからないので躊躇している。自分の用途に合うのだろうか?</p>
 
 
@@ -4654,19 +4677,19 @@ el-get のレシピもそっちを見ている。</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1651633257"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1651633257"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1651633257"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1651633257"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1651633257"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1651633257"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1651643879"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1651643879"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1651643879"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1651643879"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1651643879"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1651643879"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1651633257"></script>
-    <script src="/.emacs.d/js/learn.js?1651633257"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1651633257"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1651643879"></script>
+    <script src="/.emacs.d/js/learn.js?1651643879"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1651643879"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1651633257"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1651643879"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
