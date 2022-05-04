@@ -1787,17 +1787,20 @@
     #+end_src
 *** 設定
     業務では Mac を使ってるので terminal-notifier を設定している。
-    他の環境では大人しく message にしている。
+    他の環境では libnotify にしている。
 
     #+begin_src emacs-lisp :tangle inits/20-alert.el
     (if (or (eq window-system 'ns) (eq window-system 'mac))
         (setq alert-default-style 'notifier) ;; use terminal-notifier
-      (setq alert-default-style 'message))
+      (setq alert-default-style 'libnotify))
     #+end_src
+
+    「他の環境」が WSL 上の Emacs と Manjaro 上の Emacs なのだけども、
+    後者は最近使ってないので無視して libnotify で通知するように設定を変えた。
 
     本当は WSL2 でもいい感じに通知されるようにしたいが
     [[https://cobodo.hateblo.jp/entry/2018/03/08/160247][WSLで通知を出すメモ - cobodoのブログ]]
-    とかを見てるとちょっと面倒そうなのでまた今度にする。
+    とかを見てるとちょっと面倒そう。
 
 ** all-the-icons
    :PROPERTIES:
@@ -5961,6 +5964,38 @@
 
     隠したい部分だけ .authinfo.gpg にでも分離したら公開できるようになるかもしれない。
 
+*** appt
+    Emacs にはデフォルトで約束の通知ができる機能が appt.el で定義されている。
+    org-gcal で取得したデータをそれで通知できるように
+    appt の設定をここで行っている
+
+**** 通知形式の設定
+     window 通知を使う設定にしている。
+
+     #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
+     (setq appt-display-format 'window)
+     #+end_src
+
+     これだけだと、通知する時間になったらピョコッと window が生えて来るのだけど、
+     後の方で、この設定の時に使う関数を差し替えている
+
+**** 通知用関数の定義
+     通知には [[*alert][alert.el]] を使いたいので自前で関数を定義。
+     alert.el は別のところで設定していて
+     そこで dunst を使って通知するようにしている。
+
+     #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
+     (defun my/appt-alert (min-to-app _new-time msg)
+       (interactive)
+       (let ((title (format "あと %s 分" min-to-app)))
+         (alert msg :title title)))
+     #+end_src
+
+     この関数を使うように ~appt-disp-window-function~ を変更している。
+
+     #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
+     (setq appt-disp-window-function 'my/appt-alert)
+     #+end_src
 *** その他
     [[https://github.com/misohena/gcal][gcal-org]] に乗り換えようかと思ってるが
     そっちの中身もよくわからないので躊躇している。
@@ -6221,6 +6256,17 @@
       (org-tags-view t))
     #+end_src
 
+*** org-gcal で取得した情報を appt に登録
+    appt.el で通知されるように登録する必要があるのでコマンドを定義している。
+
+    #+begin_src emacs-lisp :tangle inits/68-my-org-commands.el
+    (defun my/org-gcal-refresh-appt ()
+      (interactive)
+      (let ((org-agenda-files my/org-agenda-calendar-files))
+        (org-agenda-to-appt t)))
+    #+end_src
+
+
 *** calfw で選択したカレンダーを表示
     #+begin_src emacs-lisp :tangle inits/68-my-org-commands.el
     (defun my/open-calendar ()
@@ -6351,53 +6397,55 @@
     pretty-hydra を使って Global に使える org-mode のコマンドを叩けるようにしている
 
     #+begin_src emacs-lisp :tangle inits/69-org-mode-hydra.el
-    (with-eval-after-load 'pretty-hydra
-      (pretty-hydra-define
-        global-org-hydra
-        (:separator "-"
-                    :color teal
-                    :foreign-key warn
-                    :title (concat (all-the-icons-fileicon "org") " Global Org commands")
-                    :quit-key "q")
-        ("Main"
-         (("a" org-agenda "Agenda")
-          ("c" counsel-org-capture "Capture")
-          ("l" org-store-link "Store link")
-          ("t" my/org-tags-view-only-todo "Tagged Todo"))
+          (with-eval-after-load 'pretty-hydra
+            (pretty-hydra-define
+              global-org-hydra
+              (:separator "-"
+                          :color teal
+                          :foreign-key warn
+                          :title (concat (all-the-icons-fileicon "org") " Global Org commands")
+                          :quit-key "q")
+              ("Main"
+               (("a" org-agenda "Agenda")
+                ("c" counsel-org-capture "Capture")
+                ("l" org-store-link "Store link")
+                ("t" my/org-tags-view-only-todo "Tagged Todo"))
 
-         "Calendar"
-         (("F" org-gcal-fetch "Fetch Calendar")
-          ("C" my/open-calendar "Calendar"))
+               "Calendar"
+               (("F" org-gcal-fetch "Fetch Calendar")
+                ("C" my/open-calendar "Calendar")
+                ("A" my/org-gcal-refresh-appt "Appt"))
 
-         "Clock"
-         (("i" org-clock-in       "In")
-          ("o" org-clock-out      "Out")
-          ("r" org-clock-in-last  "Restart")
-          ("x" org-clock-cancel   "Cancel")
-          ("j" org-clock-goto     "Goto"))
+               "Clock"
+               (("i" org-clock-in       "In")
+                ("o" org-clock-out      "Out")
+                ("r" org-clock-in-last  "Restart")
+                ("x" org-clock-cancel   "Cancel")
+                ("j" org-clock-goto     "Goto"))
 
-         "Search"
-         (("H" org-search-view "Heading"))
+               "Search"
+               (("H" org-search-view "Heading"))
 
-         "Pomodoro"
-         (("p" org-pomodoro "Pomodoro")))))
+               "Pomodoro"
+               (("p" org-pomodoro "Pomodoro")))))
     #+end_src
 
-    | Key | 効果                                   | 使用頻度                                                                            |
-    |-----+----------------------------------------+-------------------------------------------------------------------------------------|
-    | a   | Agenda 選択                            | よく使う                                                                            |
-    | c   | Capture                                | よく使う                                                                            |
-    | l   | その場所へのリンクを保存               | 使ってない                                                                          |
-    | t   | 選択したタグが付与された TODO のみ表示 | 使ってない。使うと便利かもなあ                                                      |
-    | F   | Google Calendar の情報取得             | 平日は毎日使っている                                                                |
-    | C   | カレンダーを calfw で開く              | 最近使ってない                                                                      |
-    | i   | Clock In                               | 使ってないというか major-mode-hydra の方があれば良い                                |
-    | o   | Clock Out                              | 使ってない。使ってもいい気がする                                                    |
-    | r   | 最後に Clock In したやつを再開         | 使ってない。大体常に Clock しているから最後がいつも切り替わってるので使う機会がない |
-    | x   | Clock Cancel                           | 作業は発生しているからキャンセルしないで普通に Clock out しているなあ               |
-    | j   | 最後に Clock In したやつの場所に移動   | ちょくちょく使う。便利                                                              |
-    | H   | Heading の検索                         | 使ってない。インクリメンタルに検索できればいいのに                                  |
-    | p   | ポモドーロタイマー                     | これも major-mode-hydra にあれば十分かな                                            |
+    | Key | 効果                                    | 使用頻度                                                                            |
+    |-----+-----------------------------------------+-------------------------------------------------------------------------------------|
+    | a   | Agenda 選択                             | よく使う                                                                            |
+    | c   | Capture                                 | よく使う                                                                            |
+    | l   | その場所へのリンクを保存                | 使ってない                                                                          |
+    | t   | 選択したタグが付与された TODO のみ表示  | 使ってない。使うと便利かもなあ                                                      |
+    | F   | Google Calendar の情報取得              | 平日は毎日使っている                                                                |
+    | C   | カレンダーを calfw で開く               | 最近使ってない                                                                      |
+    | A   | org-gcal で拾って来た情報を appt に登録 | appt.el 経由で通知できるようにしている                                              |
+    | i   | Clock In                                | 使ってないというか major-mode-hydra の方があれば良い                                |
+    | o   | Clock Out                               | 使ってない。使ってもいい気がする                                                    |
+    | r   | 最後に Clock In したやつを再開          | 使ってない。大体常に Clock しているから最後がいつも切り替わってるので使う機会がない |
+    | x   | Clock Cancel                            | 作業は発生しているからキャンセルしないで普通に Clock out しているなあ               |
+    | j   | 最後に Clock In したやつの場所に移動    | ちょくちょく使う。便利                                                              |
+    | H   | Heading の検索                          | 使ってない。インクリメンタルに検索できればいいのに                                  |
+    | p   | ポモドーロタイマー                      | これも major-mode-hydra にあれば十分かな                                            |
 
 *** その他
     org-agenda 用の Hydra も用意しておいた方が良さそうだなというのが最近の実感。

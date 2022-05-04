@@ -22,14 +22,16 @@ Linux だと libnotify だったりを使ってその環境での標準的な通
 
 ## 設定 {#設定}
 
-業務では Mac を使ってるので terminal-notifier を設定している。他の環境では大人しく message にしている。
+業務では Mac を使ってるので terminal-notifier を設定している。他の環境では libnotify にしている。
 
 ```emacs-lisp
 (if (or (eq window-system 'ns) (eq window-system 'mac))
     (setq alert-default-style 'notifier) ;; use terminal-notifier
-  (setq alert-default-style 'message))
+  (setq alert-default-style 'libnotify))
 ```
+
+「他の環境」が WSL 上の Emacs と Manjaro 上の Emacs なのだけども、後者は最近使ってないので無視して libnotify で通知するように設定を変えた。
 
 本当は WSL2 でもいい感じに通知されるようにしたいが
 [WSLで通知を出すメモ - cobodoのブログ](https://cobodo.hateblo.jp/entry/2018/03/08/160247)
-とかを見てるとちょっと面倒そうなのでまた今度にする。
+とかを見てるとちょっと面倒そう。

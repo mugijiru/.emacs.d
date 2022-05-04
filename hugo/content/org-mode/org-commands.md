@@ -9,7 +9,7 @@ weight = 13
 org-mode を使う上で、標準で用意されているコマンド以外に自分でも適当にコマンドを用意しているのでここにまとめている。
 
 
-## org-mode 用のファイルを作成するコマンド {#org-mode-用のファイルを作成するコマンド}
+## org-mode 用のファイルを作成するコマンド <span class="tag"><span class="unused">unused</span></span> {#org-mode-用のファイルを作成するコマンド}
 
 指定したフォルダに org-mode なファイルを作るためのコマンドを用意している。
 
@@ -86,6 +86,18 @@ Hydra から利用するために定義している。"
 (defun my/org-tags-view-only-todo ()
   (interactive)
   (org-tags-view t))
+```
+
+
+## org-gcal で取得した情報を appt に登録 {#org-gcal-で取得した情報を-appt-に登録}
+
+appt.el で通知されるように登録する必要があるのでコマンドを定義している。
+
+```emacs-lisp
+(defun my/org-gcal-refresh-appt ()
+  (interactive)
+  (let ((org-agenda-files my/org-agenda-calendar-files))
+    (org-agenda-to-appt t)))
 ```
 
 
