@@ -24,4 +24,5 @@
 
 (el-get-bundle org-pomodoro)
 
-(setq org-pomodoro-play-sounds nil)
+(custom-set-variables
+ '(org-pomodoro-play-sounds nil))
