@@ -10,7 +10,7 @@
         (typescript-mode :checksum "188350c222e68bb5c73a914738223a8c73299cfc")
         (yaml :checksum "34c300b08579b72c7c92aefee1f4b500913f0c85")
         (web-mode :checksum "efa853e5cfff8e0bcacbda9d1c6696b33da91b03")
-        (dap-mode :checksum "d534b4a2f9ec3f9e4d804a660830764bed062e15")
+        (dap-mode :checksum "61b5938d9a61882c2e76c58ca7f70e9337ddba00")
         (lsp-treemacs :checksum "9859326df6b8e8c954a3c227e53b6878e54aaae8")
         (treemacs :checksum "07706547a2a927e6787645538d8bdb6e9418fb62")
         (pfuture :checksum "f9e67bd7edbd5b4e033efd82c0acc4a85ff860a8")
