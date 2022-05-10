@@ -25,4 +25,7 @@
 (el-get-bundle org-pomodoro)
 
 (custom-set-variables
- '(org-pomodoro-play-sounds nil))
+ '(org-pomodoro-play-sounds nil)
+ '(org-pomodoro-length 50)
+ '(org-pomodoro-short-break-length 10)
+ '(org-pomodoro-long-break-length 30))
