@@ -126,7 +126,7 @@
         (google-translate :checksum "0f7f48a09bca064999ecea03102a7c96f52cbd1b")
         (counsel-osx-app :checksum "b1c54cbc033c4939966910d85ce035503079e108")
         (el-get :checksum "9353309744e4f8a7c9b1adf22ec99536fb2146b0")
-        (dashboard :checksum "0a86c0eabe6bb5e188e6ae915d971103248a3d26")
+        (dashboard :checksum "a4eb09778f7b685b6ff652212bf1fa2e6e1305d7")
         (page-break-lines :checksum "cc283621c64e4f1133a63e0945658a4abecf42ef")
         (org-trello :checksum "fc63ed580101e6160edfb6f43215fb3200ce1ea7")
         (undo-fu :checksum "b50b283a073b9b3216fccf38649320a529ca1517")
