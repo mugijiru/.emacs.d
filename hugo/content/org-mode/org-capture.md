@@ -9,7 +9,7 @@ weight = 5
 org-capture は org-mode 用にさくっとメモを取るための機能。
 
 
-## org-capture-ical-file {#org-capture-ical-file}
+## org-capture-ical-file <span class="tag"><span class="unused">unused</span></span> {#org-capture-ical-file}
 
 <https://qiita.com/takaxp/items/0b717ad1d0488b74429d> を参考に設定したやつ。
 
@@ -22,7 +22,7 @@ org-capture は org-mode 用にさくっとメモを取るための機能。
 ```
 
 
-## capture 用ファイルを変数定義 {#capture-用ファイルを変数定義}
+## capture 用ファイルを変数定義 <span class="tag"><span class="improvement">improvement</span></span> {#capture-用ファイルを変数定義}
 
 変数定義しなくてもいい気がしないでもないけどとりあえず変数定義している。バラバラの変数にするよりも alist とか plist とかにする方が適切な気がする
 
@@ -44,7 +44,7 @@ org-capture は org-mode 用にさくっとメモを取るための機能。
 
 | Key | 効果                                 | 備考                                                                                                    |
 |-----|------------------------------------|-------------------------------------------------------------------------------------------------------|
-| g   | GTD でとりあえず最初に放り込む Inbox に相当するファイルに登録 | Why?, Goal, How? の欄を設けることでそのタスクの諸々をハッキリさせようとしている                         |
+| g   | GTD でとりあえず最初に放り込む Inbox に相当するファイルに登録 | Why?, Goal, How? 等の欄を設けることでそのタスクの諸々をハッキリさせようとしている                       |
 | m   | とりあえずメモっておきたいやつを放り込む | 最近使ってない。使いにくいのかも                                                                        |
 | p   | 資料を放り込むやつ                   | あとで読むリストになってる。読み終わっても、便利そうなのは DONE のまま置いている                        |
 | i   | 割込みタスクの登録                   | [org-modeで割り込みにも対応した時間記録をとる方法](https://grugrut.hatenablog.jp/entry/2016/03/13/085417) のやつを流用している。たまに使う。 |
@@ -61,7 +61,15 @@ org-capture は org-mode 用にさくっとメモを取るための機能。
 (setq org-capture-templates
       `(("g" "Inbox にエントリー" entry
          (file ,my/org-capture-inbox-file)
-         "* TODO %?\n** Ready の定義\n   - Why?, Goal, How? が埋められていること\n   - How がある程度具体的に書かれていること\n** Why?\n** Goal\n** How?\n\t")
+         "* TODO %?\n** Ready の定義
+   - Why?, Goal, How? が埋められていること
+   - How がある程度具体的に書かれていること
+** Why?
+** Info
+** Goal
+** How?
+** Result
+\t")
         ("m" "Memoにエントリー" entry
          (file+headline ,my/org-capture-memo-file "未分類")
          "*** %?\n\t")
