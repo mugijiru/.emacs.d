@@ -2611,24 +2611,26 @@
      ここでは ON/OFF を切り替えるような機能のコントロールを行っている。
 
      #+begin_src emacs-lisp :tangle inits/81-hydra.el
-     (pretty-hydra-define
-       toggle-hydra
-       (:separator "-"
-                   :title (concat (all-the-icons-faicon "toggle-on") " Toggle Switches")
-                   :foreign-key warn
-                   :quit-key "q"
-                   :exit t)
-       ("View"
-        (("z" zoom-mode                 "zoom-mode"      :toggle zoom-mode)
-         ("Z" toggle-frame-fullscreen   "Fullscreen"     :toggle (frame-parameter nil 'fullscreen))
-         ("b" display-battery-mode      "Battery"        :toggle display-battery-mode)
-         ("L" display-line-numbers-mode "Line Number"    :toggle display-line-numbers-mode)
-         ("N" neotree-toggle            "Neotree"        :toggle (if (fboundp 'neo-global--window-exists-p) (neo-global--window-exists-p) nil)))
+       (pretty-hydra-define
+         toggle-hydra
+         (:separator "-"
+                     :title (concat (all-the-icons-faicon "toggle-on") " Toggle Switches")
+                     :foreign-key warn
+                     :quit-key "q"
+                     :exit t)
+         ("View"
+          (("z" zoom-mode                 "zoom-mode"      :toggle zoom-mode)
+           ("Z" toggle-frame-fullscreen   "Fullscreen"     :toggle (frame-parameter nil 'fullscreen))
+           ("e" emojify-mode              "Emojify"        :toggle emojify-mode)
+           ("b" display-battery-mode      "Battery"        :toggle display-battery-mode)
+           ("L" display-line-numbers-mode "Line Number"    :toggle display-line-numbers-mode)
+           ("N" neotree-toggle            "Neotree"        :toggle (if (fboundp 'neo-global--window-exists-p) (neo-global--window-exists-p) nil)))
 
-        "Behavior"
-        (("S" my/notify-slack-toggle    "Notify Slack"   :toggle my/notify-slack-enable-p)
-         ("v" my/toggle-view-mode       "Readonly"       :toggle view-mode)
-         ("E" toggle-debug-on-error     "Debug on error" :toggle debug-on-error))))
+          "Behavior"
+          (("S" my/notify-slack-toggle    "Notify Slack"   :toggle my/notify-slack-enable-p)
+           ("v" my/toggle-view-mode       "Readonly"       :toggle view-mode)
+           ("A" auto-fix-mode             "Auto fix"       :toggle auto-fix-mode)
+           ("E" toggle-debug-on-error     "Debug on error" :toggle debug-on-error))))
      #+end_src
 
      | Key | 効果                                                                                              |
@@ -6687,13 +6689,25 @@
     (el-get-bundle org-pomodoro)
     #+end_src
 
-    で、sound は結構邪魔なのでそれは鳴らないようにしている
+    そして以下の設定をしている
+
+    - sound は結構邪魔なのでそれは鳴らないようにしている
+    - デフォルトの 25 分だと短かいので倍の 50 分にしている
+      - 25 分だとノって来た時に終わるので集中できない
+    - それに合わせて short break も倍にしている
+      - 10 分休めると間で色々できて便利。Emacs のパッケージ更新とか。
+    - long break も通常の 1.5 倍にしている
+      - とはいえ long break になる頃は定時が近いので無視しがち
 
     #+begin_src emacs-lisp :tangle inits/61-org-clock.el
-    (setq org-pomodoro-play-sounds nil)
+      (custom-set-variables
+       '(org-pomodoro-play-sounds nil)
+       '(org-pomodoro-length 50)
+       '(org-pomodoro-short-break-length 10)
+       '(org-pomodoro-long-break-length 30))
     #+end_src
 
-    まあ普段これ起動してなくて使えてないんだけどw
+    今のところこの運用で大体うまくいってて良い
 
 ** org-export
    :PROPERTIES:

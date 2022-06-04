@@ -83,10 +83,24 @@ clock-out のタイミングで以下の処理をするための hook を用意�
 (el-get-bundle org-pomodoro)
 ```
 
-で、sound は結構邪魔なのでそれは鳴らないようにしている
+そして以下の設定をしている
+
+-   sound は結構邪魔なのでそれは鳴らないようにしている
+-   デフォルトの 25 分だと短かいので倍の 50 分にしている
+    -   25 分だとノって来た時に終わるので集中できない
+-   それに合わせて short break も倍にしている
+    -   10 分休めると間で色々できて便利。Emacs のパッケージ更新とか。
+-   long break も通常の 1.5 倍にしている
+    -   とはいえ long break になる頃は定時が近いので無視しがち
+
+<!--listend-->
 
 ```emacs-lisp
-(setq org-pomodoro-play-sounds nil)
+(custom-set-variables
+ '(org-pomodoro-play-sounds nil)
+ '(org-pomodoro-length 50)
+ '(org-pomodoro-short-break-length 10)
+ '(org-pomodoro-long-break-length 30))
 ```
 
-まあ普段これ起動してなくて使えてないんだけどw
+今のところこの運用で大体うまくいってて良い

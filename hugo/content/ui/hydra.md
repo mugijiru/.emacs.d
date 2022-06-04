@@ -168,6 +168,7 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
   ("View"
    (("z" zoom-mode                 "zoom-mode"      :toggle zoom-mode)
     ("Z" toggle-frame-fullscreen   "Fullscreen"     :toggle (frame-parameter nil 'fullscreen))
+    ("e" emojify-mode              "Emojify"        :toggle emojify-mode)
     ("b" display-battery-mode      "Battery"        :toggle display-battery-mode)
     ("L" display-line-numbers-mode "Line Number"    :toggle display-line-numbers-mode)
     ("N" neotree-toggle            "Neotree"        :toggle (if (fboundp 'neo-global--window-exists-p) (neo-global--window-exists-p) nil)))
@@ -175,6 +176,7 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
    "Behavior"
    (("S" my/notify-slack-toggle    "Notify Slack"   :toggle my/notify-slack-enable-p)
     ("v" my/toggle-view-mode       "Readonly"       :toggle view-mode)
+    ("A" auto-fix-mode             "Auto fix"       :toggle auto-fix-mode)
     ("E" toggle-debug-on-error     "Debug on error" :toggle debug-on-error))))
 ```
 
