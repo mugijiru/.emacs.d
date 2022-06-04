@@ -79,6 +79,9 @@
     拡張子が gpg だと [[https://www.gnu.org/software/emacs/manual/html_mono/epa.html][EagyPG Assistant]] で保存時に暗号化されるので便利。
 
 *** ファイル指定
+    :PROPERTIES:
+    :ID:       13698179-030c-4c4c-974b-2ebc1ea1dbc5
+    :END:
     自分は Emacs でしか使わないであろう情報ということで
     ~/.emacs.d/.authinfo.gpg~ を指定している。
 
@@ -97,6 +100,9 @@
     ファイル保存時に自動で整形してくれて便利だったりする
 
 *** インストール
+    :PROPERTIES:
+    :ID:       9c258229-9707-4a02-87a6-3d95786fa24a
+    :END:
     fork しているので自前で recipe も用意している
 
     #+begin_src emacs-lisp :tangle recipes/auto-fix.rcp
@@ -136,6 +142,9 @@
      とりあえず場所を移動して邪魔にはならないようにはしている。
 
 ***** 自動保存のタイミング
+      :PROPERTIES:
+      :ID:       c54b3e80-41c9-4241-bdd2-2de3492a3b11
+      :END:
 
       自動保存のタイミングは
 
@@ -161,6 +170,9 @@
       #+end_src
 
 ***** 自動保存先を変更する
+      :PROPERTIES:
+      :ID:       0d4f170a-971d-450d-8a53-4db94ae86d56
+      :END:
 
       自動保存はそのままだと弄ってるファイルの場所に作られる。
       が、これは以下のようにすると ~~/.emacs.d/backup/~ 一応変更可能。
@@ -194,6 +206,9 @@
      その設定も弄っている。
 
 ***** バックアップ先のフォルダ指定
+      :PROPERTIES:
+      :ID:       f9e19573-5d1f-4186-95bf-164dcf116502
+      :END:
 
       デフォルトでは編集しているファイルと同じフォルダにバックアップファイルを作成するようになっている。
 
@@ -209,6 +224,9 @@
       #+end_src
 
 ***** バージョン管理
+      :PROPERTIES:
+      :ID:       08ca2240-7f9f-43e6-806b-a73c946de056
+      :END:
 
       バックアップにはバージョン管理機能もある。が、標準では無効化されている。
 
@@ -246,6 +264,9 @@
     別ファイルに出力するようにするなどの調整をしている。
 
 *** 出力先の設定
+    :PROPERTIES:
+    :ID:       a56f67b4-a61f-4c2e-b78d-cf8de6df652c
+    :END:
     .emacs.d の中に閉じ込めておく方が管理が楽なので
     出力先として ~~/.emacs.d/custom.el~ を指定している。
 
@@ -253,6 +274,9 @@
     (setq custom-file (expand-file-name "~/.emacs.d/custom.el"))
     #+end_src
 *** カスタム設定の読み込み
+    :PROPERTIES:
+    :ID:       621d1b63-fb86-4266-9008-8f6101eec200
+    :END:
     起動時に、設定が入っているファイルが読み込まれないと
     保存した設定が有効にならないので load を使って読んでいる。
 
@@ -278,6 +302,9 @@
     単語の区切りなんかを一切判定せずに人間がそれを教えてあげることで、
     そういう自動的に変な挙動をしてしまう煩わしさから開放されるようになっている。
 *** インストール
+    :PROPERTIES:
+    :ID:       88935f6a-8ef3-4aa0-b50d-f620aa40d2d5
+    :END:
     いつも通り el-get で入れている。
     最近は最新版が GitHub で更新されているのでそちらから引っ張られてくる。
 
@@ -286,6 +313,9 @@
     #+end_src
 
 *** 常時有効化
+    :PROPERTIES:
+    :ID:       1017e0ce-4a52-4dc9-b5ba-4cac9a0a6397
+    :END:
     find-file-hooks で有効化することでファイルを開いた時には常に skk が使える状態にしている。
     また skk-latin-mode にしておくことで、
     基本は英語入力ですぐに日本語入力に切り替えられる状態にしている。
@@ -297,6 +327,9 @@
     (add-hook 'find-file-hooks 'my/always-enable-skk-latin-mode-hook)
     #+end_src
 *** hook の設定
+    :PROPERTIES:
+    :ID:       45ad01fb-cae9-4690-915a-82aea4b26bc2
+    :END:
     ddskk が呼び出された時に色々設定されるようにしている。
 
     もしかしたら customize-variable とかあるかもしれないので
@@ -334,6 +367,9 @@
     - skk-rom-kana-rules-list :: キー入力時の挙動を指定する。とりあえず自分は : とかが全角になるのが嫌なので半角になるようにしている
 
 *** L 辞書を使うようにする                                      :improvement:
+    :PROPERTIES:
+    :ID:       933cfc3e-5056-4cbe-9f1f-10a356edbbb4
+    :END:
     Mac では AquaSKK の L 辞書を、
     Linux では ~/usr/share/skk/SKK-JISYO.L~ を読むようにしている。
 
@@ -350,6 +386,9 @@
     CurvusSKK の辞書を見るように設定した方が良さそうな気もするけど
     ~/usr/share/skk/SKK-JISYO.L~ にもあるのでひとまずこれにしておけば良さそう
 *** ddskk-posframe
+    :PROPERTIES:
+    :ID:       b172ebc0-2022-45d5-9836-76e4bfc29347
+    :END:
     [[https://github.com/conao3/ddskk-posframe.el/][ddskk-posframe]] は ddskk ツールチップを posframe で表示してくれるやつ。便利。
 
     https://emacs-jp.github.io/packages/ddskk-posframe
@@ -396,6 +435,9 @@
     Emacs が見える PATH 環境変数をシェルが見てる PATH 環境変数と揃うようにしている。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       31b08655-ece4-4250-bc51-b4caec3f4264
+    :END:
 
     いつも通り el-get からインストールしている
 
@@ -404,6 +446,9 @@
     #+end_src
 
 *** 有効化                                                      :improvement:
+    :PROPERTIES:
+    :ID:       2d8739f9-d0f9-4549-bc59-f198c5f1124a
+    :END:
 
     理由は忘れたが Mac の環境でのみ有効化している。
     その内 Linux 環境でも有効化を試みた方が良さそう
@@ -436,6 +481,9 @@
     通常あまり手を入れないで済ませている。
 
 *** 設定
+    :PROPERTIES:
+    :ID:       b75c8f3d-e383-4e08-844e-c3a35b77088c
+    :END:
     Mac では 14, それ以外(Linux) では 18 を基準としている。
 
     Mac と Linux で基準のサイズを変えているが
@@ -475,6 +523,9 @@
     なお package-install や el-get を使っておけば基本的に自分で load-path を通す必要はない。
 
 *** 秘匿情報を入れてるフォルダを読み込み可能にする
+    :PROPERTIES:
+    :ID:       ac2f873e-a0ed-4393-94b7-33b756534b81
+    :END:
 
     パスワードなどの秘匿情報を持っている部分は ~~/.emacs.d/secret~ というフォルダで管理している。
     そのためここに入ってる emacs lisp のファイルも読み込めるように load-path に追加している。
@@ -484,6 +535,9 @@
     #+end_src
 
 *** my/load-config                                              :replacement:
+    :PROPERTIES:
+    :ID:       e9a66944-d211-44a4-b5a0-a26813f6e76f
+    :END:
 
     ~~/.emacs.d/secret~ は個人マシンか会社マシンかによって置いてるデータが異なったりするため
     もしもファイルがなくてもエラーにならないような方法で load する方法が必要だった。
@@ -515,6 +569,9 @@
 
     これとても便利で抜け出せない。
 *** インストール
+    :PROPERTIES:
+    :ID:       cc1854a4-6e9b-43fa-93b6-26b5b74a80c1
+    :END:
     いつも通り el-get でインストール。
 
     #+begin_src emacs-lisp :tangle inits/10-migemo.el
@@ -524,6 +581,9 @@
 
     load はする必要あるのかわからんけど、そういう設定が既に入ってるのでそのままにしている。
 *** Mac での辞書の位置の指定
+    :PROPERTIES:
+    :ID:       74e38e82-cae4-452a-9125-cc35ad559829
+    :END:
     Homebrew で cmigemo を入れているので
     それに合わせて辞書の位置を指定している。
 
@@ -534,6 +594,9 @@
           (setq migemo-dictionary path)))
     #+end_src
 *** Ubuntu での辞書の位置の指定
+    :PROPERTIES:
+    :ID:       56b747eb-0b91-4dcf-a9d2-3d4ad95936eb
+    :END:
     apt で cmigemo を入れているので
     それに合わせて辞書の位置を指定している。
 
@@ -544,6 +607,9 @@
           (setq migemo-dictionary path)))
     #+end_src
 *** Manjaro での辞書の位置の指定
+    :PROPERTIES:
+    :ID:       18e8fb24-7ef2-4b19-8103-8ae37cc1d61e
+    :END:
     yay で cmigemo-git を入れているので
     それに合わせて辞書の位置を指定している。
 
@@ -554,6 +620,9 @@
           (setq migemo-dictionary path)))
     #+end_src
 *** cmigemo コマンドの PATH 指定
+    :PROPERTIES:
+    :ID:       4b91ca01-9cd6-4456-9cd0-ec8c0565492f
+    :END:
     環境で PATH が変わるので which コマンドの結果を migemo-command に設定している。
 
     #+begin_src emacs-lisp :tangle inits/10-migemo.el
@@ -563,6 +632,9 @@
         (setq migemo-command path)))
     #+end_src
 *** オプション設定
+    :PROPERTIES:
+    :ID:       1e3faeb4-e736-4514-b148-3e4739723a0a
+    :END:
     裏側で動くのでうるさくならないように ~-q~ を指定しているのと
     Emacs から叩くから ~--emacs~ を指定しているだけ。
 
@@ -570,6 +642,9 @@
     (setq migemo-options '("-q" "--emacs"))
     #+end_src
 *** coding system の指定
+    :PROPERTIES:
+    :ID:       5217125b-6490-497f-b553-158bdbb5e616
+    :END:
     Mac と Ubuntu でしか使わないし
     それらの環境だと統一で utf-8-unix でいいよねってことでそれを指定している。
 
@@ -579,6 +654,9 @@
 
     今時なら euc とかにする必要もないだろうしね。
 *** 初期化
+    :PROPERTIES:
+    :ID:       c3ae22d1-edba-4fdd-b7bf-86afc855adae
+    :END:
     以上の設定を入れた上で初期化をしている。
 
     #+begin_src emacs-lisp :tangle inits/10-migemo.el
@@ -594,6 +672,9 @@
     Emacs 標準でついている、ミニバッファの履歴などを保存してくれる機能。
 
 *** 有効化
+    :PROPERTIES:
+    :ID:       99bdfe96-a77d-4b74-97d9-2f83d4795ab0
+    :END:
 
     標準でついているので以下のようにするだけで有効化可能。
 
@@ -602,6 +683,9 @@
     #+end_src
 
 *** 設定                                                        :improvement:
+    :PROPERTIES:
+    :ID:       0f462221-b25e-4ca3-9756-09ad8ce2b9d7
+    :END:
 
     標準で保存されるもの以外だと kill-ring だけを保存対象にしている。
     これで Emacs を終了させても kill-ring は残るようになるはず。
@@ -627,6 +711,9 @@
     けど麦汁さんは Firefox から org-capture を動かすためにだけ利用している。
 
 *** 設定
+    :PROPERTIES:
+    :ID:       a4dc42b3-8fba-4de5-8d4a-a449197dabf7
+    :END:
     ~server.el~ を require しておいて
     サーバとして動いていなかったらサーバとして動くようにしている。
     多重起動の防止ですね。
@@ -660,6 +747,9 @@
     操作してない間に GC が走るような作りになっている。便利そう。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       d1085bfd-ef22-46ed-bbe6-5bdcadf9a9da
+    :END:
     #+begin_src emacs-lisp :tangle inits/00-gc.el
     (el-get-bundle gcmh)
     #+end_src
@@ -691,6 +781,7 @@
 ** ライブラリの読み込み
    :PROPERTIES:
    :EXPORT_FILE_NAME: load-libraries
+   :ID:       ab70f0d7-7bac-43f6-8e96-c0d8058e7f9c
    :END:
    設定ファイル内で文字列操作をするだろうということで
    [[https://github.com/magnars/s.el][s.el]] を読み込んでいる。
@@ -731,12 +822,18 @@
     一番まともに解説しているのは http://emacs.rubikitch.com/scratch-log/ だと思う。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       ee7551d5-b37d-4358-8621-fcc414a0a3d7
+    :END:
     el-get から入れるだけ。
 
     #+begin_src emacs-lisp :tangle inits/70-scratch-log.el
     (el-get-bundle mori-dev/scratch-log)
     #+end_src
 *** 有効化
+    :PROPERTIES:
+    :ID:       94843413-2b9c-4c7c-81d5-40ab2a2470e9
+    :END:
     どうも明示的に require しないといけないっぽくて、そうしている。
     ちょっと本当にそうなのか検証したい気はする。
 
@@ -760,12 +857,18 @@
     ファイルを開いてそのまま放置みたいなことをしがちなズボラな人間には便利なやつ。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       2785d2b5-9fe2-4231-b5f4-2aa909021993
+    :END:
     いつも通り el-get で入れている。
 
     #+begin_src emacs-lisp :tangle inits/70-tempbuf.el
     (el-get-bundle tempbuf-mode)
     #+end_src
 *** 勝手に kill させないファイルの指定
+    :PROPERTIES:
+    :ID:       dff6b4e8-53a3-4c2a-ae60-1e86809991ec
+    :END:
     org-clock を使うようなファイルは
     kill されると org-clock が狂って面倒なことになるので
     それらのファイルは勝手に kill されないように ignore リストに突っ込んでいる
@@ -777,6 +880,9 @@
                                     ))
     #+end_src
 *** find-file への hook
+    :PROPERTIES:
+    :ID:       953c5640-86e4-40fb-b403-0451bb249cea
+    :END:
     find-file した時に
     上でリストアップしたファイルだった場合は kill されないように
     tempbuf-mode が自動的に無効になるような hook を用意している。
@@ -788,6 +894,9 @@
           (turn-on-tempbuf-mode))))
     #+end_src
 *** hook の設定
+    :PROPERTIES:
+    :ID:       8ba00c70-31e3-4a75-a831-1a05d1ff1a94
+    :END:
     find-file では上で作成した hook を使うことで
     kill されたくないファイルは kill されないようにしている
 
@@ -837,6 +946,9 @@
     まあほとんど使えてないので改良版の恩恵をまだ受けてないけど……。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       5b08b398-607f-4a9a-b5ab-772220abc8b6
+    :END:
 
     いつも通り el-get でインストールしている。
     本家の方じゃないので GitHub のリポジトリから突っ込んでいる。
@@ -846,6 +958,9 @@
     #+end_src
 
 *** 設定
+    :PROPERTIES:
+    :ID:       74eb2ce4-03c8-444e-828f-882319d8fdc3
+    :END:
 
     同時押し時の許容時間、その前後で別のキーが押されていたら発動しない判断をする、みたいな設定を入れている。
 
@@ -864,6 +979,9 @@
     表示を待たずに次のキーを押すので 0.25 秒も待っていられないという事情があった。
 
 *** 有効化
+    :PROPERTIES:
+    :ID:       31beae4a-3927-457d-8fd7-fe026aa1195a
+    :END:
 
     設定を入れた後は有効にするだけである。
 
@@ -879,6 +997,9 @@
 
 *** sticky-shift
 **** セミコロン2つでシフトを押した状態にする
+     :PROPERTIES:
+     :ID:       e36764d8-6903-4629-86a5-46dd621795a8
+     :END:
      セミコロンを2回叩くことで shift が押されてるという状態を実現する。
 
      これにより magit で P などを入力したい時にも ~;;p~ で入力できるし
@@ -932,6 +1053,9 @@
     ~,c~ と素早くタイプをすればそれだけで ~C-c~ が押された状態になる。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       20074b86-b460-4b72-bab3-446fdbe2fd6b
+    :END:
 
     まずは el-get-bundle でインストール。
 
@@ -956,6 +1080,9 @@
     から取得して利用している
 
 *** 設定
+    :PROPERTIES:
+    :ID:       465b8c3a-3062-4b3c-a616-efce31fd0440
+    :END:
 
     まずは「2回叩いたら Control を押している状態になる」キーを指定する。
 
@@ -992,6 +1119,9 @@
     何も考えずとも使えるようにしてある。
 
 *** 有効化
+    :PROPERTIES:
+    :ID:       cd869641-1015-4dba-888b-bd9eda9bb25a
+    :END:
     最後に有効化
 
     #+begin_src emacs-lisp :tangle inits/80-sticky-control.el
@@ -1007,6 +1137,9 @@
     [[*google-this][google-this]] と [[*google-translate][google-translate]] を入れているが、
     どっちも Google を使うので1つの Hydra にまとめていた方が扱いやすいと思って統合している
 *** キーバインド
+    :PROPERTIES:
+    :ID:       9bc2fbe8-ba67-4865-ad8a-eb08e9418614
+    :END:
 
     #+begin_src emacs-lisp :tangle inits/21-google-hydra.el
     (with-eval-after-load 'pretty-hydra
@@ -1065,6 +1198,9 @@
     が、Hydra 関係もここに書くと項目が大きくなりすぎるので、それはまた別途定義している。
 
 *** Mac での修飾キー変更
+    :PROPERTIES:
+    :ID:       c7b6e782-af93-4875-ae2a-9dac865793f4
+    :END:
     #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
     (if (eq window-system 'ns)
         (progn
@@ -1072,6 +1208,9 @@
               (setq ns-command-modifier (quote meta))))  ;; command => meta
     #+end_src
 *** C-h を backspace に変更
+    :PROPERTIES:
+    :ID:       e9b47644-3c73-4816-8ed8-608d224c23d7
+    :END:
     C-h で文字を消せないと不便なのでずっと昔からこの設定は入れている。
 
     #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
@@ -1079,6 +1218,9 @@
     (global-set-key "\C-h" nil)
     #+end_src
 *** M-g rをstring-replaceに割り当て
+    :PROPERTIES:
+    :ID:       b8267487-fb05-4d11-a1ab-9192b84ee8fe
+    :END:
     string-replace はよく使うのでそれなりに使いやすいキーにアサインしている
 
     #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
@@ -1089,6 +1231,9 @@
     どこかでなんとかしたい。
     Hydra 使う?
 *** C-\ で SKK が有効になるようにする
+    :PROPERTIES:
+    :ID:       77bc3c39-ad62-48cd-ac3a-320495ffed11
+    :END:
     C-\ で skk-mode を起動できるようにしている。
     C-x C-j の方も設定は生きているが使ってない。っていうか忘れてた。
 
@@ -1099,6 +1244,9 @@
     余談だけど org-mode とか commit message 書く時とかは
     自動で有効になるようにしたい気はする。
 *** C-s を swiper に置き換え
+    :PROPERTIES:
+    :ID:       cb8be291-0c4b-41f8-9779-17d91b071b75
+    :END:
     デフォルトだと C-s でインクリメンタルサーチが起動するが
     swiper の方が絞り込みができて便利だしカッチョいいのでそっちを使うようにしている
     #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
@@ -1106,6 +1254,9 @@
     #+end_src
 *** window 間の移動
 **** C-x o を ace-window に置き換え
+     :PROPERTIES:
+     :ID:       6e4557f8-4c27-4014-b1d6-7cc16fc855ac
+     :END:
      C-x o はデフォルトだと順番に window を移動するコマンドだが
      ace-window を使えばたくさん画面分割している時の移動が楽だし
      2分割の時は元の挙動と同様に2つの window を行き来する感じになので
@@ -1118,6 +1269,9 @@
      ace-window は他にもコマンドがあって
      Hydra の方で ace-swap-window は使えるようにしている
 **** Shift+カーソルキーで window 移動
+     :PROPERTIES:
+     :ID:       3b921278-f3c1-441f-9aee-bba382d6a4b6
+     :END:
      シフトキーを押しながらカーソルキーを押すことでも
      window を移動できるようにしている
 
@@ -1129,6 +1283,9 @@
      そろそろ無効にしてもいいんじゃないかなという気もしている
 
 *** undo/redo
+    :PROPERTIES:
+    :ID:       6238d423-1a21-4351-9121-ecca45e1e71c
+    :END:
     undo  と redo には undo-fu を使っている
     #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
     (global-set-key (kbd "C-/") 'undo-fu-only-undo)
@@ -1136,6 +1293,9 @@
     #+end_src
 
 *** \ を入力した時に円マークにならないようにする設定
+    :PROPERTIES:
+    :ID:       9eebf56d-4cbe-461c-9366-0df004199b95
+    :END:
     Mac だとデフォルト状態だと \ を入れると円マークになるのだが
     プログラムを書く上ではバックスラッシュであってほしいので
     円マークが入力された時はバックスラッシュが入力されたように扱われるようにしている。
@@ -1151,6 +1311,9 @@
     その時はどうすべきかという課題がある。
 
 *** multiple-cursors
+    :PROPERTIES:
+    :ID:       fbe31c14-b4cc-42f1-9754-6fbe93ab73c0
+    :END:
     カーソルを複数表示できる [[https://github.com/magnars/multiple-cursors.el][multiple-cursors]] 用のキーバインド。
     基本的には公式 README に従って設定している。
 
@@ -1165,6 +1328,9 @@
     Ladicle さんの https://ladicle.com/post/config/#multiple-cursor の設定が便利そうだなって思って気になってるけどまだ試してない。
 
 *** Ivy
+    :PROPERTIES:
+    :ID:       56e06084-5464-4aa9-be75-279787f9e0d0
+    :END:
     Helm から乗り換えて今はこちらをメインで使っている。
     基本的には既存のキーバインドの持っていた機能が強化されるようなコマンドを代わりに割り当てている。
     デフォルトより良い感じで良い。
@@ -1183,6 +1349,9 @@
     | C-x C-f | find-file の置き換え。ido より便利な感じの絞り込み選択ができる。                                        |
 
 *** zoom-window                                                      :unused:
+    :PROPERTIES:
+    :ID:       8e81ab68-cdca-4376-8fa4-e5bb08fd8dd7
+    :END:
     [[https://github.com/emacsorphanage/zoom-window][zoom-window]] は tmux の zoom 機能のように
     選択している window だけを表示したり戻したりができるパッケージ。
 
@@ -1194,6 +1363,9 @@
     このキーバインドは戻してもいいかもしれないなと思っていたりする。
 
 *** neotree                                                          :unused:
+    :PROPERTIES:
+    :ID:       6e2189a7-8dad-4d50-b609-d6a1c29c2d10
+    :END:
     [[https://github.com/jaypei/emacs-neotree][Neotree]] は IDE みたいにファイルツリーを表示を表示するパッケージ。
     有効にしているとちょっぴりモダンな雰囲気になるぞい。
 
@@ -1205,6 +1377,9 @@
     Helm でも起動できるようにしているので、こっちの設定は外してもいいかもなとか思っている。
 
 *** org-mode                                                         :unused:
+    :PROPERTIES:
+    :ID:       b01cfab2-09ed-48c0-80c6-303e8bca0458
+    :END:
     みんな大好き org-mode 用にもキーバインドを設定している。
 
     #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
@@ -1218,6 +1393,9 @@
     これもそろそろ削除かな……
 
 *** keychord
+    :PROPERTIES:
+    :ID:       1ec019db-13a3-46bc-a029-0cd6002ed209
+    :END:
     keycohrd は2つのキーを同時押しというキーバインドを実現するパッケージ。
     麦汁は https://github.com/zk-phi/key-chord/ のバージョンを利用している。
 
@@ -1230,6 +1408,9 @@
     #+end_src
 
 *** yes or no ではなく y or n で質問する
+    :PROPERTIES:
+    :ID:       32fa9132-5975-42d5-b36f-5429e384081b
+    :END:
     何か質問された時に yes とか入力するのがだるいので
     y だけで済ませられるようにしている。
 
@@ -1275,6 +1456,9 @@
     なんか編集周りの基本的な設定としてまとめられていたのでここに置いとく
 
 *** インデントにタブを使わないようにする
+    :PROPERTIES:
+    :ID:       1a290daf-689f-492d-817e-a72f15910bcb
+    :END:
     最近の開発スタイルではインデントにタブを混ぜないスタイルなので
     そのように設定している。
 
@@ -1283,6 +1467,9 @@
     #+end_src
 
 *** 以前に開いていた位置を保存/復元する
+    :PROPERTIES:
+    :ID:       1cfc66ed-98a7-4483-8b99-921c2c6a33f7
+    :END:
     save-place-mode を有効にしていると
     以前に開いたことのあるファイルの、開いていた場所を覚えておいてくれる。
 
@@ -1303,6 +1490,9 @@
     Emacs が標準で持ってるライブラリなのでインストールは不要
 
 *** 設定
+    :PROPERTIES:
+    :ID:       29c98f44-e98c-4ea4-8b73-49e0f5de85af
+    :END:
 
     Emacs の設定は .emacs.d の中に閉じ込めたいので
     auto-insert のテンプレートも ~~/.emacs.d/insert~ に閉じ込める設定にしている。
@@ -1312,6 +1502,9 @@
     #+end_src
 
 *** 有効化
+    :PROPERTIES:
+    :ID:       f13b855d-d661-45a7-ba08-26e68bd73b46
+    :END:
 
     あとは単に有効化している。
 
@@ -1337,6 +1530,9 @@
     プラグイン式に拡張しやすいのが特徴っぽい。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       c212e7d9-f4ad-4295-83a5-8f422fea865c
+    :END:
 
     いつも透り el-get から入れている
 
@@ -1345,6 +1541,9 @@
     #+end_src
 
 *** 設定
+    :PROPERTIES:
+    :ID:       1579dd35-33e3-4103-8f4c-3b2fb4a13a7a
+    :END:
 
     ほとんど設定は入れていない。
     有効な時に ~C-s~ を入力すると検索ができる程度。
@@ -1389,6 +1588,9 @@
     文書が華やかになって良いぞ!
 
 *** インストール                                                :improvement:
+    :PROPERTIES:
+    :ID:       299ea3d1-44a2-402e-bdc9-ef9ec0a31796
+    :END:
     いつも通り el-get で入れている。
     何か依存でもあるのが別途 dash.el も読み込んでる。
 
@@ -1401,6 +1603,9 @@
     今度対応しよう。
 
 *** 有効化
+    :PROPERTIES:
+    :ID:       4d1c6699-272c-402f-bae5-d10df996e344
+    :END:
 
     emojify がグローバルに有効になるようにしている。
 
@@ -1420,6 +1625,9 @@
     複数箇所を同時に編集できるようになって便利。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       4d5d2bf4-2dc8-4597-9674-203b0973f027
+    :END:
     el-get からインストールしている
 
     #+begin_src emacs-lisp :tangle inits/50-multiple-cursor.el
@@ -1444,6 +1652,9 @@
     雑に C-k で行削除しててもペアが維持されて便利。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       713c0278-fc89-4ce1-a664-14bb99b43bdf
+    :END:
 
     いつも透り el-get で導入している
 
@@ -1452,6 +1663,9 @@
     #+end_src
 
 *** 設定
+    :PROPERTIES:
+    :ID:       51bfc1b6-514d-440a-81aa-830f8b1267d5
+    :END:
 
     実は導入して間もないので、提供されてるオススメ設定のみ突っ込んでいる。
     オススメ設定は別途 reqiure したら良いという作りなので、以下のようにして突っ込んでいる。
@@ -1477,6 +1691,9 @@
     そっちにバグがあるっぽいので乗り換えた。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       421b5501-5ba9-4732-b237-f1e188bfa052
+    :END:
     #+begin_src emacs-lisp :tangle inits/80-undo-fu.el
     (el-get-bundle undo-fu)
     #+end_src
@@ -1498,6 +1715,9 @@
     コードを眺めたい時などに使っている。
 
 *** キーバインド
+    :PROPERTIES:
+    :ID:       1429ac0e-d5e9-49f8-8095-0dfc82c3c691
+    :END:
     view-mode の時は文字入力をする必要がないので
     通常のモードの時とは違うキーバインドが使えるようにしている。
 
@@ -1539,6 +1759,9 @@
     これで不要に左手小指を痛める可能性が下がるであろう。
 
 *** hook
+    :PROPERTIES:
+    :ID:       8388a26f-4056-44de-85be-8f11effe9b0c
+    :END:
     上でキーバインドを設定できる関数を用意してあるので
     view-mode が有効になる時にそれを hook して設定されるようにしている。
 
@@ -1551,6 +1774,9 @@
     (add-hook 'view-mode-hook 'my/view-mode-hook)
     #+end_src
 *** Toggle するコマンド
+    :PROPERTIES:
+    :ID:       ce8277bf-88ec-4446-90ea-6288f87d8860
+    :END:
     view-mode にしたり戻したりするコマンドを用意している。
 
     view-mode を有効にする時には hl-line-mode も有効にしているので
@@ -1583,11 +1809,17 @@
     全角空白を可視化したり、行末の空白を可視化したりしておくと便利なので入れている。
 
 *** 設定
+    :PROPERTIES:
+    :ID:       156f9498-8373-4a80-882b-8ab63200246b
+    :END:
     #+begin_src emacs-lisp :tangle inits/30-whitespace.el
     (require 'whitespace)
     #+end_src
 
 *** 可視化対象
+    :PROPERTIES:
+    :ID:       7d553b21-5c5f-4792-ae8e-165d01e55c30
+    :END:
     可視化対象の空白について設定している。
 
     #+begin_src emacs-lisp :tangle inits/30-whitespace.el
@@ -1618,6 +1850,9 @@
     設定したことがないからわからんが……。
 
 *** 置き換え表示用の文字の設定
+    :PROPERTIES:
+    :ID:       04760d59-9734-423d-a170-59b9a35172ac
+    :END:
     #+begin_src emacs-lisp :tangle inits/30-whitespace.el
     (setq whitespace-display-mappings
           '((space-mark ?\u3000 [?\u25a1])
@@ -1641,6 +1876,9 @@
     ま、うまく動いてそうなのでヨシッ!
 
 *** スペースは全角のみを可視化
+    :PROPERTIES:
+    :ID:       623760dc-8367-475d-9bdb-68af72983126
+    :END:
     半角スペースまでいちいち可視化されてたら邪魔だし
     気付きたいのは全角スペースが紛れてるかどうかなので、空白文字ではそれだけを可視化するようにしている。
 
@@ -1649,6 +1887,9 @@
     #+end_src
 
 *** 行末の空白も表示
+    :PROPERTIES:
+    :ID:       cf50b16e-3a35-4b3e-a6c0-56d8123b5449
+    :END:
     通常の半角空白と No Break Space(~&nbsp;~ で表示されるやつ) を行末での可視化対象としている。
 
     #+begin_src emacs-lisp :tangle inits/30-whitespace.el
@@ -1658,6 +1899,9 @@
     タブも入れてもまあいいんだろうけど、別途可視化しているからわざわざ入れなくても良いということでこうしている気がする。
 
 *** 保存前に自動でクリーンアップ
+    :PROPERTIES:
+    :ID:       e4ff0ed4-2b97-4703-80b0-9f282474683d
+    :END:
     保存時なんかに自動的に余計な空白を消すような設定。
     保存する時に、バッファ前後の無駄な空白や末尾の空白なんかを取り除いてくれる。
 
@@ -1669,6 +1913,9 @@
     そもそもスペースとタブが混ざるような設定にしてないのでそれは観測できてない。
 
 *** Emacs 全体で有効化
+    :PROPERTIES:
+    :ID:       d84cf6e5-ab13-4709-8791-23ddc5bec7ec
+    :END:
     とまあ、上で設定してきたように、色々可視化されたり余計な空白を処理してくれたりで便利なやつなので、
     Emacs 全体で有効にしている。
 
@@ -1686,12 +1933,18 @@
     Emacs でそこそこ何かを書いている人なら大体知ってるような有名なやつだと思う。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       cc11bc28-d3c4-4351-959b-95de3e6c0f80
+    :END:
     いつも通り el-get でインストール
 
     #+begin_src emacs-lisp :tangle inits/20-yasnippet.el
     (el-get-bundle yasnippet)
     #+end_src
 *** 有効化
+    :PROPERTIES:
+    :ID:       f15ebd37-6546-4cb0-8fe3-0d8e18f7177a
+    :END:
     どこでも使いたいぐらい便利なやつなので global に有効化している
 
     #+begin_src emacs-lisp :tangle inits/20-yasnippet.el
@@ -1699,6 +1952,9 @@
     #+end_src
 
 *** キーバインド
+    :PROPERTIES:
+    :ID:       68a17443-78fd-4602-aa01-cb19cb449599
+    :END:
     基本的に覚えられないので Hydra を使って定義している
 
     #+begin_src emacs-lisp :tangle inits/20-yasnippet.el
@@ -1780,12 +2036,18 @@
     その環境での標準的な通知機能を使って通知ができるやつ。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       930b7e2c-0579-430d-8ef6-89dc3123382d
+    :END:
     いつも通りに el-get でインストール。
 
     #+begin_src emacs-lisp :tangle inits/20-alert.el
     (el-get-bundle alert)
     #+end_src
 *** 設定
+    :PROPERTIES:
+    :ID:       a9280bee-4a7a-4526-8a93-dfba3ef3cc4b
+    :END:
     業務では Mac を使ってるので terminal-notifier を設定している。
     他の環境では libnotify にしている。
 
@@ -1813,6 +2075,9 @@
     [[*Neotree][Neotree]] などでも対応していてアイコンでファイルの種類が表示されるようになってモダンな雰囲気が出ます。
 
 *** インストール                                                :improvement:
+    :PROPERTIES:
+    :ID:       724d999c-d515-4b18-be04-6bdae17ed3db
+    :END:
 
     いつも通り el-get-bundle で入れている。
     明示的に require している理由は忘れました。
@@ -1834,6 +2099,9 @@
     all-the-icons の更新後は叩いた方がいいかもしれない
 
 *** キーバインド                                                :improvement:
+    :PROPERTIES:
+    :ID:       12f03cb2-6dc8-4207-a96e-0879717db3eb
+    :END:
 
     キーバインドは覚えられないし、使えるキーも大分埋まってるので、
     pretty-hydra を使って all-the-icons 用の Hydra を用意している。
@@ -1877,6 +2145,9 @@
     ダークグレイ背景をベースにしたテーマで
     もう何年もこのテーマを使っている。
 *** インストール
+    :PROPERTIES:
+    :ID:       f277aedd-c295-434e-b9ce-74c0d8348c3e
+    :END:
     いつも通り el-get で入れている。
     MELPA に登録されてないのかわからんけど直接 GitHub から入れている。
 
@@ -1884,6 +2155,9 @@
     (el-get-bundle alloy-d/color-theme-molokai)
     #+end_src
 *** テーマへの PATH を通す
+    :PROPERTIES:
+    :ID:       d5e8e16b-dd72-4508-b3c2-86733ebfc8c4
+    :END:
     インストールしただけでは custom-theme-load-path には追加されないので
     自分で add-to-list を使って PATH を通している。
 
@@ -1891,6 +2165,9 @@
     (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/el-get/color-theme-molokai"))
     #+end_src
 *** テーマの読み込み
+    :PROPERTIES:
+    :ID:       fa84ed04-5df3-47c0-9e56-5edc5eb3638c
+    :END:
     最後に load-theme で molokai を読み込んでいる。
 
     #+begin_src emacs-lisp :tangle inits/90-theme.el
@@ -1911,12 +2188,18 @@
     [[https://github.com/emacs-dashboard/emacs-dashboard][emacs-dashboard]] は
     Emacs の起動時に色々な情報を表示してくれるパッケージ。
 *** インストール
+    :PROPERTIES:
+    :ID:       b4907155-0c47-4d63-bcb0-ea44d2c8e0de
+    :END:
     いつも通り el-get で入れている
 
     #+begin_src emacs-lisp :tangle inits/92-dashboard.el
     (el-get-bundle dashboard)
     #+end_src
 *** 表示するアイコンをロゴに変更
+    :PROPERTIES:
+    :ID:       df6abbca-b053-4d1f-b80b-5c090f4ea40e
+    :END:
     ロゴ、画像にした方がカッコいいよねってことで logo に変更している
 
     #+begin_src emacs-lisp :tangle inits/92-dashboard.el
@@ -1925,6 +2208,9 @@
 
     なお CUI で起動すると自動でテキストでの表示になる
 *** 表示する情報の設定
+    :PROPERTIES:
+    :ID:       271410e2-8c9d-4dbf-80c5-27f938a48f16
+    :END:
     dashboard-items を弄ることで表示する情報を設定している
 
     #+begin_src emacs-lisp :tangle inits/92-dashboard.el
@@ -1941,12 +2227,18 @@
     あとは最近開いたファイルとプロジェクトとagendaを表示するようにしているが
     イマイチ活用できてないので色々設定を詰める必要がありそう
 *** 各セクションのタイトル部の先頭にアイコンを表示
+    :PROPERTIES:
+    :ID:       27f9708d-c5f8-48c4-a069-e942d7e8030d
+    :END:
     これは見た目をちょっとだけカッコよくするために all-the-icons で装飾するための設定
 
     #+begin_src emacs-lisp :tangle inits/92-dashboard.el
     (setq dashboard-set-heading-icons t)
     #+end_src
 *** 各ファイルの先頭にアイコンを表示
+    :PROPERTIES:
+    :ID:       92eb4d6a-7308-4509-9647-d89264eb79b5
+    :END:
     これも見た目をちょっとだエカッコよくするために all-the-icons で装飾するための設定。
     だけどファイルの種類がアイコンでわかるので便利。
 
@@ -1954,6 +2246,9 @@
     (setq dashboard-set-file-icons t)
     #+end_src
 *** 最後に設定を反映
+    :PROPERTIES:
+    :ID:       e2458374-18b7-4e3c-8118-966b43d7c331
+    :END:
     多分設定を反映するための関数だと思ってる。
 
     #+begin_src emacs-lisp :tangle inits/92-dashboard.el
@@ -1973,12 +2268,18 @@
     いや、他にもできそうなんだけど、私がそれを把握してない。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       562c0173-eb1d-4fb2-96f0-d08ba5f6ffaf
+    :END:
     el-get で以下のように書くと emacswiki からインストールされる。
 
     #+begin_src emacs-lisp :tangle inits/80-frame-cmds.el
     (el-get-bundle frame-cmds)
     #+end_src
 *** キーバインド
+    :PROPERTIES:
+    :ID:       482b906d-adf0-4586-b33f-b12c0082a2e1
+    :END:
     無論キーバインドは覚えられないので以下のように Hydra で定義している
 
     #+begin_src emacs-lisp :tangle inits/80-frame-cmds.el
@@ -2025,6 +2326,9 @@
                     (set-frame-parameter nil 'fullscreen 'fullboth))))
     #+end_src
 *** WSL の設定
+    :PROPERTIES:
+    :ID:       4ea01187-2427-4590-a8cf-951930d4b82e
+    :END:
     X Window system の場合かつ WSLENV という環境変数が設定されている場合にはフルスクリーンにする。
     新しく Linux マシンを導入したらこれの影響を受けていたので
     後から WSLENV による判定を追加した次第。
@@ -2060,6 +2364,9 @@
     git-gutter に乗り換えても良さそう
 
 *** インストール
+    :PROPERTIES:
+    :ID:       34cfd131-de66-4f90-8b21-b41d8151d07a
+    :END:
     いつも通り el-get でインストールしている
 
     #+begin_src emacs-lisp :tangle inits/30-git-gutter-fringe.el
@@ -2067,6 +2374,9 @@
     #+end_src
 
 *** 有効化
+    :PROPERTIES:
+    :ID:       e22862b8-2d5f-4398-9ca3-2e9f5017ca92
+    :END:
     Git 管理しているやつは全部差分情報が表示されて欲しいので
     グローバルマイナーモードを有効にしている。
 
@@ -2091,6 +2401,9 @@
     YAML などのインデントがそのまま構造になるような言語を弄る時にとても便利。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       6e7e43c4-844b-42fe-8247-7ac4d7297b40
+    :END:
 
     これもいつも通り el-get でインストールしている。
     GitHub にあるのでそこを直接指定してインストールもできるのだけど
@@ -2110,6 +2423,9 @@
     #+end_src
 
 *** 設定                                                        :improvement:
+    :PROPERTIES:
+    :ID:       6dee0d93-03b0-4f14-90fc-9feafa749ee8
+    :END:
 
     今いる行がどのインデントにいるのかをわかりやすくするために
     responsive モードを有効にしている。
@@ -2136,6 +2452,9 @@
     Hydra 本体と関連パッケージをここでインスコしている
 
 **** Hydra 本体のインストール
+     :PROPERTIES:
+     :ID:       babf7d50-35a7-4363-8a83-789c7ba7e4c8
+     :END:
      Hydra 本体は el-get で普通に入れている
 
      #+begin_src emacs-lisp :tangle inits/81-hydra.el
@@ -2143,6 +2462,9 @@
      #+end_src
 
 **** hydra-posframe のインストール
+     :PROPERTIES:
+     :ID:       48cbdab1-313c-41c4-b925-313cadf1602b
+     :END:
      Hydra は通常だと minibuffer あたりに表示されるけど
      画面の真ん中に表示される方が視線移動が少なくて便利なので
      hydra-posframe を使って画面中央に表示されるようにしている。
@@ -2161,6 +2483,9 @@
      #+end_src
 
 **** WebDAV Sync download の設定
+     :PROPERTIES:
+     :ID:       3440afa3-5c0f-4ebe-a21b-d73e08deee42
+     :END:
      作業管理用の org-mode のドキュメントは WebDAV サーバにも上げて
      beorg でも使えるようにしているが
      それを拾って来るためのコマンドを用意している。
@@ -2174,6 +2499,9 @@
      簡単に ~async-shell-command~ を使って済ませている
 
 **** major-mode-hydra のインストール
+     :PROPERTIES:
+     :ID:       1daf2240-355e-4ecf-8a7d-875062872207
+     :END:
      自分以外で使っている人を見たことはないけど
      麦汁さんは [[https://github.com/jerrypnz/major-mode-hydra.el][major-mode-hydra]] というものを利用している。
 
@@ -2205,6 +2533,9 @@
      #+end_src
 
 **** pretty-hydra の関数上書き
+     :PROPERTIES:
+     :ID:       eeda9f0e-301b-4dfc-bf77-b4f594d91bfb
+     :END:
      Hydra の表示には hydra-posframe を使っているが
      hydra-posframe は最初に空行があると最後の行を表示しないようなので
      一時的に pretty-hydra--maybe-add-title を上書きして使ってみている。
@@ -2233,6 +2564,9 @@
     他の機能に属さないものはここでまとめてキーバインドを定義している。
 
 **** el-get
+     :PROPERTIES:
+     :ID:       d51c374b-aca8-4b43-b86c-f7372bd7eb6a
+     :END:
      他の機能に属さないものは、と書いたな? ありゃ嘘だ。
      el-get の Hydra はここで定義してしまっている。
      その内 el-get 用の設定ファイルにでも移動したい気がする。
@@ -2271,6 +2605,9 @@
      | U   | 指定したパッケージの el-get-lock のロックを解除                           |
 
 **** Toggle Switches
+     :PROPERTIES:
+     :ID:       ff1539f7-39b2-4985-80e2-e7eb18dd817d
+     :END:
      ここでは ON/OFF を切り替えるような機能のコントロールを行っている。
 
      #+begin_src emacs-lisp :tangle inits/81-hydra.el
@@ -2305,6 +2642,9 @@
      | E   | エラー時のデバッグモードの切替。設定を弄ってる時はバックトレースある方が嬉しいよね                |
 
 **** Sub Tools
+     :PROPERTIES:
+     :ID:       c42aa633-8b7e-4062-8bea-5c4eedb6b7c4
+     :END:
 
      最初に起動した Hydra からは外してるけど、そこそこ使うコマンド群を適当に詰めてるやつ。
 
@@ -2338,6 +2678,9 @@
      | D   | beorg 連携に使ってる WebDAV サーバからダウンロード |
 
 **** Text Scale
+     :PROPERTIES:
+     :ID:       2f6cd927-8717-4274-af8b-7fae3da9e640
+     :END:
      文字サイズの切替用。たまに字を大きくしたりしたいので。
 
      #+begin_src emacs-lisp :tangle inits/81-hydra.el
@@ -2354,6 +2697,9 @@
      | 0   | 文字サイズを元に戻す   |
 
 **** Main
+     :PROPERTIES:
+     :ID:       befaa52b-d054-43bd-9445-fca7f5bd8be5
+     :END:
      よく使うコマンドをまとめたやつ。
      [[*key-chord][key-chord]] を使って ~jk~ 同時押しで起動できるようにしている。
 
@@ -2436,12 +2782,18 @@
     find-file とかが楽になって良い。
 
 *** 有効化
+    :PROPERTIES:
+    :ID:       a9f1db26-02da-4f18-978f-e49149f7fc1e
+    :END:
     とりあえず昔からずっと有効化している
 
     #+begin_src emacs-lisp :tangle inits/50-ido.el
     (ido-mode 1)
     #+end_src
 *** 設定
+    :PROPERTIES:
+    :ID:       b58cdaf4-8c21-4e18-b1ef-391ff43c0dac
+    :END:
     ファイル名の補完とかを曖昧一致を有効にするっぽいい。
 
     #+begin_src emacs-lisp :tangle inits/50-ido.el
@@ -2460,6 +2812,9 @@
    :END:
 *** 概要
 *** インストール
+    :PROPERTIES:
+    :ID:       b0648e1d-09f1-4d3c-980d-a018ea7c2b70
+    :END:
     el-get を使って GitHub のリポジトリから直で入れている。
 
 
@@ -2472,6 +2827,9 @@
 
     が、やっぱり MELPA とかに寄せるべきかなって気になってきているところだったりもする。
 *** なんか設定
+    :PROPERTIES:
+    :ID:       2383d49f-373f-46bd-9d76-ddc7fb265925
+    :END:
     便利に使えるようにするための設定を書いている。
     が、何を設定しているのかよく覚えてないので今度調べておこう……
     #+begin_src emacs-lisp :tangle inits/82-ivy.el
@@ -2496,6 +2854,9 @@
       (ivy-mode 1))
     #+end_src
 *** counsel の有効化
+    :PROPERTIES:
+    :ID:       6d37d210-90db-44fb-b73b-82a98d79afd8
+    :END:
     counsel は ivy で提供されているやつで、
     既存の Emacs のコマンドを置き換えてくれるやつ。
 
@@ -2505,6 +2866,9 @@
     (counsel-mode 1)
     #+end_src
 *** ivy-posframe
+    :PROPERTIES:
+    :ID:       adfdebc7-0ba7-4850-84de-c623287dadf9
+    :END:
     ivy-posframe は ivy を posframe で表示してくれるようにするやつ。
     posframe 表示だと Emacs の中央に表示できるので
     視線移動が少なく済んで便利。
@@ -2519,11 +2883,17 @@
     なんだけど、オフにした時の表示どんな感じだったか忘れたな……。
 
 **** インストール
+     :PROPERTIES:
+     :ID:       34d2251a-e0f7-4366-b009-fdaf681879f4
+     :END:
      #+begin_src emacs-lisp :tangle inits/82-ivy.el
      (el-get-bundle ivy-rich)
      #+end_src
 
 **** アイコン設定
+     :PROPERTIES:
+     :ID:       b06ce3d4-8644-4169-9fe4-537b4e4ebe2c
+     :END:
      いい感じにアイコンが表示されるように
      https://ladicle.com/post/config/#ivy に書かれている関数を丸コピしてきた
 
@@ -2554,6 +2924,9 @@
      #+end_src
 
 **** switch-buffer でのアイコン表示
+     :PROPERTIES:
+     :ID:       f34f40b0-053d-4ace-8370-a2b1801d7d6e
+     :END:
      公式に書かれてるように設定することで
      バッファを切り替える時もアイコンが表示されるようにしている。
      https://github.com/Yevgnen/ivy-rich#how-i-can-add-icons-for-ivy-switch-buffer
@@ -2569,6 +2942,9 @@
      #+end_src
 
 **** yank-pop の区切り設定
+     :PROPERTIES:
+     :ID:       4671a038-ce35-4721-abb0-c6bbdda6975f
+     :END:
      yank-pop の区切りをちょっと長めにしている。
      長い方が区切りだってわかりやすいので。
      #+begin_src emacs-lisp :tangle inits/82-ivy.el
@@ -2576,6 +2952,9 @@
      #+end_src
 
 **** ivy-rich の表示設定
+     :PROPERTIES:
+     :ID:       e880774f-5af8-4807-ad7a-df4dc080269c
+     :END:
      それぞれのカラムがどのぐらいの幅、みたいな設定を
      コマンド毎に設定できるようになっている。
 
@@ -2654,6 +3033,9 @@
       もうちょっと追加で情報表示できると便利かも。
 
 **** ivy-rich-mode の有効化
+     :PROPERTIES:
+     :ID:       34c6487e-b3e9-4192-97c0-0ce052b76e61
+     :END:
      #+begin_src emacs-lisp :tangle inits/82-ivy.el
      (ivy-rich-mode 1)
      #+end_src
@@ -2666,6 +3048,9 @@
      でそれをできるようにした。
 
 ***** インストール
+      :PROPERTIES:
+      :ID:       79ab4adf-02c4-4083-b900-11035bae93fa
+      :END:
       #+begin_src emacs-lisp :tangle recipes/ivy-migemo.rcp
       (:name ivy-migemo
              :website "https://github.com/ROCKTAKEY/ivy-migemo"
@@ -2683,6 +3068,9 @@
       で入れている。
 
 ***** キーバインドの設定
+      :PROPERTIES:
+      :ID:       9e250b88-efd6-45b9-b1cd-b6c4cda23a04
+      :END:
       以下を入れておくと migemo を使ったり fuzzy を使ったりを切り替えられるようなので
       とりあえず設定している。
 
@@ -2694,6 +3082,9 @@
       なおこれは公式に記載されている設定である。
 
 ***** デフォルトで migemo を有効にする
+      :PROPERTIES:
+      :ID:       e442f2ac-6285-4611-8d36-fdf06dd57523
+      :END:
       swiper を使う時はデフォで有効になっててほしいのでその設定も入れている。
       なおこれも公式ページに記述されている設定である。
 
@@ -2709,6 +3100,9 @@
       そちらは自分は設定していない。なんとなく。
 
 *** counsel-osx-app.                                            :improvement:
+    :PROPERTIES:
+    :ID:       670d52bf-59e1-4838-97bb-8de00094aebb
+    :END:
     Mac で Emacs を使ってる時に ivy でアプリケーションを起動するためのパッケージ。
 
     #+begin_src emacs-lisp :tangle inits/83-counsel-osx-app.el
@@ -2722,6 +3116,9 @@
     このパッケージは Mac でだけ読むようにしたら良いよねって感じではある。
 
 *** prescient.el
+    :PROPERTIES:
+    :ID:       e7fcd60b-153a-4085-94dc-0271bb79cc5e
+    :END:
     [[https://github.com/raxod502/prescient.el][prescient.el]] は強力なソート・フィルタ機能を提供してくれるパッケージ。
     ivy などの絞り込み系ツールと組み合わせて使う。
 
@@ -2762,6 +3159,9 @@
     このメニューの並びとかはどこかで直した方が良さそう。
 
 *** hide-mode-line
+    :PROPERTIES:
+    :ID:       67fca813-2357-44e8-b577-1e9f3ab04d16
+    :END:
     [[https://github.com/hlissner/emacs-hide-mode-line][hide-mode-line]] は mode-line を隠してくれるパッケージ。
     ここでは neotree-mode-hook で引っ掛けて Neotree では mode-line を隠すように設定している
 
@@ -2774,6 +3174,9 @@
     特に思い付かないから今のところ Neotree 専用になっている。
 
 *** 日時を mode-line で表示する
+    :PROPERTIES:
+    :ID:       b42d169b-bd3d-4a81-a51d-cf2f81b32a60
+    :END:
     mode-line に日時も表示されてる方が便利な気がしてとりあえず表示している。
     表示形式は24時間表記。「午前」とか「午後」とかの表示邪魔だしね。
 
@@ -2819,6 +3222,9 @@
     表示しなくなったから要らなくなった感じ。
 
 **** インストール・有効化
+     :PROPERTIES:
+     :ID:       0c15becd-14cf-4671-aaac-f3c3226ffed4
+     :END:
      el-get-bundle で入れて require したら有効になる
      #+begin_src emacs-lisp :tangle inits/90-mode-line.el
      (el-get-bundle diminish)
@@ -2826,6 +3232,9 @@
      #+end_src
 
 **** マクロ定義
+     :PROPERTIES:
+     :ID:       ae80e8d0-f113-412b-a6cc-bea9b029ccb7
+     :END:
      各パッケージが読まれた後に
      指定した表示が設定されるようにするマクロを書いている。
 
@@ -2841,6 +3250,9 @@
      リンク先にその記述が見当たらないな……。
 
 **** マイナーモード毎の表示指定
+     :PROPERTIES:
+     :ID:       ba7fd6ed-6e4f-4a7d-82cb-63647e585b9b
+     :END:
      上で用意したマクロを用いて各マイナーモード毎の設定を行っていた。
      今は使ってないので全部コメントアウトしている
 
@@ -2869,17 +3281,26 @@
     結構スッキリした見た目になるので気に入ってる。
 
 **** インストール
+     :PROPERTIES:
+     :ID:       543fd568-80c3-4478-b5b7-3d42d6fbe6d7
+     :END:
      いつも通り el-get で入れてるだけ
      #+begin_src emacs-lisp :tangle inits/91-doom-modeline.el
      (el-get-bundle doom-modeline)
      #+end_src
 
 **** 有効化
+     :PROPERTIES:
+     :ID:       7bee93e8-92c6-4a9a-98e4-e4f12eab01b9
+     :END:
      #+begin_src emacs-lisp :tangle inits/91-doom-modeline.el
      (doom-modeline-mode 1)
      #+end_src
 
 **** VCS 用表示の長さ変更
+     :PROPERTIES:
+     :ID:       d3690d34-dee3-4e95-97ca-1caf90e2e51e
+     :END:
      デフォルトだと 12 なんだけど
      それだと短かくて何のブランチかよくわからんので
      30 まえのばしている。
@@ -2889,6 +3310,9 @@
      #+end_src
 
 **** バッテリー残量表示
+     :PROPERTIES:
+     :ID:       1e17a74e-8db3-4043-9f0e-3552798aee3b
+     :END:
      これは doom-modeline 専用の設定ではないけど
      doom-modeline で見た目をカッコよくしているのでこっちに設定を書いている。
 
@@ -2916,6 +3340,9 @@
     メンテは活発じゃないようなので、その内乗り換えたい。
 
 *** レシピ
+    :PROPERTIES:
+    :ID:       15f8c7f8-4256-4976-acd5-dbbe2a214972
+    :END:
 
     Neotree でメンテされているのは dev ブランチだけど
     el-get の公式のレシピでは master ブランチを見ているので
@@ -2931,6 +3358,9 @@
     #+end_src
 
 *** インストール
+    :PROPERTIES:
+    :ID:       4113d009-3aff-4f90-9223-a4cf966440d7
+    :END:
 
     上に書いたレシピを使ってインストールしている。
 
@@ -2952,6 +3382,9 @@
     #+end_src
 
 *** テーマの設定
+    :PROPERTIES:
+    :ID:       c6ab2d2c-ab76-435a-8379-4887dad59ee0
+    :END:
 
     GUI で起動している時はアイコン表示し
     そうでない場合は ▾ とかで表示する
@@ -2965,6 +3398,9 @@
     all-the-icons の設定で上書きしている気がするので要確認
 
 *** major-mode-hydra
+    :PROPERTIES:
+    :ID:       45822234-de42-425c-90aa-59c53352ae26
+    :END:
 
     いちいちキーバインドを覚えてられないので
     [[https://github.com/jerrypnz/major-mode-hydra.el][major-mode-hydra]] を使って主要なキーバインドは [[https://github.com/abo-abo/hydra][hydra]] で使えるようにしている。
@@ -3043,6 +3479,9 @@
     という感じで色々なものの拡張として使わているやつ。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       39207cf0-e25c-4352-be01-46fce1166f65
+    :END:
 
     いつも通り el-get で入れているだけ。
 
@@ -3066,6 +3505,9 @@
     括弧の中身を強調表示したりする機能を提供してくれるやつ。
 
 *** 有効化
+    :PROPERTIES:
+    :ID:       d9e9d1ed-b1de-4d09-aa44-e8a5c844d3af
+    :END:
     デフォで入ってるので以下のようにするだけで有効化される。
 
     #+begin_src emacs-lisp :tangle inits/30-show-paren.el
@@ -3096,6 +3538,9 @@
     麦汁さんは使わないし幅を取るので隠す派。
 
 *** 設定
+    :PROPERTIES:
+    :ID:       b436ec4a-6f73-4934-a8fb-29718768a335
+    :END:
 
     単に無効にして隠している
 
@@ -3115,6 +3560,9 @@
     すぐ親とかも同名でも、名前が違うところまで遡って表示してくれる。
 
 *** 有効化
+    :PROPERTIES:
+    :ID:       d3ad9e92-def0-4e4e-b979-08e9abd96439
+    :END:
     Emacs に標準で入ってるので require するだけで有効にできる
 
     #+begin_src emacs-lisp :tangle inits/20-uniquify.el
@@ -3122,6 +3570,9 @@
     #+end_src
 
 *** 設定
+    :PROPERTIES:
+    :ID:       860b4940-f17d-44c3-af72-7e994ce0023d
+    :END:
 
     自分は ~ファイル名<フォルダ名>~ みたいな表示になる形式にしている。
     その方がファイル名が主という感じになって使いやすそうだなって。
@@ -3148,6 +3599,9 @@
     タイトル通り、あまり主張しない感じで良い。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       6181571d-4b9c-43c9-b539-f736e6c9e8d2
+    :END:
     いつも通り el-get でインストールしている
 
     #+begin_src emacs-lisp :tangle inits/70-yascroll.el
@@ -3170,6 +3624,9 @@
     狭い画面でも見たい部分を広げて表示できるので便利。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       4112538c-7a54-4ce4-abbb-edfa7698b9ef
+    :END:
 
     いつも通り el-get から入れる。
     GitHub から直接取得するように設定している。
@@ -3179,6 +3636,9 @@
     #+end_src
 
 *** 設定
+    :PROPERTIES:
+    :ID:       ad1c6c6c-dfef-4ffc-8be5-fda302a5cf81
+    :END:
 
     - 起動時に有効化 :: 1画面しか使えない時は必須なので
     - 比率を黄金比に変更 :: この方が使いやすいっぽい。
@@ -3201,6 +3661,9 @@
     表示している window をフレーム全体に広げたり戻したりすることができる。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       884697ff-2b84-4085-9659-11adb39e29ee
+    :END:
     いつも通り el-get から入れている
 
     #+begin_src emacs-lisp :tangle inits/70-zoom-window.el
@@ -3253,6 +3716,9 @@
     ~C-x o~ をデフォルトの ~other-window~ から ~ace-window~ そのまま置き換えても便利に使える。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       9ee8c051-361e-4512-9a1a-3f89baf26e2b
+    :END:
 
     いつも通り el-get でインストールしている。
 
@@ -3280,6 +3746,9 @@
     Vimium の f とかに似てる。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       29eee71f-bcdd-44e3-a4e0-1a341e9e8d00
+    :END:
 
     el-get で普通にインストールしている
 
@@ -3288,6 +3757,9 @@
     #+end_src
 
 *** 設定
+    :PROPERTIES:
+    :ID:       b1ce154c-8218-44b8-9e49-86fc3fa143f9
+    :END:
 
     文字の上に重なると元の文字列がよくわからなくなるので、
     移動先の文字の前に表示するようにしている
@@ -3296,6 +3768,9 @@
     (setq avy-style 'pre)
     #+end_src
 *** キーバインド
+    :PROPERTIES:
+    :ID:       2cf3eb5e-963f-4345-996e-048fa77414a3
+    :END:
 
     グローバルなキーバインドを汚染したくなかったので
     ひとまず Hydra を定義している。
@@ -3347,6 +3822,9 @@
     そこへのリンクを拾いやすく便利。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       48e2f53f-4b37-48d6-abad-29b8af5c1194
+    :END:
 
     いつも透り el-get で入れている。
 
@@ -3376,6 +3854,9 @@
     めっちゃ色々な言語をサポートしている。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       a554f7d4-976f-4ab5-948b-8d4343f300f9
+    :END:
 
     いつも通り el-get でインストールしている。
 
@@ -3386,6 +3867,9 @@
 *** 設定
 
 **** デフォルトプロジェクトの変更
+     :PROPERTIES:
+     :ID:       e8f49604-1bc9-4d3b-a4a0-be43ed82ae50
+     :END:
 
      デフォルトだと ~~/~ がデフォルトプロジェクトらしいが
      そんなに上の階層から調べられてもしょうがない気がするので
@@ -3396,6 +3880,9 @@
      #+end_src
 
 **** 複数マッチした時に使う絞り込み
+     :PROPERTIES:
+     :ID:       e67685b8-94c4-4189-9a89-1dd32bce958b
+     :END:
 
      最近はできるだけ ivy を使うようにしているので
      dumb-jump でも ivy を使うように指定している。
@@ -3405,6 +3892,9 @@
      #+end_src
 
 *** キーバインド
+    :PROPERTIES:
+    :ID:       165031ac-9a25-4474-8162-e80ae71b00a7
+    :END:
 
     README に書いている hydra の設定をほぼパクってるけど
     pretty-hydra を使ってキーを定義している
@@ -3448,12 +3938,18 @@
     [[https://github.com/bbatsov/projectile][projectile]] はプロジェクト内のファイルを検索したりするのに便利なパッケージ
 
 *** インストール
+    :PROPERTIES:
+    :ID:       32d78dbb-dc6d-44fd-bd56-be2753e604a4
+    :END:
     いつも通り el-get からインストールする
 
     #+begin_src emacs-lisp :tangle inits/30-projectile.el
     (el-get-bundle projectile)
     #+end_src
 *** 有効化
+    :PROPERTIES:
+    :ID:       895dde82-6cc9-43d3-9e62-4711529adb23
+    :END:
     このあたりで有効化しておいている。
     この順序に意味があったかは忘れた……。
 
@@ -3465,6 +3961,9 @@
     けどあんまりメンテしてない。
 
 **** 無視するディレクトリ
+     :PROPERTIES:
+     :ID:       ca572239-d9ae-46b3-bb2c-d71a9f814b47
+     :END:
      #+begin_src emacs-lisp :tangle inits/30-projectile.el
      (add-to-list 'projectile-globally-ignored-directories "tmp")
      (add-to-list 'projectile-globally-ignored-directories ".tmp")
@@ -3478,6 +3977,9 @@
      node_modules もここに突っ込んでも良いかもしれない。
 
 **** 無視するファイル
+     :PROPERTIES:
+     :ID:       8675762a-4677-4106-9f83-66a3bcb07c0d
+     :END:
      #+begin_src emacs-lisp :tangle inits/30-projectile.el
      (add-to-list 'projectile-globally-ignored-files "gems.tags")
      (add-to-list 'projectile-globally-ignored-files "project.tags")
@@ -3489,6 +3991,9 @@
      そろそろ gems.tags と project.tags は不要かもしれない。
 
 *** ivy/counsel との連携
+    :PROPERTIES:
+    :ID:       7d645d02-3805-4fdd-90c4-e68465d0971b
+    :END:
     上の方で helm との連携処理を入れていたが
     今は大体 ivy に乗り換えているので ivy 連携もしている。
 
@@ -3500,6 +4005,9 @@
     counsel-projectile はいくつかの絞り込み処理を提供してくれて便利。
     それでも足りなかったら自前で何か作ることになるのかなと思っている。
 *** キーバインド
+    :PROPERTIES:
+    :ID:       bb772132-e16d-4a98-9b8f-8c0a7bd65223
+    :END:
     デフォルトでいくつかのキーバインドが用意されてるようだけど
     そんなものさっぱり覚えられないので
     とりあえずいくつかを Hydra で叩けるようにしている
@@ -3573,6 +4081,9 @@
     まあそんなにしっかり書いてないので、あんまり設定は入ってない
 
 *** Hook
+    :PROPERTIES:
+    :ID:       77eb2555-fa4b-45a8-b038-ddba86593f68
+    :END:
     Hook 用の関数を定義してその中に色々書いている。
 
     - とりあえず行数表示が欲しいので display-line-numbers-mode を有効化
@@ -3593,6 +4104,9 @@
     (add-hook 'emacs-lisp-mode-hook 'my/emacs-lisp-mode-hook)
     #+end_src
 *** アイコン挿入コマンドの用意
+    :PROPERTIES:
+    :ID:       cbcc5bb0-f684-4c40-a34c-c51dd46bf519
+    :END:
     時々 UI 設定目的で絵文字を使うことがあるので
     挿入できるコマンドを用意している。最近使った記憶ないけど。
 
@@ -3605,6 +4119,9 @@
         (insert "(all-the-icons-" (symbol-name family) " \"" selection "\")")))
     #+end_src
 *** キーバインド
+    :PROPERTIES:
+    :ID:       90f34fac-6181-4ca1-96af-403d4308caed
+    :END:
 
     emacs-lisp-mode 用に major-mode-hydra を設定している。
     けどそんなにしっかり Emacs Lisp を書いてるわけではないのがバレバレな感じである。
@@ -3646,6 +4163,9 @@
     ~ember-mode~ と ~handlebars-mode~ が存在する
 
 *** ember-mode                                                       :unused:
+    :PROPERTIES:
+    :ID:       7e532810-f4de-41db-8fc8-36bfcdeef036
+    :END:
 
     [[https://github.com/madnificent/ember-mode][ember-mode]] は
     Ember.js アプリケーションのファイルナビゲーションや生成を行ってくれるモード。
@@ -3682,6 +4202,9 @@
     #+end_src
 
 *** handlebars-mode                                             :improvement:
+    :PROPERTIES:
+    :ID:       f8e85a67-83c4-4189-a3dd-92d48eb849fb
+    :END:
 
     [[https://github.com/danielevans/handlebars-mode][handlebars-mode]] は Ember.js のテンプレートエンジンとして採用されている
     Handlebars を書くためのモード。
@@ -3707,6 +4230,9 @@
     es6 という拡張子を使っていたのでこのファイル名になっている。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       7074ffa5-bd1a-4d97-922b-47f0c5018b40
+    :END:
     es6 はつまり JS なのでとりあえず el-get で js2-mode を入れている。
 
     #+begin_src emacs-lisp :tangle inits/40-es6.el
@@ -3714,6 +4240,9 @@
     #+end_src
 
 *** Hook
+    :PROPERTIES:
+    :ID:       25734b5a-5d87-444d-9290-6edb17daa10b
+    :END:
 
     - flycheck を有効にしてリアルタイムに文法チェックをしている
       - また ~javascript-eslint~ を使いたいので他2つは disable にしている
@@ -3744,6 +4273,9 @@
     関数名つけて分離しておくと中身を簡単に入れ替えられて便利。
 
 *** es6 を js2-mode で扱うようにする
+    :PROPERTIES:
+    :ID:       7fe9c3c0-a6e9-441f-9df0-034ed8224a5e
+    :END:
 
     #+begin_src emacs-lisp :tangle inits/40-es6.el
     (add-to-list 'auto-mode-alist '("\\.es6$" . js2-mode))
@@ -3793,6 +4325,9 @@
     どっちが良いかよくわかってない
 
 **** インストール
+     :PROPERTIES:
+     :ID:       2854f343-e57f-4974-89ed-6f958f197960
+     :END:
      flycheck と同時に
      カーソルのそばに pos-tip で通知内容を表示してくれる [[https://github.com/flycheck/flycheck-pos-tip][flycheck-pos-tip]] をインストールしている
 
@@ -3802,6 +4337,9 @@
      #+end_src
 
 **** 設定
+     :PROPERTIES:
+     :ID:       091f6aa9-42f5-446b-a682-d4d08f739954
+     :END:
      flycheck を読んだ後で flycheck-pos-tip-mode が有効になるようにしている。
      これは公式に書かれているやりかたに則っている
      https://github.com/flycheck/flycheck-pos-tip#installation
@@ -3835,6 +4373,9 @@
     まあほとんど使ってないんだけど。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       48a407b4-1eb1-43ac-901e-62b3de6d995f
+    :END:
     いつも通り el-get で入れている
 
     #+begin_src emacs-lisp :tangle inits/40-gnuplot.el
@@ -3853,6 +4394,9 @@
 
     より軽そうなやつに [[https://github.com/joaotavora/eglot][eglot]] というのもあるがこっちは試したことがない。
 *** インストール
+    :PROPERTIES:
+    :ID:       a415ce65-78aa-4862-b8c3-ef011dd338f3
+    :END:
     lsp-mode 本体と
     UI 周りを担当する lsp-ui-mode の両方をインストールしている。
     また lsp-mode が有効になる際に lsp-ui-mode も同時に有効になるようにしている。
@@ -3863,6 +4407,9 @@
     (add-hook 'lsp-mode-hook 'lsp-ui-mode)
     #+end_src
 *** 設定
+    :PROPERTIES:
+    :ID:       14934040-a06b-4048-9248-91c10959a83b
+    :END:
     lsp-ui-doc はカーソル位置にある変数や関数などの説明を child frame で表示してくれるやつ。
 
     これがデフォルトではフレーム基準で右上に表示するのだが
@@ -3884,6 +4431,9 @@
     手元でテキストドキュメントを弄るのは org-mode が多いからなあ……
 
 *** インストール
+    :PROPERTIES:
+    :ID:       fc3184f1-82b5-498c-ac10-a5e3be8eb8be
+    :END:
     いつも通り el-get で入れている。
 
     #+begin_src emacs-lisp :tangle inits/40-markdown.el
@@ -3899,12 +4449,18 @@
     [[https://github.com/skuro/plantuml-mode][plantuml-mode]] は [[https://plantuml.com/ja/][PlantUML]] という、テキストだけで UML 図などが描けるツール用のモード。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       e646d8eb-4297-45a6-bfaf-094d55a11c06
+    :END:
     いつも通り el-get で入れてる
 
     #+begin_src emacs-lisp :tangle inits/50-plantuml.el
     (el-get-bundle plantuml-mode)
     #+end_src
 *** 設定
+    :PROPERTIES:
+    :ID:       60b0ad6f-398b-4419-9ade-55186bce0662
+    :END:
     実行モードは ~'jar~ を指定している。
     デフォルトは ~'server~ なんだけどオフラインの時も使いたいししね。
 
@@ -3926,6 +4482,9 @@
 *** 概要
     Rails 開発関係だけど Ruby 開発とはちょっと違う設定をここに書いている。
 *** 関連パッケージのインストール
+    :PROPERTIES:
+    :ID:       838c6d03-297f-409f-a18a-549d564f6819
+    :END:
     テンプレートエンジンには haml を使っているので [[https://github.com/nex3/haml-mode][haml-mode]] を入れていて
     ファイルナビゲーションには [[*projectile][projectile]] の拡張である [[https://github.com/asok/projectile-rails][projectile-rails]] を利用している。
 
@@ -3940,6 +4499,9 @@
     projectile-rails の実装を参考にコマンドを追加している
 
 **** Uploader Finder
+     :PROPERTIES:
+     :ID:       ab7023a6-137c-410c-a8d2-7987fbb859a7
+     :END:
      ~app/uploaders~ に格納している upload に関連するファイルを検索するコマンド
 
      #+begin_src emacs-lisp :tangle inits/41-rails.el
@@ -3953,6 +4515,9 @@
      #+end_src
 
 **** Admin Finder
+     :PROPERTIES:
+     :ID:       43da24b6-b81b-41bf-800d-7179c9448845
+     :END:
      Active Admin 用のファイルを検索するためのコマンド
      #+begin_src emacs-lisp :tangle inits/41-rails.el
      (defun my/projectile-rails-find-admin ()
@@ -3965,6 +4530,9 @@
      #+end_src
 
 **** Form Object Finder
+     :PROPERTIES:
+     :ID:       c183c57f-12ad-402e-bfac-7899a311e33c
+     :END:
      Form Object を探すためのコマンド
      #+begin_src emacs-lisp :tangle inits/41-rails.el
      (defun my/projectile-rails-find-form-object ()
@@ -3977,6 +4545,9 @@
      #+end_src
 
 **** Vue Finder
+     :PROPERTIES:
+     :ID:       14484af5-1085-4cc0-85fe-eb5811d7d374
+     :END:
      Vue.js の単一ファイルコンポーネントを探すためのコマンド
      #+begin_src emacs-lisp :tangle inits/41-rails.el
      (defun my/projectile-rails-find-vue ()
@@ -3989,6 +4560,9 @@
      #+end_src
 
 **** Webpacker 管理の JS 検索コマンド
+     :PROPERTIES:
+     :ID:       7fad4195-7d19-4c49-a346-05a34deb1ccd
+     :END:
      Webpacker で JS を管理していたりもするので必要だった
 
      #+begin_src emacs-lisp :tangle inits/41-rails.el
@@ -4002,6 +4576,9 @@
      #+end_src
 
 *** キーバインド
+    :PROPERTIES:
+    :ID:       9345bf3b-8a41-467b-bd97-194f1321618c
+    :END:
     もちろん基本的にコマンドなんて覚えられないので
     いつも通り Hydra を定義して大体キーバインドは忘れている。
 
@@ -4093,6 +4670,9 @@
 *** 概要
     React.js を書くための設定をここにまとめている
 *** dap-mode
+    :PROPERTIES:
+    :ID:       bce971a8-a112-4105-b3a9-4a0398718a2b
+    :END:
     Debug Adapter Protocol をサポートするモード。
     入れておいた方がきっとデバッグしやすいんだろうということで入れている。
 
@@ -4107,6 +4687,9 @@
     いずれ乗り換えようとはしていたけども。
 
 *** web-mode
+    :PROPERTIES:
+    :ID:       f9f9e71a-130d-4c54-8414-e5564d9e2c22
+    :END:
     とりあえず tsx を弄る上では web-mode が良いという話もあるので入れておく。
 
     #+begin_src emacs-lisp :tangle inits/41-react.el
@@ -4114,6 +4697,9 @@
     #+end_src
 
 *** メジャーモードの紐付け
+    :PROPERTIES:
+    :ID:       0ab81b00-8d81-46d1-a07a-f24da515c206
+    :END:
     jsx/tsx ファイルを開いた時には web-mode で動いてほしいので
     auto-mode-alist で関連付けをする
 
@@ -4122,6 +4708,9 @@
     #+end_src
 
 *** lsp-mode などの有効化
+    :PROPERTIES:
+    :ID:       240d8f05-5125-496b-b453-a3021dddfd8d
+    :END:
     jsx/tsx ファイルを開く時に web-mode が有効になるようにしているので
     その web-mode の hook で
 
@@ -4168,11 +4757,17 @@
     といいつつ麦汁さんはちゃんと使いこなしていない……
 
 *** インストール
+    :PROPERTIES:
+    :ID:       82f51e0e-6e9f-433d-961a-d42295699d79
+    :END:
     #+begin_src emacs-lisp :tangle inits/42-rspec.el
     (el-get-bundle rspec-mode)
     #+end_src
 
 *** 有効化
+    :PROPERTIES:
+    :ID:       e9917ec1-608c-4bce-a8e2-1ea6f3c96d59
+    :END:
     rspec 実行バッファで byebug などで止まった際に C-x C-q したら inf-ruby が動くようにしている。
 
     #+begin_src emacs-lisp :tangle inits/42-rspec.el
@@ -4182,6 +4777,9 @@
     binding.pry は何故かまともに動かないので byebug か binding.irb 推奨。
     麦汁さんはいつも ~debugger~ とコードに入れて使っている。
 *** キーバインド
+    :PROPERTIES:
+    :ID:       5758be70-5e90-4715-9190-a354f06d390d
+    :END:
     C-c C-c で開いている rspec ファイルのカーソルがある行のテストを実行できるようにしている。
     #+begin_src emacs-lisp :tangle inits/42-rspec.el
     (define-key rspec-mode-map (kbd "C-c C-c") 'rspec-verify-single)
@@ -4200,12 +4798,18 @@
     Ruby のバージョンを切り替えられる [[https://github.com/rbenv/rbenv][rbenv]] を使ってるので
     Emacs 上でもそれが使えるように [[https://github.com/senny/rbenv.el][rbenv.el]] を導入している。
 **** インストール
+     :PROPERTIES:
+     :ID:       2b0cdc2f-86db-4b80-839a-7b4bbef2b364
+     :END:
      インストールはいつも通り el-get でやっている
 
      #+begin_src emacs-lisp :tangle inits/40-ruby.el
      (el-get-bundle rbenv)
      #+end_src
 **** 有効化
+     :PROPERTIES:
+     :ID:       cbb5aea8-bede-40de-ae74-48d394d0026e
+     :END:
      そして global に有効化している。
      というか global じゃない有効化ってあるのかなってのと、
      あるとしても意味があるのかな的な。
@@ -4218,12 +4822,18 @@
     戻ってみるのも手かもしれないと思っている。
 
 **** インストール
+     :PROPERTIES:
+     :ID:       d792f49a-7bf6-4433-8d07-db01d02ffcd5
+     :END:
      いつも通り el-get で入れている。
      #+begin_src emacs-lisp :tangle inits/40-ruby.el
      (el-get-bundle enh-ruby-mode)
      #+end_src
 
 **** カスタム設定
+     :PROPERTIES:
+     :ID:       aafbbedf-cc37-4e84-8947-94330045a1be
+     :END:
      enh-ruby-mode が読み込まれた後に setq で以下のように設定されている
 
      #+begin_src emacs-lisp :tangle inits/40-ruby.el
@@ -4274,6 +4884,9 @@
       今度設定の見直しした方が良さそう。
 
 **** hook
+     :PROPERTIES:
+     :ID:       41381040-467d-4b75-abc8-870db165cf42
+     :END:
      hook 用の関数で補完などの機能を有効にしている
 
      #+begin_src emacs-lisp :tangle inits/40-ruby.el
@@ -4298,6 +4911,9 @@
      #+end_src
 
 **** SKK の調整
+     :PROPERTIES:
+     :ID:       3327d430-de78-4db1-aa37-e44308660541
+     :END:
      ~enh-ruby-mode~ を ~context-skk-programming-mode~ に追加することで
      Ruby を使ってる時にコメント部分はクォートの外以外では
      自動的に日本語入力がオフになるようにしている
@@ -4307,6 +4923,9 @@
      #+end_src
 
 **** キーバインド
+     :PROPERTIES:
+     :ID:       edd06a6f-6845-475a-83f5-df8d934fd241
+     :END:
      キーバインドは覚えられないので
      [[*major-mode-hydra][major-mode-hydra]] でキーを定義している
 
@@ -4359,6 +4978,9 @@
     ぱっと見で大体どんな色かわかって便利なやつ
 
 **** インストール
+     :PROPERTIES:
+     :ID:       5b04d8a0-85b0-4071-b102-04d29cd289cd
+     :END:
      自分はel-get で入れている。
 
      #+begin_src emacs-lisp :tangle inits/40-scss.el
@@ -4371,6 +4993,9 @@
     なのでインストール不要で使えるし
     ~.scss~ という拡張子なら自動的に scss-mode で開いてくれるようになっている。
 **** 設定                                                       :improvement:
+     :PROPERTIES:
+     :ID:       8cd5f636-6a44-4d53-ada1-3b8578b8640b
+     :END:
      インデントはデフォルトだと半角空白 4 つとなっているが
      麦汁さん的には 2 の方が良いのでそのように変更している。
 
@@ -4383,6 +5008,9 @@
      ~css-indent-offset~ は ~defcustom~ で定義されているので
      ~custom-set-variables~ を使うように修正した方が良さそう
 *** hook                                                        :improvement:
+    :PROPERTIES:
+    :ID:       338cf09b-87b0-47bb-8cf7-080aa5cc2f85
+    :END:
     scss を使う上で hook を使って色々有効化したりしている。
 
     #+begin_src emacs-lisp :tangle inits/40-scss.el
@@ -4420,6 +5048,9 @@
     - display-line-numbers-mode の有効化。行数表示も欲しいよね。巨大ファイルだと邪魔だけど巨大にしなきゃいい
     - [[*rainbow-mode][rainbow-mode]] の有効化
 *** カラーコード→ CSS Variable の置き換え
+    :PROPERTIES:
+    :ID:       22f5bb25-5fb8-438f-a1ca-74ac353e346a
+    :END:
     外部コマンドで fetch-color-var というのを定義して
     そいつにカラーコードを渡すとプロジェクトで使ってる CSS Variable を返してくるようにしている。
 
@@ -4436,6 +5067,9 @@
     #+end_src
 
 *** キーバインド
+    :PROPERTIES:
+    :ID:       16197694-7c93-4950-8510-a7e9c1ede5f3
+    :END:
     設定しているけど使ってないなあ……。
 
     #+begin_src emacs-lisp :tangle inits/40-scss.el
@@ -4457,12 +5091,18 @@
 *** typescript-mode
     [[https://github.com/emacs-typescript/typescript.el][typescript-mode]] は TypeScript 向けの Syntax Highlight とかを提供してくれるメジャーモード。
 **** インストール
+     :PROPERTIES:
+     :ID:       52450e41-8f74-4f73-ae66-df0609f0f131
+     :END:
      自分はいつも通り el-get で入れている
 
      #+begin_src emacs-lisp :tangle inits/40-ts.el
      (el-get-bundle typescript-mode)
      #+end_src
 **** カスタム変数
+     :PROPERTIES:
+     :ID:       da5daf74-c30b-4ca4-a8c4-79c8cc5be3d5
+     :END:
      indent は2文字がいいのでデフォルトから変更している
 
      #+begin_src emacs-lisp :tangle inits/40-ts.el
@@ -4471,6 +5111,9 @@
      #+end_src
 
 **** auto-fix の hook 関数
+     :PROPERTIES:
+     :ID:       26121357-e71c-4977-9046-a0d49c557069
+     :END:
      保存した時に自動で整形してほしいなと思ったので
      auto-fix.el で自動で保存されるように hook 関数を用意している
 
@@ -4481,6 +5124,9 @@
        (add-hook 'auto-fix-mode-hook 'my/auto-fix-mode-hook-for-ts)
      #+end_src
 **** hook
+     :PROPERTIES:
+     :ID:       f2c21be0-b3f6-43dc-872e-3a0bc0f6086e
+     :END:
      - company-mode
      - smartparens-strict-mode
      - lsp/lsp-ui
@@ -4523,6 +5169,9 @@
      関数を分離しておくと修正の反映が用意なのでこのようにしている
 
 **** 拡張子による有効化
+     :PROPERTIES:
+     :ID:       99bddae1-3a76-4a7a-91e2-4ca7e1889600
+     :END:
      .ts ファイルであれば typescript-mode で動いてほしいので
      auto-mode-alist に突っ込んでいる
 
@@ -4542,6 +5191,9 @@
     テンプレートが自動挿入できるようにしている
 
 **** テンプレート
+     :PROPERTIES:
+     :ID:       76e9314d-2524-4a52-ba10-7235994ed00d
+     :END:
      Vue.js の単一ファイルコンポーネントなので template, script, style を出力している。
 
      template には [[https://pugjs.org/api/getting-started.html][pug]] を、CSS には scss を使っている。
@@ -4561,6 +5213,9 @@
      #+end_src
 
 **** テンプレートを適用可能にする
+     :PROPERTIES:
+     :ID:       6d2da163-f347-45fd-a795-7fe5bf95dfd6
+     :END:
      ~.vue~ という拡張子のファイルを新規作成する時には
      上で定義したテンプレートが自動的に挿入されるようにする。
 
@@ -4574,6 +5229,9 @@
      mmm-mode ベースなので
      template, script, css 部分でそれぞれ別のメジャーモードが動くようになっている。
 ***** インストール
+      :PROPERTIES:
+      :ID:       2985a9f9-026f-40fb-98ff-a3cc0da4f93e
+      :END:
       いつも透り el-get で入れている
 
       #+begin_src emacs-lisp :tangle inits/41-vue.el
@@ -4594,6 +5252,9 @@
      Vue.js でテンプレートエンジンに pug を利用することが多いので入れている。
      麦汁さんは HTML をそのまま書くようなことは好きじゃないのです。
 ***** インストール
+      :PROPERTIES:
+      :ID:       01fe9f4e-ceab-40a0-90ec-0de2864333b2
+      :END:
       いつも透り el-get で入れている
 
       #+begin_src emacs-lisp :tangle inits/41-vue.el
@@ -4603,6 +5264,9 @@
     css-mode と vue-mode だけは hook を定義している。
     pug-mode や js-mode についても何か手を入れた方がいいのかもしれない。
 **** css-mode
+     :PROPERTIES:
+     :ID:       3cc2a364-3f70-4d9f-99c5-18865bc3cddc
+     :END:
      Vue.js では style に scss を指定いちえる場合には css-mode が利用されるようになっているので
      css-mode の hook としている。
      https://github.com/AdamNiederer/vue-mode/blob/031edd1f97db6e7d8d6c295c0e6d58dd128b9e71/vue-mode.el#L63
@@ -4621,6 +5285,9 @@
 
      もしくは設定を統合するという手もあるかも。
 **** vue-mode
+     :PROPERTIES:
+     :ID:       bf22fcae-e9b0-4f20-ab87-beb981c6d881
+     :END:
      #+begin_src emacs-lisp :tangle inits/41-vue.el
      (defun my/vue-mode-hook ()
        (display-line-numbers-mode t)
@@ -4637,6 +5304,9 @@
      しているだけである。
      lsp-ui とか色々設定の余地はありそうな気がする。
 *** キーバインド
+    :PROPERTIES:
+    :ID:       189c172e-3667-417e-a28c-1c97a4a10a85
+    :END:
     これもろくに設定してないし、ろくに使ってないもいないが、一応設定自体はある。
 
     #+begin_src emacs-lisp :tangle inits/41-vue.el
@@ -4657,12 +5327,18 @@
     インデントを調整しやすい。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       183192ae-3fbe-4fcc-8c3e-63211038e31b
+    :END:
     いつも通り el-get でインストール
 
     #+begin_src emacs-lisp :tangle inits/40-yaml.el
     (el-get-bundle yaml-mode)
     #+end_src
 *** hook
+    :PROPERTIES:
+    :ID:       98a879f7-1359-4b24-a6fa-0391a41f8936
+    :END:
     mode に対する hook は関数を定義して
     その中で呼びたいコードを書いていくようにしている。
 
@@ -4715,6 +5391,9 @@
     w3m という和製のテキストブラウザを Emacs 上で使うためのパッケージ。
     つまり w3m 自体もインストールしておく必要がある。
 *** インストール
+    :PROPERTIES:
+    :ID:       7d4a6c89-00a9-42db-8745-a1654014b230
+    :END:
     emacs-w3m は el-get で入れられるので以下のようにして入れている
 
     #+begin_src emacs-lisp :tangle inits/70-w3m.el
@@ -4733,6 +5412,9 @@
     大体直接 Web で書くので活用はできてない……
 
 *** インストール・設定
+    :PROPERTIES:
+    :ID:       3489db42-e38f-4e4f-bdb8-f6c420e12336
+    :END:
     いつも通り el-get で入れている。
 
     設定は別ファイルに分離している。authinfo に移動したい
@@ -4750,6 +5432,9 @@
     一応入れているけど実は使えてないのであまりこの設定を呼んでも意味はなさそう
 
 *** インストール
+    :PROPERTIES:
+    :ID:       e55368d5-9c47-4011-a724-11f8ba4b0717
+    :END:
     いつも通り el-get でインストール
 
     #+begin_src emacs-lisp :tangle inits/36-forge.el
@@ -4757,6 +5442,9 @@
     #+end_src
 
 *** 読み込み
+    :PROPERTIES:
+    :ID:       26164152-1328-4127-8dd0-08a9ffe54315
+    :END:
     magit の拡張なので magit を読み込んで後に読み込まれるようにしている
 
     #+begin_src emacs-lisp :tangle inits/36-forge.el
@@ -4775,6 +5463,9 @@
     [[https://github.com/Malabarba/emacs-google-this][google-this]] は Google 検索を Emacs の中から行えるやつ。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       43cb9a0e-c2f0-46a4-815d-52cce507c033
+    :END:
     いつも通り el-get でインストール
 
     #+begin_src emacs-lisp :tangle inits/20-google-this.el
@@ -4803,12 +5494,18 @@
 *** 概要
     [[https://github.com/atykhonov/google-translate][google-translate]] は Google 翻訳する機能を提供するパッケージ。
 *** インストール
+    :PROPERTIES:
+    :ID:       1135f297-fda7-4ab6-afc5-2f4c491dd4bc
+    :END:
     いつも通り el-get でインストール
 
     #+begin_src emacs-lisp :tangle inits/20-google-translate.el
     (el-get-bundle google-translate)
     #+end_src
 *** 関数のオーバーライド
+    :PROPERTIES:
+    :ID:       2a1ea2c3-4d97-47cf-9f5f-7ff5ac87536e
+    :END:
     どうも最新版でも壊れっぱなしのようなので
     https://github.com/atykhonov/google-translate/issues/52#issuecomment-727920888
     にあるように関数を上書きしている。
@@ -4824,6 +5521,9 @@
     それが読まれた後に上書きしないといけないので
     with-eval-after-load を使っている。
 *** default-ui の読み込み
+    :PROPERTIES:
+    :ID:       bccd511f-7a77-4371-8bb4-6f6e47c430c6
+    :END:
     Google Translate は UI を defauult と smooth のどちらかから選べるようになっている。
 
     default だと
@@ -4849,6 +5549,9 @@
     popup.el に依存しているのでそれが読まれた後に require しないといけなかった。
     というわけで with-eval-after-load で対応している。
 *** カスタム変数の設定
+    :PROPERTIES:
+    :ID:       d6e4b548-00d6-4fc6-99eb-dacabe9b158c
+    :END:
     上述の通り default UI を使うことにしたので
     その変数をいくらか設定している。
 
@@ -4892,6 +5595,9 @@
 
     [[*forge][forge]] を使うと GitHub や GitLab とも連携できてさらに便利、なはず。
 *** インストール
+    :PROPERTIES:
+    :ID:       bc64daf9-c6ca-4b41-939d-a7885854b267
+    :END:
     #+begin_src emacs-lisp :tangle inits/35-magit.el
     (el-get-bundle magit)
     #+end_src
@@ -4913,12 +5619,18 @@
     作業の可視化である。
 *** 実装
 **** 分報チャンネル設定用の変数
+     :PROPERTIES:
+     :ID:       ad933767-966e-4527-92df-090cec02f8ce
+     :END:
      通知先のチャンネル名を格納する変数が必要なので ~defvar~ で定義しておく
 
      #+begin_src emacs-lisp :tangle inits/30-notify-slack.el
      (defvar my/notify-slack-times-channel nil)
      #+end_src
 **** 送信するコマンド
+     :PROPERTIES:
+     :ID:       d351b319-1d8a-45af-ba00-fe0f3a3fd938
+     :END:
      start-process を使って外部コマンドを叩いている。
 
      #+begin_src emacs-lisp :tangle inits/30-notify-slack.el
@@ -4930,6 +5642,9 @@
      ~my/notify-slack-enable-p~ という変数が nil だと大分コマンドが実行されないようになっている。
 
 **** Slack 連携を Toggle するコマンド
+     :PROPERTIES:
+     :ID:       8f8bf67a-09f8-4f52-96b3-c6e76cf5bd8d
+     :END:
      連携したい時としたくない時があるので
      送信したりしなかったりを切り替えられるコマンドを用意している。
 
@@ -4945,6 +5660,9 @@
      #+end_src
 
 **** 分報チャンネル投稿関数
+     :PROPERTIES:
+     :ID:       71664e05-b09b-4292-9d36-a67266fe9703
+     :END:
      「分報チャンネル投稿関数」としているけど
      デフォルト投稿先に投稿するための関数というような扱いの関数。
 
@@ -4958,6 +5676,9 @@
      #+end_src
 
 **** 設定
+     :PROPERTIES:
+     :ID:       f89b6a55-2592-456e-9b7c-8ee3828172e5
+     :END:
      あまり見せたくない設定ファイルを別ファイルに分離しているので
      それを読み出している。
 
@@ -4989,6 +5710,9 @@
     [[https://github.com/abrochard/emacs-todoist][emacs-todoist]] は Todo 管理サービスである Todoist と連携するためのパッケージ。
     org-mode に依存している。
 *** インストール
+    :PROPERTIES:
+    :ID:       d3375fe4-3910-423d-bfa4-afae60c4927c
+    :END:
     まず以下のレシピを用意している
 
     #+begin_src emacs-lisp :tangle recipes/emacs-todoist.rcp
@@ -5005,6 +5729,9 @@
     (el-get-bundle emacs-todoist)
     #+end_src
 *** 設定
+    :PROPERTIES:
+    :ID:       f203bdb3-51d0-48a4-9093-8a9d33b926ff
+    :END:
     API キーを設定するので別ファイルに分離している。
     いつか .authinfo.gpg に移動しようかなと思っているけど
     そもそも最近 TODOIST 使ってない……
@@ -5025,12 +5752,18 @@
     勉強会に参加して実況する時などに。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       83edbf02-050a-45ae-9cb1-1dde8a144910
+    :END:
     いつも通り el-get でインスコしている。
 
     #+begin_src emacs-lisp :tangle inits/90-twmode.el
     (el-get-bundle twittering-mode)
     #+end_src
 *** 設定
+    :PROPERTIES:
+    :ID:       2aeaad0c-11d9-4175-af63-ca1351053805
+    :END:
     #+begin_src emacs-lisp :tangle inits/90-twmode.el
     (setq twittering-username "mugijiru")
     (setq twittering-jojo-mode t)
@@ -5055,6 +5788,9 @@
     - late limit をmode-line に表示
 
 *** キーバインド
+    :PROPERTIES:
+    :ID:       ab83e588-25c7-47ab-ae6e-3ffc283b2c3c
+    :END:
     #+begin_src emacs-lisp :tangle inits/90-twmode.el
     (let ((km twittering-mode-map))
       (define-key km (kbd "SPC") 'scroll-up)
@@ -5096,12 +5832,18 @@
     普段の行動の改善に使えるかもしれないので、なんとなく連携してみている。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       bae90654-c509-4b58-bc57-6f5b53c9afc5
+    :END:
     いつも通り el-get から入れている
 
     #+begin_src emacs-lisp :tangle inits/80-wakatime.el
     (el-get-bundle wakatime-mode)
     #+end_src
 *** APIキーの設定
+    :PROPERTIES:
+    :ID:       bfca8dc6-be73-4d3e-86dc-fd2d92f23c73
+    :END:
     APIキーは .authinfo.gpg に保存しているので
     そこから引っ張り出している。
 
@@ -5110,6 +5852,9 @@
      '(wakatime-api-key (funcall (plist-get (nth 0 (auth-source-search :host "wakatime.com" :max 1)) :secret))))
     #+end_src
 *** 有効化
+    :PROPERTIES:
+    :ID:       8d52e9fa-06ea-4a7c-b0de-d305a414d468
+    :END:
     Emacs を使っている間は常に有効になっていて欲しいので
     global-wakatime-mode を有効にしている。
 
@@ -5129,6 +5874,7 @@
 ** ブラウザ設定                                                      :unused:
    :PROPERTIES:
    :EXPORT_FILE_NAME: browse-url
+   :ID:       0b6e71ab-1fa2-4566-90b1-949842726f22
    :END:
 
    browse-url の時の開くプログラムの指定。
@@ -5182,6 +5928,9 @@
     といいつつ、まだ書き方が雑だなと思っている。
     またその内にでも修正しよう
 *** org-mode のインストール
+    :PROPERTIES:
+    :ID:       dd3c3e63-3019-4db0-a796-a45c73666374
+    :END:
     Emacs に標準で入っている org-mode は大体古過ぎるので
     とりあえずデフォルトで入ってるやつは削除しちゃって
     el-get でインストールしている。
@@ -5196,6 +5945,9 @@
     バージョンぐらいはそのうち上げたいね
 
 *** org 用ディレクトリの指定
+    :PROPERTIES:
+    :ID:       04403bb9-b0ed-40d3-a4c3-6a086f278ee4
+    :END:
     org-mode のファイルを保存するデフォルトのディレクトリを指定している。
 
     デフォルトだと ~~/org~ なのだけど
@@ -5207,6 +5959,9 @@
     #+end_src
 
 *** タスク管理ファイルのフォルダの指定
+    :PROPERTIES:
+    :ID:       6f9969e3-4247-4b29-9fbe-24bc9b9d42d6
+    :END:
     タスク管理ファイルがいくつかに分かれているが
     それらをまとめて ~~/Documents/org/tasks~ フォルダに置いている。
 
@@ -5218,6 +5973,9 @@
     あちらこちらでこれを使い回している。
 
 *** タスクの状態管理のキーワード指定
+    :PROPERTIES:
+    :ID:       523291e5-2dc0-4635-9704-bb4f4c9ae42f
+    :END:
     org-mode といえば TODO 管理で使ってる人も多いと思う。
     自分も最初はそういう使い方から始めたし、今でもそれをメインにして使っている。
 
@@ -5246,6 +6004,9 @@
     そこまでの活用ができていないので、どこかで見直したいですね。
 
 *** 完了時間の記録
+    :PROPERTIES:
+    :ID:       583414f0-603c-4fbc-93cc-5f2cef54fbf3
+    :END:
     org-clock を使うようにしているしあんまり要らない気がする。
     もしかしたら habits で必要かもしれないけど。
 
@@ -5254,6 +6015,9 @@
     (setq org-log-into-drawer "LOGBOOK")
     #+end_src
 *** Excel ファイルを OS で指定したアプリで開く
+    :PROPERTIES:
+    :ID:       d26312c6-8813-4131-bae8-10e7d194aeac
+    :END:
     org-mode のリンク先の拡張子が xlsx の時に OS 側で指定した標準アプリを開くようにしている。
     Excel が入っていたらそっちで開かれるし、入ってなければ Numbers で開かれる。はず。
 
@@ -5273,6 +6037,9 @@
     ここでは org-babel の設定をまとめている。
 
 *** org-babel で評価可能な言語の指定
+    :PROPERTIES:
+    :ID:       7ed80c8c-8aad-40d6-a186-05869b96d015
+    :END:
 
     なんか普段から使いそうな奴をとりあえず選定しているつもり。
 
@@ -5294,6 +6061,9 @@
     - gnuplot :: 趣味で入れてみているけど実際使う機会ほとんどないよなって気がしてきている。
 
 *** org-babel-execute 後に画像を再表示
+    :PROPERTIES:
+    :ID:       d4dfa78f-42da-4999-88b3-ea0c318f082e
+    :END:
     PlantUML の処理をすることが多いので
     以下の hook を設定することで実行後に画像を再表示するようにしている
 
@@ -5302,6 +6072,9 @@
     #+end_src
 
 *** org-babel の非同期実行                                      :improvement:
+    :PROPERTIES:
+    :ID:       917e176f-d1bb-4595-bdbe-f5085af82615
+    :END:
     非同期に org-babel の source を実行するために
     [[https://github.com/astahlman/ob-async][ob-async]] を入れている
 
@@ -5322,6 +6095,19 @@
     #+end_src
 
     多分 custom-set-variables でちゃんと設定したらいいんだろうなあ。
+
+*** org-store-link 時に org-id が発行されるようにする
+    :PROPERTIES:
+    :ID:       2c86d33a-f809-4b50-b037-93acfe7233e8
+    :END:
+
+    ~org-id-link-to-org-use-id~ を ~t~ にしていると
+    ~org-store-link~ を実行した時に自動で id を発行してそれを store してくれるようになる
+
+    #+begin_src emacs-lisp :tangle inits/60-org.el
+      (custom-set-variables
+       '(org-id-link-to-org-use-id t))
+    #+end_src
 ** 予定のカレンダー表示
    :PROPERTIES:
    :EXPORT_FILE_NAME: calendar
@@ -5334,6 +6120,9 @@
     が、今ここに書いているのはまだ設定の一部である。
     agenda 部分と関わっていてまだうまく整理しきれてない。
 *** 日本の休日
+    :PROPERTIES:
+    :ID:       8413e032-afeb-4eab-973d-64ed72e9d709
+    :END:
 
     calfw に日本の休日を表示できるように
     [[https://github.com/emacs-jp/japanese-holidays][japanese-holidays]] を入れている。
@@ -5349,6 +6138,9 @@
 
     その時には多分 org-mode カテゴリではないところに移動するはず。
 *** calfw
+    :PROPERTIES:
+    :ID:       8654cb76-cadc-405d-a59c-e043ae655c88
+    :END:
     calfw を el-get で入れた上で、
     org-mode と連携するように calfw-org も require している。
 
@@ -5376,6 +6168,9 @@
     日常業務に役立てている。
 
 *** org-super-agenda のインストール
+    :PROPERTIES:
+    :ID:       3a85d424-caff-4f15-9a7a-adbbe4ed2dd6
+    :END:
     org-mode のデフォルトの agenda だと表示周りが物足りなかったので
     [[https://github.com/alphapapa/org-super-agenda][org-super-agenda]] を導入している。
 
@@ -5384,6 +6179,9 @@
     #+end_src
 
 *** 週の始まりを日曜日に設定
+    :PROPERTIES:
+    :ID:       e85ae4d6-9e1a-4880-86ad-0fcee138e3ca
+    :END:
     麦汁さんは週のスタートを日曜日とする派なので
     org-agenda の週の始まりも日曜日に設定している
 
@@ -5392,6 +6190,9 @@
     #+end_src
 
 *** 1日単位をデフォルト表示に設定
+    :PROPERTIES:
+    :ID:       a8a8539c-7c9a-45f3-b49e-b6f4b5510c77
+    :END:
     1週間表示よりも「今日って何するんだっけ」みたいな使い方が多いので
     1日を表示単位としている。
 
@@ -5405,6 +6206,9 @@
     これの影響は受けてるかどうか微妙。
 
 *** agenda の対象ファイルを指定
+    :PROPERTIES:
+    :ID:       04393c3e-27d3-48e1-88c2-db48e7ae3aa1
+    :END:
     org-agenda を使う時に抽出対象とする org ファイルを指定している。
 
     #+begin_src emacs-lisp :tangle inits/61-org-agenda.el
@@ -5419,6 +6223,9 @@
 *** agenda の表示周りの設定
 
 **** agenda に時間の区切りを入れない
+     :PROPERTIES:
+     :ID:       7e2d3ef9-92c8-41c2-952f-bd59575232bb
+     :END:
      ~org-agenda-use-time-grid~ を t にしていると
      10:00 とかのキリがいいところに区切り線を表示してくれるのだが
      日報提出時には邪魔だし、
@@ -5430,6 +6237,9 @@
      #+end_src
 
 **** ブロック間の区切り表示
+     :PROPERTIES:
+     :ID:       15653745-8d52-4033-9cca-22c6b100fd96
+     :END:
      ブロックとブロックの区切りをハイフン繋ぎの文字列で指定している。
 
      文字列を指定することで固定の長さの区切り文字になるが
@@ -5441,6 +6251,9 @@
      #+end_src
 
 **** org-super-agnda-mode の有効化
+     :PROPERTIES:
+     :ID:       084249f6-cfb7-4eaf-9be0-1b8f3c923c6c
+     :END:
      なんでここで有効化しているのかね。
      インストールのやつと近付けた方がいい気がする。
 
@@ -5451,6 +6264,9 @@
      #+end_src
 
 **** agenda で使う変数の初期化
+     :PROPERTIES:
+     :ID:       e0ac34fe-701a-46e6-a52f-04c626a8fc01
+     :END:
      ~my/org-agenda-calendar-files~ という変数でカレンダーの情報を取り込んで agenda を表示できるようにしている。
      けど今はカレンダー連携をしていないので空で初期化している。
 
@@ -5459,6 +6275,9 @@
      #+end_src
 
 **** カスタムビュー
+     :PROPERTIES:
+     :ID:       9ea9ead3-836f-450b-ae5a-7ed85a09a1b6
+     :END:
      色々なカスタムビューを定義している。
      かといって全部使ってるわけではないし、つまり使いこなせているかというと微妙。
 
@@ -5687,6 +6506,9 @@
     org-capture は org-mode 用にさくっとメモを取るための機能。
 
 *** org-capture-ical-file                                            :unused:
+    :PROPERTIES:
+    :ID:       190b8d56-e36f-4391-a196-c638881a3bbe
+    :END:
     https://qiita.com/takaxp/items/0b717ad1d0488b74429d を参考に設定したやつ。
 
     今は別で Google Calendar 連携しているので使ってない……。
@@ -5698,6 +6520,9 @@
     #+end_src
 
 *** capture 用ファイルを変数定義                                :improvement:
+    :PROPERTIES:
+    :ID:       03c477b1-fb0b-4414-877c-262e8530ba72
+    :END:
     変数定義しなくてもいい気がしないでもないけど
     とりあえず変数定義している。
     バラバラの変数にするよりも alist とか plist とかにする方が適切な気がする
@@ -5714,6 +6539,9 @@
     #+end_src
 
 *** テンプレートの定義
+    :PROPERTIES:
+    :ID:       2c5fd2d9-2626-4780-a49f-bd20ad3f3285
+    :END:
     上記の変数を使って capture 用テンプレートを登録している。
 
     | Key | 効果                                                          | 備考                                                                                |
@@ -5787,6 +6615,9 @@
     org-clock 関係の設定をここにまとめている
 
 *** clocktable の設定
+    :PROPERTIES:
+    :ID:       f562d17a-2865-453f-ab46-99649a84a5ad
+    :END:
     clocktable は report 表示などで使う表の設定。
 
     #+begin_src emacs-lisp :tangle inits/61-org-clock.el
@@ -5808,6 +6639,9 @@
 *** hooks
 
 **** clock-in 時の hook
+     :PROPERTIES:
+     :ID:       5524b2f1-6db4-49b5-8284-c1f2a52b3122
+     :END:
      clock-in のタイミングで以下の処理をするための hook を用意している
 
      - 作業開始したことを Slack 通知する
@@ -5826,6 +6660,9 @@
      #+end_src
 
 **** clock-out 時の hook
+     :PROPERTIES:
+     :ID:       ad3a4ad4-1e0c-4337-9ce5-60f8b029457a
+     :END:
      clock-out のタイミングで以下の処理をするための hook を用意している
 
      - 作業終了を Slack 通知する
@@ -5841,6 +6678,9 @@
      #+end_src
 
 *** org-pomodoro
+    :PROPERTIES:
+    :ID:       6bcc3b5c-4abb-47c4-afcb-db695ce4f042
+    :END:
     ポモドーロテクニックを使うために org-pomodoro を導入している
 
     #+begin_src emacs-lisp :tangle inits/61-org-clock.el
@@ -5865,6 +6705,9 @@
     というか昔書いた設定をとりあえずここに押し込めている
 
 *** footnote や制作者などを出力しない
+    :PROPERTIES:
+    :ID:       3c6bab5d-5549-40f8-a62d-78563742ec9d
+    :END:
 
     HTML で記事を吐き出す時に邪魔だったの非表示にしている記憶。
     随分昔に設定したのであんまり覚えてない。
@@ -5894,6 +6737,9 @@
     #+end_src
 
 *** Table of Contents 出力抑制
+    :PROPERTIES:
+    :ID:       cbc81e49-1719-4a6b-944f-1562c6e60be2
+    :END:
     これも自分の用途では要らなかったけど
     ファイル単位とかで制御しても良い気がする
 
@@ -5902,6 +6748,9 @@
     #+end_src
 
 *** サイト名の出力
+    :PROPERTIES:
+    :ID:       f70f460c-9183-4a94-95ba-3bf5e89bc32b
+    :END:
     seesaa blog 用に記事を吐き出していた時は
     ページ全体ではなく記事部分だけ出力したかったので
     つまり h1 とかはもうテンプレート側に埋め込まれているので出す必要がなかった
@@ -5914,6 +6763,9 @@
     #+end_src
 
 *** bold, italic などの抑制
+    :PROPERTIES:
+    :ID:       648923ee-7318-435e-a95e-31e8f468b504
+    :END:
     アスタリスクで囲ったりスラッシュでアンダースコアで囲ったりすると
     b タグや i タグ、 u タグにする機能があるが
     HTML 4.01 Strict 信者だったこともあって抑制している。
@@ -5926,6 +6778,9 @@
     #+end_src
 
 *** export のデフォルト出力言語は日本語
+    :PROPERTIES:
+    :ID:       f6afd079-0584-42e7-99f3-d1aeb80f5eea
+    :END:
     まあ日本語しか書かないので……
     #+begin_src emacs-lisp :tangle inits/61-org-export.el
     (setq org-export-default-language "ja")
@@ -5945,6 +6800,9 @@
     el-get のレシピもそっちを見ている。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       509f7e06-1f72-4c66-a83f-fe3695740cb0
+    :END:
     org-gcal が依存しているので [[https://elpa.gnu.org/packages/persist.html][parsist]] を入れている。
 
     #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
@@ -5958,6 +6816,9 @@
     #+end_src
 
 *** 設定
+    :PROPERTIES:
+    :ID:       247a2cfe-1bee-4293-82fb-b9e68130f258
+    :END:
     とりあえず require をしないといけない
 
     #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
@@ -5978,6 +6839,9 @@
     appt の設定をここで行っている
 
 **** 通知形式の設定
+     :PROPERTIES:
+     :ID:       813bd7db-4a37-4f0e-af95-a61ebd660c49
+     :END:
      window 通知を使う設定にしている。
 
      #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
@@ -5988,6 +6852,9 @@
      後の方で、この設定の時に使う関数を差し替えている
 
 **** 通知用関数の定義
+     :PROPERTIES:
+     :ID:       b0716a8e-35da-49c8-bf14-675831e5602b
+     :END:
      通知には [[*alert][alert.el]] を使いたいので自前で関数を定義。
      alert.el は別のところで設定していて
      そこで dunst を使って通知するようにしている。
@@ -6021,6 +6888,9 @@
     貴方好みの検索で業務効率向上ができちゃうかも!?
 
 *** インストール
+    :PROPERTIES:
+    :ID:       75d0ce29-8b8f-4ce4-a6e2-4e81357b30e4
+    :END:
     いつも透り el-get でインストールしている
 
     #+begin_src emacs-lisp :tangle inits/61-org-ql.el
@@ -6043,6 +6913,9 @@
     実はコピーもできるけど、コピーは使ったことがない。
 *** 設定
 **** org ファイル内の階層を選択候補に入れる
+     :PROPERTIES:
+     :ID:       f749d6d4-cfc0-4c3c-ba77-63c7740ebf44
+     :END:
      これを nil に設定することで
      ファイルの選択だけでなく、
      その中の PATH まで選択できるようになる
@@ -6051,6 +6924,9 @@
      #+end_src
 
 **** refile ターゲットにファイル名を含める
+     :PROPERTIES:
+     :ID:       06b0e460-6b3d-405c-9c0c-fae599e75395
+     :END:
      以下のように設定すると
      refile のターゲット候補としてファイル名とその中の PATH が表示されるようになる。
 
@@ -6062,6 +6938,9 @@
      どのファイルのどの場所かというのがわかりにくいのでこのように設定している。
 
 **** refile 先の候補設定
+     :PROPERTIES:
+     :ID:       5b4ca1a6-ade9-4768-9a06-0dbf57cffcba
+     :END:
      いくつかの org ファイルを使っているので
      ターゲットを以下のように設定している。
 
@@ -6095,6 +6974,9 @@
     [[https://org-trello.github.io/][org-trello]] は org-mode を使って Trello のタスクを管理するためのパッケージ。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       996ff529-220d-493b-a23c-58ebed31e36f
+    :END:
     いつも通り el-get でインストールしている
 
     #+begin_src emacs-lisp :tangle inits/61-org-trello.el
@@ -6102,6 +6984,9 @@
     #+end_src
 
 *** 同期するコマンドの用意
+    :PROPERTIES:
+    :ID:       526f0e72-cb14-46a5-861d-1876b58c9809
+    :END:
     バッファと Trello との同期する関数はあるのだけど
     コマンドにはなっていなかったので同期するためのコマンドを用意している
 
@@ -6112,6 +6997,9 @@
     #+end_src
 
 *** キーバインド設定
+    :PROPERTIES:
+    :ID:       c3b270b0-69dc-4ea0-a813-ef94ac879d8c
+    :END:
     キーバインドは覚えられないので、
     いつも通り [[https://github.com/jerrypnz/major-mode-hydra.el#pretty-hydra][pretty-hydra]] で Hydra のやつを用意している
 
@@ -6166,6 +7054,9 @@
     ox-hugo を用いて構築している
 
 *** インストール・読み込み
+    :PROPERTIES:
+    :ID:       1627458b-308f-481f-b47d-ba983ec6dbd4
+    :END:
     いつも通り el-get でインスコしている。
 
     #+begin_src emacs-lisp :tangle inits/61-ox-hugo.el
@@ -6195,6 +7086,9 @@
     自分でも適当にコマンドを用意しているのでここにまとめている。
 
 *** org-mode 用のファイルを作成するコマンド                          :unused:
+    :PROPERTIES:
+    :ID:       9edabacc-be6c-40cb-a16a-fa8cd61a42d8
+    :END:
     指定したフォルダに org-mode なファイルを作るためのコマンドを用意している。
 
     が、使ってないし意味をあまり感じないし消して良さそう。
@@ -6205,6 +7099,9 @@
       (find-file-other-window my/org-document-dir))
     #+end_src
 *** 各ツリーの所要時間表示/非表示切替
+    :PROPERTIES:
+    :ID:       c56d448e-445a-4f03-aaa1-9b1ea9329a15
+    :END:
     org-clock-display で各ツリーにおける org-clock で記録された所要時間が表示でき、
     org-clock-remove-overlays でそれを非表示にできるが、
     それを Toggle できるようにコマンド/関数を定義している。
@@ -6219,6 +7116,9 @@
     #+end_src
 
 *** org-todo-keywords から装飾を省いた文字列のリストを返す関数
+    :PROPERTIES:
+    :ID:       88c80fc6-4d28-42f7-b44c-f60b977ca33a
+    :END:
     ivy で org-todo-keywords を選択可能にするために
     org-todo-keywords を加工してシンプルな文字列の配列にする関数を定義している。
 
@@ -6236,6 +7136,9 @@
     #+end_src
 
 *** Ivy で TODO ステータスを選択し設定するコマンド
+    :PROPERTIES:
+    :ID:       8d401bae-386b-4257-aa89-0d24242db8b6
+    :END:
     標準の org-todo だと画面がガチャガチャ動くのが気になったので
     ivy で選択できるようにしている。
 
@@ -6253,6 +7156,9 @@
     #+end_src
 
 *** タグ選択でそのタグがついたヘッドラインをリスト表示
+    :PROPERTIES:
+    :ID:       2e301eea-5ce1-494a-88da-1c1eac29db78
+    :END:
     タグ毎に見たいことがありそうなので用意したやつ。
     存在を忘れてしまっていたのであまり使ってない。
 
@@ -6265,6 +7171,9 @@
     #+end_src
 
 *** org-gcal で取得した情報を appt に登録
+    :PROPERTIES:
+    :ID:       4e9a203c-454b-4a23-b9b2-956efad54b4b
+    :END:
     appt.el で通知されるように登録する必要があるのでコマンドを定義している。
 
     #+begin_src emacs-lisp :tangle inits/68-my-org-commands.el
@@ -6276,6 +7185,9 @@
 
 
 *** calfw で選択したカレンダーを表示
+    :PROPERTIES:
+    :ID:       8f1b20e2-4abd-4eaf-88ea-e1c3d262a4f4
+    :END:
     #+begin_src emacs-lisp :tangle inits/68-my-org-commands.el
     (defun my/open-calendar ()
       (interactive)
@@ -6290,6 +7202,9 @@
     #+end_src
 
 *** レビュー依頼がされてる PR を取得してバッファに挿入
+    :PROPERTIES:
+    :ID:       c686fff7-8008-4993-b0a9-fba68276db41
+    :END:
     review-requested-prs というコマンドで
     レビュー対象の PR を取得できるようにしているのでそれを Emacs から叩けるようにしているコマンド。
 
@@ -6320,6 +7235,9 @@
     Hydra を定義しておくことで様々なキーバインドを忘れることができるし
     左手小指を酷使しなくて済むので便利ということで Hydra で設定している。
 *** major-mode-hydra
+    :PROPERTIES:
+    :ID:       29ba7be1-0c28-442f-b4d0-cc534299f27e
+    :END:
     major-mode-hydra で、org-mode のファイルを開いている時によく使いそうなコマンドのキーバインドを定義している
 
     #+begin_src emacs-lisp :tangle inits/69-org-mode-hydra.el
@@ -6402,6 +7320,9 @@
     | ,   | agenda ファイルの移動                                | いつも固定のファイルを見てるので使ってない。Cycle より直で飛ぶし |
 
 *** Global な Hydra
+    :PROPERTIES:
+    :ID:       85c76d3b-7cdd-435b-839f-53693e69fa1b
+    :END:
     pretty-hydra を使って Global に使える org-mode のコマンドを叩けるようにしている
 
     #+begin_src emacs-lisp :tangle inits/69-org-mode-hydra.el
@@ -6471,6 +7392,9 @@
     これは使ってないが、とりあえず載せておく。
 
 *** シークレット設定の読み込み
+    :PROPERTIES:
+    :ID:       591b5484-f808-4199-adb0-b199d3c7d0ef
+    :END:
     表に出したくない情報については別ファイルに分離して setq している。
     が、内容的に本名が露出する程度の情報ではある。
 
@@ -6483,6 +7407,9 @@
 
     ~me.org~ とでもしておけば解決しそう……。
 *** 日報構築の対象となるファイルをリストアップする関数の定義
+    :PROPERTIES:
+    :ID:       ed7494c0-7a97-47b9-a3fb-3e0364050891
+    :END:
     ~~/Documenets/org/tasks~ に作業記録用ファイルなどを find コマンドを使ってリストアップする関数。
 
     #+begin_src emacs-lisp :tangle inits/62-nippou.el
@@ -6498,6 +7425,9 @@
     org-agenda-files を使えば要らないっぽいけどね。
     agenda 全然使えてなかったらこんなことに。
 *** 日報構築元ファイルを取得する関数の定義
+    :PROPERTIES:
+    :ID:       53f1e031-dc45-4f57-9a70-597a5a63dcfc
+    :END:
     シークレット設定で定義した変数と
     上で定義した ~my/org-nippou-files~ を結合して
     1つのリストにするだけの関数を用意している。
@@ -6508,6 +7438,9 @@
           (-concat (my/org-nippou-files) my/org-nippou-additional-files))
     #+end_src
 *** 日報を出力する関数
+    :PROPERTIES:
+    :ID:       87961c3c-8fcc-4a61-be38-a8f49918320a
+    :END:
     上記の関数群で target になるファイルから
     日報用に TODO 項目を引っ張り出してくる関数を用意している。
 
@@ -6568,6 +7501,9 @@
     具体的な使用例は [[*test:my/org-todo][test:my/org-todo]] で示す。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       63a68984-e201-488a-b3ab-49452c438b80
+    :END:
     el-get-bundle で GitHub からインストールしている
 
     #+begin_src emacs-lisp :tangle inits/99-with-simulated-input.el
@@ -6589,6 +7525,9 @@
     便利そうなのでとりあえず置いといている。
 
 *** インストール
+    :PROPERTIES:
+    :ID:       a5c87aed-a0cb-430b-bda2-0bafc371640c
+    :END:
 
     el-get で GitHub から取得している。
 
@@ -6642,6 +7581,7 @@
    :PROPERTIES:
    :EXPORT_FILE_NAME: run-tests
    :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :weight 2
+   :ID:       26c21e29-f4b3-49a4-96bd-d830a417297d
    :END:
 
    読み込んだテストをまるっとテストするためのコードをとりあえず置いている。
@@ -6665,6 +7605,9 @@
 
 *** Setup
 **** テストライブラリの読み込み
+     :PROPERTIES:
+     :ID:       daa98afa-8f34-4db0-b616-2399abebd211
+     :END:
 
      標準でついてくる ert を採用しているのでそれを読み込んでいる。
 
@@ -6673,6 +7616,9 @@
      #+end_src
 
 **** el-get の設定の読み込み
+     :PROPERTIES:
+     :ID:       44787391-39b1-4e83-b87d-92b772d3d421
+     :END:
 
      プラグイン管理には el-get を利用しているので
      その設定ファイルを読み込んでいる。
@@ -6684,6 +7630,9 @@
 
 **** テスト補助のプラグイン読み込み
 ***** with-simulated-input
+      :PROPERTIES:
+      :ID:       996eb738-0485-4ee1-b67c-878eb1b97b97
+      :END:
 
       上で説明しているが、
       入力をシミュレートするためのプラグインをテストで利用しているので
@@ -6702,6 +7651,9 @@
      一旦個別に読み込むようにしている。
 
 ***** swiper
+      :PROPERTIES:
+      :ID:       07c53fa8-7f66-4776-9e49-7c0a13648d82
+      :END:
 
       ivy-read を使った機能のテストをするので読み込んでいる。
 
@@ -6710,6 +7662,9 @@
       #+end_src
 
 **** テスト対象の読み込み
+     :PROPERTIES:
+     :ID:       91610b16-688e-4c3b-90d1-0dc26386d84d
+     :END:
 
      テストしたいファイルをここで読んでる。
 
@@ -6720,6 +7675,9 @@
 
 *** ert-deftest
 **** test:my/org-todo-keyword-strings
+     :PROPERTIES:
+     :ID:       15df6800-b631-44ad-81ac-e848a0e08d1f
+     :END:
 
      ~org-todo-keywords~ から "|" という区切りを除外したり
      "(s)" とかのような高速アクセスのためのキーワードは
@@ -6738,6 +7696,9 @@
      実際の選択は別の関数が担っている
 
 **** test:my/org-todo
+     :PROPERTIES:
+     :ID:       b815f4a0-b6e6-4718-b0f9-43f9bdc0a7a9
+     :END:
 
      org-todo を ivy で選択する関数のテストを書いている。
 

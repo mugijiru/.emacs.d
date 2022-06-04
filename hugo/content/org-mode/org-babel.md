@@ -70,3 +70,14 @@ PlantUML の処理をすることが多いので以下の hook を設定する�
 ```
 
 多分 custom-set-variables でちゃんと設定したらいいんだろうなあ。
+
+
+## org-store-link 時に org-id が発行されるようにする {#org-store-link-時に-org-id-が発行されるようにする}
+
+`org-id-link-to-org-use-id` を `t` にしていると
+`org-store-link` を実行した時に自動で id を発行してそれを store してくれるようになる
+
+```emacs-lisp
+(custom-set-variables
+ '(org-id-link-to-org-use-id t))
+```
