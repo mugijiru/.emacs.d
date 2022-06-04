@@ -6095,6 +6095,19 @@
     #+end_src
 
     多分 custom-set-variables でちゃんと設定したらいいんだろうなあ。
+
+*** org-store-link 時に org-id が発行されるようにする
+    :PROPERTIES:
+    :ID:       2c86d33a-f809-4b50-b037-93acfe7233e8
+    :END:
+
+    ~org-id-link-to-org-use-id~ を ~t~ にしていると
+    ~org-store-link~ を実行した時に自動で id を発行してそれを store してくれるようになる
+
+    #+begin_src emacs-lisp :tangle inits/60-org.el
+      (custom-set-variables
+       '(org-id-link-to-org-use-id t))
+    #+end_src
 ** 予定のカレンダー表示
    :PROPERTIES:
    :EXPORT_FILE_NAME: calendar
