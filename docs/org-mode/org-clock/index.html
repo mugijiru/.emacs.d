@@ -12,20 +12,20 @@
     <title>org-clock :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1654309197" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1654309197" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1654309197" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1654309197" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1654309197" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1654309197" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1654309197" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1654309197" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1654309197" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1654309197" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1654309919" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1654309919" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1654309919" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1654309919" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1654309919" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1654309919" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1654309919" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1654309919" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1654309919" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1654309919" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1654309197"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1654309919"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1654309197"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1654309197"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1654309919"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1654309919"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1654309197"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1654309919"></script>
 
     
   </div>
@@ -2823,9 +2823,32 @@
 </code></pre></div><h2 id="org-pomodoro">org-pomodoro</h2>
 <p>ポモドーロテクニックを使うために org-pomodoro を導入している</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle org-pomodoro)
-</code></pre></div><p>で、sound は結構邪魔なのでそれは鳴らないようにしている</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq org-pomodoro-play-sounds <span style="color:#66d9ef">nil</span>)
-</code></pre></div><p>まあ普段これ起動してなくて使えてないんだけどw</p>
+</code></pre></div><p>そして以下の設定をしている</p>
+<ul>
+<li>sound は結構邪魔なのでそれは鳴らないようにしている</li>
+<li>デフォルトの 25 分だと短かいので倍の 50 分にしている
+<ul>
+<li>25 分だとノって来た時に終わるので集中できない</li>
+</ul>
+</li>
+<li>それに合わせて short break も倍にしている
+<ul>
+<li>10 分休めると間で色々できて便利。Emacs のパッケージ更新とか。</li>
+</ul>
+</li>
+<li>long break も通常の 1.5 倍にしている
+<ul>
+<li>とはいえ long break になる頃は定時が近いので無視しがち</li>
+</ul>
+</li>
+</ul>
+<!--listend-->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(custom-set-variables
+ <span style="color:#f92672">&#39;</span>(org-pomodoro-play-sounds <span style="color:#66d9ef">nil</span>)
+ <span style="color:#f92672">&#39;</span>(org-pomodoro-length <span style="color:#ae81ff">50</span>)
+ <span style="color:#f92672">&#39;</span>(org-pomodoro-short-break-length <span style="color:#ae81ff">10</span>)
+ <span style="color:#f92672">&#39;</span>(org-pomodoro-long-break-length <span style="color:#ae81ff">30</span>))
+</code></pre></div><p>今のところこの運用で大体うまくいってて良い</p>
 
 
 <footer class="footline">
@@ -4715,19 +4738,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1654309197"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1654309197"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1654309197"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1654309197"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1654309197"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1654309197"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1654309919"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1654309919"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1654309919"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1654309919"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1654309919"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1654309919"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1654309197"></script>
-    <script src="/.emacs.d/js/learn.js?1654309197"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1654309197"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1654309919"></script>
+    <script src="/.emacs.d/js/learn.js?1654309919"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1654309919"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1654309197"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1654309919"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
