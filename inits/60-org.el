@@ -30,3 +30,6 @@
 (add-hook 'ob-async-pre-execute-src-block-hook
       '(lambda ()
          (setq org-plantuml-jar-path "~/bin/plantuml.jar")))
+
+(custom-set-variables
+ '(org-id-link-to-org-use-id t))
