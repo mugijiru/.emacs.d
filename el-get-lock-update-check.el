@@ -55,7 +55,7 @@
           ((string-equal checksum hash)
            '(nil . "no updates."))
           (t
-           '(obsolute-packages . (concat "update found! " checksum "..." hash))))))
+           `(obsolute-packages . ,(concat "update found! " checksum "..." hash))))))
 
 (defun el-get-lock-update-check-process-maybe-emacswiki (type)
   (if (eq type 'emacswiki)
