@@ -1,6 +1,6 @@
 (:name prescient.el
-       :website "https://github.com/raxod502/prescient.el"
+       :website "https://github.com/radian-software/prescient.el"
        :description "simple but effective sorting and filtering for Emacs."
        :type github
        :branch "main"
-       :pkgname "raxod502/prescient.el")
+       :pkgname "radian-software/prescient.el")
