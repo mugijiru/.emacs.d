@@ -271,9 +271,7 @@ swiper を使う時はデフォで有効になっててほしいのでその設�
 ```emacs-lisp
 (setq ivy-re-builders-alist '((t . ivy--regex-plus)
                               (swiper . ivy-migemo--regex-plus)
-                              (counsel-find-file . ivy-migemo--regex-plus))
-                              ;(counsel-other-function . ivy-migemo--regex-plus)
-                              )
+                              (counsel-find-file . ivy-migemo--regex-plus)))
 ```
 
 また fuzzy matchi を有効にする設定も記載されているがそちらは自分は設定していない。なんとなく。
@@ -290,6 +288,63 @@ Mac で Emacs を使ってる時に ivy でアプリケーションを起動す�
 Mac を使ってる時は Emacs がランチャー代わりになるので便利。
 
 WSL 使ってる時に同じようなことをしてみたいんだけどどうしたらいいんだろう。まあできなくてもいいんだけど、このパッケージは Mac でだけ読むようにしたら良いよねって感じではある。
+
+
+## ivy-migemo {#ivy-migemo}
+
+Kibela の記事を ivy で絞り込んで Emacs から開けるようにするために
+[ivy-kibela](https://github.com/mugijiru/ivy-kibela) という自作ツールを使っている
+
+
+### インストール {#インストール}
+
+以下のレシピを用意して
+
+```emacs-lisp
+(:name ivy-kibela
+       :website "https://github.com/mugijiru/ivy-kibela"
+       :description "Ivy interface to kibela."
+       :type github
+       :pkgname "mugijiru/ivy-kibela")
+```
+
+```emacs-lisp
+(el-get-bundle ivy-kibela)
+```
+
+を設定ファイルに書いておけば OK
+
+
+### 有効化 {#有効化}
+
+今のところ明示的に require しないといけない。
+ivy が読まれてから読まれて欲しいので、以下のように設定している。
+
+```emacs-lisp
+(with-eval-after-load 'ivy
+  (require 'ivy-kibela))
+```
+
+
+### 設定 {#設定}
+
+README に従い `ivy-kibela-team` と `ivy-kibela-access-token` を設定してあげれば OK。自分は authinfo を使ってるのでそれ経由で値を取得している。
+
+```emacs-lisp
+(custom-set-variables
+ '(ivy-kibela-team (plist-get (nth 0 (auth-source-search :host "kibe.la")) :team))
+ '(ivy-kibela-access-token (funcall (plist-get (nth 0 (auth-source-search :host "kibe.la" :max 1)) :secret))))
+```
+
+
+### ivy-migemo の有効化 {#ivy-migemo-の有効化}
+
+ivy-kibela でも migemo りたかったので、以下のようにして migemo でも使えるようにしている
+
+```emacs-lisp
+(with-eval-after-load 'ivy-kibela
+  (add-to-list 'ivy-re-builders-alist '(ivy-kibela . ivy-migemo--regex-plus) t))
+```
 
 
 ## prescient.el {#prescient-dot-el}
