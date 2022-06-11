@@ -3093,9 +3093,7 @@
       #+begin_src emacs-lisp :tangle inits/82-ivy.el
       (setq ivy-re-builders-alist '((t . ivy--regex-plus)
                                     (swiper . ivy-migemo--regex-plus)
-                                    (counsel-find-file . ivy-migemo--regex-plus))
-                                    ;(counsel-other-function . ivy-migemo--regex-plus)
-                                    )
+                                    (counsel-find-file . ivy-migemo--regex-plus)))
       #+end_src
 
       また fuzzy matchi を有効にする設定も記載されているが
@@ -3116,6 +3114,66 @@
     WSL 使ってる時に同じようなことをしてみたいんだけどどうしたらいいんだろう。
     まあできなくてもいいんだけど、
     このパッケージは Mac でだけ読むようにしたら良いよねって感じではある。
+
+*** ivy-migemo
+    Kibela の記事を ivy で絞り込んで Emacs から開けるようにするために
+    [[https://github.com/mugijiru/ivy-kibela][ivy-kibela]] という自作ツールを使っている
+
+**** インストール
+     :PROPERTIES:
+     :ID:       018c6abe-7d6a-4511-ad19-5b7592c86aea
+     :END:
+     以下のレシピを用意して
+
+     #+begin_src emacs-lisp :tangle recipes/ivy-kibela.rcp
+       (:name ivy-kibela
+              :website "https://github.com/mugijiru/ivy-kibela"
+              :description "Ivy interface to kibela."
+              :type github
+              :pkgname "mugijiru/ivy-kibela")
+     #+end_src
+
+     #+begin_src emacs-lisp :tangle inits/83-ivy-kibela.el
+       (el-get-bundle ivy-kibela)
+     #+end_src
+
+     を設定ファイルに書いておけば OK
+
+**** 有効化
+     :PROPERTIES:
+     :ID:       845adaf9-7793-4442-8e87-314926abc57c
+     :END:
+     今のところ明示的に require しないといけない。
+     ivy が読まれてから読まれて欲しいので、以下のように設定している。
+
+     #+begin_src emacs-lisp :tangle inits/83-ivy-kibela.el
+       (with-eval-after-load 'ivy
+         (require 'ivy-kibela))
+     #+end_src
+
+**** 設定
+     :PROPERTIES:
+     :ID:       8e8364b4-23d8-46e0-a387-cfb73a4dd2f4
+     :END:
+     README に従い ~ivy-kibela-team~ と ~ivy-kibela-access-token~ を設定してあげれば OK。
+     自分は authinfo を使ってるのでそれ経由で値を取得している。
+
+     #+begin_src emacs-lisp :tangle inits/83-ivy-kibela.el
+       (custom-set-variables
+        '(ivy-kibela-team (plist-get (nth 0 (auth-source-search :host "kibe.la")) :team))
+        '(ivy-kibela-access-token (funcall (plist-get (nth 0 (auth-source-search :host "kibe.la" :max 1)) :secret))))
+     #+end_src
+
+**** ivy-migemo の有効化
+     :PROPERTIES:
+     :ID:       a7f2bf6b-db83-4077-bdff-f77bdd1ac096
+     :END:
+     ivy-kibela でも migemo りたかったので、以下のようにして migemo でも使えるようにしている
+
+     #+begin_src emacs-lisp :tangle inits/83-ivy-kibela.el
+       (with-eval-after-load 'ivy-kibela
+         (add-to-list 'ivy-re-builders-alist '(ivy-kibela . ivy-migemo--regex-plus) t))
+     #+end_src
 
 *** prescient.el
     :PROPERTIES:
