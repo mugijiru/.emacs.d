@@ -1,0 +1,5 @@
+(:name ivy-kibela
+       :website "https://github.com/mugijiru/ivy-kibela"
+       :description "Ivy interface to kibela."
+       :type github
+       :pkgname "mugijiru/ivy-kibela")
