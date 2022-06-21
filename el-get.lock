@@ -14,7 +14,7 @@
         (web-mode :checksum "7b5459f58c381f31eed257480b000a9a46209094")
         (dap-mode :checksum "50c2a99059da03ac5274d6794ea4758ddf253dc1")
         (lsp-treemacs :checksum "9859326df6b8e8c954a3c227e53b6878e54aaae8")
-        (treemacs :checksum "0578a1ba33037322828aabe240a7cc8e283077c0")
+        (treemacs :checksum "e9f439c2ad18b6c9cb3ef962b57f932a9a14b362")
         (pfuture :checksum "f9e67bd7edbd5b4e033efd82c0acc4a85ff860a8")
         (bui :checksum "f3a137628e112a91910fd33c0cff0948fa58d470")
         (smartparens :checksum "ec15aaa748b21c9b8453dd95604ccc95fc1138cf")
