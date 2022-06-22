@@ -75,7 +75,7 @@
         (flycheck :checksum "c955fd6fb970eed5fdecf675369d3d61a41f6c68")
         (forge :checksum "2cca7c78bbe37a36ea1b6b7709be8ce69d1a9940")
         (fringe-helper :checksum "ef4a9c023bae18ec1ddd7265f1f2d6d2e775efdd")
-        (ghub :checksum "fb9d33b21b3105acc1fcbced851dca70c4be2ff8")
+        (ghub :checksum "0e61c0b547b4e88ec8aee956ba9ce7bfc1f243b1")
         (git-gutter :checksum "a50672b62a678922b8c0cab95225d520f493439b")
         (git-gutter-fringe :checksum "648cb5b57faec55711803cdc9434e55a733c3eba")
         (google-this :checksum "8a2e3ca5da6a8c89bfe99a21486c6c7db125dc84")
