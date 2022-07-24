@@ -1,0 +1,6 @@
+(:name gnuplot-mode
+       :description "Drive gnuplot from within emacs"
+       :type github
+       :pkgname "emacs-gnuplot/gnuplot-mode"
+       :build `(("make" ,(concat "EMACS=" el-get-emacs)))
+       :info "gnuplot.info")
