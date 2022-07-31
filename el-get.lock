@@ -99,7 +99,7 @@
         (migemo :checksum "f756cba3d5268968da361463c2e29b3a659a3de7")
         (multiple-cursors :checksum "225fc0e889e094bfd2913cfd448084cb49211ac6")
         (ob-async :checksum "9aac486073f5c356ada20e716571be33a350a982")
-        (org-gcal :checksum "396a30cf256c8b32a69fd73a081364937b43a1c7")
+        (org-gcal :checksum "3e199c494645e58c5bfa80968dfc4e8480c60f85")
         (pkg-info :checksum "76ba7415480687d05a4353b27fea2ae02b8d9d61")
         (plantuml-mode :checksum "ea45a13707abd2a70df183f1aec6447197fc9ccc")
         (popup :checksum "c65905aa1a3ac32d1dbc8c1060605621e6143f80")
