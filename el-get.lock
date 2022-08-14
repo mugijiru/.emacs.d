@@ -50,7 +50,7 @@
         (zoom :checksum "2104abb074682db79b9ff3a748e8e2e760a4d8cf")
         (request :checksum "38ed1d2e64138eb16a9d8ed2987cff2e01b4a93b")
         (avy :checksum "ba5f035be33693d1a136a5cbeedb24327f551a92")
-        (all-the-icons :checksum "b18db6be0a290e8f91fd8d8340b2b44c8b75049a")
+        (all-the-icons :checksum "6f876fa11ef64af20d9b2a44fdabac6446de51ba")
         (alert :checksum "7046393272686c7a1a9b3e7f7b1d825d2e5250a6")
         (calfw :checksum "03abce97620a4a7f7ec5f911e669da9031ab9088")
         (closql :checksum "87d2edae8bc3d390bcfc5e909e9c13ff9fce994a")
