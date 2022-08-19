@@ -57,7 +57,7 @@
         (company-mode :checksum "09bb128cc040e93e2fdd5c52cb9a806d2ed6e174")
         (counsel-projectile :checksum "40d1e1d4bb70acb00fddd6f4df9778bf2c52734b")
         (dash :checksum "0ac1ecf6b56eb67bb81a3cf70f8d4354b5782341")
-        (ddskk :checksum "c664b26d0861621ac86b5b5f47835dd84f06dc93")
+        (ddskk :checksum "3ed86d42717ab2a54ec8de6ab32d552dc0a4c3b0")
         (ddskk-posframe\.el :checksum "299493dd951e5a0b43b8213321e3dc0bac10f762")
         (deferred :checksum "2239671d94b38d92e9b28d4e12fd79814cfb9c16")
         (doom-modeline :checksum "c26c26131377895984f9fdc49cc4914f9ee6997c")
