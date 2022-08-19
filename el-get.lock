@@ -51,7 +51,7 @@
         (request :checksum "91313f1e00302b7e60d2043d8104bccf72aae80b")
         (avy :checksum "ba5f035be33693d1a136a5cbeedb24327f551a92")
         (all-the-icons :checksum "6f876fa11ef64af20d9b2a44fdabac6446de51ba")
-        (alert :checksum "fb92919739b35ec6e9e6db56ca7c10cf7ef1329d")
+        (alert :checksum "c39ce68ed8d80fb996fb78eafc06481a54bf27ce")
         (calfw :checksum "03abce97620a4a7f7ec5f911e669da9031ab9088")
         (closql :checksum "87d2edae8bc3d390bcfc5e909e9c13ff9fce994a")
         (company-mode :checksum "09bb128cc040e93e2fdd5c52cb9a806d2ed6e174")
