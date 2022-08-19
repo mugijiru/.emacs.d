@@ -1,5 +1,5 @@
 (setq el-get-lock-package-versions
-      '((ivy-kibela :checksum "624b3eb2bb85618bd74de64a05ffd2a285ab301c")
+      '((ivy-kibela :checksum "4a2f9ec2a5688d8f2a19ae41877962b914329555")
         (graphql :checksum "5ca5f50b5e6f3883f1138453a356d59a1c002120")
         (tomelr :checksum "670e0a08f625175fd80137cf69e799619bf8a381")
         (ivy-migemo :checksum "f31a2b314b81e328ce0222d8796b808230ddaa0e")
