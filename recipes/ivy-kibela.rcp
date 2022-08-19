@@ -2,4 +2,5 @@
        :website "https://github.com/mugijiru/ivy-kibela"
        :description "Ivy interface to kibela."
        :type github
+       :branch "main"
        :pkgname "mugijiru/ivy-kibela")
