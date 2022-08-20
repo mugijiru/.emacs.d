@@ -1,0 +1,6 @@
+(:name lsp-docker
+       :description "lsp-mode uses lsp-docker to run language servers using in containers"
+       :website "https://github.com/emacs-lsp/lsp-docker"
+       :type github
+       :pkgname "emacs-lsp/lsp-docker"
+       :depends (dash lsp-mode f yaml ht))
