@@ -29,7 +29,7 @@
         (sticky-control :checksum "25e15e41174725600626b8dc13852aced691bd3b")
         (org-pomodoro :checksum "3f5bcfb80d61556d35fc29e5ddb09750df962cc6")
         (org-ql :checksum "e41cdb45912f1731b5b060f9e05d011096663655")
-        (org-super-agenda :checksum "fcc860190682274989fef15385c37c02895078df")
+        (org-super-agenda :checksum "8826a140bdaf5aae84ddc6c42f7d3508a5b1e46a")
         (ts :checksum "552936017cfdec89f7fc20c254ae6b37c3f22c5b")
         (ov :checksum "c5b9aa4e1b00d702eb2caedd61c69a22a5fa1fab")
         (ivy-rich :checksum "600b8183ed0be8668dcc548cc2c8cb94b001363b")
