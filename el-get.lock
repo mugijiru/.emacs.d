@@ -111,7 +111,7 @@
         (rake :checksum "452ea0caca33376487103c64177c295ed2960cca")
         (rbenv :checksum "2ea1a5bdc1266caef1dd77700f2c8f42429b03f1")
         (rspec-mode :checksum "484f0bab468674852aaf3e0ad0c3b3d4335d4316")
-        (s :checksum "7f25ead4b0deac6f49d07e0c3b8859adedb28207")
+        (s :checksum "07c57d3562da534d1b18a0fb21e12cd6ae6ff4d7")
         (shrink-path :checksum "c14882c8599aec79a6e8ef2d06454254bb3e1e41")
         (spinner :checksum "bca794fa6f6b007292cdac9b0a850a3711986db5")
         (swiper :checksum "2051de5882706246da298ce5f60482cd7f469fe7")
