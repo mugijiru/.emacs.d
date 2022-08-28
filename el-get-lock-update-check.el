@@ -2,10 +2,15 @@
 
 (defun el-get-lock-update-check-print-list (title list)
   (unless (= (length list) 0)
-    (message (concat "## " title " ##"))
+    (if title
+        (princ (concat "## " title " ##\n")))
     (dolist (list-item list)
-      (message list-item))
-    (message "")))
+      (princ (concat list-item "\n")))))
+
+(defun el-get-lock-update-check-print-obsolute-only ()
+  (let* ((lists (el-get-lock-update-check-assemble-lists))
+         (obsolute-lists (alist-get 'obsolute lists)))
+    (el-get-lock-update-check-print-list nil obsolute-lists)))
 
 (defun el-get-lock-update-check-verbose-print (message)
   (if el-get-lock-update-check-verbose-flag
