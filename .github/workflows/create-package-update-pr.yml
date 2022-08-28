@@ -61,7 +61,7 @@ jobs:
       uses: lazy-actions/slatify@master
       with:
         type: ${{ job.status }}
-        job_name: '*el-get update*'
+        job_name: '*el-get update ${{ env.PACKAGE }}*'
         mention: 'here'
         username: 'GitHub Actions'
         icon_emoji: 'emacs'

@@ -22,8 +22,8 @@ jobs:
 
     - name: Detect updates
       run: |
-        update_count=$(wc -l /tmp/emacs-outdated-packages.txt)
-        if [ update_count -gt 0 ]; then
+        update_count=$(wc -l /tmp/emacs-outdated-packages.txt | cut -d " " -f 1)
+        if [ $update_count -gt 0 ]; then
           echo 'found_update=1' >> $GITHUB_ENV
         fi
 
@@ -31,19 +31,17 @@ jobs:
       name: Set matrix
       id: set-matrix
       run: |
-        array=$(cat /tmp/emacs-outdated-packages.txt | jq -R -s -c 'split("\n")[:-1]')
-        echo "::set-output name=matrix::${array}"
+        packages=$(cat /tmp/emacs-outdated-packages.txt | jq -R -s -c 'split("\n")[:-1]')
+        echo $packages
+        echo "::set-output name=value::${packages}"
 
   call-update-workflow:
     needs: check-updates
-    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        package: ${{fromJson(needs.set-matrix.outputs.matrix.packages)}}
-
-    steps:
-    - name: Call update workflow
-      uses: ./.github/workflows/create-package-update-pr
-      with:
-        package: ${{ matrix.package }}
+        package: ${{fromJson(needs.check-updates.outputs.packages)}}
+    uses: ./.github/workflows/create-package-update-pr.yml
+    with:
+      package: ${{ matrix.package }}
+    secrets: inherit
