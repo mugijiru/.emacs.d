@@ -106,7 +106,7 @@
         (popup :checksum "34c2684a6fb9a98683951b4a68f542622d17952f")
         (posframe :checksum "0d23bc5f7cfac00277d83ae7ba52c48685bcbc68")
         (prescient\.el :checksum "07d61b7779c4cca3009390383e7f98a55de7e17e")
-        (projectile :checksum "94273611c95b6718c41018be2657f6982a325f60")
+        (projectile :checksum "99b5f69319d8030f8445d9d77bb2d55562a5b38f")
         (projectile-rails :checksum "2a0107e83d8320507e288c853e0762bec110cd15")
         (rake :checksum "452ea0caca33376487103c64177c295ed2960cca")
         (rbenv :checksum "2ea1a5bdc1266caef1dd77700f2c8f42429b03f1")
