@@ -1,0 +1,49 @@
+name: Check updates
+
+on:
+  push:
+
+jobs:
+  check-updates:
+    runs-on: ubuntu-latest
+    outputs:
+      packages: ${{ steps.set-matrix.outputs.value }}
+
+    steps:
+    - uses: purcell/setup-emacs@master
+      with:
+        version: 28.1
+
+    - uses: actions/checkout@v2
+
+    - name: Check updates
+      run: |
+        ./count-emacs-obsolute-packages.sh
+
+    - name: Detect updates
+      run: |
+        update_count=$(wc -l /tmp/emacs-outdated-packages.txt)
+        if [ update_count -gt 0 ]; then
+          echo 'found_update=1' >> $GITHUB_ENV
+        fi
+
+    - if: env.found_update == 1
+      name: Set matrix
+      id: set-matrix
+      run: |
+        array=$(cat /tmp/emacs-outdated-packages.txt | jq -R -s -c 'split("\n")[:-1]')
+        echo "::set-output name=matrix::${array}"
+
+  call-update-workflow:
+    needs: check-updates
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        package: ${{fromJson(needs.set-matrix.outputs.matrix.packages)}}
+
+    steps:
+    - name: Call update workflow
+      uses: ./.github/workflows/create-package-update-pr
+      with:
+        package: ${{ matrix.package }}
