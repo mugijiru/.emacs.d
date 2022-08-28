@@ -1,0 +1,49 @@
+name: Check updates
+
+on:
+  schedule:
+    - clon: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  check-updates:
+    runs-on: ubuntu-latest
+    outputs:
+      packages: ${{ steps.set-matrix.outputs.value }}
+
+    steps:
+    - uses: purcell/setup-emacs@master
+      with:
+        version: 28.1
+
+    - uses: actions/checkout@v2
+
+    - name: Check updates
+      run: |
+        ./count-emacs-obsolute-packages.sh
+
+    - name: Detect updates
+      run: |
+        update_count=$(wc -l /tmp/emacs-outdated-packages.txt | cut -d " " -f 1)
+        if [ $update_count -gt 0 ]; then
+          echo 'found_update=1' >> $GITHUB_ENV
+        fi
+
+    - if: env.found_update == 1
+      name: Set matrix
+      id: set-matrix
+      run: |
+        packages=$(cat /tmp/emacs-outdated-packages.txt | jq -R -s -c 'split("\n")[:-1]')
+        echo $packages
+        echo "::set-output name=value::${packages}"
+
+  call-update-workflow:
+    needs: check-updates
+    strategy:
+      fail-fast: false
+      matrix:
+        package: ${{fromJson(needs.check-updates.outputs.packages)}}
+    uses: ./.github/workflows/create-package-update-pr.yml
+    with:
+      package: ${{ matrix.package }}
+    secrets: inherit
