@@ -8,7 +8,7 @@
       (princ (concat list-item "\n")))))
 
 (defun el-get-lock-update-check-print-obsolute-only ()
-  (let* ((lists (el-get-lock-update-check-assemble-lists))
+  (let* ((lists (el-get-lock-update-check-assemble-lists nil))
          (obsolute-lists (alist-get 'obsolute lists)))
     (el-get-lock-update-check-print-list nil obsolute-lists)))
 
@@ -76,13 +76,13 @@
         (el-get-lock-update-check-process-hash recipe url checksum)
       (el-get-lock-update-check-process-maybe-emacswiki))))
 
-(defun el-get-lock-update-check-process-single-package (package)
-  (if (el-get-package-installed-p package)
+(defun el-get-lock-update-check-process-single-package (package check-installed)
+  (if (or (not check-installed) (el-get-package-installed-p package))
       (el-get-lock-update-check-process-installed-package package)
     '(not-installed-packages . "not installed.")))
 
-(defun el-get-lock-update-check-assemble-lists ()
-  (load (expand-file-name "~/.emacs.d/init-el-get.el"))
+(defun el-get-lock-update-check-assemble-lists (check-installed)
+  (load (concat user-emacs-directory "init-el-get.el"))
   (message "check updates...")
   (let ((obsolute-packages '())
         (cannot-get-url-packages '())
@@ -97,7 +97,7 @@
             (package (replace-regexp-in-string "\\\\\\\." "\\\." (symbol-name (car version))))
             (checksum (plist-get (cdr version) :checksum)))
         (el-get-lock-update-check-verbose-print (concat package " checking..."))
-        (let ((list-name-and-message (el-get-lock-update-check-process-single-package package)))
+        (let ((list-name-and-message (el-get-lock-update-check-process-single-package package check-installed)))
           (setq list-name (car list-name-and-message))
           (setq message (cdr list-name-and-message)))
         (if list-name (add-to-list list-name package))
@@ -111,7 +111,7 @@
   )
 
 (defun el-get-lock-update-check-execute (&optional only-obsolute-count)
-  (let ((lists (el-get-lock-update-check-assemble-lists)))
+  (let ((lists (el-get-lock-update-check-assemble-lists t)))
     (if only-obsolute-count
         (princ (concat (number-to-string (length (alist-get 'obsolute lists))) "\n"))
       (el-get-lock-update-check-print-list2 "obsolute" (alist-get 'obsolute lists))
