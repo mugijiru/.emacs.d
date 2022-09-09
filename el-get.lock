@@ -124,7 +124,7 @@
         (yascroll :checksum "48cad7618fece0d86023d0b1e0f1f0e37f63d2f5")
         (yasnippet :checksum "5cbdbf0d2015540c59ed8ee0fcf4788effdf75b6")
         (zoom-window :checksum "9b052ac33d4eafe724d0e37d3376926deba91676")
-        (ace-window :checksum "0577c426a9833ab107bab46c60d1885c611b2fb9")
+        (ace-window :checksum "0d9a89edafca53a09946e3a59ed64a0b975a0b8a")
         (pcsv :checksum "798e0933f8d0818beb17aebf3b1056bbf74e03d0")
         (google-translate :checksum "0f7f48a09bca064999ecea03102a7c96f52cbd1b")
         (counsel-osx-app :checksum "b1c54cbc033c4939966910d85ce035503079e108")
