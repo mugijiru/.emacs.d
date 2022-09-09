@@ -105,7 +105,7 @@
         (plantuml-mode :checksum "ea45a13707abd2a70df183f1aec6447197fc9ccc")
         (popup :checksum "34c2684a6fb9a98683951b4a68f542622d17952f")
         (posframe :checksum "0d23bc5f7cfac00277d83ae7ba52c48685bcbc68")
-        (prescient\.el :checksum "32aa2424cadb970e9adbaddb898ba43f3437530c")
+        (prescient\.el :checksum "eb35fc015c8124e92046bb105cb4973c2a6ac910")
         (projectile :checksum "20aa2adccc1ecb19f54f2fbc428b4904071fcab8")
         (projectile-rails :checksum "2a0107e83d8320507e288c853e0762bec110cd15")
         (rake :checksum "452ea0caca33376487103c64177c295ed2960cca")
