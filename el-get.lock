@@ -83,7 +83,7 @@
         (haml-mode :checksum "bf5b6c11b1206759d2b28af48765e04882dd1fc4")
         (handlebars-mode :checksum "81f6b73fea8f397807781a1b51568397af21a6ef")
         (ht :checksum "c4c1be487d6ecb353d07881526db05d7fc90ea87")
-        (hydra :checksum "9e9e00cb240ea1903ffd36a54956b3902c379d29")
+        (hydra :checksum "317e1de33086637579a7aeb60f77ed0405bf359b")
         (hydra-posframe :checksum "94405b5fbec1ae9447c976c3deef41043b9b7de3")
         (inf-ruby :checksum "eb7bf95d5b03bdb9b28647c89ea0a73e35fe0ad1")
         (init-loader :checksum "ecab5a66b40227c4173992adfa5cfeae09f1657e")
