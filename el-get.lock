@@ -113,7 +113,7 @@
         (rspec-mode :checksum "484f0bab468674852aaf3e0ad0c3b3d4335d4316")
         (s :checksum "e957dcb0677da18b2bb60ad867db5df5c35b5616")
         (shrink-path :checksum "c14882c8599aec79a6e8ef2d06454254bb3e1e41")
-        (spinner :checksum "bca794fa6f6b007292cdac9b0a850a3711986db5")
+        (spinner :checksum "d4647ae87fb0cd24bc9081a3d287c860ff061c21")
         (swiper :checksum "2051de5882706246da298ce5f60482cd7f469fe7")
         (transient :checksum "9d4fabc3c5c58fb845d8a1aa73cd7f889033c95f")
         (treepy :checksum "3ac940e97f3d03e48ca9d7fcd74916a9b01c72f3")
