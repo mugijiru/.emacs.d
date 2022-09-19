@@ -84,9 +84,23 @@
                 (org-agenda-todo-keyword-format "-")
                 (org-overriding-columns-format "%25ITEM %TODO")
                 (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
-                (org-super-agenda-groups '((:name "仕掛かり中" :todo "DOING")
-                                           (:name "TODO" :todo "TODO")
-                                           (:name "待ち" :todo "WAIT")
+                (org-super-agenda-groups '((:name "仕掛かり中" :and (:todo "DOING" :not (:category "レビュー") :not (:category "開発")))
+                                           (:name "TODO" :and (:todo "TODO" :not (:category "レビュー") :not (:category "開発")))
+                                           (:name "待ち" :and (:todo "WAIT" :not (:category "レビュー") :not (:category "開発")))
+                                           (:discard (:anything t))))))
+    (alltodo ""
+               ((org-agenda-prefix-format " ")
+                (org-agenda-overriding-header "予定作業")
+                (org-habit-show-habits nil)
+                (org-agenda-span 'day)
+                (org-agenda-todo-keyword-format "-")
+                (org-overriding-columns-format "%25ITEM %TODO")
+                (org-agenda-files '("~/Documents/org/tasks/projects.org"))
+                (org-super-agenda-groups '((:name "〆切が過ぎてる作業" :and (:deadline past :category "Private"))
+                                           (:name "予定が過ぎてる作業" :and (:scheduled past :category "Private"))
+                                           (:name "今日〆切の作業" :and (:deadline today :category "Private"))
+                                           (:name "今日予定の作業" :and (:scheduled today :category "Private"))
+                                           ;; (:name "今後1週間の作業" :and (:and (:scheduled (before ,(format-time-string "%Y-%m-%d" (time-add (current-time) (* 60 60 24 7)))) (:scheduled (after (format-time-string "%Y-%m-%d" (current-time))))) :not (:category "Private")))
                                            (:discard (:anything t))))))
     (tags-todo "Holiday|Weekend|Daily"
                ((org-agenda-overriding-header "習慣")
@@ -158,6 +172,18 @@
                                          "~/Documents/org/tasks/inbox.org"
                                          "~/Documents/org/tasks/shopping.org"
                                          "~/Documents/org/tasks/next-actions.org"))))))
+  ("S" "Stocks"
+   ((alltodo ""
+             ((org-agenda-prefix-format " ")
+              (org-agenda-overriding-header "ストック確認")
+              (org-habit-show-habits nil)
+              (org-agenda-span 'day)
+              (org-agenda-todo-keyword-format "-")
+              (org-overriding-columns-format "%25ITEM %TODO")
+              (org-agenda-files '("~/Documents/org/tasks/stocks.org"))
+              (org-super-agenda-groups '((:name "チェック日が過ぎているもの" :scheduled past)
+                                         (:name "今日チェック予定のもの" :scheduled today)
+                                         (:discard (:anything t))))))))
 
   ("z" "日報"
    ((agenda "" ((org-agenda-span 'day)
