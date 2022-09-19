@@ -126,7 +126,7 @@
         (zoom-window :checksum "1432687651ccd54c9aeb0c6c5de08fba7116f6c2")
         (ace-window :checksum "77115afc1b0b9f633084cf7479c767988106c196")
         (pcsv :checksum "798e0933f8d0818beb17aebf3b1056bbf74e03d0")
-        (google-translate :checksum "f2b4534d4554c2103ed8084353c94c9cdc5cb24c")
+        (google-translate :checksum "3828c41aba21aa74bec60189476dfda1042d71cd")
         (counsel-osx-app :checksum "b1c54cbc033c4939966910d85ce035503079e108")
         (el-get :checksum "9a4ab9cc8ae4a9b9a4b232788039cc679a4ba249")
         (dashboard :checksum "5514796ed9cf3ea527d8ddcdeed69d52b6627bf1")
