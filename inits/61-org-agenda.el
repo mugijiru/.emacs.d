@@ -158,6 +158,18 @@
                                          "~/Documents/org/tasks/inbox.org"
                                          "~/Documents/org/tasks/shopping.org"
                                          "~/Documents/org/tasks/next-actions.org"))))))
+  ("S" "Stocks"
+   ((alltodo ""
+             ((org-agenda-prefix-format " ")
+              (org-agenda-overriding-header "ストック確認")
+              (org-habit-show-habits nil)
+              (org-agenda-span 'day)
+              (org-agenda-todo-keyword-format "-")
+              (org-overriding-columns-format "%25ITEM %TODO")
+              (org-agenda-files '("~/Documents/org/tasks/stocks.org"))
+              (org-super-agenda-groups '((:name "チェック日が過ぎているもの" :scheduled past)
+                                         (:name "今日チェック予定のもの" :scheduled today)
+                                         (:discard (:anything t))))))))
 
   ("z" "日報"
    ((agenda "" ((org-agenda-span 'day)
