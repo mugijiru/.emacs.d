@@ -84,9 +84,9 @@
                 (org-agenda-todo-keyword-format "-")
                 (org-overriding-columns-format "%25ITEM %TODO")
                 (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
-                (org-super-agenda-groups '((:name "仕掛かり中" :todo "DOING")
-                                           (:name "TODO" :todo "TODO")
-                                           (:name "待ち" :todo "WAIT")
+                (org-super-agenda-groups '((:name "仕掛かり中" :and (:todo "DOING" :not (:category "レビュー") :not (:category "開発")))
+                                           (:name "TODO" :and (:todo "TODO" :not (:category "レビュー") :not (:category "開発")))
+                                           (:name "待ち" :and (:todo "WAIT" :not (:category "レビュー") :not (:category "開発")))
                                            (:discard (:anything t))))))
     (tags-todo "Holiday|Weekend|Daily"
                ((org-agenda-overriding-header "習慣")
