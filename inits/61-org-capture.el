@@ -10,6 +10,7 @@
 (setq my/org-capture-sql-file          (concat org-directory "work/sql.org"))
 (setq my/org-capture-shopping-file     (concat my/org-tasks-directory "shopping.org"))
 (setq my/org-capture-2020-summary-file (concat org-directory "private/2020_summary.org"))
+(setq my/org-small-topic-file (concat org-directory "small-topic.org"))
 
 (setq org-capture-templates
       `(("g" "Inbox にエントリー" entry
@@ -37,6 +38,9 @@
          "** TODO %?\n\t")
         ("R" "2020ふりかえりにエントリー" entry
          (file+headline ,my/org-capture-2020-summary-file "Timeline")
+         "** %?\n\t")
+        ("z" "一言・雑談ネタ" entry
+         (file+headline ,my/org-small-topic-file "Topic")
          "** %?\n\t")
         ("s" "SQL にエントリー" entry
          (file+headline ,my/org-capture-sql-file "SQL")
