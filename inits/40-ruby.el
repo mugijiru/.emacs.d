@@ -7,7 +7,8 @@
 (with-eval-after-load 'enh-ruby-mode
   (setq enh-ruby-add-encoding-comment-on-save nil)
   (setq enh-ruby-deep-indent-paren nil)
-  (setq enh-ruby-bounce-deep-indent t))
+  (setq enh-ruby-deep-indent-construct nil)
+  (setq enh-ruby-bounce-deep-indent nil))
 
 (defun my/enh-ruby-mode-hook ()
   (company-mode 1)
