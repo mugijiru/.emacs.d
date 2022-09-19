@@ -11,4 +11,5 @@
 (custom-set-variables
  '(google-translate-default-source-language "en")
  '(google-translate-default-target-language "ja")
+ '(google-translate-translation-to-kill-ring t)
  '(google-translate-output-destination 'popup))
