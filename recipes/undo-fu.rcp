@@ -1,5 +1,5 @@
 (:name undo-fu
-       :website "https://gitlab.com/ideasman42/emacs-undo-fu"
+       :website "https://codeberg.org/ideasman42/emacs-undo-fu"
        :description "Simple, stable linear undo with redo for Emacs."
        :type git
-       :url "https://gitlab.com/ideasman42/emacs-undo-fu.git")
+       :url "https://codeberg.org/ideasman42/emacs-undo-fu.git")
