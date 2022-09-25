@@ -11,6 +11,8 @@
 (setq org-log-into-drawer "LOGBOOK")
 
 (with-eval-after-load 'org
+  (require 'org-protocol)
+  (add-to-list 'org-modules 'org-protocol)
   (add-to-list 'org-file-apps '("\\.xlsx?\\'" . default)))
 
 (org-babel-do-load-languages 'org-babel-load-languages
