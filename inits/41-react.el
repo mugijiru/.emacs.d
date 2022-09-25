@@ -18,8 +18,9 @@
       (turn-on-smartparens-mode)
       (display-line-numbers-mode t)
       (lsp)
-      (lsp-ui-mode 1))))
+      (lsp-ui-mode 1)
+      (add-hook 'before-save-hook 'my/web-mode-auto-fix-hook nil 'local))))
 
-      (add-hook 'before-save-hook #'my/web-mode-auto-fix-hook nil 'local)
+
 
 (add-hook 'web-mode-hook 'my/web-mode-tsx-hook)
