@@ -1,5 +1,4 @@
 (:name google-translate
        :description "Emacs interface to Google Translate"
        :type github
-       :branch "fix-result-to-kill-ring"
-       :pkgname "mugijiru/google-translate")
+       :pkgname "atykhonov/google-translate")
