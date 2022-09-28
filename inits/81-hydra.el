@@ -95,6 +95,7 @@
     ("i" counsel-imenu               "imenu")
     ("y" yasnippet-hydra/body        "Yasnippet")
     ("B" browse-at-remote            "Browse")
+    ("C" git-messenger:popup-message "Git Message")
     ("m" magit-status                "Magit"))
 
    "View"
