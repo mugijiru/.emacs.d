@@ -58,7 +58,7 @@
         (closql :checksum "46b3020acf6655fd8abb4ef60e090629ee33e8c3")
         (company-mode :checksum "48fea7a905b3bcc6d97609316beced666da89b1f")
         (counsel-projectile :checksum "40d1e1d4bb70acb00fddd6f4df9778bf2c52734b")
-        (dash :checksum "0ac1ecf6b56eb67bb81a3cf70f8d4354b5782341")
+        (dash :checksum "e926385625bd8cf395770479a4fc6a8290526289")
         (ddskk :checksum "3ed86d42717ab2a54ec8de6ab32d552dc0a4c3b0")
         (ddskk-posframe\.el :checksum "299493dd951e5a0b43b8213321e3dc0bac10f762")
         (deferred :checksum "2239671d94b38d92e9b28d4e12fd79814cfb9c16")
