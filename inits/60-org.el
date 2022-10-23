@@ -35,3 +35,13 @@
 
 (custom-set-variables
  '(org-id-link-to-org-use-id t))
+
+(defun my/org-refresh-appt-on-complete-habit (args)
+  "習慣タスクを完了した時に Appt を refresh する"
+  (let* ((element (org-element-at-point))
+         (style (org-element-property :STYLE element))
+         (to (plist-get args :to)))
+    (if (and (string= style "habit") (string= "TODO" to))
+        (my/org-refresh-appt))))
+
+(add-hook 'org-trigger-hook 'my/org-refresh-appt-on-complete-habit)

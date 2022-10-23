@@ -34,7 +34,7 @@ Hydra から利用するために定義している。"
   (interactive)
   (org-tags-view t))
 
-(defun my/org-gcal-refresh-appt ()
+(defun my/org-refresh-appt ()
   (interactive)
   (let ((org-agenda-files (append my/org-agenda-calendar-files org-agenda-files)))
     (org-agenda-to-appt t)))
