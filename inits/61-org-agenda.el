@@ -65,7 +65,7 @@
                 (org-overriding-columns-format "%25ITEM %TODO")
                 (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
                 (org-super-agenda-groups '((:name "仕掛かり中" :todo "DOING")
-                                           (:name "TODO" :todo "TODO")
+                                           (:name "TODO" :and (:todo "TODO" :not (:category "レビュー")))
                                            (:name "待ち" :todo "WAIT")
                                            (:discard (:anything t))))))
     (tags-todo "Weekday-Finish|Daily"
