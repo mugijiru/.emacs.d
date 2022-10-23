@@ -14,3 +14,5 @@
     (alert msg :title title)))
 
 (setq appt-disp-window-function 'my/appt-alert)
+
+(advice-add #'org-gcal--sync-unlock :after #'my/org-refresh-appt)
