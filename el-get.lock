@@ -44,7 +44,7 @@
         (highlight-indent-guides :checksum "cf352c85cd15dd18aa096ba9d9ab9b7ab493e8f6")
         (scratch-log :checksum "1168f7f16d36ca0f4ddf2bb98881f8db62cc5dc0")
         (vue-mode :checksum "031edd1f97db6e7d8d6c295c0e6d58dd128b9e71")
-        (mmm-mode :checksum "ed4bcdcbe4556dae9013d9c6697e2b6a2ed6d2dc")
+        (mmm-mode :checksum "3c2071347a48a5aa172671687b0a3972381dc7d7")
         (ssass-mode :checksum "96f557887ad97a0066a60c54f92b7234b8407016")
         (edit-indirect :checksum "f80f63822ffae78de38dbe72cacaeb1aaa96c732")
         (vue-html-mode :checksum "1514939804bad558584feeb6298b38d22eadf64e")
