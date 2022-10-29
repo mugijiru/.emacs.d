@@ -116,7 +116,7 @@
         (shrink-path :checksum "c14882c8599aec79a6e8ef2d06454254bb3e1e41")
         (spinner :checksum "d4647ae87fb0cd24bc9081a3d287c860ff061c21")
         (swiper :checksum "b8be4913a661b557e0d3275726e36871556569d3")
-        (transient :checksum "afb7b250d4ee9669fdb82c4e40a23800f651ff96")
+        (transient :checksum "ad953cc3c5b8a066d3da11a8527c035744f1385f")
         (treepy :checksum "de1a2ddc3fd7152d0bfbd9e14312ff8a4864ab2b")
         (twittering-mode :checksum "114891e8fdb4f06b1326a6cf795e49c205cf9e29")
         (wakatime-mode :checksum "a9c7ab37dbaeadb36b90bcd38b31e4447706b251")
