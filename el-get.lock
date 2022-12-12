@@ -1,6 +1,6 @@
 (setq el-get-lock-package-versions
       '((git-messenger :checksum "eade986ef529aa2dac6944ad61b18de55cee0b76")
-        (lsp-docker :checksum "1d08ab56b4064f0e4b56493d723ff947d0e3c3c1")
+        (lsp-docker :checksum "e64d1e3a19b1529a9812b953bd3fe924f68e3234")
         (ivy-kibela :checksum "2159d62ead4332b761f8c7f0d898ccd2cf1b57ea")
         (graphql :checksum "67237f284f2dfb94f3cfba672ff64a37e1cb860f")
         (tomelr :checksum "670e0a08f625175fd80137cf69e799619bf8a381")
