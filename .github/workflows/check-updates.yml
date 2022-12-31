@@ -35,7 +35,7 @@ jobs:
       run: |
         packages=$(cat /tmp/emacs-outdated-packages.txt | jq -R -s -c 'split("\n")[:-1]')
         echo $packages
-        echo "::set-output name=value::${packages}"
+        echo "packages=${packages}" >> $GITHUB_OUTPUT
 
   call-update-workflow:
     needs: check-updates
