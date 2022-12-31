@@ -1,5 +1,7 @@
 (setq el-get-lock-package-versions
-      '((aio :checksum "da93523e235529fa97d6f251319d9e1d6fc24a41")
+      '((pdf-tools :checksum "b8079e4ebc2936f9772657332d50936350a65825")
+        (tablist :checksum "faab7a035ef2258cc4ea2182f67e3aedab7e2af9")
+        (aio :checksum "da93523e235529fa97d6f251319d9e1d6fc24a41")
         (git-messenger :checksum "eade986ef529aa2dac6944ad61b18de55cee0b76")
         (lsp-docker :checksum "579420212770af30947c807aec6b65ff5e199728")
         (ivy-kibela :checksum "2159d62ead4332b761f8c7f0d898ccd2cf1b57ea")
