@@ -9,7 +9,7 @@ jobs:
   check-updates:
     runs-on: ubuntu-latest
     outputs:
-      packages: ${{ steps.set-matrix.outputs.value }}
+      packages: ${{ steps.set-matrix.outputs.packages }}
 
     steps:
     - uses: purcell/setup-emacs@master
