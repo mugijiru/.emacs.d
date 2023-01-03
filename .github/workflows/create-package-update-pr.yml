@@ -39,8 +39,8 @@ jobs:
       run: |
         body=$(cat /tmp/commit-message.txt)
         body="${body//'%'/'%25'}"
-        body="${body//$'\n'/'%0A'}"
-        body="${body//$'\r'/'%0D'}"
+        body="${body//$'\n'/' '}"
+        body="${body//$'\r'/' '}"
         echo "body=${body}" >> $GITHUB_OUTPUT
 
     - if: env.found_update == 1
