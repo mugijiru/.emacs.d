@@ -123,7 +123,7 @@
         (treepy :checksum "7c4a0d21322506a4d4b2301b4274ec955b429b47")
         (twittering-mode :checksum "114891e8fdb4f06b1326a6cf795e49c205cf9e29")
         (wakatime-mode :checksum "ef923829912c3854d230834f81083814b7c9d992")
-        (with-editor :checksum "7042c022d6f011ab05b81f3b342eb639da7d303c")
+        (with-editor :checksum "84ba06ed513e97223630905f4788370e18116f40")
         (yaml-mode :checksum "3fcb36d6039bef57e2a0f6e24c51f623c0bf5fb7")
         (yascroll :checksum "99f47fa5dd02e75aac2f47e7edec59995a754ca3")
         (yasnippet :checksum "5cbdbf0d2015540c59ed8ee0fcf4788effdf75b6")
