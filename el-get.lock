@@ -7,7 +7,7 @@
         (ivy-kibela :checksum "2159d62ead4332b761f8c7f0d898ccd2cf1b57ea")
         (graphql :checksum "67237f284f2dfb94f3cfba672ff64a37e1cb860f")
         (tomelr :checksum "670e0a08f625175fd80137cf69e799619bf8a381")
-        (ivy-migemo :checksum "f31a2b314b81e328ce0222d8796b808230ddaa0e")
+        (ivy-migemo :checksum "6022b24e72f073a7b5599f2dea611da3a1282378")
         (frame-cmds :checksum "5f845c06f1913ecda33c87b2b36b9e590a6f8870")
         (diminish :checksum "fbd5d846611bad828e336b25d2e131d1bc06b83d")
         (tree-mode :checksum "b06078826d5875d74b0e7b7ac47b0d0917610534")
