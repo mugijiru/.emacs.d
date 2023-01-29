@@ -108,6 +108,7 @@
                 (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                            (:name "今日予定の作業" :scheduled today)
                                            (:discard (:anything t))))))))
+
   ("p" . "Projects")
   ("pp" "Projects"
    ((alltodo "" ((org-agenda-prefix-format " ")
