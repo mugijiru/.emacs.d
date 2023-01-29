@@ -96,5 +96,5 @@
 (define-key ivy-minibuffer-map (kbd "M-m") #'ivy-migemo-toggle-migemo)
 
 (setq ivy-re-builders-alist '((t . ivy--regex-plus)
-                              (swiper . ivy-migemo--regex-plus)
-                              (counsel-find-file . ivy-migemo--regex-plus)))
+                              (swiper . ivy-migemo-regex-plus)
+                              (counsel-find-file . ivy-migemo-regex-plus)))
