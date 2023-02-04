@@ -10,14 +10,6 @@
    '(("app/admin/" "\\(.+\\)\\.rb$"))
    "app/admin/${filename}.rb"))
 
-(defun my/projectile-rails-find-form-object ()
-  "Find a Form Object."
-  (interactive)
-  (projectile-rails-find-resource
-   "form object: "
-   '(("app/models/forms/" "\\(.+\\)\\.rb$"))
-   "app/models/forms/${filename}.rb"))
-
 (defun my/projectile-rails-find-webpack-js ()
   "Find a Webpack js."
   (interactive)
@@ -42,7 +34,6 @@
       ("c" projectile-rails-find-controller      "Controller")
       ("h" projectile-rails-find-helper          "Helper")
       ("a" my/projectile-rails-find-admin        "ActiveAdmin")
-      ("f" my/projectile-rails-find-form-object  "Form object")
       ("@" projectile-rails-find-mailer          "Mailer")
       ("J" my/projectile-rails-find-webpack-js   "Webpack js")
       ("!" projectile-rails-find-validator       "Validator")
