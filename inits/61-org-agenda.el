@@ -161,6 +161,8 @@
                                             (:name "今日予定の作業" :scheduled today)
                                             (:discard (:anything t))))))
     (tags-todo "-Emacs-org-Env-Hugo" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
+  ("pN" "No major tags"
+   ((tags-todo "-Emacs-org-Env-Hugo-Kibela-Develop-ReviewLister-HouseWork-Private" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
   ("P" "Pointers"
    ((todo "DOING" ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))
     (todo "TODO"  ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))))
