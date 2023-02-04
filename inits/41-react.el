@@ -4,6 +4,10 @@
 
 (add-to-list 'auto-mode-alist '("\\.[jt]sx" . web-mode))
 
+(defun my/setup-web-mode-map ()
+  (let ((keymap web-mode-map))
+    (define-key keymap (kbd "C-c C-c") 'my/mocha-test-file)))
+
 (defun my/web-mode-auto-fix-hook ()
   (when (string-equal (file-name-extension buffer-file-name) "tsx")
     (lsp-eslint-fix-all)))
@@ -19,8 +23,7 @@
       (display-line-numbers-mode t)
       (lsp)
       (lsp-ui-mode 1)
-      (add-hook 'before-save-hook 'my/web-mode-auto-fix-hook nil 'local))))
-
-
+      (add-hook 'before-save-hook 'my/web-mode-auto-fix-hook nil 'local)
+      (my/setup-web-mode-map))))
 
 (add-hook 'web-mode-hook 'my/web-mode-tsx-hook)
