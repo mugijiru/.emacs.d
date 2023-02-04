@@ -2,14 +2,6 @@
 (el-get-bundle projectile-rails)
 (projectile-rails-global-mode 1)
 
-(defun my/projectile-rails-find-admin ()
-  "Find a ActiveAdmin file."
-  (interactive)
-  (projectile-rails-find-resource
-   "admin: "
-   '(("app/admin/" "\\(.+\\)\\.rb$"))
-   "app/admin/${filename}.rb"))
-
 (with-eval-after-load 'pretty-hydra
   (pretty-hydra-define pretty-hydra-projectile-rails-find (:separator "-" :color blue :foreign-keys warn :title "Projectile Rails" :quit-key "q")
     ("Current"
@@ -25,7 +17,6 @@
       ("v" projectile-rails-find-view            "View")
       ("c" projectile-rails-find-controller      "Controller")
       ("h" projectile-rails-find-helper          "Helper")
-      ("a" my/projectile-rails-find-admin        "ActiveAdmin")
       ("@" projectile-rails-find-mailer          "Mailer")
       ("!" projectile-rails-find-validator       "Validator")
       ;; ("y" projectile-rails-find-layout       "Layout")
