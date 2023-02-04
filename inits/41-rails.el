@@ -10,14 +10,6 @@
    '(("app/admin/" "\\(.+\\)\\.rb$"))
    "app/admin/${filename}.rb"))
 
-(defun my/projectile-rails-find-webpack-js ()
-  "Find a Webpack js."
-  (interactive)
-  (projectile-rails-find-resource
-   "webpack js: "
-   '(("app/javascript/" "\\(.+\\)\\.js$"))
-   "app/javascript/${filename}.js"))
-
 (with-eval-after-load 'pretty-hydra
   (pretty-hydra-define pretty-hydra-projectile-rails-find (:separator "-" :color blue :foreign-keys warn :title "Projectile Rails" :quit-key "q")
     ("Current"
@@ -35,7 +27,6 @@
       ("h" projectile-rails-find-helper          "Helper")
       ("a" my/projectile-rails-find-admin        "ActiveAdmin")
       ("@" projectile-rails-find-mailer          "Mailer")
-      ("J" my/projectile-rails-find-webpack-js   "Webpack js")
       ("!" projectile-rails-find-validator       "Validator")
       ;; ("y" projectile-rails-find-layout       "Layout")
       ("z" projectile-rails-find-serializer      "Serializer"))
