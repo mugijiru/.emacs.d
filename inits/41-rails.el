@@ -2,14 +2,6 @@
 (el-get-bundle projectile-rails)
 (projectile-rails-global-mode 1)
 
-(defun my/projectile-rails-find-uploader ()
-  "Find a Uploader."
-  (interactive)
-  (projectile-rails-find-resource
-   "uploader: "
-   '(("app/uploaders/" "\\(.+\\)\\.rb$"))
-   "app/uploaders/${filename}.rb"))
-
 (defun my/projectile-rails-find-admin ()
   "Find a ActiveAdmin file."
   (interactive)
@@ -53,7 +45,6 @@
       ("f" my/projectile-rails-find-form-object  "Form object")
       ("@" projectile-rails-find-mailer          "Mailer")
       ("J" my/projectile-rails-find-webpack-js   "Webpack js")
-      ("u" my/projectile-rails-find-uploader     "Controller")
       ("!" projectile-rails-find-validator       "Validator")
       ;; ("y" projectile-rails-find-layout       "Layout")
       ("z" projectile-rails-find-serializer      "Serializer"))
