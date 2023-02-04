@@ -26,14 +26,6 @@
    '(("app/models/forms/" "\\(.+\\)\\.rb$"))
    "app/models/forms/${filename}.rb"))
 
-(defun my/projectile-rails-find-vue ()
-  "Find a Vue."
-  (interactive)
-  (projectile-rails-find-resource
-   "vue: "
-   '(("app/javascript/" "\\(.+\\)\\.vue$"))
-   "app/javascript/${filename}.vue"))
-
 (defun my/projectile-rails-find-webpack-js ()
   "Find a Webpack js."
   (interactive)
@@ -60,7 +52,6 @@
       ("a" my/projectile-rails-find-admin        "ActiveAdmin")
       ("f" my/projectile-rails-find-form-object  "Form object")
       ("@" projectile-rails-find-mailer          "Mailer")
-      ("V" my/projectile-rails-find-vue          "Vue")
       ("J" my/projectile-rails-find-webpack-js   "Webpack js")
       ("u" my/projectile-rails-find-uploader     "Controller")
       ("!" projectile-rails-find-validator       "Validator")
