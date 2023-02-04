@@ -23,7 +23,9 @@
 (counsel-mode 1)
 
 (el-get-bundle ivy-posframe)
-(setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
+(setq ivy-posframe-display-functions-alist
+      '((swiper . ivy-display-function-fallback)
+        (t . ivy-posframe-display-at-frame-center)))
 (ivy-posframe-mode 1)
 
 (el-get-bundle ivy-rich)
