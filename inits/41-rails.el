@@ -2,6 +2,22 @@
 (el-get-bundle projectile-rails)
 (projectile-rails-global-mode 1)
 
+(defun my/projectile-rails-find-typescript ()
+  "Find a TS/TSX files."
+  (interactive)
+  (projectile-rails-find-resource
+   "ts/tsx: "
+   '(("client/" "\\(.+\\.tsx?\\)$"))
+   "client/${filename}"))
+
+(defun my/projectile-rails-find-typescript-spec ()
+  "Find a TS/TSX test files."
+  (interactive)
+  (projectile-rails-find-resource
+   "ts/tsx spec: "
+   '(("spec/javascripts/" "\\(.+\\.spec.tsx?\\)$"))
+   "spec/javascripts/${filename}"))
+
 (with-eval-after-load 'pretty-hydra
   (pretty-hydra-define pretty-hydra-projectile-rails-find (:separator "-" :color blue :foreign-keys warn :title "Projectile Rails" :quit-key "q")
     ("Current"
@@ -23,9 +39,11 @@
       ("z" projectile-rails-find-serializer      "Serializer"))
 
      "Assets"
-     (("j" projectile-rails-find-javascript  "Javascript")
+     (("j" projectile-rails-find-javascript         "Javascript")
       ;; ("w" projectile-rails-find-component)
-      ("s" projectile-rails-find-stylesheet  "CSS"))
+      ("x" my/projectile-rails-find-typescript      "TS/TSX")
+      ("X" my/projectile-rails-find-typescript-spec "TS/TSX spec")
+      ("s" projectile-rails-find-stylesheet         "CSS"))
 
      "Other"
      (("n" projectile-rails-find-migration    "Migration")
