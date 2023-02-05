@@ -1,6 +1,6 @@
 (setq el-get-lock-package-versions
       '((mocha :checksum "6a72fa20e7be6e55c09b1bc9887ee09c5df28e45")
-        (pdf-tools :checksum "b8079e4ebc2936f9772657332d50936350a65825")
+        (pdf-tools :checksum "bc2ba117e8c3196ff9adf0da4fa1e63a8da3d7c8")
         (tablist :checksum "faab7a035ef2258cc4ea2182f67e3aedab7e2af9")
         (aio :checksum "da93523e235529fa97d6f251319d9e1d6fc24a41")
         (git-messenger :checksum "eade986ef529aa2dac6944ad61b18de55cee0b76")
