@@ -16,6 +16,7 @@
             (setq skk-sticky-key ";")
             (setq skk-henkan-strict-okuri-precedence t)
             (setq skk-show-annotation t) ;; 単語の意味をアノテーションとして表示。例) いぜん /以前;previous/依然;still/
+            (setq skk-compare-jisyo-size-when-saving nil)
 
             ;; ;; 半角で入力したい文字
             ;; (setq skk-rom-kana-rule-list
