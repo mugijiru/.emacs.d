@@ -18,7 +18,9 @@
             (setq skk-show-annotation t) ;; 単語の意味をアノテーションとして表示。例) いぜん /以前;previous/依然;still/
             (setq skk-compare-jisyo-size-when-saving nil)
             (setq skk-extra-jisyo-file-list
-                  `(,(expand-file-name "~/.config/ibus-skk/user.dict")))
+                  `(,(expand-file-name "~/.config/ibus-skk/user.dict")
+                    "/usr/share/skk/SKK-JISYO.propernoun"
+                    "/usr/share/skk/SKK-JISYO.lisp"))
 
             ;; ;; 半角で入力したい文字
             ;; (setq skk-rom-kana-rule-list
