@@ -81,7 +81,7 @@
     ("f" counsel-find-file     "Find File")
     ("d" counsel-find-dir      "Find Dir")
     ("r" counsel-recentf       "Recentf")
-    ("l" counsel-locate        "Locate")
+    ("L" counsel-locate        "Locate")
     ("A" counsel-osx-app       "macOS App"))
 
    "Edit"
@@ -92,6 +92,7 @@
    (("G" counsel-projectile-ag       "Grep")
     ("j" dumb-jump-pretty-hydra/body "Dumb jump")
     ("g" avy-hydra/body              "Avy")
+    ("l" pretty-hydra-lsp/body       "LSP")
     ("i" counsel-imenu               "imenu")
     ("y" yasnippet-hydra/body        "Yasnippet")
     ("B" browse-at-remote            "Browse")
