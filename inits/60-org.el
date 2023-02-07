@@ -45,3 +45,21 @@
         (my/org-refresh-appt))))
 
 (add-hook 'org-trigger-hook 'my/org-refresh-appt-on-complete-habit)
+
+(defun my/org-mode-map-override-windmove-mode-map ()
+  (let ((oldmap windmove-mode-map)
+        (newmap (make-sparse-keymap)))
+    (make-local-variable 'minor-mode-overriding-map-alist)
+    (add-to-list 'minor-mode-overriding-map-alist `(windmove-mode . ,newmap))
+
+    (add-hook 'org-shiftup-final-hook 'windmove-up)
+    (add-hook 'org-shiftleft-final-hook 'windmove-left)
+    (add-hook 'org-shiftdown-final-hook 'windmove-down)
+    (add-hook 'org-shiftright-final-hook 'windmove-right)))
+
+(add-hook 'org-mode-hook
+          (lambda ()
+            (my/org-mode-map-override-windmove-mode-map)))
+
+(with-eval-after-load 'org-mode
+  (my/org-mode-map-override-windmove-mode-map))
