@@ -24,3 +24,5 @@
 (add-hook 'typescript-mode-hook 'my/ts-mode-hook)
 
 (add-to-list 'auto-mode-alist '("\\.ts" . typescript-mode))
+
+(add-to-list 'context-skk-programming-mode 'typescript-mode)
