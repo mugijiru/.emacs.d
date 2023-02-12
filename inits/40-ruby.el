@@ -14,6 +14,7 @@
   (company-mode 1)
   (lsp)
   (lsp-ui-mode 1)
+  (add-hook 'before-save-hook #'lsp-format-buffer)
   (turn-on-smartparens-strict-mode)
   (display-line-numbers-mode 1))
 
@@ -22,7 +23,7 @@
 (add-to-list 'context-skk-programming-mode 'enh-ruby-mode)
 
 (with-eval-after-load 'major-mode-hydra
-  (major-mode-hydra-define enh-ruby-mode (:quit-key "q" :title (concat (all-the-icons-alltheicon "ruby-alt") " Ruby commands"))
+  (major-mode-hydra-define enh-ruby-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-alltheicon "ruby-alt") " Ruby commands"))
     ("Enh Ruby"
      (("{" enh-ruby-toggle-block "Toggle block")
       ("e" enh-ruby-insert-end "Insert end"))
