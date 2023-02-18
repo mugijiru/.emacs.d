@@ -62,9 +62,11 @@
    (("b" counsel-descbinds "Keybind")
     ("f" counsel-describe-function "Function")
     ("v" counsel-describe-variable "Variable")
+    ;; ("P"   my/open-review-requested-pr "Open Requested PR")
     ("m" describe-minor-mode "Minor mode"))
-
-   ;; ("P"   my/open-review-requested-pr "Open Requested PR")
+   "Kibela"
+   (("r" ivy-kibela-recent "Recent")
+    ("s" ivy-kibela-search "Search"))
    "Other"
    (("@" all-the-icons-hydra/body "List icons")
     ("D" my/download-from-beorg))))
