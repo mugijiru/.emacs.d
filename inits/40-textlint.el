@@ -5,7 +5,6 @@
   (flycheck-select-checker 'textlint-no-extension))
 
 (with-eval-after-load 'flycheck
-  (flycheck-add-mode 'textlint 'forge-post-mode)
   (flycheck-define-checker textlint-no-extension
   "A text prose linter using textlint.
 
@@ -39,4 +38,5 @@ See URL `https://textlint.github.io/'."
         :message plugin
         :face 'success)))))
   (add-to-list 'flycheck-checkers 'textlint-no-extension)
+  (flycheck-add-mode 'textlint-no-extension 'forge-post-mode)
   (advice-add 'magit-commit-create :after 'my/magit-commit-create-after))
