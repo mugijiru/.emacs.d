@@ -47,6 +47,7 @@
    "Behavior"
    (("S" my/notify-slack-toggle    "Notify Slack"   :toggle my/notify-slack-enable-p)
     ("v" my/toggle-view-mode       "Readonly"       :toggle view-mode)
+    ("f" flycheck-mode             "Flycheck"       :toggle flycheck-mode)
     ("A" auto-fix-mode             "Auto fix"       :toggle auto-fix-mode)
     ("E" toggle-debug-on-error     "Debug on error" :toggle debug-on-error))))
 
