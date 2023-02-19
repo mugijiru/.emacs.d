@@ -2,4 +2,5 @@
        :description "Drive gnuplot from within emacs"
        :type github
        :pkgname "emacs-gnuplot/gnuplot"
+       :branch "main"
        :build `(("make" ,(concat "EMACS=" el-get-emacs))))
