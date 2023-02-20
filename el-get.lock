@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((json-mode :checksum "eedb4560034f795a7950fa07016bd4347c368873")
+      '((graphql-mode :checksum "1437b790060f6ce4a8dc57df2023443645b899e5")
+        (json-mode :checksum "eedb4560034f795a7950fa07016bd4347c368873")
         (json-snatcher :checksum "b28d1c0670636da6db508d03872d96ffddbc10f2")
         (json-reformat :checksum "9120ab67c5379c44bc7a7a07ca858670cea4f32f")
         (orgit :checksum "fc40397f7b36fa513d41f3119b7430cb236de9dd")
