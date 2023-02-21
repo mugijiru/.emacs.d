@@ -21,6 +21,8 @@
                   `(,(expand-file-name "~/.config/ibus-skk/user.dict")
                     "/usr/share/skk/SKK-JISYO.propernoun"
                     "/usr/share/skk/SKK-JISYO.lisp"))
+            (setq skk-tooltip-parameters
+                  '((background-color . "#323445")))
 
             ;; ;; 半角で入力したい文字
             ;; (setq skk-rom-kana-rule-list
