@@ -2,6 +2,9 @@
 
 (custom-set-variables
  '(typescript-indent-level 2)
+ '(lsp-typescript-locale "ja")
+ '(lsp-javascript-display-parameter-name-hints t)
+ '(lsp-javascript-display-enum-member-value-hints t)
  '(lsp-eslint-auto-fix-on-save t))
 
 (defun my/setup-ts-mode-keymap ()
