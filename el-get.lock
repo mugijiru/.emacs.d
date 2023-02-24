@@ -36,7 +36,7 @@
         (flycheck-pos-tip :checksum "dc57beac0e59669926ad720c7af38b27c3a30467")
         (pos-tip :checksum "bfe74204d1201a33ace81898e7c485382817510a")
         (emacs-w3m :checksum "e556f82247918bdc33acf01b29917314b8b9e22b")
-        (browse-at-remote :checksum "c020975a891438e278ad1855213d4f3d62c9fccb")
+        (browse-at-remote :checksum "76aa27dfd469fcae75ed7031bb73830831aaccbf")
         (ox-hugo :checksum "706b5f622d168bb8e0cf503e0525d2db9177c83e")
         (sticky-control :checksum "25e15e41174725600626b8dc13852aced691bd3b")
         (org-pomodoro :checksum "3f5bcfb80d61556d35fc29e5ddb09750df962cc6")
