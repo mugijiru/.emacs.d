@@ -40,10 +40,78 @@
                                (let* ((repo (car repo-prs))
                                       (prs (cadr repo-prs)))
                                  (mapcar (lambda (pr)
-                                           (my/org-reviews-convert-pull-request-to-org-headline pr my/org-reviews-organization repo))
+                                           (my/org-reviews-convert-pull-request-to-list pr my/org-reviews-organization repo))
                                          prs)))
                              repos-prs)))
     (cl-reduce (lambda (result prs) (append result prs)) nested-prs)))
+
+(defun my/org-reviews-convert-pull-request-to-list (pr org repo)
+  "PR から list に変換"
+  (let* ((number (gethash "number" pr))
+         (title (gethash "title" pr))
+         (text (concat "https://github.com/" org "/" repo "/pull/" (number-to-string number)))
+         (tags (mapcar (lambda (tag) (string-replace " " "" tag)) (append (gethash "tags" pr) '()))))
+    `(:number ,number
+              :title ,title
+              :todo-keyword "TODO"
+              :text ,text
+              :tags ,(mapcar (lambda (tag) (substring-no-properties tag)) tags))))
+
+(defun my/org-reviews-merge-prs (saved-prs fetched-prs)
+  (let* ((merged-prs (mapcar (lambda (saved-pr)
+                               (let ((same-pr (seq-find (lambda (fetched-pr)
+                                                          (let* ((saved-number (plist-get saved-pr :number))
+                                                                 (fetched-number (plist-get fetched-pr :number)))
+                                                            (eq saved-number fetched-number)))
+                                                        fetched-prs)))
+                                 (if same-pr
+                                     (my/org-reviews-merge saved-pr same-pr)
+                                   (my/org-reviews-done saved-pr))))
+                             saved-prs))
+         (saved-numbers (mapcar (lambda (saved-pr)
+                                  (plist-get saved-pr :number))
+                                saved-prs))
+         (new-prs (seq-filter (lambda (fetched-pr)
+                                (let ((fetched-pr-number (plist-get fetched-pr :number)))
+                                  (not (seq-contains-p saved-numbers fetched-pr-number))))
+                              fetched-prs)))
+    (append merged-prs new-prs)))
+
+(defun my/org-reviews-done (saved)
+  (plist-put saved :todo-keyword "DONE")
+  (message "done")
+  saved)
+
+(defun my/org-reviews-merge (saved fetched)
+  "同じ number の PR をマージ"
+  (if (eq (plist-get saved :number) (plist-get fetched :number))
+      (let* ((number (plist-get saved :number))
+             (title (plist-get fetched :title))
+             (todo-keyword (plist-get saved :todo-keyword))
+             (text (or (plist-get saved :text) (plist-get fetched :text)))
+             (tags (or (plist-get saved :tags) (plist-get fetched :tags)))
+             (drawers (plist-get saved :drawers)))
+        `(:number ,number
+                  :title ,title
+                  :todo-keyword ,todo-keyword
+                  :text ,text
+                  :tags ,(mapcar (lambda (tag) (substring-no-properties tag)) tags)
+                  :drawers ,drawers))))
+
+(defun my/org-reviews-list-item-to-org-headline (list-item)
+  (let* ((number (plist-get list-item :number))
+         (todo-keyword (plist-get list-item :todo-keyword))
+         (title (plist-get list-item :title))
+         (text (plist-get list-item :text))
+         (tags (plist-get list-item :tags))
+         (drawers (plist-get list-item :drawers)))
+    (let ((paragraph (org-element-create 'paragraph '(:post-blank 2) text)))
+      (org-element-create 'headline
+                          `(:title ,(concat "#" (number-to-string number) " " title)
+                                   :level 2
+                                   :todo-keyword ,todo-keyword
+                                   :tags ,tags)
+                          paragraph))))
 
 (defun my/org-reviews-convert-pull-request-to-org-headline (pr org repo)
   "PR から org の headline に変換"
@@ -56,10 +124,35 @@
                                        `(:title ,(concat "#" number-str " " title)
                                                 :level 2
                                                 :todo-keyword "TODO"
-                                                :tags ,tags
-                                                )
+                                                :tags ,tags)
                                        paragraph)))
     headline))
+
+(defun my/org-reviews-execute ()
+  (interactive)
+  (let* ((saved-prs (my/org-reviews-pr-headlines))
+         (fetched-prs (my/org-reviews-prs))
+         (merged-prs (my/org-reviews-merge-prs saved-prs fetched-prs))
+         (headlines (mapcar #'my/org-reviews-list-item-to-org-headline merged-prs))
+         (root (apply #'org-element-create
+                      'headline
+                      `(:title "reviews" :level 1)
+                      (org-element-create 'property-drawer
+                                          `(:begin 0
+                                                   :end 0
+                                                   :contents-begin 0
+                                                   :contents-end 0
+                                                   :post-blank 0
+                                                   :post-affiliated 0)
+                                          (org-element-create 'node-property
+                                                              (list :key "agenda-group"
+                                                                    :value "01_レビュー"))
+                                          (org-element-create 'node-property
+                                                              (list :key "CATEGORY"
+                                                                    :value "レビュー")))
+                      headlines))
+         (text (substring-no-properties (org-element-interpret-data root))))
+    (my/org-reviews-append-to-file-2 text)))
 
 (defun my/org-reviews-prs-to-headlines ()
   "レビュー依頼されてい PR 全てを取得して org headline に変換する"
@@ -76,6 +169,26 @@
       (with-current-buffer (find-file-noselect my/org-reviews-file)
         (goto-char (point-max))
         (insert text)))))
+
+(defun my/org-reviews-append-to-file-2 (text)
+  "レビュー依頼されてい PR 全てを取得してレビューファイルの末尾に書き出す"
+  (interactive)
+  (save-excursion
+    (with-current-buffer (find-file-noselect my/org-reviews-file)
+      (erase-buffer)
+      (goto-char (point-max))
+      (insert text))))
+
+(defun my/org-reviews-append-to-file-meerged ()
+  "レビュー依頼されてい PR 全てを取得してレビューファイルの末尾に書き出す"
+  (interactive)
+  (let* ((headlines (my/org-reviews-prs-to-headlines))
+         (text (string-join headlines)))
+    (save-excursion
+      (with-current-buffer (find-file-noselect my/org-reviews-file)
+        (goto-char (point-max))
+        (insert text)))))
+
 
 ;;; org element の操作
 ;;; Note: まだちゃんと作ってない
@@ -94,36 +207,44 @@
 (defun my/org-reviews-parse-pull-request-headline (headline)
   "org の headline を parse する関数。Pull Request 用"
   (let* ((level (org-element-property :level headline))
+         (todo-keyword (org-element-property :todo-keyword headline))
          (title (org-element-property :title headline))
          (splitted-title (split-string title " "))
          (number (string-to-number (substring (car splitted-title) 1)))
          (pr-title (string-join (cdr splitted-title)))
          (content (org-element-contents headline))
-         (paragraphs (seq-filter
+         (children (cdr (cdar content)))
+                  (paragraphs (seq-filter
                       (lambda (element)
                         (eq (org-element-type element) 'paragraph))
-                      (cdr (cdar content))))
+                      children))
+         (drawers (seq-filter
+                   (lambda (element)
+                     (eq (org-element-type element) 'drawer))
+                   children))
          (text (mapconcat (lambda (paragraph)
                             (my/org-reviews-extract-text-from-paragraph paragraph))
                           paragraphs
                           ""))
          (tags (org-element-property :tags headline)))
 
-    (if (eq level 1)
+    (if (eq level 2)
         `(:number ,number
+                  :todo-keyword ,todo-keyword
                   :title ,pr-title
                   :text ,text
                   :tags ,(mapcar (lambda (tag) (substring-no-properties tag)) tags)
-                  :source headline)
-      (org-element-adopt-elements headline (my/org-reviews-convert-pull-request-to-org-headline nil)))))
+                  :drawers ,drawers))))
 
 (defun my/org-reviews-pr-headlines ()
   "org のファイルを parse して PR の headline を抜き出す関数"
   (let ((file-path (expand-file-name my/org-reviews-file)))
     (save-excursion
       (with-current-buffer (find-file-noselect file-path)
-        (org-element-map (org-element-parse-buffer 'element)
-            'headline 'my/org-parse-pull-request-headline)))))
+        (let* ((org-data (org-element-parse-buffer 'element))
+               (org-first (car org-data)))
+          (org-element-map org-data
+              'headline 'my/org-reviews-parse-pull-request-headline))))))
 
 ;;; 設定の読み込み
 
