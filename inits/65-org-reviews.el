@@ -87,6 +87,9 @@
   (if (eq (plist-get saved :number) (plist-get fetched :number))
       (let* ((number (plist-get saved :number))
              (title (plist-get fetched :title))
+             (scheduled (plist-get saved :scheduled))
+             (deadline (plist-get saved :deadline))
+             (closed (plist-get saved :closed))
              (todo-keyword (or (plist-get saved :todo-keyword) (plist-get fetched :todo-keyword)))
              (text (or (plist-get saved :text) (plist-get fetched :text)))
              (tags (or (plist-get saved :tags) (plist-get fetched :tags)))
@@ -95,6 +98,9 @@
                   :title ,title
                   :todo-keyword ,todo-keyword
                   :text ,text
+                  :scheduled ,scheduled
+                  :deadline ,deadline
+                  :closed ,closed
                   :tags ,(mapcar (lambda (tag) (substring-no-properties tag)) tags)
                   :source ,source))))
 
@@ -102,6 +108,9 @@
   (let* ((number (plist-get list-item :number))
          (todo-keyword (plist-get list-item :todo-keyword))
          (title (plist-get list-item :title))
+         (scheduled (plist-get list-item :scheduled))
+         (deadline (plist-get list-item :deadline))
+         (closed (plist-get list-item :closed))
          (tags (plist-get list-item :tags))
          (text (plist-get list-item :text))
          (source (plist-get list-item :source))
@@ -118,13 +127,17 @@
          (content (if drawers-str
                       (concat "   " (string-join drawers-str) "\n" text)
                     (concat "   " text)))
-         (paragraph (org-element-create 'paragraph '(:post-blank 2) content)))
-    (org-element-create 'headline
-                        `(:title ,(concat "#" (number-to-string number) " " title)
-                                 :level 2
-                                 :todo-keyword ,todo-keyword
-                                 :tags ,tags)
-                        paragraph)))
+         (planning (if (or scheduled deadline closed)
+                       (org-element-create 'planning
+                                           `(:scheduled ,scheduled :deadline ,deadline :closed ,closed))))
+         (paragraph (org-element-create 'paragraph '(:post-blank 2) content))
+         (children (remove nil `(,planning ,paragraph))))
+    (apply #'org-element-create 'headline
+           `(:title ,(concat "#" (number-to-string number) " " title)
+                    :level 2
+                    :todo-keyword ,todo-keyword
+                    :tags ,tags)
+           children)))
 
 (defun my/org-reviews-convert-pull-request-to-org-headline (pr org repo)
   "PR から org の headline に変換"
@@ -225,6 +238,9 @@
          (splitted-title (split-string title " "))
          (number (string-to-number (substring (car splitted-title) 1)))
          (pr-title (string-join (cdr splitted-title)))
+         (scheduled (org-element-property :scheduled headline))
+         (deadline (org-element-property :deadline headline))
+         (closed (org-element-property :closed headline))
          (content (org-element-contents headline))
          (children (cdr (cdar content)))
          (paragraphs (seq-filter
@@ -241,6 +257,9 @@
                   :todo-keyword ,todo-keyword
                   :title ,pr-title
                   :text ,text
+                  :scheduled ,scheduled
+                  :deadline ,deadline
+                  :closed ,closed
                   :tags ,(mapcar (lambda (tag) (substring-no-properties tag)) tags)
                   :source ,headline))))
 
