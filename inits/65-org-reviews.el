@@ -90,28 +90,41 @@
              (todo-keyword (plist-get saved :todo-keyword))
              (text (or (plist-get saved :text) (plist-get fetched :text)))
              (tags (or (plist-get saved :tags) (plist-get fetched :tags)))
-             (drawers (plist-get saved :drawers)))
+             (source (plist-get saved :source)))
         `(:number ,number
                   :title ,title
                   :todo-keyword ,todo-keyword
                   :text ,text
                   :tags ,(mapcar (lambda (tag) (substring-no-properties tag)) tags)
-                  :drawers ,drawers))))
+                  :source ,source))))
 
 (defun my/org-reviews-list-item-to-org-headline (list-item)
   (let* ((number (plist-get list-item :number))
          (todo-keyword (plist-get list-item :todo-keyword))
          (title (plist-get list-item :title))
-         (text (plist-get list-item :text))
          (tags (plist-get list-item :tags))
-         (drawers (plist-get list-item :drawers)))
-    (let ((paragraph (org-element-create 'paragraph '(:post-blank 2) text)))
-      (org-element-create 'headline
-                          `(:title ,(concat "#" (number-to-string number) " " title)
-                                   :level 2
-                                   :todo-keyword ,todo-keyword
-                                   :tags ,tags)
-                          paragraph))))
+         (text (plist-get list-item :text))
+         (source (plist-get list-item :source))
+         (drawers-str (if (eq (org-element-type source) 'headline)
+                          (org-element-map
+                              source
+                              'drawer
+                            (lambda (drawer)
+                              (let* ((begin (org-element-property :begin drawer))
+                                     (end (org-element-property :end drawer)))
+                                (save-excursion
+                                  (with-current-buffer (find-file-noselect my/org-reviews-file)
+                                    (string-trim (substring-no-properties (buffer-substring begin end))))))))))
+         (content (if drawers-str
+                      (concat "   " (string-join drawers-str) "\n" text)
+                    (concat "   " text)))
+         (paragraph (org-element-create 'paragraph '(:post-blank 2) content)))
+    (org-element-create 'headline
+                        `(:title ,(concat "#" (number-to-string number) " " title)
+                                 :level 2
+                                 :todo-keyword ,todo-keyword
+                                 :tags ,tags)
+                        paragraph)))
 
 (defun my/org-reviews-convert-pull-request-to-org-headline (pr org repo)
   "PR から org の headline に変換"
@@ -152,7 +165,8 @@
                                                                     :value "レビュー")))
                       headlines))
          (text (substring-no-properties (org-element-interpret-data root))))
-    (my/org-reviews-append-to-file-2 text)))
+    (my/org-reviews-append-to-file-2 text)
+    nil))
 
 (defun my/org-reviews-prs-to-headlines ()
   "レビュー依頼されてい PR 全てを取得して org headline に変換する"
@@ -189,7 +203,6 @@
         (goto-char (point-max))
         (insert text)))))
 
-
 ;;; org element の操作
 ;;; Note: まだちゃんと作ってない
 
@@ -214,27 +227,22 @@
          (pr-title (string-join (cdr splitted-title)))
          (content (org-element-contents headline))
          (children (cdr (cdar content)))
-                  (paragraphs (seq-filter
+         (paragraphs (seq-filter
                       (lambda (element)
                         (eq (org-element-type element) 'paragraph))
                       children))
-         (drawers (seq-filter
-                   (lambda (element)
-                     (eq (org-element-type element) 'drawer))
-                   children))
          (text (mapconcat (lambda (paragraph)
                             (my/org-reviews-extract-text-from-paragraph paragraph))
                           paragraphs
                           ""))
          (tags (org-element-property :tags headline)))
-
     (if (eq level 2)
         `(:number ,number
                   :todo-keyword ,todo-keyword
                   :title ,pr-title
                   :text ,text
                   :tags ,(mapcar (lambda (tag) (substring-no-properties tag)) tags)
-                  :drawers ,drawers))))
+                  :source ,headline))))
 
 (defun my/org-reviews-pr-headlines ()
   "org のファイルを parse して PR の headline を抜き出す関数"
