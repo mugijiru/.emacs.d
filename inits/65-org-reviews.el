@@ -87,7 +87,7 @@
   (if (eq (plist-get saved :number) (plist-get fetched :number))
       (let* ((number (plist-get saved :number))
              (title (plist-get fetched :title))
-             (todo-keyword (plist-get saved :todo-keyword))
+             (todo-keyword (or (plist-get saved :todo-keyword) (plist-get fetched :todo-keyword)))
              (text (or (plist-get saved :text) (plist-get fetched :text)))
              (tags (or (plist-get saved :tags) (plist-get fetched :tags)))
              (source (plist-get saved :source)))
