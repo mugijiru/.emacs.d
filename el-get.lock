@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((company-quickhelp :checksum "9505fb09d064581da142d75c139d48b5cf695bd5")
+      '((which-key :checksum "8093644032854b1cdf3245ce4e3c7b6673f741bf")
+        (company-quickhelp :checksum "9505fb09d064581da142d75c139d48b5cf695bd5")
         (graphql-mode :checksum "1437b790060f6ce4a8dc57df2023443645b899e5")
         (json-mode :checksum "eedb4560034f795a7950fa07016bd4347c368873")
         (json-snatcher :checksum "b28d1c0670636da6db508d03872d96ffddbc10f2")
