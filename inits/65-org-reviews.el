@@ -79,7 +79,6 @@
 
 (defun my/org-reviews-done (saved)
   (plist-put saved :todo-keyword "DONE")
-  (message "done")
   saved)
 
 (defun my/org-reviews-merge (saved fetched)

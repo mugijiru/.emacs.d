@@ -22,6 +22,7 @@
                                (emacs-lisp . t)
                                (shell . t)
                                (js . t)
+                               (org . t)
                                (ruby . t)))
 
 (add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images)
