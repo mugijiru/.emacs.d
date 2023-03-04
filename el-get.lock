@@ -87,7 +87,7 @@
         (exec-path-from-shell :checksum "ddd24dc823de9a94435b4d8ea7569161657f31e2")
         (f :checksum "af7d37c619010b576fd22b50c62c71ff33093f3c")
         (flycheck :checksum "ec23e0411ebbfda719edd31a524e9e963be16ca5")
-        (forge :checksum "d752022c0a14bb55c57589f81b51c7e561c2e74f")
+        (forge :checksum "ba35ffc9bafc6457cc95633904e53e34e544543f")
         (fringe-helper :checksum "ef4a9c023bae18ec1ddd7265f1f2d6d2e775efdd")
         (ghub :checksum "6a5de97649ff3eca9aa20b79f3526b4b3ab86b13")
         (git-gutter :checksum "1451e3149865b88de2402ce4296ee5608fadc5b2")
