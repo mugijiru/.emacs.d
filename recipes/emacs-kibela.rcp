@@ -1,0 +1,6 @@
+(:name emacs--kibela
+       :website "https://github.com/mugijiru/emacs-kibela"
+       :description "Kibela client."
+       :type github
+       :branch "main"
+       :pkgname "mugijiru/emacs-kibela")
