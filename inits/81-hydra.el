@@ -65,9 +65,6 @@
     ("v" counsel-describe-variable "Variable")
     ;; ("P"   my/open-review-requested-pr "Open Requested PR")
     ("m" describe-minor-mode "Minor mode"))
-   "Kibela"
-   (("r" ivy-kibela-recent "Recent")
-    ("s" ivy-kibela-search "Search"))
    "Other"
    (("@" all-the-icons-hydra/body "List icons")
     ("D" my/download-from-beorg))))
@@ -114,5 +111,6 @@
     ("c"   counsel-org-capture      "Capture")
     ("o"   global-org-hydra/body    "Org")
     ("e"   el-get-hydra/body        "el-get")
+    ("k"   kibela-hydra/body        "Kibela")
     ("/"   google-pretty-hydra/body "Google")
     ("t"   subtools-hydra/body      "Sub Tools"))))
