@@ -1,5 +1,9 @@
 (el-get-bundle emacs-kibela)
 
+(custom-set-variables
+ '(kibela-team (plist-get (nth 0 (auth-source-search :host "emacs-kibela")) :team))
+ '(kibela-access-token (funcall (plist-get (nth 0 (auth-source-search :host "emacs-kibela" :max 1)) :secret))))
+
 (defun my/kibela-edit-recent-note ()
   "最近投稿された記事を編集するためのコマンド
 ivy-kibela-recent で最近投稿された記事を拾って
