@@ -4,8 +4,8 @@
  '(kibela-team (plist-get (nth 0 (auth-source-search :host "emacs-kibela")) :team))
  '(kibela-access-token (funcall (plist-get (nth 0 (auth-source-search :host "emacs-kibela" :max 1)) :secret))))
 
-(defun my/kibela-edit-recent-note ()
-  "最近投稿された記事を編集するためのコマンド
+(defun my/kibela-show-recent-note ()
+  "最近投稿された記事を見るためのコマンド
 ivy-kibela-recent で最近投稿された記事を拾って
 kibela-note-show でバッファを開く"
   (interactive)
@@ -18,7 +18,9 @@ kibela-note-show でバッファを開く"
   ("ivy"
    (("r" ivy-kibela-recent "Recent")
     ("s" ivy-kibela-search "Search"))
+   "Group"
+   (("g" kibela-group-notes "notes"))
    "Note"
    (("n" kibela-note-new "New")
-    ("e" my/kibela-edit-recent-note "Edit")
+    ("s" my/kibela-show-recent-note "Show")
     ("t" kibela-note-new-from-template "From template"))))
