@@ -1,0 +1,6 @@
+(:name keypression
+       :website "https://github.com/chuntaro/emacs-keypression"
+       :description "Keystroke visualizer for GUI version Emacs"
+       :type github
+       :branch "master"
+       :pkgname "chuntaro/emacs-keypression")
