@@ -1,0 +1,7 @@
+(:name emacs-openai
+       :website "https://github.com/emacs-openai/openai"
+       :description "Elisp library for the OpenAI API."
+       :type github
+       :branch "master"
+       :pkgname "emacs-openai/openai"
+       :depends (request tblui))

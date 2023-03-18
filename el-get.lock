@@ -1,5 +1,8 @@
 (setq el-get-lock-package-versions
-      '((keypression :checksum "9427241f3fa539e4b5ad7581a05eb7e49f2cf518")
+      '((emacs-openai :checksum "b7d0a0b8e701afd40e0031707f845072679d0232")
+        (tblui :checksum "bb29323bb3e27093d50cb42db3a9329a096b6e4d")
+        (magit-popup :checksum "d8585fa39f88956963d877b921322530257ba9f5")
+        (keypression :checksum "9427241f3fa539e4b5ad7581a05eb7e49f2cf518")
         (noflet :checksum "7ae84dc3257637af7334101456dafe1759c6b68a")
         (emacs-kibela :checksum "d368594c6f908a1cc7bac0b4234330cc2e4b22ec")
         (which-key :checksum "8093644032854b1cdf3245ce4e3c7b6673f741bf")
