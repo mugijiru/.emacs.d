@@ -3,4 +3,5 @@
        :description "Kibela client."
        :type github
        :branch "main"
-       :pkgname "mugijiru/emacs-kibela")
+       :pkgname "mugijiru/emacs-kibela"
+       :depends (graphql request markdown-mode))
