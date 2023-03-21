@@ -1,0 +1,7 @@
+(:name tblui
+       :website "https://github.com/Yuki-Inoue/tblui.el"
+       :description "Define tabulated-list based UI easily."
+       :type github
+       :branch "master"
+       :pkgname "Yuki-Inoue/tblui.el"
+       :depends (dash magit-popup tablist))
