@@ -69,7 +69,7 @@
         (emacs-pug-mode :checksum "73f8c2f95eba695f701df20c8436f49abadebdc1")
         (zoom :checksum "2104abb074682db79b9ff3a748e8e2e760a4d8cf")
         (request :checksum "01e338c335c07e4407239619e57361944a82cb8a")
-        (avy :checksum "955c8dedd68c74f3cf692c1249513f048518c4c9")
+        (avy :checksum "d9634efe2631b608cb28c420f54d6e6689805cf7")
         (all-the-icons :checksum "d922aff57ac8308d3ed067f9151cc76d342855f2")
         (alert :checksum "c762380ff71c429faf47552a83605b2578656380")
         (calfw :checksum "03abce97620a4a7f7ec5f911e669da9031ab9088")
