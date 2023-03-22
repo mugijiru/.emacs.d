@@ -83,7 +83,7 @@
         (doom-modeline :checksum "236fa330c631228e9a513dea2f4598a29b7e8444")
         (el-get-lock :checksum "df8cfe55441695865a64b97946750b6413a40425")
         (eldoc-eval :checksum "e91800503c90cb75dc70abe42f1d6ae499346cc1")
-        (emacs-async :checksum "328bca51db1afd6dffd553ff2cbdab2a16b8d7d0")
+        (emacs-async :checksum "aee2947bd58250fa6b19988f8d5039a4600bb601")
         (emacsql :checksum "415dbfd846f46d921a70a351695f0d0e8f75da35")
         (emojify :checksum "1b726412f19896abf5e4857d4c32220e33400b55")
         (enh-ruby-mode :checksum "7e76d754e1632b4fc9a024fa393c3fc837bcc86b")
