@@ -27,7 +27,7 @@
 
   (let* ((cmd (expand-file-name my/org-reviews-exec-path))
          (cmd-with-args (mapconcat #'shell-quote-argument
-                                    (list cmd "-m" "json" org-or-user repo)
+                                    (list cmd "-m" "json" "--ignore-title" "Deploy" org-or-user repo)
                                     " "))
          (result (shell-command-to-string cmd-with-args)))
     (json-parse-string result)))
@@ -236,7 +236,7 @@
          (title (org-element-property :title headline))
          (splitted-title (split-string title " "))
          (number (string-to-number (substring (car splitted-title) 1)))
-         (pr-title (string-join (cdr splitted-title)))
+         (pr-title (string-join (cdr splitted-title) " "))
          (scheduled (org-element-property :scheduled headline))
          (deadline (org-element-property :deadline headline))
          (closed (org-element-property :closed headline))
