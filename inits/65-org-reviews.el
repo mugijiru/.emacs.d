@@ -27,7 +27,7 @@
 
   (let* ((cmd (expand-file-name my/org-reviews-exec-path))
          (cmd-with-args (mapconcat #'shell-quote-argument
-                                    (list cmd "-m" "json" org-or-user repo)
+                                    (list cmd "-m" "json" "--ignore-title" "Deploy" org-or-user repo)
                                     " "))
          (result (shell-command-to-string cmd-with-args)))
     (json-parse-string result)))
