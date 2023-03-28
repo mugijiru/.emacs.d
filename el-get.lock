@@ -99,7 +99,7 @@
         (git-gutter :checksum "1451e3149865b88de2402ce4296ee5608fadc5b2")
         (git-gutter-fringe :checksum "648cb5b57faec55711803cdc9434e55a733c3eba")
         (google-this :checksum "8a2e3ca5da6a8c89bfe99a21486c6c7db125dc84")
-        (haml-mode :checksum "bf5b6c11b1206759d2b28af48765e04882dd1fc4")
+        (haml-mode :checksum "45a0b23db0b8f827c78f7749457f3427263e6ffd")
         (handlebars-mode :checksum "81f6b73fea8f397807781a1b51568397af21a6ef")
         (ht :checksum "3c1677f1bf2ded2ab07edffb7d17def5d2b5b6f6")
         (hydra :checksum "317e1de33086637579a7aeb60f77ed0405bf359b")
