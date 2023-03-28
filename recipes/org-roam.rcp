@@ -1,0 +1,7 @@
+(:name org-roam
+       :website "https://www.orgroam.com/"
+       :description "A plain-text knowledge management system."
+       :type github
+       :branch "main"
+       :pkgname "org-roam/org-roam"
+       :depends (dash emacsql magit org-mode))
