@@ -1,7 +1,7 @@
 (el-get-bundle emacs-kibela)
 
 (custom-set-variables
- '(kibela-auth-pairs `(("Work"
+ '(kibela-auth-list `(("Work"
                         ,(plist-get (nth 0 (auth-source-search :host "emacs-kibela-work")) :team)
                         ,(funcall (plist-get (nth 0 (auth-source-search :host "emacs-kibela-work" :max 1)) :secret)))
                        ("Private"
