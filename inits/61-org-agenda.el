@@ -63,7 +63,8 @@
                 (org-agenda-span 'day)
                 (org-agenda-todo-keyword-format "-")
                 (org-overriding-columns-format "%25ITEM %TODO")
-                (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
+                (org-agenda-files '("~/Documents/org/tasks/next-actions.org"
+                                    "~/Documents/org/tasks/reviews.org"))
                 (org-super-agenda-groups '((:name "仕掛かり中" :todo "DOING")
                                            (:name "TODO" :and (:todo "TODO" :not (:category "レビュー")))
                                            (:name "待ち" :todo "WAIT")
@@ -169,9 +170,11 @@
   ("X" "Finished"
    ((todo "DONE"    ((org-agenda-files '("~/Documents/org/tasks/projects.org"
                                          "~/Documents/org/tasks/inbox.org"
+                                         "~/Documents/org/tasks/reviews.org"
                                          "~/Documents/org/tasks/next-actions.org"))))
     (todo "SOMEDAY" ((org-agenda-files '("~/Documents/org/tasks/projects.org"
                                          "~/Documents/org/tasks/inbox.org"
+                                         "~/Documents/org/tasks/reviews.org"
                                          "~/Documents/org/tasks/next-actions.org"))))))
   ("z" "日報"
    ((agenda "" ((org-agenda-span 'day)
