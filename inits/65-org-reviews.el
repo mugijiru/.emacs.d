@@ -236,7 +236,7 @@
          (title (org-element-property :title headline))
          (splitted-title (split-string title " "))
          (number (string-to-number (substring (car splitted-title) 1)))
-         (pr-title (string-join (cdr splitted-title)))
+         (pr-title (string-join (cdr splitted-title) " "))
          (scheduled (org-element-property :scheduled headline))
          (deadline (org-element-property :deadline headline))
          (closed (org-element-property :closed headline))
