@@ -1,7 +1,7 @@
 (el-get-bundle emacs-kibela)
 
 (custom-set-variables
- '(kibela-auth-pairs `(("Work"
+ '(kibela-auth-list `(("Work"
                         ,(plist-get (nth 0 (auth-source-search :host "emacs-kibela-work")) :team)
                         ,(funcall (plist-get (nth 0 (auth-source-search :host "emacs-kibela-work" :max 1)) :secret)))
                        ("Private"
@@ -21,7 +21,7 @@ kibela-note-show でバッファを開く"
 (pretty-hydra-define kibela-hydra (:separator "-" :title "Kibela" :foreign-key warn :quit-key "q" :exit t)
   ("ivy"
    (("r" ivy-kibela-recent "Recent")
-    ("s" ivy-kibela-search "Search"))
+    ("S" ivy-kibela-search "Search"))
    "Group"
    (("g" kibela-group-notes "notes"))
    "Note"
