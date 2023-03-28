@@ -169,9 +169,11 @@
   ("X" "Finished"
    ((todo "DONE"    ((org-agenda-files '("~/Documents/org/tasks/projects.org"
                                          "~/Documents/org/tasks/inbox.org"
+                                         "~/Documents/org/tasks/reviews.org"
                                          "~/Documents/org/tasks/next-actions.org"))))
     (todo "SOMEDAY" ((org-agenda-files '("~/Documents/org/tasks/projects.org"
                                          "~/Documents/org/tasks/inbox.org"
+                                         "~/Documents/org/tasks/reviews.org"
                                          "~/Documents/org/tasks/next-actions.org"))))))
   ("z" "日報"
    ((agenda "" ((org-agenda-span 'day)
