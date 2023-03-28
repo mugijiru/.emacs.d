@@ -21,7 +21,7 @@ kibela-note-show でバッファを開く"
 (pretty-hydra-define kibela-hydra (:separator "-" :title "Kibela" :foreign-key warn :quit-key "q" :exit t)
   ("ivy"
    (("r" ivy-kibela-recent "Recent")
-    ("s" ivy-kibela-search "Search"))
+    ("S" ivy-kibela-search "Search"))
    "Group"
    (("g" kibela-group-notes "notes"))
    "Note"
