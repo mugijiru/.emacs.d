@@ -35,7 +35,8 @@
          (setq org-plantuml-jar-path "~/bin/plantuml.jar")))
 
 (custom-set-variables
- '(org-id-link-to-org-use-id t))
+ '(org-id-link-to-org-use-id t)
+ '(org-archive-location "./archives/%s_archive::"))
 
 (defun my/org-refresh-appt-on-complete-habit (args)
   "習慣タスクを完了した時に Appt を refresh する"
