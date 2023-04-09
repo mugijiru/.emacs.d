@@ -1,6 +1,6 @@
 (setq el-get-lock-package-versions
       '((org-roam :checksum "5c06471c3a11348342719fd9011486455adeb701")
-        (emacs-openai :checksum "8dbf58b7ccfe373d7877b98034d3b17d5f3b7a40")
+        (emacs-openai :checksum "2af8b01e8391182a349bea7f66dcc9bd44224a8a")
         (tblui :checksum "bb29323bb3e27093d50cb42db3a9329a096b6e4d")
         (magit-popup :checksum "d8585fa39f88956963d877b921322530257ba9f5")
         (keypression :checksum "9427241f3fa539e4b5ad7581a05eb7e49f2cf518")
