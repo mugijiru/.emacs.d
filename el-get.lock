@@ -130,7 +130,7 @@
         (projectile-rails :checksum "701784df7befe17b861f1b53fe9cbc59d0b94b9f")
         (rake :checksum "452ea0caca33376487103c64177c295ed2960cca")
         (rbenv :checksum "2ea1a5bdc1266caef1dd77700f2c8f42429b03f1")
-        (rspec-mode :checksum "62853a428b416e6a5fd3d8f57ff83a1798188a3f")
+        (rspec-mode :checksum "2308a16f2131d7705212d85e93dddd4000930500")
         (s :checksum "e957dcb0677da18b2bb60ad867db5df5c35b5616")
         (shrink-path :checksum "c14882c8599aec79a6e8ef2d06454254bb3e1e41")
         (spinner :checksum "d4647ae87fb0cd24bc9081a3d287c860ff061c21")
