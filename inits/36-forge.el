@@ -1,6 +1,8 @@
+(el-get-bundle emacs-sqlite3-api)
 (el-get-bundle forge)
 
 (with-eval-after-load 'magit
+  (require 'sqlite3)
   (require 'forge))
 
 (defun my/forge-post-mode-hook ()
