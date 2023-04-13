@@ -1,0 +1,6 @@
+(:name editorconfig
+       :website "https://github.com/editorconfig/editorconfig-emacs"
+       :description "An EditorConfig plugin for Emacs."
+       :type github
+       :branch "master"
+       :pkgname "editorconfig/editorconfig-emacs")
