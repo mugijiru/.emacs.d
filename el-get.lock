@@ -1,5 +1,8 @@
 (setq el-get-lock-package-versions
-      '((emacs-sqlite3-api :checksum "b513b71012f61895f771fc6948d6511ea8ded0a6")
+      '((copilot :checksum "8256377a77b1268a9ea5d470c59a05d26ff5b432")
+        (json-rpc :checksum "81a5a520072e20d18aeab2aac4d66c046b031e56")
+        (editorconfig :checksum "ad021949d9a45cd1f00f6c096f41ba15b911b402")
+        (emacs-sqlite3-api :checksum "b513b71012f61895f771fc6948d6511ea8ded0a6")
         (org-roam :checksum "5c06471c3a11348342719fd9011486455adeb701")
         (emacs-openai :checksum "2a279b20493cf18776e4a5883e80ac20d3838cf8")
         (tblui :checksum "bb29323bb3e27093d50cb42db3a9329a096b6e4d")
