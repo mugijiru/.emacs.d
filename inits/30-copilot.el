@@ -6,5 +6,6 @@
   ;; disable inline previews
   (delq 'company-preview-if-just-one-frontend company-frontends))
 
-(define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
-(define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion)
+(with-eval-after-load 'copilot
+  (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
+  (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion))
