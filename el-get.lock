@@ -56,7 +56,7 @@
         (org-super-agenda :checksum "f4f528985397c833c870967884b013cf91a1da4a")
         (ts :checksum "552936017cfdec89f7fc20c254ae6b37c3f22c5b")
         (ov :checksum "c5b9aa4e1b00d702eb2caedd61c69a22a5fa1fab")
-        (ivy-rich :checksum "4fdd4669d69c9e8248b361b6e069b27d10e809e4")
+        (ivy-rich :checksum "aff9b6bd53e0fdcf350ab83c90e64e651b47dba4")
         (emacs-neotree-dev :checksum "98fe21334affaffe2334bf7c987edaf1980d2d0b")
         (color-theme-molokai :checksum "cc53e997e7eff93b58ad16a376a292c1dd66044b")
         (gnuplot-mode :checksum "f99effa21f85a4c0963fec6a38e9112a8157d27e")
