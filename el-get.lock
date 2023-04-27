@@ -1,7 +1,7 @@
 (setq el-get-lock-package-versions
       '((copilot :checksum "8256377a77b1268a9ea5d470c59a05d26ff5b432")
         (json-rpc :checksum "81a5a520072e20d18aeab2aac4d66c046b031e56")
-        (editorconfig :checksum "541ae8f957a28507f43715a385cfc5e22f9a29f9")
+        (editorconfig :checksum "ed3defaad8d83f77cfee581cfaa19aaea016664d")
         (emacs-sqlite3-api :checksum "b513b71012f61895f771fc6948d6511ea8ded0a6")
         (org-roam :checksum "5c06471c3a11348342719fd9011486455adeb701")
         (emacs-openai :checksum "6a1d270fcdf89226f22122df930afe17f85d3209")
