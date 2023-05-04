@@ -1,0 +1,6 @@
+(:name nerd-icons
+       :website "https://github.com/rainstormstudio/nerd-icons.el"
+       :description "A Library for Nerd Font icons."
+       :type github
+       :branch "main"
+       :pkgname "rainstormstudio/nerd-icons.el")
