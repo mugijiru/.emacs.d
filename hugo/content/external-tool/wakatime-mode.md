@@ -25,6 +25,7 @@ APIキーは .authinfo.gpg に保存しているのでそこから引っ張り�
 
 ```emacs-lisp
 (custom-set-variables
+ '(wakatime-cli-path "/usr/bin/wakatime")
  '(wakatime-api-key (funcall (plist-get (nth 0 (auth-source-search :host "wakatime.com" :max 1)) :secret))))
 ```
 
