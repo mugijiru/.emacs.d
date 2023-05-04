@@ -5838,8 +5838,8 @@
     そもそも最近 TODOIST 使ってない……
 
     #+begin_src emacs-lisp :tangle inits/50-todoist.el
-    (with-eval-after-load 'org
-      (my/load-config "my-todoist-config"))
+      (with-eval-after-load 'todoist
+        (setq todoist-token (funcall (plist-get (nth 0 (auth-source-search :host "todoist.com" :max 1)) :secret))))
     #+end_src
 
 ** twmode

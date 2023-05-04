@@ -33,6 +33,6 @@ org-mode に依存している。
 API キーを設定するので別ファイルに分離している。いつか .authinfo.gpg に移動しようかなと思っているけどそもそも最近 TODOIST 使ってない……
 
 ```emacs-lisp
-(with-eval-after-load 'org
-  (my/load-config "my-todoist-config"))
+(with-eval-after-load 'todoist
+  (setq todoist-token (funcall (plist-get (nth 0 (auth-source-search :host "todoist.com" :max 1)) :secret))))
 ```
