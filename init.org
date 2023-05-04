@@ -5514,21 +5514,40 @@
     :PROPERTIES:
     :ID:       e55368d5-9c47-4011-a724-11f8ba4b0717
     :END:
-    いつも通り el-get でインストール
+    いつも通り el-get でインストールする。
+    ただし依存関係で必要なので emacs-sqlite3-api も合わせて入れている
 
     #+begin_src emacs-lisp :tangle inits/36-forge.el
-    (el-get-bundle forge)
+      (el-get-bundle emacs-sqlite3-api)
+      (el-get-bundle forge)
     #+end_src
 
 *** 読み込み
     :PROPERTIES:
     :ID:       26164152-1328-4127-8dd0-08a9ffe54315
     :END:
-    magit の拡張なので magit を読み込んで後に読み込まれるようにしている
+    magit の拡張なので magit を読み込んで後に読み込まれるようにしている。
+    依存で必要な sqlite3 も合わせて require している。
 
     #+begin_src emacs-lisp :tangle inits/36-forge.el
-    (with-eval-after-load 'magit
-      (require 'forge))
+      (with-eval-after-load 'magit
+        (require 'sqlite3)
+        (require 'forge))
+    #+end_src
+
+*** flycheck の有効化
+    :PROPERTIES:
+    :ID:       73193a3c-3b91-498e-857c-dbe5cb025d02
+    :END:
+    Pull Request を作る時に text-lint で指摘されたいので
+    そのタイミングで flycheck を有効化している
+
+    #+begin_src emacs-lisp :tangle inits/36-forge.el
+      (defun my/forge-post-mode-hook ()
+        (flycheck-mode 1))
+
+      (with-eval-after-load 'forge
+        (add-hook 'forge-post-mode-hook 'my/forge-post-mode-hook))
     #+end_src
 
 *** その他
