@@ -3788,6 +3788,9 @@
     #+end_src
 
 *** 設定
+    :PROPERTIES:
+    :ID:       2ff0bbe3-c3e1-476f-8e02-b2fbc3779ee2
+    :END:
 
     キーバインドは別の箇所で定義しているが
     ~C-x o~ で ace-window が起動するようにしている。
@@ -3796,6 +3799,14 @@
 
     ace-window には色々な機能があるから
     それ用の Hydra を別途定義してもいいかもしれない。
+
+    ace-window 起動時に選択可能な数字が各 buffer の中央にいい感じに表示されるようにするため
+    ace-window-posfrme-mode を有効にしている
+
+    #+begin_src emacs-lisp :tangle inits/20-ace-window.el
+    (with-eval-after-load 'ace-window
+      (ace-window-posframe-mode t))
+    #+end_src
 
 ** avy
    :PROPERTIES:
