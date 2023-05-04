@@ -30,10 +30,24 @@ org-gcal が依存しているので [parsist](https://elpa.gnu.org/packages/per
 
 ## 設定 {#設定}
 
-とりあえず require をしないといけない
+まずは org-gcal の設定が authinfo から読み込まれるようにする
+
+```emacs-lisp
+(custom-set-variables
+ '(org-gcal-client-id (plist-get (nth 0 (auth-source-search :host "googleusercontent.com")) :client))
+ '(org-gcal-client-secret (funcall (plist-get (nth 0 (auth-source-search :host "googleusercontent.com" :max 1)) :secret))))
+```
+
+そして org-gcal 本体を require する。
 
 ```emacs-lisp
 (require 'org-gcal)
+```
+
+あとは passphrase を保存できるようにした方が良いみたいなのが確か README に比較的最近追加されたのでそれを入れている
+
+```emacs-lisp
+(setq plstore-cache-passphrase-for-symmetric-encryption t)
 ```
 
 あとは設定ファイルは公開したくないので別ファイルに分けてる。
@@ -79,6 +93,12 @@ alert.el は別のところで設定していてそこで dunst を使って通�
 
 ```emacs-lisp
 (setq appt-disp-window-function 'my/appt-alert)
+```
+
+最後に org-gcal でカレンダーを取得した後に appt に登録されるように advice を設定した
+
+```emacs-lisp
+(advice-add #'org-gcal--sync-unlock :after #'my/org-refresh-appt)
 ```
 
 

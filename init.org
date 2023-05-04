@@ -6937,10 +6937,25 @@
     :PROPERTIES:
     :ID:       247a2cfe-1bee-4293-82fb-b9e68130f258
     :END:
-    とりあえず require をしないといけない
+
+    まずは org-gcal の設定が authinfo から読み込まれるようにする
+
+    #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
+    (custom-set-variables
+     '(org-gcal-client-id (plist-get (nth 0 (auth-source-search :host "googleusercontent.com")) :client))
+     '(org-gcal-client-secret (funcall (plist-get (nth 0 (auth-source-search :host "googleusercontent.com" :max 1)) :secret))))
+    #+end_src
+
+    そして org-gcal 本体を require する。
 
     #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
     (require 'org-gcal)
+    #+end_src
+
+    あとは passphrase を保存できるようにした方が良いみたいなのが確か README に比較的最近追加されたのでそれを入れている
+
+    #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
+    (setq plstore-cache-passphrase-for-symmetric-encryption t)
     #+end_src
 
     あとは設定ファイルは公開したくないので別ファイルに分けてる。
@@ -6989,6 +7004,13 @@
      #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
      (setq appt-disp-window-function 'my/appt-alert)
      #+end_src
+
+     最後に org-gcal でカレンダーを取得した後に appt に登録されるように advice を設定した
+
+     #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
+       (advice-add #'org-gcal--sync-unlock :after #'my/org-refresh-appt)
+     #+end_src
+
 *** その他
     [[https://github.com/misohena/gcal][gcal-org]] に乗り換えようかと思ってるが
     そっちの中身もよくわからないので躊躇している。
