@@ -17,6 +17,19 @@ draft = false
 ```
 
 
+## その他設定 {#その他設定}
+
+ghub を load-path に入れないとうまくいかなかった時があったので入れてたり、
+orgit を入れていたり
+
+```emacs-lisp
+(with-eval-after-load 'magit
+  (add-to-list 'load-path (expand-file-name "~/.emacs.d/el-get/ghub/lisp")))
+
+(el-get-bundle orgit)
+```
+
+
 ## 使い方 {#使い方}
 
 Git 管理されてるファイルを開いている時に

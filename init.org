@@ -5714,6 +5714,20 @@
     #+begin_src emacs-lisp :tangle inits/35-magit.el
     (el-get-bundle magit)
     #+end_src
+*** その他設定
+    :PROPERTIES:
+    :ID:       77ca776f-8289-474b-a175-aabfd5569ee2
+    :END:
+
+    ghub を load-path に入れないとうまくいかなかった時があったので入れてたり、
+    orgit を入れていたり
+
+    #+begin_src emacs-lisp :tangle inits/35-magit.el
+    (with-eval-after-load 'magit
+      (add-to-list 'load-path (expand-file-name "~/.emacs.d/el-get/ghub/lisp")))
+
+    (el-get-bundle orgit)
+    #+end_src
 *** 使い方
     Git 管理されてるファイルを開いている時に
     ~M-x magit~ とかすると Git 管理用のバッファが出て来るし
