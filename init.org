@@ -5632,32 +5632,24 @@
     その変数をいくらか設定している。
 
     #+begin_src emacs-lisp :tangle inits/20-google-translate.el
-    (custom-set-variables
-     '(google-translate-default-source-language "en")
-     '(google-translate-default-target-language "ja")
-     '(google-translate-output-destination 'popup))
+      (custom-set-variables
+       '(google-translate-default-source-language "en")
+       '(google-translate-default-target-language "ja")
+       '(google-translate-translation-to-kill-ring t)
+       '(google-translate-output-destination 'popup))
     #+end_src
 
     - google-translate-default-source-language :: 翻訳元言語
     - google-translate-default-target-language :: 翻訳先言語
+    - google-translate-translation-to-kill-ring :: 翻訳後に RET などで翻訳結果を kill-ring にコピー
     - google-translate-output-destination :: 翻訳結果の表示
 
     日本語を母国語としていて英語はからきしという人間なので当然英日変換されるように設定していて
     あとは変換結果の表示方法は popup でツールチップ表示するようにしている。
 
-    popup 表示の欠点としては、その結果をコピペできないところだけど
-    current-buffer への挿入も邪魔そうだし
-    kill-ring に入れるのも違うしなどを考えた結果、消去法でこれにしてみた。
-
-    #+begin_src emacs-lisp
-    (my/google-translate-at-point-output-tempbuf ()
-      (let ((google-translate-output-destination nil))
-        (google-translate-at-point)))
-    #+end_src
-
-    とか用意しておいたらその時だけデフォルト動作の temporary buffer への出力ができそうだけどもね。
-    ただこれだと逆版も作らないといけなさそうなのでちょっと方法考えるか。
-    別で output destination を切り替えるようにするとか。
+    ツールチップの表示だけでなくそれを文書に入れたい時は
+    ツールチップが出ている時に Enter でも叩けば kill-ring に入るので
+    そこから yank している
 *** キーバインド
     [[*google-this][google-this]] と同じく Google 連係機能なので
     [[*Google 連携][キーバインド > Google 連携]] でまとめて Hydra を定義している
