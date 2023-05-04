@@ -11,13 +11,12 @@ ox-hugo を使ってWebサイトに仕立て上げています。
 
 ## 動作確認環境 {#動作確認環境}
 
-以下の環境で使用しています。が、動作を保証するものではありません。
+主に以下の環境で使用しています。が、動作を保証するものではありません。
 
-macOS
-: [emacsmacport](https://github.com/railwaycat/homebrew-emacsmacport) で用意されている Emacs
+Manjaro Linux 22.1.0
+: pacman で手に入る Emacs 28.2
 
-Ubuntu 20.04 LTS
-: apt で手に入る Emacs 26.3
+また macOS や Ubuntu 20.04 LTS で利用していたのでところどころにそのあたりの設定も残っています
 
 
 ## 注意点 {#注意点}

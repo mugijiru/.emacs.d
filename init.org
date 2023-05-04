@@ -23,10 +23,11 @@
 
 *** 動作確認環境
 
-    以下の環境で使用しています。が、動作を保証するものではありません。
+    主に以下の環境で使用しています。が、動作を保証するものではありません。
 
-    - macOS :: [[https://github.com/railwaycat/homebrew-emacsmacport][emacsmacport]] で用意されている Emacs
-    - Ubuntu 20.04 LTS :: apt で手に入る Emacs 26.3
+    - Manjaro Linux 22.1.0 :: pacman で手に入る Emacs 28.2
+
+    また macOS や Ubuntu 20.04 LTS で利用していたのでところどころにそのあたりの設定も残っています
 
 *** 注意点
 
