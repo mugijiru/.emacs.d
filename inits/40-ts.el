@@ -3,8 +3,10 @@
 (custom-set-variables
  '(typescript-indent-level 2)
  '(lsp-typescript-locale "ja")
+ '(lsp-inlay-hint-enable t)
  '(lsp-javascript-display-parameter-name-hints t)
  '(lsp-javascript-display-enum-member-value-hints t)
+ '(lsp-clients-typescript-max-ts-server-memory 2048)
  '(lsp-eslint-auto-fix-on-save t))
 
 (defun my/setup-ts-mode-keymap ()
