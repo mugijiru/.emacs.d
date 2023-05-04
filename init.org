@@ -1581,8 +1581,20 @@
     例えば4行目なら 4 とか表示されるので
     そこで M-4 とか入力すると4行目が選択されて便利
 
-*** その他
+*** company-quickhelp
+    :PROPERTIES:
+    :ID:       ceee0f04-adbc-4eec-afae-75d9e0e3e3ae
+    :END:
+    [[https://github.com/company-mode/company-quickhelp][company-quickhelp]] は候補の補足情報が見れるようにするパッケージ。
+    それを入れて、文字色とかぶらないように背景色を設定している。
 
+    #+begin_src emacs-lisp :tangle inits/30-company.el
+      (el-get-bundle company-quickhelp)
+
+      (custom-set-variables '(company-quickhelp-color-background "#323445"))
+    #+end_src
+
+*** その他
     グローバルでは有効にしていなくて
     各モードで有効にするような hook を入れている。
 
