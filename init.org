@@ -2877,9 +2877,11 @@
     視線移動が少なく済んで便利。
 
     #+begin_src emacs-lisp :tangle inits/82-ivy.el
-    (el-get-bundle ivy-posframe)
-    (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
-    (ivy-posframe-mode 1)
+      (el-get-bundle ivy-posframe)
+      (setq ivy-posframe-display-functions-alist
+            '((swiper . ivy-display-function-fallback)
+              (t . ivy-posframe-display-at-frame-center)))
+      (ivy-posframe-mode 1)
     #+end_src
 *** ivy-rich
     ivy-rich は ivy の見た目をよりモダンにしてくれるやつ。
@@ -3093,8 +3095,8 @@
 
       #+begin_src emacs-lisp :tangle inits/82-ivy.el
       (setq ivy-re-builders-alist '((t . ivy--regex-plus)
-                                    (swiper . ivy-migemo--regex-plus)
-                                    (counsel-find-file . ivy-migemo--regex-plus)))
+                                    (swiper . ivy-migemo-regex-plus)
+                                    (counsel-find-file . ivy-migemo-regex-plus)))
       #+end_src
 
       また fuzzy matchi を有効にする設定も記載されているが
@@ -3116,7 +3118,7 @@
     まあできなくてもいいんだけど、
     このパッケージは Mac でだけ読むようにしたら良いよねって感じではある。
 
-*** ivy-migemo
+*** ivy-kibela
     Kibela の記事を ivy で絞り込んで Emacs から開けるようにするために
     [[https://github.com/mugijiru/ivy-kibela][ivy-kibela]] という自作ツールを使っている
 
@@ -3131,6 +3133,7 @@
               :website "https://github.com/mugijiru/ivy-kibela"
               :description "Ivy interface to kibela."
               :type github
+              :branch "main"
               :pkgname "mugijiru/ivy-kibela")
      #+end_src
 
@@ -3173,7 +3176,7 @@
 
      #+begin_src emacs-lisp :tangle inits/83-ivy-kibela.el
        (with-eval-after-load 'ivy-kibela
-         (add-to-list 'ivy-re-builders-alist '(ivy-kibela . ivy-migemo--regex-plus) t))
+         (add-to-list 'ivy-re-builders-alist '(ivy-kibela . ivy-migemo-regex-plus) t))
      #+end_src
 
 *** prescient.el
