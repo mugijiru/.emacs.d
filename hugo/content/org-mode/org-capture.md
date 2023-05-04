@@ -35,6 +35,7 @@ org-capture は org-mode 用にさくっとメモを取るための機能。
 (setq my/org-capture-sql-file          (concat org-directory "work/sql.org"))
 (setq my/org-capture-shopping-file     (concat my/org-tasks-directory "shopping.org"))
 (setq my/org-capture-2020-summary-file (concat org-directory "private/2020_summary.org"))
+(setq my/org-small-topic-file (concat org-directory "small-topic.org"))
 ```
 
 
@@ -52,7 +53,7 @@ org-capture は org-mode 用にさくっとメモを取るための機能。
 | R   | 2020年の振り返り用                   | もう2020年は過去の話なので不要でしょ                                                                    |
 | s   | SQL 用のメモに登録                   | さくっと書いた SQL を後からまた使えないかな〜と思って溜めてみている                                     |
 | S   | 買物リストに登録                     | Inbox から refile でもいい気がする                                                                      |
-| b   | Blogネタにエントリー                 | 最近使ってない……。ブログ止まってるしな。                                                                |
+| b   | Blogネタにエントリー                 | 最近使ってない……。ブログ止まってるしな。                                                              |
 | P   | Firefox からページの一部を資料として放り込む用 | <https://github.com/sprig/org-capture-extension> 関係。Win では設定できてない                           |
 | L   | Firefox からページURLを資料として放り込む用 | <https://github.com/sprig/org-capture-extension> 関係。Win では設定できてない                           |
 | c   | スケジュール管理用ファイルに登録     | 使ってない。対象ファイルを変えて使ってみてもいいかも                                                    |
@@ -61,7 +62,7 @@ org-capture は org-mode 用にさくっとメモを取るための機能。
 (setq org-capture-templates
       `(("g" "Inbox にエントリー" entry
          (file ,my/org-capture-inbox-file)
-         "* TODO %?\n** Ready の定義
+         "* TODO %? %^G\n** Ready の定義
    - Why?, Goal, How? が埋められていること
    - How がある程度具体的に書かれていること
 ** Why?
@@ -84,6 +85,9 @@ org-capture は org-mode 用にさくっとメモを取るための機能。
          "** TODO %?\n\t")
         ("R" "2020ふりかえりにエントリー" entry
          (file+headline ,my/org-capture-2020-summary-file "Timeline")
+         "** %?\n\t")
+        ("z" "一言・雑談ネタ" entry
+         (file+headline ,my/org-small-topic-file "Topic")
          "** %?\n\t")
         ("s" "SQL にエントリー" entry
          (file+headline ,my/org-capture-sql-file "SQL")

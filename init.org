@@ -6630,14 +6630,15 @@
     バラバラの変数にするよりも alist とか plist とかにする方が適切な気がする
 
     #+begin_src emacs-lisp :tangle inits/61-org-capture.el
-    (setq my/org-capture-interrupted-file  (concat my/org-tasks-directory "interrupted.org"))
-    (setq my/org-capture-inbox-file        (concat my/org-tasks-directory "inbox.org"))
-    (setq my/org-capture-pointers-file     (concat my/org-tasks-directory "pointers.org"))
-    (setq my/org-capture-impediments-file  (concat org-directory "work/scrum/impediments.org"))
-    (setq my/org-capture-memo-file         (concat org-directory "memo.org"))
-    (setq my/org-capture-sql-file          (concat org-directory "work/sql.org"))
-    (setq my/org-capture-shopping-file     (concat my/org-tasks-directory "shopping.org"))
-    (setq my/org-capture-2020-summary-file (concat org-directory "private/2020_summary.org"))
+      (setq my/org-capture-interrupted-file  (concat my/org-tasks-directory "interrupted.org"))
+      (setq my/org-capture-inbox-file        (concat my/org-tasks-directory "inbox.org"))
+      (setq my/org-capture-pointers-file     (concat my/org-tasks-directory "pointers.org"))
+      (setq my/org-capture-impediments-file  (concat org-directory "work/scrum/impediments.org"))
+      (setq my/org-capture-memo-file         (concat org-directory "memo.org"))
+      (setq my/org-capture-sql-file          (concat org-directory "work/sql.org"))
+      (setq my/org-capture-shopping-file     (concat my/org-tasks-directory "shopping.org"))
+      (setq my/org-capture-2020-summary-file (concat org-directory "private/2020_summary.org"))
+      (setq my/org-small-topic-file (concat org-directory "small-topic.org"))
     #+end_src
 
 *** テンプレートの定義
@@ -6664,7 +6665,7 @@
     (setq org-capture-templates
           `(("g" "Inbox にエントリー" entry
              (file ,my/org-capture-inbox-file)
-             "* TODO %?\n** Ready の定義
+             "* TODO %? %^G\n** Ready の定義
        - Why?, Goal, How? が埋められていること
        - How がある程度具体的に書かれていること
     ** Why?
@@ -6687,6 +6688,9 @@
              "** TODO %?\n\t")
             ("R" "2020ふりかえりにエントリー" entry
              (file+headline ,my/org-capture-2020-summary-file "Timeline")
+             "** %?\n\t")
+            ("z" "一言・雑談ネタ" entry
+             (file+headline ,my/org-small-topic-file "Topic")
              "** %?\n\t")
             ("s" "SQL にエントリー" entry
              (file+headline ,my/org-capture-sql-file "SQL")
