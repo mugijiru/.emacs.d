@@ -364,11 +364,12 @@ ivy などの絞り込み系ツールと組み合わせて使う。
 レシピは自前で追加している
 
 ```emacs-lisp
-(:name raxod502/prescient.el
-       :website "https://github.com/raxod502/prescient.el"
+(:name prescient.el
+       :website "https://github.com/radian-software/prescient.el"
        :description "simple but effective sorting and filtering for Emacs."
        :type github
-       :pkgname "raxod502/prescient.el")
+       :branch "main"
+       :pkgname "radian-software/prescient.el")
 ```
 
 そんで ivy でそれが使われるように ivy-prescient-mode を有効にしている。
