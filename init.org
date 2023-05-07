@@ -4507,9 +4507,9 @@
     (el-get-bundle lsp-ui)
     (add-hook 'lsp-mode-hook 'lsp-ui-mode)
     #+end_src
-*** 設定
+*** カスタム変数
     :PROPERTIES:
-    :ID:       14934040-a06b-4048-9248-91c10959a83b
+    :ID:       477cc5ce-e6a5-4cfd-b31c-4156bf2c9b5d
     :END:
     lsp-ui-doc はカーソル位置にある変数や関数などの説明を child frame で表示してくれるやつ。
 
@@ -4518,7 +4518,68 @@
     window 基準で表示するように設定を変更している
 
     #+begin_src emacs-lisp :tangle inits/20-lsp.el
-    (setq lsp-ui-doc-alignment 'window)
+      (custom-set-variables
+       '(lsp-diagnostics-provider :flycheck)
+       '(lsp-ui-doc-show-with-cursor t)
+       '(lsp-ui-doc-alignment 'window))
+    #+end_src
+*** パッチ
+    :PROPERTIES:
+    :ID:       aac9ef39-3718-4295-9393-14d4ebac7d6c
+    :END:
+    文字を拡大している時の折り返しがおかしくならないようにするパッチ
+
+    #+begin_src emacs-lisp :tangle inits/20-lsp.el
+      ;; Patch
+      ;; https://github.com/emacs-lsp/lsp-ui/issues/184#issuecomment-1158057166
+      (with-eval-after-load 'lsp-ui-sideline
+        (defun lsp-ui-sideline--align (&rest lengths)
+          "Align sideline string by LENGTHS from the right of the window."
+          (cons (+ (apply '+ lengths)
+                   (if (display-graphic-p) 1 2))
+                'width))
+        (defun lsp-ui-sideline--compute-height () nil))
+    #+end_src
+*** Hydra の設定
+    :PROPERTIES:
+    :ID:       47895f4d-f7f5-42d1-9197-3e6facf2d27a
+    :END:
+
+    #+begin_src emacs-lisp :tangle inits/20-lsp.el
+      (with-eval-after-load 'pretty-hydra
+        (pretty-hydra-define pretty-hydra-lsp (:separator "-" :color blue :foreign-keys warn :title "LSP" :quit-key "q")
+          ("Find"
+           (("x" lsp-find-definition "definition")
+            ("r" lsp-find-references "references")
+            ("t" lsp-find-type-definition "type")
+            ("i" lsp-find-implementation "implementation")
+            ("D" lsp-find-declaration "declaration"))
+
+           "Code"
+           (("m" lsp-rename "Rename"))
+
+           "UI"
+           (("I" lsp-ui-imenu "imenu")
+            ("X" lsp-ui-peek-find-definitions "def")
+            ("R" lsp-ui-peek-find-references "refs")))))
+    #+end_src
+*** TSX のインデント調整
+    :PROPERTIES:
+    :ID:       3ec53599-a6ef-4bba-bbc6-0c077c9c4049
+    :END:
+    tab 押下時は web-mode-code-indent-offset 等の設定で動いていたが
+    indent-region ではそれと違う値(4)でインデントされていて
+    indent-region を使えずにいた
+
+    https://github.com/emacs-lsp/lsp-mode/issues/2915#issuecomment-855156802
+
+    を参考に
+    lsp--formatting-indent-aliat に web-mode の設定を追加することで
+    良い感じにインデントできるように調整している
+
+    #+begin_src emacs-lisp :tangle inits/20-lsp.el
+      (with-eval-after-load 'lsp-mode
+        (add-to-list 'lsp--formatting-indent-alist `(web-mode . web-mode-code-indent-offset)))
     #+end_src
 ** markdown
    :PROPERTIES:
