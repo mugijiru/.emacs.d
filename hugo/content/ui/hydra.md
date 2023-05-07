@@ -176,6 +176,7 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
    "Behavior"
    (("S" my/notify-slack-toggle    "Notify Slack"   :toggle my/notify-slack-enable-p)
     ("v" my/toggle-view-mode       "Readonly"       :toggle view-mode)
+    ("f" flycheck-mode             "Flycheck"       :toggle flycheck-mode)
     ("A" auto-fix-mode             "Auto fix"       :toggle auto-fix-mode)
     ("E" toggle-debug-on-error     "Debug on error" :toggle debug-on-error))))
 ```
@@ -184,7 +185,7 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
 |-----|--------------------------------------------------------------------------------------|
 | z   | [zoom-mode]({{< relref "zoom" >}}) のON/OFF切替。狭いディスプレイの時は ON にするが、大きいディスプレイだと OFF にしている |
 | Z   | フルスクリーンの切替。狭いディスプレイの時は ON にするが、大きいディスプレイだと OFF にしている |
-| b   | バッテリー表示モードの切替。OFF にしたことないな……                                     |
+| b   | バッテリー表示モードの切替。OFF にしたことないな……                                   |
 | L   | 行番号表示の切替。邪魔になる時もあるので ON/OFF 切り替えている                         |
 | N   | [Neotree]({{< relref "neotree" >}}) の表示切替。普段は邪魔なので OFF にしている        |
 | S   | Slack 通知の切替。org-clock-in とかのタイミングで Slack に通知を飛ばしているが切る時もある |
@@ -209,9 +210,8 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
    (("b" counsel-descbinds "Keybind")
     ("f" counsel-describe-function "Function")
     ("v" counsel-describe-variable "Variable")
+    ;; ("P"   my/open-review-requested-pr "Open Requested PR")
     ("m" describe-minor-mode "Minor mode"))
-
-   ;; ("P"   my/open-review-requested-pr "Open Requested PR")
    "Other"
    (("@" all-the-icons-hydra/body "List icons")
     ("D" my/download-from-beorg))))
@@ -258,7 +258,7 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
     ("f" counsel-find-file     "Find File")
     ("d" counsel-find-dir      "Find Dir")
     ("r" counsel-recentf       "Recentf")
-    ("l" counsel-locate        "Locate")
+    ("L" counsel-locate        "Locate")
     ("A" counsel-osx-app       "macOS App"))
 
    "Edit"
@@ -269,9 +269,11 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
    (("G" counsel-projectile-ag       "Grep")
     ("j" dumb-jump-pretty-hydra/body "Dumb jump")
     ("g" avy-hydra/body              "Avy")
+    ("l" pretty-hydra-lsp/body       "LSP")
     ("i" counsel-imenu               "imenu")
     ("y" yasnippet-hydra/body        "Yasnippet")
     ("B" browse-at-remote            "Browse")
+    ("C" git-messenger:popup-message "Git Message")
     ("m" magit-status                "Magit"))
 
    "View"
@@ -286,6 +288,7 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
     ("c"   counsel-org-capture      "Capture")
     ("o"   global-org-hydra/body    "Org")
     ("e"   el-get-hydra/body        "el-get")
+    ("k"   kibela-hydra/body        "Kibela")
     ("/"   google-pretty-hydra/body "Google")
     ("t"   subtools-hydra/body      "Sub Tools"))))
 ```

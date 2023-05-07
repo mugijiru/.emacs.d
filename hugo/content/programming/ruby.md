@@ -54,7 +54,8 @@ enh-ruby-mode が読み込まれた後に setq で以下のように設定され
 (with-eval-after-load 'enh-ruby-mode
   (setq enh-ruby-add-encoding-comment-on-save nil)
   (setq enh-ruby-deep-indent-paren nil)
-  (setq enh-ruby-bounce-deep-indent t))
+  (setq enh-ruby-deep-indent-construct nil)
+  (setq enh-ruby-bounce-deep-indent nil))
 ```
 
 
@@ -108,6 +109,7 @@ hook 用の関数で補完などの機能を有効にしている
   (company-mode 1)
   (lsp)
   (lsp-ui-mode 1)
+  (add-hook 'before-save-hook #'lsp-format-buffer nil 'local)
   (turn-on-smartparens-strict-mode)
   (display-line-numbers-mode 1))
 ```
@@ -115,6 +117,7 @@ hook 用の関数で補完などの機能を有効にしている
 -   補完用に company-mode を有効化
 -   [solargraph](https://github.com/castwide/solargraph) を使ってるので lsp-mode を有効にしている
     -   lsp-ui-mode も有効にして色々な情報を表示している
+-   また lsp-mode の自動フォーマットを保存時に実行するようにしている
 -   開きカッコと閉じカッコの組み合わせがズレないように smartparens-strict-mode を有効にしている
 -   行番号も表示されている方が便利なので display-line-numbers-mode を有効にしている
 
@@ -142,7 +145,7 @@ Ruby を使ってる時にコメント部分はクォートの外以外では自
 
 ```emacs-lisp
 (with-eval-after-load 'major-mode-hydra
-  (major-mode-hydra-define enh-ruby-mode (:quit-key "q" :title (concat (all-the-icons-alltheicon "ruby-alt") " Ruby commands"))
+  (major-mode-hydra-define enh-ruby-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-alltheicon "ruby-alt") " Ruby commands"))
     ("Enh Ruby"
      (("{" enh-ruby-toggle-block "Toggle block")
       ("e" enh-ruby-insert-end "Insert end"))

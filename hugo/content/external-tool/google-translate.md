@@ -71,6 +71,7 @@ popup.el に依存しているのでそれが読まれた後に require しな�
 (custom-set-variables
  '(google-translate-default-source-language "en")
  '(google-translate-default-target-language "ja")
+ '(google-translate-translation-to-kill-ring t)
  '(google-translate-output-destination 'popup))
 ```
 
@@ -80,25 +81,18 @@ google-translate-default-source-language
 google-translate-default-target-language
 : 翻訳先言語
 
+google-translate-translation-to-kill-ring
+: 翻訳後に RET などで翻訳結果を kill-ring にコピー
+
 google-translate-output-destination
 : 翻訳結果の表示
 
 日本語を母国語としていて英語はからきしという人間なので当然英日変換されるように設定していてあとは変換結果の表示方法は popup でツールチップ表示するようにしている。
 
-popup 表示の欠点としては、その結果をコピペできないところだけど
-current-buffer への挿入も邪魔そうだし
-kill-ring に入れるのも違うしなどを考えた結果、消去法でこれにしてみた。
-
-```emacs-lisp
-(my/google-translate-at-point-output-tempbuf ()
-  (let ((google-translate-output-destination nil))
-    (google-translate-at-point)))
-```
-
-とか用意しておいたらその時だけデフォルト動作の temporary buffer への出力ができそうだけどもね。ただこれだと逆版も作らないといけなさそうなのでちょっと方法考えるか。別で output destination を切り替えるようにするとか。
+ツールチップの表示だけでなくそれを文書に入れたい時はツールチップが出ている時に Enter でも叩けば kill-ring に入るのでそこから yank している
 
 
 ## キーバインド {#キーバインド}
 
 [google-this]({{< relref "google-this" >}}) と同じく Google 連係機能なので
-[キーバインド > Google 連携]({{< relref "google-integration" >}}) でまとめて Hydra を定義している
+[キーバインド &gt; Google 連携]({{< relref "google-integration" >}}) でまとめて Hydra を定義している

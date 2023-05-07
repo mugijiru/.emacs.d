@@ -50,6 +50,13 @@ ddskk が呼び出された時に色々設定されるようにしている。
             (setq skk-sticky-key ";")
             (setq skk-henkan-strict-okuri-precedence t)
             (setq skk-show-annotation t) ;; 単語の意味をアノテーションとして表示。例) いぜん /以前;previous/依然;still/
+            (setq skk-compare-jisyo-size-when-saving nil)
+            (setq skk-extra-jisyo-file-list
+                  `(,(expand-file-name "~/.config/ibus-skk/user.dict")
+                    "/usr/share/skk/SKK-JISYO.propernoun"
+                    "/usr/share/skk/SKK-JISYO.lisp"))
+            (setq skk-tooltip-parameters
+                  '((background-color . "#323445")))
 
             ;; ;; 半角で入力したい文字
             ;; (setq skk-rom-kana-rule-list
@@ -81,6 +88,15 @@ skk-show-annotation
 
 skk-rom-kana-rules-list
 : キー入力時の挙動を指定する。とりあえず自分は : とかが全角になるのが嫌なので半角になるようにしている
+
+skk-compare-jisyo-size-when-saving
+: これを nil にすることで辞書保存時に辞書サイズが大きいことを確認させないようにしている
+
+skk-extra-jisyo-file-list
+: 追加の辞書を設定している。ibus-skk の辞書を入れることで同期したり。
+
+skk-tooltip-parameters
+: ツールチップの背景色を変えることで annotation を見れるようにしている
 
 
 ## L 辞書を使うようにする <span class="tag"><span class="improvement">improvement</span></span> {#l-辞書を使うようにする}

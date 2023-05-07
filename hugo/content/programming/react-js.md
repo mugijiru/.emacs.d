@@ -41,6 +41,28 @@ auto-mode-alist で関連付けをする
 ```
 
 
+## キーバインドの追加 {#キーバインドの追加}
+
+テスト用のファイルを開いたら `C-c C-c` でテストを実行できるようにするためキーバインドを設定
+
+```emacs-lisp
+(defun my/setup-web-mode-map ()
+  (let ((keymap web-mode-map))
+    (define-key keymap (kbd "C-c C-c") 'my/mocha-test-file)))
+```
+
+
+## 自動フォーマット hook の用意 {#自動フォーマット-hook-の用意}
+
+tsx の保存時に自動でフォーマットしてほしいのでそれ用に hook を追加
+
+```emacs-lisp
+(defun my/web-mode-auto-fix-hook ()
+  (when (string-equal (file-name-extension buffer-file-name) "tsx")
+    (lsp-eslint-fix-all)))
+```
+
+
 ## lsp-mode などの有効化 {#lsp-mode-などの有効化}
 
 jsx/tsx ファイルを開く時に web-mode が有効になるようにしているのでその web-mode の hook で
@@ -49,14 +71,21 @@ jsx/tsx ファイルを開く時に web-mode が有効になるようにして�
 -   lsp
 -   lsp-ui-mode
 -   company-mode
--   flycheck
 
 を有効にしている。
 
-flycheck では lsp と eslint を使いたいのでそれ以外の JS の checker は disable にしている
+また
 
-また web-mode の設定も少し弄っていて
+-   保存時の自動補正 hook の追加
+-   自動テストのキーバインドの設定
+
+も合わせて行っている。
+
+それ以外にも web-mode の設定も少し弄っていて
 indent は2桁スペースになるようにしているが自動インデントだとそれが反映されないっぽいので自動インデントはオフにしている。
+
+なお過去の設定では flycheck も少し設定していたが
+lsp-mode から eslint を使うことでやりたいことの対応ができるようなのでその設定は外した。
 
 ```emacs-lisp
 (defun my/web-mode-tsx-hook ()
@@ -70,9 +99,8 @@ indent は2桁スペースになるようにしているが自動インデント
       (display-line-numbers-mode t)
       (lsp)
       (lsp-ui-mode 1)
-      (flycheck-mode 1)
-      (setq flycheck-disabled-checkers '(javascript-standard javascript-jshint))
-      (flycheck-add-next-checker 'lsp '(warning . javascript-eslint)))))
+      (add-hook 'before-save-hook 'my/web-mode-auto-fix-hook nil 'local)
+      (my/setup-web-mode-map))))
 
 (add-hook 'web-mode-hook 'my/web-mode-tsx-hook)
 ```

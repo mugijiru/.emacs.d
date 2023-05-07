@@ -31,3 +31,11 @@ ace-window を使うと起動して 1 ストロークで移動できるので
 また Hydra からは ace-swap-window が起動できるようにしている。
 
 ace-window には色々な機能があるからそれ用の Hydra を別途定義してもいいかもしれない。
+
+ace-window 起動時に選択可能な数字が各 buffer の中央にいい感じに表示されるようにするため
+ace-window-posfrme-mode を有効にしている
+
+```emacs-lisp
+(with-eval-after-load 'ace-window
+  (ace-window-posframe-mode t))
+```

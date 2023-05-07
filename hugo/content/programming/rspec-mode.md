@@ -35,3 +35,13 @@ C-c C-c で開いている rspec ファイルのカーソルがある行のテ�
 ```
 
 他にも色々な機能があるのだけどキーバインド未設定なのでこれだけしか使ってない。
+
+
+## Docker 連携 {#docker-連携}
+
+Docker と連携するように調整
+
+```emacs-lisp
+(custom-set-variables
+ '(rspec-use-docker-when-possible t))
+```

@@ -35,6 +35,7 @@ major-mode-hydra で、org-mode のファイルを開いている時によく使
      "View"
      (("N" org-toggle-narrow-to-subtree "Toggle Subtree")
       ("C" org-columns "Columns")
+      ("O" org-global-cycle "Toggle open")
       ("D" my/org-clock-toggle-display  "Toggle Display"))
 
      "Task"
@@ -53,6 +54,9 @@ major-mode-hydra で、org-mode のファイルを開いている時によく使
      "Babel"
      (("e" org-babel-confirm-evaluate "Eval")
       ("x" org-babel-tangle "Export SRC"))
+
+     "Roam"
+     ((";" org-roam-hydra/body "Menu"))
 
      "Trello"
      (("K" org-trello-mode "On/Off" :toggle org-trello-mode)
@@ -117,7 +121,7 @@ pretty-hydra を使って Global に使える org-mode のコマンドを叩け�
      "Calendar"
      (("F" org-gcal-fetch "Fetch Calendar")
       ("C" my/open-calendar "Calendar")
-      ("A" my/org-gcal-refresh-appt "Appt"))
+      ("A" my/org-refresh-appt "Appt"))
 
      "Clock"
      (("i" org-clock-in       "In")
@@ -127,7 +131,8 @@ pretty-hydra を使って Global に使える org-mode のコマンドを叩け�
       ("j" org-clock-goto     "Goto"))
 
      "Search"
-     (("H" org-search-view "Heading"))
+     (("H" org-search-view "Heading")
+      ("f" org-roam-find-file "Roam"))
 
      "Pomodoro"
      (("p" org-pomodoro "Pomodoro")))))

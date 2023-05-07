@@ -29,6 +29,7 @@ hook で動作する中身が変更できて便利。
 
 ```emacs-lisp
 (defun my/yaml-mode-hook ()
+  (lsp-mode 1)
   (highlight-indent-guides-mode 1))
 ```
 

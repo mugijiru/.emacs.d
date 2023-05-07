@@ -176,6 +176,7 @@
                                          "~/Documents/org/tasks/inbox.org"
                                          "~/Documents/org/tasks/reviews.org"
                                          "~/Documents/org/tasks/next-actions.org"))))))
+
   ("z" "日報"
    ((agenda "" ((org-agenda-span 'day)
                 (org-agenda-overriding-header "")

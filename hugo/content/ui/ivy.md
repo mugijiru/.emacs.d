@@ -65,7 +65,9 @@ posframe 表示だと Emacs の中央に表示できるので視線移動が少�
 
 ```emacs-lisp
 (el-get-bundle ivy-posframe)
-(setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
+(setq ivy-posframe-display-functions-alist
+      '((swiper . ivy-display-function-fallback)
+        (t . ivy-posframe-display-at-frame-center)))
 (ivy-posframe-mode 1)
 ```
 
@@ -270,8 +272,8 @@ swiper を使う時はデフォで有効になっててほしいのでその設�
 
 ```emacs-lisp
 (setq ivy-re-builders-alist '((t . ivy--regex-plus)
-                              (swiper . ivy-migemo--regex-plus)
-                              (counsel-find-file . ivy-migemo--regex-plus)))
+                              (swiper . ivy-migemo-regex-plus)
+                              (counsel-find-file . ivy-migemo-regex-plus)))
 ```
 
 また fuzzy matchi を有効にする設定も記載されているがそちらは自分は設定していない。なんとなく。
@@ -290,7 +292,7 @@ Mac を使ってる時は Emacs がランチャー代わりになるので便利
 WSL 使ってる時に同じようなことをしてみたいんだけどどうしたらいいんだろう。まあできなくてもいいんだけど、このパッケージは Mac でだけ読むようにしたら良いよねって感じではある。
 
 
-## ivy-migemo {#ivy-migemo}
+## ivy-kibela {#ivy-kibela}
 
 Kibela の記事を ivy で絞り込んで Emacs から開けるようにするために
 [ivy-kibela](https://github.com/mugijiru/ivy-kibela) という自作ツールを使っている
@@ -305,6 +307,7 @@ Kibela の記事を ivy で絞り込んで Emacs から開けるようにする�
        :website "https://github.com/mugijiru/ivy-kibela"
        :description "Ivy interface to kibela."
        :type github
+       :branch "main"
        :pkgname "mugijiru/ivy-kibela")
 ```
 
@@ -343,7 +346,7 @@ ivy-kibela でも migemo りたかったので、以下のようにして migemo
 
 ```emacs-lisp
 (with-eval-after-load 'ivy-kibela
-  (add-to-list 'ivy-re-builders-alist '(ivy-kibela . ivy-migemo--regex-plus) t))
+  (add-to-list 'ivy-re-builders-alist '(ivy-kibela . ivy-migemo-regex-plus) t))
 ```
 
 
@@ -361,11 +364,12 @@ ivy などの絞り込み系ツールと組み合わせて使う。
 レシピは自前で追加している
 
 ```emacs-lisp
-(:name raxod502/prescient.el
-       :website "https://github.com/raxod502/prescient.el"
+(:name prescient.el
+       :website "https://github.com/radian-software/prescient.el"
        :description "simple but effective sorting and filtering for Emacs."
        :type github
-       :pkgname "raxod502/prescient.el")
+       :branch "main"
+       :pkgname "radian-software/prescient.el")
 ```
 
 そんで ivy でそれが使われるように ivy-prescient-mode を有効にしている。

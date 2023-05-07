@@ -23,10 +23,11 @@
 
 *** 動作確認環境
 
-    以下の環境で使用しています。が、動作を保証するものではありません。
+    主に以下の環境で使用しています。が、動作を保証するものではありません。
 
-    - macOS :: [[https://github.com/railwaycat/homebrew-emacsmacport][emacsmacport]] で用意されている Emacs
-    - Ubuntu 20.04 LTS :: apt で手に入る Emacs 26.3
+    - Manjaro Linux 22.1.0 :: pacman で手に入る Emacs 28.2
+
+    また macOS や Ubuntu 20.04 LTS で利用していたのでところどころにそのあたりの設定も残っています
 
 *** 注意点
 
@@ -347,6 +348,13 @@
                   (setq skk-sticky-key ";")
                   (setq skk-henkan-strict-okuri-precedence t)
                   (setq skk-show-annotation t) ;; 単語の意味をアノテーションとして表示。例) いぜん /以前;previous/依然;still/
+                  (setq skk-compare-jisyo-size-when-saving nil)
+                  (setq skk-extra-jisyo-file-list
+                        `(,(expand-file-name "~/.config/ibus-skk/user.dict")
+                          "/usr/share/skk/SKK-JISYO.propernoun"
+                          "/usr/share/skk/SKK-JISYO.lisp"))
+                  (setq skk-tooltip-parameters
+                        '((background-color . "#323445")))
 
                   ;; ;; 半角で入力したい文字
                   ;; (setq skk-rom-kana-rule-list
@@ -365,6 +373,9 @@
     - skk-henkan-strict-okuri-precedence :: 正しい送り仮名の変換が優先的に表示されるようにする設定
     - skk-show-annotation :: 単語の意味をアノテーションとして表示する設定
     - skk-rom-kana-rules-list :: キー入力時の挙動を指定する。とりあえず自分は : とかが全角になるのが嫌なので半角になるようにしている
+    - skk-compare-jisyo-size-when-saving :: これを nil にすることで辞書保存時に辞書サイズが大きいことを確認させないようにしている
+    - skk-extra-jisyo-file-list :: 追加の辞書を設定している。ibus-skk の辞書を入れることで同期したり。
+    - skk-tooltip-parameters :: ツールチップの背景色を変えることで annotation を見れるようにしている
 
 *** L 辞書を使うようにする                                      :improvement:
     :PROPERTIES:
@@ -1570,8 +1581,20 @@
     例えば4行目なら 4 とか表示されるので
     そこで M-4 とか入力すると4行目が選択されて便利
 
-*** その他
+*** company-quickhelp
+    :PROPERTIES:
+    :ID:       ceee0f04-adbc-4eec-afae-75d9e0e3e3ae
+    :END:
+    [[https://github.com/company-mode/company-quickhelp][company-quickhelp]] は候補の補足情報が見れるようにするパッケージ。
+    それを入れて、文字色とかぶらないように背景色を設定している。
 
+    #+begin_src emacs-lisp :tangle inits/30-company.el
+      (el-get-bundle company-quickhelp)
+
+      (custom-set-variables '(company-quickhelp-color-background "#323445"))
+    #+end_src
+
+*** その他
     グローバルでは有効にしていなくて
     各モードで有効にするような hook を入れている。
 
@@ -2629,6 +2652,7 @@
           "Behavior"
           (("S" my/notify-slack-toggle    "Notify Slack"   :toggle my/notify-slack-enable-p)
            ("v" my/toggle-view-mode       "Readonly"       :toggle view-mode)
+           ("f" flycheck-mode             "Flycheck"       :toggle flycheck-mode)
            ("A" auto-fix-mode             "Auto fix"       :toggle auto-fix-mode)
            ("E" toggle-debug-on-error     "Debug on error" :toggle debug-on-error))))
      #+end_src
@@ -2651,24 +2675,23 @@
      最初に起動した Hydra からは外してるけど、そこそこ使うコマンド群を適当に詰めてるやつ。
 
      #+begin_src emacs-lisp :tangle inits/81-hydra.el
-            (pretty-hydra-define
-              subtools-hydra
-              (:separator "-"
-                          :color teal
-                          :foreign-key warn
-                          :title (concat (all-the-icons-material "build") " Sub tools")
-                          :quit-key "q"
-                          :exit t)
-              ("Describe"
-               (("b" counsel-descbinds "Keybind")
-                ("f" counsel-describe-function "Function")
-                ("v" counsel-describe-variable "Variable")
-                ("m" describe-minor-mode "Minor mode"))
-
-               ;; ("P"   my/open-review-requested-pr "Open Requested PR")
-               "Other"
-               (("@" all-the-icons-hydra/body "List icons")
-                ("D" my/download-from-beorg))))
+       (pretty-hydra-define
+         subtools-hydra
+         (:separator "-"
+                     :color teal
+                     :foreign-key warn
+                     :title (concat (all-the-icons-material "build") " Sub tools")
+                     :quit-key "q"
+                     :exit t)
+         ("Describe"
+          (("b" counsel-descbinds "Keybind")
+           ("f" counsel-describe-function "Function")
+           ("v" counsel-describe-variable "Variable")
+           ;; ("P"   my/open-review-requested-pr "Open Requested PR")
+           ("m" describe-minor-mode "Minor mode"))
+          "Other"
+          (("@" all-the-icons-hydra/body "List icons")
+           ("D" my/download-from-beorg))))
      #+end_src
 
      | Key | 効果                                               |
@@ -2706,42 +2729,45 @@
      [[*key-chord][key-chord]] を使って ~jk~ 同時押しで起動できるようにしている。
 
      #+begin_src emacs-lisp :tangle inits/81-hydra.el
-     (pretty-hydra-define pretty-hydra-usefull-commands (:separator "-" :color teal :foreign-key warn :title (concat (all-the-icons-material "build") " Usefull commands") :quit-key "q")
-       ("File"
-        (("p" projectile-hydra/body "Projectile")
-         ("f" counsel-find-file     "Find File")
-         ("d" counsel-find-dir      "Find Dir")
-         ("r" counsel-recentf       "Recentf")
-         ("l" counsel-locate        "Locate")
-         ("A" counsel-osx-app       "macOS App"))
+       (pretty-hydra-define pretty-hydra-usefull-commands (:separator "-" :color teal :foreign-key warn :title (concat (all-the-icons-material "build") " Usefull commands") :quit-key "q")
+         ("File"
+          (("p" projectile-hydra/body "Projectile")
+           ("f" counsel-find-file     "Find File")
+           ("d" counsel-find-dir      "Find Dir")
+           ("r" counsel-recentf       "Recentf")
+           ("L" counsel-locate        "Locate")
+           ("A" counsel-osx-app       "macOS App"))
 
-        "Edit"
-        (("a" align-regexp "Align Regexp")
-         (";" comment-dwim "Comment"))
+          "Edit"
+          (("a" align-regexp "Align Regexp")
+           (";" comment-dwim "Comment"))
 
-        "Code"
-        (("G" counsel-projectile-ag       "Grep")
-         ("j" dumb-jump-pretty-hydra/body "Dumb jump")
-         ("g" avy-hydra/body              "Avy")
-         ("i" counsel-imenu               "imenu")
-         ("y" yasnippet-hydra/body        "Yasnippet")
-         ("B" browse-at-remote            "Browse")
-         ("m" magit-status                "Magit"))
+          "Code"
+          (("G" counsel-projectile-ag       "Grep")
+           ("j" dumb-jump-pretty-hydra/body "Dumb jump")
+           ("g" avy-hydra/body              "Avy")
+           ("l" pretty-hydra-lsp/body       "LSP")
+           ("i" counsel-imenu               "imenu")
+           ("y" yasnippet-hydra/body        "Yasnippet")
+           ("B" browse-at-remote            "Browse")
+           ("C" git-messenger:popup-message "Git Message")
+           ("m" magit-status                "Magit"))
 
-        "View"
-        (("D" delete-other-windows      "Only This Win")
-         ("W" window-control-hydra/body "Window Control")
-         ("+" text-scale-hydra/body     "Text Scale")
-         ("w" ace-swap-window           "Swap Window"))
+          "View"
+          (("D" delete-other-windows      "Only This Win")
+           ("W" window-control-hydra/body "Window Control")
+           ("+" text-scale-hydra/body     "Text Scale")
+           ("w" ace-swap-window           "Swap Window"))
 
-        "Tool"
-        (("SPC" major-mode-hydra         "Hydra(Major)")
-         ("s"   toggle-hydra/body        "Toggle switches")
-         ("c"   counsel-org-capture      "Capture")
-         ("o"   global-org-hydra/body    "Org")
-         ("e"   el-get-hydra/body        "el-get")
-         ("/"   google-pretty-hydra/body "Google")
-         ("t"   subtools-hydra/body      "Sub Tools"))))
+          "Tool"
+          (("SPC" major-mode-hydra         "Hydra(Major)")
+           ("s"   toggle-hydra/body        "Toggle switches")
+           ("c"   counsel-org-capture      "Capture")
+           ("o"   global-org-hydra/body    "Org")
+           ("e"   el-get-hydra/body        "el-get")
+           ("k"   kibela-hydra/body        "Kibela")
+           ("/"   google-pretty-hydra/body "Google")
+           ("t"   subtools-hydra/body      "Sub Tools"))))
      #+end_src
 
      | Key | 効果                                                                      |
@@ -2876,9 +2902,11 @@
     視線移動が少なく済んで便利。
 
     #+begin_src emacs-lisp :tangle inits/82-ivy.el
-    (el-get-bundle ivy-posframe)
-    (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
-    (ivy-posframe-mode 1)
+      (el-get-bundle ivy-posframe)
+      (setq ivy-posframe-display-functions-alist
+            '((swiper . ivy-display-function-fallback)
+              (t . ivy-posframe-display-at-frame-center)))
+      (ivy-posframe-mode 1)
     #+end_src
 *** ivy-rich
     ivy-rich は ivy の見た目をよりモダンにしてくれるやつ。
@@ -3092,8 +3120,8 @@
 
       #+begin_src emacs-lisp :tangle inits/82-ivy.el
       (setq ivy-re-builders-alist '((t . ivy--regex-plus)
-                                    (swiper . ivy-migemo--regex-plus)
-                                    (counsel-find-file . ivy-migemo--regex-plus)))
+                                    (swiper . ivy-migemo-regex-plus)
+                                    (counsel-find-file . ivy-migemo-regex-plus)))
       #+end_src
 
       また fuzzy matchi を有効にする設定も記載されているが
@@ -3115,7 +3143,7 @@
     まあできなくてもいいんだけど、
     このパッケージは Mac でだけ読むようにしたら良いよねって感じではある。
 
-*** ivy-migemo
+*** ivy-kibela
     Kibela の記事を ivy で絞り込んで Emacs から開けるようにするために
     [[https://github.com/mugijiru/ivy-kibela][ivy-kibela]] という自作ツールを使っている
 
@@ -3130,6 +3158,7 @@
               :website "https://github.com/mugijiru/ivy-kibela"
               :description "Ivy interface to kibela."
               :type github
+              :branch "main"
               :pkgname "mugijiru/ivy-kibela")
      #+end_src
 
@@ -3172,7 +3201,7 @@
 
      #+begin_src emacs-lisp :tangle inits/83-ivy-kibela.el
        (with-eval-after-load 'ivy-kibela
-         (add-to-list 'ivy-re-builders-alist '(ivy-kibela . ivy-migemo--regex-plus) t))
+         (add-to-list 'ivy-re-builders-alist '(ivy-kibela . ivy-migemo-regex-plus) t))
      #+end_src
 
 *** prescient.el
@@ -3190,11 +3219,12 @@
     レシピは自前で追加している
 
     #+begin_src emacs-lisp :tangle recipes/prescient.el.rcp
-      (:name raxod502/prescient.el
-             :website "https://github.com/raxod502/prescient.el"
+      (:name prescient.el
+             :website "https://github.com/radian-software/prescient.el"
              :description "simple but effective sorting and filtering for Emacs."
              :type github
-             :pkgname "raxod502/prescient.el")
+             :branch "main"
+             :pkgname "radian-software/prescient.el")
     #+end_src
 
     そんで ivy でそれが使われるように ivy-prescient-mode を有効にしている。
@@ -3787,6 +3817,9 @@
     #+end_src
 
 *** 設定
+    :PROPERTIES:
+    :ID:       2ff0bbe3-c3e1-476f-8e02-b2fbc3779ee2
+    :END:
 
     キーバインドは別の箇所で定義しているが
     ~C-x o~ で ace-window が起動するようにしている。
@@ -3795,6 +3828,14 @@
 
     ace-window には色々な機能があるから
     それ用の Hydra を別途定義してもいいかもしれない。
+
+    ace-window 起動時に選択可能な数字が各 buffer の中央にいい感じに表示されるようにするため
+    ace-window-posfrme-mode を有効にしている
+
+    #+begin_src emacs-lisp :tangle inits/20-ace-window.el
+    (with-eval-after-load 'ace-window
+      (ace-window-posframe-mode t))
+    #+end_src
 
 ** avy
    :PROPERTIES:
@@ -4187,19 +4228,19 @@
     けどそんなにしっかり Emacs Lisp を書いてるわけではないのがバレバレな感じである。
 
     #+begin_src emacs-lisp :tangle inits/40-emacs-lisp.el
-    (with-eval-after-load 'major-mode-hydra
-      (major-mode-hydra-define emacs-lisp-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-fileicon "elisp") " Emacs Lisp"))
-        ("Describe"
-         (("F" counsel-describe-function "Function")
-          ("V" counsel-describe-variable "Variable"))
+      (with-eval-after-load 'major-mode-hydra
+        (major-mode-hydra-define emacs-lisp-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-fileicon "elisp") " Emacs Lisp"))
+          ("Describe"
+           (("F" counsel-describe-function "Function")
+            ("V" counsel-describe-variable "Variable"))
 
-         "Insert Icon Code"
-         (("@a" (my/insert-all-the-icons-code 'alltheicon) "All the icons")
-          ("@f" (my/insert-all-the-icons-code 'fileicon)   "File icons")
-          ("@F" (my/insert-all-the-icons-code 'faicon)     "FontAwesome")
-          ("@m" (my/insert-all-the-icons-code 'material)   "Material")
-          ("@o" (my/insert-all-the-icons-code 'octicon)    "Octicon")
-          ("@w" (my/insert-all-the-icons-code 'wicon)      "Weather")))))
+           "Insert Icon Code"
+           (("@a" (my/insert-all-the-icons-code 'alltheicon) "All the icons")
+            ("@f" (my/insert-all-the-icons-code 'fileicon)   "File icons")
+            ("@F" (my/insert-all-the-icons-code 'faicon)     "FontAwesome")
+            ("@m" (my/insert-all-the-icons-code 'material)   "Material")
+            ("@o" (my/insert-all-the-icons-code 'octicon)    "Octicon")
+            ("@w" (my/insert-all-the-icons-code 'wicon)      "Weather")))))
     #+end_src
 
     | Key | 効果                            |
@@ -4466,9 +4507,9 @@
     (el-get-bundle lsp-ui)
     (add-hook 'lsp-mode-hook 'lsp-ui-mode)
     #+end_src
-*** 設定
+*** カスタム変数
     :PROPERTIES:
-    :ID:       14934040-a06b-4048-9248-91c10959a83b
+    :ID:       477cc5ce-e6a5-4cfd-b31c-4156bf2c9b5d
     :END:
     lsp-ui-doc はカーソル位置にある変数や関数などの説明を child frame で表示してくれるやつ。
 
@@ -4477,7 +4518,68 @@
     window 基準で表示するように設定を変更している
 
     #+begin_src emacs-lisp :tangle inits/20-lsp.el
-    (setq lsp-ui-doc-alignment 'window)
+      (custom-set-variables
+       '(lsp-diagnostics-provider :flycheck)
+       '(lsp-ui-doc-show-with-cursor t)
+       '(lsp-ui-doc-alignment 'window))
+    #+end_src
+*** パッチ
+    :PROPERTIES:
+    :ID:       aac9ef39-3718-4295-9393-14d4ebac7d6c
+    :END:
+    文字を拡大している時の折り返しがおかしくならないようにするパッチ
+
+    #+begin_src emacs-lisp :tangle inits/20-lsp.el
+      ;; Patch
+      ;; https://github.com/emacs-lsp/lsp-ui/issues/184#issuecomment-1158057166
+      (with-eval-after-load 'lsp-ui-sideline
+        (defun lsp-ui-sideline--align (&rest lengths)
+          "Align sideline string by LENGTHS from the right of the window."
+          (cons (+ (apply '+ lengths)
+                   (if (display-graphic-p) 1 2))
+                'width))
+        (defun lsp-ui-sideline--compute-height () nil))
+    #+end_src
+*** Hydra の設定
+    :PROPERTIES:
+    :ID:       47895f4d-f7f5-42d1-9197-3e6facf2d27a
+    :END:
+
+    #+begin_src emacs-lisp :tangle inits/20-lsp.el
+      (with-eval-after-load 'pretty-hydra
+        (pretty-hydra-define pretty-hydra-lsp (:separator "-" :color blue :foreign-keys warn :title "LSP" :quit-key "q")
+          ("Find"
+           (("x" lsp-find-definition "definition")
+            ("r" lsp-find-references "references")
+            ("t" lsp-find-type-definition "type")
+            ("i" lsp-find-implementation "implementation")
+            ("D" lsp-find-declaration "declaration"))
+
+           "Code"
+           (("m" lsp-rename "Rename"))
+
+           "UI"
+           (("I" lsp-ui-imenu "imenu")
+            ("X" lsp-ui-peek-find-definitions "def")
+            ("R" lsp-ui-peek-find-references "refs")))))
+    #+end_src
+*** TSX のインデント調整
+    :PROPERTIES:
+    :ID:       3ec53599-a6ef-4bba-bbc6-0c077c9c4049
+    :END:
+    tab 押下時は web-mode-code-indent-offset 等の設定で動いていたが
+    indent-region ではそれと違う値(4)でインデントされていて
+    indent-region を使えずにいた
+
+    https://github.com/emacs-lsp/lsp-mode/issues/2915#issuecomment-855156802
+
+    を参考に
+    lsp--formatting-indent-aliat に web-mode の設定を追加することで
+    良い感じにインデントできるように調整している
+
+    #+begin_src emacs-lisp :tangle inits/20-lsp.el
+      (with-eval-after-load 'lsp-mode
+        (add-to-list 'lsp--formatting-indent-alist `(web-mode . web-mode-code-indent-offset)))
     #+end_src
 ** markdown
    :PROPERTIES:
@@ -4558,83 +4660,36 @@
     自身のプロジェクトだと少しナビゲーション用のコマンドが不足していたので
     projectile-rails の実装を参考にコマンドを追加している
 
-**** Uploader Finder
+**** TS/TSX Finder
      :PROPERTIES:
      :ID:       ab7023a6-137c-410c-a8d2-7987fbb859a7
      :END:
-     ~app/uploaders~ に格納している upload に関連するファイルを検索するコマンド
+     ~client~ に格納しているフロントエンドのファイルを検索するコマンド
 
      #+begin_src emacs-lisp :tangle inits/41-rails.el
-     (defun my/projectile-rails-find-uploader ()
-       "Find a Uploader."
-       (interactive)
-       (projectile-rails-find-resource
-        "uploader: "
-        '(("app/uploaders/" "\\(.+\\)\\.rb$"))
-        "app/uploaders/${filename}.rb"))
+       (defun my/projectile-rails-find-typescript ()
+         "Find a TS/TSX files."
+         (interactive)
+         (projectile-rails-find-resource
+          "ts/tsx: "
+          '(("client/" "\\(.+\\.tsx?\\)$"))
+          "client/${filename}"))
      #+end_src
-
-**** Admin Finder
+**** TS/TSX test files Finder
      :PROPERTIES:
-     :ID:       43da24b6-b81b-41bf-800d-7179c9448845
+     :ID:       ab7023a6-137c-410c-a8d2-7987fbb859a7
      :END:
-     Active Admin 用のファイルを検索するためのコマンド
-     #+begin_src emacs-lisp :tangle inits/41-rails.el
-     (defun my/projectile-rails-find-admin ()
-       "Find a ActiveAdmin file."
-       (interactive)
-       (projectile-rails-find-resource
-        "admin: "
-        '(("app/admin/" "\\(.+\\)\\.rb$"))
-        "app/admin/${filename}.rb"))
-     #+end_src
-
-**** Form Object Finder
-     :PROPERTIES:
-     :ID:       c183c57f-12ad-402e-bfac-7899a311e33c
-     :END:
-     Form Object を探すためのコマンド
-     #+begin_src emacs-lisp :tangle inits/41-rails.el
-     (defun my/projectile-rails-find-form-object ()
-       "Find a Form Object."
-       (interactive)
-       (projectile-rails-find-resource
-        "form object: "
-        '(("app/models/forms/" "\\(.+\\)\\.rb$"))
-        "app/models/forms/${filename}.rb"))
-     #+end_src
-
-**** Vue Finder
-     :PROPERTIES:
-     :ID:       14484af5-1085-4cc0-85fe-eb5811d7d374
-     :END:
-     Vue.js の単一ファイルコンポーネントを探すためのコマンド
-     #+begin_src emacs-lisp :tangle inits/41-rails.el
-     (defun my/projectile-rails-find-vue ()
-       "Find a Vue."
-       (interactive)
-       (projectile-rails-find-resource
-        "vue: "
-        '(("app/javascript/" "\\(.+\\)\\.vue$"))
-        "app/javascript/${filename}.vue"))
-     #+end_src
-
-**** Webpacker 管理の JS 検索コマンド
-     :PROPERTIES:
-     :ID:       7fad4195-7d19-4c49-a346-05a34deb1ccd
-     :END:
-     Webpacker で JS を管理していたりもするので必要だった
+     ~spec/javascript~ に格納しているフロントエンドのテストファイルを検索するコマンド
 
      #+begin_src emacs-lisp :tangle inits/41-rails.el
-     (defun my/projectile-rails-find-webpack-js ()
-       "Find a Webpack js."
-       (interactive)
-       (projectile-rails-find-resource
-        "webpack js: "
-        '(("app/javascript/" "\\(.+\\)\\.js$"))
-        "app/javascript/${filename}.js"))
+       (defun my/projectile-rails-find-typescript-spec ()
+         "Find a TS/TSX test files."
+         (interactive)
+         (projectile-rails-find-resource
+          "ts/tsx spec: "
+          '(("spec/javascripts/" "\\(.+\\.spec.tsx?\\)$"))
+          "spec/javascripts/${filename}"))
      #+end_src
-
 *** キーバインド
     :PROPERTIES:
     :ID:       9345bf3b-8a41-467b-bd97-194f1321618c
@@ -4647,49 +4702,46 @@
     https://github.com/asok/projectile-rails#keymap-prefix
 
     #+begin_src emacs-lisp :tangle inits/41-rails.el
-    (with-eval-after-load 'pretty-hydra
-      (pretty-hydra-define pretty-hydra-projectile-rails-find (:separator "-" :color blue :foreign-keys warn :title "Projectile Rails" :quit-key "q")
-        ("Current"
-         (("M" projectile-rails-find-current-model      "Current model")
-          ("V" projectile-rails-find-current-view       "Current view")
-          ("C" projectile-rails-find-current-controller "Current controller")
-          ("H" projectile-rails-find-current-helper     "Current helper")
-          ("P" projectile-rails-find-current-spec       "Current spec")
-          ("Z" projectile-rails-find-current-serializer "Current serializer"))
+      (with-eval-after-load 'pretty-hydra
+        (pretty-hydra-define pretty-hydra-projectile-rails-find (:separator "-" :color blue :foreign-keys warn :title "Projectile Rails" :quit-key "q")
+          ("Current"
+           (("M" projectile-rails-find-current-model      "Current model")
+            ("V" projectile-rails-find-current-view       "Current view")
+            ("C" projectile-rails-find-current-controller "Current controller")
+            ("H" projectile-rails-find-current-helper     "Current helper")
+            ("P" projectile-rails-find-current-spec       "Current spec")
+            ("Z" projectile-rails-find-current-serializer "Current serializer"))
 
-         "App"
-         (("m" projectile-rails-find-model           "Model")
-          ("v" projectile-rails-find-view            "View")
-          ("c" projectile-rails-find-controller      "Controller")
-          ("h" projectile-rails-find-helper          "Helper")
-          ("a" my/projectile-rails-find-admin        "ActiveAdmin")
-          ("f" my/projectile-rails-find-form-object  "Form object")
-          ("@" projectile-rails-find-mailer          "Mailer")
-          ("V" my/projectile-rails-find-vue          "Vue")
-          ("J" my/projectile-rails-find-webpack-js   "Webpack js")
-          ("u" my/projectile-rails-find-uploader     "Controller")
-          ("!" projectile-rails-find-validator       "Validator")
-          ;; ("y" projectile-rails-find-layout       "Layout")
-          ("z" projectile-rails-find-serializer      "Serializer"))
+           "App"
+           (("m" projectile-rails-find-model           "Model")
+            ("v" projectile-rails-find-view            "View")
+            ("c" projectile-rails-find-controller      "Controller")
+            ("h" projectile-rails-find-helper          "Helper")
+            ("@" projectile-rails-find-mailer          "Mailer")
+            ("!" projectile-rails-find-validator       "Validator")
+            ;; ("y" projectile-rails-find-layout       "Layout")
+            ("z" projectile-rails-find-serializer      "Serializer"))
 
-         "Assets"
-         (("j" projectile-rails-find-javascript  "Javascript")
-          ;; ("w" projectile-rails-find-component)
-          ("s" projectile-rails-find-stylesheet  "CSS"))
+           "Assets"
+           (("j" projectile-rails-find-javascript         "Javascript")
+            ;; ("w" projectile-rails-find-component)
+            ("x" my/projectile-rails-find-typescript      "TS/TSX")
+            ("X" my/projectile-rails-find-typescript-spec "TS/TSX spec")
+            ("s" projectile-rails-find-stylesheet         "CSS"))
 
-         "Other"
-         (("n" projectile-rails-find-migration    "Migration")
-          ("r" projectile-rails-find-rake-task    "Rake task")
-          ("i" projectile-rails-find-initializer  "Initializer")
-          ("l" projectile-rails-find-lib          "Lib")
-          ("p" projectile-rails-find-spec         "Spec")
-          ("t" projectile-rails-find-locale       "Translation"))
+           "Other"
+           (("n" projectile-rails-find-migration    "Migration")
+            ("r" projectile-rails-find-rake-task    "Rake task")
+            ("i" projectile-rails-find-initializer  "Initializer")
+            ("l" projectile-rails-find-lib          "Lib")
+            ("p" projectile-rails-find-spec         "Spec")
+            ("t" projectile-rails-find-locale       "Translation"))
 
-         "Single Files"
-         (("R" projectile-rails-goto-routes   "routes.rb")
-          ("G" projectile-rails-goto-gemfile  "Gemfile")
-          ("D" projectile-rails-goto-schema   "schema.rb"))))
-      (define-key projectile-rails-mode-map (kbd "C-c r") 'pretty-hydra-projectile-rails-find/body))
+           "Single Files"
+           (("R" projectile-rails-goto-routes   "routes.rb")
+            ("G" projectile-rails-goto-gemfile  "Gemfile")
+            ("D" projectile-rails-goto-schema   "schema.rb"))))
+        (define-key projectile-rails-mode-map (kbd "C-c r") 'pretty-hydra-projectile-rails-find/body))
     #+end_src
 
     | Key | 効果                                               | 備考                                                      |
@@ -4767,6 +4819,30 @@
     (add-to-list 'auto-mode-alist '("\\.[jt]sx" . web-mode))
     #+end_src
 
+*** キーバインドの追加
+    :PROPERTIES:
+    :ID:       6df42bc4-03df-45a6-b34c-813241c9559c
+    :END:
+    テスト用のファイルを開いたら ~C-c C-c~ でテストを実行できるようにするため
+    キーバインドを設定
+
+    #+begin_src emacs-lisp :tangle inits/41-react.el
+      (defun my/setup-web-mode-map ()
+        (let ((keymap web-mode-map))
+          (define-key keymap (kbd "C-c C-c") 'my/mocha-test-file)))
+    #+end_src
+
+*** 自動フォーマット hook の用意
+    :PROPERTIES:
+    :ID:       082f02ac-19a5-41dd-8cf6-5ad55f83e5ab
+    :END:
+    tsx の保存時に自動でフォーマットしてほしいのでそれ用に hook を追加
+
+    #+begin_src emacs-lisp :tangle inits/41-react.el
+      (defun my/web-mode-auto-fix-hook ()
+        (when (string-equal (file-name-extension buffer-file-name) "tsx")
+          (lsp-eslint-fix-all)))
+    #+end_src
 *** lsp-mode などの有効化
     :PROPERTIES:
     :ID:       240d8f05-5125-496b-b453-a3021dddfd8d
@@ -4778,15 +4854,22 @@
     - lsp
     - lsp-ui-mode
     - company-mode
-    - flycheck
 
     を有効にしている。
 
-    flycheck では lsp と eslint を使いたいのでそれ以外の JS の checker は disable にしている
+    また
 
-    また web-mode の設定も少し弄っていて
+    - 保存時の自動補正 hook の追加
+    - 自動テストのキーバインドの設定
+
+    も合わせて行っている。
+
+    それ以外にも web-mode の設定も少し弄っていて
     indent は2桁スペースになるようにしているが
     自動インデントだとそれが反映されないっぽいので自動インデントはオフにしている。
+
+    なお過去の設定では flycheck も少し設定していたが
+    lsp-mode から eslint を使うことでやりたいことの対応ができるようなのでその設定は外した。
 
     #+begin_src emacs-lisp :tangle inits/41-react.el
       (defun my/web-mode-tsx-hook ()
@@ -4800,9 +4883,8 @@
             (display-line-numbers-mode t)
             (lsp)
             (lsp-ui-mode 1)
-            (flycheck-mode 1)
-            (setq flycheck-disabled-checkers '(javascript-standard javascript-jshint))
-            (flycheck-add-next-checker 'lsp '(warning . javascript-eslint)))))
+            (add-hook 'before-save-hook 'my/web-mode-auto-fix-hook nil 'local)
+            (my/setup-web-mode-map))))
 
       (add-hook 'web-mode-hook 'my/web-mode-tsx-hook)
     #+end_src
@@ -4845,6 +4927,17 @@
     (define-key rspec-mode-map (kbd "C-c C-c") 'rspec-verify-single)
     #+end_src
     他にも色々な機能があるのだけどキーバインド未設定なのでこれだけしか使ってない。
+
+*** Docker 連携
+    :PROPERTIES:
+    :ID:       6c468980-ddd6-4d2a-a79f-d5fc3cc948de
+    :END:
+    Docker と連携するように調整
+
+    #+begin_src emacs-lisp :tangle inits/42-rspec.el
+      (custom-set-variables
+       '(rspec-use-docker-when-possible t))
+    #+end_src
 ** ruby
    :PROPERTIES:
    :EXPORT_FILE_NAME: ruby
@@ -4897,10 +4990,11 @@
      enh-ruby-mode が読み込まれた後に setq で以下のように設定されている
 
      #+begin_src emacs-lisp :tangle inits/40-ruby.el
-     (with-eval-after-load 'enh-ruby-mode
-       (setq enh-ruby-add-encoding-comment-on-save nil)
-       (setq enh-ruby-deep-indent-paren nil)
-       (setq enh-ruby-bounce-deep-indent t))
+       (with-eval-after-load 'enh-ruby-mode
+         (setq enh-ruby-add-encoding-comment-on-save nil)
+         (setq enh-ruby-deep-indent-paren nil)
+         (setq enh-ruby-deep-indent-construct nil)
+         (setq enh-ruby-bounce-deep-indent nil))
      #+end_src
 
 ***** encoding のマジックコメントが入らないようにする
@@ -4950,17 +5044,19 @@
      hook 用の関数で補完などの機能を有効にしている
 
      #+begin_src emacs-lisp :tangle inits/40-ruby.el
-     (defun my/enh-ruby-mode-hook ()
-       (company-mode 1)
-       (lsp)
-       (lsp-ui-mode 1)
-       (turn-on-smartparens-strict-mode)
-       (display-line-numbers-mode 1))
+       (defun my/enh-ruby-mode-hook ()
+         (company-mode 1)
+         (lsp)
+         (lsp-ui-mode 1)
+         (add-hook 'before-save-hook #'lsp-format-buffer nil 'local)
+         (turn-on-smartparens-strict-mode)
+         (display-line-numbers-mode 1))
      #+end_src
 
      - 補完用に company-mode を有効化
      - [[https://github.com/castwide/solargraph][solargraph]] を使ってるので lsp-mode を有効にしている
        - lsp-ui-mode も有効にして色々な情報を表示している
+     - また lsp-mode の自動フォーマットを保存時に実行するようにしている
      - 開きカッコと閉じカッコの組み合わせがズレないように smartparens-strict-mode を有効にしている
      - 行番号も表示されている方が便利なので display-line-numbers-mode を有効にしている
 
@@ -4991,7 +5087,7 @@
 
      #+begin_src emacs-lisp :tangle inits/40-ruby.el
      (with-eval-after-load 'major-mode-hydra
-       (major-mode-hydra-define enh-ruby-mode (:quit-key "q" :title (concat (all-the-icons-alltheicon "ruby-alt") " Ruby commands"))
+       (major-mode-hydra-define enh-ruby-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-alltheicon "ruby-alt") " Ruby commands"))
          ("Enh Ruby"
           (("{" enh-ruby-toggle-block "Toggle block")
            ("e" enh-ruby-insert-end "Insert end"))
@@ -5163,25 +5259,46 @@
      :PROPERTIES:
      :ID:       da5daf74-c30b-4ca4-a8c4-79c8cc5be3d5
      :END:
-     indent は2文字がいいのでデフォルトから変更している
+     - indent は2文字がいいのでデフォルトから変更
+     - 言語設定を ja にする。エラーが日本語で出るようになるとか……?
+     - inlay-hint を有効にする。何が変わるかわかってないけど
+     - Node.js の使用メモリも 2048 MB に増加。メモリ足らんってなる時があったので
+     - 保存時の自動フォーマット
+
+     などを設定している。
 
      #+begin_src emacs-lisp :tangle inits/40-ts.el
-     (custom-set-variables
-      '(typescript-indent-level 2))
+       (custom-set-variables
+        '(typescript-indent-level 2)
+        '(lsp-typescript-locale "ja")
+        '(lsp-inlay-hint-enable t)
+        '(lsp-javascript-display-parameter-name-hints t)
+        '(lsp-javascript-display-enum-member-value-hints t)
+        '(lsp-clients-typescript-max-ts-server-memory 2048)
+        '(lsp-eslint-auto-fix-on-save t))
      #+end_src
+**** キーマップ関数
+     :PROPERTIES:
+     :ID:       fad1ad45-bbd3-4073-91c1-c0dbcd693cc3
+     :END:
+     ~C-c C-c~ でテストを実行できるようにするように keymap を設定する関数を追加。
 
+     #+begin_src emacs-lisp :tangle inits/40-ts.el
+       (defun my/setup-ts-mode-keymap ()
+         (let ((keymap typescript-mode-map))
+           (define-key keymap (kbd "C-c C-c") 'my/mocha-test-file)))
+     #+end_src
 **** auto-fix の hook 関数
      :PROPERTIES:
      :ID:       26121357-e71c-4977-9046-a0d49c557069
      :END:
      保存した時に自動で整形してほしいなと思ったので
-     auto-fix.el で自動で保存されるように hook 関数を用意している
+     自動で保存されるように hook 関数を用意している
 
      #+begin_src emacs-lisp :tangle inits/40-ts.el
-       (defun my/auto-fix-mode-hook-for-ts ()
-         (add-hook 'before-save-hook 'auto-fix-before-save))
-
-       (add-hook 'auto-fix-mode-hook 'my/auto-fix-mode-hook-for-ts)
+       (defun my/ts-mode-auto-fix-hook ()
+         (when (string-equal (file-name-extension buffer-file-name) "ts")
+           (lsp-eslint-fix-all)))
      #+end_src
 **** hook
      :PROPERTIES:
@@ -5190,13 +5307,9 @@
      - company-mode
      - smartparens-strict-mode
      - lsp/lsp-ui
-     - flycheck
 
      などのプログラミングで便利な各種のモードを
      hook を使って有効化している
-
-     auto-fix はここでもなんか設定しているので
-     なんか設定まとめたいなあって感じはある。
 
      #+begin_src emacs-lisp :tangle inits/40-ts.el
        (defun my/ts-mode-hook ()
@@ -5205,15 +5318,8 @@
          (display-line-numbers-mode t)
          (lsp)
          (lsp-ui-mode 1)
-         (flycheck-mode 1)
-         (setq flycheck-disabled-checkers '(javascript-standard javascript-jshint))
-         (flycheck-add-next-checker 'lsp '(warning . javascript-eslint))
-
-         (let* ((args (list "run" "eslint" "--fix"))
-                (args-string (mapconcat #'shell-quote-argument args " ")))
-           (setq-local auto-fix-option args-string))
-         (setq-local auto-fix-options '("run" "eslint" "--fix"))
-         (setq-local auto-fix-command "yarn"))
+         (add-hook 'before-save-hook #'my/ts-mode-auto-fix-hook nil 'local)
+         (my/setup-ts-mode-keymap))
      #+end_src
 
      この関数を
@@ -5243,6 +5349,11 @@
      (add-to-list 'auto-mode-alist '("\\.ts" . typescript-mode))
      #+end_src
 
+     また skk もいい感じに動いてほしいので context-skk-programming-mode を有効にしている
+
+     #+begin_src emacs-lisp :tangle inits/40-ts.el
+       (add-to-list 'context-skk-programming-mode 'typescript-mode)
+     #+end_src
 ** Vue.js
    :PROPERTIES:
    :EXPORT_FILE_NAME: vue-js
@@ -5414,8 +5525,9 @@
     [[https://github.com/DarthFennec/highlight-indent-guides][highlight-indent-guides]] を有効にしている。
 
     #+begin_src emacs-lisp :tangle inits/40-yaml.el
-    (defun my/yaml-mode-hook ()
-      (highlight-indent-guides-mode 1))
+      (defun my/yaml-mode-hook ()
+        (lsp-mode 1)
+        (highlight-indent-guides-mode 1))
     #+end_src
 
     で、その hook を最後に yaml-mode-hook に追加している。
@@ -5499,21 +5611,40 @@
     :PROPERTIES:
     :ID:       e55368d5-9c47-4011-a724-11f8ba4b0717
     :END:
-    いつも通り el-get でインストール
+    いつも通り el-get でインストールする。
+    ただし依存関係で必要なので emacs-sqlite3-api も合わせて入れている
 
     #+begin_src emacs-lisp :tangle inits/36-forge.el
-    (el-get-bundle forge)
+      (el-get-bundle emacs-sqlite3-api)
+      (el-get-bundle forge)
     #+end_src
 
 *** 読み込み
     :PROPERTIES:
     :ID:       26164152-1328-4127-8dd0-08a9ffe54315
     :END:
-    magit の拡張なので magit を読み込んで後に読み込まれるようにしている
+    magit の拡張なので magit を読み込んで後に読み込まれるようにしている。
+    依存で必要な sqlite3 も合わせて require している。
 
     #+begin_src emacs-lisp :tangle inits/36-forge.el
-    (with-eval-after-load 'magit
-      (require 'forge))
+      (with-eval-after-load 'magit
+        (require 'sqlite3)
+        (require 'forge))
+    #+end_src
+
+*** flycheck の有効化
+    :PROPERTIES:
+    :ID:       73193a3c-3b91-498e-857c-dbe5cb025d02
+    :END:
+    Pull Request を作る時に text-lint で指摘されたいので
+    そのタイミングで flycheck を有効化している
+
+    #+begin_src emacs-lisp :tangle inits/36-forge.el
+      (defun my/forge-post-mode-hook ()
+        (flycheck-mode 1))
+
+      (with-eval-after-load 'forge
+        (add-hook 'forge-post-mode-hook 'my/forge-post-mode-hook))
     #+end_src
 
 *** その他
@@ -5620,32 +5751,24 @@
     その変数をいくらか設定している。
 
     #+begin_src emacs-lisp :tangle inits/20-google-translate.el
-    (custom-set-variables
-     '(google-translate-default-source-language "en")
-     '(google-translate-default-target-language "ja")
-     '(google-translate-output-destination 'popup))
+      (custom-set-variables
+       '(google-translate-default-source-language "en")
+       '(google-translate-default-target-language "ja")
+       '(google-translate-translation-to-kill-ring t)
+       '(google-translate-output-destination 'popup))
     #+end_src
 
     - google-translate-default-source-language :: 翻訳元言語
     - google-translate-default-target-language :: 翻訳先言語
+    - google-translate-translation-to-kill-ring :: 翻訳後に RET などで翻訳結果を kill-ring にコピー
     - google-translate-output-destination :: 翻訳結果の表示
 
     日本語を母国語としていて英語はからきしという人間なので当然英日変換されるように設定していて
     あとは変換結果の表示方法は popup でツールチップ表示するようにしている。
 
-    popup 表示の欠点としては、その結果をコピペできないところだけど
-    current-buffer への挿入も邪魔そうだし
-    kill-ring に入れるのも違うしなどを考えた結果、消去法でこれにしてみた。
-
-    #+begin_src emacs-lisp
-    (my/google-translate-at-point-output-tempbuf ()
-      (let ((google-translate-output-destination nil))
-        (google-translate-at-point)))
-    #+end_src
-
-    とか用意しておいたらその時だけデフォルト動作の temporary buffer への出力ができそうだけどもね。
-    ただこれだと逆版も作らないといけなさそうなのでちょっと方法考えるか。
-    別で output destination を切り替えるようにするとか。
+    ツールチップの表示だけでなくそれを文書に入れたい時は
+    ツールチップが出ている時に Enter でも叩けば kill-ring に入るので
+    そこから yank している
 *** キーバインド
     [[*google-this][google-this]] と同じく Google 連係機能なので
     [[*Google 連携][キーバインド > Google 連携]] でまとめて Hydra を定義している
@@ -5664,6 +5787,20 @@
     :END:
     #+begin_src emacs-lisp :tangle inits/35-magit.el
     (el-get-bundle magit)
+    #+end_src
+*** その他設定
+    :PROPERTIES:
+    :ID:       77ca776f-8289-474b-a175-aabfd5569ee2
+    :END:
+
+    ghub を load-path に入れないとうまくいかなかった時があったので入れてたり、
+    orgit を入れていたり
+
+    #+begin_src emacs-lisp :tangle inits/35-magit.el
+    (with-eval-after-load 'magit
+      (add-to-list 'load-path (expand-file-name "~/.emacs.d/el-get/ghub/lisp")))
+
+    (el-get-bundle orgit)
     #+end_src
 *** 使い方
     Git 管理されてるファイルを開いている時に
@@ -5801,8 +5938,8 @@
     そもそも最近 TODOIST 使ってない……
 
     #+begin_src emacs-lisp :tangle inits/50-todoist.el
-    (with-eval-after-load 'org
-      (my/load-config "my-todoist-config"))
+      (with-eval-after-load 'todoist
+        (setq todoist-token (funcall (plist-get (nth 0 (auth-source-search :host "todoist.com" :max 1)) :secret))))
     #+end_src
 
 ** twmode
@@ -5912,8 +6049,9 @@
     そこから引っ張り出している。
 
     #+begin_src emacs-lisp :tangle inits/80-wakatime.el
-    (custom-set-variables
-     '(wakatime-api-key (funcall (plist-get (nth 0 (auth-source-search :host "wakatime.com" :max 1)) :secret))))
+      (custom-set-variables
+       '(wakatime-cli-path "/usr/bin/wakatime")
+       '(wakatime-api-key (funcall (plist-get (nth 0 (auth-source-search :host "wakatime.com" :max 1)) :secret))))
     #+end_src
 *** 有効化
     :PROPERTIES:
@@ -6078,19 +6216,22 @@
     (setq org-log-done 'time)
     (setq org-log-into-drawer "LOGBOOK")
     #+end_src
-*** Excel ファイルを OS で指定したアプリで開く
+*** org-mode 読み込み後の追加実行コード
     :PROPERTIES:
     :ID:       d26312c6-8813-4131-bae8-10e7d194aeac
     :END:
-    org-mode のリンク先の拡張子が xlsx の時に OS 側で指定した標準アプリを開くようにしている。
-    Excel が入っていたらそっちで開かれるし、入ってなければ Numbers で開かれる。はず。
+
+    まず org-protocol を使って Firefox と連携したいのでこれを読み込むようにしている。
+    また org-mode のリンク先の拡張子が xlsx の時に OS 側で指定した標準アプリを開くようにしている。
 
     #+begin_src emacs-lisp :tangle inits/60-org.el
-    (with-eval-after-load 'org
-      (add-to-list 'org-file-apps '("\\.xlsx?\\'" . default)))
+      (with-eval-after-load 'org
+        (require 'org-protocol)
+        (add-to-list 'org-modules 'org-protocol)
+        (add-to-list 'org-file-apps '("\\.xlsx?\\'" . default)))
     #+end_src
 
-    第二引数に default を指定すると、内部的には open コマンドが使われることを利用している。
+    第二引数に default を指定すると、内部的には Mac なら open コマンドが使われることを利用している。
 
 ** org-babel
    :PROPERTIES:
@@ -6108,14 +6249,15 @@
     なんか普段から使いそうな奴をとりあえず選定しているつもり。
 
     #+begin_src emacs-lisp :tangle inits/60-org.el
-    (org-babel-do-load-languages 'org-babel-load-languages
-                                 '((plantuml . t)
-                                   (sql . t)
-                                   (gnuplot . t)
-                                   (emacs-lisp . t)
-                                   (shell . t)
-                                   (js . t)
-                                   (ruby . t)))
+      (org-babel-do-load-languages 'org-babel-load-languages
+                                   '((plantuml . t)
+                                     (sql . t)
+                                     (gnuplot . t)
+                                     (emacs-lisp . t)
+                                     (shell . t)
+                                     (js . t)
+                                     (org . t)
+                                     (ruby . t)))
     #+end_src
 
     - js, ruby :: 仕事でメインで使ってる言語なので入れている。
@@ -6160,7 +6302,7 @@
 
     多分 custom-set-variables でちゃんと設定したらいいんだろうなあ。
 
-*** org-store-link 時に org-id が発行されるようにする
+*** カスタム変数の設定
     :PROPERTIES:
     :ID:       2c86d33a-f809-4b50-b037-93acfe7233e8
     :END:
@@ -6168,9 +6310,60 @@
     ~org-id-link-to-org-use-id~ を ~t~ にしていると
     ~org-store-link~ を実行した時に自動で id を発行してそれを store してくれるようになる
 
+    また archive ファイルを同じフォルダに ~archives~ フォルダを掘ってそこに格納したいので org-archive-location を設定している
+
     #+begin_src emacs-lisp :tangle inits/60-org.el
       (custom-set-variables
-       '(org-id-link-to-org-use-id t))
+       '(org-id-link-to-org-use-id t)
+       '(org-archive-location "./archives/%s_archive::"))
+    #+end_src
+
+*** habit 完了時に Appt を refresh
+    :PROPERTIES:
+    :ID:       ae81a9a2-fd06-4e84-98e4-ca94123e35ab
+    :END:
+    Appt + alert.el + Dunst で通知を行っているが、
+    完了後も通知対象として残っていると困るので完了時に refresh するように調整している
+
+    #+begin_src emacs-lisp :tangle inits/60-org.el
+      (defun my/org-refresh-appt-on-complete-habit (args)
+        "習慣タスクを完了した時に Appt を refresh する"
+        (let* ((element (org-element-at-point))
+               (style (org-element-property :STYLE element))
+               (to (plist-get args :to)))
+          (if (and (string= style "habit") (string= "TODO" to))
+              (my/org-refresh-appt))))
+
+      (add-hook 'org-trigger-hook 'my/org-refresh-appt-on-complete-habit)
+    #+end_src
+*** org-mode-map の override
+    :PROPERTIES:
+    :ID:       c4f5df45-d295-4231-ab32-b39c5dd7157c
+    :END:
+    windmove-mode とキーバインドがかぶってるので
+    それと同居できるように override している。
+
+    具体的には org-mode のコマンドが動く場所であればそれを実行し
+    それがないなら windmove のコマンドを実行する
+
+    #+begin_src emacs-lisp :tangle inits/60-org.el
+      (defun my/org-mode-map-override-windmove-mode-map ()
+        (let ((oldmap windmove-mode-map)
+              (newmap (make-sparse-keymap)))
+          (make-local-variable 'minor-mode-overriding-map-alist)
+          (add-to-list 'minor-mode-overriding-map-alist `(windmove-mode . ,newmap))
+
+          (add-hook 'org-shiftup-final-hook 'windmove-up)
+          (add-hook 'org-shiftleft-final-hook 'windmove-left)
+          (add-hook 'org-shiftdown-final-hook 'windmove-down)
+          (add-hook 'org-shiftright-final-hook 'windmove-right)))
+
+      (add-hook 'org-mode-hook
+                (lambda ()
+                  (my/org-mode-map-override-windmove-mode-map)))
+
+      (with-eval-after-load 'org-mode
+        (my/org-mode-map-override-windmove-mode-map))
     #+end_src
 ** 予定のカレンダー表示
    :PROPERTIES:
@@ -6417,9 +6610,10 @@
                        (org-agenda-span 'day)
                        (org-agenda-todo-keyword-format "-")
                        (org-overriding-columns-format "%25ITEM %TODO")
-                       (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
+                       (org-agenda-files '("~/Documents/org/tasks/next-actions.org"
+                                           "~/Documents/org/tasks/reviews.org"))
                        (org-super-agenda-groups '((:name "仕掛かり中" :todo "DOING")
-                                                  (:name "TODO" :todo "TODO")
+                                                  (:name "TODO" :and (:todo "TODO" :not (:category "レビュー")))
                                                   (:name "待ち" :todo "WAIT")
                                                   (:discard (:anything t))))))
            (tags-todo "Weekday-Finish|Daily"
@@ -6438,9 +6632,23 @@
                        (org-agenda-todo-keyword-format "-")
                        (org-overriding-columns-format "%25ITEM %TODO")
                        (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
-                       (org-super-agenda-groups '((:name "仕掛かり中" :todo "DOING")
-                                                  (:name "TODO" :todo "TODO")
-                                                  (:name "待ち" :todo "WAIT")
+                       (org-super-agenda-groups '((:name "仕掛かり中" :and (:todo "DOING" :not (:category "レビュー") :not (:category "開発")))
+                                                  (:name "TODO" :and (:todo "TODO" :not (:category "レビュー") :not (:category "開発")))
+                                                  (:name "待ち" :and (:todo "WAIT" :not (:category "レビュー") :not (:category "開発")))
+                                                  (:discard (:anything t))))))
+           (alltodo ""
+                      ((org-agenda-prefix-format " ")
+                       (org-agenda-overriding-header "予定作業")
+                       (org-habit-show-habits nil)
+                       (org-agenda-span 'day)
+                       (org-agenda-todo-keyword-format "-")
+                       (org-overriding-columns-format "%25ITEM %TODO")
+                       (org-agenda-files '("~/Documents/org/tasks/projects.org"))
+                       (org-super-agenda-groups '((:name "〆切が過ぎてる作業" :and (:deadline past :category "Private"))
+                                                  (:name "予定が過ぎてる作業" :and (:scheduled past :category "Private"))
+                                                  (:name "今日〆切の作業" :and (:deadline today :category "Private"))
+                                                  (:name "今日予定の作業" :and (:scheduled today :category "Private"))
+                                                  ;; (:name "今後1週間の作業" :and (:and (:scheduled (before ,(format-time-string "%Y-%m-%d" (time-add (current-time) (* 60 60 24 7)))) (:scheduled (after (format-time-string "%Y-%m-%d" (current-time))))) :not (:category "Private")))
                                                   (:discard (:anything t))))))
            (tags-todo "Holiday|Weekend|Daily"
                       ((org-agenda-overriding-header "習慣")
@@ -6448,6 +6656,7 @@
                        (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                                   (:name "今日予定の作業" :scheduled today)
                                                   (:discard (:anything t))))))))
+
          ("p" . "Projects")
          ("pp" "Projects"
           ((alltodo "" ((org-agenda-prefix-format " ")
@@ -6500,17 +6709,19 @@
                                                    (:name "今日予定の作業" :scheduled today)
                                                    (:discard (:anything t))))))
            (tags-todo "-Emacs-org-Env-Hugo" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
+         ("pN" "No major tags"
+          ((tags-todo "-Emacs-org-Env-Hugo-Kibela-Develop-ReviewLister-HouseWork-Private" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
          ("P" "Pointers"
           ((todo "DOING" ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))
            (todo "TODO"  ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))))
          ("X" "Finished"
           ((todo "DONE"    ((org-agenda-files '("~/Documents/org/tasks/projects.org"
                                                 "~/Documents/org/tasks/inbox.org"
-                                                "~/Documents/org/tasks/shopping.org"
+                                                "~/Documents/org/tasks/reviews.org"
                                                 "~/Documents/org/tasks/next-actions.org"))))
            (todo "SOMEDAY" ((org-agenda-files '("~/Documents/org/tasks/projects.org"
                                                 "~/Documents/org/tasks/inbox.org"
-                                                "~/Documents/org/tasks/shopping.org"
+                                                "~/Documents/org/tasks/reviews.org"
                                                 "~/Documents/org/tasks/next-actions.org"))))))
 
          ("z" "日報"
@@ -6592,14 +6803,15 @@
     バラバラの変数にするよりも alist とか plist とかにする方が適切な気がする
 
     #+begin_src emacs-lisp :tangle inits/61-org-capture.el
-    (setq my/org-capture-interrupted-file  (concat my/org-tasks-directory "interrupted.org"))
-    (setq my/org-capture-inbox-file        (concat my/org-tasks-directory "inbox.org"))
-    (setq my/org-capture-pointers-file     (concat my/org-tasks-directory "pointers.org"))
-    (setq my/org-capture-impediments-file  (concat org-directory "work/scrum/impediments.org"))
-    (setq my/org-capture-memo-file         (concat org-directory "memo.org"))
-    (setq my/org-capture-sql-file          (concat org-directory "work/sql.org"))
-    (setq my/org-capture-shopping-file     (concat my/org-tasks-directory "shopping.org"))
-    (setq my/org-capture-2020-summary-file (concat org-directory "private/2020_summary.org"))
+      (setq my/org-capture-interrupted-file  (concat my/org-tasks-directory "interrupted.org"))
+      (setq my/org-capture-inbox-file        (concat my/org-tasks-directory "inbox.org"))
+      (setq my/org-capture-pointers-file     (concat my/org-tasks-directory "pointers.org"))
+      (setq my/org-capture-impediments-file  (concat org-directory "work/scrum/impediments.org"))
+      (setq my/org-capture-memo-file         (concat org-directory "memo.org"))
+      (setq my/org-capture-sql-file          (concat org-directory "work/sql.org"))
+      (setq my/org-capture-shopping-file     (concat my/org-tasks-directory "shopping.org"))
+      (setq my/org-capture-2020-summary-file (concat org-directory "private/2020_summary.org"))
+      (setq my/org-small-topic-file (concat org-directory "small-topic.org"))
     #+end_src
 
 *** テンプレートの定義
@@ -6626,7 +6838,7 @@
     (setq org-capture-templates
           `(("g" "Inbox にエントリー" entry
              (file ,my/org-capture-inbox-file)
-             "* TODO %?\n** Ready の定義
+             "* TODO %? %^G\n** Ready の定義
        - Why?, Goal, How? が埋められていること
        - How がある程度具体的に書かれていること
     ** Why?
@@ -6649,6 +6861,9 @@
              "** TODO %?\n\t")
             ("R" "2020ふりかえりにエントリー" entry
              (file+headline ,my/org-capture-2020-summary-file "Timeline")
+             "** %?\n\t")
+            ("z" "一言・雑談ネタ" entry
+             (file+headline ,my/org-small-topic-file "Topic")
              "** %?\n\t")
             ("s" "SQL にエントリー" entry
              (file+headline ,my/org-capture-sql-file "SQL")
@@ -6895,10 +7110,25 @@
     :PROPERTIES:
     :ID:       247a2cfe-1bee-4293-82fb-b9e68130f258
     :END:
-    とりあえず require をしないといけない
+
+    まずは org-gcal の設定が authinfo から読み込まれるようにする
+
+    #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
+    (custom-set-variables
+     '(org-gcal-client-id (plist-get (nth 0 (auth-source-search :host "googleusercontent.com")) :client))
+     '(org-gcal-client-secret (funcall (plist-get (nth 0 (auth-source-search :host "googleusercontent.com" :max 1)) :secret))))
+    #+end_src
+
+    そして org-gcal 本体を require する。
 
     #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
     (require 'org-gcal)
+    #+end_src
+
+    あとは passphrase を保存できるようにした方が良いみたいなのが確か README に比較的最近追加されたのでそれを入れている
+
+    #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
+    (setq plstore-cache-passphrase-for-symmetric-encryption t)
     #+end_src
 
     あとは設定ファイルは公開したくないので別ファイルに分けてる。
@@ -6947,6 +7177,13 @@
      #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
      (setq appt-disp-window-function 'my/appt-alert)
      #+end_src
+
+     最後に org-gcal でカレンダーを取得した後に appt に登録されるように advice を設定した
+
+     #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
+       (advice-add #'org-gcal--sync-unlock :after #'my/org-refresh-appt)
+     #+end_src
+
 *** その他
     [[https://github.com/misohena/gcal][gcal-org]] に乗り換えようかと思ってるが
     そっちの中身もよくわからないので躊躇している。
@@ -7253,13 +7490,11 @@
     appt.el で通知されるように登録する必要があるのでコマンドを定義している。
 
     #+begin_src emacs-lisp :tangle inits/68-my-org-commands.el
-    (defun my/org-gcal-refresh-appt ()
-      (interactive)
-      (let ((org-agenda-files my/org-agenda-calendar-files))
-        (org-agenda-to-appt t)))
+      (defun my/org-refresh-appt ()
+        (interactive)
+        (let ((org-agenda-files (append my/org-agenda-calendar-files org-agenda-files)))
+          (org-agenda-to-appt t)))
     #+end_src
-
-
 *** calfw で選択したカレンダーを表示
     :PROPERTIES:
     :ID:       8f1b20e2-4abd-4eaf-88ea-e1c3d262a4f4
@@ -7317,52 +7552,56 @@
     major-mode-hydra で、org-mode のファイルを開いている時によく使いそうなコマンドのキーバインドを定義している
 
     #+begin_src emacs-lisp :tangle inits/69-org-mode-hydra.el
-    (with-eval-after-load 'major-mode-hydra
-      (major-mode-hydra-define org-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-fileicon "org") " Org commands"))
-        ("Insert"
-         (("l" org-insert-link                     "Link")
-          ("T" org-insert-todo-heading             "Todo")
-          ("h" org-insert-heading-respect-content  "Heading")
-          ("P" org-set-property                    "Property")
-          ("." org-time-stamp                      "Timestamp")
-          ("!" org-time-stamp-inactive             "Timestamp(inactive)")
-          ("S" org-insert-structure-template       "Snippet"))
+       (with-eval-after-load 'major-mode-hydra
+         (major-mode-hydra-define org-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-fileicon "org") " Org commands"))
+           ("Insert"
+            (("l" org-insert-link                     "Link")
+             ("T" org-insert-todo-heading             "Todo")
+             ("h" org-insert-heading-respect-content  "Heading")
+             ("P" org-set-property                    "Property")
+             ("." org-time-stamp                      "Timestamp")
+             ("!" org-time-stamp-inactive             "Timestamp(inactive)")
+             ("S" org-insert-structure-template       "Snippet"))
 
-         "Edit"
-         (("a" org-archive-subtree  "Archive")
-          ("r" org-refile           "Refile")
-          ("Q" org-set-tags-command "Tag"))
+            "Edit"
+            (("a" org-archive-subtree  "Archive")
+             ("r" org-refile           "Refile")
+             ("Q" org-set-tags-command "Tag"))
 
-         "View"
-         (("N" org-toggle-narrow-to-subtree "Toggle Subtree")
-          ("C" org-columns "Columns")
-          ("D" my/org-clock-toggle-display  "Toggle Display"))
+            "View"
+            (("N" org-toggle-narrow-to-subtree "Toggle Subtree")
+             ("C" org-columns "Columns")
+             ("O" org-global-cycle "Toggle open")
+             ("D" my/org-clock-toggle-display  "Toggle Display"))
 
-         "Task"
-         (("s" org-schedule         "Schedule")
-          ("d" org-deadline         "Deadline")
-          ("t" my/org-todo          "Change state")
-          ("c" org-toggle-checkbox  "Toggle checkbox"))
+            "Task"
+            (("s" org-schedule         "Schedule")
+             ("d" org-deadline         "Deadline")
+             ("t" my/org-todo          "Change state")
+             ("c" org-toggle-checkbox  "Toggle checkbox"))
 
-         "Clock"
-         (("i" org-clock-in      "In")
-          ("o" org-clock-out     "Out")
-          ("E" org-set-effort    "Effort")
-          ("R" org-clock-report  "Report")
-          ("p" org-pomodoro      "Pomodoro"))
+            "Clock"
+            (("i" org-clock-in      "In")
+             ("o" org-clock-out     "Out")
+             ("E" org-set-effort    "Effort")
+             ("R" org-clock-report  "Report")
+             ("p" org-pomodoro      "Pomodoro"))
 
-         "Babel"
-         (("e" org-babel-confirm-evaluate "Eval")
-          ("x" org-babel-tangle "Export SRC"))
+            "Babel"
+            (("e" org-babel-confirm-evaluate "Eval")
+             ("x" org-babel-tangle "Export SRC"))
 
-         "Trello"
-         (("K" org-trello-mode "On/Off" :toggle org-trello-mode)
-          ("k" (if org-trello-mode
-                   (org-trello-hydra/body)
-                 (message "org-trello-mode is not enabled")) "Menu"))
+            "Roam"
+            ((";" org-roam-hydra/body "Menu"))
 
-         "Agenda"
-         (("," org-cycle-agenda-files "Cycle")))))
+            "Trello"
+            (("K" org-trello-mode "On/Off" :toggle org-trello-mode)
+             ("k" (if org-trello-mode
+                      (org-trello-hydra/body)
+                    (message "org-trello-mode is not enabled")) "Menu"))
+
+            "Agenda"
+            (("," org-cycle-agenda-files "Cycle")))))
     #+end_src
 
     | Key | 効果                                                 | 使用頻度                                                         |
@@ -7402,37 +7641,38 @@
     pretty-hydra を使って Global に使える org-mode のコマンドを叩けるようにしている
 
     #+begin_src emacs-lisp :tangle inits/69-org-mode-hydra.el
-          (with-eval-after-load 'pretty-hydra
-            (pretty-hydra-define
-              global-org-hydra
-              (:separator "-"
-                          :color teal
-                          :foreign-key warn
-                          :title (concat (all-the-icons-fileicon "org") " Global Org commands")
-                          :quit-key "q")
-              ("Main"
-               (("a" org-agenda "Agenda")
-                ("c" counsel-org-capture "Capture")
-                ("l" org-store-link "Store link")
-                ("t" my/org-tags-view-only-todo "Tagged Todo"))
+      (with-eval-after-load 'pretty-hydra
+        (pretty-hydra-define
+          global-org-hydra
+          (:separator "-"
+                      :color teal
+                      :foreign-key warn
+                      :title (concat (all-the-icons-fileicon "org") " Global Org commands")
+                      :quit-key "q")
+          ("Main"
+           (("a" org-agenda "Agenda")
+            ("c" counsel-org-capture "Capture")
+            ("l" org-store-link "Store link")
+            ("t" my/org-tags-view-only-todo "Tagged Todo"))
 
-               "Calendar"
-               (("F" org-gcal-fetch "Fetch Calendar")
-                ("C" my/open-calendar "Calendar")
-                ("A" my/org-gcal-refresh-appt "Appt"))
+           "Calendar"
+           (("F" org-gcal-fetch "Fetch Calendar")
+            ("C" my/open-calendar "Calendar")
+            ("A" my/org-refresh-appt "Appt"))
 
-               "Clock"
-               (("i" org-clock-in       "In")
-                ("o" org-clock-out      "Out")
-                ("r" org-clock-in-last  "Restart")
-                ("x" org-clock-cancel   "Cancel")
-                ("j" org-clock-goto     "Goto"))
+           "Clock"
+           (("i" org-clock-in       "In")
+            ("o" org-clock-out      "Out")
+            ("r" org-clock-in-last  "Restart")
+            ("x" org-clock-cancel   "Cancel")
+            ("j" org-clock-goto     "Goto"))
 
-               "Search"
-               (("H" org-search-view "Heading"))
+           "Search"
+           (("H" org-search-view "Heading")
+            ("f" org-roam-find-file "Roam"))
 
-               "Pomodoro"
-               (("p" org-pomodoro "Pomodoro")))))
+           "Pomodoro"
+           (("p" org-pomodoro "Pomodoro")))))
     #+end_src
 
     | Key | 効果                                    | 使用頻度                                                                            |

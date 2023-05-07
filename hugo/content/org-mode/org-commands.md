@@ -94,9 +94,9 @@ Hydra から利用するために定義している。"
 appt.el で通知されるように登録する必要があるのでコマンドを定義している。
 
 ```emacs-lisp
-(defun my/org-gcal-refresh-appt ()
+(defun my/org-refresh-appt ()
   (interactive)
-  (let ((org-agenda-files my/org-agenda-calendar-files))
+  (let ((org-agenda-files (append my/org-agenda-calendar-files org-agenda-files)))
     (org-agenda-to-appt t)))
 ```
 

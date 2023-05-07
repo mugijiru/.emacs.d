@@ -40,6 +40,17 @@ draft = false
 これを有効にしていると補完候補の末尾に quick access key が表示されて例えば4行目なら 4 とか表示されるのでそこで M-4 とか入力すると4行目が選択されて便利
 
 
+## company-quickhelp {#company-quickhelp}
+
+[company-quickhelp](https://github.com/company-mode/company-quickhelp) は候補の補足情報が見れるようにするパッケージ。それを入れて、文字色とかぶらないように背景色を設定している。
+
+```emacs-lisp
+(el-get-bundle company-quickhelp)
+
+(custom-set-variables '(company-quickhelp-color-background "#323445"))
+```
+
+
 ## その他 {#その他}
 
 グローバルでは有効にしていなくて各モードで有効にするような hook を入れている。
