@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.104.2" />
     <meta name="description" content="麦汁の Emacs 設定解説ページ">
 <meta name="author" content="麦汁">
 
@@ -12,20 +12,20 @@
     <title>scss :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1655619836" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1683429461" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1655619836"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1683429461"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1655619836"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1683429461"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1683429461"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1683429461"></script>
 
     
   </div>
@@ -2758,39 +2758,39 @@
 <p><a href="https://elpa.gnu.org/packages/rainbow-mode.html">rainbow-mode</a> はカラーコードを入力した際に、そのカラーコード部分の背景色をカラーコードの色に変化させるパッケージ。ぱっと見で大体どんな色かわかって便利なやつ</p>
 <h3 id="インストール">インストール</h3>
 <p>自分はel-get で入れている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle rainbow-mode)
-</code></pre></div><p>ELPA に登録されているので package-install でもいける</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle rainbow-mode)
+</span></span></code></pre></div><p>ELPA に登録されているので package-install でもいける</p>
 <h2 id="scss-mode">scss-mode</h2>
 <p>scss-mode は Emacs 組込みの css-mode の中で定義されているメジャーモード。なのでインストール不要で使えるし
 <code>.scss</code> という拡張子なら自動的に scss-mode で開いてくれるようになっている。</p>
 <h3 id="設定">設定 <span class="tag"><span class="improvement">improvement</span></span></h3>
 <p>インデントはデフォルトだと半角空白 4 つとなっているが麦汁さん的には 2 の方が良いのでそのように変更している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;scss-mode</span>
-  (setq css-indent-offset <span style="color:#ae81ff">2</span>))
-</code></pre></div><p><code>with-eval-after-load</code> を使っているが
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;scss-mode</span>
+</span></span><span style="display:flex;"><span>  (setq css-indent-offset <span style="color:#ae81ff">2</span>))
+</span></span></code></pre></div><p><code>with-eval-after-load</code> を使っているが
 <code>css-indent-offset</code> は <code>defcustom</code> で定義されているので
 <code>custom-set-variables</code> を使うように修正した方が良さそう</p>
 <h2 id="hook">hook <span class="tag"><span class="improvement">improvement</span></span></h2>
 <p>scss を使う上で hook を使って色々有効化したりしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/scss-mode-hook ()
-  (flycheck-mode <span style="color:#ae81ff">1</span>)
-
-  (setq-local lsp-prefer-flymake <span style="color:#66d9ef">nil</span>)
-  (lsp)
-  (lsp-ui-mode <span style="color:#ae81ff">-1</span>)
-
-  (smartparens-strict-mode <span style="color:#ae81ff">1</span>)
-
-  <span style="color:#75715e">;; lsp-ui とかより後に設定しないと上書きされるのでここに移動した</span>
-  (setq-local flycheck-checker <span style="color:#e6db74">&#39;scss-stylelint</span>)
-  (setq-local flycheck-check-syntax-automatically <span style="color:#f92672">&#39;</span>(save new-line idle-change))
-
-  (company-mode <span style="color:#ae81ff">1</span>)
-  (display-line-numbers-mode <span style="color:#ae81ff">1</span>)
-
-  (rainbow-mode))
-(add-hook <span style="color:#e6db74">&#39;scss-mode-hook</span> <span style="color:#e6db74">&#39;my/scss-mode-hook</span>)
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/scss-mode-hook ()
+</span></span><span style="display:flex;"><span>  (flycheck-mode <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  (setq-local lsp-prefer-flymake <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>  (lsp)
+</span></span><span style="display:flex;"><span>  (lsp-ui-mode <span style="color:#ae81ff">-1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  (smartparens-strict-mode <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">;; lsp-ui とかより後に設定しないと上書きされるのでここに移動した</span>
+</span></span><span style="display:flex;"><span>  (setq-local flycheck-checker <span style="color:#e6db74">&#39;scss-stylelint</span>)
+</span></span><span style="display:flex;"><span>  (setq-local flycheck-check-syntax-automatically <span style="color:#f92672">&#39;</span>(save new-line idle-change))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  (company-mode <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>  (display-line-numbers-mode <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  (rainbow-mode))
+</span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;scss-mode-hook</span> <span style="color:#e6db74">&#39;my/scss-mode-hook</span>)
+</span></span></code></pre></div><ul>
 <li>flycheck-mode の有効化
 <ul>
 <li>これによりリアルタイムに lint 結果が分かって便利になる</li>
@@ -2820,20 +2820,20 @@
 <h2 id="カラーコード-css-variable-の置き換え">カラーコード→ CSS Variable の置き換え</h2>
 <p>外部コマンドで fetch-color-var というのを定義してそいつにカラーコードを渡すとプロジェクトで使ってる CSS Variable を返してくるようにしている。</p>
 <p>で、それを Emacs から叩いて使えるようにしているのが以下のコマンド</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/replace-var (<span style="color:#a6e22e">point</span> mark)
-  (interactive <span style="color:#e6db74">&#34;r&#34;</span>)
-  (let* ((str (<span style="color:#a6e22e">buffer-substring</span> <span style="color:#a6e22e">point</span> mark))
-         (cmd (<span style="color:#a6e22e">concat</span> <span style="color:#e6db74">&#34;fetch-color-var &#39;&#34;</span> str <span style="color:#e6db74">&#34;&#39;&#34;</span>))
-         (response (shell-command-to-string cmd)))
-    (<span style="color:#a6e22e">delete-region</span> <span style="color:#a6e22e">point</span> mark)
-    (<span style="color:#a6e22e">insert</span> response)))
-</code></pre></div><h2 id="キーバインド">キーバインド</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/replace-var (<span style="color:#a6e22e">point</span> mark)
+</span></span><span style="display:flex;"><span>  (interactive <span style="color:#e6db74">&#34;r&#34;</span>)
+</span></span><span style="display:flex;"><span>  (let* ((str (<span style="color:#a6e22e">buffer-substring</span> <span style="color:#a6e22e">point</span> mark))
+</span></span><span style="display:flex;"><span>         (cmd (<span style="color:#a6e22e">concat</span> <span style="color:#e6db74">&#34;fetch-color-var &#39;&#34;</span> str <span style="color:#e6db74">&#34;&#39;&#34;</span>))
+</span></span><span style="display:flex;"><span>         (response (shell-command-to-string cmd)))
+</span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">delete-region</span> <span style="color:#a6e22e">point</span> mark)
+</span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">insert</span> response)))
+</span></span></code></pre></div><h2 id="キーバインド">キーバインド</h2>
 <p>設定しているけど使ってないなあ……。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;major-mode-hydra</span>
-  (major-mode-hydra-define scss-mode (:quit-key <span style="color:#e6db74">&#34;q&#34;</span> :title (<span style="color:#a6e22e">concat</span> (all-the-icons-alltheicon <span style="color:#e6db74">&#34;css3&#34;</span>) <span style="color:#e6db74">&#34; CSS&#34;</span>))
-    (<span style="color:#e6db74">&#34;Edit&#34;</span>
-     ((<span style="color:#e6db74">&#34;v&#34;</span> my/replace-var <span style="color:#e6db74">&#34;replace-var&#34;</span>)))))
-</code></pre></div><table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;major-mode-hydra</span>
+</span></span><span style="display:flex;"><span>  (major-mode-hydra-define scss-mode (:quit-key <span style="color:#e6db74">&#34;q&#34;</span> :title (<span style="color:#a6e22e">concat</span> (all-the-icons-alltheicon <span style="color:#e6db74">&#34;css3&#34;</span>) <span style="color:#e6db74">&#34; CSS&#34;</span>))
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;Edit&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;v&#34;</span> my/replace-var <span style="color:#e6db74">&#34;replace-var&#34;</span>)))))
+</span></span></code></pre></div><table>
 <thead>
 <tr>
 <th>Key</th>
@@ -4736,19 +4736,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1655619836"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1655619836"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1683429461"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1683429461"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1655619836"></script>
-    <script src="/.emacs.d/js/learn.js?1655619836"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1655619836"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1683429461"></script>
+    <script src="/.emacs.d/js/learn.js?1683429461"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1683429461"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1655619836"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1683429461"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

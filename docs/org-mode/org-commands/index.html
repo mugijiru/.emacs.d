@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.104.2" />
     <meta name="description" content="麦汁の Emacs 設定解説ページ">
 <meta name="author" content="麦汁">
 
@@ -12,20 +12,20 @@
     <title>org-mode 用の独自コマンド :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1655619836" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1683429461" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1655619836"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1683429461"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1655619836"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1683429461"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1683429461"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1683429461"></script>
 
     
   </div>
@@ -2752,75 +2752,75 @@
 <h2 id="org-mode-用のファイルを作成するコマンド">org-mode 用のファイルを作成するコマンド <span class="tag"><span class="unused">unused</span></span></h2>
 <p>指定したフォルダに org-mode なファイルを作るためのコマンドを用意している。</p>
 <p>が、使ってないし意味をあまり感じないし消して良さそう。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq my/org-document-dir (<span style="color:#a6e22e">expand-file-name</span> <span style="color:#e6db74">&#34;~/Documents/org/&#34;</span>))
-(defun my/create-org-document ()
-  (interactive)
-  (find-file-other-window my/org-document-dir))
-</code></pre></div><h2 id="各ツリーの所要時間表示-非表示切替">各ツリーの所要時間表示/非表示切替</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq my/org-document-dir (<span style="color:#a6e22e">expand-file-name</span> <span style="color:#e6db74">&#34;~/Documents/org/&#34;</span>))
+</span></span><span style="display:flex;"><span>(defun my/create-org-document ()
+</span></span><span style="display:flex;"><span>  (interactive)
+</span></span><span style="display:flex;"><span>  (find-file-other-window my/org-document-dir))
+</span></span></code></pre></div><h2 id="各ツリーの所要時間表示-非表示切替">各ツリーの所要時間表示/非表示切替</h2>
 <p>org-clock-display で各ツリーにおける org-clock で記録された所要時間が表示でき、
 org-clock-remove-overlays でそれを非表示にできるが、それを Toggle できるようにコマンド/関数を定義している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/org-clock-toggle-display ()
-  <span style="color:#e6db74">&#34;各ツリーの末尾に掛かった作業時間を表示/非表示を切り替えるコマンド&#34;</span>
-  (interactive)
-  (if org-clock-overlays
-      (org-clock-remove-overlays)
-    (org-clock-display)))
-</code></pre></div><h2 id="org-todo-keywords-から装飾を省いた文字列のリストを返す関数">org-todo-keywords から装飾を省いた文字列のリストを返す関数</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/org-clock-toggle-display ()
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;各ツリーの末尾に掛かった作業時間を表示/非表示を切り替えるコマンド&#34;</span>
+</span></span><span style="display:flex;"><span>  (interactive)
+</span></span><span style="display:flex;"><span>  (if org-clock-overlays
+</span></span><span style="display:flex;"><span>      (org-clock-remove-overlays)
+</span></span><span style="display:flex;"><span>    (org-clock-display)))
+</span></span></code></pre></div><h2 id="org-todo-keywords-から装飾を省いた文字列のリストを返す関数">org-todo-keywords から装飾を省いた文字列のリストを返す関数</h2>
 <p>ivy で org-todo-keywords を選択可能にするために
 org-todo-keywords を加工してシンプルな文字列の配列にする関数を定義している。</p>
 <p>後述の <code>my/org-todo</code> で利用している</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/org-todo-keyword-strings ()
-  <span style="color:#e6db74">&#34;org-todo-keywords から装飾を省いた文字列のリストを返す関数&#34;</span>
-  (let* ((keywords (cl-rest (cl-first org-todo-keywords)))
-         (without-delimiter (cl-remove-if (lambda (elm) (string= <span style="color:#e6db74">&#34;|&#34;</span> elm))
-                                          keywords)))
-    (<span style="color:#a6e22e">mapcar</span> (lambda (element)
-              (replace-regexp-in-string <span style="color:#e6db74">&#34;\(.+\)&#34;</span> <span style="color:#e6db74">&#34;&#34;</span> element))
-            without-delimiter)))
-</code></pre></div><h2 id="ivy-で-todo-ステータスを選択し設定するコマンド">Ivy で TODO ステータスを選択し設定するコマンド</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/org-todo-keyword-strings ()
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;org-todo-keywords から装飾を省いた文字列のリストを返す関数&#34;</span>
+</span></span><span style="display:flex;"><span>  (let* ((keywords (cl-rest (cl-first org-todo-keywords)))
+</span></span><span style="display:flex;"><span>         (without-delimiter (cl-remove-if (lambda (elm) (string= <span style="color:#e6db74">&#34;|&#34;</span> elm))
+</span></span><span style="display:flex;"><span>                                          keywords)))
+</span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">mapcar</span> (lambda (element)
+</span></span><span style="display:flex;"><span>              (replace-regexp-in-string <span style="color:#e6db74">&#34;\(.+\)&#34;</span> <span style="color:#e6db74">&#34;&#34;</span> element))
+</span></span><span style="display:flex;"><span>            without-delimiter)))
+</span></span></code></pre></div><h2 id="ivy-で-todo-ステータスを選択し設定するコマンド">Ivy で TODO ステータスを選択し設定するコマンド</h2>
 <p>標準の org-todo だと画面がガチャガチャ動くのが気になったので
 ivy で選択できるようにしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/org-todo ()
-  <span style="color:#e6db74">&#34;ivy で TODO ステータスを切り替えるためのコマンド
-</span><span style="color:#e6db74">Hydra から利用するために定義している。&#34;</span>
-  (interactive)
-  (ivy-read <span style="color:#e6db74">&#34;Org todo: &#34;</span>
-            (my/org-todo-keyword-strings)
-            :require-match <span style="color:#66d9ef">t</span>
-            :sort <span style="color:#66d9ef">nil</span>
-            :action (lambda (keyword)
-                      (org-todo keyword))))
-</code></pre></div><h2 id="タグ選択でそのタグがついたヘッドラインをリスト表示">タグ選択でそのタグがついたヘッドラインをリスト表示</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/org-todo ()
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;ivy で TODO ステータスを切り替えるためのコマンド
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Hydra から利用するために定義している。&#34;</span>
+</span></span><span style="display:flex;"><span>  (interactive)
+</span></span><span style="display:flex;"><span>  (ivy-read <span style="color:#e6db74">&#34;Org todo: &#34;</span>
+</span></span><span style="display:flex;"><span>            (my/org-todo-keyword-strings)
+</span></span><span style="display:flex;"><span>            :require-match <span style="color:#66d9ef">t</span>
+</span></span><span style="display:flex;"><span>            :sort <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>            :action (lambda (keyword)
+</span></span><span style="display:flex;"><span>                      (org-todo keyword))))
+</span></span></code></pre></div><h2 id="タグ選択でそのタグがついたヘッドラインをリスト表示">タグ選択でそのタグがついたヘッドラインをリスト表示</h2>
 <p>タグ毎に見たいことがありそうなので用意したやつ。存在を忘れてしまっていたのであまり使ってない。</p>
 <p>カスタムアジェンダを頑張る方が良い気もする</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/org-tags-view-only-todo ()
-  (interactive)
-  (org-tags-view <span style="color:#66d9ef">t</span>))
-</code></pre></div><h2 id="org-gcal-で取得した情報を-appt-に登録">org-gcal で取得した情報を appt に登録</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/org-tags-view-only-todo ()
+</span></span><span style="display:flex;"><span>  (interactive)
+</span></span><span style="display:flex;"><span>  (org-tags-view <span style="color:#66d9ef">t</span>))
+</span></span></code></pre></div><h2 id="org-gcal-で取得した情報を-appt-に登録">org-gcal で取得した情報を appt に登録</h2>
 <p>appt.el で通知されるように登録する必要があるのでコマンドを定義している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/org-gcal-refresh-appt ()
-  (interactive)
-  (let ((org-agenda-files my/org-agenda-calendar-files))
-    (org-agenda-to-appt <span style="color:#66d9ef">t</span>)))
-</code></pre></div><h2 id="calfw-で選択したカレンダーを表示">calfw で選択したカレンダーを表示</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/open-calendar ()
-  (interactive)
-  (ivy-read <span style="color:#e6db74">&#34;Calendar: &#34;</span>
-            my/calendar-targets
-            :require-match <span style="color:#66d9ef">t</span>
-            :sort <span style="color:#66d9ef">nil</span>
-            :action (lambda (target)
-                      (progn
-                        (setq cfw:org-icalendars <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory target <span style="color:#e6db74">&#34;.org&#34;</span>)))
-                        (cfw:open-org-calendar)))))
-</code></pre></div><h2 id="レビュー依頼がされてる-pr-を取得してバッファに挿入">レビュー依頼がされてる PR を取得してバッファに挿入</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/org-refresh-appt ()
+</span></span><span style="display:flex;"><span>  (interactive)
+</span></span><span style="display:flex;"><span>  (let ((org-agenda-files (<span style="color:#a6e22e">append</span> my/org-agenda-calendar-files org-agenda-files)))
+</span></span><span style="display:flex;"><span>    (org-agenda-to-appt <span style="color:#66d9ef">t</span>)))
+</span></span></code></pre></div><h2 id="calfw-で選択したカレンダーを表示">calfw で選択したカレンダーを表示</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/open-calendar ()
+</span></span><span style="display:flex;"><span>  (interactive)
+</span></span><span style="display:flex;"><span>  (ivy-read <span style="color:#e6db74">&#34;Calendar: &#34;</span>
+</span></span><span style="display:flex;"><span>            my/calendar-targets
+</span></span><span style="display:flex;"><span>            :require-match <span style="color:#66d9ef">t</span>
+</span></span><span style="display:flex;"><span>            :sort <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>            :action (lambda (target)
+</span></span><span style="display:flex;"><span>                      (progn
+</span></span><span style="display:flex;"><span>                        (setq cfw:org-icalendars <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory target <span style="color:#e6db74">&#34;.org&#34;</span>)))
+</span></span><span style="display:flex;"><span>                        (cfw:open-org-calendar)))))
+</span></span></code></pre></div><h2 id="レビュー依頼がされてる-pr-を取得してバッファに挿入">レビュー依頼がされてる PR を取得してバッファに挿入</h2>
 <p>review-requested-prs というコマンドでレビュー対象の PR を取得できるようにしているのでそれを Emacs から叩けるようにしているコマンド。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/insert-review-requested-prs-as-string ()
-  (interactive)
-  (let* ((cmd (<span style="color:#a6e22e">concat</span> <span style="color:#e6db74">&#34;review-requested-prs &#34;</span> my/github-organization <span style="color:#e6db74">&#34; &#34;</span> my/github-repository))
-         (response (shell-command-to-string cmd)))
-    (<span style="color:#a6e22e">insert</span> response)))
-</code></pre></div><p>実際のところこの Emacs のコマンドは使わず
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/insert-review-requested-prs-as-string ()
+</span></span><span style="display:flex;"><span>  (interactive)
+</span></span><span style="display:flex;"><span>  (let* ((cmd (<span style="color:#a6e22e">concat</span> <span style="color:#e6db74">&#34;review-requested-prs &#34;</span> my/github-organization <span style="color:#e6db74">&#34; &#34;</span> my/github-repository))
+</span></span><span style="display:flex;"><span>         (response (shell-command-to-string cmd)))
+</span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">insert</span> response)))
+</span></span></code></pre></div><p>実際のところこの Emacs のコマンドは使わず
 Terminal で review-requested-prs というコマンドを直で叩いているから何かしら工夫が必要そうである。</p>
 <p>あと、そもそも既にバッファにあるやつとマージしたいとか色々やりたいことはあるのでそれをなんとかしたいですね。</p>
 
@@ -4712,19 +4712,19 @@ Terminal で review-requested-prs というコマンドを直で叩いている�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1655619836"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1655619836"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1683429461"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1683429461"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1655619836"></script>
-    <script src="/.emacs.d/js/learn.js?1655619836"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1655619836"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1683429461"></script>
+    <script src="/.emacs.d/js/learn.js?1683429461"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1683429461"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1655619836"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1683429461"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

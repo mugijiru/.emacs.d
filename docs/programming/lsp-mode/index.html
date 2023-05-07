@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.104.2" />
     <meta name="description" content="麦汁の Emacs 設定解説ページ">
 <meta name="author" content="麦汁">
 
@@ -12,20 +12,20 @@
     <title>lsp-mode :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1655619836" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1683429461" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1655619836"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1683429461"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1655619836"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1683429461"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1683429461"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1683429461"></script>
 
     
   </div>
@@ -2716,7 +2716,10 @@
   <ul>
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
-    <li><a href="#設定">設定</a></li>
+    <li><a href="#カスタム変数">カスタム変数</a></li>
+    <li><a href="#パッチ">パッチ</a></li>
+    <li><a href="#hydra-の設定">Hydra の設定</a></li>
+    <li><a href="#tsx-のインデント調整">TSX のインデント調整</a></li>
   </ul>
 </nav>
     </div>
@@ -2747,15 +2750,55 @@
 <h2 id="インストール">インストール</h2>
 <p>lsp-mode 本体と
 UI 周りを担当する lsp-ui-mode の両方をインストールしている。また lsp-mode が有効になる際に lsp-ui-mode も同時に有効になるようにしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle lsp-mode)
-(el-get-bundle lsp-ui)
-(add-hook <span style="color:#e6db74">&#39;lsp-mode-hook</span> <span style="color:#e6db74">&#39;lsp-ui-mode</span>)
-</code></pre></div><h2 id="設定">設定</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle lsp-mode)
+</span></span><span style="display:flex;"><span>(el-get-bundle lsp-ui)
+</span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;lsp-mode-hook</span> <span style="color:#e6db74">&#39;lsp-ui-mode</span>)
+</span></span></code></pre></div><h2 id="カスタム変数">カスタム変数</h2>
 <p>lsp-ui-doc はカーソル位置にある変数や関数などの説明を child frame で表示してくれるやつ。</p>
 <p>これがデフォルトではフレーム基準で右上に表示するのだが大きめの画面を分割して使っていると大分遠くに表示されてしまうので
 window 基準で表示するように設定を変更している</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq lsp-ui-doc-alignment <span style="color:#e6db74">&#39;window</span>)
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-variables
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(lsp-diagnostics-provider :flycheck)
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(lsp-ui-doc-show-with-cursor <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(lsp-ui-doc-alignment <span style="color:#e6db74">&#39;window</span>))
+</span></span></code></pre></div><h2 id="パッチ">パッチ</h2>
+<p>文字を拡大している時の折り返しがおかしくならないようにするパッチ</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; Patch</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; https://github.com/emacs-lsp/lsp-ui/issues/184#issuecomment-1158057166</span>
+</span></span><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;lsp-ui-sideline</span>
+</span></span><span style="display:flex;"><span>  (defun lsp-ui-sideline--align (<span style="color:#66d9ef">&amp;rest</span> lengths)
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;Align sideline string by LENGTHS from the right of the window.&#34;</span>
+</span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">cons</span> (<span style="color:#a6e22e">+</span> (<span style="color:#a6e22e">apply</span> <span style="color:#e6db74">&#39;+</span> lengths)
+</span></span><span style="display:flex;"><span>             (if (display-graphic-p) <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span>))
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#39;width</span>))
+</span></span><span style="display:flex;"><span>  (defun lsp-ui-sideline--compute-height () <span style="color:#66d9ef">nil</span>))
+</span></span></code></pre></div><h2 id="hydra-の設定">Hydra の設定</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
+</span></span><span style="display:flex;"><span>  (pretty-hydra-define pretty-hydra-lsp (:separator <span style="color:#e6db74">&#34;-&#34;</span> :color blue :foreign-keys <span style="color:#a6e22e">warn</span> :title <span style="color:#e6db74">&#34;LSP&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;Find&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;x&#34;</span> lsp-find-definition <span style="color:#e6db74">&#34;definition&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;r&#34;</span> lsp-find-references <span style="color:#e6db74">&#34;references&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;t&#34;</span> lsp-find-type-definition <span style="color:#e6db74">&#34;type&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;i&#34;</span> lsp-find-implementation <span style="color:#e6db74">&#34;implementation&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;D&#34;</span> lsp-find-declaration <span style="color:#e6db74">&#34;declaration&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Code&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;m&#34;</span> lsp-rename <span style="color:#e6db74">&#34;Rename&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;UI&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;I&#34;</span> lsp-ui-imenu <span style="color:#e6db74">&#34;imenu&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;X&#34;</span> lsp-ui-peek-find-definitions <span style="color:#e6db74">&#34;def&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;R&#34;</span> lsp-ui-peek-find-references <span style="color:#e6db74">&#34;refs&#34;</span>)))))
+</span></span></code></pre></div><h2 id="tsx-のインデント調整">TSX のインデント調整</h2>
+<p>tab 押下時は web-mode-code-indent-offset 等の設定で動いていたが
+indent-region ではそれと違う値(4)でインデントされていて
+indent-region を使えずにいた</p>
+<p><a href="https://github.com/emacs-lsp/lsp-mode/issues/2915#issuecomment-855156802">https://github.com/emacs-lsp/lsp-mode/issues/2915#issuecomment-855156802</a></p>
+<p>を参考に
+lsp&ndash;formatting-indent-aliat に web-mode の設定を追加することで良い感じにインデントできるように調整している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;lsp-mode</span>
+</span></span><span style="display:flex;"><span>  (add-to-list <span style="color:#e6db74">&#39;lsp--formatting-indent-alist</span> <span style="color:#f92672">`</span>(web-mode <span style="color:#f92672">.</span> web-mode-code-indent-offset)))
+</span></span></code></pre></div>
 
 <footer class="footline">
 	
@@ -4644,19 +4687,19 @@ window 基準で表示するように設定を変更している</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1655619836"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1655619836"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1683429461"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1683429461"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1655619836"></script>
-    <script src="/.emacs.d/js/learn.js?1655619836"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1655619836"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1683429461"></script>
+    <script src="/.emacs.d/js/learn.js?1683429461"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1683429461"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1655619836"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1683429461"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

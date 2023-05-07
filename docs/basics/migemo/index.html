@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.104.2" />
     <meta name="description" content="麦汁の Emacs 設定解説ページ">
 <meta name="author" content="麦汁">
 
@@ -12,20 +12,20 @@
     <title>migemo :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1655619836" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1683429461" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1655619836"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1683429461"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1655619836"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1683429461"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1683429461"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1683429461"></script>
 
     
   </div>
@@ -2752,45 +2752,45 @@
 <p>これとても便利で抜け出せない。</p>
 <h2 id="インストール">インストール</h2>
 <p>いつも通り el-get でインストール。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle migemo)
-(<span style="color:#a6e22e">load</span> <span style="color:#e6db74">&#34;migemo&#34;</span>)
-</code></pre></div><p>load はする必要あるのかわからんけど、そういう設定が既に入ってるのでそのままにしている。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle migemo)
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">load</span> <span style="color:#e6db74">&#34;migemo&#34;</span>)
+</span></span></code></pre></div><p>load はする必要あるのかわからんけど、そういう設定が既に入ってるのでそのままにしている。</p>
 <h2 id="mac-での辞書の位置の指定">Mac での辞書の位置の指定</h2>
 <p>Homebrew で cmigemo を入れているのでそれに合わせて辞書の位置を指定している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#75715e">;; Mac</span>
-(let ((path <span style="color:#e6db74">&#34;/usr/local/share/migemo/utf-8/migemo-dict&#34;</span>))
-  (if (<span style="color:#a6e22e">file-exists-p</span> path)
-      (setq migemo-dictionary path)))
-</code></pre></div><h2 id="ubuntu-での辞書の位置の指定">Ubuntu での辞書の位置の指定</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; Mac</span>
+</span></span><span style="display:flex;"><span>(let ((path <span style="color:#e6db74">&#34;/usr/local/share/migemo/utf-8/migemo-dict&#34;</span>))
+</span></span><span style="display:flex;"><span>  (if (<span style="color:#a6e22e">file-exists-p</span> path)
+</span></span><span style="display:flex;"><span>      (setq migemo-dictionary path)))
+</span></span></code></pre></div><h2 id="ubuntu-での辞書の位置の指定">Ubuntu での辞書の位置の指定</h2>
 <p>apt で cmigemo を入れているのでそれに合わせて辞書の位置を指定している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#75715e">;; Ubuntu</span>
-(let ((path <span style="color:#e6db74">&#34;/usr/share/cmigemo/utf-8/migemo-dict&#34;</span>))
-  (if (<span style="color:#a6e22e">file-exists-p</span> path)
-      (setq migemo-dictionary path)))
-</code></pre></div><h2 id="manjaro-での辞書の位置の指定">Manjaro での辞書の位置の指定</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; Ubuntu</span>
+</span></span><span style="display:flex;"><span>(let ((path <span style="color:#e6db74">&#34;/usr/share/cmigemo/utf-8/migemo-dict&#34;</span>))
+</span></span><span style="display:flex;"><span>  (if (<span style="color:#a6e22e">file-exists-p</span> path)
+</span></span><span style="display:flex;"><span>      (setq migemo-dictionary path)))
+</span></span></code></pre></div><h2 id="manjaro-での辞書の位置の指定">Manjaro での辞書の位置の指定</h2>
 <p>yay で cmigemo-git を入れているのでそれに合わせて辞書の位置を指定している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#75715e">;; Manjaro</span>
-(let ((path <span style="color:#e6db74">&#34;/usr/share/migemo/utf-8/migemo-dict&#34;</span>))
-  (if (<span style="color:#a6e22e">file-exists-p</span> path)
-      (setq migemo-dictionary path)))
-</code></pre></div><h2 id="cmigemo-コマンドの-path-指定">cmigemo コマンドの PATH 指定</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; Manjaro</span>
+</span></span><span style="display:flex;"><span>(let ((path <span style="color:#e6db74">&#34;/usr/share/migemo/utf-8/migemo-dict&#34;</span>))
+</span></span><span style="display:flex;"><span>  (if (<span style="color:#a6e22e">file-exists-p</span> path)
+</span></span><span style="display:flex;"><span>      (setq migemo-dictionary path)))
+</span></span></code></pre></div><h2 id="cmigemo-コマンドの-path-指定">cmigemo コマンドの PATH 指定</h2>
 <p>環境で PATH が変わるので which コマンドの結果を migemo-command に設定している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(let ((path (s-chomp (shell-command-to-string <span style="color:#e6db74">&#34;which cmigemo&#34;</span>))))
-  (if (s-ends-with? <span style="color:#e6db74">&#34;not found&#34;</span> path)
-      (<span style="color:#a6e22e">message</span> <span style="color:#e6db74">&#34;cmigemo not found&#34;</span>)
-    (setq migemo-command path)))
-</code></pre></div><h2 id="オプション設定">オプション設定</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(let ((path (s-chomp (shell-command-to-string <span style="color:#e6db74">&#34;which cmigemo&#34;</span>))))
+</span></span><span style="display:flex;"><span>  (if (s-ends-with? <span style="color:#e6db74">&#34;not found&#34;</span> path)
+</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">message</span> <span style="color:#e6db74">&#34;cmigemo not found&#34;</span>)
+</span></span><span style="display:flex;"><span>    (setq migemo-command path)))
+</span></span></code></pre></div><h2 id="オプション設定">オプション設定</h2>
 <p>裏側で動くのでうるさくならないように <code>-q</code> を指定しているのと
 Emacs から叩くから <code>--emacs</code> を指定しているだけ。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq migemo-options <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;-q&#34;</span> <span style="color:#e6db74">&#34;--emacs&#34;</span>))
-</code></pre></div><h2 id="coding-system-の指定">coding system の指定</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq migemo-options <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;-q&#34;</span> <span style="color:#e6db74">&#34;--emacs&#34;</span>))
+</span></span></code></pre></div><h2 id="coding-system-の指定">coding system の指定</h2>
 <p>Mac と Ubuntu でしか使わないしそれらの環境だと統一で utf-8-unix でいいよねってことでそれを指定している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq migemo-coding-system <span style="color:#e6db74">&#39;utf-8-unix</span>)
-</code></pre></div><p>今時なら euc とかにする必要もないだろうしね。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq migemo-coding-system <span style="color:#e6db74">&#39;utf-8-unix</span>)
+</span></span></code></pre></div><p>今時なら euc とかにする必要もないだろうしね。</p>
 <h2 id="初期化">初期化</h2>
 <p>以上の設定を入れた上で初期化をしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(migemo-init)
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(migemo-init)
+</span></span></code></pre></div>
 
 <footer class="footline">
 	
@@ -4676,19 +4676,19 @@ Emacs から叩くから <code>--emacs</code> を指定しているだけ。</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1655619836"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1655619836"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1683429461"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1683429461"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1655619836"></script>
-    <script src="/.emacs.d/js/learn.js?1655619836"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1655619836"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1683429461"></script>
+    <script src="/.emacs.d/js/learn.js?1683429461"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1683429461"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1655619836"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1683429461"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

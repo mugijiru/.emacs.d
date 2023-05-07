@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.104.2" />
     <meta name="description" content="麦汁の Emacs 設定解説ページ">
 <meta name="author" content="麦汁">
 
@@ -12,20 +12,20 @@
     <title>org-gcal :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1655619836" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1683429461" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1655619836"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1683429461"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1655619836"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1683429461"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1683429461"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1683429461"></script>
 
     
   </div>
@@ -2737,7 +2737,7 @@
         
 <div class="tags">
 
-  <a class="tag-link" href="/.emacs.d/tags/replacement">replacement</a>
+  <a class="tag-link" href="/tags/replacement">replacement</a>
 
 </div>
 
@@ -2760,33 +2760,41 @@
 el-get のレシピもそっちを見ている。</p>
 <h2 id="インストール">インストール</h2>
 <p>org-gcal が依存しているので <a href="https://elpa.gnu.org/packages/persist.html">parsist</a> を入れている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle persist)
-</code></pre></div><p>あとは当然 org-gcal 本体を入れないと動かない</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle org-gcal)
-</code></pre></div><h2 id="設定">設定</h2>
-<p>とりあえず require をしないといけない</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(require <span style="color:#e6db74">&#39;org-gcal</span>)
-</code></pre></div><p>あとは設定ファイルは公開したくないので別ファイルに分けてる。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(my/load-config <span style="color:#e6db74">&#34;my-org-gcal-config&#34;</span>)
-</code></pre></div><p>隠したい部分だけ .authinfo.gpg にでも分離したら公開できるようになるかもしれない。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle persist)
+</span></span></code></pre></div><p>あとは当然 org-gcal 本体を入れないと動かない</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle org-gcal)
+</span></span></code></pre></div><h2 id="設定">設定</h2>
+<p>まずは org-gcal の設定が authinfo から読み込まれるようにする</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-variables
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(org-gcal-client-id (<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;googleusercontent.com&#34;</span>)) :client))
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(org-gcal-client-secret (<span style="color:#a6e22e">funcall</span> (<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;googleusercontent.com&#34;</span> :max <span style="color:#ae81ff">1</span>)) :secret))))
+</span></span></code></pre></div><p>そして org-gcal 本体を require する。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(require <span style="color:#e6db74">&#39;org-gcal</span>)
+</span></span></code></pre></div><p>あとは passphrase を保存できるようにした方が良いみたいなのが確か README に比較的最近追加されたのでそれを入れている</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq plstore-cache-passphrase-for-symmetric-encryption <span style="color:#66d9ef">t</span>)
+</span></span></code></pre></div><p>あとは設定ファイルは公開したくないので別ファイルに分けてる。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(my/load-config <span style="color:#e6db74">&#34;my-org-gcal-config&#34;</span>)
+</span></span></code></pre></div><p>隠したい部分だけ .authinfo.gpg にでも分離したら公開できるようになるかもしれない。</p>
 <h2 id="appt">appt</h2>
 <p>Emacs にはデフォルトで約束の通知ができる機能が appt.el で定義されている。
 org-gcal で取得したデータをそれで通知できるように
 appt の設定をここで行っている</p>
 <h3 id="通知形式の設定">通知形式の設定</h3>
 <p>window 通知を使う設定にしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq appt-display-format <span style="color:#e6db74">&#39;window</span>)
-</code></pre></div><p>これだけだと、通知する時間になったらピョコッと window が生えて来るのだけど、後の方で、この設定の時に使う関数を差し替えている</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq appt-display-format <span style="color:#e6db74">&#39;window</span>)
+</span></span></code></pre></div><p>これだけだと、通知する時間になったらピョコッと window が生えて来るのだけど、後の方で、この設定の時に使う関数を差し替えている</p>
 <h3 id="通知用関数の定義">通知用関数の定義</h3>
 <p>通知には <a href="/.emacs.d/ui/alert/">alert.el</a> を使いたいので自前で関数を定義。
 alert.el は別のところで設定していてそこで dunst を使って通知するようにしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/appt-alert (min-to-app _new-time msg)
-  (interactive)
-  (let ((title (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;あと %s 分&#34;</span> min-to-app)))
-    (alert msg :title title)))
-</code></pre></div><p>この関数を使うように <code>appt-disp-window-function</code> を変更している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq appt-disp-window-function <span style="color:#e6db74">&#39;my/appt-alert</span>)
-</code></pre></div><h2 id="その他">その他</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/appt-alert (min-to-app _new-time msg)
+</span></span><span style="display:flex;"><span>  (interactive)
+</span></span><span style="display:flex;"><span>  (let ((title (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;あと %s 分&#34;</span> min-to-app)))
+</span></span><span style="display:flex;"><span>    (alert msg :title title)))
+</span></span></code></pre></div><p>この関数を使うように <code>appt-disp-window-function</code> を変更している。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq appt-disp-window-function <span style="color:#e6db74">&#39;my/appt-alert</span>)
+</span></span></code></pre></div><p>最後に org-gcal でカレンダーを取得した後に appt に登録されるように advice を設定した</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(advice-add <span style="color:#a6e22e">#&#39;</span>org-gcal--sync-unlock :after <span style="color:#a6e22e">#&#39;</span>my/org-refresh-appt)
+</span></span></code></pre></div><h2 id="その他">その他</h2>
 <p><a href="https://github.com/misohena/gcal">gcal-org</a> に乗り換えようかと思ってるがそっちの中身もよくわからないので躊躇している。自分の用途に合うのだろうか?</p>
 
 
@@ -4677,19 +4685,19 @@ alert.el は別のところで設定していてそこで dunst を使って通�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1655619836"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1655619836"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1683429461"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1683429461"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1655619836"></script>
-    <script src="/.emacs.d/js/learn.js?1655619836"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1655619836"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1683429461"></script>
+    <script src="/.emacs.d/js/learn.js?1683429461"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1683429461"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1655619836"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1683429461"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

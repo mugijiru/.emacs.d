@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.104.2" />
     <meta name="description" content="麦汁の Emacs 設定解説ページ">
 <meta name="author" content="麦汁">
 
@@ -12,20 +12,20 @@
     <title>Neotree :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1655619836" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1683429461" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1655619836"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1683429461"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1655619836"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1683429461"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1683429461"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1683429461"></script>
 
     
   </div>
@@ -2737,7 +2737,7 @@
         
 <div class="tags">
 
-  <a class="tag-link" href="/.emacs.d/tags/replacement">replacement</a>
+  <a class="tag-link" href="/tags/replacement">replacement</a>
 
 </div>
 
@@ -2759,51 +2759,51 @@
 <h2 id="レシピ">レシピ</h2>
 <p>Neotree でメンテされているのは dev ブランチだけど
 el-get の公式のレシピでは master ブランチを見ているので自前で recipe を用意してそれを使っている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(:name emacs-neotree-dev
-       :website <span style="color:#e6db74">&#34;https://github.com/jaypei/emacs-neotree&#34;</span>
-       :description <span style="color:#e6db74">&#34;An Emacs tree plugin like NerdTree for Vim.&#34;</span>
-       :type github
-       :branch <span style="color:#e6db74">&#34;dev&#34;</span>
-       :pkgname <span style="color:#e6db74">&#34;jaypei/emacs-neotree&#34;</span>)
-</code></pre></div><h2 id="インストール">インストール</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name emacs-neotree-dev
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/jaypei/emacs-neotree&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;An Emacs tree plugin like NerdTree for Vim.&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :branch <span style="color:#e6db74">&#34;dev&#34;</span>
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;jaypei/emacs-neotree&#34;</span>)
+</span></span></code></pre></div><h2 id="インストール">インストール</h2>
 <p>上に書いたレシピを使ってインストールしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle emacs-neotree-dev)
-</code></pre></div><h2 id="使わなくなったコード">使わなくなったコード</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle emacs-neotree-dev)
+</span></span></code></pre></div><h2 id="使わなくなったコード">使わなくなったコード</h2>
 <p>元々設定していたが、
 counsel-projectile を使ってると
 projectile-switch-project-action を設定していても反映されず意味がないのに気付いたので使わなくなった</p>
 <p><a href="https://github.com/mugijiru/.emacs.d/pull/183/files#r541843206">https://github.com/mugijiru/.emacs.d/pull/183/files#r541843206</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq projectile-switch-project-action <span style="color:#e6db74">&#39;neotree-projectile-action</span>)
-</code></pre></div><h2 id="テーマの設定">テーマの設定</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq projectile-switch-project-action <span style="color:#e6db74">&#39;neotree-projectile-action</span>)
+</span></span></code></pre></div><h2 id="テーマの設定">テーマの設定</h2>
 <p>GUI で起動している時はアイコン表示しそうでない場合は ▾ とかで表示する</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq neo-theme (if (display-graphic-p) <span style="color:#e6db74">&#39;icons</span> <span style="color:#e6db74">&#39;arrow</span>))
-</code></pre></div><p>のだけど、実際に今使ってるやつだともっとグラフィカルな表示なので
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq neo-theme (if (display-graphic-p) <span style="color:#e6db74">&#39;icons</span> <span style="color:#e6db74">&#39;arrow</span>))
+</span></span></code></pre></div><p>のだけど、実際に今使ってるやつだともっとグラフィカルな表示なので
 all-the-icons の設定で上書きしている気がするので要確認</p>
 <h2 id="major-mode-hydra">major-mode-hydra</h2>
 <p>いちいちキーバインドを覚えてられないので
 <a href="https://github.com/jerrypnz/major-mode-hydra.el">major-mode-hydra</a> を使って主要なキーバインドは <a href="https://github.com/abo-abo/hydra">hydra</a> で使えるようにしている。</p>
 <p>とはいえ、この文書を書く前日ぐらいに設定しているのでまだ使い慣れてないというか、ほとんど使えてない。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;major-mode-hydra</span>
-  (major-mode-hydra-define neotree-mode (:separator <span style="color:#e6db74">&#34;-&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :title (<span style="color:#a6e22e">concat</span> (all-the-icons-octicon <span style="color:#e6db74">&#34;list-unordered&#34;</span>) <span style="color:#e6db74">&#34; Neotree&#34;</span>))
-    (<span style="color:#e6db74">&#34;Nav&#34;</span>
-     ((<span style="color:#e6db74">&#34;u&#34;</span>   neotree-select-up-node   <span style="color:#e6db74">&#34;Up&#34;</span>)
-      (<span style="color:#e6db74">&#34;g&#34;</span>   neotree-refresh          <span style="color:#e6db74">&#34;Refresh&#34;</span>)
-      (<span style="color:#e6db74">&#34;Q&#34;</span>   neotree-hide             <span style="color:#e6db74">&#34;Hide&#34;</span>))
-
-     <span style="color:#e6db74">&#34;File&#34;</span>
-     ((<span style="color:#e6db74">&#34;a&#34;</span>   neo-open-file-ace-window <span style="color:#e6db74">&#34;Ace&#34;</span>)
-      (<span style="color:#e6db74">&#34;N&#34;</span>   neotree-create-node      <span style="color:#e6db74">&#34;Create&#34;</span>)
-      (<span style="color:#e6db74">&#34;R&#34;</span>   neotree-rename-node      <span style="color:#e6db74">&#34;Rename&#34;</span>)
-      (<span style="color:#e6db74">&#34;C&#34;</span>   neotree-copy-node        <span style="color:#e6db74">&#34;Copy&#34;</span>)
-      (<span style="color:#e6db74">&#34;D&#34;</span>   neotree-delete-node      <span style="color:#e6db74">&#34;Delete&#34;</span>)
-      (<span style="color:#e6db74">&#34;SPC&#34;</span> neotree-quick-look       <span style="color:#e6db74">&#34;Look&#34;</span>)
-      <span style="color:#75715e">;; (&#34;d&#34; neo-open-dired &#34;Dired&#34;)</span>
-      <span style="color:#75715e">;; (&#34;O&#34; neo-open-dir-recursive   &#34;Recursive&#34;)</span>
-      )
-     <span style="color:#e6db74">&#34;Toggle&#34;</span>
-     ((<span style="color:#e6db74">&#34;z&#34;</span> neotree-stretch-toggle     <span style="color:#e6db74">&#34;Size&#34;</span>        :toggle (not (neo-window--minimize-p)))
-      (<span style="color:#e6db74">&#34;h&#34;</span> neotree-hidden-file-toggle <span style="color:#e6db74">&#34;Hidden file&#34;</span> :toggle neo-buffer--show-hidden-file-p)))))
-</code></pre></div><h3 id="キーバインド">キーバインド</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;major-mode-hydra</span>
+</span></span><span style="display:flex;"><span>  (major-mode-hydra-define neotree-mode (:separator <span style="color:#e6db74">&#34;-&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :title (<span style="color:#a6e22e">concat</span> (all-the-icons-octicon <span style="color:#e6db74">&#34;list-unordered&#34;</span>) <span style="color:#e6db74">&#34; Neotree&#34;</span>))
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;Nav&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;u&#34;</span>   neotree-select-up-node   <span style="color:#e6db74">&#34;Up&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;g&#34;</span>   neotree-refresh          <span style="color:#e6db74">&#34;Refresh&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;Q&#34;</span>   neotree-hide             <span style="color:#e6db74">&#34;Hide&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;File&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;a&#34;</span>   neo-open-file-ace-window <span style="color:#e6db74">&#34;Ace&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;N&#34;</span>   neotree-create-node      <span style="color:#e6db74">&#34;Create&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;R&#34;</span>   neotree-rename-node      <span style="color:#e6db74">&#34;Rename&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;C&#34;</span>   neotree-copy-node        <span style="color:#e6db74">&#34;Copy&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;D&#34;</span>   neotree-delete-node      <span style="color:#e6db74">&#34;Delete&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;SPC&#34;</span> neotree-quick-look       <span style="color:#e6db74">&#34;Look&#34;</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">;; (&#34;d&#34; neo-open-dired &#34;Dired&#34;)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">;; (&#34;O&#34; neo-open-dir-recursive   &#34;Recursive&#34;)</span>
+</span></span><span style="display:flex;"><span>      )
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Toggle&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;z&#34;</span> neotree-stretch-toggle     <span style="color:#e6db74">&#34;Size&#34;</span>        :toggle (not (neo-window--minimize-p)))
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;h&#34;</span> neotree-hidden-file-toggle <span style="color:#e6db74">&#34;Hidden file&#34;</span> :toggle neo-buffer--show-hidden-file-p)))))
+</span></span></code></pre></div><h3 id="キーバインド">キーバインド</h3>
 <h4 id="ナビゲーション">ナビゲーション</h4>
 <table>
 <thead>
@@ -4770,19 +4770,19 @@ all-the-icons の設定で上書きしている気がするので要確認</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1655619836"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1655619836"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1683429461"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1683429461"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1655619836"></script>
-    <script src="/.emacs.d/js/learn.js?1655619836"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1655619836"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1683429461"></script>
+    <script src="/.emacs.d/js/learn.js?1683429461"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1683429461"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1655619836"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1683429461"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

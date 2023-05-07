@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.104.2" />
     <meta name="description" content="麦汁の Emacs 設定解説ページ">
 <meta name="author" content="麦汁">
 
@@ -12,20 +12,20 @@
     <title>projectile :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1655619836" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1683429461" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1655619836"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1683429461"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1655619836"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1683429461"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1683429461"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1683429461"></script>
 
     
   </div>
@@ -2754,44 +2754,44 @@
 <p><a href="https://github.com/bbatsov/projectile">projectile</a> はプロジェクト内のファイルを検索したりするのに便利なパッケージ</p>
 <h2 id="インストール">インストール</h2>
 <p>いつも通り el-get からインストールする</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle projectile)
-</code></pre></div><h2 id="有効化">有効化</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle projectile)
+</span></span></code></pre></div><h2 id="有効化">有効化</h2>
 <p>このあたりで有効化しておいている。この順序に意味があったかは忘れた……。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(projectile-mode)
-</code></pre></div><h2 id="無視リスト">無視リスト</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(projectile-mode)
+</span></span></code></pre></div><h2 id="無視リスト">無視リスト</h2>
 <p>普段 Rails ばっかりやってるのでそれ関係のものを無視リストに入れている。けどあんまりメンテしてない。</p>
 <h3 id="無視するディレクトリ">無視するディレクトリ</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-directories</span> <span style="color:#e6db74">&#34;tmp&#34;</span>)
-(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-directories</span> <span style="color:#e6db74">&#34;.tmp&#34;</span>)
-(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-directories</span> <span style="color:#e6db74">&#34;vendor&#34;</span>)
-(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-directories</span> <span style="color:#e6db74">&#34;.sass-cache&#34;</span>)
-(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-directories</span> <span style="color:#e6db74">&#34;coverage&#34;</span>)
-(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-directories</span> <span style="color:#e6db74">&#34;cache&#34;</span>)
-(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-directories</span> <span style="color:#e6db74">&#34;log&#34;</span>)
-</code></pre></div><p>node_modules もここに突っ込んでも良いかもしれない。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-directories</span> <span style="color:#e6db74">&#34;tmp&#34;</span>)
+</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-directories</span> <span style="color:#e6db74">&#34;.tmp&#34;</span>)
+</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-directories</span> <span style="color:#e6db74">&#34;vendor&#34;</span>)
+</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-directories</span> <span style="color:#e6db74">&#34;.sass-cache&#34;</span>)
+</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-directories</span> <span style="color:#e6db74">&#34;coverage&#34;</span>)
+</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-directories</span> <span style="color:#e6db74">&#34;cache&#34;</span>)
+</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-directories</span> <span style="color:#e6db74">&#34;log&#34;</span>)
+</span></span></code></pre></div><p>node_modules もここに突っ込んでも良いかもしれない。</p>
 <h3 id="無視するファイル">無視するファイル</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-files</span> <span style="color:#e6db74">&#34;gems.tags&#34;</span>)
-(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-files</span> <span style="color:#e6db74">&#34;project.tags&#34;</span>)
-(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-files</span> <span style="color:#e6db74">&#34;manifest.json&#34;</span>)
-</code></pre></div><p>tags ファイルは昔は使っていたけど、最近は dumb-jump が優秀なのと、面倒で使ってないのでそろそろ gems.tags と project.tags は不要かもしれない。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-files</span> <span style="color:#e6db74">&#34;gems.tags&#34;</span>)
+</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-files</span> <span style="color:#e6db74">&#34;project.tags&#34;</span>)
+</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-files</span> <span style="color:#e6db74">&#34;manifest.json&#34;</span>)
+</span></span></code></pre></div><p>tags ファイルは昔は使っていたけど、最近は dumb-jump が優秀なのと、面倒で使ってないのでそろそろ gems.tags と project.tags は不要かもしれない。</p>
 <h2 id="ivy-counsel-との連携">ivy/counsel との連携</h2>
 <p>上の方で helm との連携処理を入れていたが今は大体 ivy に乗り換えているので ivy 連携もしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq projectile-completion-system <span style="color:#e6db74">&#39;ivy</span>)
-(el-get-bundle counsel-projectile)
-</code></pre></div><p>counsel-projectile はいくつかの絞り込み処理を提供してくれて便利。それでも足りなかったら自前で何か作ることになるのかなと思っている。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq projectile-completion-system <span style="color:#e6db74">&#39;ivy</span>)
+</span></span><span style="display:flex;"><span>(el-get-bundle counsel-projectile)
+</span></span></code></pre></div><p>counsel-projectile はいくつかの絞り込み処理を提供してくれて便利。それでも足りなかったら自前で何か作ることになるのかなと思っている。</p>
 <h2 id="キーバインド">キーバインド</h2>
 <p>デフォルトでいくつかのキーバインドが用意されてるようだけどそんなものさっぱり覚えられないのでとりあえずいくつかを Hydra で叩けるようにしている</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
-  (pretty-hydra-define
-    projectile-hydra (:separator <span style="color:#e6db74">&#34;-&#34;</span> :title <span style="color:#e6db74">&#34;Projectile&#34;</span> :foreign-key <span style="color:#a6e22e">warn</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :exit <span style="color:#66d9ef">t</span>)
-    (<span style="color:#e6db74">&#34;File&#34;</span>
-     ((<span style="color:#e6db74">&#34;f&#34;</span> counsel-projectile-find-file <span style="color:#e6db74">&#34;Find File&#34;</span>)
-      (<span style="color:#e6db74">&#34;d&#34;</span> counsel-projectile-find-dir <span style="color:#e6db74">&#34;Find Dir&#34;</span>)
-      (<span style="color:#e6db74">&#34;r&#34;</span> projectile-recentf <span style="color:#e6db74">&#34;Recentf&#34;</span>))
-
-     <span style="color:#e6db74">&#34;Other&#34;</span>
-     ((<span style="color:#e6db74">&#34;p&#34;</span> (counsel-projectile-switch-project <span style="color:#e6db74">&#39;neotree-dir</span>) <span style="color:#e6db74">&#34;Switch Project&#34;</span>)))))
-</code></pre></div><table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
+</span></span><span style="display:flex;"><span>  (pretty-hydra-define
+</span></span><span style="display:flex;"><span>    projectile-hydra (:separator <span style="color:#e6db74">&#34;-&#34;</span> :title <span style="color:#e6db74">&#34;Projectile&#34;</span> :foreign-key <span style="color:#a6e22e">warn</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :exit <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;File&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;f&#34;</span> counsel-projectile-find-file <span style="color:#e6db74">&#34;Find File&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;d&#34;</span> counsel-projectile-find-dir <span style="color:#e6db74">&#34;Find Dir&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;r&#34;</span> projectile-recentf <span style="color:#e6db74">&#34;Recentf&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Other&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;p&#34;</span> (counsel-projectile-switch-project <span style="color:#e6db74">&#39;neotree-dir</span>) <span style="color:#e6db74">&#34;Switch Project&#34;</span>)))))
+</span></span></code></pre></div><table>
 <thead>
 <tr>
 <th>Key</th>
@@ -4715,19 +4715,19 @@ projectile-rails をベースにいつも触ってるので projectile そのも
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1655619836"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1655619836"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1683429461"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1683429461"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1655619836"></script>
-    <script src="/.emacs.d/js/learn.js?1655619836"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1655619836"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1683429461"></script>
+    <script src="/.emacs.d/js/learn.js?1683429461"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1683429461"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1655619836"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1683429461"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

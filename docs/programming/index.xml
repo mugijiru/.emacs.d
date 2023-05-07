@@ -14,7 +14,7 @@
       <guid>https://mugijiru.github.io/.emacs.d/programming/emacs-lisp/</guid>
       <description>概要 Emacs Lisp を書くための設定。まあそんなにしっかり書いてないので、あんまり設定は入ってない
 Hook Hook 用の関数を定義してその中に色々書いている。
- とりあえず行数表示が欲しいので display-line-numbers-mode を有効化 当然補完もしたいので company-mode を有効にしている カッコの対応などもいい感じに動いて欲しいので smartparens-mode とその strict-mode を有効にしている   (defun my/emacs-lisp-mode-hook () (display-line-numbers-mode 1) (company-mode 1) (smartparens-mode 1) (turn-on-smartparens-strict-mode)) そんで最後にその関数を hook に突っ込んでる。
+とりあえず行数表示が欲しいので display-line-numbers-mode を有効化 当然補完もしたいので company-mode を有効にしている カッコの対応などもいい感じに動いて欲しいので smartparens-mode とその strict-mode を有効にしている (defun my/emacs-lisp-mode-hook () (display-line-numbers-mode 1) (company-mode 1) (smartparens-mode 1) (turn-on-smartparens-strict-mode)) そんで最後にその関数を hook に突っ込んでる。
 (add-hook &amp;#39;emacs-lisp-mode-hook &amp;#39;my/emacs-lisp-mode-hook) アイコン挿入コマンドの用意 時々 UI 設定目的で絵文字を使うことがあるので挿入できるコマンドを用意している。最近使った記憶ないけど。
 (defun my/insert-all-the-icons-code (family) (interactive) (let* ((candidates (all-the-icons--read-candidates-for-family family)) (prompt (format &amp;#34;%s Icon: &amp;#34; (funcall (all-the-icons--family-name family)))) (selection (completing-read prompt candidates nil t))) (insert &amp;#34;(all-the-icons-&amp;#34; (symbol-name family) &amp;#34; \&amp;#34;&amp;#34; selection &amp;#34;\&amp;#34;)&amp;#34;))) キーバインド emacs-lisp-mode 用に major-mode-hydra を設定している。けどそんなにしっかり Emacs Lisp を書いてるわけではないのがバレバレな感じである。</description>
     </item>
@@ -48,9 +48,10 @@ syntax highlight と、いくつかの編集機能を備えている。が、今
       <description>概要 ES5 以前ではない JS を書くための設定。 es6 といいつつ ES2016(ES7) などもこの設定のまま書いている。
 sprockets-es6 を使って ES6 対応をしていた時に es6 という拡張子を使っていたのでこのファイル名になっている。
 インストール es6 はつまり JS なのでとりあえず el-get で js2-mode を入れている。
-(el-get-bundle js2-mode) Hook  flycheck を有効にしてリアルタイムに文法チェックをしている  また javascript-eslint を使いたいので他2つは disable にしている   company-mode で補完できるようにしている smartparens-strict-mode でカッコなどの入力補助をしている インデントは空白2文字としている   (defun my/js2-mode-hook () (flycheck-mode 1) (setq flycheck-disabled-checkers &amp;#39;(javascript-standard javascript-jshint)) (company-mode 1) (turn-on-smartparens-strict-mode) (setq js2-basic-offset 2)) という Hook 用関数を用意しておいて
+(el-get-bundle js2-mode) Hook flycheck を有効にしてリアルタイムに文法チェックをしている また javascript-eslint を使いたいので他2つは disable にしている company-mode で補完できるようにしている smartparens-strict-mode でカッコなどの入力補助をしている インデントは空白2文字としている (defun my/js2-mode-hook () (flycheck-mode 1) (setq flycheck-disabled-checkers &amp;#39;(javascript-standard javascript-jshint)) (company-mode 1) (turn-on-smartparens-strict-mode) (setq js2-basic-offset 2)) という Hook 用関数を用意しておいて
 (add-hook &amp;#39;js2-mode-hook &amp;#39;my/js2-mode-hook) という感じで js2-mode-hook に追加している。
-Lambda で一括でやる方法もあるけども、関数名つけて分離しておくと中身を簡単に入れ替えられて便利。</description>
+Lambda で一括でやる方法もあるけども、関数名つけて分離しておくと中身を簡単に入れ替えられて便利。
+es6 を js2-mode で扱うようにする (add-to-list &amp;#39;auto-mode-alist &amp;#39;(&amp;#34;\\.</description>
     </item>
     
     <item>
@@ -89,9 +90,10 @@ Lambda で一括でやる方法もあるけども、関数名つけて分離し�
       <description>概要 lsp-mode は Emacs で Language server protocol が使えるようにするパッケージ。
 より軽そうなやつに eglot というのもあるがこっちは試したことがない。
 インストール lsp-mode 本体と UI 周りを担当する lsp-ui-mode の両方をインストールしている。また lsp-mode が有効になる際に lsp-ui-mode も同時に有効になるようにしている。
-(el-get-bundle lsp-mode) (el-get-bundle lsp-ui) (add-hook &amp;#39;lsp-mode-hook &amp;#39;lsp-ui-mode) 設定 lsp-ui-doc はカーソル位置にある変数や関数などの説明を child frame で表示してくれるやつ。
+(el-get-bundle lsp-mode) (el-get-bundle lsp-ui) (add-hook &amp;#39;lsp-mode-hook &amp;#39;lsp-ui-mode) カスタム変数 lsp-ui-doc はカーソル位置にある変数や関数などの説明を child frame で表示してくれるやつ。
 これがデフォルトではフレーム基準で右上に表示するのだが大きめの画面を分割して使っていると大分遠くに表示されてしまうので window 基準で表示するように設定を変更している
-(setq lsp-ui-doc-alignment &amp;#39;window) </description>
+(custom-set-variables &amp;#39;(lsp-diagnostics-provider :flycheck) &amp;#39;(lsp-ui-doc-show-with-cursor t) &amp;#39;(lsp-ui-doc-alignment &amp;#39;window)) パッチ 文字を拡大している時の折り返しがおかしくならないようにするパッチ
+;; Patch ;; https://github.com/emacs-lsp/lsp-ui/issues/184#issuecomment-1158057166 (with-eval-after-load &amp;#39;lsp-ui-sideline (defun lsp-ui-sideline--align (&amp;amp;rest lengths) &amp;#34;Align sideline string by LENGTHS from the right of the window.&amp;#34; (cons (+ (apply &amp;#39;+ lengths) (if (display-graphic-p) 1 2)) &amp;#39;width)) (defun lsp-ui-sideline--compute-height () nil)) Hydra の設定 (with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define pretty-hydra-lsp (:separator &amp;#34;-&amp;#34; :color blue :foreign-keys warn :title &amp;#34;LSP&amp;#34; :quit-key &amp;#34;q&amp;#34;) (&amp;#34;Find&amp;#34; ((&amp;#34;x&amp;#34; lsp-find-definition &amp;#34;definition&amp;#34;) (&amp;#34;r&amp;#34; lsp-find-references &amp;#34;references&amp;#34;) (&amp;#34;t&amp;#34; lsp-find-type-definition &amp;#34;type&amp;#34;) (&amp;#34;i&amp;#34; lsp-find-implementation &amp;#34;implementation&amp;#34;) (&amp;#34;D&amp;#34; lsp-find-declaration &amp;#34;declaration&amp;#34;)) &amp;#34;Code&amp;#34; ((&amp;#34;m&amp;#34; lsp-rename &amp;#34;Rename&amp;#34;)) &amp;#34;UI&amp;#34; ((&amp;#34;I&amp;#34; lsp-ui-imenu &amp;#34;imenu&amp;#34;) (&amp;#34;X&amp;#34; lsp-ui-peek-find-definitions &amp;#34;def&amp;#34;) (&amp;#34;R&amp;#34; lsp-ui-peek-find-references &amp;#34;refs&amp;#34;))))) TSX のインデント調整 tab 押下時は web-mode-code-indent-offset 等の設定で動いていたが indent-region ではそれと違う値(4)でインデントされていて indent-region を使えずにいた</description>
     </item>
     
     <item>
@@ -128,9 +130,9 @@ Lambda で一括でやる方法もあるけども、関数名つけて分離し�
       <description>概要 Rails 開発関係だけど Ruby 開発とはちょっと違う設定をここに書いている。
 関連パッケージのインストール テンプレートエンジンには haml を使っているので haml-mode を入れていてファイルナビゲーションには projectile の拡張である projectile-rails を利用している。
 (el-get-bundle haml-mode) (el-get-bundle projectile-rails) (projectile-rails-global-mode 1) projectile-rails 用のコマンド追加 自身のプロジェクトだと少しナビゲーション用のコマンドが不足していたので projectile-rails の実装を参考にコマンドを追加している
-Uploader Finder app/uploaders に格納している upload に関連するファイルを検索するコマンド
-(defun my/projectile-rails-find-uploader () &amp;#34;Find a Uploader.&amp;#34; (interactive) (projectile-rails-find-resource &amp;#34;uploader: &amp;#34; &amp;#39;((&amp;#34;app/uploaders/&amp;#34; &amp;#34;\\(.+\\)\\.rb$&amp;#34;)) &amp;#34;app/uploaders/${filename}.rb&amp;#34;)) Admin Finder Active Admin 用のファイルを検索するためのコマンド
-(defun my/projectile-rails-find-admin () &amp;#34;Find a ActiveAdmin file.&amp;#34; (interactive) (projectile-rails-find-resource &amp;#34;admin: &amp;#34; &amp;#39;((&amp;#34;app/admin/&amp;#34; &amp;#34;\\(.+\\)\\.rb$&amp;#34;)) &amp;#34;app/admin/${filename}.rb&amp;#34;)) Form Object Finder Form Object を探すためのコマンド</description>
+TS/TSX Finder client に格納しているフロントエンドのファイルを検索するコマンド
+(defun my/projectile-rails-find-typescript () &amp;#34;Find a TS/TSX files.&amp;#34; (interactive) (projectile-rails-find-resource &amp;#34;ts/tsx: &amp;#34; &amp;#39;((&amp;#34;client/&amp;#34; &amp;#34;\\(.+\\.tsx?\\)$&amp;#34;)) &amp;#34;client/${filename}&amp;#34;)) TS/TSX test files Finder spec/javascript に格納しているフロントエンドのテストファイルを検索するコマンド
+(defun my/projectile-rails-find-typescript-spec () &amp;#34;Find a TS/TSX test files.&amp;#34; (interactive) (projectile-rails-find-resource &amp;#34;ts/tsx spec: &amp;#34; &amp;#39;((&amp;#34;spec/javascripts/&amp;#34; &amp;#34;\\(.+\\.spec.tsx?\\)$&amp;#34;)) &amp;#34;spec/javascripts/${filename}&amp;#34;)) キーバインド もちろん基本的にコマンドなんて覚えられないのでいつも通り Hydra を定義して大体キーバインドは忘れている。</description>
     </item>
     
     <item>
@@ -145,9 +147,9 @@ lsp-mode の仲間なので、本当はそっち側で入れるようにした�
 (el-get-bundle dap-mode) 同時に treemacs や lsp-treemacs も入ってくる罠がある。 Neotree 使ってるからちょっとアレだなあ。いずれ乗り換えようとはしていたけども。
 web-mode とりあえず tsx を弄る上では web-mode が良いという話もあるので入れておく。
 (el-get-bundle web-mode) メジャーモードの紐付け jsx/tsx ファイルを開いた時には web-mode で動いてほしいので auto-mode-alist で関連付けをする
-(add-to-list &amp;#39;auto-mode-alist &amp;#39;(&amp;#34;\\.[jt]sx&amp;#34; . web-mode)) lsp-mode などの有効化 jsx/tsx ファイルを開く時に web-mode が有効になるようにしているのでその web-mode の hook で
- display-line-numbers-mode lsp lsp-ui-mode company-mode flycheck  を有効にしている。
-flycheck では lsp と eslint を使いたいのでそれ以外の JS の checker は disable にしている</description>
+(add-to-list &amp;#39;auto-mode-alist &amp;#39;(&amp;#34;\\.[jt]sx&amp;#34; . web-mode)) キーバインドの追加 テスト用のファイルを開いたら C-c C-c でテストを実行できるようにするためキーバインドを設定
+(defun my/setup-web-mode-map () (let ((keymap web-mode-map)) (define-key keymap (kbd &amp;#34;C-c C-c&amp;#34;) &amp;#39;my/mocha-test-file))) 自動フォーマット hook の用意 tsx の保存時に自動でフォーマットしてほしいのでそれ用に hook を追加
+(defun my/web-mode-auto-fix-hook () (when (string-equal (file-name-extension buffer-file-name) &amp;#34;tsx&amp;#34;) (lsp-eslint-fix-all))) lsp-mode などの有効化 jsx/tsx ファイルを開く時に web-mode が有効になるようにしているのでその web-mode の hook で</description>
     </item>
     
     <item>
@@ -160,7 +162,9 @@ flycheck では lsp と eslint を使いたいのでそれ以外の JS の check
 インストール (el-get-bundle rspec-mode) 有効化 rspec 実行バッファで byebug などで止まった際に C-x C-q したら inf-ruby が動くようにしている。
 (add-hook &amp;#39;after-init-hook &amp;#39;inf-ruby-switch-setup) binding.pry は何故かまともに動かないので byebug か binding.irb 推奨。麦汁さんはいつも debugger とコードに入れて使っている。
 キーバインド C-c C-c で開いている rspec ファイルのカーソルがある行のテストを実行できるようにしている。
-(define-key rspec-mode-map (kbd &amp;#34;C-c C-c&amp;#34;) &amp;#39;rspec-verify-single) 他にも色々な機能があるのだけどキーバインド未設定なのでこれだけしか使ってない。</description>
+(define-key rspec-mode-map (kbd &amp;#34;C-c C-c&amp;#34;) &amp;#39;rspec-verify-single) 他にも色々な機能があるのだけどキーバインド未設定なのでこれだけしか使ってない。
+Docker 連携 Docker と連携するように調整
+(custom-set-variables &amp;#39;(rspec-use-docker-when-possible t)) </description>
     </item>
     
     <item>
@@ -176,10 +180,8 @@ rbenv.el Ruby のバージョンを切り替えられる rbenv を使ってる�
 (global-rbenv-mode) enh-ruby-mode メジャーモードは enhanced-ruby-mode を利用している。が、最近は ruby-mode の方がやっぱり良いみたいな話もどこかで見た気がするので戻ってみるのも手かもしれないと思っている。
 インストール いつも通り el-get で入れている。
 (el-get-bundle enh-ruby-mode) カスタム設定 enh-ruby-mode が読み込まれた後に setq で以下のように設定されている
-(with-eval-after-load &amp;#39;enh-ruby-mode (setq enh-ruby-add-encoding-comment-on-save nil) (setq enh-ruby-deep-indent-paren nil) (setq enh-ruby-bounce-deep-indent t)) encoding のマジックコメントが入らないようにする enh-ruby-add-encoding-comment-on-save を nil にすることで encoding 設定のマジックコメントが入らないようにしている。
-これは昔は有効にしておいた方が良かったけど最近の Ruby では設定しなくても UTF-8 が前提になるからむしろ無い方が良いというお話だったはず。
-そういう状況に変わったのも大分前なので詳細は忘れた。
-ただとりあえず 最新の enhanced-ruby-mode を見るとデフォルトが nil なのでわざわざ設定しなくて良さそう。</description>
+(with-eval-after-load &amp;#39;enh-ruby-mode (setq enh-ruby-add-encoding-comment-on-save nil) (setq enh-ruby-deep-indent-paren nil) (setq enh-ruby-deep-indent-construct nil) (setq enh-ruby-bounce-deep-indent nil)) encoding のマジックコメントが入らないようにする enh-ruby-add-encoding-comment-on-save を nil にすることで encoding 設定のマジックコメントが入らないようにしている。
+これは昔は有効にしておいた方が良かったけど最近の Ruby では設定しなくても UTF-8 が前提になるからむしろ無い方が良いというお話だったはず。</description>
     </item>
     
     <item>
@@ -196,7 +198,7 @@ scss-mode scss-mode は Emacs 組込みの css-mode の中で定義されてい�
 設定 improvement インデントはデフォルトだと半角空白 4 つとなっているが麦汁さん的には 2 の方が良いのでそのように変更している。
 (with-eval-after-load &amp;#39;scss-mode (setq css-indent-offset 2)) with-eval-after-load を使っているが css-indent-offset は defcustom で定義されているので custom-set-variables を使うように修正した方が良さそう
 hook improvement scss を使う上で hook を使って色々有効化したりしている。
-(defun my/scss-mode-hook () (flycheck-mode 1) (setq-local lsp-prefer-flymake nil) (lsp) (lsp-ui-mode -1) (smartparens-strict-mode 1) ;; lsp-ui とかより後に設定しないと上書きされるのでここに移動した (setq-local flycheck-checker &amp;#39;scss-stylelint) (setq-local flycheck-check-syntax-automatically &amp;#39;(save new-line idle-change)) (company-mode 1) (display-line-numbers-mode 1) (rainbow-mode)) (add-hook &amp;#39;scss-mode-hook &amp;#39;my/scss-mode-hook)  flycheck-mode の有効化  これによりリアルタイムに lint 結果が分かって便利になる   lsp-prefer-flymake の無効化  flycheck が有効にならない問題を防いでいる。どうも自分の設定の書き方が悪い気もするが……。   lsp-mode を有効化しつつ lsp-ui は無効にしている  lsp-ui が有効だと画面上でガチャガチャ height とかのプロパティの説明をしてうざいので   smartparens-strict-mode を入れることで {} のペアが維持されるようにしている flycheck-checker, flycheck-check-syntax-automatically の設定  lsp-ui とかより後に設定しないと上書きされるので、それらより後に設定している 設定の書き方の悪さのせいな気もする   company-mode の有効化。これがないと補完できなくて厳しいよね display-line-numbers-mode の有効化。行数表示も欲しいよね。巨大ファイルだと邪魔だけど巨大にしなきゃいい rainbow-mode の有効化  カラーコード→ CSS Variable の置き換え 外部コマンドで fetch-color-var というのを定義してそいつにカラーコードを渡すとプロジェクトで使ってる CSS Variable を返してくるようにしている。</description>
+(defun my/scss-mode-hook () (flycheck-mode 1) (setq-local lsp-prefer-flymake nil) (lsp) (lsp-ui-mode -1) (smartparens-strict-mode 1) ;; lsp-ui とかより後に設定しないと上書きされるのでここに移動した (setq-local flycheck-checker &amp;#39;scss-stylelint) (setq-local flycheck-check-syntax-automatically &amp;#39;(save new-line idle-change)) (company-mode 1) (display-line-numbers-mode 1) (rainbow-mode)) (add-hook &amp;#39;scss-mode-hook &amp;#39;my/scss-mode-hook) flycheck-mode の有効化 これによりリアルタイムに lint 結果が分かって便利になる lsp-prefer-flymake の無効化 flycheck が有効にならない問題を防いでいる。どうも自分の設定の書き方が悪い気もするが……。 lsp-mode を有効化しつつ lsp-ui は無効にしている lsp-ui が有効だと画面上でガチャガチャ height とかのプロパティの説明をしてうざいので smartparens-strict-mode を入れることで {} のペアが維持されるようにしている flycheck-checker, flycheck-check-syntax-automatically の設定 lsp-ui とかより後に設定しないと上書きされるので、それらより後に設定している 設定の書き方の悪さのせいな気もする company-mode の有効化。これがないと補完できなくて厳しいよね display-line-numbers-mode の有効化。行数表示も欲しいよね。巨大ファイルだと邪魔だけど巨大にしなきゃいい rainbow-mode の有効化 カラーコード→ CSS Variable の置き換え 外部コマンドで fetch-color-var というのを定義してそいつにカラーコードを渡すとプロジェクトで使ってる CSS Variable を返してくるようにしている。</description>
     </item>
     
     <item>
@@ -208,11 +210,9 @@ hook improvement scss を使う上で hook を使って色々有効化したり�
       <description>概要 TypeScript ファイル(.ts) を使う上での設定を書いている。とりあえず簡単な設定だけ。
 typescript-mode typescript-mode は TypeScript 向けの Syntax Highlight とかを提供してくれるメジャーモード。
 インストール 自分はいつも通り el-get で入れている
-(el-get-bundle typescript-mode) カスタム変数 indent は2文字がいいのでデフォルトから変更している
-(custom-set-variables &amp;#39;(typescript-indent-level 2)) auto-fix の hook 関数 保存した時に自動で整形してほしいなと思ったので auto-fix.el で自動で保存されるように hook 関数を用意している
-(defun my/auto-fix-mode-hook-for-ts () (add-hook &amp;#39;before-save-hook &amp;#39;auto-fix-before-save)) (add-hook &amp;#39;auto-fix-mode-hook &amp;#39;my/auto-fix-mode-hook-for-ts) hook  company-mode smartparens-strict-mode lsp/lsp-ui flycheck  などのプログラミングで便利な各種のモードを hook を使って有効化している
-auto-fix はここでもなんか設定しているのでなんか設定まとめたいなあって感じはある。
-(defun my/ts-mode-hook () (company-mode 1) (turn-on-smartparens-strict-mode) (display-line-numbers-mode t) (lsp) (lsp-ui-mode 1) (flycheck-mode 1) (setq flycheck-disabled-checkers &amp;#39;(javascript-standard javascript-jshint)) (flycheck-add-next-checker &amp;#39;lsp &amp;#39;(warning .</description>
+(el-get-bundle typescript-mode) カスタム変数 indent は2文字がいいのでデフォルトから変更 言語設定を ja にする。エラーが日本語で出るようになるとか……? inlay-hint を有効にする。何が変わるかわかってないけど Node.js の使用メモリも 2048 MB に増加。メモリ足らんってなる時があったので 保存時の自動フォーマット などを設定している。
+(custom-set-variables &amp;#39;(typescript-indent-level 2) &amp;#39;(lsp-typescript-locale &amp;#34;ja&amp;#34;) &amp;#39;(lsp-inlay-hint-enable t) &amp;#39;(lsp-javascript-display-parameter-name-hints t) &amp;#39;(lsp-javascript-display-enum-member-value-hints t) &amp;#39;(lsp-clients-typescript-max-ts-server-memory 2048) &amp;#39;(lsp-eslint-auto-fix-on-save t)) キーマップ関数 C-c C-c でテストを実行できるようにするように keymap を設定する関数を追加。
+(defun my/setup-ts-mode-keymap () (let ((keymap typescript-mode-map)) (define-key keymap (kbd &amp;#34;C-c C-c&amp;#34;) &amp;#39;my/mocha-test-file))) auto-fix の hook 関数 保存した時に自動で整形してほしいなと思ったので自動で保存されるように hook 関数を用意している</description>
     </item>
     
     <item>
@@ -243,7 +243,7 @@ vue-mode vue-mode は mmm-mode をベースにして作られた Vue.js の単�
 (el-get-bundle yaml-mode) hook mode に対する hook は関数を定義してその中で呼びたいコードを書いていくようにしている。
 lambda で書いてしまうと hook を弄りたい時に結構面倒なのだけど関数を定義しておくと、その関数の中身を変更して評価しておくだけで hook で動作する中身が変更できて便利。
 とりあえず yaml-mode では以下のようにして highlight-indent-guides を有効にしている。
-(defun my/yaml-mode-hook () (highlight-indent-guides-mode 1)) で、その hook を最後に yaml-mode-hook に追加している。
+(defun my/yaml-mode-hook () (lsp-mode 1) (highlight-indent-guides-mode 1)) で、その hook を最後に yaml-mode-hook に追加している。
 (add-hook &amp;#39;yaml-mode-hook &amp;#39;my/yaml-mode-hook) </description>
     </item>
     

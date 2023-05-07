@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.104.2" />
     <meta name="description" content="麦汁の Emacs 設定解説ページ">
 <meta name="author" content="麦汁">
 
@@ -12,20 +12,20 @@
     <title>org-mode 関係の keybinds :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1655619836" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1683429461" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1655619836"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1683429461"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1655619836"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1683429461"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1683429461"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1683429461"></script>
 
     
   </div>
@@ -2747,53 +2747,57 @@
 <p>Hydra を定義しておくことで様々なキーバインドを忘れることができるし左手小指を酷使しなくて済むので便利ということで Hydra で設定している。</p>
 <h2 id="major-mode-hydra">major-mode-hydra</h2>
 <p>major-mode-hydra で、org-mode のファイルを開いている時によく使いそうなコマンドのキーバインドを定義している</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;major-mode-hydra</span>
-  (major-mode-hydra-define org-mode (:separator <span style="color:#e6db74">&#34;-&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :title (<span style="color:#a6e22e">concat</span> (all-the-icons-fileicon <span style="color:#e6db74">&#34;org&#34;</span>) <span style="color:#e6db74">&#34; Org commands&#34;</span>))
-    (<span style="color:#e6db74">&#34;Insert&#34;</span>
-     ((<span style="color:#e6db74">&#34;l&#34;</span> org-insert-link                     <span style="color:#e6db74">&#34;Link&#34;</span>)
-      (<span style="color:#e6db74">&#34;T&#34;</span> org-insert-todo-heading             <span style="color:#e6db74">&#34;Todo&#34;</span>)
-      (<span style="color:#e6db74">&#34;h&#34;</span> org-insert-heading-respect-content  <span style="color:#e6db74">&#34;Heading&#34;</span>)
-      (<span style="color:#e6db74">&#34;P&#34;</span> org-set-property                    <span style="color:#e6db74">&#34;Property&#34;</span>)
-      (<span style="color:#e6db74">&#34;.&#34;</span> org-time-stamp                      <span style="color:#e6db74">&#34;Timestamp&#34;</span>)
-      (<span style="color:#e6db74">&#34;!&#34;</span> org-time-stamp-inactive             <span style="color:#e6db74">&#34;Timestamp(inactive)&#34;</span>)
-      (<span style="color:#e6db74">&#34;S&#34;</span> org-insert-structure-template       <span style="color:#e6db74">&#34;Snippet&#34;</span>))
-
-     <span style="color:#e6db74">&#34;Edit&#34;</span>
-     ((<span style="color:#e6db74">&#34;a&#34;</span> org-archive-subtree  <span style="color:#e6db74">&#34;Archive&#34;</span>)
-      (<span style="color:#e6db74">&#34;r&#34;</span> org-refile           <span style="color:#e6db74">&#34;Refile&#34;</span>)
-      (<span style="color:#e6db74">&#34;Q&#34;</span> org-set-tags-command <span style="color:#e6db74">&#34;Tag&#34;</span>))
-
-     <span style="color:#e6db74">&#34;View&#34;</span>
-     ((<span style="color:#e6db74">&#34;N&#34;</span> org-toggle-narrow-to-subtree <span style="color:#e6db74">&#34;Toggle Subtree&#34;</span>)
-      (<span style="color:#e6db74">&#34;C&#34;</span> org-columns <span style="color:#e6db74">&#34;Columns&#34;</span>)
-      (<span style="color:#e6db74">&#34;D&#34;</span> my/org-clock-toggle-display  <span style="color:#e6db74">&#34;Toggle Display&#34;</span>))
-
-     <span style="color:#e6db74">&#34;Task&#34;</span>
-     ((<span style="color:#e6db74">&#34;s&#34;</span> org-schedule         <span style="color:#e6db74">&#34;Schedule&#34;</span>)
-      (<span style="color:#e6db74">&#34;d&#34;</span> org-deadline         <span style="color:#e6db74">&#34;Deadline&#34;</span>)
-      (<span style="color:#e6db74">&#34;t&#34;</span> my/org-todo          <span style="color:#e6db74">&#34;Change state&#34;</span>)
-      (<span style="color:#e6db74">&#34;c&#34;</span> org-toggle-checkbox  <span style="color:#e6db74">&#34;Toggle checkbox&#34;</span>))
-
-     <span style="color:#e6db74">&#34;Clock&#34;</span>
-     ((<span style="color:#e6db74">&#34;i&#34;</span> org-clock-in      <span style="color:#e6db74">&#34;In&#34;</span>)
-      (<span style="color:#e6db74">&#34;o&#34;</span> org-clock-out     <span style="color:#e6db74">&#34;Out&#34;</span>)
-      (<span style="color:#e6db74">&#34;E&#34;</span> org-set-effort    <span style="color:#e6db74">&#34;Effort&#34;</span>)
-      (<span style="color:#e6db74">&#34;R&#34;</span> org-clock-report  <span style="color:#e6db74">&#34;Report&#34;</span>)
-      (<span style="color:#e6db74">&#34;p&#34;</span> org-pomodoro      <span style="color:#e6db74">&#34;Pomodoro&#34;</span>))
-
-     <span style="color:#e6db74">&#34;Babel&#34;</span>
-     ((<span style="color:#e6db74">&#34;e&#34;</span> org-babel-confirm-evaluate <span style="color:#e6db74">&#34;Eval&#34;</span>)
-      (<span style="color:#e6db74">&#34;x&#34;</span> org-babel-tangle <span style="color:#e6db74">&#34;Export SRC&#34;</span>))
-
-     <span style="color:#e6db74">&#34;Trello&#34;</span>
-     ((<span style="color:#e6db74">&#34;K&#34;</span> org-trello-mode <span style="color:#e6db74">&#34;On/Off&#34;</span> :toggle org-trello-mode)
-      (<span style="color:#e6db74">&#34;k&#34;</span> (if org-trello-mode
-               (org-trello-hydra/body)
-             (<span style="color:#a6e22e">message</span> <span style="color:#e6db74">&#34;org-trello-mode is not enabled&#34;</span>)) <span style="color:#e6db74">&#34;Menu&#34;</span>))
-
-     <span style="color:#e6db74">&#34;Agenda&#34;</span>
-     ((<span style="color:#e6db74">&#34;,&#34;</span> org-cycle-agenda-files <span style="color:#e6db74">&#34;Cycle&#34;</span>)))))
-</code></pre></div><table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;major-mode-hydra</span>
+</span></span><span style="display:flex;"><span>  (major-mode-hydra-define org-mode (:separator <span style="color:#e6db74">&#34;-&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :title (<span style="color:#a6e22e">concat</span> (all-the-icons-fileicon <span style="color:#e6db74">&#34;org&#34;</span>) <span style="color:#e6db74">&#34; Org commands&#34;</span>))
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;Insert&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;l&#34;</span> org-insert-link                     <span style="color:#e6db74">&#34;Link&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;T&#34;</span> org-insert-todo-heading             <span style="color:#e6db74">&#34;Todo&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;h&#34;</span> org-insert-heading-respect-content  <span style="color:#e6db74">&#34;Heading&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;P&#34;</span> org-set-property                    <span style="color:#e6db74">&#34;Property&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;.&#34;</span> org-time-stamp                      <span style="color:#e6db74">&#34;Timestamp&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;!&#34;</span> org-time-stamp-inactive             <span style="color:#e6db74">&#34;Timestamp(inactive)&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;S&#34;</span> org-insert-structure-template       <span style="color:#e6db74">&#34;Snippet&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Edit&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;a&#34;</span> org-archive-subtree  <span style="color:#e6db74">&#34;Archive&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;r&#34;</span> org-refile           <span style="color:#e6db74">&#34;Refile&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;Q&#34;</span> org-set-tags-command <span style="color:#e6db74">&#34;Tag&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;View&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;N&#34;</span> org-toggle-narrow-to-subtree <span style="color:#e6db74">&#34;Toggle Subtree&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;C&#34;</span> org-columns <span style="color:#e6db74">&#34;Columns&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;O&#34;</span> org-global-cycle <span style="color:#e6db74">&#34;Toggle open&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;D&#34;</span> my/org-clock-toggle-display  <span style="color:#e6db74">&#34;Toggle Display&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Task&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;s&#34;</span> org-schedule         <span style="color:#e6db74">&#34;Schedule&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;d&#34;</span> org-deadline         <span style="color:#e6db74">&#34;Deadline&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;t&#34;</span> my/org-todo          <span style="color:#e6db74">&#34;Change state&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;c&#34;</span> org-toggle-checkbox  <span style="color:#e6db74">&#34;Toggle checkbox&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Clock&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;i&#34;</span> org-clock-in      <span style="color:#e6db74">&#34;In&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;o&#34;</span> org-clock-out     <span style="color:#e6db74">&#34;Out&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;E&#34;</span> org-set-effort    <span style="color:#e6db74">&#34;Effort&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;R&#34;</span> org-clock-report  <span style="color:#e6db74">&#34;Report&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;p&#34;</span> org-pomodoro      <span style="color:#e6db74">&#34;Pomodoro&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Babel&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;e&#34;</span> org-babel-confirm-evaluate <span style="color:#e6db74">&#34;Eval&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;x&#34;</span> org-babel-tangle <span style="color:#e6db74">&#34;Export SRC&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Roam&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;;&#34;</span> org-roam-hydra/body <span style="color:#e6db74">&#34;Menu&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Trello&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;K&#34;</span> org-trello-mode <span style="color:#e6db74">&#34;On/Off&#34;</span> :toggle org-trello-mode)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;k&#34;</span> (if org-trello-mode
+</span></span><span style="display:flex;"><span>               (org-trello-hydra/body)
+</span></span><span style="display:flex;"><span>             (<span style="color:#a6e22e">message</span> <span style="color:#e6db74">&#34;org-trello-mode is not enabled&#34;</span>)) <span style="color:#e6db74">&#34;Menu&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Agenda&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;,&#34;</span> org-cycle-agenda-files <span style="color:#e6db74">&#34;Cycle&#34;</span>)))))
+</span></span></code></pre></div><table>
 <thead>
 <tr>
 <th>Key</th>
@@ -2941,38 +2945,39 @@
 </table>
 <h2 id="global-な-hydra">Global な Hydra</h2>
 <p>pretty-hydra を使って Global に使える org-mode のコマンドを叩けるようにしている</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
-  (pretty-hydra-define
-    global-org-hydra
-    (:separator <span style="color:#e6db74">&#34;-&#34;</span>
-                :color teal
-                :foreign-key <span style="color:#a6e22e">warn</span>
-                :title (<span style="color:#a6e22e">concat</span> (all-the-icons-fileicon <span style="color:#e6db74">&#34;org&#34;</span>) <span style="color:#e6db74">&#34; Global Org commands&#34;</span>)
-                :quit-key <span style="color:#e6db74">&#34;q&#34;</span>)
-    (<span style="color:#e6db74">&#34;Main&#34;</span>
-     ((<span style="color:#e6db74">&#34;a&#34;</span> org-agenda <span style="color:#e6db74">&#34;Agenda&#34;</span>)
-      (<span style="color:#e6db74">&#34;c&#34;</span> counsel-org-capture <span style="color:#e6db74">&#34;Capture&#34;</span>)
-      (<span style="color:#e6db74">&#34;l&#34;</span> org-store-link <span style="color:#e6db74">&#34;Store link&#34;</span>)
-      (<span style="color:#e6db74">&#34;t&#34;</span> my/org-tags-view-only-todo <span style="color:#e6db74">&#34;Tagged Todo&#34;</span>))
-
-     <span style="color:#e6db74">&#34;Calendar&#34;</span>
-     ((<span style="color:#e6db74">&#34;F&#34;</span> org-gcal-fetch <span style="color:#e6db74">&#34;Fetch Calendar&#34;</span>)
-      (<span style="color:#e6db74">&#34;C&#34;</span> my/open-calendar <span style="color:#e6db74">&#34;Calendar&#34;</span>)
-      (<span style="color:#e6db74">&#34;A&#34;</span> my/org-gcal-refresh-appt <span style="color:#e6db74">&#34;Appt&#34;</span>))
-
-     <span style="color:#e6db74">&#34;Clock&#34;</span>
-     ((<span style="color:#e6db74">&#34;i&#34;</span> org-clock-in       <span style="color:#e6db74">&#34;In&#34;</span>)
-      (<span style="color:#e6db74">&#34;o&#34;</span> org-clock-out      <span style="color:#e6db74">&#34;Out&#34;</span>)
-      (<span style="color:#e6db74">&#34;r&#34;</span> org-clock-in-last  <span style="color:#e6db74">&#34;Restart&#34;</span>)
-      (<span style="color:#e6db74">&#34;x&#34;</span> org-clock-cancel   <span style="color:#e6db74">&#34;Cancel&#34;</span>)
-      (<span style="color:#e6db74">&#34;j&#34;</span> org-clock-goto     <span style="color:#e6db74">&#34;Goto&#34;</span>))
-
-     <span style="color:#e6db74">&#34;Search&#34;</span>
-     ((<span style="color:#e6db74">&#34;H&#34;</span> org-search-view <span style="color:#e6db74">&#34;Heading&#34;</span>))
-
-     <span style="color:#e6db74">&#34;Pomodoro&#34;</span>
-     ((<span style="color:#e6db74">&#34;p&#34;</span> org-pomodoro <span style="color:#e6db74">&#34;Pomodoro&#34;</span>)))))
-</code></pre></div><table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
+</span></span><span style="display:flex;"><span>  (pretty-hydra-define
+</span></span><span style="display:flex;"><span>    global-org-hydra
+</span></span><span style="display:flex;"><span>    (:separator <span style="color:#e6db74">&#34;-&#34;</span>
+</span></span><span style="display:flex;"><span>                :color teal
+</span></span><span style="display:flex;"><span>                :foreign-key <span style="color:#a6e22e">warn</span>
+</span></span><span style="display:flex;"><span>                :title (<span style="color:#a6e22e">concat</span> (all-the-icons-fileicon <span style="color:#e6db74">&#34;org&#34;</span>) <span style="color:#e6db74">&#34; Global Org commands&#34;</span>)
+</span></span><span style="display:flex;"><span>                :quit-key <span style="color:#e6db74">&#34;q&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;Main&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;a&#34;</span> org-agenda <span style="color:#e6db74">&#34;Agenda&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;c&#34;</span> counsel-org-capture <span style="color:#e6db74">&#34;Capture&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;l&#34;</span> org-store-link <span style="color:#e6db74">&#34;Store link&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;t&#34;</span> my/org-tags-view-only-todo <span style="color:#e6db74">&#34;Tagged Todo&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Calendar&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;F&#34;</span> org-gcal-fetch <span style="color:#e6db74">&#34;Fetch Calendar&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;C&#34;</span> my/open-calendar <span style="color:#e6db74">&#34;Calendar&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;A&#34;</span> my/org-refresh-appt <span style="color:#e6db74">&#34;Appt&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Clock&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;i&#34;</span> org-clock-in       <span style="color:#e6db74">&#34;In&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;o&#34;</span> org-clock-out      <span style="color:#e6db74">&#34;Out&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;r&#34;</span> org-clock-in-last  <span style="color:#e6db74">&#34;Restart&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;x&#34;</span> org-clock-cancel   <span style="color:#e6db74">&#34;Cancel&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;j&#34;</span> org-clock-goto     <span style="color:#e6db74">&#34;Goto&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Search&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;H&#34;</span> org-search-view <span style="color:#e6db74">&#34;Heading&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;f&#34;</span> org-roam-find-file <span style="color:#e6db74">&#34;Roam&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Pomodoro&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;p&#34;</span> org-pomodoro <span style="color:#e6db74">&#34;Pomodoro&#34;</span>)))))
+</span></span></code></pre></div><table>
 <thead>
 <tr>
 <th>Key</th>
@@ -4944,19 +4949,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1655619836"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1655619836"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1683429461"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1683429461"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1655619836"></script>
-    <script src="/.emacs.d/js/learn.js?1655619836"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1655619836"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1683429461"></script>
+    <script src="/.emacs.d/js/learn.js?1683429461"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1683429461"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1655619836"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1683429461"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

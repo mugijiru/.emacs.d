@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.104.2" />
     <meta name="description" content="麦汁の Emacs 設定解説ページ">
 <meta name="author" content="麦汁">
 
@@ -12,20 +12,20 @@
     <title>my-org-commands-test :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1655619836" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1683429461" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1655619836"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1683429461"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1655619836"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1683429461"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1683429461"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1683429461"></script>
 
     
   </div>
@@ -2757,53 +2757,53 @@
 <h2 id="setup">Setup</h2>
 <h3 id="テストライブラリの読み込み">テストライブラリの読み込み</h3>
 <p>標準でついてくる ert を採用しているのでそれを読み込んでいる。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(require <span style="color:#e6db74">&#39;ert</span>)
-</code></pre></div><h3 id="el-get-の設定の読み込み">el-get の設定の読み込み</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(require <span style="color:#e6db74">&#39;ert</span>)
+</span></span></code></pre></div><h3 id="el-get-の設定の読み込み">el-get の設定の読み込み</h3>
 <p>プラグイン管理には el-get を利用しているのでその設定ファイルを読み込んでいる。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#75715e">;; プラグイン読み込みの前準備</span>
-(<span style="color:#a6e22e">load</span> (<span style="color:#a6e22e">expand-file-name</span> (<span style="color:#a6e22e">concat</span> user-emacs-directory <span style="color:#e6db74">&#34;/init-el-get.el&#34;</span>)))
-</code></pre></div><h3 id="テスト補助のプラグイン読み込み">テスト補助のプラグイン読み込み</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; プラグイン読み込みの前準備</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">load</span> (<span style="color:#a6e22e">expand-file-name</span> (<span style="color:#a6e22e">concat</span> user-emacs-directory <span style="color:#e6db74">&#34;/init-el-get.el&#34;</span>)))
+</span></span></code></pre></div><h3 id="テスト補助のプラグイン読み込み">テスト補助のプラグイン読み込み</h3>
 <h4 id="with-simulated-input">with-simulated-input</h4>
 <p>上で説明しているが、入力をシミュレートするためのプラグインをテストで利用しているのでここで読み込んでいる。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#75715e">;; 入力シミュレート用のプラグイン</span>
-(<span style="color:#a6e22e">load</span> (<span style="color:#a6e22e">expand-file-name</span> (<span style="color:#a6e22e">concat</span> user-emacs-directory <span style="color:#e6db74">&#34;/inits/99-with-simulated-input&#34;</span>)))
-</code></pre></div><h3 id="依存プラグインの読み込み">依存プラグインの読み込み</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; 入力シミュレート用のプラグイン</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">load</span> (<span style="color:#a6e22e">expand-file-name</span> (<span style="color:#a6e22e">concat</span> user-emacs-directory <span style="color:#e6db74">&#34;/inits/99-with-simulated-input&#34;</span>)))
+</span></span></code></pre></div><h3 id="依存プラグインの読み込み">依存プラグインの読み込み</h3>
 <p>テスト対象が依存しているプラグインを読み込んでいる。本来は init.el などの設定ファイルを全部読み込んだ状態でテストをした方が良さそうだが現状だとその状態で GitHub Actions で動かせる方法がわからないので一旦個別に読み込むようにしている。</p>
 <h4 id="swiper">swiper</h4>
 <p>ivy-read を使った機能のテストをするので読み込んでいる。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle abo-abo/swiper)
-</code></pre></div><h3 id="テスト対象の読み込み">テスト対象の読み込み</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle abo-abo/swiper)
+</span></span></code></pre></div><h3 id="テスト対象の読み込み">テスト対象の読み込み</h3>
 <p>テストしたいファイルをここで読んでる。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#75715e">;; テスト対象の読み込み</span>
-(<span style="color:#a6e22e">load</span> (<span style="color:#a6e22e">expand-file-name</span> (<span style="color:#a6e22e">concat</span> user-emacs-directory <span style="color:#e6db74">&#34;/inits/68-my-org-commands.el&#34;</span>)))
-</code></pre></div><h2 id="ert-deftest">ert-deftest</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; テスト対象の読み込み</span>
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">load</span> (<span style="color:#a6e22e">expand-file-name</span> (<span style="color:#a6e22e">concat</span> user-emacs-directory <span style="color:#e6db74">&#34;/inits/68-my-org-commands.el&#34;</span>)))
+</span></span></code></pre></div><h2 id="ert-deftest">ert-deftest</h2>
 <h3 id="test-my-org-todo-keyword-strings">test:my/org-todo-keyword-strings</h3>
 <p><code>org-todo-keywords</code> から &ldquo;|&rdquo; という区切りを除外したり
 &ldquo;(s)&rdquo; とかのような高速アクセスのためのキーワードは
 ivy で選択する時には邪魔なので除外したい、ということを表現したテスト。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(ert-deftest test:my/org-todo-keyword-strings ()
-  <span style="color:#e6db74">&#34;Test of </span><span style="color:#e6db74">`my/org-todo-keyword-strings&#39;</span><span style="color:#e6db74">.&#34;</span>
-  (let ((org-todo-keywords <span style="color:#f92672">&#39;</span>((sequence <span style="color:#e6db74">&#34;TODO&#34;</span> <span style="color:#e6db74">&#34;DOING(!)&#34;</span> <span style="color:#e6db74">&#34;WAIT&#34;</span> <span style="color:#e6db74">&#34;|&#34;</span> <span style="color:#e6db74">&#34;DONE(!)&#34;</span> <span style="color:#e6db74">&#34;SOMEDAY(s)&#34;</span>))))
-    (should (<span style="color:#a6e22e">equal</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;TODO&#34;</span> <span style="color:#e6db74">&#34;DOING&#34;</span> <span style="color:#e6db74">&#34;WAIT&#34;</span> <span style="color:#e6db74">&#34;DONE&#34;</span> <span style="color:#e6db74">&#34;SOMEDAY&#34;</span>)
-                   (my/org-todo-keyword-strings)))))
-</code></pre></div><p>なお、ここでテストしている関数では
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(ert-deftest test:my/org-todo-keyword-strings ()
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Test of </span><span style="color:#e6db74">`my/org-todo-keyword-strings&#39;</span><span style="color:#e6db74">.&#34;</span>
+</span></span><span style="display:flex;"><span>  (let ((org-todo-keywords <span style="color:#f92672">&#39;</span>((sequence <span style="color:#e6db74">&#34;TODO&#34;</span> <span style="color:#e6db74">&#34;DOING(!)&#34;</span> <span style="color:#e6db74">&#34;WAIT&#34;</span> <span style="color:#e6db74">&#34;|&#34;</span> <span style="color:#e6db74">&#34;DONE(!)&#34;</span> <span style="color:#e6db74">&#34;SOMEDAY(s)&#34;</span>))))
+</span></span><span style="display:flex;"><span>    (should (<span style="color:#a6e22e">equal</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;TODO&#34;</span> <span style="color:#e6db74">&#34;DOING&#34;</span> <span style="color:#e6db74">&#34;WAIT&#34;</span> <span style="color:#e6db74">&#34;DONE&#34;</span> <span style="color:#e6db74">&#34;SOMEDAY&#34;</span>)
+</span></span><span style="display:flex;"><span>                   (my/org-todo-keyword-strings)))))
+</span></span></code></pre></div><p>なお、ここでテストしている関数では
 TODO キーワードを ivy で扱いやすいように整えているだけで実際の選択は別の関数が担っている</p>
 <h3 id="test-my-org-todo">test:my/org-todo</h3>
 <p>org-todo を ivy で選択する関数のテストを書いている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(ert-deftest test:my/org-todo ()
-  <span style="color:#e6db74">&#34;Test of </span><span style="color:#e6db74">`my/org-todo&#39;</span><span style="color:#e6db74">.&#34;</span>
-  (let ((org-todo-keywords <span style="color:#f92672">&#39;</span>((sequence <span style="color:#e6db74">&#34;TODO&#34;</span> <span style="color:#e6db74">&#34;DOING(!)&#34;</span> <span style="color:#e6db74">&#34;WAIT&#34;</span> <span style="color:#e6db74">&#34;|&#34;</span> <span style="color:#e6db74">&#34;DONE(!)&#34;</span> <span style="color:#e6db74">&#34;SOMEDAY(s)&#34;</span>)))
-        (result))
-    <span style="color:#75715e">;; org-mode を読まずに済むように org-todo を差し替えてテストしている</span>
-    (cl-letf (((<span style="color:#a6e22e">symbol-function</span> <span style="color:#e6db74">&#39;org-todo</span>)
-               (lambda (keyword)
-                 (setq result keyword))))
-      (with-simulated-input <span style="color:#e6db74">&#34;DOI RET&#34;</span> (my/org-todo))
-      (should (<span style="color:#a6e22e">equal</span> <span style="color:#e6db74">&#34;DOING&#34;</span> result)))))
-</code></pre></div><p>ポイントは cl-letf を使って、内部で叩いている関数 <code>org-todo</code> を一時的に</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(lambda (keyword)
-  (setq result keyword))
-</code></pre></div><p>に差し替えているところ。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(ert-deftest test:my/org-todo ()
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Test of </span><span style="color:#e6db74">`my/org-todo&#39;</span><span style="color:#e6db74">.&#34;</span>
+</span></span><span style="display:flex;"><span>  (let ((org-todo-keywords <span style="color:#f92672">&#39;</span>((sequence <span style="color:#e6db74">&#34;TODO&#34;</span> <span style="color:#e6db74">&#34;DOING(!)&#34;</span> <span style="color:#e6db74">&#34;WAIT&#34;</span> <span style="color:#e6db74">&#34;|&#34;</span> <span style="color:#e6db74">&#34;DONE(!)&#34;</span> <span style="color:#e6db74">&#34;SOMEDAY(s)&#34;</span>)))
+</span></span><span style="display:flex;"><span>        (result))
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">;; org-mode を読まずに済むように org-todo を差し替えてテストしている</span>
+</span></span><span style="display:flex;"><span>    (cl-letf (((<span style="color:#a6e22e">symbol-function</span> <span style="color:#e6db74">&#39;org-todo</span>)
+</span></span><span style="display:flex;"><span>               (lambda (keyword)
+</span></span><span style="display:flex;"><span>                 (setq result keyword))))
+</span></span><span style="display:flex;"><span>      (with-simulated-input <span style="color:#e6db74">&#34;DOI RET&#34;</span> (my/org-todo))
+</span></span><span style="display:flex;"><span>      (should (<span style="color:#a6e22e">equal</span> <span style="color:#e6db74">&#34;DOING&#34;</span> result)))))
+</span></span></code></pre></div><p>ポイントは cl-letf を使って、内部で叩いている関数 <code>org-todo</code> を一時的に</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(lambda (keyword)
+</span></span><span style="display:flex;"><span>  (setq result keyword))
+</span></span></code></pre></div><p>に差し替えているところ。</p>
 <p>org-mode を呼び出さずに代わりの関数に差し替えているのでテストがしやすくなっている。Stub 的なやつかな。</p>
 <p>何度も使うならこの差し替え処理自体をテストヘルパーにしても良いかもしれない。</p>
 <p>また ivy で選択するので with-simulated-input を使って入力操作を代替している。便利。</p>
@@ -4693,19 +4693,19 @@ TODO キーワードを ivy で扱いやすいように整えているだけで�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1655619836"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1655619836"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1683429461"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1683429461"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1655619836"></script>
-    <script src="/.emacs.d/js/learn.js?1655619836"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1655619836"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1683429461"></script>
+    <script src="/.emacs.d/js/learn.js?1683429461"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1683429461"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1655619836"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1683429461"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

@@ -30,7 +30,7 @@
 (el-get-bundle all-the-icons) (require &amp;#39;all-the-icons) フォントのインストール 以下のコマンドを叩くことでフォントをインストールすることができる。 all-the-icons のインストール直後に叩いておいたら普段は叩かなくて良いはず。
 (all-the-icons-install-fonts) all-the-icons の更新後は叩いた方がいいかもしれない
 キーバインド キーバインドは覚えられないし、使えるキーも大分埋まってるので、 pretty-hydra を使って all-the-icons 用の Hydra を用意している。
-(with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define all-the-icons-hydra (:separator &amp;#34;-&amp;#34; :title &amp;#34;All the icons&amp;#34; :exit t :quit-key &amp;#34;q&amp;#34;) (&amp;#34;Insert&amp;#34; ((&amp;#34;a&amp;#34; all-the-icons-insert-alltheicon &amp;#34;All the icons&amp;#34;) (&amp;#34;f&amp;#34; all-the-icons-insert-fileicon &amp;#34;File icons&amp;#34;) (&amp;#34;F&amp;#34; all-the-icons-insert-faicons &amp;#34;FontAwesome&amp;#34;) (&amp;#34;m&amp;#34; all-the-icons-insert-material &amp;#34;Material&amp;#34;) (&amp;#34;o&amp;#34; all-the-icons-insert-octicon &amp;#34;Octicon&amp;#34;) (&amp;#34;w&amp;#34; all-the-icons-insert-wicon &amp;#34;Weather&amp;#34;) (&amp;#34;*&amp;#34; all-the-icons-insert &amp;#34;All&amp;#34;)))))    Key 効果     a all-the-icons で追加されてるアイコンを検索して挿入   f ファイルアイコンを検索して挿入   F FontAwesome アイコンを検索して挿入   m Material アイコンを検索して挿入   o Octicon のアイコンを検索して挿入   w 天気アイコンを検索して挿入   * 全てのアイコンを検索して挿入    フォントのインストールコマンドもここに収めてしまうのが良さそうな気がする</description>
+(with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define all-the-icons-hydra (:separator &amp;#34;-&amp;#34; :title &amp;#34;All the icons&amp;#34; :exit t :quit-key &amp;#34;q&amp;#34;) (&amp;#34;Insert&amp;#34; ((&amp;#34;a&amp;#34; all-the-icons-insert-alltheicon &amp;#34;All the icons&amp;#34;) (&amp;#34;f&amp;#34; all-the-icons-insert-fileicon &amp;#34;File icons&amp;#34;) (&amp;#34;F&amp;#34; all-the-icons-insert-faicons &amp;#34;FontAwesome&amp;#34;) (&amp;#34;m&amp;#34; all-the-icons-insert-material &amp;#34;Material&amp;#34;) (&amp;#34;o&amp;#34; all-the-icons-insert-octicon &amp;#34;Octicon&amp;#34;) (&amp;#34;w&amp;#34; all-the-icons-insert-wicon &amp;#34;Weather&amp;#34;) (&amp;#34;*&amp;#34; all-the-icons-insert &amp;#34;All&amp;#34;))))) Key 効果 a all-the-icons で追加されてるアイコンを検索して挿入 f ファイルアイコンを検索して挿入 F FontAwesome アイコンを検索して挿入 m Material アイコンを検索して挿入 o Octicon のアイコンを検索して挿入 w 天気アイコンを検索して挿入 * 全てのアイコンを検索して挿入 フォントのインストールコマンドもここに収めてしまうのが良さそうな気がする</description>
     </item>
     
     <item>
@@ -75,7 +75,7 @@
       <description>概要 frame-cmds は Emacs のフレーム操作に関するコマンド集。上下左右に移動したり広げたりといったことができる。いや、他にもできそうなんだけど、私がそれを把握してない。
 インストール el-get で以下のように書くと emacswiki からインストールされる。
 (el-get-bundle frame-cmds) キーバインド 無論キーバインドは覚えられないので以下のように Hydra で定義している
-(pretty-hydra-define window-control-hydra (:separator &amp;#34;-&amp;#34; :title &amp;#34;Window Control&amp;#34; :exit nil :quit-key &amp;#34;q&amp;#34;) (&amp;#34;Move&amp;#34; ((&amp;#34;h&amp;#34; move-frame-left &amp;#34;Left&amp;#34;) (&amp;#34;j&amp;#34; move-frame-down &amp;#34;Down&amp;#34;) (&amp;#34;k&amp;#34; move-frame-up &amp;#34;Up&amp;#34;) (&amp;#34;l&amp;#34; move-frame-right &amp;#34;Right&amp;#34;)) &amp;#34;Resize&amp;#34; ((&amp;#34;H&amp;#34; shrink-frame-horizontally &amp;#34;H-&amp;#34;) (&amp;#34;J&amp;#34; enlarge-frame &amp;#34;V+&amp;#34;) (&amp;#34;K&amp;#34; shrink-frame &amp;#34;V-&amp;#34;) (&amp;#34;L&amp;#34; enlarge-frame-horizontally &amp;#34;H+&amp;#34;))))    Key 効果     h 左に移動   j 下に移動   k 上に移動   l 右いん移動   H 左右方向に縮める   J 上下方向に広げる   K 上下方向に縮める   L 左右方向に広げる    </description>
+(pretty-hydra-define window-control-hydra (:separator &amp;#34;-&amp;#34; :title &amp;#34;Window Control&amp;#34; :exit nil :quit-key &amp;#34;q&amp;#34;) (&amp;#34;Move&amp;#34; ((&amp;#34;h&amp;#34; move-frame-left &amp;#34;Left&amp;#34;) (&amp;#34;j&amp;#34; move-frame-down &amp;#34;Down&amp;#34;) (&amp;#34;k&amp;#34; move-frame-up &amp;#34;Up&amp;#34;) (&amp;#34;l&amp;#34; move-frame-right &amp;#34;Right&amp;#34;)) &amp;#34;Resize&amp;#34; ((&amp;#34;H&amp;#34; shrink-frame-horizontally &amp;#34;H-&amp;#34;) (&amp;#34;J&amp;#34; enlarge-frame &amp;#34;V+&amp;#34;) (&amp;#34;K&amp;#34; shrink-frame &amp;#34;V-&amp;#34;) (&amp;#34;L&amp;#34; enlarge-frame-horizontally &amp;#34;H+&amp;#34;)))) Key 効果 h 左に移動 j 下に移動 k 上に移動 l 右いん移動 H 左右方向に縮める J 上下方向に広げる K 上下方向に縮める L 左右方向に広げる </description>
     </item>
     
     <item>
@@ -177,7 +177,7 @@ Hydra 本体のインストール Hydra 本体は el-get で普通に入れて�
 有効化 とりあえず昔からずっと有効化している
 (ido-mode 1) 設定 ファイル名の補完とかを曖昧一致を有効にするっぽいい。
 (setq ido-enable-flex-matching t) その他 https://qiita.com/tadsan/items/33ebb8db2271897a462b に書いていることだけど
- ido-everywhere を有効にするとファイル名とバッファ切替以外にも使えるようになるらしい smex 入れると M-x が強化される ido-ubiquitous を入れると ido-everywhere よりもさらに色々な他に使えるらしい ido-vertical-mode を入れたら候補が縦並びになって便利っぽい  </description>
+ido-everywhere を有効にするとファイル名とバッファ切替以外にも使えるようになるらしい smex 入れると M-x が強化される ido-ubiquitous を入れると ido-everywhere よりもさらに色々な他に使えるらしい ido-vertical-mode を入れたら候補が縦並びになって便利っぽい </description>
     </item>
     
     <item>
@@ -300,7 +300,7 @@ ivy なんかを使う時に ivy-posframe ど真ん中に出すと、いつも�
       <description>概要 zoom はフォーカスが当たっている Window が大きく表示されるようにするやつ。最近流行りのビデオチャットツールではない。
 どこにフォーカスが当たっているかわかりやすくなるし、狭い画面でも見たい部分を広げて表示できるので便利。
 インストール いつも通り el-get から入れる。 GitHub から直接取得するように設定している。
-(el-get-bundle cyrus-and/zoom) 設定  起動時に有効化 1画面しか使えない時は必須なので 比率を黄金比に変更 この方が使いやすいっぽい。  という設定をしている。
+(el-get-bundle cyrus-and/zoom) 設定 起動時に有効化 1画面しか使えない時は必須なので 比率を黄金比に変更 この方が使いやすいっぽい。 という設定をしている。
 (custom-set-variables &amp;#39;(zoom-mode t) &amp;#39;(zoom-size &amp;#39;(0.618 . 0.618))) </description>
     </item>
     

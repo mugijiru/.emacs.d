@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.104.2" />
     <meta name="description" content="麦汁の Emacs 設定解説ページ">
 <meta name="author" content="麦汁">
 
@@ -12,20 +12,20 @@
     <title>ivy :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1655619836" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1683429461" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1655619836"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1683429461"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1655619836"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1683429461"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1683429461"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1683429461"></script>
 
     
   </div>
@@ -2731,7 +2731,7 @@
       </ul>
     </li>
     <li><a href="#counsel-osx-app-dot">counsel-osx-app. <span class="tag"><span class="improvement">improvement</span></span></a></li>
-    <li><a href="#ivy-migemo">ivy-migemo</a>
+    <li><a href="#ivy-kibela">ivy-kibela</a>
       <ul>
         <li><a href="#インストール">インストール</a></li>
         <li><a href="#有効化">有効化</a></li>
@@ -2767,112 +2767,114 @@
 <h2 id="概要">概要</h2>
 <h2 id="インストール">インストール</h2>
 <p>el-get を使って GitHub のリポジトリから直で入れている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle abo-abo/swiper) <span style="color:#75715e">;; ivy, swiper, counsel が同時に入って来る</span>
-</code></pre></div><p>MELPA 経由だと org-mode 関係のパッケージ周りでハマったことがあるので
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle abo-abo/swiper) <span style="color:#75715e">;; ivy, swiper, counsel が同時に入って来る</span>
+</span></span></code></pre></div><p>MELPA 経由だと org-mode 関係のパッケージ周りでハマったことがあるので
 GitHub から直で入れる運用にしている。</p>
 <p>が、やっぱり MELPA とかに寄せるべきかなって気になってきているところだったりもする。</p>
 <h2 id="なんか設定">なんか設定</h2>
 <p>便利に使えるようにするための設定を書いている。が、何を設定しているのかよく覚えてないので今度調べておこう……</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(when (require <span style="color:#e6db74">&#39;ivy</span> <span style="color:#66d9ef">nil</span> <span style="color:#66d9ef">t</span>)
-  <span style="color:#75715e">;; M-o を ivy-dispatching-done-hydra に割り当てる．</span>
-  (require <span style="color:#e6db74">&#39;ivy-hydra</span>)
-
-  <span style="color:#75715e">;; `ivy-switch-buffer&#39; (C-x b) のリストに recent files と bookmark を含める．</span>
-  (setq ivy-use-virtual-buffers <span style="color:#66d9ef">t</span>)
-
-  <span style="color:#75715e">;; ミニバッファでコマンド発行を認める</span>
-  (when (setq enable-recursive-minibuffers <span style="color:#66d9ef">t</span>)
-    (minibuffer-depth-indicate-mode <span style="color:#ae81ff">1</span>)) <span style="color:#75715e">;; 何回層入ったかプロンプトに表示．</span>
-
-  <span style="color:#75715e">;; ESC連打でミニバッファを閉じる</span>
-  (<span style="color:#a6e22e">define-key</span> ivy-minibuffer-map (kbd <span style="color:#e6db74">&#34;&lt;escape&gt;&#34;</span>) <span style="color:#e6db74">&#39;minibuffer-keyboard-quit</span>)
-
-  <span style="color:#75715e">;; (index/総数) 表示で何番目の候補かわかりやすくする</span>
-  (setq ivy-count-format <span style="color:#e6db74">&#34;(%d/%d) &#34;</span>)
-
-  <span style="color:#75715e">;; アクティベート</span>
-  (ivy-mode <span style="color:#ae81ff">1</span>))
-</code></pre></div><h2 id="counsel-の有効化">counsel の有効化</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(when (require <span style="color:#e6db74">&#39;ivy</span> <span style="color:#66d9ef">nil</span> <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">;; M-o を ivy-dispatching-done-hydra に割り当てる．</span>
+</span></span><span style="display:flex;"><span>  (require <span style="color:#e6db74">&#39;ivy-hydra</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">;; `ivy-switch-buffer&#39; (C-x b) のリストに recent files と bookmark を含める．</span>
+</span></span><span style="display:flex;"><span>  (setq ivy-use-virtual-buffers <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">;; ミニバッファでコマンド発行を認める</span>
+</span></span><span style="display:flex;"><span>  (when (setq enable-recursive-minibuffers <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>    (minibuffer-depth-indicate-mode <span style="color:#ae81ff">1</span>)) <span style="color:#75715e">;; 何回層入ったかプロンプトに表示．</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">;; ESC連打でミニバッファを閉じる</span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">define-key</span> ivy-minibuffer-map (kbd <span style="color:#e6db74">&#34;&lt;escape&gt;&#34;</span>) <span style="color:#e6db74">&#39;minibuffer-keyboard-quit</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">;; (index/総数) 表示で何番目の候補かわかりやすくする</span>
+</span></span><span style="display:flex;"><span>  (setq ivy-count-format <span style="color:#e6db74">&#34;(%d/%d) &#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">;; アクティベート</span>
+</span></span><span style="display:flex;"><span>  (ivy-mode <span style="color:#ae81ff">1</span>))
+</span></span></code></pre></div><h2 id="counsel-の有効化">counsel の有効化</h2>
 <p>counsel は ivy で提供されているやつで、既存の Emacs のコマンドを置き換えてくれるやつ。</p>
 <p>とても便利なので当然有効にしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(counsel-mode <span style="color:#ae81ff">1</span>)
-</code></pre></div><h2 id="ivy-posframe">ivy-posframe</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(counsel-mode <span style="color:#ae81ff">1</span>)
+</span></span></code></pre></div><h2 id="ivy-posframe">ivy-posframe</h2>
 <p>ivy-posframe は ivy を posframe で表示してくれるようにするやつ。
 posframe 表示だと Emacs の中央に表示できるので視線移動が少なく済んで便利。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle ivy-posframe)
-(setq ivy-posframe-display-functions-alist <span style="color:#f92672">&#39;</span>((<span style="color:#66d9ef">t</span> <span style="color:#f92672">.</span> ivy-posframe-display-at-frame-center)))
-(ivy-posframe-mode <span style="color:#ae81ff">1</span>)
-</code></pre></div><h2 id="ivy-rich">ivy-rich</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle ivy-posframe)
+</span></span><span style="display:flex;"><span>(setq ivy-posframe-display-functions-alist
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#39;</span>((swiper <span style="color:#f92672">.</span> ivy-display-function-fallback)
+</span></span><span style="display:flex;"><span>        (<span style="color:#66d9ef">t</span> <span style="color:#f92672">.</span> ivy-posframe-display-at-frame-center)))
+</span></span><span style="display:flex;"><span>(ivy-posframe-mode <span style="color:#ae81ff">1</span>)
+</span></span></code></pre></div><h2 id="ivy-rich">ivy-rich</h2>
 <p>ivy-rich は ivy の見た目をよりモダンにしてくれるやつ。なんだけど、オフにした時の表示どんな感じだったか忘れたな……。</p>
 <h3 id="インストール">インストール</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle ivy-rich)
-</code></pre></div><h3 id="アイコン設定">アイコン設定</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle ivy-rich)
+</span></span></code></pre></div><h3 id="アイコン設定">アイコン設定</h3>
 <p>いい感じにアイコンが表示されるように
 <a href="https://ladicle.com/post/config/#ivy">https://ladicle.com/post/config/#ivy</a> に書かれている関数を丸コピしてきた</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun ivy-rich-file-icon (candidate)
-  <span style="color:#e6db74">&#34;Display file icons in </span><span style="color:#e6db74">`ivy-rich&#39;</span><span style="color:#e6db74">.&#34;</span>
-  (when (display-graphic-p)
-    (let ((icon (if (<span style="color:#a6e22e">file-directory-p</span> candidate)
-                    (cond
-                     ((and (<span style="color:#a6e22e">fboundp</span> <span style="color:#e6db74">&#39;tramp-tramp-file-p</span>)
-                           (tramp-tramp-file-p default-directory))
-                      (all-the-icons-octicon <span style="color:#e6db74">&#34;file-directory&#34;</span>))
-                     ((<span style="color:#a6e22e">file-symlink-p</span> candidate)
-                      (all-the-icons-octicon <span style="color:#e6db74">&#34;file-symlink-directory&#34;</span>))
-                     ((all-the-icons-dir-is-submodule candidate)
-                      (all-the-icons-octicon <span style="color:#e6db74">&#34;file-submodule&#34;</span>))
-                     ((<span style="color:#a6e22e">file-exists-p</span> (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;%s/.git&#34;</span> candidate))
-                      (all-the-icons-octicon <span style="color:#e6db74">&#34;repo&#34;</span>))
-                     (<span style="color:#66d9ef">t</span> (let ((matcher (all-the-icons-match-to-alist candidate all-the-icons-dir-icon-alist)))
-                          (<span style="color:#a6e22e">apply</span> (<span style="color:#a6e22e">car</span> matcher) (<span style="color:#a6e22e">list</span> (cadr matcher))))))
-                  (all-the-icons-icon-for-file candidate))))
-      (unless (<span style="color:#a6e22e">symbolp</span> icon)
-        (<span style="color:#a6e22e">propertize</span> icon
-                    <span style="color:#e6db74">&#39;face</span> <span style="color:#f92672">`</span>(
-                            :height <span style="color:#ae81ff">1.1</span>
-                            :family <span style="color:#f92672">,</span>(all-the-icons-icon-family icon)
-                            ))))))
-</code></pre></div><h3 id="switch-buffer-でのアイコン表示">switch-buffer でのアイコン表示</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun ivy-rich-file-icon (candidate)
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Display file icons in </span><span style="color:#e6db74">`ivy-rich&#39;</span><span style="color:#e6db74">.&#34;</span>
+</span></span><span style="display:flex;"><span>  (when (display-graphic-p)
+</span></span><span style="display:flex;"><span>    (let ((icon (if (<span style="color:#a6e22e">file-directory-p</span> candidate)
+</span></span><span style="display:flex;"><span>                    (cond
+</span></span><span style="display:flex;"><span>                     ((and (<span style="color:#a6e22e">fboundp</span> <span style="color:#e6db74">&#39;tramp-tramp-file-p</span>)
+</span></span><span style="display:flex;"><span>                           (tramp-tramp-file-p default-directory))
+</span></span><span style="display:flex;"><span>                      (all-the-icons-octicon <span style="color:#e6db74">&#34;file-directory&#34;</span>))
+</span></span><span style="display:flex;"><span>                     ((<span style="color:#a6e22e">file-symlink-p</span> candidate)
+</span></span><span style="display:flex;"><span>                      (all-the-icons-octicon <span style="color:#e6db74">&#34;file-symlink-directory&#34;</span>))
+</span></span><span style="display:flex;"><span>                     ((all-the-icons-dir-is-submodule candidate)
+</span></span><span style="display:flex;"><span>                      (all-the-icons-octicon <span style="color:#e6db74">&#34;file-submodule&#34;</span>))
+</span></span><span style="display:flex;"><span>                     ((<span style="color:#a6e22e">file-exists-p</span> (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;%s/.git&#34;</span> candidate))
+</span></span><span style="display:flex;"><span>                      (all-the-icons-octicon <span style="color:#e6db74">&#34;repo&#34;</span>))
+</span></span><span style="display:flex;"><span>                     (<span style="color:#66d9ef">t</span> (let ((matcher (all-the-icons-match-to-alist candidate all-the-icons-dir-icon-alist)))
+</span></span><span style="display:flex;"><span>                          (<span style="color:#a6e22e">apply</span> (<span style="color:#a6e22e">car</span> matcher) (<span style="color:#a6e22e">list</span> (cadr matcher))))))
+</span></span><span style="display:flex;"><span>                  (all-the-icons-icon-for-file candidate))))
+</span></span><span style="display:flex;"><span>      (unless (<span style="color:#a6e22e">symbolp</span> icon)
+</span></span><span style="display:flex;"><span>        (<span style="color:#a6e22e">propertize</span> icon
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;face</span> <span style="color:#f92672">`</span>(
+</span></span><span style="display:flex;"><span>                            :height <span style="color:#ae81ff">1.1</span>
+</span></span><span style="display:flex;"><span>                            :family <span style="color:#f92672">,</span>(all-the-icons-icon-family icon)
+</span></span><span style="display:flex;"><span>                            ))))))
+</span></span></code></pre></div><h3 id="switch-buffer-でのアイコン表示">switch-buffer でのアイコン表示</h3>
 <p>公式に書かれてるように設定することでバッファを切り替える時もアイコンが表示されるようにしている。
 <a href="https://github.com/Yevgnen/ivy-rich#how-i-can-add-icons-for-ivy-switch-buffer">https://github.com/Yevgnen/ivy-rich#how-i-can-add-icons-for-ivy-switch-buffer</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun ivy-rich-switch-buffer-icon (candidate)
-  (with-current-buffer
-      (<span style="color:#a6e22e">get-buffer</span> candidate)
-    (let ((icon (all-the-icons-icon-for-mode major-mode)))
-      (if (<span style="color:#a6e22e">symbolp</span> icon)
-          (all-the-icons-icon-for-mode <span style="color:#e6db74">&#39;fundamental-mode</span>)
-        icon))))
-</code></pre></div><h3 id="yank-pop-の区切り設定">yank-pop の区切り設定</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun ivy-rich-switch-buffer-icon (candidate)
+</span></span><span style="display:flex;"><span>  (with-current-buffer
+</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">get-buffer</span> candidate)
+</span></span><span style="display:flex;"><span>    (let ((icon (all-the-icons-icon-for-mode major-mode)))
+</span></span><span style="display:flex;"><span>      (if (<span style="color:#a6e22e">symbolp</span> icon)
+</span></span><span style="display:flex;"><span>          (all-the-icons-icon-for-mode <span style="color:#e6db74">&#39;fundamental-mode</span>)
+</span></span><span style="display:flex;"><span>        icon))))
+</span></span></code></pre></div><h3 id="yank-pop-の区切り設定">yank-pop の区切り設定</h3>
 <p>yank-pop の区切りをちょっと長めにしている。長い方が区切りだってわかりやすいので。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq counsel-yank-pop-separator <span style="color:#e6db74">&#34;\n--------------------\n&#34;</span>)
-</code></pre></div><h3 id="ivy-rich-の表示設定">ivy-rich の表示設定</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq counsel-yank-pop-separator <span style="color:#e6db74">&#34;\n--------------------\n&#34;</span>)
+</span></span></code></pre></div><h3 id="ivy-rich-の表示設定">ivy-rich の表示設定</h3>
 <p>それぞれのカラムがどのぐらいの幅、みたいな設定をコマンド毎に設定できるようになっている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq ivy-rich-display-transformers-list
-      <span style="color:#f92672">&#39;</span>(ivy-switch-buffer
-        (:columns
-         ((ivy-rich-switch-buffer-icon :width <span style="color:#ae81ff">2</span>)
-          (ivy-rich-candidate (:width <span style="color:#ae81ff">30</span>))
-          (ivy-rich-switch-buffer-size (:width <span style="color:#ae81ff">7</span>))
-          (ivy-rich-switch-buffer-indicators (:width <span style="color:#ae81ff">4</span> :face <span style="color:#a6e22e">error</span> :align right))
-          (ivy-rich-switch-buffer-major-mode (:width <span style="color:#ae81ff">12</span> :face warning))
-          (ivy-rich-switch-buffer-project (:width <span style="color:#ae81ff">15</span> :face success))
-          (ivy-rich-switch-buffer-path (:width (lambda (x) (ivy-rich-switch-buffer-shorten-path x (ivy-rich-minibuffer-width <span style="color:#ae81ff">0.3</span>))))))
-         :predicate
-         (lambda (cand) (<span style="color:#a6e22e">get-buffer</span> cand)))
-        counsel-M-x
-        (:columns
-         ((counsel-M-x-transformer (:width <span style="color:#ae81ff">40</span>))  <span style="color:#75715e">; thr original transformer</span>
-          (ivy-rich-counsel-function-docstring (:face font-lock-doc-face))))  <span style="color:#75715e">; return the docstring of the command</span>
-        counsel-find-file
-        (:columns
-         ((ivy-rich-file-icon)
-          (ivy-rich-candidate)))
-        counsel-recentf
-        (:columns
-         ((ivy-rich-file-icon)
-          (ivy-rich-candidate (:width <span style="color:#ae81ff">110</span>))))
-        ))
-</code></pre></div><h4 id="switch-buffer">switch-buffer</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq ivy-rich-display-transformers-list
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#39;</span>(ivy-switch-buffer
+</span></span><span style="display:flex;"><span>        (:columns
+</span></span><span style="display:flex;"><span>         ((ivy-rich-switch-buffer-icon :width <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>          (ivy-rich-candidate (:width <span style="color:#ae81ff">30</span>))
+</span></span><span style="display:flex;"><span>          (ivy-rich-switch-buffer-size (:width <span style="color:#ae81ff">7</span>))
+</span></span><span style="display:flex;"><span>          (ivy-rich-switch-buffer-indicators (:width <span style="color:#ae81ff">4</span> :face <span style="color:#a6e22e">error</span> :align right))
+</span></span><span style="display:flex;"><span>          (ivy-rich-switch-buffer-major-mode (:width <span style="color:#ae81ff">12</span> :face warning))
+</span></span><span style="display:flex;"><span>          (ivy-rich-switch-buffer-project (:width <span style="color:#ae81ff">15</span> :face success))
+</span></span><span style="display:flex;"><span>          (ivy-rich-switch-buffer-path (:width (lambda (x) (ivy-rich-switch-buffer-shorten-path x (ivy-rich-minibuffer-width <span style="color:#ae81ff">0.3</span>))))))
+</span></span><span style="display:flex;"><span>         :predicate
+</span></span><span style="display:flex;"><span>         (lambda (cand) (<span style="color:#a6e22e">get-buffer</span> cand)))
+</span></span><span style="display:flex;"><span>        counsel-M-x
+</span></span><span style="display:flex;"><span>        (:columns
+</span></span><span style="display:flex;"><span>         ((counsel-M-x-transformer (:width <span style="color:#ae81ff">40</span>))  <span style="color:#75715e">; thr original transformer</span>
+</span></span><span style="display:flex;"><span>          (ivy-rich-counsel-function-docstring (:face font-lock-doc-face))))  <span style="color:#75715e">; return the docstring of the command</span>
+</span></span><span style="display:flex;"><span>        counsel-find-file
+</span></span><span style="display:flex;"><span>        (:columns
+</span></span><span style="display:flex;"><span>         ((ivy-rich-file-icon)
+</span></span><span style="display:flex;"><span>          (ivy-rich-candidate)))
+</span></span><span style="display:flex;"><span>        counsel-recentf
+</span></span><span style="display:flex;"><span>        (:columns
+</span></span><span style="display:flex;"><span>         ((ivy-rich-file-icon)
+</span></span><span style="display:flex;"><span>          (ivy-rich-candidate (:width <span style="color:#ae81ff">110</span>))))
+</span></span><span style="display:flex;"><span>        ))
+</span></span></code></pre></div><h4 id="switch-buffer">switch-buffer</h4>
 <p>以下のような構成になっている。</p>
 <table>
 <thead>
@@ -2990,78 +2992,80 @@ posframe 表示だと Emacs の中央に表示できるので視線移動が少�
 </table>
 <p>もうちょっと追加で情報表示できると便利かも。</p>
 <h3 id="ivy-rich-mode-の有効化">ivy-rich-mode の有効化</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(ivy-rich-mode <span style="color:#ae81ff">1</span>)
-</code></pre></div><h3 id="c-s-で-migemo-れるように-ivy-migemo-を導入-設定">C-s で migemo れるように ivy-migemo を導入・設定</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(ivy-rich-mode <span style="color:#ae81ff">1</span>)
+</span></span></code></pre></div><h3 id="c-s-で-migemo-れるように-ivy-migemo-を導入-設定">C-s で migemo れるように ivy-migemo を導入・設定</h3>
 <p>swiper は標準だと migemo れないのだが</p>
 <p><a href="https://github.com/ROCKTAKEY/ivy-migemo">https://github.com/ROCKTAKEY/ivy-migemo</a></p>
 <p>でそれをできるようにした。</p>
 <h4 id="インストール">インストール</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(:name ivy-migemo
-       :website <span style="color:#e6db74">&#34;https://github.com/ROCKTAKEY/ivy-migemo&#34;</span>
-       :description <span style="color:#e6db74">&#34;Use migemo on ivy.&#34;</span>
-       :type github
-       :pkgname <span style="color:#e6db74">&#34;ROCKTAKEY/ivy-migemo&#34;</span>)
-</code></pre></div><p>でレシピを用意して</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle ivy-migemo)
-</code></pre></div><p>で入れている。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name ivy-migemo
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/ROCKTAKEY/ivy-migemo&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Use migemo on ivy.&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;ROCKTAKEY/ivy-migemo&#34;</span>)
+</span></span></code></pre></div><p>でレシピを用意して</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle ivy-migemo)
+</span></span></code></pre></div><p>で入れている。</p>
 <h4 id="キーバインドの設定">キーバインドの設定</h4>
 <p>以下を入れておくと migemo を使ったり fuzzy を使ったりを切り替えられるようなのでとりあえず設定している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(<span style="color:#a6e22e">define-key</span> ivy-minibuffer-map (kbd <span style="color:#e6db74">&#34;M-f&#34;</span>) <span style="color:#a6e22e">#&#39;</span>ivy-migemo-toggle-fuzzy)
-(<span style="color:#a6e22e">define-key</span> ivy-minibuffer-map (kbd <span style="color:#e6db74">&#34;M-m&#34;</span>) <span style="color:#a6e22e">#&#39;</span>ivy-migemo-toggle-migemo)
-</code></pre></div><p>なおこれは公式に記載されている設定である。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(<span style="color:#a6e22e">define-key</span> ivy-minibuffer-map (kbd <span style="color:#e6db74">&#34;M-f&#34;</span>) <span style="color:#a6e22e">#&#39;</span>ivy-migemo-toggle-fuzzy)
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">define-key</span> ivy-minibuffer-map (kbd <span style="color:#e6db74">&#34;M-m&#34;</span>) <span style="color:#a6e22e">#&#39;</span>ivy-migemo-toggle-migemo)
+</span></span></code></pre></div><p>なおこれは公式に記載されている設定である。</p>
 <h4 id="デフォルトで-migemo-を有効にする">デフォルトで migemo を有効にする</h4>
 <p>swiper を使う時はデフォで有効になっててほしいのでその設定も入れている。なおこれも公式ページに記述されている設定である。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq ivy-re-builders-alist <span style="color:#f92672">&#39;</span>((<span style="color:#66d9ef">t</span> <span style="color:#f92672">.</span> ivy--regex-plus)
-                              (swiper <span style="color:#f92672">.</span> ivy-migemo--regex-plus)
-                              (counsel-find-file <span style="color:#f92672">.</span> ivy-migemo--regex-plus)))
-</code></pre></div><p>また fuzzy matchi を有効にする設定も記載されているがそちらは自分は設定していない。なんとなく。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq ivy-re-builders-alist <span style="color:#f92672">&#39;</span>((<span style="color:#66d9ef">t</span> <span style="color:#f92672">.</span> ivy--regex-plus)
+</span></span><span style="display:flex;"><span>                              (swiper <span style="color:#f92672">.</span> ivy-migemo-regex-plus)
+</span></span><span style="display:flex;"><span>                              (counsel-find-file <span style="color:#f92672">.</span> ivy-migemo-regex-plus)))
+</span></span></code></pre></div><p>また fuzzy matchi を有効にする設定も記載されているがそちらは自分は設定していない。なんとなく。</p>
 <h2 id="counsel-osx-app-dot">counsel-osx-app. <span class="tag"><span class="improvement">improvement</span></span></h2>
 <p>Mac で Emacs を使ってる時に ivy でアプリケーションを起動するためのパッケージ。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle counsel-osx-app)
-</code></pre></div><p>Mac を使ってる時は Emacs がランチャー代わりになるので便利。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle counsel-osx-app)
+</span></span></code></pre></div><p>Mac を使ってる時は Emacs がランチャー代わりになるので便利。</p>
 <p>WSL 使ってる時に同じようなことをしてみたいんだけどどうしたらいいんだろう。まあできなくてもいいんだけど、このパッケージは Mac でだけ読むようにしたら良いよねって感じではある。</p>
-<h2 id="ivy-migemo">ivy-migemo</h2>
+<h2 id="ivy-kibela">ivy-kibela</h2>
 <p>Kibela の記事を ivy で絞り込んで Emacs から開けるようにするために
 <a href="https://github.com/mugijiru/ivy-kibela">ivy-kibela</a> という自作ツールを使っている</p>
 <h3 id="インストール">インストール</h3>
 <p>以下のレシピを用意して</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(:name ivy-kibela
-       :website <span style="color:#e6db74">&#34;https://github.com/mugijiru/ivy-kibela&#34;</span>
-       :description <span style="color:#e6db74">&#34;Ivy interface to kibela.&#34;</span>
-       :type github
-       :pkgname <span style="color:#e6db74">&#34;mugijiru/ivy-kibela&#34;</span>)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle ivy-kibela)
-</code></pre></div><p>を設定ファイルに書いておけば OK</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name ivy-kibela
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/mugijiru/ivy-kibela&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Ivy interface to kibela.&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :branch <span style="color:#e6db74">&#34;main&#34;</span>
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;mugijiru/ivy-kibela&#34;</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle ivy-kibela)
+</span></span></code></pre></div><p>を設定ファイルに書いておけば OK</p>
 <h3 id="有効化">有効化</h3>
 <p>今のところ明示的に require しないといけない。
 ivy が読まれてから読まれて欲しいので、以下のように設定している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;ivy</span>
-  (require <span style="color:#e6db74">&#39;ivy-kibela</span>))
-</code></pre></div><h3 id="設定">設定</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;ivy</span>
+</span></span><span style="display:flex;"><span>  (require <span style="color:#e6db74">&#39;ivy-kibela</span>))
+</span></span></code></pre></div><h3 id="設定">設定</h3>
 <p>README に従い <code>ivy-kibela-team</code> と <code>ivy-kibela-access-token</code> を設定してあげれば OK。自分は authinfo を使ってるのでそれ経由で値を取得している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(custom-set-variables
- <span style="color:#f92672">&#39;</span>(ivy-kibela-team (<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;kibe.la&#34;</span>)) :team))
- <span style="color:#f92672">&#39;</span>(ivy-kibela-access-token (<span style="color:#a6e22e">funcall</span> (<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;kibe.la&#34;</span> :max <span style="color:#ae81ff">1</span>)) :secret))))
-</code></pre></div><h3 id="ivy-migemo-の有効化">ivy-migemo の有効化</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-variables
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(ivy-kibela-team (<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;kibe.la&#34;</span>)) :team))
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(ivy-kibela-access-token (<span style="color:#a6e22e">funcall</span> (<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;kibe.la&#34;</span> :max <span style="color:#ae81ff">1</span>)) :secret))))
+</span></span></code></pre></div><h3 id="ivy-migemo-の有効化">ivy-migemo の有効化</h3>
 <p>ivy-kibela でも migemo りたかったので、以下のようにして migemo でも使えるようにしている</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;ivy-kibela</span>
-  (add-to-list <span style="color:#e6db74">&#39;ivy-re-builders-alist</span> <span style="color:#f92672">&#39;</span>(ivy-kibela <span style="color:#f92672">.</span> ivy-migemo--regex-plus) <span style="color:#66d9ef">t</span>))
-</code></pre></div><h2 id="prescient-dot-el">prescient.el</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;ivy-kibela</span>
+</span></span><span style="display:flex;"><span>  (add-to-list <span style="color:#e6db74">&#39;ivy-re-builders-alist</span> <span style="color:#f92672">&#39;</span>(ivy-kibela <span style="color:#f92672">.</span> ivy-migemo-regex-plus) <span style="color:#66d9ef">t</span>))
+</span></span></code></pre></div><h2 id="prescient-dot-el">prescient.el</h2>
 <p><a href="https://github.com/raxod502/prescient.el">prescient.el</a> は強力なソート・フィルタ機能を提供してくれるパッケージ。
 ivy などの絞り込み系ツールと組み合わせて使う。</p>
 <p>とりあえずいつも通り el-get でインストールしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle prescient.el)
-</code></pre></div><p>レシピは自前で追加している</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(:name raxod502/prescient.el
-       :website <span style="color:#e6db74">&#34;https://github.com/raxod502/prescient.el&#34;</span>
-       :description <span style="color:#e6db74">&#34;simple but effective sorting and filtering for Emacs.&#34;</span>
-       :type github
-       :pkgname <span style="color:#e6db74">&#34;raxod502/prescient.el&#34;</span>)
-</code></pre></div><p>そんで ivy でそれが使われるように ivy-prescient-mode を有効にしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(ivy-prescient-mode <span style="color:#ae81ff">1</span>)
-</code></pre></div><p>ただ候補文字列の長さで sort されるのはどうも微妙さを感じるので無効にしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq prescient-sort-length-enable <span style="color:#66d9ef">nil</span>)
-</code></pre></div><p>どうやら company-mode でも使えるらしいので設定は別のところに分離した方がいいかもしれない。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle prescient.el)
+</span></span></code></pre></div><p>レシピは自前で追加している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name prescient.el
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/radian-software/prescient.el&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;simple but effective sorting and filtering for Emacs.&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :branch <span style="color:#e6db74">&#34;main&#34;</span>
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;radian-software/prescient.el&#34;</span>)
+</span></span></code></pre></div><p>そんで ivy でそれが使われるように ivy-prescient-mode を有効にしている。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(ivy-prescient-mode <span style="color:#ae81ff">1</span>)
+</span></span></code></pre></div><p>ただ候補文字列の長さで sort されるのはどうも微妙さを感じるので無効にしている。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq prescient-sort-length-enable <span style="color:#66d9ef">nil</span>)
+</span></span></code></pre></div><p>どうやら company-mode でも使えるらしいので設定は別のところに分離した方がいいかもしれない。</p>
 
 
 <footer class="footline">
@@ -4951,19 +4955,19 @@ ivy などの絞り込み系ツールと組み合わせて使う。</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1655619836"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1655619836"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1683429461"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1683429461"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1655619836"></script>
-    <script src="/.emacs.d/js/learn.js?1655619836"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1655619836"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1683429461"></script>
+    <script src="/.emacs.d/js/learn.js?1683429461"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1683429461"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1655619836"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1683429461"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

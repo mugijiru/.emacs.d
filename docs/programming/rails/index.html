@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.104.2" />
     <meta name="description" content="麦汁の Emacs 設定解説ページ">
 <meta name="author" content="麦汁">
 
@@ -12,20 +12,20 @@
     <title>rails :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1655619836" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1683429461" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1655619836"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1683429461"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1655619836"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1683429461"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1683429461"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1683429461"></script>
 
     
   </div>
@@ -2718,11 +2718,8 @@
     <li><a href="#関連パッケージのインストール">関連パッケージのインストール</a></li>
     <li><a href="#projectile-rails-用のコマンド追加">projectile-rails 用のコマンド追加</a>
       <ul>
-        <li><a href="#uploader-finder">Uploader Finder</a></li>
-        <li><a href="#admin-finder">Admin Finder</a></li>
-        <li><a href="#form-object-finder">Form Object Finder</a></li>
-        <li><a href="#vue-finder">Vue Finder</a></li>
-        <li><a href="#webpacker-管理の-js-検索コマンド">Webpacker 管理の JS 検索コマンド</a></li>
+        <li><a href="#ts-tsx-finder">TS/TSX Finder</a></li>
+        <li><a href="#ts-tsx-test-files-finder">TS/TSX test files Finder</a></li>
       </ul>
     </li>
     <li><a href="#キーバインド">キーバインド</a></li>
@@ -2754,105 +2751,75 @@
 <p>Rails 開発関係だけど Ruby 開発とはちょっと違う設定をここに書いている。</p>
 <h2 id="関連パッケージのインストール">関連パッケージのインストール</h2>
 <p>テンプレートエンジンには haml を使っているので <a href="https://github.com/nex3/haml-mode">haml-mode</a> を入れていてファイルナビゲーションには <a href="/.emacs.d/nav/projectile/">projectile</a> の拡張である <a href="https://github.com/asok/projectile-rails">projectile-rails</a> を利用している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle haml-mode)
-(el-get-bundle projectile-rails)
-(projectile-rails-global-mode <span style="color:#ae81ff">1</span>)
-</code></pre></div><h2 id="projectile-rails-用のコマンド追加">projectile-rails 用のコマンド追加</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle haml-mode)
+</span></span><span style="display:flex;"><span>(el-get-bundle projectile-rails)
+</span></span><span style="display:flex;"><span>(projectile-rails-global-mode <span style="color:#ae81ff">1</span>)
+</span></span></code></pre></div><h2 id="projectile-rails-用のコマンド追加">projectile-rails 用のコマンド追加</h2>
 <p>自身のプロジェクトだと少しナビゲーション用のコマンドが不足していたので
 projectile-rails の実装を参考にコマンドを追加している</p>
-<h3 id="uploader-finder">Uploader Finder</h3>
-<p><code>app/uploaders</code> に格納している upload に関連するファイルを検索するコマンド</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/projectile-rails-find-uploader ()
-  <span style="color:#e6db74">&#34;Find a Uploader.&#34;</span>
-  (interactive)
-  (projectile-rails-find-resource
-   <span style="color:#e6db74">&#34;uploader: &#34;</span>
-   <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;app/uploaders/&#34;</span> <span style="color:#e6db74">&#34;\\(.+\\)\\.rb$&#34;</span>))
-   <span style="color:#e6db74">&#34;app/uploaders/${filename}.rb&#34;</span>))
-</code></pre></div><h3 id="admin-finder">Admin Finder</h3>
-<p>Active Admin 用のファイルを検索するためのコマンド</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/projectile-rails-find-admin ()
-  <span style="color:#e6db74">&#34;Find a ActiveAdmin file.&#34;</span>
-  (interactive)
-  (projectile-rails-find-resource
-   <span style="color:#e6db74">&#34;admin: &#34;</span>
-   <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;app/admin/&#34;</span> <span style="color:#e6db74">&#34;\\(.+\\)\\.rb$&#34;</span>))
-   <span style="color:#e6db74">&#34;app/admin/${filename}.rb&#34;</span>))
-</code></pre></div><h3 id="form-object-finder">Form Object Finder</h3>
-<p>Form Object を探すためのコマンド</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/projectile-rails-find-form-object ()
-  <span style="color:#e6db74">&#34;Find a Form Object.&#34;</span>
-  (interactive)
-  (projectile-rails-find-resource
-   <span style="color:#e6db74">&#34;form object: &#34;</span>
-   <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;app/models/forms/&#34;</span> <span style="color:#e6db74">&#34;\\(.+\\)\\.rb$&#34;</span>))
-   <span style="color:#e6db74">&#34;app/models/forms/${filename}.rb&#34;</span>))
-</code></pre></div><h3 id="vue-finder">Vue Finder</h3>
-<p>Vue.js の単一ファイルコンポーネントを探すためのコマンド</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/projectile-rails-find-vue ()
-  <span style="color:#e6db74">&#34;Find a Vue.&#34;</span>
-  (interactive)
-  (projectile-rails-find-resource
-   <span style="color:#e6db74">&#34;vue: &#34;</span>
-   <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;app/javascript/&#34;</span> <span style="color:#e6db74">&#34;\\(.+\\)\\.vue$&#34;</span>))
-   <span style="color:#e6db74">&#34;app/javascript/${filename}.vue&#34;</span>))
-</code></pre></div><h3 id="webpacker-管理の-js-検索コマンド">Webpacker 管理の JS 検索コマンド</h3>
-<p>Webpacker で JS を管理していたりもするので必要だった</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/projectile-rails-find-webpack-js ()
-  <span style="color:#e6db74">&#34;Find a Webpack js.&#34;</span>
-  (interactive)
-  (projectile-rails-find-resource
-   <span style="color:#e6db74">&#34;webpack js: &#34;</span>
-   <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;app/javascript/&#34;</span> <span style="color:#e6db74">&#34;\\(.+\\)\\.js$&#34;</span>))
-   <span style="color:#e6db74">&#34;app/javascript/${filename}.js&#34;</span>))
-</code></pre></div><h2 id="キーバインド">キーバインド</h2>
+<h3 id="ts-tsx-finder">TS/TSX Finder</h3>
+<p><code>client</code> に格納しているフロントエンドのファイルを検索するコマンド</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/projectile-rails-find-typescript ()
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Find a TS/TSX files.&#34;</span>
+</span></span><span style="display:flex;"><span>  (interactive)
+</span></span><span style="display:flex;"><span>  (projectile-rails-find-resource
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;ts/tsx: &#34;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;client/&#34;</span> <span style="color:#e6db74">&#34;\\(.+\\.tsx?\\)$&#34;</span>))
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;client/${filename}&#34;</span>))
+</span></span></code></pre></div><h3 id="ts-tsx-test-files-finder">TS/TSX test files Finder</h3>
+<p><code>spec/javascript</code> に格納しているフロントエンドのテストファイルを検索するコマンド</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/projectile-rails-find-typescript-spec ()
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Find a TS/TSX test files.&#34;</span>
+</span></span><span style="display:flex;"><span>  (interactive)
+</span></span><span style="display:flex;"><span>  (projectile-rails-find-resource
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;ts/tsx spec: &#34;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;spec/javascripts/&#34;</span> <span style="color:#e6db74">&#34;\\(.+\\.spec.tsx?\\)$&#34;</span>))
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;spec/javascripts/${filename}&#34;</span>))
+</span></span></code></pre></div><h2 id="キーバインド">キーバインド</h2>
 <p>もちろん基本的にコマンドなんて覚えられないのでいつも通り Hydra を定義して大体キーバインドは忘れている。</p>
 <p>なおこの Hydra は Rails のファイルを開いている時には <code>C-c r</code> で起動するようにしている。これは通常のセットアップで prefix としてこう設定するといいよ、みたいに書かれているのを流用している。
 <a href="https://github.com/asok/projectile-rails#keymap-prefix">https://github.com/asok/projectile-rails#keymap-prefix</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
-  (pretty-hydra-define pretty-hydra-projectile-rails-find (:separator <span style="color:#e6db74">&#34;-&#34;</span> :color blue :foreign-keys <span style="color:#a6e22e">warn</span> :title <span style="color:#e6db74">&#34;Projectile Rails&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span>)
-    (<span style="color:#e6db74">&#34;Current&#34;</span>
-     ((<span style="color:#e6db74">&#34;M&#34;</span> projectile-rails-find-current-model      <span style="color:#e6db74">&#34;Current model&#34;</span>)
-      (<span style="color:#e6db74">&#34;V&#34;</span> projectile-rails-find-current-view       <span style="color:#e6db74">&#34;Current view&#34;</span>)
-      (<span style="color:#e6db74">&#34;C&#34;</span> projectile-rails-find-current-controller <span style="color:#e6db74">&#34;Current controller&#34;</span>)
-      (<span style="color:#e6db74">&#34;H&#34;</span> projectile-rails-find-current-helper     <span style="color:#e6db74">&#34;Current helper&#34;</span>)
-      (<span style="color:#e6db74">&#34;P&#34;</span> projectile-rails-find-current-spec       <span style="color:#e6db74">&#34;Current spec&#34;</span>)
-      (<span style="color:#e6db74">&#34;Z&#34;</span> projectile-rails-find-current-serializer <span style="color:#e6db74">&#34;Current serializer&#34;</span>))
-
-     <span style="color:#e6db74">&#34;App&#34;</span>
-     ((<span style="color:#e6db74">&#34;m&#34;</span> projectile-rails-find-model           <span style="color:#e6db74">&#34;Model&#34;</span>)
-      (<span style="color:#e6db74">&#34;v&#34;</span> projectile-rails-find-view            <span style="color:#e6db74">&#34;View&#34;</span>)
-      (<span style="color:#e6db74">&#34;c&#34;</span> projectile-rails-find-controller      <span style="color:#e6db74">&#34;Controller&#34;</span>)
-      (<span style="color:#e6db74">&#34;h&#34;</span> projectile-rails-find-helper          <span style="color:#e6db74">&#34;Helper&#34;</span>)
-      (<span style="color:#e6db74">&#34;a&#34;</span> my/projectile-rails-find-admin        <span style="color:#e6db74">&#34;ActiveAdmin&#34;</span>)
-      (<span style="color:#e6db74">&#34;f&#34;</span> my/projectile-rails-find-form-object  <span style="color:#e6db74">&#34;Form object&#34;</span>)
-      (<span style="color:#e6db74">&#34;@&#34;</span> projectile-rails-find-mailer          <span style="color:#e6db74">&#34;Mailer&#34;</span>)
-      (<span style="color:#e6db74">&#34;V&#34;</span> my/projectile-rails-find-vue          <span style="color:#e6db74">&#34;Vue&#34;</span>)
-      (<span style="color:#e6db74">&#34;J&#34;</span> my/projectile-rails-find-webpack-js   <span style="color:#e6db74">&#34;Webpack js&#34;</span>)
-      (<span style="color:#e6db74">&#34;u&#34;</span> my/projectile-rails-find-uploader     <span style="color:#e6db74">&#34;Controller&#34;</span>)
-      (<span style="color:#e6db74">&#34;!&#34;</span> projectile-rails-find-validator       <span style="color:#e6db74">&#34;Validator&#34;</span>)
-      <span style="color:#75715e">;; (&#34;y&#34; projectile-rails-find-layout       &#34;Layout&#34;)</span>
-      (<span style="color:#e6db74">&#34;z&#34;</span> projectile-rails-find-serializer      <span style="color:#e6db74">&#34;Serializer&#34;</span>))
-
-     <span style="color:#e6db74">&#34;Assets&#34;</span>
-     ((<span style="color:#e6db74">&#34;j&#34;</span> projectile-rails-find-javascript  <span style="color:#e6db74">&#34;Javascript&#34;</span>)
-      <span style="color:#75715e">;; (&#34;w&#34; projectile-rails-find-component)</span>
-      (<span style="color:#e6db74">&#34;s&#34;</span> projectile-rails-find-stylesheet  <span style="color:#e6db74">&#34;CSS&#34;</span>))
-
-     <span style="color:#e6db74">&#34;Other&#34;</span>
-     ((<span style="color:#e6db74">&#34;n&#34;</span> projectile-rails-find-migration    <span style="color:#e6db74">&#34;Migration&#34;</span>)
-      (<span style="color:#e6db74">&#34;r&#34;</span> projectile-rails-find-rake-task    <span style="color:#e6db74">&#34;Rake task&#34;</span>)
-      (<span style="color:#e6db74">&#34;i&#34;</span> projectile-rails-find-initializer  <span style="color:#e6db74">&#34;Initializer&#34;</span>)
-      (<span style="color:#e6db74">&#34;l&#34;</span> projectile-rails-find-lib          <span style="color:#e6db74">&#34;Lib&#34;</span>)
-      (<span style="color:#e6db74">&#34;p&#34;</span> projectile-rails-find-spec         <span style="color:#e6db74">&#34;Spec&#34;</span>)
-      (<span style="color:#e6db74">&#34;t&#34;</span> projectile-rails-find-locale       <span style="color:#e6db74">&#34;Translation&#34;</span>))
-
-     <span style="color:#e6db74">&#34;Single Files&#34;</span>
-     ((<span style="color:#e6db74">&#34;R&#34;</span> projectile-rails-goto-routes   <span style="color:#e6db74">&#34;routes.rb&#34;</span>)
-      (<span style="color:#e6db74">&#34;G&#34;</span> projectile-rails-goto-gemfile  <span style="color:#e6db74">&#34;Gemfile&#34;</span>)
-      (<span style="color:#e6db74">&#34;D&#34;</span> projectile-rails-goto-schema   <span style="color:#e6db74">&#34;schema.rb&#34;</span>))))
-  (<span style="color:#a6e22e">define-key</span> projectile-rails-mode-map (kbd <span style="color:#e6db74">&#34;C-c r&#34;</span>) <span style="color:#e6db74">&#39;pretty-hydra-projectile-rails-find/body</span>))
-</code></pre></div><table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
+</span></span><span style="display:flex;"><span>  (pretty-hydra-define pretty-hydra-projectile-rails-find (:separator <span style="color:#e6db74">&#34;-&#34;</span> :color blue :foreign-keys <span style="color:#a6e22e">warn</span> :title <span style="color:#e6db74">&#34;Projectile Rails&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;Current&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;M&#34;</span> projectile-rails-find-current-model      <span style="color:#e6db74">&#34;Current model&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;V&#34;</span> projectile-rails-find-current-view       <span style="color:#e6db74">&#34;Current view&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;C&#34;</span> projectile-rails-find-current-controller <span style="color:#e6db74">&#34;Current controller&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;H&#34;</span> projectile-rails-find-current-helper     <span style="color:#e6db74">&#34;Current helper&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;P&#34;</span> projectile-rails-find-current-spec       <span style="color:#e6db74">&#34;Current spec&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;Z&#34;</span> projectile-rails-find-current-serializer <span style="color:#e6db74">&#34;Current serializer&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;App&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;m&#34;</span> projectile-rails-find-model           <span style="color:#e6db74">&#34;Model&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;v&#34;</span> projectile-rails-find-view            <span style="color:#e6db74">&#34;View&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;c&#34;</span> projectile-rails-find-controller      <span style="color:#e6db74">&#34;Controller&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;h&#34;</span> projectile-rails-find-helper          <span style="color:#e6db74">&#34;Helper&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;@&#34;</span> projectile-rails-find-mailer          <span style="color:#e6db74">&#34;Mailer&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;!&#34;</span> projectile-rails-find-validator       <span style="color:#e6db74">&#34;Validator&#34;</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">;; (&#34;y&#34; projectile-rails-find-layout       &#34;Layout&#34;)</span>
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;z&#34;</span> projectile-rails-find-serializer      <span style="color:#e6db74">&#34;Serializer&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Assets&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;j&#34;</span> projectile-rails-find-javascript         <span style="color:#e6db74">&#34;Javascript&#34;</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">;; (&#34;w&#34; projectile-rails-find-component)</span>
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;x&#34;</span> my/projectile-rails-find-typescript      <span style="color:#e6db74">&#34;TS/TSX&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;X&#34;</span> my/projectile-rails-find-typescript-spec <span style="color:#e6db74">&#34;TS/TSX spec&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;s&#34;</span> projectile-rails-find-stylesheet         <span style="color:#e6db74">&#34;CSS&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Other&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;n&#34;</span> projectile-rails-find-migration    <span style="color:#e6db74">&#34;Migration&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;r&#34;</span> projectile-rails-find-rake-task    <span style="color:#e6db74">&#34;Rake task&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;i&#34;</span> projectile-rails-find-initializer  <span style="color:#e6db74">&#34;Initializer&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;l&#34;</span> projectile-rails-find-lib          <span style="color:#e6db74">&#34;Lib&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;p&#34;</span> projectile-rails-find-spec         <span style="color:#e6db74">&#34;Spec&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;t&#34;</span> projectile-rails-find-locale       <span style="color:#e6db74">&#34;Translation&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Single Files&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;R&#34;</span> projectile-rails-goto-routes   <span style="color:#e6db74">&#34;routes.rb&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;G&#34;</span> projectile-rails-goto-gemfile  <span style="color:#e6db74">&#34;Gemfile&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;D&#34;</span> projectile-rails-goto-schema   <span style="color:#e6db74">&#34;schema.rb&#34;</span>))))
+</span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">define-key</span> projectile-rails-mode-map (kbd <span style="color:#e6db74">&#34;C-c r&#34;</span>) <span style="color:#e6db74">&#39;pretty-hydra-projectile-rails-find/body</span>))
+</span></span></code></pre></div><table>
 <thead>
 <tr>
 <th>Key</th>
@@ -2889,7 +2856,7 @@ projectile-rails の実装を参考にコマンドを追加している</p>
 <tr>
 <td>Z</td>
 <td>現在のファイルに関連する Serializer を開く</td>
-<td><a href="https://github.com/rails-api/active%5Fmodel%5Fserializers">ActiveModelSerializer</a> を使ってるプロジェクトがある</td>
+<td><a href="https://github.com/rails-api/active_model_serializers">ActiveModelSerializer</a> を使ってるプロジェクトがある</td>
 </tr>
 <tr>
 <td>m</td>
@@ -4897,19 +4864,19 @@ projectile-rails の実装を参考にコマンドを追加している</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1655619836"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1655619836"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1683429461"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1683429461"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1655619836"></script>
-    <script src="/.emacs.d/js/learn.js?1655619836"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1655619836"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1683429461"></script>
+    <script src="/.emacs.d/js/learn.js?1683429461"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1683429461"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1655619836"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1683429461"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

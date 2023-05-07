@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.104.2" />
     <meta name="description" content="麦汁の Emacs 設定解説ページ">
 <meta name="author" content="麦汁">
 
@@ -12,20 +12,20 @@
     <title>key-chord :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1655619836" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1683429461" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1655619836"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1683429461"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1655619836"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1683429461"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1683429461"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1683429461"></script>
 
     
   </div>
@@ -2755,30 +2755,30 @@
 <p>まあほとんど使えてないので改良版の恩恵をまだ受けてないけど……。</p>
 <h2 id="インストール">インストール</h2>
 <p>いつも通り el-get でインストールしている。本家の方じゃないので GitHub のリポジトリから突っ込んでいる。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle zk-phi/key-chord)
-</code></pre></div><h2 id="設定">設定</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle zk-phi/key-chord)
+</span></span></code></pre></div><h2 id="設定">設定</h2>
 <p>同時押し時の許容時間、その前後で別のキーが押されていたら発動しない判断をする、みたいな設定を入れている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq key-chord-two-keys-delay           <span style="color:#ae81ff">0.25</span>
-      key-chord-safety-interval-backward <span style="color:#ae81ff">0.1</span>
-      key-chord-safety-interval-forward  <span style="color:#ae81ff">0.15</span>)
-</code></pre></div><p>キーの同時押し判定は 0.15 秒で、それらのキーが押される直前の 0.1 秒以内、または直後の 0.15 秒に押されていたら発動しない、という設定にしている。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq key-chord-two-keys-delay           <span style="color:#ae81ff">0.25</span>
+</span></span><span style="display:flex;"><span>      key-chord-safety-interval-backward <span style="color:#ae81ff">0.1</span>
+</span></span><span style="display:flex;"><span>      key-chord-safety-interval-forward  <span style="color:#ae81ff">0.15</span>)
+</span></span></code></pre></div><p>キーの同時押し判定は 0.15 秒で、それらのキーが押される直前の 0.1 秒以内、または直後の 0.15 秒に押されていたら発動しない、という設定にしている。</p>
 <p>改良版の作者の記事だと、直後判定は 0.25 秒で設定されていたが自分は Hydra の起動に使っている上に Hydra で叩けるやつでよく使うやつは覚えているので表示を待たずに次のキーを押すので 0.25 秒も待っていられないという事情があった。</p>
 <h2 id="有効化">有効化</h2>
 <p>設定を入れた後は有効にするだけである。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(key-chord-mode <span style="color:#ae81ff">1</span>)
-</code></pre></div><p>実際のキーバインド設定は各モードだったりグローバルキーバインドを設定しているファイルだったりで書く感じ。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(key-chord-mode <span style="color:#ae81ff">1</span>)
+</span></span></code></pre></div><p>実際のキーバインド設定は各モードだったりグローバルキーバインドを設定しているファイルだったりで書く感じ。</p>
 <p>といいつつ現状では Hydra 起動のやつしか使ってないので、グローバルキーバインド設定でしか書いてない。</p>
 <h2 id="sticky-shift">sticky-shift</h2>
 <h3 id="セミコロン2つでシフトを押した状態にする">セミコロン2つでシフトを押した状態にする</h3>
 <p>セミコロンを2回叩くことで shift が押されてるという状態を実現する。</p>
 <p>これにより magit で P などを入力したい時にも <code>;;p</code> で入力できるし通常の英字入力時にも大文字にできるので左手小指が痛い時には Shift を使わずに操作ができるようになる。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(key-chord-define-global <span style="color:#e6db74">&#34;;;&#34;</span>
-                         <span style="color:#e6db74">&#39;event-apply-shift-modifier</span>)
-
-(key-chord-define key-translation-map
-                  <span style="color:#e6db74">&#34;;;&#34;</span>
-                  <span style="color:#e6db74">&#39;event-apply-shift-modifier</span>)
-</code></pre></div><p><code>global-key-map</code> と <code>key-translation-map</code> の両方に定義しないと動かないがその原因はよく分かってない。一旦動くから良しとしている。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(key-chord-define-global <span style="color:#e6db74">&#34;;;&#34;</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#e6db74">&#39;event-apply-shift-modifier</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(key-chord-define key-translation-map
+</span></span><span style="display:flex;"><span>                  <span style="color:#e6db74">&#34;;;&#34;</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#e6db74">&#39;event-apply-shift-modifier</span>)
+</span></span></code></pre></div><p><code>global-key-map</code> と <code>key-translation-map</code> の両方に定義しないと動かないがその原因はよく分かってない。一旦動くから良しとしている。</p>
 <p>ここで使っている <code>event-apply-shift-modifier</code> はデフォルトでは <code>C-x @ S</code> にバインドされているやつ。お仲間に <code>event-apply-control-modifier</code> などの各 modifier キーがいるので
 sticky 的なことをやる上で便利な子達。
 <a href="/.emacs.d/keybinds/sticky-control/">sticky-control</a> の中でも <code>event-apply-control-modifier</code> が使われているぞい。</p>
@@ -4677,19 +4677,19 @@ key-chord に全部置き換えできるかもしれない。</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1655619836"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1655619836"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1683429461"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1683429461"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1655619836"></script>
-    <script src="/.emacs.d/js/learn.js?1655619836"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1655619836"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1683429461"></script>
+    <script src="/.emacs.d/js/learn.js?1683429461"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1683429461"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1655619836"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1683429461"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

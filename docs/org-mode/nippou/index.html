@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.104.2" />
     <meta name="description" content="麦汁の Emacs 設定解説ページ">
 <meta name="author" content="麦汁">
 
@@ -12,20 +12,20 @@
     <title>日報用の設定(旧) :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1655619836" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1683429461" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1655619836"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1683429461"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1655619836"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1683429461"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1683429461"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1683429461"></script>
 
     
   </div>
@@ -2732,7 +2732,7 @@
         
 <div class="tags">
 
-  <a class="tag-link" href="/.emacs.d/tags/unused">unused</a>
+  <a class="tag-link" href="/tags/unused">unused</a>
 
 </div>
 
@@ -2754,36 +2754,36 @@
 <p>今では org-super-agenda を使っているのでこれは使ってないが、とりあえず載せておく。</p>
 <h2 id="シークレット設定の読み込み">シークレット設定の読み込み</h2>
 <p>表に出したくない情報については別ファイルに分離して setq している。が、内容的に本名が露出する程度の情報ではある。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(my/load-config <span style="color:#e6db74">&#34;my-nippou-config&#34;</span>)
-</code></pre></div><p>これの中で <code>my/org-nippou-additional-files</code> を定義していてそのファイル名に名前が含まれてるだけであった。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(my/load-config <span style="color:#e6db74">&#34;my-nippou-config&#34;</span>)
+</span></span></code></pre></div><p>これの中で <code>my/org-nippou-additional-files</code> を定義していてそのファイル名に名前が含まれてるだけであった。</p>
 <p><code>me.org</code> とでもしておけば解決しそう……。</p>
 <h2 id="日報構築の対象となるファイルをリストアップする関数の定義">日報構築の対象となるファイルをリストアップする関数の定義</h2>
 <p><code>~/Documenets/org/tasks</code> に作業記録用ファイルなどを find コマンドを使ってリストアップする関数。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/org-nippou-files ()
-  (let* ((dir my/org-tasks-directory)
-         (cmd (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;find \&#34;%s\&#34; -name &#39;*.org&#39; -or -name &#39;*.org_archive&#39;&#34;</span> dir))
-         (result (shell-command-to-string cmd))
-         (file-names (split-string result <span style="color:#e6db74">&#34;\n&#34;</span>)))
-    (-remove (lambda (file-name) (string= <span style="color:#e6db74">&#34;&#34;</span> file-name))
-             file-names)))
-</code></pre></div><p>org-agenda-files を使えば要らないっぽいけどね。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/org-nippou-files ()
+</span></span><span style="display:flex;"><span>  (let* ((dir my/org-tasks-directory)
+</span></span><span style="display:flex;"><span>         (cmd (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;find \&#34;%s\&#34; -name &#39;*.org&#39; -or -name &#39;*.org_archive&#39;&#34;</span> dir))
+</span></span><span style="display:flex;"><span>         (result (shell-command-to-string cmd))
+</span></span><span style="display:flex;"><span>         (file-names (split-string result <span style="color:#e6db74">&#34;\n&#34;</span>)))
+</span></span><span style="display:flex;"><span>    (-remove (lambda (file-name) (string= <span style="color:#e6db74">&#34;&#34;</span> file-name))
+</span></span><span style="display:flex;"><span>             file-names)))
+</span></span></code></pre></div><p>org-agenda-files を使えば要らないっぽいけどね。
 agenda 全然使えてなかったらこんなことに。</p>
 <h2 id="日報構築元ファイルを取得する関数の定義">日報構築元ファイルを取得する関数の定義</h2>
 <p>シークレット設定で定義した変数と上で定義した <code>my/org-nippou-files</code> を結合して
 1つのリストにするだけの関数を用意している。
 1つにまとまってる方が扱いやすいので。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/org-nippou-targets ()
-      (-concat (my/org-nippou-files) my/org-nippou-additional-files))
-</code></pre></div><h2 id="日報を出力する関数">日報を出力する関数</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/org-nippou-targets ()
+</span></span><span style="display:flex;"><span>      (-concat (my/org-nippou-files) my/org-nippou-additional-files))
+</span></span></code></pre></div><h2 id="日報を出力する関数">日報を出力する関数</h2>
 <p>上記の関数群で target になるファイルから日報用に TODO 項目を引っ張り出してくる関数を用意している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/nippou-query ()
-  (interactive)
-  (org-ql-search
-    (my/org-nippou-targets)
-    <span style="color:#e6db74">&#34;todo:TODO,DOING,WAIT,DONE ts:on=today&#34;</span>
-    :title <span style="color:#e6db74">&#34;日報&#34;</span>
-    :super-groups <span style="color:#f92672">&#39;</span>((:auto-group))))
-</code></pre></div><p>その中では <a href="https://github.com/alphapapa/org-ql">org-ql</a> の org-ql-search という関数を叩いている。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/nippou-query ()
+</span></span><span style="display:flex;"><span>  (interactive)
+</span></span><span style="display:flex;"><span>  (org-ql-search
+</span></span><span style="display:flex;"><span>    (my/org-nippou-targets)
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;todo:TODO,DOING,WAIT,DONE ts:on=today&#34;</span>
+</span></span><span style="display:flex;"><span>    :title <span style="color:#e6db74">&#34;日報&#34;</span>
+</span></span><span style="display:flex;"><span>    :super-groups <span style="color:#f92672">&#39;</span>((:auto-group))))
+</span></span></code></pre></div><p>その中では <a href="https://github.com/alphapapa/org-ql">org-ql</a> の org-ql-search という関数を叩いている。
 org-ql は使いこなすと色々なことができそうではあるがそれを内部で使ってる <a href="https://github.com/alphapapa/org-super-agenda">org-super-agenda</a> を使えば十分な感じではある。</p>
 
 
@@ -4674,19 +4674,19 @@ org-ql は使いこなすと色々なことができそうではあるがそれ�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1655619836"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1655619836"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1683429461"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1683429461"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1655619836"></script>
-    <script src="/.emacs.d/js/learn.js?1655619836"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1655619836"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1683429461"></script>
+    <script src="/.emacs.d/js/learn.js?1683429461"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1683429461"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1655619836"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1683429461"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

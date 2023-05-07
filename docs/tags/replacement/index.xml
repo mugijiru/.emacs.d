@@ -16,14 +16,10 @@
 オリジナルは https://github.com/myuhe/org-gcal.el なのだけど今は fork されてるやつが MELPA にも登録されていて el-get のレシピもそっちを見ている。
 インストール org-gcal が依存しているので parsist を入れている。
 (el-get-bundle persist) あとは当然 org-gcal 本体を入れないと動かない
-(el-get-bundle org-gcal) 設定 とりあえず require をしないといけない
-(require &amp;#39;org-gcal) あとは設定ファイルは公開したくないので別ファイルに分けてる。
-(my/load-config &amp;#34;my-org-gcal-config&amp;#34;) 隠したい部分だけ .authinfo.gpg にでも分離したら公開できるようになるかもしれない。
-appt Emacs にはデフォルトで約束の通知ができる機能が appt.el で定義されている。 org-gcal で取得したデータをそれで通知できるように appt の設定をここで行っている
-通知形式の設定 window 通知を使う設定にしている。
-(setq appt-display-format &amp;#39;window) これだけだと、通知する時間になったらピョコッと window が生えて来るのだけど、後の方で、この設定の時に使う関数を差し替えている
-通知用関数の定義 通知には alert.el を使いたいので自前で関数を定義。 alert.el は別のところで設定していてそこで dunst を使って通知するようにしている。
-(defun my/appt-alert (min-to-app _new-time msg) (interactive) (let ((title (format &amp;#34;あと %s 分&amp;#34; min-to-app))) (alert msg :title title))) この関数を使うように appt-disp-window-function を変更している。</description>
+(el-get-bundle org-gcal) 設定 まずは org-gcal の設定が authinfo から読み込まれるようにする
+(custom-set-variables &amp;#39;(org-gcal-client-id (plist-get (nth 0 (auth-source-search :host &amp;#34;googleusercontent.com&amp;#34;)) :client)) &amp;#39;(org-gcal-client-secret (funcall (plist-get (nth 0 (auth-source-search :host &amp;#34;googleusercontent.com&amp;#34; :max 1)) :secret)))) そして org-gcal 本体を require する。
+(require &amp;#39;org-gcal) あとは passphrase を保存できるようにした方が良いみたいなのが確か README に比較的最近追加されたのでそれを入れている
+(setq plstore-cache-passphrase-for-symmetric-encryption t) あとは設定ファイルは公開したくないので別ファイルに分けてる。</description>
     </item>
     
     <item>
@@ -37,7 +33,7 @@ Emacs ではデフォルトでも編集中ファイルの自動保存や、編�
 設定 自動保存設定 デフォルトだと #hoge.txt# みたいなファイル名で作られる、自動保存に関する設定。
 まあこの自動保存されてやつを活用できてる気がしないのでこの自動保存自体不要な気はしているが、とりあえず場所を移動して邪魔にはならないようにはしている。
 自動保存のタイミング 自動保存のタイミングは
- auto-save-timeout auto-save-interval  で制御されている。
+auto-save-timeout auto-save-interval で制御されている。
 まず auto-save-timeout で設定した秒数が経過すると再度自動保存が実行される。
 これがデフォルトだと 30 秒なのだが、ちょっと長いのでその半分の 15 秒で保存されるように設定を変更している。
 (setq auto-save-timeout 15) また auto-save-interval で設定した回数のキーイベントが発生すると再度自動保存を実行する。

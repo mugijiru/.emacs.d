@@ -17,7 +17,7 @@
 GitHub の README には作者のブログへのリンクしかないしそのブログは消えてるので一番まともに解説しているのは http://emacs.rubikitch.com/scratch-log/ だと思う。
 インストール el-get から入れるだけ。
 (el-get-bundle mori-dev/scratch-log) 有効化 どうも明示的に require しないといけないっぽくて、そうしている。ちょっと本当にそうなのか検証したい気はする。
-(require &amp;#39;scratch-log) 類似品など  persistent-scratch これも scratch を永続化させるやつ。カスタマイズ性はこっちがありそう unkillable-scratch scratch バッファを kill させないやつ。同じような機能が scratch-log にもある auto-save-buffers-enhanced 自動保存機能がメインだけど scratch を自動保存する機能もある  </description>
+(require &amp;#39;scratch-log) 類似品など persistent-scratch これも scratch を永続化させるやつ。カスタマイズ性はこっちがありそう unkillable-scratch scratch バッファを kill させないやつ。同じような機能が scratch-log にもある auto-save-buffers-enhanced 自動保存機能がメインだけど scratch を自動保存する機能もある </description>
     </item>
     
     <item>

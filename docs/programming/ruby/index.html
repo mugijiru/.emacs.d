@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.104.2" />
     <meta name="description" content="麦汁の Emacs 設定解説ページ">
 <meta name="author" content="麦汁">
 
@@ -12,20 +12,20 @@
     <title>ruby :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1655619836" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1683429461" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1655619836"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1683429461"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1655619836"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1683429461"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1683429461"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1683429461"></script>
 
     
   </div>
@@ -2761,22 +2761,23 @@
 Emacs 上でもそれが使えるように <a href="https://github.com/senny/rbenv.el">rbenv.el</a> を導入している。</p>
 <h3 id="インストール">インストール</h3>
 <p>インストールはいつも通り el-get でやっている</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle rbenv)
-</code></pre></div><h3 id="有効化">有効化</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle rbenv)
+</span></span></code></pre></div><h3 id="有効化">有効化</h3>
 <p>そして global に有効化している。というか global じゃない有効化ってあるのかなってのと、あるとしても意味があるのかな的な。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(global-rbenv-mode)
-</code></pre></div><h2 id="enh-ruby-mode">enh-ruby-mode</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(global-rbenv-mode)
+</span></span></code></pre></div><h2 id="enh-ruby-mode">enh-ruby-mode</h2>
 <p>メジャーモードは <a href="https://github.com/zenspider/enhanced-ruby-mode">enhanced-ruby-mode</a> を利用している。が、最近は ruby-mode の方がやっぱり良いみたいな話もどこかで見た気がするので戻ってみるのも手かもしれないと思っている。</p>
 <h3 id="インストール">インストール</h3>
 <p>いつも通り el-get で入れている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle enh-ruby-mode)
-</code></pre></div><h3 id="カスタム設定">カスタム設定</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle enh-ruby-mode)
+</span></span></code></pre></div><h3 id="カスタム設定">カスタム設定</h3>
 <p>enh-ruby-mode が読み込まれた後に setq で以下のように設定されている</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;enh-ruby-mode</span>
-  (setq enh-ruby-add-encoding-comment-on-save <span style="color:#66d9ef">nil</span>)
-  (setq enh-ruby-deep-indent-paren <span style="color:#66d9ef">nil</span>)
-  (setq enh-ruby-bounce-deep-indent <span style="color:#66d9ef">t</span>))
-</code></pre></div><h4 id="encoding-のマジックコメントが入らないようにする">encoding のマジックコメントが入らないようにする</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;enh-ruby-mode</span>
+</span></span><span style="display:flex;"><span>  (setq enh-ruby-add-encoding-comment-on-save <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>  (setq enh-ruby-deep-indent-paren <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>  (setq enh-ruby-deep-indent-construct <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>  (setq enh-ruby-bounce-deep-indent <span style="color:#66d9ef">nil</span>))
+</span></span></code></pre></div><h4 id="encoding-のマジックコメントが入らないようにする">encoding のマジックコメントが入らないようにする</h4>
 <p><code>enh-ruby-add-encoding-comment-on-save</code> を nil にすることで
 encoding 設定のマジックコメントが入らないようにしている。</p>
 <p>これは昔は有効にしておいた方が良かったけど最近の Ruby では設定しなくても UTF-8 が前提になるからむしろ無い方が良いというお話だったはず。</p>
@@ -2784,67 +2785,69 @@ encoding 設定のマジックコメントが入らないようにしている�
 <p>ただとりあえず <a href="https://github.com/zenspider/enhanced-ruby-mode/blob/e960bf941d9fa9d92eabf7c03a8bbb51ba1ac453/enh-ruby-mode.el#L74">最新の enhanced-ruby-mode</a> を見るとデフォルトが nil なのでわざわざ設定しなくて良さそう。</p>
 <h4 id="インデントの調整">インデントの調整</h4>
 <p><code>enh-ruby-deep-indent-paren</code> が t の場合</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">hoge <span style="color:#f92672">=</span> {
-         <span style="color:#e6db74">foo</span>: <span style="color:#ae81ff">1</span>
-       }
-</code></pre></div><p>みたいな深いインデントになるけど</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">hoge <span style="color:#f92672">=</span> {
-  <span style="color:#e6db74">foo</span>: <span style="color:#ae81ff">1</span>
-}
-</code></pre></div><p>というようにしたいので nil に設定している。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>hoge <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">foo</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>       }
+</span></span></code></pre></div><p>みたいな深いインデントになるけど</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>hoge <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">foo</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>というようにしたいので nil に設定している。</p>
 <h4 id="インデントの切替">インデントの切替</h4>
 <p>インデントを深くしたくないといいつつ、全然それができないのも困りそうなので
 <code>enh-ruby-bounce-deep-indent</code> を t に設定してタブを押すごとに切り替わるようにしている。</p>
 <p>ところでデフォルトで深い方になってるような気がするので今度設定の見直しした方が良さそう。</p>
 <h3 id="hook">hook</h3>
 <p>hook 用の関数で補完などの機能を有効にしている</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/enh-ruby-mode-hook ()
-  (company-mode <span style="color:#ae81ff">1</span>)
-  (lsp)
-  (lsp-ui-mode <span style="color:#ae81ff">1</span>)
-  (turn-on-smartparens-strict-mode)
-  (display-line-numbers-mode <span style="color:#ae81ff">1</span>))
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/enh-ruby-mode-hook ()
+</span></span><span style="display:flex;"><span>  (company-mode <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>  (lsp)
+</span></span><span style="display:flex;"><span>  (lsp-ui-mode <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>  (add-hook <span style="color:#e6db74">&#39;before-save-hook</span> <span style="color:#a6e22e">#&#39;</span>lsp-format-buffer <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;local</span>)
+</span></span><span style="display:flex;"><span>  (turn-on-smartparens-strict-mode)
+</span></span><span style="display:flex;"><span>  (display-line-numbers-mode <span style="color:#ae81ff">1</span>))
+</span></span></code></pre></div><ul>
 <li>補完用に company-mode を有効化</li>
 <li><a href="https://github.com/castwide/solargraph">solargraph</a> を使ってるので lsp-mode を有効にしている
 <ul>
 <li>lsp-ui-mode も有効にして色々な情報を表示している</li>
 </ul>
 </li>
+<li>また lsp-mode の自動フォーマットを保存時に実行するようにしている</li>
 <li>開きカッコと閉じカッコの組み合わせがズレないように smartparens-strict-mode を有効にしている</li>
 <li>行番号も表示されている方が便利なので display-line-numbers-mode を有効にしている</li>
 </ul>
 <p>それらを設定する関数を enh-ruby-mode-hook に突っ込んでいる</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-hook <span style="color:#e6db74">&#39;enh-ruby-mode-hook</span> <span style="color:#e6db74">&#39;my/enh-ruby-mode-hook</span>)
-</code></pre></div><h3 id="skk-の調整">SKK の調整</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;enh-ruby-mode-hook</span> <span style="color:#e6db74">&#39;my/enh-ruby-mode-hook</span>)
+</span></span></code></pre></div><h3 id="skk-の調整">SKK の調整</h3>
 <p><code>enh-ruby-mode</code> を <code>context-skk-programming-mode</code> に追加することで
 Ruby を使ってる時にコメント部分はクォートの外以外では自動的に日本語入力がオフになるようにしている</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-to-list <span style="color:#e6db74">&#39;context-skk-programming-mode</span> <span style="color:#e6db74">&#39;enh-ruby-mode</span>)
-</code></pre></div><h3 id="キーバインド">キーバインド</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;context-skk-programming-mode</span> <span style="color:#e6db74">&#39;enh-ruby-mode</span>)
+</span></span></code></pre></div><h3 id="キーバインド">キーバインド</h3>
 <p>キーバインドは覚えられないので
 <a href="/.emacs.d/ui/neotree/#major-mode-hydra">major-mode-hydra</a> でキーを定義している</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;major-mode-hydra</span>
-  (major-mode-hydra-define enh-ruby-mode (:quit-key <span style="color:#e6db74">&#34;q&#34;</span> :title (<span style="color:#a6e22e">concat</span> (all-the-icons-alltheicon <span style="color:#e6db74">&#34;ruby-alt&#34;</span>) <span style="color:#e6db74">&#34; Ruby commands&#34;</span>))
-    (<span style="color:#e6db74">&#34;Enh Ruby&#34;</span>
-     ((<span style="color:#e6db74">&#34;{&#34;</span> enh-ruby-toggle-block <span style="color:#e6db74">&#34;Toggle block&#34;</span>)
-      (<span style="color:#e6db74">&#34;e&#34;</span> enh-ruby-insert-end <span style="color:#e6db74">&#34;Insert end&#34;</span>))
-
-     <span style="color:#e6db74">&#34;LSP&#34;</span>
-     ((<span style="color:#e6db74">&#34;i&#34;</span> lsp-ui-imenu <span style="color:#e6db74">&#34;Imenu&#34;</span>)
-      (<span style="color:#e6db74">&#34;f&#34;</span> lsp-ui-flycheck-list <span style="color:#e6db74">&#34;Flycheck list&#34;</span>))
-
-     <span style="color:#e6db74">&#34;RSpec&#34;</span>
-     ((<span style="color:#e6db74">&#34;s&#34;</span> rspec-verify <span style="color:#e6db74">&#34;Run associated spec&#34;</span>)
-      (<span style="color:#e6db74">&#34;m&#34;</span> rspec-verify-method <span style="color:#e6db74">&#34;Run method spec&#34;</span>)
-      (<span style="color:#e6db74">&#34;r&#34;</span> rspec-rerun <span style="color:#e6db74">&#34;Rerun&#34;</span>)
-      (<span style="color:#e6db74">&#34;l&#34;</span> rspec-run-last-failed <span style="color:#e6db74">&#34;Run last failed&#34;</span>))
-
-     <span style="color:#e6db74">&#34;REPL&#34;</span>
-     ((<span style="color:#e6db74">&#34;I&#34;</span> inf-ruby <span style="color:#e6db74">&#34;inf-ruby&#34;</span>))
-
-     <span style="color:#e6db74">&#34;Other&#34;</span>
-     ((<span style="color:#e6db74">&#34;j&#34;</span> dumb-jump-go <span style="color:#e6db74">&#34;Dumb Jump&#34;</span>)))))
-</code></pre></div><table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;major-mode-hydra</span>
+</span></span><span style="display:flex;"><span>  (major-mode-hydra-define enh-ruby-mode (:separator <span style="color:#e6db74">&#34;-&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :title (<span style="color:#a6e22e">concat</span> (all-the-icons-alltheicon <span style="color:#e6db74">&#34;ruby-alt&#34;</span>) <span style="color:#e6db74">&#34; Ruby commands&#34;</span>))
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;Enh Ruby&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;{&#34;</span> enh-ruby-toggle-block <span style="color:#e6db74">&#34;Toggle block&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;e&#34;</span> enh-ruby-insert-end <span style="color:#e6db74">&#34;Insert end&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;LSP&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;i&#34;</span> lsp-ui-imenu <span style="color:#e6db74">&#34;Imenu&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;f&#34;</span> lsp-ui-flycheck-list <span style="color:#e6db74">&#34;Flycheck list&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;RSpec&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;s&#34;</span> rspec-verify <span style="color:#e6db74">&#34;Run associated spec&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;m&#34;</span> rspec-verify-method <span style="color:#e6db74">&#34;Run method spec&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;r&#34;</span> rspec-rerun <span style="color:#e6db74">&#34;Rerun&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;l&#34;</span> rspec-run-last-failed <span style="color:#e6db74">&#34;Run last failed&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;REPL&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;I&#34;</span> inf-ruby <span style="color:#e6db74">&#34;inf-ruby&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Other&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;j&#34;</span> dumb-jump-go <span style="color:#e6db74">&#34;Dumb Jump&#34;</span>)))))
+</span></span></code></pre></div><table>
 <thead>
 <tr>
 <th>Key</th>
@@ -4783,19 +4786,19 @@ Ruby を使ってる時にコメント部分はクォートの外以外では自
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1655619836"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1655619836"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1683429461"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1683429461"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1655619836"></script>
-    <script src="/.emacs.d/js/learn.js?1655619836"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1655619836"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1683429461"></script>
+    <script src="/.emacs.d/js/learn.js?1683429461"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1683429461"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1655619836"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1683429461"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

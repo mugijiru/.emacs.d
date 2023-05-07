@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.104.2" />
     <meta name="description" content="麦汁の Emacs 設定解説ページ">
 <meta name="author" content="麦汁">
 
@@ -12,20 +12,20 @@
     <title>React.js :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1655619836" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1683429461" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1655619836"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1683429461"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1655619836"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1683429461"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1683429461"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1683429461"></script>
 
     
   </div>
@@ -2718,6 +2718,8 @@
     <li><a href="#dap-mode">dap-mode</a></li>
     <li><a href="#web-mode">web-mode</a></li>
     <li><a href="#メジャーモードの紐付け">メジャーモードの紐付け</a></li>
+    <li><a href="#キーバインドの追加">キーバインドの追加</a></li>
+    <li><a href="#自動フォーマット-hook-の用意">自動フォーマット hook の用意</a></li>
     <li><a href="#lsp-mode-などの有効化">lsp-mode などの有効化</a></li>
   </ul>
 </nav>
@@ -2748,46 +2750,61 @@
 <h2 id="dap-mode">dap-mode</h2>
 <p>Debug Adapter Protocol をサポートするモード。入れておいた方がきっとデバッグしやすいんだろうということで入れている。</p>
 <p>lsp-mode の仲間なので、本当はそっち側で入れるようにした方が良さそうだけどひとまず React のために入れているので React 用の設定ファイルに書いている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle dap-mode)
-</code></pre></div><p>同時に treemacs や lsp-treemacs も入ってくる罠がある。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle dap-mode)
+</span></span></code></pre></div><p>同時に treemacs や lsp-treemacs も入ってくる罠がある。
 Neotree 使ってるからちょっとアレだなあ。いずれ乗り換えようとはしていたけども。</p>
 <h2 id="web-mode">web-mode</h2>
 <p>とりあえず tsx を弄る上では web-mode が良いという話もあるので入れておく。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle web-mode)
-</code></pre></div><h2 id="メジャーモードの紐付け">メジャーモードの紐付け</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle web-mode)
+</span></span></code></pre></div><h2 id="メジャーモードの紐付け">メジャーモードの紐付け</h2>
 <p>jsx/tsx ファイルを開いた時には web-mode で動いてほしいので
 auto-mode-alist で関連付けをする</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-to-list <span style="color:#e6db74">&#39;auto-mode-alist</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;\\.[jt]sx&#34;</span> <span style="color:#f92672">.</span> web-mode))
-</code></pre></div><h2 id="lsp-mode-などの有効化">lsp-mode などの有効化</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;auto-mode-alist</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;\\.[jt]sx&#34;</span> <span style="color:#f92672">.</span> web-mode))
+</span></span></code></pre></div><h2 id="キーバインドの追加">キーバインドの追加</h2>
+<p>テスト用のファイルを開いたら <code>C-c C-c</code> でテストを実行できるようにするためキーバインドを設定</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/setup-web-mode-map ()
+</span></span><span style="display:flex;"><span>  (let ((keymap web-mode-map))
+</span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">define-key</span> keymap (kbd <span style="color:#e6db74">&#34;C-c C-c&#34;</span>) <span style="color:#e6db74">&#39;my/mocha-test-file</span>)))
+</span></span></code></pre></div><h2 id="自動フォーマット-hook-の用意">自動フォーマット hook の用意</h2>
+<p>tsx の保存時に自動でフォーマットしてほしいのでそれ用に hook を追加</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/web-mode-auto-fix-hook ()
+</span></span><span style="display:flex;"><span>  (when (<span style="color:#a6e22e">string-equal</span> (file-name-extension <span style="color:#a6e22e">buffer-file-name</span>) <span style="color:#e6db74">&#34;tsx&#34;</span>)
+</span></span><span style="display:flex;"><span>    (lsp-eslint-fix-all)))
+</span></span></code></pre></div><h2 id="lsp-mode-などの有効化">lsp-mode などの有効化</h2>
 <p>jsx/tsx ファイルを開く時に web-mode が有効になるようにしているのでその web-mode の hook で</p>
 <ul>
 <li>display-line-numbers-mode</li>
 <li>lsp</li>
 <li>lsp-ui-mode</li>
 <li>company-mode</li>
-<li>flycheck</li>
 </ul>
 <p>を有効にしている。</p>
-<p>flycheck では lsp と eslint を使いたいのでそれ以外の JS の checker は disable にしている</p>
-<p>また web-mode の設定も少し弄っていて
+<p>また</p>
+<ul>
+<li>保存時の自動補正 hook の追加</li>
+<li>自動テストのキーバインドの設定</li>
+</ul>
+<p>も合わせて行っている。</p>
+<p>それ以外にも web-mode の設定も少し弄っていて
 indent は2桁スペースになるようにしているが自動インデントだとそれが反映されないっぽいので自動インデントはオフにしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/web-mode-tsx-hook ()
-  (let ((ext (file-name-extension <span style="color:#a6e22e">buffer-file-name</span>)))
-    (when (or (<span style="color:#a6e22e">string-equal</span> <span style="color:#e6db74">&#34;jsx&#34;</span> ext) (<span style="color:#a6e22e">string-equal</span> <span style="color:#e6db74">&#34;tsx&#34;</span> ext))
-      (setq web-mode-markup-indent-offset <span style="color:#ae81ff">2</span>)
-      (setq web-mode-code-indent-offset <span style="color:#ae81ff">2</span>)
-      (setq web-mode-enable-auto-indentation <span style="color:#66d9ef">nil</span>)
-      (company-mode <span style="color:#ae81ff">1</span>)
-      (turn-on-smartparens-mode)
-      (display-line-numbers-mode <span style="color:#66d9ef">t</span>)
-      (lsp)
-      (lsp-ui-mode <span style="color:#ae81ff">1</span>)
-      (flycheck-mode <span style="color:#ae81ff">1</span>)
-      (setq flycheck-disabled-checkers <span style="color:#f92672">&#39;</span>(javascript-standard javascript-jshint))
-      (flycheck-add-next-checker <span style="color:#e6db74">&#39;lsp</span> <span style="color:#f92672">&#39;</span>(warning <span style="color:#f92672">.</span> javascript-eslint)))))
-
-(add-hook <span style="color:#e6db74">&#39;web-mode-hook</span> <span style="color:#e6db74">&#39;my/web-mode-tsx-hook</span>)
-</code></pre></div>
+<p>なお過去の設定では flycheck も少し設定していたが
+lsp-mode から eslint を使うことでやりたいことの対応ができるようなのでその設定は外した。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/web-mode-tsx-hook ()
+</span></span><span style="display:flex;"><span>  (let ((ext (file-name-extension <span style="color:#a6e22e">buffer-file-name</span>)))
+</span></span><span style="display:flex;"><span>    (when (or (<span style="color:#a6e22e">string-equal</span> <span style="color:#e6db74">&#34;jsx&#34;</span> ext) (<span style="color:#a6e22e">string-equal</span> <span style="color:#e6db74">&#34;tsx&#34;</span> ext))
+</span></span><span style="display:flex;"><span>      (setq web-mode-markup-indent-offset <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>      (setq web-mode-code-indent-offset <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>      (setq web-mode-enable-auto-indentation <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>      (company-mode <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>      (turn-on-smartparens-mode)
+</span></span><span style="display:flex;"><span>      (display-line-numbers-mode <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>      (lsp)
+</span></span><span style="display:flex;"><span>      (lsp-ui-mode <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>      (add-hook <span style="color:#e6db74">&#39;before-save-hook</span> <span style="color:#e6db74">&#39;my/web-mode-auto-fix-hook</span> <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;local</span>)
+</span></span><span style="display:flex;"><span>      (my/setup-web-mode-map))))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;web-mode-hook</span> <span style="color:#e6db74">&#39;my/web-mode-tsx-hook</span>)
+</span></span></code></pre></div>
 
 <footer class="footline">
 	
@@ -4676,19 +4693,19 @@ indent は2桁スペースになるようにしているが自動インデント
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1655619836"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1655619836"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1683429461"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1683429461"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1655619836"></script>
-    <script src="/.emacs.d/js/learn.js?1655619836"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1655619836"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1683429461"></script>
+    <script src="/.emacs.d/js/learn.js?1683429461"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1683429461"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1655619836"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1683429461"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

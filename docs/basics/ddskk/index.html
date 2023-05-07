@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.104.2" />
     <meta name="description" content="麦汁の Emacs 設定解説ページ">
 <meta name="author" content="麦汁">
 
@@ -12,20 +12,20 @@
     <title>ddskk :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1655619836" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1683429461" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1655619836"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1683429461"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1655619836"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1683429461"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1683429461"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1683429461"></script>
 
     
   </div>
@@ -2751,37 +2751,44 @@
 SKK ではその自動認識がおかしくておかしな変換になるところを、単語の区切りなんかを一切判定せずに人間がそれを教えてあげることで、そういう自動的に変な挙動をしてしまう煩わしさから開放されるようになっている。</p>
 <h2 id="インストール">インストール</h2>
 <p>いつも通り el-get で入れている。最近は最新版が GitHub で更新されているのでそちらから引っ張られてくる。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle ddskk)
-</code></pre></div><h2 id="常時有効化">常時有効化</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle ddskk)
+</span></span></code></pre></div><h2 id="常時有効化">常時有効化</h2>
 <p>find-file-hooks で有効化することでファイルを開いた時には常に skk が使える状態にしている。また skk-latin-mode にしておくことで、基本は英語入力ですぐに日本語入力に切り替えられる状態にしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/always-enable-skk-latin-mode-hook ()
-  (skk-latin-mode <span style="color:#ae81ff">1</span>))
-
-(add-hook <span style="color:#e6db74">&#39;find-file-hooks</span> <span style="color:#e6db74">&#39;my/always-enable-skk-latin-mode-hook</span>)
-</code></pre></div><h2 id="hook-の設定">hook の設定</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/always-enable-skk-latin-mode-hook ()
+</span></span><span style="display:flex;"><span>  (skk-latin-mode <span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;find-file-hooks</span> <span style="color:#e6db74">&#39;my/always-enable-skk-latin-mode-hook</span>)
+</span></span></code></pre></div><h2 id="hook-の設定">hook の設定</h2>
 <p>ddskk が呼び出された時に色々設定されるようにしている。</p>
 <p>もしかしたら customize-variable とかあるかもしれないので今度見直した方が良さそう。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-hook <span style="color:#e6db74">&#39;skk-load-hook</span>
-          (lambda ()
-            <span style="color:#75715e">;; コード中では自動的に英字にする。</span>
-            (require <span style="color:#e6db74">&#39;context-skk</span>)
-
-            (setq skk-comp-mode <span style="color:#66d9ef">t</span>) <span style="color:#75715e">;; 動的自動補完</span>
-            (setq skk-auto-insert-paren <span style="color:#66d9ef">t</span>)
-            (setq skk-delete-implies-kakutei <span style="color:#66d9ef">nil</span>)
-            (setq skk-sticky-key <span style="color:#e6db74">&#34;;&#34;</span>)
-            (setq skk-henkan-strict-okuri-precedence <span style="color:#66d9ef">t</span>)
-            (setq skk-show-annotation <span style="color:#66d9ef">t</span>) <span style="color:#75715e">;; 単語の意味をアノテーションとして表示。例) いぜん /以前;previous/依然;still/</span>
-
-            <span style="color:#75715e">;; ;; 半角で入力したい文字</span>
-            <span style="color:#75715e">;; (setq skk-rom-kana-rule-list</span>
-            <span style="color:#75715e">;;       (nconc skk-rom-kana-rule-list</span>
-            <span style="color:#75715e">;;              &#39;((&#34;;&#34; nil nil)</span>
-            <span style="color:#75715e">;;                (&#34;:&#34; nil nil)</span>
-            <span style="color:#75715e">;;                (&#34;?&#34; nil nil)</span>
-            <span style="color:#75715e">;;                (&#34;!&#34; nil nil))))</span>
-            ))
-</code></pre></div><dl>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;skk-load-hook</span>
+</span></span><span style="display:flex;"><span>          (lambda ()
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">;; コード中では自動的に英字にする。</span>
+</span></span><span style="display:flex;"><span>            (require <span style="color:#e6db74">&#39;context-skk</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            (setq skk-comp-mode <span style="color:#66d9ef">t</span>) <span style="color:#75715e">;; 動的自動補完</span>
+</span></span><span style="display:flex;"><span>            (setq skk-auto-insert-paren <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>            (setq skk-delete-implies-kakutei <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>            (setq skk-sticky-key <span style="color:#e6db74">&#34;;&#34;</span>)
+</span></span><span style="display:flex;"><span>            (setq skk-henkan-strict-okuri-precedence <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>            (setq skk-show-annotation <span style="color:#66d9ef">t</span>) <span style="color:#75715e">;; 単語の意味をアノテーションとして表示。例) いぜん /以前;previous/依然;still/</span>
+</span></span><span style="display:flex;"><span>            (setq skk-compare-jisyo-size-when-saving <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>            (setq skk-extra-jisyo-file-list
+</span></span><span style="display:flex;"><span>                  <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">expand-file-name</span> <span style="color:#e6db74">&#34;~/.config/ibus-skk/user.dict&#34;</span>)
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;/usr/share/skk/SKK-JISYO.propernoun&#34;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;/usr/share/skk/SKK-JISYO.lisp&#34;</span>))
+</span></span><span style="display:flex;"><span>            (setq skk-tooltip-parameters
+</span></span><span style="display:flex;"><span>                  <span style="color:#f92672">&#39;</span>((background-color <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;#323445&#34;</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">;; ;; 半角で入力したい文字</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">;; (setq skk-rom-kana-rule-list</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">;;       (nconc skk-rom-kana-rule-list</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">;;              &#39;((&#34;;&#34; nil nil)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">;;                (&#34;:&#34; nil nil)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">;;                (&#34;?&#34; nil nil)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">;;                (&#34;!&#34; nil nil))))</span>
+</span></span><span style="display:flex;"><span>            ))
+</span></span></code></pre></div><dl>
 <dt>skk-comp-mode</dt>
 <dd>自動補完関係らしいが、ググっても出て来ないし死んだ設定かもしれない</dd>
 <dt>skk-auto-insert-paren</dt>
@@ -2796,17 +2803,23 @@ SKK ではその自動認識がおかしくておかしな変換になるとこ�
 <dd>単語の意味をアノテーションとして表示する設定</dd>
 <dt>skk-rom-kana-rules-list</dt>
 <dd>キー入力時の挙動を指定する。とりあえず自分は : とかが全角になるのが嫌なので半角になるようにしている</dd>
+<dt>skk-compare-jisyo-size-when-saving</dt>
+<dd>これを nil にすることで辞書保存時に辞書サイズが大きいことを確認させないようにしている</dd>
+<dt>skk-extra-jisyo-file-list</dt>
+<dd>追加の辞書を設定している。ibus-skk の辞書を入れることで同期したり。</dd>
+<dt>skk-tooltip-parameters</dt>
+<dd>ツールチップの背景色を変えることで annotation を見れるようにしている</dd>
 </dl>
 <h2 id="l-辞書を使うようにする">L 辞書を使うようにする <span class="tag"><span class="improvement">improvement</span></span></h2>
 <p>Mac では AquaSKK の L 辞書を、
 Linux では <code>/usr/share/skk/SKK-JISYO.L</code> を読むようにしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(let ((l-dict
-       (if (<span style="color:#a6e22e">eq</span> <span style="color:#a6e22e">window-system</span> <span style="color:#e6db74">&#39;ns</span>)
-           (<span style="color:#a6e22e">expand-file-name</span> <span style="color:#e6db74">&#34;~/Library/Application Support/AquaSKK/SKK-JISYO.L&#34;</span>)
-         <span style="color:#e6db74">&#34;/usr/share/skk/SKK-JISYO.L&#34;</span>)))
-  (if (<span style="color:#a6e22e">file-exists-p</span> l-dict)
-      (setq skk-large-jisyo l-dict)))
-</code></pre></div><p>WSL で動かしている Emacs では
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(let ((l-dict
+</span></span><span style="display:flex;"><span>       (if (<span style="color:#a6e22e">eq</span> <span style="color:#a6e22e">window-system</span> <span style="color:#e6db74">&#39;ns</span>)
+</span></span><span style="display:flex;"><span>           (<span style="color:#a6e22e">expand-file-name</span> <span style="color:#e6db74">&#34;~/Library/Application Support/AquaSKK/SKK-JISYO.L&#34;</span>)
+</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;/usr/share/skk/SKK-JISYO.L&#34;</span>)))
+</span></span><span style="display:flex;"><span>  (if (<span style="color:#a6e22e">file-exists-p</span> l-dict)
+</span></span><span style="display:flex;"><span>      (setq skk-large-jisyo l-dict)))
+</span></span></code></pre></div><p>WSL で動かしている Emacs では
 CurvusSKK の辞書を見るように設定した方が良さそうな気もするけど
 <code>/usr/share/skk/SKK-JISYO.L</code> にもあるのでひとまずこれにしておけば良さそう</p>
 <h2 id="ddskk-posframe">ddskk-posframe</h2>
@@ -2814,15 +2827,15 @@ CurvusSKK の辞書を見るように設定した方が良さそうな気もす�
 <p><a href="https://emacs-jp.github.io/packages/ddskk-posframe">https://emacs-jp.github.io/packages/ddskk-posframe</a>
 に作った本人が解説記事を日本語で載せてるので詳細はそっちを見てもらう方が早い。</p>
 <p>とりあえず以下でインストール、有効化している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle ddskk-posframe.el)
-(ddskk-posframe-mode <span style="color:#ae81ff">1</span>)
-</code></pre></div><p>なお el-get.lock を使ったバージョン更新確認のためにレシピも必要だったので登録している</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(:name ddskk-posframe.el
-       :website <span style="color:#e6db74">&#34;https://github.com/conao3/ddskk-posframe.el&#34;</span>
-       :description <span style="color:#e6db74">&#34;ddskk-posframe.el provides Henkan tooltip for ddskk via posframe.&#34;</span>
-       :type github
-       :pkgname <span style="color:#e6db74">&#34;conao3/ddskk-posframe.el&#34;</span>)
-</code></pre></div><h2 id="その他">その他</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle ddskk-posframe.el)
+</span></span><span style="display:flex;"><span>(ddskk-posframe-mode <span style="color:#ae81ff">1</span>)
+</span></span></code></pre></div><p>なお el-get.lock を使ったバージョン更新確認のためにレシピも必要だったので登録している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name ddskk-posframe.el
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/conao3/ddskk-posframe.el&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;ddskk-posframe.el provides Henkan tooltip for ddskk via posframe.&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;conao3/ddskk-posframe.el&#34;</span>)
+</span></span></code></pre></div><h2 id="その他">その他</h2>
 <p>漢字の変換すらも機械任せではなく自分で決めるみたいな漢字直接入力という方式もあり、
 SKK とそれを組み合わせると入力キーを覚えている漢字は漢直で入力しそうでない漢字は SKK で入力する、といった使い分けができるらしい。</p>
 <p>特に同音意義語が多い場合に便利そう。</p>
@@ -4712,19 +4725,19 @@ SKK とそれを組み合わせると入力キーを覚えている漢字は漢�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1655619836"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1655619836"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1683429461"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1683429461"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1655619836"></script>
-    <script src="/.emacs.d/js/learn.js?1655619836"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1655619836"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1683429461"></script>
+    <script src="/.emacs.d/js/learn.js?1683429461"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1683429461"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1655619836"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1683429461"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.104.2" />
     <meta name="description" content="麦汁の Emacs 設定解説ページ">
 <meta name="author" content="麦汁">
 
@@ -12,20 +12,20 @@
     <title>mode-line :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1655619836" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1683429461" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1655619836"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1683429461"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1655619836"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1683429461"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1683429461"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1683429461"></script>
 
     
   </div>
@@ -2763,81 +2763,81 @@
 <p>Emacs のバッファ下部に表示されるモードライン関連の設定をここにまとめている。このメニューの並びとかはどこかで直した方が良さそう。</p>
 <h2 id="hide-mode-line">hide-mode-line</h2>
 <p><a href="https://github.com/hlissner/emacs-hide-mode-line">hide-mode-line</a> は mode-line を隠してくれるパッケージ。ここでは neotree-mode-hook で引っ掛けて Neotree では mode-line を隠すように設定している</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle hlissner/emacs-hide-mode-line)
-(add-hook <span style="color:#e6db74">&#39;neotree-mode-hook</span> <span style="color:#a6e22e">#&#39;</span>hide-mode-line-mode)
-</code></pre></div><p>他にも mode-line の表示が不要なモードとかってありそうだけど特に思い付かないから今のところ Neotree 専用になっている。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle hlissner/emacs-hide-mode-line)
+</span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;neotree-mode-hook</span> <span style="color:#a6e22e">#&#39;</span>hide-mode-line-mode)
+</span></span></code></pre></div><p>他にも mode-line の表示が不要なモードとかってありそうだけど特に思い付かないから今のところ Neotree 専用になっている。</p>
 <h2 id="日時を-mode-line-で表示する">日時を mode-line で表示する</h2>
 <p>mode-line に日時も表示されてる方が便利な気がしてとりあえず表示している。表示形式は24時間表記。「午前」とか「午後」とかの表示邪魔だしね。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(custom-set-variables <span style="color:#f92672">&#39;</span>(display-time-24hr-format <span style="color:#66d9ef">t</span>))
-(display-time-mode <span style="color:#ae81ff">1</span>)
-</code></pre></div><h2 id="smart-mode-line-関連の設定">smart-mode-line 関連の設定 <span class="tag"><span class="unused">unused</span></span></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-variables <span style="color:#f92672">&#39;</span>(display-time-24hr-format <span style="color:#66d9ef">t</span>))
+</span></span><span style="display:flex;"><span>(display-time-mode <span style="color:#ae81ff">1</span>)
+</span></span></code></pre></div><h2 id="smart-mode-line-関連の設定">smart-mode-line 関連の設定 <span class="tag"><span class="unused">unused</span></span></h2>
 <p><a href="https://github.com/Malabarba/smart-mode-line">smart-mode-line</a> は mode-line をセクシーな感じにしてくれるパッケージ。というわけで昔入れていたけどもう使ってない。一応コードの残骸があったから一旦残しておく。</p>
 <p>多分アイコン表示周りをゴリゴリ設定するのがだるくなって doom-modeline に乗り換えたんだと思う。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#75715e">;; (el-get-bundle smart-mode-line)</span>
-<span style="color:#75715e">;; (defvar sml/no-confirm-load-theme t)</span>
-<span style="color:#75715e">;; (defvar sml/theme &#39;dark)</span>
-<span style="color:#75715e">;; (sml/setup)</span>
-
-<span style="color:#75715e">;; major-mode</span>
-<span style="color:#75715e">;; (add-hook &#39;emacs-lisp-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon &#34;elisp&#34;))))</span>
-<span style="color:#75715e">;; (add-hook &#39;enh-ruby-mode-hook (lambda () (setq mode-name (concat &#34;e&#34; (all-the-icons-alltheicon &#34;ruby-alt&#34;)))))</span>
-<span style="color:#75715e">;; (add-hook &#39;ruby-mode-hook (lambda () (setq mode-name (all-the-icons-alltheicon &#34;ruby-alt&#34;))))</span>
-<span style="color:#75715e">;; (add-hook &#39;vue-mode-hook (lambda ()</span>
-<span style="color:#75715e">;;                            (make-local-variable &#39;mmm-submode-mode-line-format)</span>
-<span style="color:#75715e">;;                            (setq mmm-submode-mode-line-format &#34;~M:~m&#34;)</span>
-<span style="color:#75715e">;;                            (make-local-variable &#39;mmm-buffer-mode-display-name)</span>
-<span style="color:#75715e">;;                            (setq mmm-buffer-mode-display-name &#34;V&#34;)))</span>
-<span style="color:#75715e">;; (add-hook &#39;js-mode-hook (lambda () (setq mode-name &#34;&#34;)))</span>
-<span style="color:#75715e">;; (add-hook &#39;pug-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon &#34;pug&#34;))))</span>
-<span style="color:#75715e">;; (add-hook &#39;css-mode-hook (lambda () (setq mode-name (all-the-icons-faicon &#34;css3&#34;))))</span>
-<span style="color:#75715e">;; (add-hook &#39;twittering-mode-hook (lambda () (setq mode-name (all-the-icons-faicon &#34;twitter-square&#34;))))</span>
-<span style="color:#75715e">;; (add-hook &#39;org-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon &#34;org&#34;))))</span>
-</code></pre></div><h2 id="diminish">diminish</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; (el-get-bundle smart-mode-line)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (defvar sml/no-confirm-load-theme t)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (defvar sml/theme &#39;dark)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (sml/setup)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; major-mode</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (add-hook &#39;emacs-lisp-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon &#34;elisp&#34;))))</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (add-hook &#39;enh-ruby-mode-hook (lambda () (setq mode-name (concat &#34;e&#34; (all-the-icons-alltheicon &#34;ruby-alt&#34;)))))</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (add-hook &#39;ruby-mode-hook (lambda () (setq mode-name (all-the-icons-alltheicon &#34;ruby-alt&#34;))))</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (add-hook &#39;vue-mode-hook (lambda ()</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;;                            (make-local-variable &#39;mmm-submode-mode-line-format)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;;                            (setq mmm-submode-mode-line-format &#34;~M:~m&#34;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;;                            (make-local-variable &#39;mmm-buffer-mode-display-name)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;;                            (setq mmm-buffer-mode-display-name &#34;V&#34;)))</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (add-hook &#39;js-mode-hook (lambda () (setq mode-name &#34;&#34;)))</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (add-hook &#39;pug-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon &#34;pug&#34;))))</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (add-hook &#39;css-mode-hook (lambda () (setq mode-name (all-the-icons-faicon &#34;css3&#34;))))</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (add-hook &#39;twittering-mode-hook (lambda () (setq mode-name (all-the-icons-faicon &#34;twitter-square&#34;))))</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (add-hook &#39;org-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon &#34;org&#34;))))</span>
+</span></span></code></pre></div><h2 id="diminish">diminish</h2>
 <p><a href="https://github.com/emacsmirror/diminish">diminish</a> は minor-mode の表示をカスタマイズするためのモード。</p>
 <p>これも昔使ってたけど今は使ってない。というか最近はマイナーモードを mode-line で表示してない。表示しなくなったから要らなくなった感じ。</p>
 <h3 id="インストール-有効化">インストール・有効化</h3>
 <p>el-get-bundle で入れて require したら有効になる</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle diminish)
-(require <span style="color:#e6db74">&#39;diminish</span>)
-</code></pre></div><h3 id="マクロ定義">マクロ定義</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle diminish)
+</span></span><span style="display:flex;"><span>(require <span style="color:#e6db74">&#39;diminish</span>)
+</span></span></code></pre></div><h3 id="マクロ定義">マクロ定義</h3>
 <p>各パッケージが読まれた後に指定した表示が設定されるようにするマクロを書いている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defmacro my/diminish (file mode <span style="color:#66d9ef">&amp;optional</span> new-name)
-  <span style="color:#e6db74">&#34;https://github.com/larstvei/dot-emacs/blob/master/init.org&#34;</span>
-  <span style="color:#f92672">`</span>(with-eval-after-load <span style="color:#f92672">,</span>file
-     (diminish <span style="color:#f92672">,</span>mode <span style="color:#f92672">,</span>new-name)))
-</code></pre></div><p><a href="https://github.com/larstvei/dot-emacs/blob/master/init.org">https://github.com/larstvei/dot-emacs/blob/master/init.org</a>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defmacro my/diminish (file mode <span style="color:#66d9ef">&amp;optional</span> new-name)
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;https://github.com/larstvei/dot-emacs/blob/master/init.org&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>(with-eval-after-load <span style="color:#f92672">,</span>file
+</span></span><span style="display:flex;"><span>     (diminish <span style="color:#f92672">,</span>mode <span style="color:#f92672">,</span>new-name)))
+</span></span></code></pre></div><p><a href="https://github.com/larstvei/dot-emacs/blob/master/init.org">https://github.com/larstvei/dot-emacs/blob/master/init.org</a>
 に書かれているのを流用しただけであるはずだが、リンク先にその記述が見当たらないな……。</p>
 <h3 id="マイナーモード毎の表示指定">マイナーモード毎の表示指定</h3>
 <p>上で用意したマクロを用いて各マイナーモード毎の設定を行っていた。今は使ってないので全部コメントアウトしている</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#75715e">;; (my/diminish &#34;git-gutter&#34; &#39;git-gutter-mode (all-the-icons-octicon &#34;git-compare&#34;))</span>
-<span style="color:#75715e">;; (my/diminish &#34;yasnippet&#34; &#39;yas-minor-mode &#34; Ys&#34;)</span>
-<span style="color:#75715e">;; (my/diminish &#34;whitespace&#34; &#39;whitespace-mode &#34;◽&#34;)</span>
-<span style="color:#75715e">;; (my/diminish &#34;whitespace&#34; &#39;global-whitespace-mode &#34;◽&#34;)</span>
-<span style="color:#75715e">;; (my/diminish &#34;tempbuf&#34; &#39;tempbuf-mode &#34;&#34;)</span>
-<span style="color:#75715e">;; (my/diminish &#34;flycheck&#34; &#39;flycheck-mode &#34;&#34;)</span>
-<span style="color:#75715e">;; (my/diminish &#34;zoom&#34; &#39;zoom-mode &#34;&#34;)</span>
-<span style="color:#75715e">;; (my/diminish &#34;rainbow&#34; &#39;rainbow-mode &#34;🌈&#34;)</span>
-<span style="color:#75715e">;; (my/diminish &#34;projectile-rails&#34; &#39;projectile-rails-mode &#34;🛤&#34;)</span>
-<span style="color:#75715e">;; (my/diminish &#34;company&#34; &#39;company-mode &#34;&#34;)</span>
-<span style="color:#75715e">;; (my/diminish &#34;ElDoc&#34; &#39;eldoc-mode &#34;&#34;)</span>
-</code></pre></div><p>結構頑張ったけど絵文字周りで思うような表示にならなかったりして最終的にはマイナーモードを mode-line に表示しないようになっている。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; (my/diminish &#34;git-gutter&#34; &#39;git-gutter-mode (all-the-icons-octicon &#34;git-compare&#34;))</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (my/diminish &#34;yasnippet&#34; &#39;yas-minor-mode &#34; Ys&#34;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (my/diminish &#34;whitespace&#34; &#39;whitespace-mode &#34;◽&#34;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (my/diminish &#34;whitespace&#34; &#39;global-whitespace-mode &#34;◽&#34;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (my/diminish &#34;tempbuf&#34; &#39;tempbuf-mode &#34;&#34;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (my/diminish &#34;flycheck&#34; &#39;flycheck-mode &#34;&#34;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (my/diminish &#34;zoom&#34; &#39;zoom-mode &#34;&#34;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (my/diminish &#34;rainbow&#34; &#39;rainbow-mode &#34;🌈&#34;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (my/diminish &#34;projectile-rails&#34; &#39;projectile-rails-mode &#34;🛤&#34;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (my/diminish &#34;company&#34; &#39;company-mode &#34;&#34;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (my/diminish &#34;ElDoc&#34; &#39;eldoc-mode &#34;&#34;)</span>
+</span></span></code></pre></div><p>結構頑張ったけど絵文字周りで思うような表示にならなかったりして最終的にはマイナーモードを mode-line に表示しないようになっている。</p>
 <p>使ってる minor-mode どうやって把握したりしたらいいんだろうね。ま、表示されなくてもなんとなくで把握しているから、困ってはいないんだけど。</p>
 <h2 id="doom-modeline">doom-modeline</h2>
 <p><a href="https://github.com/seagle0128/doom-modeline">doom-modeline</a> は Emacs の mode-line を装飾するパッケージの1つ。結構スッキリした見た目になるので気に入ってる。</p>
 <h3 id="インストール">インストール</h3>
 <p>いつも通り el-get で入れてるだけ</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle doom-modeline)
-</code></pre></div><h3 id="有効化">有効化</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(doom-modeline-mode <span style="color:#ae81ff">1</span>)
-</code></pre></div><h3 id="vcs-用表示の長さ変更">VCS 用表示の長さ変更</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle doom-modeline)
+</span></span></code></pre></div><h3 id="有効化">有効化</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(doom-modeline-mode <span style="color:#ae81ff">1</span>)
+</span></span></code></pre></div><h3 id="vcs-用表示の長さ変更">VCS 用表示の長さ変更</h3>
 <p>デフォルトだと 12 なんだけどそれだと短かくて何のブランチかよくわからんので
 30 まえのばしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq doom-modeline-vcs-max-length <span style="color:#ae81ff">30</span>)
-</code></pre></div><h3 id="バッテリー残量表示">バッテリー残量表示</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq doom-modeline-vcs-max-length <span style="color:#ae81ff">30</span>)
+</span></span></code></pre></div><h3 id="バッテリー残量表示">バッテリー残量表示</h3>
 <p>これは doom-modeline 専用の設定ではないけど
 doom-modeline で見た目をカッコよくしているのでこっちに設定を書いている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(display-battery-mode <span style="color:#ae81ff">1</span>)
-</code></pre></div><h3 id="その他">その他</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(display-battery-mode <span style="color:#ae81ff">1</span>)
+</span></span></code></pre></div><h3 id="その他">その他</h3>
 <p><code>doom-modeline-github</code> を t にしたら GitHub の通知数も表示されるらしいがちょっと試しに t にしているけどどうも表示されない。</p>
 <p>あとはメジャーモード名はアイコンの方があるから消したいな。
 <code>doom-modeline-def-modeline</code> で自分用に作れば良さそうな雰囲気はある</p>
@@ -4732,19 +4732,19 @@ doom-modeline で見た目をカッコよくしているのでこっちに設定
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1655619836"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1655619836"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1683429461"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1683429461"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1655619836"></script>
-    <script src="/.emacs.d/js/learn.js?1655619836"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1655619836"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1683429461"></script>
+    <script src="/.emacs.d/js/learn.js?1683429461"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1683429461"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1655619836"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1683429461"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.104.2" />
     <meta name="description" content="麦汁の Emacs 設定解説ページ">
 <meta name="author" content="麦汁">
 
@@ -12,20 +12,20 @@
     <title>notify-slack :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1655619836" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1683429461" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1655619836"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1683429461"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1655619836"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1683429461"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1683429461"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1683429461"></script>
 
     
   </div>
@@ -2755,38 +2755,38 @@ org-clock-in, org-clock-out の時に作業の開始と終了を分報チャン�
 <h2 id="実装">実装</h2>
 <h3 id="分報チャンネル設定用の変数">分報チャンネル設定用の変数</h3>
 <p>通知先のチャンネル名を格納する変数が必要なので <code>defvar</code> で定義しておく</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defvar my/notify-slack-times-channel <span style="color:#66d9ef">nil</span>)
-</code></pre></div><h3 id="送信するコマンド">送信するコマンド</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defvar my/notify-slack-times-channel <span style="color:#66d9ef">nil</span>)
+</span></span></code></pre></div><h3 id="送信するコマンド">送信するコマンド</h3>
 <p>start-process を使って外部コマンドを叩いている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/notify-slack (channel text)
-  (if my/notify-slack-enable-p
-      (<span style="color:#a6e22e">start-process</span> <span style="color:#e6db74">&#34;my/org-clock-slack-notifier&#34;</span> <span style="color:#e6db74">&#34;*my/org-clock-slack-notifier*&#34;</span> <span style="color:#e6db74">&#34;my-slack-notifier&#34;</span> channel text)))
-</code></pre></div><p><code>my/notify-slack-enable-p</code> という変数が nil だと大分コマンドが実行されないようになっている。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/notify-slack (channel text)
+</span></span><span style="display:flex;"><span>  (if my/notify-slack-enable-p
+</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">start-process</span> <span style="color:#e6db74">&#34;my/org-clock-slack-notifier&#34;</span> <span style="color:#e6db74">&#34;*my/org-clock-slack-notifier*&#34;</span> <span style="color:#e6db74">&#34;my-slack-notifier&#34;</span> channel text)))
+</span></span></code></pre></div><p><code>my/notify-slack-enable-p</code> という変数が nil だと大分コマンドが実行されないようになっている。</p>
 <h3 id="slack-連携を-toggle-するコマンド">Slack 連携を Toggle するコマンド</h3>
 <p>連携したい時としたくない時があるので送信したりしなかったりを切り替えられるコマンドを用意している。</p>
 <p>中身は何をしているかというと上に書いた <code>my/notify-slack-enable-p</code> という変数を切り替えているだけ。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/notify-slack-toggle ()
-  (interactive)
-  (if my/notify-slack-enable-p
-      (setq my/notify-slack-enable-p <span style="color:#66d9ef">nil</span>)
-    (setq my/notify-slack-enable-p <span style="color:#66d9ef">t</span>)))
-</code></pre></div><h3 id="分報チャンネル投稿関数">分報チャンネル投稿関数</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/notify-slack-toggle ()
+</span></span><span style="display:flex;"><span>  (interactive)
+</span></span><span style="display:flex;"><span>  (if my/notify-slack-enable-p
+</span></span><span style="display:flex;"><span>      (setq my/notify-slack-enable-p <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>    (setq my/notify-slack-enable-p <span style="color:#66d9ef">t</span>)))
+</span></span></code></pre></div><h3 id="分報チャンネル投稿関数">分報チャンネル投稿関数</h3>
 <p>「分報チャンネル投稿関数」としているけどデフォルト投稿先に投稿するための関数というような扱いの関数。</p>
 <p>単純に前出の <code>my/notify-slack</code> 関数の第一引数に <code>my/notify-slack-times-channel</code> という変数を設定してそのチャンネルに向けて投稿するだけ。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/notify-slack-times (text)
-  (if my/notify-slack-times-channel
-      (my/notify-slack my/notify-slack-times-channel text)))
-</code></pre></div><h3 id="設定">設定</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/notify-slack-times (text)
+</span></span><span style="display:flex;"><span>  (if my/notify-slack-times-channel
+</span></span><span style="display:flex;"><span>      (my/notify-slack my/notify-slack-times-channel text)))
+</span></span></code></pre></div><h3 id="設定">設定</h3>
 <p>あまり見せたくない設定ファイルを別ファイルに分離しているのでそれを読み出している。</p>
 <p>内部では <code>my/notify-slack-times-channel</code> という変数を設定しているだけじゃないだろうか。職場の Slack のチャンネルを指定しているので隠したいという意図があった。</p>
 <p>そのうち .authinfo.gpg に移動しようと思ってる。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(my/load-config <span style="color:#e6db74">&#34;my-notify-slack-config&#34;</span>)
-</code></pre></div><p>ちなみに <a href="/.emacs.d/basics/load-path/#my-load-config">my/load-config</a> はこの手の設定ファイルを読み出すために使っている自作関数である。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(my/load-config <span style="color:#e6db74">&#34;my-notify-slack-config&#34;</span>)
+</span></span></code></pre></div><p>ちなみに <a href="/.emacs.d/basics/load-path/#my-load-config">my/load-config</a> はこの手の設定ファイルを読み出すために使っている自作関数である。
 load と同じように使えば大体 OK。むしろ load の引数ちゃんと使えばこの関数要らない説まである。</p>
 <p>そして起動直後は連携を ON にしたいので
 <code>my/notify-slack-enable-p</code> を ON にしている</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq my/notify-slack-enable-p <span style="color:#66d9ef">t</span>)
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq my/notify-slack-enable-p <span style="color:#66d9ef">t</span>)
+</span></span></code></pre></div>
 
 <footer class="footline">
 	
@@ -4675,19 +4675,19 @@ load と同じように使えば大体 OK。むしろ load の引数ちゃんと
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1655619836"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1655619836"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1683429461"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1683429461"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1655619836"></script>
-    <script src="/.emacs.d/js/learn.js?1655619836"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1655619836"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1683429461"></script>
+    <script src="/.emacs.d/js/learn.js?1683429461"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1683429461"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1655619836"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1683429461"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.104.2" />
     <meta name="description" content="麦汁の Emacs 設定解説ページ">
 <meta name="author" content="麦汁">
 
@@ -12,20 +12,20 @@
     <title>org-babel :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1655619836" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1683429461" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1655619836"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1683429461"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1655619836"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1683429461"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1683429461"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1683429461"></script>
 
     
   </div>
@@ -2718,7 +2718,9 @@
     <li><a href="#org-babel-で評価可能な言語の指定">org-babel で評価可能な言語の指定</a></li>
     <li><a href="#org-babel-execute-後に画像を再表示">org-babel-execute 後に画像を再表示</a></li>
     <li><a href="#org-babel-の非同期実行">org-babel の非同期実行 <span class="tag"><span class="improvement">improvement</span></span></a></li>
-    <li><a href="#org-store-link-時に-org-id-が発行されるようにする">org-store-link 時に org-id が発行されるようにする</a></li>
+    <li><a href="#カスタム変数の設定">カスタム変数の設定</a></li>
+    <li><a href="#habit-完了時に-appt-を-refresh">habit 完了時に Appt を refresh</a></li>
+    <li><a href="#org-mode-map-の-override">org-mode-map の override</a></li>
   </ul>
 </nav>
     </div>
@@ -2747,15 +2749,16 @@
 <p>ここでは org-babel の設定をまとめている。</p>
 <h2 id="org-babel-で評価可能な言語の指定">org-babel で評価可能な言語の指定</h2>
 <p>なんか普段から使いそうな奴をとりあえず選定しているつもり。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(org-babel-do-load-languages <span style="color:#e6db74">&#39;org-babel-load-languages</span>
-                             <span style="color:#f92672">&#39;</span>((plantuml <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
-                               (sql <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
-                               (gnuplot <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
-                               (emacs-lisp <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
-                               (shell <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
-                               (js <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
-                               (ruby <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)))
-</code></pre></div><dl>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(org-babel-do-load-languages <span style="color:#e6db74">&#39;org-babel-load-languages</span>
+</span></span><span style="display:flex;"><span>                             <span style="color:#f92672">&#39;</span>((plantuml <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>                               (sql <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>                               (gnuplot <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>                               (emacs-lisp <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>                               (shell <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>                               (js <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>                               (org <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>                               (ruby <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)))
+</span></span></code></pre></div><dl>
 <dt>js, ruby</dt>
 <dd>仕事でメインで使ってる言語なので入れている。</dd>
 <dt>shell</dt>
@@ -2769,24 +2772,57 @@
 </dl>
 <h2 id="org-babel-execute-後に画像を再表示">org-babel-execute 後に画像を再表示</h2>
 <p>PlantUML の処理をすることが多いので以下の hook を設定することで実行後に画像を再表示するようにしている</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-hook <span style="color:#e6db74">&#39;org-babel-after-execute-hook</span> <span style="color:#e6db74">&#39;org-redisplay-inline-images</span>)
-</code></pre></div><h2 id="org-babel-の非同期実行">org-babel の非同期実行 <span class="tag"><span class="improvement">improvement</span></span></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;org-babel-after-execute-hook</span> <span style="color:#e6db74">&#39;org-redisplay-inline-images</span>)
+</span></span></code></pre></div><h2 id="org-babel-の非同期実行">org-babel の非同期実行 <span class="tag"><span class="improvement">improvement</span></span></h2>
 <p>非同期に org-babel の source を実行するために
 <a href="https://github.com/astahlman/ob-async">ob-async</a> を入れている</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle ob-async)
-(require <span style="color:#e6db74">&#39;ob-async</span>)
-</code></pre></div><p>で、ob-async を何のために入れているかというと PlantUML の図の出力である。画像まで作成するからね、時間かかりそうだしね。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle ob-async)
+</span></span><span style="display:flex;"><span>(require <span style="color:#e6db74">&#39;ob-async</span>)
+</span></span></code></pre></div><p>で、ob-async を何のために入れているかというと PlantUML の図の出力である。画像まで作成するからね、時間かかりそうだしね。</p>
 <p>そんで、その時に <code>org-plantuml-jar-path</code> を強制的に指定している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-hook <span style="color:#e6db74">&#39;ob-async-pre-execute-src-block-hook</span>
-      <span style="color:#f92672">&#39;</span>(lambda ()
-         (setq org-plantuml-jar-path <span style="color:#e6db74">&#34;~/bin/plantuml.jar&#34;</span>)))
-</code></pre></div><p>多分 custom-set-variables でちゃんと設定したらいいんだろうなあ。</p>
-<h2 id="org-store-link-時に-org-id-が発行されるようにする">org-store-link 時に org-id が発行されるようにする</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;ob-async-pre-execute-src-block-hook</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#39;</span>(lambda ()
+</span></span><span style="display:flex;"><span>         (setq org-plantuml-jar-path <span style="color:#e6db74">&#34;~/bin/plantuml.jar&#34;</span>)))
+</span></span></code></pre></div><p>多分 custom-set-variables でちゃんと設定したらいいんだろうなあ。</p>
+<h2 id="カスタム変数の設定">カスタム変数の設定</h2>
 <p><code>org-id-link-to-org-use-id</code> を <code>t</code> にしていると
 <code>org-store-link</code> を実行した時に自動で id を発行してそれを store してくれるようになる</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(custom-set-variables
- <span style="color:#f92672">&#39;</span>(org-id-link-to-org-use-id <span style="color:#66d9ef">t</span>))
-</code></pre></div>
+<p>また archive ファイルを同じフォルダに <code>archives</code> フォルダを掘ってそこに格納したいので org-archive-location を設定している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-variables
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(org-id-link-to-org-use-id <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(org-archive-location <span style="color:#e6db74">&#34;./archives/%s_archive::&#34;</span>))
+</span></span></code></pre></div><h2 id="habit-完了時に-appt-を-refresh">habit 完了時に Appt を refresh</h2>
+<p>Appt + alert.el + Dunst で通知を行っているが、完了後も通知対象として残っていると困るので完了時に refresh するように調整している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/org-refresh-appt-on-complete-habit (args)
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;習慣タスクを完了した時に Appt を refresh する&#34;</span>
+</span></span><span style="display:flex;"><span>  (let* ((element (org-element-at-point))
+</span></span><span style="display:flex;"><span>         (style (org-element-property :STYLE element))
+</span></span><span style="display:flex;"><span>         (to (<span style="color:#a6e22e">plist-get</span> args :to)))
+</span></span><span style="display:flex;"><span>    (if (and (string= style <span style="color:#e6db74">&#34;habit&#34;</span>) (string= <span style="color:#e6db74">&#34;TODO&#34;</span> to))
+</span></span><span style="display:flex;"><span>        (my/org-refresh-appt))))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;org-trigger-hook</span> <span style="color:#e6db74">&#39;my/org-refresh-appt-on-complete-habit</span>)
+</span></span></code></pre></div><h2 id="org-mode-map-の-override">org-mode-map の override</h2>
+<p>windmove-mode とキーバインドがかぶってるのでそれと同居できるように override している。</p>
+<p>具体的には org-mode のコマンドが動く場所であればそれを実行しそれがないなら windmove のコマンドを実行する</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/org-mode-map-override-windmove-mode-map ()
+</span></span><span style="display:flex;"><span>  (let ((oldmap windmove-mode-map)
+</span></span><span style="display:flex;"><span>        (newmap (<span style="color:#a6e22e">make-sparse-keymap</span>)))
+</span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">make-local-variable</span> <span style="color:#e6db74">&#39;minor-mode-overriding-map-alist</span>)
+</span></span><span style="display:flex;"><span>    (add-to-list <span style="color:#e6db74">&#39;minor-mode-overriding-map-alist</span> <span style="color:#f92672">`</span>(windmove-mode <span style="color:#f92672">.</span> <span style="color:#f92672">,</span>newmap))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    (add-hook <span style="color:#e6db74">&#39;org-shiftup-final-hook</span> <span style="color:#e6db74">&#39;windmove-up</span>)
+</span></span><span style="display:flex;"><span>    (add-hook <span style="color:#e6db74">&#39;org-shiftleft-final-hook</span> <span style="color:#e6db74">&#39;windmove-left</span>)
+</span></span><span style="display:flex;"><span>    (add-hook <span style="color:#e6db74">&#39;org-shiftdown-final-hook</span> <span style="color:#e6db74">&#39;windmove-down</span>)
+</span></span><span style="display:flex;"><span>    (add-hook <span style="color:#e6db74">&#39;org-shiftright-final-hook</span> <span style="color:#e6db74">&#39;windmove-right</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;org-mode-hook</span>
+</span></span><span style="display:flex;"><span>          (lambda ()
+</span></span><span style="display:flex;"><span>            (my/org-mode-map-override-windmove-mode-map)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;org-mode</span>
+</span></span><span style="display:flex;"><span>  (my/org-mode-map-override-windmove-mode-map))
+</span></span></code></pre></div>
 
 <footer class="footline">
 	
@@ -4675,19 +4711,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1655619836"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1655619836"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1683429461"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1683429461"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1655619836"></script>
-    <script src="/.emacs.d/js/learn.js?1655619836"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1655619836"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1683429461"></script>
+    <script src="/.emacs.d/js/learn.js?1683429461"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1683429461"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1655619836"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1683429461"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

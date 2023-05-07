@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.104.2" />
     <meta name="description" content="麦汁の Emacs 設定解説ページ">
 <meta name="author" content="麦汁">
 
@@ -12,20 +12,20 @@
     <title>hydra :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1655619836" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1683429461" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1655619836"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1683429461"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1655619836"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1683429461"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1683429461"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1683429461"></script>
 
     
   </div>
@@ -2764,21 +2764,21 @@
 <p>Hydra 本体と関連パッケージをここでインスコしている</p>
 <h3 id="hydra-本体のインストール">Hydra 本体のインストール</h3>
 <p>Hydra 本体は el-get で普通に入れている</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle hydra)
-</code></pre></div><h3 id="hydra-posframe-のインストール">hydra-posframe のインストール</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle hydra)
+</span></span></code></pre></div><h3 id="hydra-posframe-のインストール">hydra-posframe のインストール</h3>
 <p>Hydra は通常だと minibuffer あたりに表示されるけど画面の真ん中に表示される方が視線移動が少なくて便利なので
 hydra-posframe を使って画面中央に表示されるようにしている。</p>
 <p>インストールはいつも通り el-get で行っている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle hydra-posframe)
-</code></pre></div><p>そして Emacs の初期化処理が完了したタイミングでそれが使われるように after-init-hook で hydra-posframe を有効化している</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(add-hook <span style="color:#e6db74">&#39;after-init-hook</span> <span style="color:#e6db74">&#39;hydra-posframe-enable</span>)
-</code></pre></div><h3 id="webdav-sync-download-の設定">WebDAV Sync download の設定</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle hydra-posframe)
+</span></span></code></pre></div><p>そして Emacs の初期化処理が完了したタイミングでそれが使われるように after-init-hook で hydra-posframe を有効化している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;after-init-hook</span> <span style="color:#e6db74">&#39;hydra-posframe-enable</span>)
+</span></span></code></pre></div><h3 id="webdav-sync-download-の設定">WebDAV Sync download の設定</h3>
 <p>作業管理用の org-mode のドキュメントは WebDAV サーバにも上げて
 beorg でも使えるようにしているがそれを拾って来るためのコマンドを用意している。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(defun my/download-from-beorg ()
-  (interactive)
-  (async-shell-command <span style="color:#e6db74">&#34;java -jar ~/bin/webdav_sync1_1_9.jar -c ~/.config/webdav-sync/download.xml &amp;&amp; notify-send &#39;WebDAV Sync&#39; &#39;Downloaded from WebDAV&#39;&#34;</span>))
-</code></pre></div><p>簡単に <code>async-shell-command</code> を使って済ませている</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/download-from-beorg ()
+</span></span><span style="display:flex;"><span>  (interactive)
+</span></span><span style="display:flex;"><span>  (async-shell-command <span style="color:#e6db74">&#34;java -jar ~/bin/webdav_sync1_1_9.jar -c ~/.config/webdav-sync/download.xml &amp;&amp; notify-send &#39;WebDAV Sync&#39; &#39;Downloaded from WebDAV&#39;&#34;</span>))
+</span></span></code></pre></div><p>簡単に <code>async-shell-command</code> を使って済ませている</p>
 <h3 id="major-mode-hydra-のインストール">major-mode-hydra のインストール</h3>
 <p>自分以外で使っている人を見たことはないけど麦汁さんは <a href="https://github.com/jerrypnz/major-mode-hydra.el">major-mode-hydra</a> というものを利用している。</p>
 <p>これは major mode 用に簡単に Hydra の設定ができるというやつ。なので emacs-lisp-mode 用の Hydra とか
@@ -2786,54 +2786,54 @@ js2-mode 用の Hydra などを定義できて便利。</p>
 <p>どちらの場合も <code>M-x major-mode-hydra</code> で起動するので迷わないで済むのも良い。</p>
 <p>内部では同じリポジトリにある pretty-hydra というのを利用していてそいつが UI の定義をせずともそれなりの感じに Hydra のメニューを構築してくれるようになっている。これもズボラな麦汁さんは気に入っている。導入していても表示にこだわりたい場合は直接 <code>defhydra</code> したらいいだけだしね。</p>
 <p>ってことでそれを el-get を使って GitHub からインストールしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle major-mode-hydra.el)
-</code></pre></div><p>なおレシピは自前で用意している</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(:name major-mode-hydra.el
-       :website <span style="color:#e6db74">&#34;https://github.com/jerrypnz/major-mode-hydra.el&#34;</span>
-       :description <span style="color:#e6db74">&#34;this package offers an alternative way to manage your major mode specific key bindings.&#34;</span>
-       :type github
-       :pkgname <span style="color:#e6db74">&#34;jerrypnz/major-mode-hydra.el&#34;</span>)
-</code></pre></div><h3 id="pretty-hydra-の関数上書き">pretty-hydra の関数上書き</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle major-mode-hydra.el)
+</span></span></code></pre></div><p>なおレシピは自前で用意している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name major-mode-hydra.el
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/jerrypnz/major-mode-hydra.el&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;this package offers an alternative way to manage your major mode specific key bindings.&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;jerrypnz/major-mode-hydra.el&#34;</span>)
+</span></span></code></pre></div><h3 id="pretty-hydra-の関数上書き">pretty-hydra の関数上書き</h3>
 <p>Hydra の表示には hydra-posframe を使っているが
 hydra-posframe は最初に空行があると最後の行を表示しないようなので一時的に pretty-hydra&ndash;maybe-add-title を上書きして使ってみている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
-  (defun pretty-hydra--maybe-add-title (title docstring)
-  <span style="color:#e6db74">&#34;Add TITLE to the DOCSTRING if it&#39;s not nil, other return DOCSTRING unchanged.&#34;</span>
-  (if (<span style="color:#a6e22e">null</span> title)
-      docstring
-    (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;%s\n%s&#34;</span>
-            (cond
-             ((<span style="color:#a6e22e">char-or-string-p</span> title) title)
-             ((<span style="color:#a6e22e">symbolp</span> title)          (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;%%s`%s&#34;</span> title))
-             ((<span style="color:#a6e22e">listp</span> title)            (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;%%s%s&#34;</span> (<span style="color:#a6e22e">prin1-to-string</span> title)))
-             (<span style="color:#66d9ef">t</span>                        <span style="color:#e6db74">&#34;&#34;</span>))
-            docstring))))
-</code></pre></div><p>今のところ快適に使えているが
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
+</span></span><span style="display:flex;"><span>  (defun pretty-hydra--maybe-add-title (title docstring)
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Add TITLE to the DOCSTRING if it&#39;s not nil, other return DOCSTRING unchanged.&#34;</span>
+</span></span><span style="display:flex;"><span>  (if (<span style="color:#a6e22e">null</span> title)
+</span></span><span style="display:flex;"><span>      docstring
+</span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;%s\n%s&#34;</span>
+</span></span><span style="display:flex;"><span>            (cond
+</span></span><span style="display:flex;"><span>             ((<span style="color:#a6e22e">char-or-string-p</span> title) title)
+</span></span><span style="display:flex;"><span>             ((<span style="color:#a6e22e">symbolp</span> title)          (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;%%s`%s&#34;</span> title))
+</span></span><span style="display:flex;"><span>             ((<span style="color:#a6e22e">listp</span> title)            (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;%%s%s&#34;</span> (<span style="color:#a6e22e">prin1-to-string</span> title)))
+</span></span><span style="display:flex;"><span>             (<span style="color:#66d9ef">t</span>                        <span style="color:#e6db74">&#34;&#34;</span>))
+</span></span><span style="display:flex;"><span>            docstring))))
+</span></span></code></pre></div><p>今のところ快適に使えているが
 posframe か hydra-posframe か pretty-hydra のどれかの修正で実はもう不要になっている可能性もある。</p>
 <h2 id="キーバインド">キーバインド</h2>
 <p>Hydra でいくつかのキーバインドを設定していて他の機能に属さないものはここでまとめてキーバインドを定義している。</p>
 <h3 id="el-get">el-get</h3>
 <p>他の機能に属さないものは、と書いたな? ありゃ嘘だ。
 el-get の Hydra はここで定義してしまっている。その内 el-get 用の設定ファイルにでも移動したい気がする。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(pretty-hydra-define el-get-hydra (:separator <span style="color:#e6db74">&#34;-&#34;</span> :title <span style="color:#e6db74">&#34;el-get&#34;</span> :foreign-key <span style="color:#a6e22e">warn</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :exit <span style="color:#66d9ef">t</span>)
-  (<span style="color:#e6db74">&#34;Install&#34;</span>
-   ((<span style="color:#e6db74">&#34;i&#34;</span> el-get-install   <span style="color:#e6db74">&#34;Install&#34;</span>)
-    (<span style="color:#e6db74">&#34;I&#34;</span> el-get-reinstall <span style="color:#e6db74">&#34;Re-install&#34;</span>)
-    (<span style="color:#e6db74">&#34;D&#34;</span> el-get-remove    <span style="color:#e6db74">&#34;Uninstall&#34;</span>))
-
-   <span style="color:#e6db74">&#34;Update&#34;</span>
-   ((<span style="color:#e6db74">&#34;s&#34;</span> el-get-self-update  <span style="color:#e6db74">&#34;Self Update&#34;</span>)
-    (<span style="color:#e6db74">&#34;u&#34;</span> el-get-update       <span style="color:#e6db74">&#34;Update&#34;</span>)
-    (<span style="color:#e6db74">&#34;A&#34;</span> el-get-update-all   <span style="color:#e6db74">&#34;Update All&#34;</span>)
-    (<span style="color:#e6db74">&#34;r&#34;</span> el-get-reload       <span style="color:#e6db74">&#34;Reload&#34;</span>))
-
-   <span style="color:#e6db74">&#34;Recipe&#34;</span>
-   ((<span style="color:#e6db74">&#34;f&#34;</span> el-get-find-recipe-file  <span style="color:#e6db74">&#34;Find recipe&#34;</span>))
-
-   <span style="color:#e6db74">&#34;Lock&#34;</span>
-   ((<span style="color:#e6db74">&#34;C&#34;</span> el-get-lock-checkout  <span style="color:#e6db74">&#34;Checkout&#34;</span>)
-    (<span style="color:#e6db74">&#34;U&#34;</span> el-get-lock-unlock    <span style="color:#e6db74">&#34;Unlock&#34;</span>))))
-</code></pre></div><table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(pretty-hydra-define el-get-hydra (:separator <span style="color:#e6db74">&#34;-&#34;</span> :title <span style="color:#e6db74">&#34;el-get&#34;</span> :foreign-key <span style="color:#a6e22e">warn</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :exit <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;Install&#34;</span>
+</span></span><span style="display:flex;"><span>   ((<span style="color:#e6db74">&#34;i&#34;</span> el-get-install   <span style="color:#e6db74">&#34;Install&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;I&#34;</span> el-get-reinstall <span style="color:#e6db74">&#34;Re-install&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;D&#34;</span> el-get-remove    <span style="color:#e6db74">&#34;Uninstall&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;Update&#34;</span>
+</span></span><span style="display:flex;"><span>   ((<span style="color:#e6db74">&#34;s&#34;</span> el-get-self-update  <span style="color:#e6db74">&#34;Self Update&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;u&#34;</span> el-get-update       <span style="color:#e6db74">&#34;Update&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;A&#34;</span> el-get-update-all   <span style="color:#e6db74">&#34;Update All&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;r&#34;</span> el-get-reload       <span style="color:#e6db74">&#34;Reload&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;Recipe&#34;</span>
+</span></span><span style="display:flex;"><span>   ((<span style="color:#e6db74">&#34;f&#34;</span> el-get-find-recipe-file  <span style="color:#e6db74">&#34;Find recipe&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;Lock&#34;</span>
+</span></span><span style="display:flex;"><span>   ((<span style="color:#e6db74">&#34;C&#34;</span> el-get-lock-checkout  <span style="color:#e6db74">&#34;Checkout&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;U&#34;</span> el-get-lock-unlock    <span style="color:#e6db74">&#34;Unlock&#34;</span>))))
+</span></span></code></pre></div><table>
 <thead>
 <tr>
 <th>Key</th>
@@ -2885,27 +2885,28 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
 </table>
 <h3 id="toggle-switches">Toggle Switches</h3>
 <p>ここでは ON/OFF を切り替えるような機能のコントロールを行っている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(pretty-hydra-define
-  toggle-hydra
-  (:separator <span style="color:#e6db74">&#34;-&#34;</span>
-              :title (<span style="color:#a6e22e">concat</span> (all-the-icons-faicon <span style="color:#e6db74">&#34;toggle-on&#34;</span>) <span style="color:#e6db74">&#34; Toggle Switches&#34;</span>)
-              :foreign-key <span style="color:#a6e22e">warn</span>
-              :quit-key <span style="color:#e6db74">&#34;q&#34;</span>
-              :exit <span style="color:#66d9ef">t</span>)
-  (<span style="color:#e6db74">&#34;View&#34;</span>
-   ((<span style="color:#e6db74">&#34;z&#34;</span> zoom-mode                 <span style="color:#e6db74">&#34;zoom-mode&#34;</span>      :toggle zoom-mode)
-    (<span style="color:#e6db74">&#34;Z&#34;</span> toggle-frame-fullscreen   <span style="color:#e6db74">&#34;Fullscreen&#34;</span>     :toggle (<span style="color:#a6e22e">frame-parameter</span> <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;fullscreen</span>))
-    (<span style="color:#e6db74">&#34;e&#34;</span> emojify-mode              <span style="color:#e6db74">&#34;Emojify&#34;</span>        :toggle emojify-mode)
-    (<span style="color:#e6db74">&#34;b&#34;</span> display-battery-mode      <span style="color:#e6db74">&#34;Battery&#34;</span>        :toggle display-battery-mode)
-    (<span style="color:#e6db74">&#34;L&#34;</span> display-line-numbers-mode <span style="color:#e6db74">&#34;Line Number&#34;</span>    :toggle display-line-numbers-mode)
-    (<span style="color:#e6db74">&#34;N&#34;</span> neotree-toggle            <span style="color:#e6db74">&#34;Neotree&#34;</span>        :toggle (if (<span style="color:#a6e22e">fboundp</span> <span style="color:#e6db74">&#39;neo-global--window-exists-p</span>) (neo-global--window-exists-p) <span style="color:#66d9ef">nil</span>)))
-
-   <span style="color:#e6db74">&#34;Behavior&#34;</span>
-   ((<span style="color:#e6db74">&#34;S&#34;</span> my/notify-slack-toggle    <span style="color:#e6db74">&#34;Notify Slack&#34;</span>   :toggle my/notify-slack-enable-p)
-    (<span style="color:#e6db74">&#34;v&#34;</span> my/toggle-view-mode       <span style="color:#e6db74">&#34;Readonly&#34;</span>       :toggle view-mode)
-    (<span style="color:#e6db74">&#34;A&#34;</span> auto-fix-mode             <span style="color:#e6db74">&#34;Auto fix&#34;</span>       :toggle auto-fix-mode)
-    (<span style="color:#e6db74">&#34;E&#34;</span> toggle-debug-on-error     <span style="color:#e6db74">&#34;Debug on error&#34;</span> :toggle debug-on-error))))
-</code></pre></div><table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(pretty-hydra-define
+</span></span><span style="display:flex;"><span>  toggle-hydra
+</span></span><span style="display:flex;"><span>  (:separator <span style="color:#e6db74">&#34;-&#34;</span>
+</span></span><span style="display:flex;"><span>              :title (<span style="color:#a6e22e">concat</span> (all-the-icons-faicon <span style="color:#e6db74">&#34;toggle-on&#34;</span>) <span style="color:#e6db74">&#34; Toggle Switches&#34;</span>)
+</span></span><span style="display:flex;"><span>              :foreign-key <span style="color:#a6e22e">warn</span>
+</span></span><span style="display:flex;"><span>              :quit-key <span style="color:#e6db74">&#34;q&#34;</span>
+</span></span><span style="display:flex;"><span>              :exit <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;View&#34;</span>
+</span></span><span style="display:flex;"><span>   ((<span style="color:#e6db74">&#34;z&#34;</span> zoom-mode                 <span style="color:#e6db74">&#34;zoom-mode&#34;</span>      :toggle zoom-mode)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;Z&#34;</span> toggle-frame-fullscreen   <span style="color:#e6db74">&#34;Fullscreen&#34;</span>     :toggle (<span style="color:#a6e22e">frame-parameter</span> <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;fullscreen</span>))
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;e&#34;</span> emojify-mode              <span style="color:#e6db74">&#34;Emojify&#34;</span>        :toggle emojify-mode)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;b&#34;</span> display-battery-mode      <span style="color:#e6db74">&#34;Battery&#34;</span>        :toggle display-battery-mode)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;L&#34;</span> display-line-numbers-mode <span style="color:#e6db74">&#34;Line Number&#34;</span>    :toggle display-line-numbers-mode)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;N&#34;</span> neotree-toggle            <span style="color:#e6db74">&#34;Neotree&#34;</span>        :toggle (if (<span style="color:#a6e22e">fboundp</span> <span style="color:#e6db74">&#39;neo-global--window-exists-p</span>) (neo-global--window-exists-p) <span style="color:#66d9ef">nil</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;Behavior&#34;</span>
+</span></span><span style="display:flex;"><span>   ((<span style="color:#e6db74">&#34;S&#34;</span> my/notify-slack-toggle    <span style="color:#e6db74">&#34;Notify Slack&#34;</span>   :toggle my/notify-slack-enable-p)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;v&#34;</span> my/toggle-view-mode       <span style="color:#e6db74">&#34;Readonly&#34;</span>       :toggle view-mode)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;f&#34;</span> flycheck-mode             <span style="color:#e6db74">&#34;Flycheck&#34;</span>       :toggle flycheck-mode)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;A&#34;</span> auto-fix-mode             <span style="color:#e6db74">&#34;Auto fix&#34;</span>       :toggle auto-fix-mode)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;E&#34;</span> toggle-debug-on-error     <span style="color:#e6db74">&#34;Debug on error&#34;</span> :toggle debug-on-error))))
+</span></span></code></pre></div><table>
 <thead>
 <tr>
 <th>Key</th>
@@ -2949,25 +2950,24 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
 </table>
 <h3 id="sub-tools">Sub Tools</h3>
 <p>最初に起動した Hydra からは外してるけど、そこそこ使うコマンド群を適当に詰めてるやつ。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(pretty-hydra-define
-  subtools-hydra
-  (:separator <span style="color:#e6db74">&#34;-&#34;</span>
-              :color teal
-              :foreign-key <span style="color:#a6e22e">warn</span>
-              :title (<span style="color:#a6e22e">concat</span> (all-the-icons-material <span style="color:#e6db74">&#34;build&#34;</span>) <span style="color:#e6db74">&#34; Sub tools&#34;</span>)
-              :quit-key <span style="color:#e6db74">&#34;q&#34;</span>
-              :exit <span style="color:#66d9ef">t</span>)
-  (<span style="color:#e6db74">&#34;Describe&#34;</span>
-   ((<span style="color:#e6db74">&#34;b&#34;</span> counsel-descbinds <span style="color:#e6db74">&#34;Keybind&#34;</span>)
-    (<span style="color:#e6db74">&#34;f&#34;</span> counsel-describe-function <span style="color:#e6db74">&#34;Function&#34;</span>)
-    (<span style="color:#e6db74">&#34;v&#34;</span> counsel-describe-variable <span style="color:#e6db74">&#34;Variable&#34;</span>)
-    (<span style="color:#e6db74">&#34;m&#34;</span> describe-minor-mode <span style="color:#e6db74">&#34;Minor mode&#34;</span>))
-
-   <span style="color:#75715e">;; (&#34;P&#34;   my/open-review-requested-pr &#34;Open Requested PR&#34;)</span>
-   <span style="color:#e6db74">&#34;Other&#34;</span>
-   ((<span style="color:#e6db74">&#34;@&#34;</span> all-the-icons-hydra/body <span style="color:#e6db74">&#34;List icons&#34;</span>)
-    (<span style="color:#e6db74">&#34;D&#34;</span> my/download-from-beorg))))
-</code></pre></div><table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(pretty-hydra-define
+</span></span><span style="display:flex;"><span>  subtools-hydra
+</span></span><span style="display:flex;"><span>  (:separator <span style="color:#e6db74">&#34;-&#34;</span>
+</span></span><span style="display:flex;"><span>              :color teal
+</span></span><span style="display:flex;"><span>              :foreign-key <span style="color:#a6e22e">warn</span>
+</span></span><span style="display:flex;"><span>              :title (<span style="color:#a6e22e">concat</span> (all-the-icons-material <span style="color:#e6db74">&#34;build&#34;</span>) <span style="color:#e6db74">&#34; Sub tools&#34;</span>)
+</span></span><span style="display:flex;"><span>              :quit-key <span style="color:#e6db74">&#34;q&#34;</span>
+</span></span><span style="display:flex;"><span>              :exit <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;Describe&#34;</span>
+</span></span><span style="display:flex;"><span>   ((<span style="color:#e6db74">&#34;b&#34;</span> counsel-descbinds <span style="color:#e6db74">&#34;Keybind&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;f&#34;</span> counsel-describe-function <span style="color:#e6db74">&#34;Function&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;v&#34;</span> counsel-describe-variable <span style="color:#e6db74">&#34;Variable&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">;; (&#34;P&#34;   my/open-review-requested-pr &#34;Open Requested PR&#34;)</span>
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;m&#34;</span> describe-minor-mode <span style="color:#e6db74">&#34;Minor mode&#34;</span>))
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;Other&#34;</span>
+</span></span><span style="display:flex;"><span>   ((<span style="color:#e6db74">&#34;@&#34;</span> all-the-icons-hydra/body <span style="color:#e6db74">&#34;List icons&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;D&#34;</span> my/download-from-beorg))))
+</span></span></code></pre></div><table>
 <thead>
 <tr>
 <th>Key</th>
@@ -3003,12 +3003,12 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
 </table>
 <h3 id="text-scale">Text Scale</h3>
 <p>文字サイズの切替用。たまに字を大きくしたりしたいので。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(pretty-hydra-define text-scale-hydra (:separator <span style="color:#e6db74">&#34;-&#34;</span> :title (<span style="color:#a6e22e">concat</span> (all-the-icons-material <span style="color:#e6db74">&#34;text_fields&#34;</span>) <span style="color:#e6db74">&#34; Text Scale&#34;</span>) :exit <span style="color:#66d9ef">nil</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span>)
-  (<span style="color:#e6db74">&#34;Scale&#34;</span>
-   ((<span style="color:#e6db74">&#34;+&#34;</span> text-scale-increase <span style="color:#e6db74">&#34;Increase&#34;</span>)
-    (<span style="color:#e6db74">&#34;-&#34;</span> text-scale-decrease <span style="color:#e6db74">&#34;Decrease&#34;</span>)
-    (<span style="color:#e6db74">&#34;0&#34;</span> text-scale-adjust   <span style="color:#e6db74">&#34;Adjust&#34;</span>))))
-</code></pre></div><table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(pretty-hydra-define text-scale-hydra (:separator <span style="color:#e6db74">&#34;-&#34;</span> :title (<span style="color:#a6e22e">concat</span> (all-the-icons-material <span style="color:#e6db74">&#34;text_fields&#34;</span>) <span style="color:#e6db74">&#34; Text Scale&#34;</span>) :exit <span style="color:#66d9ef">nil</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span>)
+</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;Scale&#34;</span>
+</span></span><span style="display:flex;"><span>   ((<span style="color:#e6db74">&#34;+&#34;</span> text-scale-increase <span style="color:#e6db74">&#34;Increase&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;-&#34;</span> text-scale-decrease <span style="color:#e6db74">&#34;Decrease&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;0&#34;</span> text-scale-adjust   <span style="color:#e6db74">&#34;Adjust&#34;</span>))))
+</span></span></code></pre></div><table>
 <thead>
 <tr>
 <th>Key</th>
@@ -3033,43 +3033,46 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
 <h3 id="main">Main</h3>
 <p>よく使うコマンドをまとめたやつ。
 <a href="/.emacs.d/keybinds/key-chord/">key-chord</a> を使って <code>jk</code> 同時押しで起動できるようにしている。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(pretty-hydra-define pretty-hydra-usefull-commands (:separator <span style="color:#e6db74">&#34;-&#34;</span> :color teal :foreign-key <span style="color:#a6e22e">warn</span> :title (<span style="color:#a6e22e">concat</span> (all-the-icons-material <span style="color:#e6db74">&#34;build&#34;</span>) <span style="color:#e6db74">&#34; Usefull commands&#34;</span>) :quit-key <span style="color:#e6db74">&#34;q&#34;</span>)
-  (<span style="color:#e6db74">&#34;File&#34;</span>
-   ((<span style="color:#e6db74">&#34;p&#34;</span> projectile-hydra/body <span style="color:#e6db74">&#34;Projectile&#34;</span>)
-    (<span style="color:#e6db74">&#34;f&#34;</span> counsel-find-file     <span style="color:#e6db74">&#34;Find File&#34;</span>)
-    (<span style="color:#e6db74">&#34;d&#34;</span> counsel-find-dir      <span style="color:#e6db74">&#34;Find Dir&#34;</span>)
-    (<span style="color:#e6db74">&#34;r&#34;</span> counsel-recentf       <span style="color:#e6db74">&#34;Recentf&#34;</span>)
-    (<span style="color:#e6db74">&#34;l&#34;</span> counsel-locate        <span style="color:#e6db74">&#34;Locate&#34;</span>)
-    (<span style="color:#e6db74">&#34;A&#34;</span> counsel-osx-app       <span style="color:#e6db74">&#34;macOS App&#34;</span>))
-
-   <span style="color:#e6db74">&#34;Edit&#34;</span>
-   ((<span style="color:#e6db74">&#34;a&#34;</span> align-regexp <span style="color:#e6db74">&#34;Align Regexp&#34;</span>)
-    (<span style="color:#e6db74">&#34;;&#34;</span> comment-dwim <span style="color:#e6db74">&#34;Comment&#34;</span>))
-
-   <span style="color:#e6db74">&#34;Code&#34;</span>
-   ((<span style="color:#e6db74">&#34;G&#34;</span> counsel-projectile-ag       <span style="color:#e6db74">&#34;Grep&#34;</span>)
-    (<span style="color:#e6db74">&#34;j&#34;</span> dumb-jump-pretty-hydra/body <span style="color:#e6db74">&#34;Dumb jump&#34;</span>)
-    (<span style="color:#e6db74">&#34;g&#34;</span> avy-hydra/body              <span style="color:#e6db74">&#34;Avy&#34;</span>)
-    (<span style="color:#e6db74">&#34;i&#34;</span> counsel-imenu               <span style="color:#e6db74">&#34;imenu&#34;</span>)
-    (<span style="color:#e6db74">&#34;y&#34;</span> yasnippet-hydra/body        <span style="color:#e6db74">&#34;Yasnippet&#34;</span>)
-    (<span style="color:#e6db74">&#34;B&#34;</span> browse-at-remote            <span style="color:#e6db74">&#34;Browse&#34;</span>)
-    (<span style="color:#e6db74">&#34;m&#34;</span> magit-status                <span style="color:#e6db74">&#34;Magit&#34;</span>))
-
-   <span style="color:#e6db74">&#34;View&#34;</span>
-   ((<span style="color:#e6db74">&#34;D&#34;</span> delete-other-windows      <span style="color:#e6db74">&#34;Only This Win&#34;</span>)
-    (<span style="color:#e6db74">&#34;W&#34;</span> window-control-hydra/body <span style="color:#e6db74">&#34;Window Control&#34;</span>)
-    (<span style="color:#e6db74">&#34;+&#34;</span> text-scale-hydra/body     <span style="color:#e6db74">&#34;Text Scale&#34;</span>)
-    (<span style="color:#e6db74">&#34;w&#34;</span> ace-swap-window           <span style="color:#e6db74">&#34;Swap Window&#34;</span>))
-
-   <span style="color:#e6db74">&#34;Tool&#34;</span>
-   ((<span style="color:#e6db74">&#34;SPC&#34;</span> major-mode-hydra         <span style="color:#e6db74">&#34;Hydra(Major)&#34;</span>)
-    (<span style="color:#e6db74">&#34;s&#34;</span>   toggle-hydra/body        <span style="color:#e6db74">&#34;Toggle switches&#34;</span>)
-    (<span style="color:#e6db74">&#34;c&#34;</span>   counsel-org-capture      <span style="color:#e6db74">&#34;Capture&#34;</span>)
-    (<span style="color:#e6db74">&#34;o&#34;</span>   global-org-hydra/body    <span style="color:#e6db74">&#34;Org&#34;</span>)
-    (<span style="color:#e6db74">&#34;e&#34;</span>   el-get-hydra/body        <span style="color:#e6db74">&#34;el-get&#34;</span>)
-    (<span style="color:#e6db74">&#34;/&#34;</span>   google-pretty-hydra/body <span style="color:#e6db74">&#34;Google&#34;</span>)
-    (<span style="color:#e6db74">&#34;t&#34;</span>   subtools-hydra/body      <span style="color:#e6db74">&#34;Sub Tools&#34;</span>))))
-</code></pre></div><table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(pretty-hydra-define pretty-hydra-usefull-commands (:separator <span style="color:#e6db74">&#34;-&#34;</span> :color teal :foreign-key <span style="color:#a6e22e">warn</span> :title (<span style="color:#a6e22e">concat</span> (all-the-icons-material <span style="color:#e6db74">&#34;build&#34;</span>) <span style="color:#e6db74">&#34; Usefull commands&#34;</span>) :quit-key <span style="color:#e6db74">&#34;q&#34;</span>)
+</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;File&#34;</span>
+</span></span><span style="display:flex;"><span>   ((<span style="color:#e6db74">&#34;p&#34;</span> projectile-hydra/body <span style="color:#e6db74">&#34;Projectile&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;f&#34;</span> counsel-find-file     <span style="color:#e6db74">&#34;Find File&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;d&#34;</span> counsel-find-dir      <span style="color:#e6db74">&#34;Find Dir&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;r&#34;</span> counsel-recentf       <span style="color:#e6db74">&#34;Recentf&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;L&#34;</span> counsel-locate        <span style="color:#e6db74">&#34;Locate&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;A&#34;</span> counsel-osx-app       <span style="color:#e6db74">&#34;macOS App&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;Edit&#34;</span>
+</span></span><span style="display:flex;"><span>   ((<span style="color:#e6db74">&#34;a&#34;</span> align-regexp <span style="color:#e6db74">&#34;Align Regexp&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;;&#34;</span> comment-dwim <span style="color:#e6db74">&#34;Comment&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;Code&#34;</span>
+</span></span><span style="display:flex;"><span>   ((<span style="color:#e6db74">&#34;G&#34;</span> counsel-projectile-ag       <span style="color:#e6db74">&#34;Grep&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;j&#34;</span> dumb-jump-pretty-hydra/body <span style="color:#e6db74">&#34;Dumb jump&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;g&#34;</span> avy-hydra/body              <span style="color:#e6db74">&#34;Avy&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;l&#34;</span> pretty-hydra-lsp/body       <span style="color:#e6db74">&#34;LSP&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;i&#34;</span> counsel-imenu               <span style="color:#e6db74">&#34;imenu&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;y&#34;</span> yasnippet-hydra/body        <span style="color:#e6db74">&#34;Yasnippet&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;B&#34;</span> browse-at-remote            <span style="color:#e6db74">&#34;Browse&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;C&#34;</span> git-messenger:popup-message <span style="color:#e6db74">&#34;Git Message&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;m&#34;</span> magit-status                <span style="color:#e6db74">&#34;Magit&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;View&#34;</span>
+</span></span><span style="display:flex;"><span>   ((<span style="color:#e6db74">&#34;D&#34;</span> delete-other-windows      <span style="color:#e6db74">&#34;Only This Win&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;W&#34;</span> window-control-hydra/body <span style="color:#e6db74">&#34;Window Control&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;+&#34;</span> text-scale-hydra/body     <span style="color:#e6db74">&#34;Text Scale&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;w&#34;</span> ace-swap-window           <span style="color:#e6db74">&#34;Swap Window&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;Tool&#34;</span>
+</span></span><span style="display:flex;"><span>   ((<span style="color:#e6db74">&#34;SPC&#34;</span> major-mode-hydra         <span style="color:#e6db74">&#34;Hydra(Major)&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;s&#34;</span>   toggle-hydra/body        <span style="color:#e6db74">&#34;Toggle switches&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;c&#34;</span>   counsel-org-capture      <span style="color:#e6db74">&#34;Capture&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;o&#34;</span>   global-org-hydra/body    <span style="color:#e6db74">&#34;Org&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;e&#34;</span>   el-get-hydra/body        <span style="color:#e6db74">&#34;el-get&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;k&#34;</span>   kibela-hydra/body        <span style="color:#e6db74">&#34;Kibela&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;/&#34;</span>   google-pretty-hydra/body <span style="color:#e6db74">&#34;Google&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;t&#34;</span>   subtools-hydra/body      <span style="color:#e6db74">&#34;Sub Tools&#34;</span>))))
+</span></span></code></pre></div><table>
 <thead>
 <tr>
 <th>Key</th>
@@ -5068,19 +5071,19 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1655619836"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1655619836"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1683429461"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1683429461"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1655619836"></script>
-    <script src="/.emacs.d/js/learn.js?1655619836"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1655619836"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1683429461"></script>
+    <script src="/.emacs.d/js/learn.js?1683429461"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1683429461"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1655619836"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1683429461"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.104.2" />
     <meta name="description" content="麦汁の Emacs 設定解説ページ">
 <meta name="author" content="麦汁">
 
@@ -12,20 +12,20 @@
     <title>org-capture :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1655619836" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1683429461" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1655619836"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1683429461"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1655619836"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1683429461"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1683429461"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1683429461"></script>
 
     
   </div>
@@ -2747,20 +2747,21 @@
 <h2 id="org-capture-ical-file">org-capture-ical-file <span class="tag"><span class="unused">unused</span></span></h2>
 <p><a href="https://qiita.com/takaxp/items/0b717ad1d0488b74429d">https://qiita.com/takaxp/items/0b717ad1d0488b74429d</a> を参考に設定したやつ。</p>
 <p>今は別で Google Calendar 連携しているので使ってない……。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#75715e">;; org-capture</span>
-(defvar org-capture-ical-file (<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;ical.org&#34;</span>))
-(setq org-capture-ical-file (<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;ical.org&#34;</span>))
-</code></pre></div><h2 id="capture-用ファイルを変数定義">capture 用ファイルを変数定義 <span class="tag"><span class="improvement">improvement</span></span></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; org-capture</span>
+</span></span><span style="display:flex;"><span>(defvar org-capture-ical-file (<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;ical.org&#34;</span>))
+</span></span><span style="display:flex;"><span>(setq org-capture-ical-file (<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;ical.org&#34;</span>))
+</span></span></code></pre></div><h2 id="capture-用ファイルを変数定義">capture 用ファイルを変数定義 <span class="tag"><span class="improvement">improvement</span></span></h2>
 <p>変数定義しなくてもいい気がしないでもないけどとりあえず変数定義している。バラバラの変数にするよりも alist とか plist とかにする方が適切な気がする</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq my/org-capture-interrupted-file  (<span style="color:#a6e22e">concat</span> my/org-tasks-directory <span style="color:#e6db74">&#34;interrupted.org&#34;</span>))
-(setq my/org-capture-inbox-file        (<span style="color:#a6e22e">concat</span> my/org-tasks-directory <span style="color:#e6db74">&#34;inbox.org&#34;</span>))
-(setq my/org-capture-pointers-file     (<span style="color:#a6e22e">concat</span> my/org-tasks-directory <span style="color:#e6db74">&#34;pointers.org&#34;</span>))
-(setq my/org-capture-impediments-file  (<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;work/scrum/impediments.org&#34;</span>))
-(setq my/org-capture-memo-file         (<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;memo.org&#34;</span>))
-(setq my/org-capture-sql-file          (<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;work/sql.org&#34;</span>))
-(setq my/org-capture-shopping-file     (<span style="color:#a6e22e">concat</span> my/org-tasks-directory <span style="color:#e6db74">&#34;shopping.org&#34;</span>))
-(setq my/org-capture-2020-summary-file (<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;private/2020_summary.org&#34;</span>))
-</code></pre></div><h2 id="テンプレートの定義">テンプレートの定義</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq my/org-capture-interrupted-file  (<span style="color:#a6e22e">concat</span> my/org-tasks-directory <span style="color:#e6db74">&#34;interrupted.org&#34;</span>))
+</span></span><span style="display:flex;"><span>(setq my/org-capture-inbox-file        (<span style="color:#a6e22e">concat</span> my/org-tasks-directory <span style="color:#e6db74">&#34;inbox.org&#34;</span>))
+</span></span><span style="display:flex;"><span>(setq my/org-capture-pointers-file     (<span style="color:#a6e22e">concat</span> my/org-tasks-directory <span style="color:#e6db74">&#34;pointers.org&#34;</span>))
+</span></span><span style="display:flex;"><span>(setq my/org-capture-impediments-file  (<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;work/scrum/impediments.org&#34;</span>))
+</span></span><span style="display:flex;"><span>(setq my/org-capture-memo-file         (<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;memo.org&#34;</span>))
+</span></span><span style="display:flex;"><span>(setq my/org-capture-sql-file          (<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;work/sql.org&#34;</span>))
+</span></span><span style="display:flex;"><span>(setq my/org-capture-shopping-file     (<span style="color:#a6e22e">concat</span> my/org-tasks-directory <span style="color:#e6db74">&#34;shopping.org&#34;</span>))
+</span></span><span style="display:flex;"><span>(setq my/org-capture-2020-summary-file (<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;private/2020_summary.org&#34;</span>))
+</span></span><span style="display:flex;"><span>(setq my/org-small-topic-file (<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;small-topic.org&#34;</span>))
+</span></span></code></pre></div><h2 id="テンプレートの定義">テンプレートの定義</h2>
 <p>上記の変数を使って capture 用テンプレートを登録している。</p>
 <table>
 <thead>
@@ -2833,52 +2834,55 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq org-capture-templates
-      <span style="color:#f92672">`</span>((<span style="color:#e6db74">&#34;g&#34;</span> <span style="color:#e6db74">&#34;Inbox にエントリー&#34;</span> entry
-         (file <span style="color:#f92672">,</span>my/org-capture-inbox-file)
-         <span style="color:#e6db74">&#34;* TODO %?\n** Ready の定義
-</span><span style="color:#e6db74">   - Why?, Goal, How? が埋められていること
-</span><span style="color:#e6db74">   - How がある程度具体的に書かれていること
-</span><span style="color:#e6db74">** Why?
-</span><span style="color:#e6db74">** Info
-</span><span style="color:#e6db74">** Goal
-</span><span style="color:#e6db74">** How?
-</span><span style="color:#e6db74">** Result
-</span><span style="color:#e6db74">\t&#34;</span>)
-        (<span style="color:#e6db74">&#34;m&#34;</span> <span style="color:#e6db74">&#34;Memoにエントリー&#34;</span> entry
-         (file+headline <span style="color:#f92672">,</span>my/org-capture-memo-file <span style="color:#e6db74">&#34;未分類&#34;</span>)
-         <span style="color:#e6db74">&#34;*** %?\n\t&#34;</span>)
-        (<span style="color:#e6db74">&#34;p&#34;</span> <span style="color:#e6db74">&#34;Pointersにエントリー&#34;</span> entry
-         (file+headline <span style="color:#f92672">,</span>my/org-capture-pointers-file <span style="color:#e6db74">&#34;Pointers&#34;</span>)
-         <span style="color:#e6db74">&#34;** %?\n\t&#34;</span>)
-        (<span style="color:#e6db74">&#34;i&#34;</span> <span style="color:#e6db74">&#34;割り込みタスクにエントリー&#34;</span> entry <span style="color:#75715e">;; 参考: http://grugrut.hatenablog.jp/entry/2016/03/13/085417</span>
-         (file+headline <span style="color:#f92672">,</span>my/org-capture-interrupted-file <span style="color:#e6db74">&#34;Interrupted&#34;</span>)
-         <span style="color:#e6db74">&#34;** %?\n\t&#34;</span> :clock-in <span style="color:#66d9ef">t</span> :clock-resume <span style="color:#66d9ef">t</span>)
-        (<span style="color:#e6db74">&#34;I&#34;</span> <span style="color:#e6db74">&#34;障害リストにエントリー&#34;</span> entry
-         (file+headline <span style="color:#f92672">,</span>my/org-capture-impediments-file <span style="color:#e6db74">&#34;Impediments&#34;</span>)
-         <span style="color:#e6db74">&#34;** TODO %?\n\t&#34;</span>)
-        (<span style="color:#e6db74">&#34;R&#34;</span> <span style="color:#e6db74">&#34;2020ふりかえりにエントリー&#34;</span> entry
-         (file+headline <span style="color:#f92672">,</span>my/org-capture-2020-summary-file <span style="color:#e6db74">&#34;Timeline&#34;</span>)
-         <span style="color:#e6db74">&#34;** %?\n\t&#34;</span>)
-        (<span style="color:#e6db74">&#34;s&#34;</span> <span style="color:#e6db74">&#34;SQL にエントリー&#34;</span> entry
-         (file+headline <span style="color:#f92672">,</span>my/org-capture-sql-file <span style="color:#e6db74">&#34;SQL&#34;</span>)
-         <span style="color:#e6db74">&#34;** %?\n\t&#34;</span>)
-        (<span style="color:#e6db74">&#34;S&#34;</span> <span style="color:#e6db74">&#34;買い物リストエントリー&#34;</span> entry
-         (file <span style="color:#f92672">,</span>my/org-capture-shopping-file)
-         <span style="color:#e6db74">&#34;* TODO %?\n\t&#34;</span>)
-        (<span style="color:#e6db74">&#34;b&#34;</span> <span style="color:#e6db74">&#34;Blogネタにエントリー&#34;</span> entry
-         (file+headline <span style="color:#f92672">,</span>my/org-capture-memo-file <span style="color:#e6db74">&#34;Blogネタ&#34;</span>)
-         <span style="color:#e6db74">&#34;** %?\n\t&#34;</span>)
-        (<span style="color:#e6db74">&#34;P&#34;</span> <span style="color:#e6db74">&#34;Protocol&#34;</span> entry
-         (file+headline <span style="color:#f92672">,</span>my/org-capture-pointers-file <span style="color:#e6db74">&#34;Pointers&#34;</span>)
-         <span style="color:#e6db74">&#34;** %?\n   #+BEGIN_QUOTE\n   %i\n   #+END_QUOTE\n\n   Source: %u, [[%:link][%:description]]\n&#34;</span>)
-        (<span style="color:#e6db74">&#34;L&#34;</span> <span style="color:#e6db74">&#34;Protocol Link&#34;</span> entry
-         (file+headline <span style="color:#f92672">,</span>my/org-capture-pointers-file <span style="color:#e6db74">&#34;Pointers&#34;</span>)
-         <span style="color:#e6db74">&#34;** %:description\n   %:link\n   %?\n   Captured On: %U&#34;</span>)
-        (<span style="color:#e6db74">&#34;c&#34;</span> <span style="color:#e6db74">&#34;同期カレンダーにエントリー&#34;</span> entry
-         (file+headline <span style="color:#f92672">,</span>org-capture-ical-file <span style="color:#e6db74">&#34;Schedule&#34;</span>)
-         <span style="color:#e6db74">&#34;** TODO %?\n\t&#34;</span>)))
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq org-capture-templates
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">`</span>((<span style="color:#e6db74">&#34;g&#34;</span> <span style="color:#e6db74">&#34;Inbox にエントリー&#34;</span> entry
+</span></span><span style="display:flex;"><span>         (file <span style="color:#f92672">,</span>my/org-capture-inbox-file)
+</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;* TODO %? %^G\n** Ready の定義
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">   - Why?, Goal, How? が埋められていること
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">   - How がある程度具体的に書かれていること
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">** Why?
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">** Info
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">** Goal
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">** How?
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">** Result
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">\t&#34;</span>)
+</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;m&#34;</span> <span style="color:#e6db74">&#34;Memoにエントリー&#34;</span> entry
+</span></span><span style="display:flex;"><span>         (file+headline <span style="color:#f92672">,</span>my/org-capture-memo-file <span style="color:#e6db74">&#34;未分類&#34;</span>)
+</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;*** %?\n\t&#34;</span>)
+</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;p&#34;</span> <span style="color:#e6db74">&#34;Pointersにエントリー&#34;</span> entry
+</span></span><span style="display:flex;"><span>         (file+headline <span style="color:#f92672">,</span>my/org-capture-pointers-file <span style="color:#e6db74">&#34;Pointers&#34;</span>)
+</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;** %?\n\t&#34;</span>)
+</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;i&#34;</span> <span style="color:#e6db74">&#34;割り込みタスクにエントリー&#34;</span> entry <span style="color:#75715e">;; 参考: http://grugrut.hatenablog.jp/entry/2016/03/13/085417</span>
+</span></span><span style="display:flex;"><span>         (file+headline <span style="color:#f92672">,</span>my/org-capture-interrupted-file <span style="color:#e6db74">&#34;Interrupted&#34;</span>)
+</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;** %?\n\t&#34;</span> :clock-in <span style="color:#66d9ef">t</span> :clock-resume <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;I&#34;</span> <span style="color:#e6db74">&#34;障害リストにエントリー&#34;</span> entry
+</span></span><span style="display:flex;"><span>         (file+headline <span style="color:#f92672">,</span>my/org-capture-impediments-file <span style="color:#e6db74">&#34;Impediments&#34;</span>)
+</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;** TODO %?\n\t&#34;</span>)
+</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;R&#34;</span> <span style="color:#e6db74">&#34;2020ふりかえりにエントリー&#34;</span> entry
+</span></span><span style="display:flex;"><span>         (file+headline <span style="color:#f92672">,</span>my/org-capture-2020-summary-file <span style="color:#e6db74">&#34;Timeline&#34;</span>)
+</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;** %?\n\t&#34;</span>)
+</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;z&#34;</span> <span style="color:#e6db74">&#34;一言・雑談ネタ&#34;</span> entry
+</span></span><span style="display:flex;"><span>         (file+headline <span style="color:#f92672">,</span>my/org-small-topic-file <span style="color:#e6db74">&#34;Topic&#34;</span>)
+</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;** %?\n\t&#34;</span>)
+</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;s&#34;</span> <span style="color:#e6db74">&#34;SQL にエントリー&#34;</span> entry
+</span></span><span style="display:flex;"><span>         (file+headline <span style="color:#f92672">,</span>my/org-capture-sql-file <span style="color:#e6db74">&#34;SQL&#34;</span>)
+</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;** %?\n\t&#34;</span>)
+</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;S&#34;</span> <span style="color:#e6db74">&#34;買い物リストエントリー&#34;</span> entry
+</span></span><span style="display:flex;"><span>         (file <span style="color:#f92672">,</span>my/org-capture-shopping-file)
+</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;* TODO %?\n\t&#34;</span>)
+</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;b&#34;</span> <span style="color:#e6db74">&#34;Blogネタにエントリー&#34;</span> entry
+</span></span><span style="display:flex;"><span>         (file+headline <span style="color:#f92672">,</span>my/org-capture-memo-file <span style="color:#e6db74">&#34;Blogネタ&#34;</span>)
+</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;** %?\n\t&#34;</span>)
+</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;P&#34;</span> <span style="color:#e6db74">&#34;Protocol&#34;</span> entry
+</span></span><span style="display:flex;"><span>         (file+headline <span style="color:#f92672">,</span>my/org-capture-pointers-file <span style="color:#e6db74">&#34;Pointers&#34;</span>)
+</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;** %?\n   #+BEGIN_QUOTE\n   %i\n   #+END_QUOTE\n\n   Source: %u, [[%:link][%:description]]\n&#34;</span>)
+</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;L&#34;</span> <span style="color:#e6db74">&#34;Protocol Link&#34;</span> entry
+</span></span><span style="display:flex;"><span>         (file+headline <span style="color:#f92672">,</span>my/org-capture-pointers-file <span style="color:#e6db74">&#34;Pointers&#34;</span>)
+</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;** %:description\n   %:link\n   %?\n   Captured On: %U&#34;</span>)
+</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;c&#34;</span> <span style="color:#e6db74">&#34;同期カレンダーにエントリー&#34;</span> entry
+</span></span><span style="display:flex;"><span>         (file+headline <span style="color:#f92672">,</span>org-capture-ical-file <span style="color:#e6db74">&#34;Schedule&#34;</span>)
+</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;** TODO %?\n\t&#34;</span>)))
+</span></span></code></pre></div>
 
 <footer class="footline">
 	
@@ -4767,19 +4771,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1655619836"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1655619836"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1683429461"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1683429461"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1655619836"></script>
-    <script src="/.emacs.d/js/learn.js?1655619836"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1655619836"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1683429461"></script>
+    <script src="/.emacs.d/js/learn.js?1683429461"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1683429461"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1655619836"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1683429461"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

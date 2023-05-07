@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.83.1" />
+    <meta name="generator" content="Hugo 0.104.2" />
     <meta name="description" content="麦汁の Emacs 設定解説ページ">
 <meta name="author" content="麦汁">
 
@@ -12,20 +12,20 @@
     <title>dashboard :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1655619836" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1655619836" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1683429461" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1655619836"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1683429461"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1655619836"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1683429461"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1683429461"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1655619836"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1683429461"></script>
 
     
   </div>
@@ -2751,31 +2751,31 @@
 Emacs の起動時に色々な情報を表示してくれるパッケージ。</p>
 <h2 id="インストール">インストール</h2>
 <p>いつも通り el-get で入れている</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(el-get-bundle dashboard)
-</code></pre></div><h2 id="表示するアイコンをロゴに変更">表示するアイコンをロゴに変更</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle dashboard)
+</span></span></code></pre></div><h2 id="表示するアイコンをロゴに変更">表示するアイコンをロゴに変更</h2>
 <p>ロゴ、画像にした方がカッコいいよねってことで logo に変更している</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq dashboard-startup-banner <span style="color:#e6db74">&#39;logo</span>)
-</code></pre></div><p>なお CUI で起動すると自動でテキストでの表示になる</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq dashboard-startup-banner <span style="color:#e6db74">&#39;logo</span>)
+</span></span></code></pre></div><p>なお CUI で起動すると自動でテキストでの表示になる</p>
 <h2 id="表示する情報の設定">表示する情報の設定</h2>
 <p>dashboard-items を弄ることで表示する情報を設定している</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq dashboard-items <span style="color:#f92672">&#39;</span>((recents  <span style="color:#f92672">.</span> <span style="color:#ae81ff">5</span>)
-                        <span style="color:#75715e">;; (bookmarks . 5) ;; bookmarks は使ってない</span>
-                        (projects <span style="color:#f92672">.</span> <span style="color:#ae81ff">5</span>)
-                        (agenda <span style="color:#f92672">.</span> <span style="color:#ae81ff">5</span>)
-                        <span style="color:#75715e">;; (registers . 5) ;; registers は使ってない</span>
-                        ))
-</code></pre></div><p>Emacs の bookmarks と register は使ってない(使えてない)のでコメントアウトしている。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq dashboard-items <span style="color:#f92672">&#39;</span>((recents  <span style="color:#f92672">.</span> <span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>                        <span style="color:#75715e">;; (bookmarks . 5) ;; bookmarks は使ってない</span>
+</span></span><span style="display:flex;"><span>                        (projects <span style="color:#f92672">.</span> <span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>                        (agenda <span style="color:#f92672">.</span> <span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>                        <span style="color:#75715e">;; (registers . 5) ;; registers は使ってない</span>
+</span></span><span style="display:flex;"><span>                        ))
+</span></span></code></pre></div><p>Emacs の bookmarks と register は使ってない(使えてない)のでコメントアウトしている。</p>
 <p>あとは最近開いたファイルとプロジェクトとagendaを表示するようにしているがイマイチ活用できてないので色々設定を詰める必要がありそう</p>
 <h2 id="各セクションのタイトル部の先頭にアイコンを表示">各セクションのタイトル部の先頭にアイコンを表示</h2>
 <p>これは見た目をちょっとだけカッコよくするために all-the-icons で装飾するための設定</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq dashboard-set-heading-icons <span style="color:#66d9ef">t</span>)
-</code></pre></div><h2 id="各ファイルの先頭にアイコンを表示">各ファイルの先頭にアイコンを表示</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq dashboard-set-heading-icons <span style="color:#66d9ef">t</span>)
+</span></span></code></pre></div><h2 id="各ファイルの先頭にアイコンを表示">各ファイルの先頭にアイコンを表示</h2>
 <p>これも見た目をちょっとだエカッコよくするために all-the-icons で装飾するための設定。だけどファイルの種類がアイコンでわかるので便利。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(setq dashboard-set-file-icons <span style="color:#66d9ef">t</span>)
-</code></pre></div><h2 id="最後に設定を反映">最後に設定を反映</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq dashboard-set-file-icons <span style="color:#66d9ef">t</span>)
+</span></span></code></pre></div><h2 id="最後に設定を反映">最後に設定を反映</h2>
 <p>多分設定を反映するための関数だと思ってる。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(dashboard-setup-startup-hook)
-</code></pre></div><h2 id="その他">その他</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(dashboard-setup-startup-hook)
+</span></span></code></pre></div><h2 id="その他">その他</h2>
 <p>agenda などは表示する内容を絞ったりした方が dashboard として使い勝手が良さそう。今日の会議何があるとかが出ると便利かもね。</p>
 
 
@@ -4666,19 +4666,19 @@ Emacs の起動時に色々な情報を表示してくれるパッケージ。</
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1655619836"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1655619836"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1655619836"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1683429461"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1683429461"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1655619836"></script>
-    <script src="/.emacs.d/js/learn.js?1655619836"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1655619836"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1683429461"></script>
+    <script src="/.emacs.d/js/learn.js?1683429461"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1683429461"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1655619836"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1683429461"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

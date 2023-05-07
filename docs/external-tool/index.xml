@@ -36,9 +36,10 @@
       
       <guid>https://mugijiru.github.io/.emacs.d/external-tool/forge/</guid>
       <description>概要 forge は magit と github を連携させるやつ。一応入れているけど実は使えてないのであまりこの設定を呼んでも意味はなさそう
-インストール いつも通り el-get でインストール
-(el-get-bundle forge) 読み込み magit の拡張なので magit を読み込んで後に読み込まれるようにしている
-(with-eval-after-load &amp;#39;magit (require &amp;#39;forge)) その他 リポジトリのコミット数が多いとまともに使えない感じだけどどうしたらいいの。</description>
+インストール いつも通り el-get でインストールする。ただし依存関係で必要なので emacs-sqlite3-api も合わせて入れている
+(el-get-bundle emacs-sqlite3-api) (el-get-bundle forge) 読み込み magit の拡張なので magit を読み込んで後に読み込まれるようにしている。依存で必要な sqlite3 も合わせて require している。
+(with-eval-after-load &amp;#39;magit (require &amp;#39;sqlite3) (require &amp;#39;forge)) flycheck の有効化 Pull Request を作る時に text-lint で指摘されたいのでそのタイミングで flycheck を有効化している
+(defun my/forge-post-mode-hook () (flycheck-mode 1)) (with-eval-after-load &amp;#39;forge (add-hook &amp;#39;forge-post-mode-hook &amp;#39;my/forge-post-mode-hook)) その他 リポジトリのコミット数が多いとまともに使えない感じだけどどうしたらいいの。</description>
     </item>
     
     <item>
@@ -66,9 +67,10 @@
 (with-eval-after-load &amp;#39;google-translate-tk (defun google-translate--search-tkk () &amp;#34;Search TKK.&amp;#34; (list 430675 2721866130))) google-translate-tk に定義されていて、それが読まれた後に上書きしないといけないので with-eval-after-load を使っている。
 default-ui の読み込み Google Translate は UI を defauult と smooth のどちらかから選べるようになっている。
 default だと
- google-translate-default-source-language google-translate-default-target-language  を設定しておいて
- M-x google-translate-at-point source → target の翻訳 M-x google-translate-at-point-reverse target → source の翻訳  という使い方をする。
-smooth だと翻訳の source, target を複数設定して多言語対応ができるが、英語以外を翻訳することがないので smooth でなくていいかという感じで default を採用している。</description>
+google-translate-default-source-language google-translate-default-target-language を設定しておいて
+M-x google-translate-at-point source → target の翻訳 M-x google-translate-at-point-reverse target → source の翻訳 という使い方をする。
+smooth だと翻訳の source, target を複数設定して多言語対応ができるが、英語以外を翻訳することがないので smooth でなくていいかという感じで default を採用している。
+(with-eval-after-load &amp;#39;popup (require &amp;#39;google-translate-default-ui)) popup.</description>
     </item>
     
     <item>
@@ -79,7 +81,8 @@ smooth だと翻訳の source, target を複数設定して多言語対応がで
       <guid>https://mugijiru.github.io/.emacs.d/external-tool/magit/</guid>
       <description>概要 magit は Emacs の上で Git の色々な操作ができるやつ。結構使いやすいのでオススメなやつ。
 forge を使うと GitHub や GitLab とも連携できてさらに便利、なはず。
-インストール (el-get-bundle magit) 使い方 Git 管理されてるファイルを開いている時に M-x magit とかすると Git 管理用のバッファが出て来るしそこで ? を叩いたらどういうコマンドが使えるのか教えてくれるよ(雑)</description>
+インストール (el-get-bundle magit) その他設定 ghub を load-path に入れないとうまくいかなかった時があったので入れてたり、 orgit を入れていたり
+(with-eval-after-load &amp;#39;magit (add-to-list &amp;#39;load-path (expand-file-name &amp;#34;~/.emacs.d/el-get/ghub/lisp&amp;#34;))) (el-get-bundle orgit) 使い方 Git 管理されてるファイルを開いている時に M-x magit とかすると Git 管理用のバッファが出て来るしそこで ? を叩いたらどういうコマンドが使えるのか教えてくれるよ(雑)</description>
     </item>
     
     <item>
@@ -110,7 +113,7 @@ Slack 連携を Toggle するコマンド 連携したい時としたくない�
 インストール まず以下のレシピを用意している
 (:name emacs-todoist :website &amp;#34;https://github.com/abrochard/emacs-todoist&amp;#34; :description &amp;#34;Emacs interface to Todoist&amp;#34; :type github :pkgname &amp;#34;abrochard/emacs-todoist&amp;#34;) その上で以下のようにしてインストールしている
 (el-get-bundle emacs-todoist) 設定 API キーを設定するので別ファイルに分離している。いつか .authinfo.gpg に移動しようかなと思っているけどそもそも最近 TODOIST 使ってない……
-(with-eval-after-load &amp;#39;org (my/load-config &amp;#34;my-todoist-config&amp;#34;)) </description>
+(with-eval-after-load &amp;#39;todoist (setq todoist-token (funcall (plist-get (nth 0 (auth-source-search :host &amp;#34;todoist.com&amp;#34; :max 1)) :secret)))) </description>
     </item>
     
     <item>
@@ -123,7 +126,7 @@ Slack 連携を Toggle するコマンド 連携したい時としたくない�
 今でもたまーに使っている。勉強会に参加して実況する時などに。
 インストール いつも通り el-get でインスコしている。
 (el-get-bundle twittering-mode) 設定 (setq twittering-username &amp;#34;mugijiru&amp;#34;) (setq twittering-jojo-mode t) (setq twittering-timer-interval 60) ;(setq twittering-auth-method &amp;#39;xauth) (setq twittering-auth-method &amp;#39;oauth) (setq twittering-update-status-function &amp;#39;twittering-update-status-from-minibuffer) (setq twittering-status-format &amp;#34;%i %S(%s)%p, %@:\n%FILL{ %T // from %f%L%r%R}\n &amp;#34;) (setq twittering-retweet-format &amp;#34;RT @%s %t&amp;#34;) (setq twittering-display-remaining t) なんか色々設定しているけど、まあ大体こんな感じ。
- ユーザー名の指定 twittering-jojo-mode を有効化 自動リロードの間隔を60秒に設定 OAuth で認証するように設定 投稿時にミニバッファから投稿するように設定 各ツイートのフォーマット指定 旧式の Retweet 時のフォーマット指定 late limit をmode-line に表示  キーバインド (let ((km twittering-mode-map)) (define-key km (kbd &amp;#34;SPC&amp;#34;) &amp;#39;scroll-up) (define-key km (kbd &amp;#34;b&amp;#34;) &amp;#39;scroll-down) (define-key km (kbd &amp;#34;g&amp;#34;) &amp;#39;beginning-of-buffer) (define-key km (kbd &amp;#34;G&amp;#34;) &amp;#39;end-of-buffer) (define-key km (kbd &amp;#34;&amp;lt;&amp;#34;) &amp;#39;beginning-of-buffer) (define-key km (kbd &amp;#34;&amp;gt;&amp;#34;) &amp;#39;end-of-buffer) (define-key km (kbd &amp;#34;R&amp;#34;) &amp;#39;twittering-current-timeline) (define-key km (kbd &amp;#34;F&amp;#34;) &amp;#39;twittering-favorite) (define-key km (kbd &amp;#34;\C-cfd&amp;#34;) &amp;#39;twittering-unfavorite) (define-key km (kbd &amp;#34;\C-c[&amp;#34;) &amp;#39;twittering-follow) (define-key km (kbd &amp;#34;\C-c]&amp;#34;) &amp;#39;twittering-unfollow) nil)    Key 効果     SPC スクロールする   b 上にスクロールする   g, &amp;lt; バッファの先頭に移動   G, &amp;gt; バッファの末尾に移動   R 現在のタイムラインを更新   F ふぁぼる   C-c f d ふぁぼ取り消し   C-c [ フォローする   C-c ] アンフォロー    </description>
+ユーザー名の指定 twittering-jojo-mode を有効化 自動リロードの間隔を60秒に設定 OAuth で認証するように設定 投稿時にミニバッファから投稿するように設定 各ツイートのフォーマット指定 旧式の Retweet 時のフォーマット指定 late limit をmode-line に表示 キーバインド (let ((km twittering-mode-map)) (define-key km (kbd &amp;#34;SPC&amp;#34;) &amp;#39;scroll-up) (define-key km (kbd &amp;#34;b&amp;#34;) &amp;#39;scroll-down) (define-key km (kbd &amp;#34;g&amp;#34;) &amp;#39;beginning-of-buffer) (define-key km (kbd &amp;#34;G&amp;#34;) &amp;#39;end-of-buffer) (define-key km (kbd &amp;#34;&amp;lt;&amp;#34;) &amp;#39;beginning-of-buffer) (define-key km (kbd &amp;#34;&amp;gt;&amp;#34;) &amp;#39;end-of-buffer) (define-key km (kbd &amp;#34;R&amp;#34;) &amp;#39;twittering-current-timeline) (define-key km (kbd &amp;#34;F&amp;#34;) &amp;#39;twittering-favorite) (define-key km (kbd &amp;#34;\C-cfd&amp;#34;) &amp;#39;twittering-unfavorite) (define-key km (kbd &amp;#34;\C-c[&amp;#34;) &amp;#39;twittering-follow) (define-key km (kbd &amp;#34;\C-c]&amp;#34;) &amp;#39;twittering-unfollow) nil) Key 効果 SPC スクロールする b 上にスクロールする g, &amp;lt; バッファの先頭に移動 G, &amp;gt; バッファの末尾に移動 R 現在のタイムラインを更新 F ふぁぼる C-c f d ふぁぼ取り消し C-c [ フォローする C-c ] アンフォロー </description>
     </item>
     
     <item>
@@ -136,7 +139,7 @@ Slack 連携を Toggle するコマンド 連携したい時としたくない�
 WakaTime は自分がどのプロジェクトの作業をしているかを計測してくれるようなツール。普段の行動の改善に使えるかもしれないので、なんとなく連携してみている。
 インストール いつも通り el-get から入れている
 (el-get-bundle wakatime-mode) APIキーの設定 APIキーは .authinfo.gpg に保存しているのでそこから引っ張り出している。
-(custom-set-variables &amp;#39;(wakatime-api-key (funcall (plist-get (nth 0 (auth-source-search :host &amp;#34;wakatime.com&amp;#34; :max 1)) :secret)))) 有効化 Emacs を使っている間は常に有効になっていて欲しいので global-wakatime-mode を有効にしている。
+(custom-set-variables &amp;#39;(wakatime-cli-path &amp;#34;/usr/bin/wakatime&amp;#34;) &amp;#39;(wakatime-api-key (funcall (plist-get (nth 0 (auth-source-search :host &amp;#34;wakatime.com&amp;#34; :max 1)) :secret)))) 有効化 Emacs を使っている間は常に有効になっていて欲しいので global-wakatime-mode を有効にしている。
 (global-wakatime-mode 1) APIキーが取れてない時はやたらエラーを吐くので何かしら調整はしてもいいかもしれない。
 (if (boundp &amp;#39;wakatime-api-key) (global-wakatime-mode 1)) みたいにして API キーが取れている時だけ有効にするとかね。</description>
     </item>

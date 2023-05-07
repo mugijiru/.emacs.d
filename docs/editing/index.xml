@@ -46,7 +46,8 @@ Emacs が標準で持ってるライブラリなのでインストールは不�
 というわけで設定は以下のようにとてもシンプル。
 (with-eval-after-load &amp;#39;company ;; active (define-key company-active-map (kbd &amp;#34;C-s&amp;#34;) &amp;#39;company-search-candidates)) それと最近追加された company-show-quick-access を有効にしている。
 (custom-set-variables &amp;#39;(company-show-quick-access t)) これを有効にしていると補完候補の末尾に quick access key が表示されて例えば4行目なら 4 とか表示されるのでそこで M-4 とか入力すると4行目が選択されて便利
-その他 グローバルでは有効にしていなくて各モードで有効にするような hook を入れている。
+company-quickhelp company-quickhelp は候補の補足情報が見れるようにするパッケージ。それを入れて、文字色とかぶらないように背景色を設定している。
+(el-get-bundle company-quickhelp) (custom-set-variables &amp;#39;(company-quickhelp-color-background &amp;#34;#323445&amp;#34;)) その他 グローバルでは有効にしていなくて各モードで有効にするような hook を入れている。
 グローバルで有効でもいい気がしている。</description>
     </item>
     
@@ -98,7 +99,7 @@ strict モードだとペアが崩れないように強制するので雑に C-k
       <description>概要 undo-fu はシンプルな undo/redo 機能を提供してくれるやつ。
 昔はもっと色々できる undo-tree を使っていたけどそっちにバグがあるっぽいので乗り換えた。
 インストール (el-get-bundle undo-fu) キーバインド 別の場所で定義しているけど、以下のキーバインドにしている。
-   Key 効果     C-/ undo   C-M-/ redo    </description>
+Key 効果 C-/ undo C-M-/ redo </description>
     </item>
     
     <item>
@@ -109,7 +110,7 @@ strict モードだとペアが崩れないように強制するので雑に C-k
       <guid>https://mugijiru.github.io/.emacs.d/editing/view-mode/</guid>
       <description>概要 view-mode は Emacs に標準で組込まれているモードで、バッファを閲覧専用にする機能を提供してくれるやつ。コードを眺めたい時などに使っている。
 キーバインド view-mode の時は文字入力をする必要がないので通常のモードの時とは違うキーバインドが使えるようにしている。
-(defun my/setup-view-mode-keymap () (let ((keymap view-mode-map)) (define-key keymap (kbd &amp;#34;h&amp;#34;) &amp;#39;backward-char) (define-key keymap (kbd &amp;#34;j&amp;#34;) &amp;#39;next-line) (define-key keymap (kbd &amp;#34;k&amp;#34;) &amp;#39;previous-line) (define-key keymap (kbd &amp;#34;l&amp;#34;) &amp;#39;forward-char) (define-key keymap (kbd &amp;#34;e&amp;#34;) &amp;#39;forward-word) (define-key keymap (kbd &amp;#34;b&amp;#34;) &amp;#39;scroll-down) (define-key keymap (kbd &amp;#34;SPC&amp;#34;) &amp;#39;scroll-up) (define-key keymap (kbd &amp;#34;g&amp;#34;) &amp;#39;beginning-of-buffer) (define-key keymap (kbd &amp;#34;G&amp;#34;) &amp;#39;end-of-buffer) (define-key keymap (kbd &amp;#34;&amp;lt;&amp;#34;) &amp;#39;beginning-of-buffer) (define-key keymap (kbd &amp;#34;&amp;gt;&amp;#34;) &amp;#39;end-of-buffer)))    Key 効果     h 1文字戻る   j 1行下がる   k 1行上がる   l 1文字進む   e 単語の直後に移動   b 1スクロール戻る   SPC 1スクロール進む   g, &amp;lt; バッファの先頭に移動   G, &amp;gt; バッファの末尾に移動    適当だけど Vim の通常モードの時みたいな操作ができるようにしている。</description>
+(defun my/setup-view-mode-keymap () (let ((keymap view-mode-map)) (define-key keymap (kbd &amp;#34;h&amp;#34;) &amp;#39;backward-char) (define-key keymap (kbd &amp;#34;j&amp;#34;) &amp;#39;next-line) (define-key keymap (kbd &amp;#34;k&amp;#34;) &amp;#39;previous-line) (define-key keymap (kbd &amp;#34;l&amp;#34;) &amp;#39;forward-char) (define-key keymap (kbd &amp;#34;e&amp;#34;) &amp;#39;forward-word) (define-key keymap (kbd &amp;#34;b&amp;#34;) &amp;#39;scroll-down) (define-key keymap (kbd &amp;#34;SPC&amp;#34;) &amp;#39;scroll-up) (define-key keymap (kbd &amp;#34;g&amp;#34;) &amp;#39;beginning-of-buffer) (define-key keymap (kbd &amp;#34;G&amp;#34;) &amp;#39;end-of-buffer) (define-key keymap (kbd &amp;#34;&amp;lt;&amp;#34;) &amp;#39;beginning-of-buffer) (define-key keymap (kbd &amp;#34;&amp;gt;&amp;#34;) &amp;#39;end-of-buffer))) Key 効果 h 1文字戻る j 1行下がる k 1行上がる l 1文字進む e 単語の直後に移動 b 1スクロール戻る SPC 1スクロール進む g, &amp;lt; バッファの先頭に移動 G, &amp;gt; バッファの末尾に移動 適当だけど Vim の通常モードの時みたいな操作ができるようにしている。</description>
     </item>
     
     <item>
@@ -121,8 +122,9 @@ strict モードだとペアが崩れないように強制するので雑に C-k
       <description>概要 whitespace-mode は Emacs に標準添付されている、空白文字を可視化したりするためのモード。
 全角空白を可視化したり、行末の空白を可視化したりしておくと便利なので入れている。
 設定 (require &amp;#39;whitespace) 可視化対象 可視化対象の空白について設定している。
-(setq whitespace-style &amp;#39;(face trailing tabs spaces empty space-mark tab-mark))    値 意味     face face による可視化を有効にする。これがないと *-mark 以外が有効にならない   trailing 行末の空白を可視化する   tabs タブ文字の可視化   spaces 空白の可視化。ただし後の設定で全角のみを可視化するようにている   empty バッファの前後に空行があれば可視化   space-mark 空白文字を別の文字に置き換える設定。置き換え文字は後述   tab-mark タブ文字を別の文字に置き換える設定。置き換え文字は後述    他にも lines, lines-tail, indentation, big-indent, newline-mark などがある
-lines-tail あたりを使うと1行80文字制限でコーディングする時などに便利かもしれないなって思ってる。設定したことがないからわからんが……。</description>
+(setq whitespace-style &amp;#39;(face trailing tabs spaces empty space-mark tab-mark)) 値 意味 face face による可視化を有効にする。これがないと *-mark 以外が有効にならない trailing 行末の空白を可視化する tabs タブ文字の可視化 spaces 空白の可視化。ただし後の設定で全角のみを可視化するようにている empty バッファの前後に空行があれば可視化 space-mark 空白文字を別の文字に置き換える設定。置き換え文字は後述 tab-mark タブ文字を別の文字に置き換える設定。置き換え文字は後述 他にも lines, lines-tail, indentation, big-indent, newline-mark などがある
+lines-tail あたりを使うと1行80文字制限でコーディングする時などに便利かもしれないなって思ってる。設定したことがないからわからんが……。
+置き換え表示用の文字の設定 (setq whitespace-display-mappings &amp;#39;((space-mark ?\u3000 [?\u25a1]) ;; WARNING: the mapping below has a problem. ;; When a TAB occupies exactly one column, it will display the ;; character ?</description>
     </item>
     
     <item>
@@ -135,7 +137,7 @@ lines-tail あたりを使うと1行80文字制限でコーディングする時
 インストール いつも通り el-get でインストール
 (el-get-bundle yasnippet) 有効化 どこでも使いたいぐらい便利なやつなので global に有効化している
 (yas-global-mode 1) キーバインド 基本的に覚えられないので Hydra を使って定義している
-(with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define yasnippet-hydra (:separator &amp;#34;-&amp;#34; :title &amp;#34;Yasnippet&amp;#34; :foreign-key warn :quit-key &amp;#34;q&amp;#34; :exit t) (&amp;#34;Edit&amp;#34; ((&amp;#34;n&amp;#34; yas-new-snippet &amp;#34;New&amp;#34;) (&amp;#34;v&amp;#34; yas-visit-snippet-file &amp;#34;Visit&amp;#34;)) &amp;#34;Other&amp;#34; ((&amp;#34;i&amp;#34; yas-insert-snippet &amp;#34;Insert&amp;#34;) (&amp;#34;l&amp;#34; yas-describe-tables &amp;#34;List&amp;#34;) (&amp;#34;r&amp;#34; yas-reload-all &amp;#34;Reload all&amp;#34;)))))    Key 効果     n 現在のメジャーモード用に新しい snippet を作る   v 現在のメジャーモードの登録済 snippet ファイルを開く   i snippet の挿入。選択は ivy で行われる。   l 現在のメジャーモードの登録済 snippet の一覧表示   r snippet を全部 load し直す    その他 実は、どういう snippet があれば便利なのかよくわかってなくて snippet をほとんど登録してない。</description>
+(with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define yasnippet-hydra (:separator &amp;#34;-&amp;#34; :title &amp;#34;Yasnippet&amp;#34; :foreign-key warn :quit-key &amp;#34;q&amp;#34; :exit t) (&amp;#34;Edit&amp;#34; ((&amp;#34;n&amp;#34; yas-new-snippet &amp;#34;New&amp;#34;) (&amp;#34;v&amp;#34; yas-visit-snippet-file &amp;#34;Visit&amp;#34;)) &amp;#34;Other&amp;#34; ((&amp;#34;i&amp;#34; yas-insert-snippet &amp;#34;Insert&amp;#34;) (&amp;#34;l&amp;#34; yas-describe-tables &amp;#34;List&amp;#34;) (&amp;#34;r&amp;#34; yas-reload-all &amp;#34;Reload all&amp;#34;))))) Key 効果 n 現在のメジャーモード用に新しい snippet を作る v 現在のメジャーモードの登録済 snippet ファイルを開く i snippet の挿入。選択は ivy で行われる。 l 現在のメジャーモードの登録済 snippet の一覧表示 r snippet を全部 load し直す その他 実は、どういう snippet があれば便利なのかよくわかってなくて snippet をほとんど登録してない。</description>
     </item>
     
   </channel>
