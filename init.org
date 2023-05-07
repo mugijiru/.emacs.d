@@ -2652,6 +2652,7 @@
           "Behavior"
           (("S" my/notify-slack-toggle    "Notify Slack"   :toggle my/notify-slack-enable-p)
            ("v" my/toggle-view-mode       "Readonly"       :toggle view-mode)
+           ("f" flycheck-mode             "Flycheck"       :toggle flycheck-mode)
            ("A" auto-fix-mode             "Auto fix"       :toggle auto-fix-mode)
            ("E" toggle-debug-on-error     "Debug on error" :toggle debug-on-error))))
      #+end_src
@@ -2674,24 +2675,23 @@
      最初に起動した Hydra からは外してるけど、そこそこ使うコマンド群を適当に詰めてるやつ。
 
      #+begin_src emacs-lisp :tangle inits/81-hydra.el
-            (pretty-hydra-define
-              subtools-hydra
-              (:separator "-"
-                          :color teal
-                          :foreign-key warn
-                          :title (concat (all-the-icons-material "build") " Sub tools")
-                          :quit-key "q"
-                          :exit t)
-              ("Describe"
-               (("b" counsel-descbinds "Keybind")
-                ("f" counsel-describe-function "Function")
-                ("v" counsel-describe-variable "Variable")
-                ("m" describe-minor-mode "Minor mode"))
-
-               ;; ("P"   my/open-review-requested-pr "Open Requested PR")
-               "Other"
-               (("@" all-the-icons-hydra/body "List icons")
-                ("D" my/download-from-beorg))))
+       (pretty-hydra-define
+         subtools-hydra
+         (:separator "-"
+                     :color teal
+                     :foreign-key warn
+                     :title (concat (all-the-icons-material "build") " Sub tools")
+                     :quit-key "q"
+                     :exit t)
+         ("Describe"
+          (("b" counsel-descbinds "Keybind")
+           ("f" counsel-describe-function "Function")
+           ("v" counsel-describe-variable "Variable")
+           ;; ("P"   my/open-review-requested-pr "Open Requested PR")
+           ("m" describe-minor-mode "Minor mode"))
+          "Other"
+          (("@" all-the-icons-hydra/body "List icons")
+           ("D" my/download-from-beorg))))
      #+end_src
 
      | Key | 効果                                               |
@@ -2729,42 +2729,45 @@
      [[*key-chord][key-chord]] を使って ~jk~ 同時押しで起動できるようにしている。
 
      #+begin_src emacs-lisp :tangle inits/81-hydra.el
-     (pretty-hydra-define pretty-hydra-usefull-commands (:separator "-" :color teal :foreign-key warn :title (concat (all-the-icons-material "build") " Usefull commands") :quit-key "q")
-       ("File"
-        (("p" projectile-hydra/body "Projectile")
-         ("f" counsel-find-file     "Find File")
-         ("d" counsel-find-dir      "Find Dir")
-         ("r" counsel-recentf       "Recentf")
-         ("l" counsel-locate        "Locate")
-         ("A" counsel-osx-app       "macOS App"))
+       (pretty-hydra-define pretty-hydra-usefull-commands (:separator "-" :color teal :foreign-key warn :title (concat (all-the-icons-material "build") " Usefull commands") :quit-key "q")
+         ("File"
+          (("p" projectile-hydra/body "Projectile")
+           ("f" counsel-find-file     "Find File")
+           ("d" counsel-find-dir      "Find Dir")
+           ("r" counsel-recentf       "Recentf")
+           ("L" counsel-locate        "Locate")
+           ("A" counsel-osx-app       "macOS App"))
 
-        "Edit"
-        (("a" align-regexp "Align Regexp")
-         (";" comment-dwim "Comment"))
+          "Edit"
+          (("a" align-regexp "Align Regexp")
+           (";" comment-dwim "Comment"))
 
-        "Code"
-        (("G" counsel-projectile-ag       "Grep")
-         ("j" dumb-jump-pretty-hydra/body "Dumb jump")
-         ("g" avy-hydra/body              "Avy")
-         ("i" counsel-imenu               "imenu")
-         ("y" yasnippet-hydra/body        "Yasnippet")
-         ("B" browse-at-remote            "Browse")
-         ("m" magit-status                "Magit"))
+          "Code"
+          (("G" counsel-projectile-ag       "Grep")
+           ("j" dumb-jump-pretty-hydra/body "Dumb jump")
+           ("g" avy-hydra/body              "Avy")
+           ("l" pretty-hydra-lsp/body       "LSP")
+           ("i" counsel-imenu               "imenu")
+           ("y" yasnippet-hydra/body        "Yasnippet")
+           ("B" browse-at-remote            "Browse")
+           ("C" git-messenger:popup-message "Git Message")
+           ("m" magit-status                "Magit"))
 
-        "View"
-        (("D" delete-other-windows      "Only This Win")
-         ("W" window-control-hydra/body "Window Control")
-         ("+" text-scale-hydra/body     "Text Scale")
-         ("w" ace-swap-window           "Swap Window"))
+          "View"
+          (("D" delete-other-windows      "Only This Win")
+           ("W" window-control-hydra/body "Window Control")
+           ("+" text-scale-hydra/body     "Text Scale")
+           ("w" ace-swap-window           "Swap Window"))
 
-        "Tool"
-        (("SPC" major-mode-hydra         "Hydra(Major)")
-         ("s"   toggle-hydra/body        "Toggle switches")
-         ("c"   counsel-org-capture      "Capture")
-         ("o"   global-org-hydra/body    "Org")
-         ("e"   el-get-hydra/body        "el-get")
-         ("/"   google-pretty-hydra/body "Google")
-         ("t"   subtools-hydra/body      "Sub Tools"))))
+          "Tool"
+          (("SPC" major-mode-hydra         "Hydra(Major)")
+           ("s"   toggle-hydra/body        "Toggle switches")
+           ("c"   counsel-org-capture      "Capture")
+           ("o"   global-org-hydra/body    "Org")
+           ("e"   el-get-hydra/body        "el-get")
+           ("k"   kibela-hydra/body        "Kibela")
+           ("/"   google-pretty-hydra/body "Google")
+           ("t"   subtools-hydra/body      "Sub Tools"))))
      #+end_src
 
      | Key | 効果                                                                      |
@@ -4224,19 +4227,19 @@
     けどそんなにしっかり Emacs Lisp を書いてるわけではないのがバレバレな感じである。
 
     #+begin_src emacs-lisp :tangle inits/40-emacs-lisp.el
-    (with-eval-after-load 'major-mode-hydra
-      (major-mode-hydra-define emacs-lisp-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-fileicon "elisp") " Emacs Lisp"))
-        ("Describe"
-         (("F" counsel-describe-function "Function")
-          ("V" counsel-describe-variable "Variable"))
+      (with-eval-after-load 'major-mode-hydra
+        (major-mode-hydra-define emacs-lisp-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-fileicon "elisp") " Emacs Lisp"))
+          ("Describe"
+           (("F" counsel-describe-function "Function")
+            ("V" counsel-describe-variable "Variable"))
 
-         "Insert Icon Code"
-         (("@a" (my/insert-all-the-icons-code 'alltheicon) "All the icons")
-          ("@f" (my/insert-all-the-icons-code 'fileicon)   "File icons")
-          ("@F" (my/insert-all-the-icons-code 'faicon)     "FontAwesome")
-          ("@m" (my/insert-all-the-icons-code 'material)   "Material")
-          ("@o" (my/insert-all-the-icons-code 'octicon)    "Octicon")
-          ("@w" (my/insert-all-the-icons-code 'wicon)      "Weather")))))
+           "Insert Icon Code"
+           (("@a" (my/insert-all-the-icons-code 'alltheicon) "All the icons")
+            ("@f" (my/insert-all-the-icons-code 'fileicon)   "File icons")
+            ("@F" (my/insert-all-the-icons-code 'faicon)     "FontAwesome")
+            ("@m" (my/insert-all-the-icons-code 'material)   "Material")
+            ("@o" (my/insert-all-the-icons-code 'octicon)    "Octicon")
+            ("@w" (my/insert-all-the-icons-code 'wicon)      "Weather")))))
     #+end_src
 
     | Key | 効果                            |
