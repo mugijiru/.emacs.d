@@ -4595,83 +4595,36 @@
     自身のプロジェクトだと少しナビゲーション用のコマンドが不足していたので
     projectile-rails の実装を参考にコマンドを追加している
 
-**** Uploader Finder
+**** TS/TSX Finder
      :PROPERTIES:
      :ID:       ab7023a6-137c-410c-a8d2-7987fbb859a7
      :END:
-     ~app/uploaders~ に格納している upload に関連するファイルを検索するコマンド
+     ~client~ に格納しているフロントエンドのファイルを検索するコマンド
 
      #+begin_src emacs-lisp :tangle inits/41-rails.el
-     (defun my/projectile-rails-find-uploader ()
-       "Find a Uploader."
-       (interactive)
-       (projectile-rails-find-resource
-        "uploader: "
-        '(("app/uploaders/" "\\(.+\\)\\.rb$"))
-        "app/uploaders/${filename}.rb"))
+       (defun my/projectile-rails-find-typescript ()
+         "Find a TS/TSX files."
+         (interactive)
+         (projectile-rails-find-resource
+          "ts/tsx: "
+          '(("client/" "\\(.+\\.tsx?\\)$"))
+          "client/${filename}"))
      #+end_src
-
-**** Admin Finder
+**** TS/TSX test files Finder
      :PROPERTIES:
-     :ID:       43da24b6-b81b-41bf-800d-7179c9448845
+     :ID:       ab7023a6-137c-410c-a8d2-7987fbb859a7
      :END:
-     Active Admin 用のファイルを検索するためのコマンド
-     #+begin_src emacs-lisp :tangle inits/41-rails.el
-     (defun my/projectile-rails-find-admin ()
-       "Find a ActiveAdmin file."
-       (interactive)
-       (projectile-rails-find-resource
-        "admin: "
-        '(("app/admin/" "\\(.+\\)\\.rb$"))
-        "app/admin/${filename}.rb"))
-     #+end_src
-
-**** Form Object Finder
-     :PROPERTIES:
-     :ID:       c183c57f-12ad-402e-bfac-7899a311e33c
-     :END:
-     Form Object を探すためのコマンド
-     #+begin_src emacs-lisp :tangle inits/41-rails.el
-     (defun my/projectile-rails-find-form-object ()
-       "Find a Form Object."
-       (interactive)
-       (projectile-rails-find-resource
-        "form object: "
-        '(("app/models/forms/" "\\(.+\\)\\.rb$"))
-        "app/models/forms/${filename}.rb"))
-     #+end_src
-
-**** Vue Finder
-     :PROPERTIES:
-     :ID:       14484af5-1085-4cc0-85fe-eb5811d7d374
-     :END:
-     Vue.js の単一ファイルコンポーネントを探すためのコマンド
-     #+begin_src emacs-lisp :tangle inits/41-rails.el
-     (defun my/projectile-rails-find-vue ()
-       "Find a Vue."
-       (interactive)
-       (projectile-rails-find-resource
-        "vue: "
-        '(("app/javascript/" "\\(.+\\)\\.vue$"))
-        "app/javascript/${filename}.vue"))
-     #+end_src
-
-**** Webpacker 管理の JS 検索コマンド
-     :PROPERTIES:
-     :ID:       7fad4195-7d19-4c49-a346-05a34deb1ccd
-     :END:
-     Webpacker で JS を管理していたりもするので必要だった
+     ~spec/javascript~ に格納しているフロントエンドのテストファイルを検索するコマンド
 
      #+begin_src emacs-lisp :tangle inits/41-rails.el
-     (defun my/projectile-rails-find-webpack-js ()
-       "Find a Webpack js."
-       (interactive)
-       (projectile-rails-find-resource
-        "webpack js: "
-        '(("app/javascript/" "\\(.+\\)\\.js$"))
-        "app/javascript/${filename}.js"))
+       (defun my/projectile-rails-find-typescript-spec ()
+         "Find a TS/TSX test files."
+         (interactive)
+         (projectile-rails-find-resource
+          "ts/tsx spec: "
+          '(("spec/javascripts/" "\\(.+\\.spec.tsx?\\)$"))
+          "spec/javascripts/${filename}"))
      #+end_src
-
 *** キーバインド
     :PROPERTIES:
     :ID:       9345bf3b-8a41-467b-bd97-194f1321618c
@@ -4684,49 +4637,46 @@
     https://github.com/asok/projectile-rails#keymap-prefix
 
     #+begin_src emacs-lisp :tangle inits/41-rails.el
-    (with-eval-after-load 'pretty-hydra
-      (pretty-hydra-define pretty-hydra-projectile-rails-find (:separator "-" :color blue :foreign-keys warn :title "Projectile Rails" :quit-key "q")
-        ("Current"
-         (("M" projectile-rails-find-current-model      "Current model")
-          ("V" projectile-rails-find-current-view       "Current view")
-          ("C" projectile-rails-find-current-controller "Current controller")
-          ("H" projectile-rails-find-current-helper     "Current helper")
-          ("P" projectile-rails-find-current-spec       "Current spec")
-          ("Z" projectile-rails-find-current-serializer "Current serializer"))
+      (with-eval-after-load 'pretty-hydra
+        (pretty-hydra-define pretty-hydra-projectile-rails-find (:separator "-" :color blue :foreign-keys warn :title "Projectile Rails" :quit-key "q")
+          ("Current"
+           (("M" projectile-rails-find-current-model      "Current model")
+            ("V" projectile-rails-find-current-view       "Current view")
+            ("C" projectile-rails-find-current-controller "Current controller")
+            ("H" projectile-rails-find-current-helper     "Current helper")
+            ("P" projectile-rails-find-current-spec       "Current spec")
+            ("Z" projectile-rails-find-current-serializer "Current serializer"))
 
-         "App"
-         (("m" projectile-rails-find-model           "Model")
-          ("v" projectile-rails-find-view            "View")
-          ("c" projectile-rails-find-controller      "Controller")
-          ("h" projectile-rails-find-helper          "Helper")
-          ("a" my/projectile-rails-find-admin        "ActiveAdmin")
-          ("f" my/projectile-rails-find-form-object  "Form object")
-          ("@" projectile-rails-find-mailer          "Mailer")
-          ("V" my/projectile-rails-find-vue          "Vue")
-          ("J" my/projectile-rails-find-webpack-js   "Webpack js")
-          ("u" my/projectile-rails-find-uploader     "Controller")
-          ("!" projectile-rails-find-validator       "Validator")
-          ;; ("y" projectile-rails-find-layout       "Layout")
-          ("z" projectile-rails-find-serializer      "Serializer"))
+           "App"
+           (("m" projectile-rails-find-model           "Model")
+            ("v" projectile-rails-find-view            "View")
+            ("c" projectile-rails-find-controller      "Controller")
+            ("h" projectile-rails-find-helper          "Helper")
+            ("@" projectile-rails-find-mailer          "Mailer")
+            ("!" projectile-rails-find-validator       "Validator")
+            ;; ("y" projectile-rails-find-layout       "Layout")
+            ("z" projectile-rails-find-serializer      "Serializer"))
 
-         "Assets"
-         (("j" projectile-rails-find-javascript  "Javascript")
-          ;; ("w" projectile-rails-find-component)
-          ("s" projectile-rails-find-stylesheet  "CSS"))
+           "Assets"
+           (("j" projectile-rails-find-javascript         "Javascript")
+            ;; ("w" projectile-rails-find-component)
+            ("x" my/projectile-rails-find-typescript      "TS/TSX")
+            ("X" my/projectile-rails-find-typescript-spec "TS/TSX spec")
+            ("s" projectile-rails-find-stylesheet         "CSS"))
 
-         "Other"
-         (("n" projectile-rails-find-migration    "Migration")
-          ("r" projectile-rails-find-rake-task    "Rake task")
-          ("i" projectile-rails-find-initializer  "Initializer")
-          ("l" projectile-rails-find-lib          "Lib")
-          ("p" projectile-rails-find-spec         "Spec")
-          ("t" projectile-rails-find-locale       "Translation"))
+           "Other"
+           (("n" projectile-rails-find-migration    "Migration")
+            ("r" projectile-rails-find-rake-task    "Rake task")
+            ("i" projectile-rails-find-initializer  "Initializer")
+            ("l" projectile-rails-find-lib          "Lib")
+            ("p" projectile-rails-find-spec         "Spec")
+            ("t" projectile-rails-find-locale       "Translation"))
 
-         "Single Files"
-         (("R" projectile-rails-goto-routes   "routes.rb")
-          ("G" projectile-rails-goto-gemfile  "Gemfile")
-          ("D" projectile-rails-goto-schema   "schema.rb"))))
-      (define-key projectile-rails-mode-map (kbd "C-c r") 'pretty-hydra-projectile-rails-find/body))
+           "Single Files"
+           (("R" projectile-rails-goto-routes   "routes.rb")
+            ("G" projectile-rails-goto-gemfile  "Gemfile")
+            ("D" projectile-rails-goto-schema   "schema.rb"))))
+        (define-key projectile-rails-mode-map (kbd "C-c r") 'pretty-hydra-projectile-rails-find/body))
     #+end_src
 
     | Key | 効果                                               | 備考                                                      |

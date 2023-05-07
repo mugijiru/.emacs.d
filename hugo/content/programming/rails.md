@@ -25,78 +25,33 @@ Rails 開発関係だけど Ruby 開発とはちょっと違う設定をここ�
 projectile-rails の実装を参考にコマンドを追加している
 
 
-### Uploader Finder {#uploader-finder}
+### TS/TSX Finder {#ts-tsx-finder}
 
-`app/uploaders` に格納している upload に関連するファイルを検索するコマンド
+`client` に格納しているフロントエンドのファイルを検索するコマンド
 
 ```emacs-lisp
-(defun my/projectile-rails-find-uploader ()
-  "Find a Uploader."
+(defun my/projectile-rails-find-typescript ()
+  "Find a TS/TSX files."
   (interactive)
   (projectile-rails-find-resource
-   "uploader: "
-   '(("app/uploaders/" "\\(.+\\)\\.rb$"))
-   "app/uploaders/${filename}.rb"))
+   "ts/tsx: "
+   '(("client/" "\\(.+\\.tsx?\\)$"))
+   "client/${filename}"))
 ```
 
 
-### Admin Finder {#admin-finder}
+### TS/TSX test files Finder {#ts-tsx-test-files-finder}
 
-Active Admin 用のファイルを検索するためのコマンド
-
-```emacs-lisp
-(defun my/projectile-rails-find-admin ()
-  "Find a ActiveAdmin file."
-  (interactive)
-  (projectile-rails-find-resource
-   "admin: "
-   '(("app/admin/" "\\(.+\\)\\.rb$"))
-   "app/admin/${filename}.rb"))
-```
-
-
-### Form Object Finder {#form-object-finder}
-
-Form Object を探すためのコマンド
+`spec/javascript` に格納しているフロントエンドのテストファイルを検索するコマンド
 
 ```emacs-lisp
-(defun my/projectile-rails-find-form-object ()
-  "Find a Form Object."
+(defun my/projectile-rails-find-typescript-spec ()
+  "Find a TS/TSX test files."
   (interactive)
   (projectile-rails-find-resource
-   "form object: "
-   '(("app/models/forms/" "\\(.+\\)\\.rb$"))
-   "app/models/forms/${filename}.rb"))
-```
-
-
-### Vue Finder {#vue-finder}
-
-Vue.js の単一ファイルコンポーネントを探すためのコマンド
-
-```emacs-lisp
-(defun my/projectile-rails-find-vue ()
-  "Find a Vue."
-  (interactive)
-  (projectile-rails-find-resource
-   "vue: "
-   '(("app/javascript/" "\\(.+\\)\\.vue$"))
-   "app/javascript/${filename}.vue"))
-```
-
-
-### Webpacker 管理の JS 検索コマンド {#webpacker-管理の-js-検索コマンド}
-
-Webpacker で JS を管理していたりもするので必要だった
-
-```emacs-lisp
-(defun my/projectile-rails-find-webpack-js ()
-  "Find a Webpack js."
-  (interactive)
-  (projectile-rails-find-resource
-   "webpack js: "
-   '(("app/javascript/" "\\(.+\\)\\.js$"))
-   "app/javascript/${filename}.js"))
+   "ts/tsx spec: "
+   '(("spec/javascripts/" "\\(.+\\.spec.tsx?\\)$"))
+   "spec/javascripts/${filename}"))
 ```
 
 
@@ -123,20 +78,17 @@ Webpacker で JS を管理していたりもするので必要だった
       ("v" projectile-rails-find-view            "View")
       ("c" projectile-rails-find-controller      "Controller")
       ("h" projectile-rails-find-helper          "Helper")
-      ("a" my/projectile-rails-find-admin        "ActiveAdmin")
-      ("f" my/projectile-rails-find-form-object  "Form object")
       ("@" projectile-rails-find-mailer          "Mailer")
-      ("V" my/projectile-rails-find-vue          "Vue")
-      ("J" my/projectile-rails-find-webpack-js   "Webpack js")
-      ("u" my/projectile-rails-find-uploader     "Controller")
       ("!" projectile-rails-find-validator       "Validator")
       ;; ("y" projectile-rails-find-layout       "Layout")
       ("z" projectile-rails-find-serializer      "Serializer"))
 
      "Assets"
-     (("j" projectile-rails-find-javascript  "Javascript")
+     (("j" projectile-rails-find-javascript         "Javascript")
       ;; ("w" projectile-rails-find-component)
-      ("s" projectile-rails-find-stylesheet  "CSS"))
+      ("x" my/projectile-rails-find-typescript      "TS/TSX")
+      ("X" my/projectile-rails-find-typescript-spec "TS/TSX spec")
+      ("s" projectile-rails-find-stylesheet         "CSS"))
 
      "Other"
      (("n" projectile-rails-find-migration    "Migration")
@@ -153,34 +105,34 @@ Webpacker で JS を管理していたりもするので必要だった
   (define-key projectile-rails-mode-map (kbd "C-c r") 'pretty-hydra-projectile-rails-find/body))
 ```
 
-| Key | 効果                             | 備考                                                                                              |
-|-----|--------------------------------|-------------------------------------------------------------------------------------------------|
-| M   | 現在のファイルに関連する Model を開く |                                                                                                   |
-| V   | 現在のファイルに関連する View を開く | キーが Vue ファイル検索とかぶってしまっていて現在使えない                                         |
-| C   | 現在のファイルに関連する Controller を開く |                                                                                                   |
-| H   | 現在のファイルに関連する Helper を開く |                                                                                                   |
-| P   | 現在のファイルに関連する Spec を開く |                                                                                                   |
-| Z   | 現在のファイルに関連する Serializer を開く | [ActiveModelSerializer](https://github.com/rails-api/active%5Fmodel%5Fserializers) を使ってるプロジェクトがある |
-| m   | Model ファイルを検索する         |                                                                                                   |
-| v   | View ファイルを検索する          |                                                                                                   |
-| c   | Controller ファイルを検索する    |                                                                                                   |
-| h   | Helper ファイルを検索する        |                                                                                                   |
-| a   | ActiveAdmin のファイルを検索する |                                                                                                   |
-| f   | Form Object ファイルを検索する   |                                                                                                   |
-| @   | ActionMailer ファイルを検索する  |                                                                                                   |
-| V   | Vue の単一ファイルコンポーネントファイルを検索する |                                                                                                   |
-| J   | Webpacker 管理の JS ファイルを検索する |                                                                                                   |
-| u   | Uploader ファイルを検索する      |                                                                                                   |
-| !   | Validator ファイルを検索する     |                                                                                                   |
-| z   | Serializer ファイルを検索する    |                                                                                                   |
-| j   | assets 配架の JS ファイルを検索する |                                                                                                   |
-| s   | SCSS ファイルを検索する          |                                                                                                   |
-| n   | migration ファイルを検索する     |                                                                                                   |
-| r   | rake ファイルを検索する          |                                                                                                   |
-| i   | config/initializers 以下のファイルを検索する |                                                                                                   |
-| l   | lib 以下のファイルを検索する     |                                                                                                   |
-| p   | rspec ファイルを検索する         |                                                                                                   |
-| t   | I18n の翻訳ファイルを検索する    |                                                                                                   |
-| R   | routes.rb を開く                 |                                                                                                   |
-| G   | Gemfile を開く                   |                                                                                                   |
-| D   | Schema.rb を開く                 |                                                                                                   |
+| Key | 効果                             | 備考                                                                                          |
+|-----|--------------------------------|---------------------------------------------------------------------------------------------|
+| M   | 現在のファイルに関連する Model を開く |                                                                                               |
+| V   | 現在のファイルに関連する View を開く | キーが Vue ファイル検索とかぶってしまっていて現在使えない                                     |
+| C   | 現在のファイルに関連する Controller を開く |                                                                                               |
+| H   | 現在のファイルに関連する Helper を開く |                                                                                               |
+| P   | 現在のファイルに関連する Spec を開く |                                                                                               |
+| Z   | 現在のファイルに関連する Serializer を開く | [ActiveModelSerializer](https://github.com/rails-api/active_model_serializers) を使ってるプロジェクトがある |
+| m   | Model ファイルを検索する         |                                                                                               |
+| v   | View ファイルを検索する          |                                                                                               |
+| c   | Controller ファイルを検索する    |                                                                                               |
+| h   | Helper ファイルを検索する        |                                                                                               |
+| a   | ActiveAdmin のファイルを検索する |                                                                                               |
+| f   | Form Object ファイルを検索する   |                                                                                               |
+| @   | ActionMailer ファイルを検索する  |                                                                                               |
+| V   | Vue の単一ファイルコンポーネントファイルを検索する |                                                                                               |
+| J   | Webpacker 管理の JS ファイルを検索する |                                                                                               |
+| u   | Uploader ファイルを検索する      |                                                                                               |
+| !   | Validator ファイルを検索する     |                                                                                               |
+| z   | Serializer ファイルを検索する    |                                                                                               |
+| j   | assets 配架の JS ファイルを検索する |                                                                                               |
+| s   | SCSS ファイルを検索する          |                                                                                               |
+| n   | migration ファイルを検索する     |                                                                                               |
+| r   | rake ファイルを検索する          |                                                                                               |
+| i   | config/initializers 以下のファイルを検索する |                                                                                               |
+| l   | lib 以下のファイルを検索する     |                                                                                               |
+| p   | rspec ファイルを検索する         |                                                                                               |
+| t   | I18n の翻訳ファイルを検索する    |                                                                                               |
+| R   | routes.rb を開く                 |                                                                                               |
+| G   | Gemfile を開く                   |                                                                                               |
+| D   | Schema.rb を開く                 |                                                                                               |
