@@ -7352,13 +7352,11 @@
     appt.el で通知されるように登録する必要があるのでコマンドを定義している。
 
     #+begin_src emacs-lisp :tangle inits/68-my-org-commands.el
-    (defun my/org-gcal-refresh-appt ()
-      (interactive)
-      (let ((org-agenda-files my/org-agenda-calendar-files))
-        (org-agenda-to-appt t)))
+      (defun my/org-refresh-appt ()
+        (interactive)
+        (let ((org-agenda-files (append my/org-agenda-calendar-files org-agenda-files)))
+          (org-agenda-to-appt t)))
     #+end_src
-
-
 *** calfw で選択したカレンダーを表示
     :PROPERTIES:
     :ID:       8f1b20e2-4abd-4eaf-88ea-e1c3d262a4f4
