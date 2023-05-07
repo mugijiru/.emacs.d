@@ -21,6 +21,7 @@ weight = 2
                                (emacs-lisp . t)
                                (shell . t)
                                (js . t)
+                               (org . t)
                                (ruby . t)))
 ```
 
@@ -72,12 +73,59 @@ PlantUML の処理をすることが多いので以下の hook を設定する�
 多分 custom-set-variables でちゃんと設定したらいいんだろうなあ。
 
 
-## org-store-link 時に org-id が発行されるようにする {#org-store-link-時に-org-id-が発行されるようにする}
+## カスタム変数の設定 {#カスタム変数の設定}
 
 `org-id-link-to-org-use-id` を `t` にしていると
 `org-store-link` を実行した時に自動で id を発行してそれを store してくれるようになる
 
+また archive ファイルを同じフォルダに `archives` フォルダを掘ってそこに格納したいので org-archive-location を設定している
+
 ```emacs-lisp
 (custom-set-variables
- '(org-id-link-to-org-use-id t))
+ '(org-id-link-to-org-use-id t)
+ '(org-archive-location "./archives/%s_archive::"))
+```
+
+
+## habit 完了時に Appt を refresh {#habit-完了時に-appt-を-refresh}
+
+Appt + alert.el + Dunst で通知を行っているが、完了後も通知対象として残っていると困るので完了時に refresh するように調整している
+
+```emacs-lisp
+(defun my/org-refresh-appt-on-complete-habit (args)
+  "習慣タスクを完了した時に Appt を refresh する"
+  (let* ((element (org-element-at-point))
+         (style (org-element-property :STYLE element))
+         (to (plist-get args :to)))
+    (if (and (string= style "habit") (string= "TODO" to))
+        (my/org-refresh-appt))))
+
+(add-hook 'org-trigger-hook 'my/org-refresh-appt-on-complete-habit)
+```
+
+
+## org-mode-map の override {#org-mode-map-の-override}
+
+windmove-mode とキーバインドがかぶってるのでそれと同居できるように override している。
+
+具体的には org-mode のコマンドが動く場所であればそれを実行しそれがないなら windmove のコマンドを実行する
+
+```emacs-lisp
+(defun my/org-mode-map-override-windmove-mode-map ()
+  (let ((oldmap windmove-mode-map)
+        (newmap (make-sparse-keymap)))
+    (make-local-variable 'minor-mode-overriding-map-alist)
+    (add-to-list 'minor-mode-overriding-map-alist `(windmove-mode . ,newmap))
+
+    (add-hook 'org-shiftup-final-hook 'windmove-up)
+    (add-hook 'org-shiftleft-final-hook 'windmove-left)
+    (add-hook 'org-shiftdown-final-hook 'windmove-down)
+    (add-hook 'org-shiftright-final-hook 'windmove-right)))
+
+(add-hook 'org-mode-hook
+          (lambda ()
+            (my/org-mode-map-override-windmove-mode-map)))
+
+(with-eval-after-load 'org-mode
+  (my/org-mode-map-override-windmove-mode-map))
 ```

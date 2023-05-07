@@ -6216,19 +6216,22 @@
     (setq org-log-done 'time)
     (setq org-log-into-drawer "LOGBOOK")
     #+end_src
-*** Excel ファイルを OS で指定したアプリで開く
+*** org-mode 読み込み後の追加実行コード
     :PROPERTIES:
     :ID:       d26312c6-8813-4131-bae8-10e7d194aeac
     :END:
-    org-mode のリンク先の拡張子が xlsx の時に OS 側で指定した標準アプリを開くようにしている。
-    Excel が入っていたらそっちで開かれるし、入ってなければ Numbers で開かれる。はず。
+
+    まず org-protocol を使って Firefox と連携したいのでこれを読み込むようにしている。
+    また org-mode のリンク先の拡張子が xlsx の時に OS 側で指定した標準アプリを開くようにしている。
 
     #+begin_src emacs-lisp :tangle inits/60-org.el
-    (with-eval-after-load 'org
-      (add-to-list 'org-file-apps '("\\.xlsx?\\'" . default)))
+      (with-eval-after-load 'org
+        (require 'org-protocol)
+        (add-to-list 'org-modules 'org-protocol)
+        (add-to-list 'org-file-apps '("\\.xlsx?\\'" . default)))
     #+end_src
 
-    第二引数に default を指定すると、内部的には open コマンドが使われることを利用している。
+    第二引数に default を指定すると、内部的には Mac なら open コマンドが使われることを利用している。
 
 ** org-babel
    :PROPERTIES:
@@ -6246,14 +6249,15 @@
     なんか普段から使いそうな奴をとりあえず選定しているつもり。
 
     #+begin_src emacs-lisp :tangle inits/60-org.el
-    (org-babel-do-load-languages 'org-babel-load-languages
-                                 '((plantuml . t)
-                                   (sql . t)
-                                   (gnuplot . t)
-                                   (emacs-lisp . t)
-                                   (shell . t)
-                                   (js . t)
-                                   (ruby . t)))
+      (org-babel-do-load-languages 'org-babel-load-languages
+                                   '((plantuml . t)
+                                     (sql . t)
+                                     (gnuplot . t)
+                                     (emacs-lisp . t)
+                                     (shell . t)
+                                     (js . t)
+                                     (org . t)
+                                     (ruby . t)))
     #+end_src
 
     - js, ruby :: 仕事でメインで使ってる言語なので入れている。
@@ -6298,7 +6302,7 @@
 
     多分 custom-set-variables でちゃんと設定したらいいんだろうなあ。
 
-*** org-store-link 時に org-id が発行されるようにする
+*** カスタム変数の設定
     :PROPERTIES:
     :ID:       2c86d33a-f809-4b50-b037-93acfe7233e8
     :END:
@@ -6306,9 +6310,60 @@
     ~org-id-link-to-org-use-id~ を ~t~ にしていると
     ~org-store-link~ を実行した時に自動で id を発行してそれを store してくれるようになる
 
+    また archive ファイルを同じフォルダに ~archives~ フォルダを掘ってそこに格納したいので org-archive-location を設定している
+
     #+begin_src emacs-lisp :tangle inits/60-org.el
       (custom-set-variables
-       '(org-id-link-to-org-use-id t))
+       '(org-id-link-to-org-use-id t)
+       '(org-archive-location "./archives/%s_archive::"))
+    #+end_src
+
+*** habit 完了時に Appt を refresh
+    :PROPERTIES:
+    :ID:       ae81a9a2-fd06-4e84-98e4-ca94123e35ab
+    :END:
+    Appt + alert.el + Dunst で通知を行っているが、
+    完了後も通知対象として残っていると困るので完了時に refresh するように調整している
+
+    #+begin_src emacs-lisp :tangle inits/60-org.el
+      (defun my/org-refresh-appt-on-complete-habit (args)
+        "習慣タスクを完了した時に Appt を refresh する"
+        (let* ((element (org-element-at-point))
+               (style (org-element-property :STYLE element))
+               (to (plist-get args :to)))
+          (if (and (string= style "habit") (string= "TODO" to))
+              (my/org-refresh-appt))))
+
+      (add-hook 'org-trigger-hook 'my/org-refresh-appt-on-complete-habit)
+    #+end_src
+*** org-mode-map の override
+    :PROPERTIES:
+    :ID:       c4f5df45-d295-4231-ab32-b39c5dd7157c
+    :END:
+    windmove-mode とキーバインドがかぶってるので
+    それと同居できるように override している。
+
+    具体的には org-mode のコマンドが動く場所であればそれを実行し
+    それがないなら windmove のコマンドを実行する
+
+    #+begin_src emacs-lisp :tangle inits/60-org.el
+      (defun my/org-mode-map-override-windmove-mode-map ()
+        (let ((oldmap windmove-mode-map)
+              (newmap (make-sparse-keymap)))
+          (make-local-variable 'minor-mode-overriding-map-alist)
+          (add-to-list 'minor-mode-overriding-map-alist `(windmove-mode . ,newmap))
+
+          (add-hook 'org-shiftup-final-hook 'windmove-up)
+          (add-hook 'org-shiftleft-final-hook 'windmove-left)
+          (add-hook 'org-shiftdown-final-hook 'windmove-down)
+          (add-hook 'org-shiftright-final-hook 'windmove-right)))
+
+      (add-hook 'org-mode-hook
+                (lambda ()
+                  (my/org-mode-map-override-windmove-mode-map)))
+
+      (with-eval-after-load 'org-mode
+        (my/org-mode-map-override-windmove-mode-map))
     #+end_src
 ** 予定のカレンダー表示
    :PROPERTIES:

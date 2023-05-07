@@ -80,14 +80,15 @@ org-clock を使うようにしているしあんまり要らない気がする�
 ```
 
 
-## Excel ファイルを OS で指定したアプリで開く {#excel-ファイルを-os-で指定したアプリで開く}
+## org-mode 読み込み後の追加実行コード {#org-mode-読み込み後の追加実行コード}
 
-org-mode のリンク先の拡張子が xlsx の時に OS 側で指定した標準アプリを開くようにしている。
-Excel が入っていたらそっちで開かれるし、入ってなければ Numbers で開かれる。はず。
+まず org-protocol を使って Firefox と連携したいのでこれを読み込むようにしている。また org-mode のリンク先の拡張子が xlsx の時に OS 側で指定した標準アプリを開くようにしている。
 
 ```emacs-lisp
 (with-eval-after-load 'org
+  (require 'org-protocol)
+  (add-to-list 'org-modules 'org-protocol)
   (add-to-list 'org-file-apps '("\\.xlsx?\\'" . default)))
 ```
 
-第二引数に default を指定すると、内部的には open コマンドが使われることを利用している。
+第二引数に default を指定すると、内部的には Mac なら open コマンドが使われることを利用している。
