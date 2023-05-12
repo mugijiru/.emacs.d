@@ -1,6 +1,6 @@
 (setq el-get-lock-package-versions
       '((nerd-icons :checksum "aec48fe8e5296fa8367fcdc988ab846651d9e82a")
-        (copilot :checksum "1ab40d80b2005d14bffe25d6e7b439607eb79742")
+        (copilot :checksum "bcc0407e1f00e3a865438f73386442de7978a547")
         (json-rpc :checksum "81a5a520072e20d18aeab2aac4d66c046b031e56")
         (editorconfig :checksum "a8b31c925e5cdee4b26b10a43094787937fe441e")
         (emacs-sqlite3-api :checksum "b513b71012f61895f771fc6948d6511ea8ded0a6")
