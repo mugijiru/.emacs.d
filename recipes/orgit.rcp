@@ -1,0 +1,7 @@
+(:name orgit
+       :website "https://github.com/magit/orgit"
+       :description "Link to Magit buffers from Org documents."
+       :type github
+       :branch "main"
+       :pkgname "magit/orgit"
+       :depends (compat magit org-mode))
