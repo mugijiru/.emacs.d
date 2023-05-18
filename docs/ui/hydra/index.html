@@ -12,20 +12,20 @@
     <title>hydra :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1683429461" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1683429461" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1683429461" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1683429461" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1683429461" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1683429461" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1683429461" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1683429461" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1683429461" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1683429461" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1684382119" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1684382119" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1684382119" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1684382119" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1684382119" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1684382119" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1684382119" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1684382119" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1684382119" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1684382119" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1683429461"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1684382119"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1683429461"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1683429461"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1684382119"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1684382119"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1683429461"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1684382119"></script>
 
     
   </div>
@@ -2721,7 +2721,6 @@
         <li><a href="#hydra-posframe-のインストール">hydra-posframe のインストール</a></li>
         <li><a href="#webdav-sync-download-の設定">WebDAV Sync download の設定</a></li>
         <li><a href="#major-mode-hydra-のインストール">major-mode-hydra のインストール</a></li>
-        <li><a href="#pretty-hydra-の関数上書き">pretty-hydra の関数上書き</a></li>
       </ul>
     </li>
     <li><a href="#キーバインド">キーバインド</a>
@@ -2793,24 +2792,7 @@ js2-mode 用の Hydra などを定義できて便利。</p>
 </span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;this package offers an alternative way to manage your major mode specific key bindings.&#34;</span>
 </span></span><span style="display:flex;"><span>       :type github
 </span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;jerrypnz/major-mode-hydra.el&#34;</span>)
-</span></span></code></pre></div><h3 id="pretty-hydra-の関数上書き">pretty-hydra の関数上書き</h3>
-<p>Hydra の表示には hydra-posframe を使っているが
-hydra-posframe は最初に空行があると最後の行を表示しないようなので一時的に pretty-hydra&ndash;maybe-add-title を上書きして使ってみている。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
-</span></span><span style="display:flex;"><span>  (defun pretty-hydra--maybe-add-title (title docstring)
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Add TITLE to the DOCSTRING if it&#39;s not nil, other return DOCSTRING unchanged.&#34;</span>
-</span></span><span style="display:flex;"><span>  (if (<span style="color:#a6e22e">null</span> title)
-</span></span><span style="display:flex;"><span>      docstring
-</span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;%s\n%s&#34;</span>
-</span></span><span style="display:flex;"><span>            (cond
-</span></span><span style="display:flex;"><span>             ((<span style="color:#a6e22e">char-or-string-p</span> title) title)
-</span></span><span style="display:flex;"><span>             ((<span style="color:#a6e22e">symbolp</span> title)          (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;%%s`%s&#34;</span> title))
-</span></span><span style="display:flex;"><span>             ((<span style="color:#a6e22e">listp</span> title)            (<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;%%s%s&#34;</span> (<span style="color:#a6e22e">prin1-to-string</span> title)))
-</span></span><span style="display:flex;"><span>             (<span style="color:#66d9ef">t</span>                        <span style="color:#e6db74">&#34;&#34;</span>))
-</span></span><span style="display:flex;"><span>            docstring))))
-</span></span></code></pre></div><p>今のところ快適に使えているが
-posframe か hydra-posframe か pretty-hydra のどれかの修正で実はもう不要になっている可能性もある。</p>
-<h2 id="キーバインド">キーバインド</h2>
+</span></span></code></pre></div><h2 id="キーバインド">キーバインド</h2>
 <p>Hydra でいくつかのキーバインドを設定していて他の機能に属さないものはここでまとめてキーバインドを定義している。</p>
 <h3 id="el-get">el-get</h3>
 <p>他の機能に属さないものは、と書いたな? ありゃ嘘だ。
@@ -5071,19 +5053,19 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1683429461"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1683429461"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1683429461"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1683429461"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1683429461"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1683429461"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1684382119"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1684382119"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1684382119"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1684382119"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1684382119"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1684382119"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1683429461"></script>
-    <script src="/.emacs.d/js/learn.js?1683429461"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1683429461"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1684382119"></script>
+    <script src="/.emacs.d/js/learn.js?1684382119"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1684382119"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1683429461"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1684382119"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
