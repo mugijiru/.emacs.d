@@ -84,30 +84,6 @@ js2-mode 用の Hydra などを定義できて便利。
 ```
 
 
-### pretty-hydra の関数上書き {#pretty-hydra-の関数上書き}
-
-Hydra の表示には hydra-posframe を使っているが
-hydra-posframe は最初に空行があると最後の行を表示しないようなので一時的に pretty-hydra--maybe-add-title を上書きして使ってみている。
-
-```emacs-lisp
-(with-eval-after-load 'pretty-hydra
-  (defun pretty-hydra--maybe-add-title (title docstring)
-  "Add TITLE to the DOCSTRING if it's not nil, other return DOCSTRING unchanged."
-  (if (null title)
-      docstring
-    (format "%s\n%s"
-            (cond
-             ((char-or-string-p title) title)
-             ((symbolp title)          (format "%%s`%s" title))
-             ((listp title)            (format "%%s%s" (prin1-to-string title)))
-             (t                        ""))
-            docstring))))
-```
-
-今のところ快適に使えているが
-posframe か hydra-posframe か pretty-hydra のどれかの修正で実はもう不要になっている可能性もある。
-
-
 ## キーバインド {#キーバインド}
 
 Hydra でいくつかのキーバインドを設定していて他の機能に属さないものはここでまとめてキーバインドを定義している。
