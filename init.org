@@ -2555,33 +2555,6 @@
               :pkgname "jerrypnz/major-mode-hydra.el")
      #+end_src
 
-**** pretty-hydra の関数上書き
-     :PROPERTIES:
-     :ID:       eeda9f0e-301b-4dfc-bf77-b4f594d91bfb
-     :END:
-     Hydra の表示には hydra-posframe を使っているが
-     hydra-posframe は最初に空行があると最後の行を表示しないようなので
-     一時的に pretty-hydra--maybe-add-title を上書きして使ってみている。
-
-     #+begin_src emacs-lisp :tangle inits/01-override.el
-     (with-eval-after-load 'pretty-hydra
-       (defun pretty-hydra--maybe-add-title (title docstring)
-       "Add TITLE to the DOCSTRING if it's not nil, other return DOCSTRING unchanged."
-       (if (null title)
-           docstring
-         (format "%s\n%s"
-                 (cond
-                  ((char-or-string-p title) title)
-                  ((symbolp title)          (format "%%s`%s" title))
-                  ((listp title)            (format "%%s%s" (prin1-to-string title)))
-                  (t                        ""))
-                 docstring))))
-     #+end_src
-
-     今のところ快適に使えているが
-     posframe か hydra-posframe か pretty-hydra のどれかの修正で実はもう不要になっている可能性もある。
-
-
 *** キーバインド
     Hydra でいくつかのキーバインドを設定していて
     他の機能に属さないものはここでまとめてキーバインドを定義している。

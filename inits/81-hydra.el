@@ -10,6 +10,8 @@
 
 (el-get-bundle major-mode-hydra.el)
 
+(custom-set-variables '(pretty-hydra-default-title-body-format-spec "%s\n%s"))
+
 (pretty-hydra-define el-get-hydra (:separator "-" :title "el-get" :foreign-key warn :quit-key "q" :exit t)
   ("Install"
    (("i" el-get-install   "Install")
