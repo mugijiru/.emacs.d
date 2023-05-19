@@ -62,7 +62,7 @@
         (color-theme-molokai :checksum "cc53e997e7eff93b58ad16a376a292c1dd66044b")
         (gnuplot-mode :checksum "f99effa21f85a4c0963fec6a38e9112a8157d27e")
         (ivy-posframe :checksum "533a8e368fcabfd534761a5c685ce713376fa594")
-        (dumb-jump :checksum "0a783d1db610ff1dc4e1b7869589cff16ff92f7a")
+        (dumb-jump :checksum "90130b85fec948acb7c6f623d2c3982533955bf6")
         (ember-mode :checksum "a587c423041b2fcb065fd5b6a03b2899b764e462")
         (emacs-hide-mode-line :checksum "bc5d293576c5e08c29e694078b96a5ed85631942")
         (highlight-indent-guides :checksum "cf352c85cd15dd18aa096ba9d9ab9b7ab493e8f6")
