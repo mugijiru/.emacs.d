@@ -2,7 +2,7 @@
       '((nerd-icons :checksum "aec48fe8e5296fa8367fcdc988ab846651d9e82a")
         (copilot :checksum "15a698ebc1d6ffa10da7d6d7e9f972786d0ce526")
         (json-rpc :checksum "81a5a520072e20d18aeab2aac4d66c046b031e56")
-        (editorconfig :checksum "a8b31c925e5cdee4b26b10a43094787937fe441e")
+        (editorconfig :checksum "42613f4ee0726ee74b41f30a5998d44169907198")
         (emacs-sqlite3-api :checksum "b513b71012f61895f771fc6948d6511ea8ded0a6")
         (org-roam :checksum "5c06471c3a11348342719fd9011486455adeb701")
         (emacs-openai :checksum "6a1d270fcdf89226f22122df930afe17f85d3209")
