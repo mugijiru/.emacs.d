@@ -1,7 +1,0 @@
-(:name closql
-       :description "Store EIEIO objects using EmacSQL"
-       :type github
-       :branch "main"
-       :pkgname "magit/closql"
-       :minimum-emacs-version "25.1"
-       :depends (esqlite compat))
