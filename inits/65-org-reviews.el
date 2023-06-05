@@ -197,12 +197,13 @@
         (insert text)))))
 
 (defun my/org-reviews-append-to-file-2 (text)
-  "レビュー依頼されてい PR 全てを取得してレビューファイルの末尾に書き出す"
+  "レビュー依頼されている PR 全てを取得してレビューファイルの末尾に書き出す"
   (interactive)
   (save-excursion
     (with-current-buffer (find-file-noselect my/org-reviews-file)
       (erase-buffer)
       (goto-char (point-max))
+      (insert "#+TODO: TODO(t) DOING(d) WAIT(w) | ACCEPTED(a) | DONE(o)\n")
       (insert text))))
 
 (defun my/org-reviews-append-to-file-meerged ()
