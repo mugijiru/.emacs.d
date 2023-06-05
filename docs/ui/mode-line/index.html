@@ -12,20 +12,20 @@
     <title>mode-line :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1684382119" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1684382119" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1684382119" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1684382119" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1684382119" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1684382119" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1684382119" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1684382119" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1684382119" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1684382119" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1686006323" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1686006323" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1686006323" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1686006323" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1686006323" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1686006323" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1686006323" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1686006323" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1686006323" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1686006323" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1684382119"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1686006323"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1684382119"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1684382119"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1686006323"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1686006323"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1684382119"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1686006323"></script>
 
     
   </div>
@@ -2716,7 +2716,7 @@
   <ul>
     <li><a href="#概要">概要</a></li>
     <li><a href="#hide-mode-line">hide-mode-line</a></li>
-    <li><a href="#日時を-mode-line-で表示する">日時を mode-line で表示する</a></li>
+    <li><a href="#日時を-mode-line-では表示しない">日時を mode-line では表示しない</a></li>
     <li><a href="#smart-mode-line-関連の設定">smart-mode-line 関連の設定 <span class="tag"><span class="unused">unused</span></span></a></li>
     <li><a href="#diminish">diminish</a>
       <ul>
@@ -2766,11 +2766,13 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle hlissner/emacs-hide-mode-line)
 </span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;neotree-mode-hook</span> <span style="color:#a6e22e">#&#39;</span>hide-mode-line-mode)
 </span></span></code></pre></div><p>他にも mode-line の表示が不要なモードとかってありそうだけど特に思い付かないから今のところ Neotree 専用になっている。</p>
-<h2 id="日時を-mode-line-で表示する">日時を mode-line で表示する</h2>
-<p>mode-line に日時も表示されてる方が便利な気がしてとりあえず表示している。表示形式は24時間表記。「午前」とか「午後」とかの表示邪魔だしね。</p>
+<h2 id="日時を-mode-line-では表示しない">日時を mode-line では表示しない</h2>
+<p>今だと i3bar に時計が表示されていていつもそれを見るので
+mode-line の日時表示は要らないな〜と思ったので非表示にした</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-variables <span style="color:#f92672">&#39;</span>(display-time-24hr-format <span style="color:#66d9ef">t</span>))
-</span></span><span style="display:flex;"><span>(display-time-mode <span style="color:#ae81ff">1</span>)
-</span></span></code></pre></div><h2 id="smart-mode-line-関連の設定">smart-mode-line 関連の設定 <span class="tag"><span class="unused">unused</span></span></h2>
+</span></span><span style="display:flex;"><span>(display-time-mode <span style="color:#ae81ff">-1</span>)
+</span></span></code></pre></div><p>表示していたころの名残りで時計の表示形式は24時間表記の設定。表示する場合、「午前」とか「午後」とかの表示邪魔だしね。</p>
+<h2 id="smart-mode-line-関連の設定">smart-mode-line 関連の設定 <span class="tag"><span class="unused">unused</span></span></h2>
 <p><a href="https://github.com/Malabarba/smart-mode-line">smart-mode-line</a> は mode-line をセクシーな感じにしてくれるパッケージ。というわけで昔入れていたけどもう使ってない。一応コードの残骸があったから一旦残しておく。</p>
 <p>多分アイコン表示周りをゴリゴリ設定するのがだるくなって doom-modeline に乗り換えたんだと思う。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; (el-get-bundle smart-mode-line)</span>
@@ -4732,19 +4734,19 @@ doom-modeline で見た目をカッコよくしているのでこっちに設定
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1684382119"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1684382119"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1684382119"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1684382119"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1684382119"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1684382119"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1686006323"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1686006323"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1686006323"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1686006323"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1686006323"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1686006323"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1684382119"></script>
-    <script src="/.emacs.d/js/learn.js?1684382119"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1684382119"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1686006323"></script>
+    <script src="/.emacs.d/js/learn.js?1686006323"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1686006323"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1684382119"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1686006323"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
