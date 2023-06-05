@@ -3236,17 +3236,21 @@
     他にも mode-line の表示が不要なモードとかってありそうだけど
     特に思い付かないから今のところ Neotree 専用になっている。
 
-*** 日時を mode-line で表示する
+*** 日時を mode-line では表示しない
     :PROPERTIES:
     :ID:       b42d169b-bd3d-4a81-a51d-cf2f81b32a60
     :END:
-    mode-line に日時も表示されてる方が便利な気がしてとりあえず表示している。
-    表示形式は24時間表記。「午前」とか「午後」とかの表示邪魔だしね。
+    今だと i3bar に時計が表示されていて
+    いつもそれを見るので
+    mode-line の日時表示は要らないな〜と思ったので非表示にした
 
     #+begin_src emacs-lisp :tangle inits/90-mode-line.el
     (custom-set-variables '(display-time-24hr-format t))
-    (display-time-mode 1)
+    (display-time-mode -1)
     #+end_src
+
+    表示していたころの名残りで時計の表示形式は24時間表記の設定。
+    表示する場合、「午前」とか「午後」とかの表示邪魔だしね。
 
 *** smart-mode-line 関連の設定                                       :unused:
     [[https://github.com/Malabarba/smart-mode-line][smart-mode-line]] は mode-line をセクシーな感じにしてくれるパッケージ。
