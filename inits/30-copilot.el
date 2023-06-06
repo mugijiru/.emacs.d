@@ -1,6 +1,7 @@
 (el-get-bundle copilot)
 
 (add-hook 'prog-mode-hook 'copilot-mode)
+(add-to-list 'copilot-major-mode-alist '("enh-ruby" . "ruby"))
 
 (with-eval-after-load 'company
   ;; disable inline previews
