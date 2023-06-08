@@ -2866,6 +2866,20 @@
     #+begin_src emacs-lisp :tangle inits/82-ivy.el
     (counsel-mode 1)
     #+end_src
+**** counsel-locate-cmd の設定
+     環境によってシステム全体を検索するコマンドが異なるのでここで指定している。
+     Mac は mdfind を使いそれ以外ではデフォルトの locate を使う。
+
+     #+begin_src emacs-lisp :tangle inits/82-ivy.el
+       (custom-set-variables '(counsel-locate-cmd (if (eq window-system 'mac)
+                                                      'counsel-locate-cmd-mdfind
+                                                    'counsel-locate-cmd-default)))
+     #+end_src
+
+     counsel.el を見てると
+     Windows では counsel-locate-cmd-es が使われるようだけど
+     Windows 環境を使ってないので無視。
+     https://github.com/abo-abo/swiper/blob/d28225e86f8dfb3825809ad287f759f95ee9e479/counsel.el#L2567-L2573
 *** ivy-posframe
     :PROPERTIES:
     :ID:       adfdebc7-0ba7-4850-84de-c623287dadf9

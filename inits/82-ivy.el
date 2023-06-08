@@ -22,6 +22,10 @@
 
 (counsel-mode 1)
 
+(custom-set-variables '(counsel-locate-cmd (if (eq window-system 'mac)
+                                               'counsel-locate-cmd-mdfind
+                                             'counsel-locate-cmd-default)))
+
 (el-get-bundle ivy-posframe)
 (setq ivy-posframe-display-functions-alist
       '((swiper . ivy-display-function-fallback)

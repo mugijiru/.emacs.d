@@ -58,6 +58,23 @@ counsel は ivy で提供されているやつで、既存の Emacs のコマン
 ```
 
 
+### counsel-locate-cmd の設定 {#counsel-locate-cmd-の設定}
+
+環境によってシステム全体を検索するコマンドが異なるのでここで指定している。
+Mac は mdfind を使いそれ以外ではデフォルトの locate を使う。
+
+```emacs-lisp
+(custom-set-variables '(counsel-locate-cmd (if (eq window-system 'mac)
+                                               'counsel-locate-cmd-mdfind
+                                             'counsel-locate-cmd-default)))
+```
+
+counsel.el を見てると
+Windows では counsel-locate-cmd-es が使われるようだけど
+Windows 環境を使ってないので無視。
+<https://github.com/abo-abo/swiper/blob/d28225e86f8dfb3825809ad287f759f95ee9e479/counsel.el#L2567-L2573>
+
+
 ## ivy-posframe {#ivy-posframe}
 
 ivy-posframe は ivy を posframe で表示してくれるようにするやつ。
