@@ -8,7 +8,6 @@
  '(aw-background t)
  '(column-number-mode t)
  '(company-show-quick-access t)
- '(counsel-locate-cmd 'counsel-locate-cmd-mdfind)
  '(counsel-projectile-switch-project-action
    '(1
      ("o" counsel-projectile-switch-project-action "jump to a project buffer or file")
