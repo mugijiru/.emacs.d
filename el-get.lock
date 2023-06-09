@@ -1,5 +1,5 @@
 (setq el-get-lock-package-versions
-      '((nerd-icons :checksum "aec48fe8e5296fa8367fcdc988ab846651d9e82a")
+      '((nerd-icons :checksum "a6999ddd8b85043bb24547611524a7ec86c6a21f")
         (copilot :checksum "efd6c1079a0abe989c8645cf1fb1c2e6c5e97c70")
         (json-rpc :checksum "81a5a520072e20d18aeab2aac4d66c046b031e56")
         (editorconfig :checksum "d4111f65c68f18f0dfb3072ee0d9b1d4cee80b52")
