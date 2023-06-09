@@ -50,7 +50,7 @@
         (pos-tip :checksum "bfe74204d1201a33ace81898e7c485382817510a")
         (emacs-w3m :checksum "f8819bca0c97970662cd4214f8f3104ab4a376c1")
         (browse-at-remote :checksum "76aa27dfd469fcae75ed7031bb73830831aaccbf")
-        (ox-hugo :checksum "9544656589cf4878f5cf501744e36e9ee256c5f7")
+        (ox-hugo :checksum "d6aefe7165bd842d7826931eb7f0e700e1bdb0db")
         (sticky-control :checksum "25e15e41174725600626b8dc13852aced691bd3b")
         (org-pomodoro :checksum "3f5bcfb80d61556d35fc29e5ddb09750df962cc6")
         (org-ql :checksum "eb5377320fcfd38354d6e9e3e655969ae3c0e052")
