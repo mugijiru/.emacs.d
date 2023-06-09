@@ -110,6 +110,9 @@ windmove-mode とキーバインドがかぶってるのでそれと同居でき
 
 具体的には org-mode のコマンドが動く場所であればそれを実行しそれがないなら windmove のコマンドを実行する
 
+また org-read-date はデフォルトでシフト+カーソルキーで日付を選択できるが、
+windmove にそれを奪われてしまうので、カーソルキー単体でカレンダー選択ができるようにしている。
+
 ```emacs-lisp
 (defun my/org-mode-map-override-windmove-mode-map ()
   (let ((oldmap windmove-mode-map)
@@ -124,7 +127,13 @@ windmove-mode とキーバインドがかぶってるのでそれと同居でき
 
 (add-hook 'org-mode-hook
           (lambda ()
-            (my/org-mode-map-override-windmove-mode-map)))
+            (my/org-mode-map-override-windmove-mode-map)
+
+            ;; http://yitang.uk/2022/07/05/move-between-window-using-builtin-package/
+            (define-key org-read-date-minibuffer-local-map (kbd "<left>") (lambda () (interactive) (org-eval-in-calendar '(calendar-backward-day 1))))
+            (define-key org-read-date-minibuffer-local-map (kbd "<right>") (lambda () (interactive) (org-eval-in-calendar '(calendar-forward-day 1))))
+            (define-key org-read-date-minibuffer-local-map (kbd "<up>") (lambda () (interactive) (org-eval-in-calendar '(calendar-backward-week 1))))
+            (define-key org-read-date-minibuffer-local-map (kbd "<down>") (lambda () (interactive) (org-eval-in-calendar '(calendar-forward-week 1))))))
 
 (with-eval-after-load 'org-mode
   (my/org-mode-map-override-windmove-mode-map))
