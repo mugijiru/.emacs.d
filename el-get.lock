@@ -20,7 +20,7 @@
         (orgit :checksum "4a585029875a1dbbe96d8ac157bd2fd02875f289")
         (org-contrib :checksum "aed67d095de23bc45446777f7b8fb30b8e5c0c51")
         (mocha :checksum "6a72fa20e7be6e55c09b1bc9887ee09c5df28e45")
-        (pdf-tools :checksum "7ff6293a25baaae65651b3e1c54b61208279a7ef")
+        (pdf-tools :checksum "70865fb38ddf97023e7d23a7cc8ff22b13b643b0")
         (tablist :checksum "faab7a035ef2258cc4ea2182f67e3aedab7e2af9")
         (aio :checksum "da93523e235529fa97d6f251319d9e1d6fc24a41")
         (git-messenger :checksum "eade986ef529aa2dac6944ad61b18de55cee0b76")
