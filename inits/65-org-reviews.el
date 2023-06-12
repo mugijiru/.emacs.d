@@ -30,6 +30,7 @@
                                     (list cmd "-m" "json" "--ignore-title" "Deploy" org-or-user repo)
                                     " "))
          (result (shell-command-to-string cmd-with-args)))
+    (sleep-for 1)
     (json-parse-string result)))
 
 (defun my/org-reviews-prs ()
