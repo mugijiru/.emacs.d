@@ -156,6 +156,7 @@
 
 (defun my/org-reviews-execute ()
   (interactive)
+  (find-file-other-window my/org-reviews-file)
   (let* ((saved-prs (my/org-reviews-pr-headlines))
          (fetched-prs (my/org-reviews-prs))
          (merged-prs (my/org-reviews-merge-prs saved-prs fetched-prs))
