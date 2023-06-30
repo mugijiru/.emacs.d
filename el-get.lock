@@ -48,7 +48,7 @@
         (with-simulated-input :checksum "0f43fe46d4ab098c18a90b9df18cb96bab8e4a35")
         (flycheck-pos-tip :checksum "dc57beac0e59669926ad720c7af38b27c3a30467")
         (pos-tip :checksum "bfe74204d1201a33ace81898e7c485382817510a")
-        (emacs-w3m :checksum "f8819bca0c97970662cd4214f8f3104ab4a376c1")
+        (emacs-w3m :checksum "ea60411ff2170872f6fb1fe858ffad41580009e6")
         (browse-at-remote :checksum "76aa27dfd469fcae75ed7031bb73830831aaccbf")
         (ox-hugo :checksum "d6aefe7165bd842d7826931eb7f0e700e1bdb0db")
         (sticky-control :checksum "25e15e41174725600626b8dc13852aced691bd3b")
