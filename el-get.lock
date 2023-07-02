@@ -80,7 +80,7 @@
         (alert :checksum "c762380ff71c429faf47552a83605b2578656380")
         (calfw :checksum "03abce97620a4a7f7ec5f911e669da9031ab9088")
         (closql :checksum "85ac7b8a894a4e259439d79eb6bd6f5129770905")
-        (company-mode :checksum "8a78f320019574bc35b5727f95b052b27918da20")
+        (company-mode :checksum "b2df4b680aacc4534d60b79c871d0e4c37137d41")
         (counsel-projectile :checksum "40d1e1d4bb70acb00fddd6f4df9778bf2c52734b")
         (dash :checksum "d5182da04ca54c026ea0bf381f2c1642a30e2686")
         (ddskk :checksum "98c103ed697e461439401f731c13b3bda02e5128")
