@@ -107,7 +107,7 @@
         (google-this :checksum "8a2e3ca5da6a8c89bfe99a21486c6c7db125dc84")
         (haml-mode :checksum "fe83c65c1f002f7c36480b758727c1afbad9a1b2")
         (handlebars-mode :checksum "81f6b73fea8f397807781a1b51568397af21a6ef")
-        (ht :checksum "3c1677f1bf2ded2ab07edffb7d17def5d2b5b6f6")
+        (ht :checksum "1c49aad1c820c86f7ee35bf9fff8429502f60fef")
         (hydra :checksum "317e1de33086637579a7aeb60f77ed0405bf359b")
         (hydra-posframe :checksum "94405b5fbec1ae9447c976c3deef41043b9b7de3")
         (inf-ruby :checksum "5a8b87fe6873bc684552cd993e375c382d729753")
