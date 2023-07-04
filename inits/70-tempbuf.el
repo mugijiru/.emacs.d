@@ -1,6 +1,6 @@
 (el-get-bundle tempbuf-mode)
 
-(setq my/tempbuf-ignore-files '("~/Documents/org/tasks/gtd.org"
+(setq my/tempbuf-ignore-files '("~/Documents/org/tasks/reviews.org"
                                 "~/Documents/org/tasks/interrupted.org"
                                 "~/Documents/org/tasks/next-actions.org"
                                 ))

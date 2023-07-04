@@ -25,7 +25,7 @@ org-clock を使うようなファイルは
 kill されると org-clock が狂って面倒なことになるのでそれらのファイルは勝手に kill されないように ignore リストに突っ込んでいる
 
 ```emacs-lisp
-(setq my/tempbuf-ignore-files '("~/Documents/org/tasks/gtd.org"
+(setq my/tempbuf-ignore-files '("~/Documents/org/tasks/reviews.org"
                                 "~/Documents/org/tasks/interrupted.org"
                                 "~/Documents/org/tasks/next-actions.org"
                                 ))
