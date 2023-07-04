@@ -30,7 +30,7 @@ GitHub の README には作者のブログへのリンクしかないしその�
 つまり、一瞬開いただけのファイルは明示的に kill しなくても勝手にやってくれるのでファイルを開いてそのまま放置みたいなことをしがちなズボラな人間には便利なやつ。
 インストール いつも通り el-get で入れている。
 (el-get-bundle tempbuf-mode) 勝手に kill させないファイルの指定 org-clock を使うようなファイルは kill されると org-clock が狂って面倒なことになるのでそれらのファイルは勝手に kill されないように ignore リストに突っ込んでいる
-(setq my/tempbuf-ignore-files &amp;#39;(&amp;#34;~/Documents/org/tasks/gtd.org&amp;#34; &amp;#34;~/Documents/org/tasks/interrupted.org&amp;#34; &amp;#34;~/Documents/org/tasks/next-actions.org&amp;#34; )) find-file への hook find-file した時に上でリストアップしたファイルだった場合は kill されないように tempbuf-mode が自動的に無効になるような hook を用意している。
+(setq my/tempbuf-ignore-files &amp;#39;(&amp;#34;~/Documents/org/tasks/reviews.org&amp;#34; &amp;#34;~/Documents/org/tasks/interrupted.org&amp;#34; &amp;#34;~/Documents/org/tasks/next-actions.org&amp;#34; )) find-file への hook find-file した時に上でリストアップしたファイルだった場合は kill されないように tempbuf-mode が自動的に無効になるような hook を用意している。
 (defun my/find-file-tempbuf-hook () (let ((ignore-file-names (mapcar &amp;#39;expand-file-name my/tempbuf-ignore-files))) (unless (member (buffer-file-name) ignore-file-names) (turn-on-tempbuf-mode)))) hook の設定 find-file では上で作成した hook を使うことで kill されたくないファイルは kill されないようにしている
 (add-hook &amp;#39;find-file-hook &amp;#39;my/find-file-tempbuf-hook) また dired buffer も邪魔になりがちだけど、デフォルトだと対象にならないのでこいつらも tempbuf-mode の管理対象となるように tempbuf-mode を有効にしている。</description>
     </item>
