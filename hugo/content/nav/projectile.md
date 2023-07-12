@@ -82,6 +82,9 @@ counsel-projectile はいくつかの絞り込み処理を提供してくれて�
       ("d" counsel-projectile-find-dir "Find Dir")
       ("r" projectile-recentf "Recentf"))
 
+     "Edit"
+     (("R" projectile-replace "Replace"))
+
      "Other"
      (("p" (counsel-projectile-switch-project 'neotree-dir) "Switch Project")))))
 ```
