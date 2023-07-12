@@ -25,5 +25,8 @@
       ("d" counsel-projectile-find-dir "Find Dir")
       ("r" projectile-recentf "Recentf"))
 
+     "Edit"
+     (("R" projectile-replace "Replace"))
+
      "Other"
      (("p" (counsel-projectile-switch-project 'neotree-dir) "Switch Project")))))

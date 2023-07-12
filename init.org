@@ -4105,16 +4105,19 @@
     とりあえずいくつかを Hydra で叩けるようにしている
 
     #+begin_src emacs-lisp :tangle inits/30-projectile.el
-    (with-eval-after-load 'pretty-hydra
-      (pretty-hydra-define
-        projectile-hydra (:separator "-" :title "Projectile" :foreign-key warn :quit-key "q" :exit t)
-        ("File"
-         (("f" counsel-projectile-find-file "Find File")
-          ("d" counsel-projectile-find-dir "Find Dir")
-          ("r" projectile-recentf "Recentf"))
+      (with-eval-after-load 'pretty-hydra
+        (pretty-hydra-define
+          projectile-hydra (:separator "-" :title "Projectile" :foreign-key warn :quit-key "q" :exit t)
+          ("File"
+           (("f" counsel-projectile-find-file "Find File")
+            ("d" counsel-projectile-find-dir "Find Dir")
+            ("r" projectile-recentf "Recentf"))
 
-         "Other"
-         (("p" (counsel-projectile-switch-project 'neotree-dir) "Switch Project")))))
+           "Edit"
+           (("R" projectile-replace "Replace"))
+
+           "Other"
+           (("p" (counsel-projectile-switch-project 'neotree-dir) "Switch Project")))))
     #+end_src
 
     | Key | 効果                                           |
