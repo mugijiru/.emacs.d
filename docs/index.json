@@ -774,7 +774,7 @@
 	"title": "yaml-mode",
 	"tags": [],
 	"description": "",
-	"content": "概要 yaml-mode は yaml を編集する時のメジャーモード。インデントを調整しやすい。\nインストール いつも通り el-get でインストール\n(el-get-bundle yaml-mode) hook mode に対する hook は関数を定義してその中で呼びたいコードを書いていくようにしている。\nlambda で書いてしまうと hook を弄りたい時に結構面倒なのだけど関数を定義しておくと、その関数の中身を変更して評価しておくだけで hook で動作する中身が変更できて便利。\nとりあえず yaml-mode では以下のようにして highlight-indent-guides を有効にしている。\n(defun my/yaml-mode-hook () (lsp-mode 1) (highlight-indent-guides-mode 1)) で、その hook を最後に yaml-mode-hook に追加している。\n(add-hook \u0026#39;yaml-mode-hook \u0026#39;my/yaml-mode-hook) "
+	"content": "概要 yaml-mode は yaml を編集する時のメジャーモード。インデントを調整しやすい。\nインストール いつも通り el-get でインストール\n(el-get-bundle yaml-mode) hook mode に対する hook は関数を定義してその中で呼びたいコードを書いていくようにしている。\nlambda で書いてしまうと hook を弄りたい時に結構面倒なのだけど関数を定義しておくと、その関数の中身を変更して評価しておくだけで hook で動作する中身が変更できて便利。\nとりあえず yaml-mode では以下のようにして highlight-indent-guides を有効にしている。\n(defun my/yaml-mode-hook () (lsp 1) (highlight-indent-guides-mode 1)) で、その hook を最後に yaml-mode-hook に追加している。\n(add-hook \u0026#39;yaml-mode-hook \u0026#39;my/yaml-mode-hook) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/ui/yascroll/",
