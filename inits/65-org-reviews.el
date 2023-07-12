@@ -31,7 +31,11 @@
                                     " "))
          (result (shell-command-to-string cmd-with-args)))
     (sleep-for 1)
-    (json-parse-string result)))
+    (condition-case err
+        (json-parse-string result)
+      (error
+       (format "error: %s\ncmd:%s\nresult:%s" err cmd-with-args result)
+       nil))))
 
 (defun my/org-reviews-prs ()
   "レビュー依頼されている PR 全てを取得して flat な emacs lisp の array として返すやつ"
