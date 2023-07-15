@@ -129,7 +129,7 @@
         (pkg-info :checksum "76ba7415480687d05a4353b27fea2ae02b8d9d61")
         (plantuml-mode :checksum "ea45a13707abd2a70df183f1aec6447197fc9ccc")
         (popup :checksum "69efb517f3b8ba8ed82dfb4e39b74b325bc98a59")
-        (posframe :checksum "59911917d57f77577e1aa6df7584fa00636de84a")
+        (posframe :checksum "017deece88360c7297265680d78a0bb316470716")
         (prescient\.el :checksum "822481e722502081deedbe6b1a9776eda0ca7bfe")
         (projectile :checksum "971cd5c4f25ff1f84ab7e8337ffc7f89f67a1b52")
         (projectile-rails :checksum "701784df7befe17b861f1b53fe9cbc59d0b94b9f")
