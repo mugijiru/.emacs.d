@@ -99,7 +99,7 @@
         (exec-path-from-shell :checksum "ddd24dc823de9a94435b4d8ea7569161657f31e2")
         (f :checksum "19e1da061e759b05e8c480b426287a063ca39484")
         (flycheck :checksum "5f2ef177cb21ae8b73714575802beef04abd0f5e")
-        (forge :checksum "ec68fcd778f6b3dc6100498aea790457d2fc98f6")
+        (forge :checksum "32cbf6646132a982219bd7bca9091a25d4b97963")
         (fringe-helper :checksum "ef4a9c023bae18ec1ddd7265f1f2d6d2e775efdd")
         (ghub :checksum "0fd648f0529f34b5da441d54c9dbff7810477d12")
         (git-gutter :checksum "6b3e6704d83ccff42985940879bb14082a672fb8")
