@@ -60,7 +60,7 @@
         (ivy-rich :checksum "aff9b6bd53e0fdcf350ab83c90e64e651b47dba4")
         (emacs-neotree-dev :checksum "98fe21334affaffe2334bf7c987edaf1980d2d0b")
         (color-theme-molokai :checksum "cc53e997e7eff93b58ad16a376a292c1dd66044b")
-        (gnuplot-mode :checksum "f99effa21f85a4c0963fec6a38e9112a8157d27e")
+        (gnuplot-mode :checksum "4c6b18f71ff7604e2640033207f5a882ddce78af")
         (ivy-posframe :checksum "533a8e368fcabfd534761a5c685ce713376fa594")
         (dumb-jump :checksum "d9503c157ab88f0ed2fa1301aeb57e95ac564760")
         (ember-mode :checksum "a587c423041b2fcb065fd5b6a03b2899b764e462")
