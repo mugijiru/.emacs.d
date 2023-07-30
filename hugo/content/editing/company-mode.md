@@ -53,6 +53,30 @@ draft = false
 ```
 
 
+## company-posframe {#company-posframe}
+
+[company-posframe](https://github.com/tumashu/company-posframe) は company-mode の表示に posframe を使うやつ。
+
+公式 README によると速度的にはまあ十分って感じなので速くはないのかなと。ただ CJK languages と相性は良いっぽい。ってことでとりあえず入れてみている
+
+```emacs-lisp
+(el-get-bundle company-posframe)
+(company-posframe-mode t)
+```
+
+なお el-get 公式のレシピはファイル名や :name が間違っているのでひとまず自前でレシピ登録している。
+
+```emacs-lisp
+(:name company-postframe
+       :description "Use child frame as company candidate menu."
+       :website "https://github.com/tumashu/company-posframe/"
+       :type github
+       :minimum-emacs-version "26"
+       :depends company-mode
+       :pkgname "tumashu/company-posframe")
+```
+
+
 ## その他 {#その他}
 
 グローバルでは有効にしていなくて各モードで有効にするような hook を入れている。

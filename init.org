@@ -1609,6 +1609,31 @@
        '(company-quickhelp-mode t))
     #+end_src
 
+*** company-posframe
+    [[https://github.com/tumashu/company-posframe][company-posframe]] は company-mode の表示に posframe を使うやつ。
+
+    公式 README によると速度的にはまあ十分って感じなので速くはないのかなと。
+    ただ CJK languages と相性は良いっぽい。
+    ってことでとりあえず入れてみている
+
+    #+begin_src emacs-lisp :tangle inits/30-company.el
+      (el-get-bundle company-posframe)
+      (company-posframe-mode t)
+    #+end_src
+
+    なお el-get 公式のレシピはファイル名や :name が間違っているので
+    ひとまず自前でレシピ登録している。
+
+    #+begin_src emacs-lisp :tangle recipes/company-posframe.rcp
+      (:name company-postframe
+             :description "Use child frame as company candidate menu."
+             :website "https://github.com/tumashu/company-posframe/"
+             :type github
+             :minimum-emacs-version "26"
+             :depends company-mode
+             :pkgname "tumashu/company-posframe")
+    #+end_src
+
 *** その他
     グローバルでは有効にしていなくて
     各モードで有効にするような hook を入れている。
