@@ -287,13 +287,16 @@ swiper は標準だと migemo れないのだが
 
 swiper を使う時はデフォで有効になっててほしいのでその設定も入れている。なおこれも公式ページに記述されている設定である。
 
+というか全体を ivy-migemo-regex-plus にしている。これは completing-read-function で指定されている ivy-completing-read でも migemo りたかったため。
+completing-read や ivy-completing-read を指定してもうまくいかないのでもうエイヤで全部 migemo に倒した
+
 ```emacs-lisp
-(setq ivy-re-builders-alist '((t . ivy--regex-plus)
+(setq ivy-re-builders-alist '((t . ivy-migemo-regex-plus)
                               (swiper . ivy-migemo-regex-plus)
                               (counsel-find-file . ivy-migemo-regex-plus)))
 ```
 
-また fuzzy matchi を有効にする設定も記載されているがそちらは自分は設定していない。なんとなく。
+また fuzzy match を有効にする設定も記載されているがそちらは自分は設定していない。なんとなく。
 
 
 ## counsel-osx-app. <span class="tag"><span class="improvement">improvement</span></span> {#counsel-osx-app-dot}
