@@ -14,7 +14,7 @@
       <guid>https://mugijiru.github.io/.emacs.d/programming/emacs-lisp/</guid>
       <description>概要 Emacs Lisp を書くための設定。まあそんなにしっかり書いてないので、あんまり設定は入ってない
 Hook Hook 用の関数を定義してその中に色々書いている。
-とりあえず行数表示が欲しいので display-line-numbers-mode を有効化 当然補完もしたいので company-mode を有効にしている カッコの対応などもいい感じに動いて欲しいので smartparens-mode とその strict-mode を有効にしている (defun my/emacs-lisp-mode-hook () (display-line-numbers-mode 1) (company-mode 1) (smartparens-mode 1) (turn-on-smartparens-strict-mode)) そんで最後にその関数を hook に突っ込んでる。
+とりあえず行数表示が欲しいので display-line-numbers-mode を有効化 当然補完もしたいので company-mode を有効にしている カッコの対応などもいい感じに動いて欲しいので smartparens-mode とその strict-mode を有効にしている (defun my/emacs-lisp-mode-hook () (display-line-numbers-mode 1) (origami-mode 1) (company-mode 1) (smartparens-mode 1) (turn-on-smartparens-strict-mode)) そんで最後にその関数を hook に突っ込んでる。
 (add-hook &amp;#39;emacs-lisp-mode-hook &amp;#39;my/emacs-lisp-mode-hook) アイコン挿入コマンドの用意 時々 UI 設定目的で絵文字を使うことがあるので挿入できるコマンドを用意している。最近使った記憶ないけど。
 (defun my/insert-all-the-icons-code (family) (interactive) (let* ((candidates (all-the-icons--read-candidates-for-family family)) (prompt (format &amp;#34;%s Icon: &amp;#34; (funcall (all-the-icons--family-name family)))) (selection (completing-read prompt candidates nil t))) (insert &amp;#34;(all-the-icons-&amp;#34; (symbol-name family) &amp;#34; \&amp;#34;&amp;#34; selection &amp;#34;\&amp;#34;)&amp;#34;))) キーバインド emacs-lisp-mode 用に major-mode-hydra を設定している。けどそんなにしっかり Emacs Lisp を書いてるわけではないのがバレバレな感じである。</description>
     </item>

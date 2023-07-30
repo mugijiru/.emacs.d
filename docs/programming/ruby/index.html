@@ -12,20 +12,20 @@
     <title>ruby :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1690698212" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1690698212" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1690698212" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1690698212" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1690698212" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1690698212" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1690698212" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1690698212" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1690698212" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1690698212" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1690717679" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1690717679" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1690717679" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1690717679" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1690717679" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1690717679" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1690717679" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1690717679" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1690717679" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1690717679" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1690698212"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1690717679"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1690698212"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1690698212"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1690717679"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1690717679"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1690698212"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1690717679"></script>
 
     
   </div>
@@ -714,6 +714,27 @@
       <li data-nav-id="/.emacs.d/editing/multiple-cursors/" title="multiple-cursors" class="dd-item ">
         <a href="/.emacs.d/editing/multiple-cursors/">
         multiple-cursors
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/editing/origami/" title="origami" class="dd-item ">
+        <a href="/.emacs.d/editing/origami/">
+        origami
         
         </a>
     </li>
@@ -2800,6 +2821,7 @@ encoding 設定のマジックコメントが入らないようにしている�
 <h3 id="hook">hook</h3>
 <p>hook 用の関数で補完などの機能を有効にしている</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/enh-ruby-mode-hook ()
+</span></span><span style="display:flex;"><span>  (origami-mode <span style="color:#ae81ff">1</span>)
 </span></span><span style="display:flex;"><span>  (company-mode <span style="color:#ae81ff">1</span>)
 </span></span><span style="display:flex;"><span>  (lsp)
 </span></span><span style="display:flex;"><span>  (lsp-ui-mode <span style="color:#ae81ff">1</span>)
@@ -2846,7 +2868,8 @@ Ruby を使ってる時にコメント部分はクォートの外以外では自
 </span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;I&#34;</span> inf-ruby <span style="color:#e6db74">&#34;inf-ruby&#34;</span>))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Other&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;j&#34;</span> dumb-jump-go <span style="color:#e6db74">&#34;Dumb Jump&#34;</span>)))))
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;j&#34;</span> dumb-jump-go <span style="color:#e6db74">&#34;Dumb Jump&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;o&#34;</span> origami-hydra/body <span style="color:#e6db74">&#34;Origami&#34;</span>)))))
 </span></span></code></pre></div><table>
 <thead>
 <tr>
@@ -3296,6 +3319,22 @@ Ruby を使ってる時にコメント部分はクォートの外以外では自
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -4786,19 +4825,19 @@ Ruby を使ってる時にコメント部分はクォートの外以外では自
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1690698212"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1690698212"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1690698212"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1690698212"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1690698212"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1690698212"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1690717679"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1690717679"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1690717679"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1690717679"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1690717679"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1690717679"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1690698212"></script>
-    <script src="/.emacs.d/js/learn.js?1690698212"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1690698212"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1690717679"></script>
+    <script src="/.emacs.d/js/learn.js?1690717679"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1690717679"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1690698212"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1690717679"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

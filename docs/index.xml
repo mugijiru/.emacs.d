@@ -546,7 +546,7 @@ company-quickhelp company-quickhelp は候補の補足情報が見れるよう�
       <guid>https://mugijiru.github.io/.emacs.d/programming/emacs-lisp/</guid>
       <description>概要 Emacs Lisp を書くための設定。まあそんなにしっかり書いてないので、あんまり設定は入ってない
 Hook Hook 用の関数を定義してその中に色々書いている。
-とりあえず行数表示が欲しいので display-line-numbers-mode を有効化 当然補完もしたいので company-mode を有効にしている カッコの対応などもいい感じに動いて欲しいので smartparens-mode とその strict-mode を有効にしている (defun my/emacs-lisp-mode-hook () (display-line-numbers-mode 1) (company-mode 1) (smartparens-mode 1) (turn-on-smartparens-strict-mode)) そんで最後にその関数を hook に突っ込んでる。
+とりあえず行数表示が欲しいので display-line-numbers-mode を有効化 当然補完もしたいので company-mode を有効にしている カッコの対応などもいい感じに動いて欲しいので smartparens-mode とその strict-mode を有効にしている (defun my/emacs-lisp-mode-hook () (display-line-numbers-mode 1) (origami-mode 1) (company-mode 1) (smartparens-mode 1) (turn-on-smartparens-strict-mode)) そんで最後にその関数を hook に突っ込んでる。
 (add-hook &amp;#39;emacs-lisp-mode-hook &amp;#39;my/emacs-lisp-mode-hook) アイコン挿入コマンドの用意 時々 UI 設定目的で絵文字を使うことがあるので挿入できるコマンドを用意している。最近使った記憶ないけど。
 (defun my/insert-all-the-icons-code (family) (interactive) (let* ((candidates (all-the-icons--read-candidates-for-family family)) (prompt (format &amp;#34;%s Icon: &amp;#34; (funcall (all-the-icons--family-name family)))) (selection (completing-read prompt candidates nil t))) (insert &amp;#34;(all-the-icons-&amp;#34; (symbol-name family) &amp;#34; \&amp;#34;&amp;#34; selection &amp;#34;\&amp;#34;)&amp;#34;))) キーバインド emacs-lisp-mode 用に major-mode-hydra を設定している。けどそんなにしっかり Emacs Lisp を書いてるわけではないのがバレバレな感じである。</description>
     </item>
@@ -1013,6 +1013,20 @@ Slack 連携を Toggle するコマンド 連携したい時としたくない�
 (defun my/notify-slack-toggle () (interactive) (if my/notify-slack-enable-p (setq my/notify-slack-enable-p nil) (setq my/notify-slack-enable-p t))) 分報チャンネル投稿関数 「分報チャンネル投稿関数」としているけどデフォルト投稿先に投稿するための関数というような扱いの関数。
 単純に前出の my/notify-slack 関数の第一引数に my/notify-slack-times-channel という変数を設定してそのチャンネルに向けて投稿するだけ。
 (defun my/notify-slack-times (text) (if my/notify-slack-times-channel (my/notify-slack my/notify-slack-times-channel text))) 設定 あまり見せたくない設定ファイルを別ファイルに分離しているのでそれを読み出している。</description>
+    </item>
+    
+    <item>
+      <title>origami</title>
+      <link>https://mugijiru.github.io/.emacs.d/editing/origami/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/editing/origami/</guid>
+      <description>概要 origami はコードの折り畳み機能を提供するやつ。メジャーな言語は大体サポートしている感じ。大きいファイルを見る時に便利。
+インストール el-get 公式にはレシピがないので自前でレシピを用意している。
+(:name origami :website &amp;#34;https://github.com/elp-revive/origami.el&amp;#34; :description &amp;#34;A text folding minor mode for Emacs.&amp;#34; :type github :pkgname &amp;#34;elp-revive/origami.el&amp;#34; :depends (s dash)) そしてそれを使ってインストール
+(el-get-bundle origami) キーバインド origami-mode-map では以下のように動くように設定している。
+Key 効果 &amp;lt;backtab&amp;gt; 再帰的に折り畳んだり開いたりするやつ。org-mode の fold と似た感じ M-&amp;lt;backtab&amp;gt; そのノードだけ表示する (with-eval-after-load &amp;#39;origami (define-key origami-mode-map (kbd &amp;#34;&amp;lt;backtab&amp;gt;&amp;#34;) &amp;#39;origami-recursively-toggle-node) (define-key origami-mode-map (kbd &amp;#34;M-&amp;lt;backtab&amp;gt;&amp;#34;) &amp;#39;origami-show-only-node)) ただこれだけだと多分足りないので Hydra で色々定義している。
+(with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define origami-hydra (:separator &amp;#34;-&amp;#34; :quit-key &amp;#34;q&amp;#34; :title &amp;#34;Origami&amp;#34;) (&amp;#34;Node&amp;#34; ((&amp;#34;o&amp;#34; origami-open-node &amp;#34;Open&amp;#34;) (&amp;#34;c&amp;#34; origami-close-node &amp;#34;Close&amp;#34;) (&amp;#34;s&amp;#34; origami-show-node &amp;#34;Show&amp;#34;) (&amp;#34;t&amp;#34; origami-toggle-node &amp;#34;Toggle&amp;#34;) (&amp;#34;S&amp;#34; origami-forward-toggle-node &amp;#34;Foward toggle&amp;#34;) (&amp;#34;r&amp;#34; origami-recursively-toggle-node &amp;#34;Recursive toggle&amp;#34;)) &amp;#34;All&amp;#34; ((&amp;#34;O&amp;#34; origami-open-all-nodes &amp;#34;Open&amp;#34;) (&amp;#34;C&amp;#34; origami-close-all-nodes &amp;#34;Close&amp;#34;) (&amp;#34;T&amp;#34; origami-toggle-all-nodes &amp;#34;Toggle&amp;#34;)) &amp;#34;Move&amp;#34; ((&amp;#34;n&amp;#34; origami-next-fold &amp;#34;Next&amp;#34;) (&amp;#34;p&amp;#34; origami-previous-fold &amp;#34;Previous&amp;#34;)) &amp;#34;Undo/Redo&amp;#34; ((&amp;#34;/&amp;#34; origami-undo &amp;#34;Undo&amp;#34;) (&amp;#34;?</description>
     </item>
     
     <item>

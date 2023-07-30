@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>org-export :: 麦汁&#39;s Emacs Config</title>
+    <title>origami :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1690717679" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/org-mode/org-export/">
+  <body class="" data-url="/.emacs.d/editing/origami/">
     <nav id="sidebar" class="">
 
 
@@ -601,7 +601,7 @@
   
     
     <li data-nav-id="/.emacs.d/editing/" title="ファイル編集/入力補助" class="dd-item
-        
+        parent
         
         
         ">
@@ -732,7 +732,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/editing/origami/" title="origami" class="dd-item ">
+      <li data-nav-id="/.emacs.d/editing/origami/" title="origami" class="dd-item active">
         <a href="/.emacs.d/editing/origami/">
         origami
         
@@ -2136,7 +2136,7 @@
   
     
     <li data-nav-id="/.emacs.d/org-mode/" title="org-mode" class="dd-item
-        parent
+        
         
         
         ">
@@ -2288,7 +2288,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/org-mode/org-export/" title="org-export" class="dd-item active">
+      <li data-nav-id="/.emacs.d/org-mode/org-export/" title="org-export" class="dd-item ">
         <a href="/.emacs.d/org-mode/org-export/">
         org-export
         
@@ -2720,7 +2720,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/org-mode/'>org-mode</a> > org-export
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/editing/'>ファイル編集/入力補助</a> > origami
           
         
           
@@ -2736,11 +2736,8 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#footnote-や制作者などを出力しない">footnote や制作者などを出力しない</a></li>
-    <li><a href="#table-of-contents-出力抑制">Table of Contents 出力抑制</a></li>
-    <li><a href="#サイト名の出力">サイト名の出力</a></li>
-    <li><a href="#bold-italic-などの抑制">bold, italic などの抑制</a></li>
-    <li><a href="#export-のデフォルト出力言語は日本語">export のデフォルト出力言語は日本語</a></li>
+    <li><a href="#インストール">インストール</a></li>
+    <li><a href="#キーバインド">キーバインド</a></li>
   </ul>
 </nav>
     </div>
@@ -2758,7 +2755,7 @@
           
             <h1>
               
-              org-export
+              origami
             </h1>
           
 
@@ -2766,44 +2763,67 @@
 
 
 <h2 id="概要">概要</h2>
-<p>ここではファイルへの出力用の設定をまとめている。というか昔書いた設定をとりあえずここに押し込めている</p>
-<h2 id="footnote-や制作者などを出力しない">footnote や制作者などを出力しない</h2>
-<p>HTML で記事を吐き出す時に邪魔だったの非表示にしている記憶。随分昔に設定したのであんまり覚えてない。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; フッターなくしたり</span>
-</span></span><span style="display:flex;"><span>(setq org-export-html-footnotes-section <span style="color:#e6db74">&#34;&#34;</span>)
-</span></span><span style="display:flex;"><span>(setq org-export-html-footnote-format <span style="color:#e6db74">&#34;&#34;</span>)
-</span></span><span style="display:flex;"><span>(setq org-export-with-footnotes <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>(setq org-export-with-creator <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>(setq org-export-with-author <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>(setq org-html-validation-link <span style="color:#66d9ef">nil</span>)
-</span></span></code></pre></div><p>以下は seesaa blog への吐き出し用設定なのだけどもう向こうを更新することはないので消しても良さそう</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; for seesaa blog settings</span>
-</span></span><span style="display:flex;"><span>(setq org-export-author-info <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>(setq org-export-email-info <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>(setq org-export-creator-info <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>(setq org-export-time-stamp-file <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>(setq org-export-with-timestamps <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>(setq org-export-with-section-numbers <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>(setq org-export-with-sub-superscripts <span style="color:#66d9ef">nil</span>)
-</span></span></code></pre></div><h2 id="table-of-contents-出力抑制">Table of Contents 出力抑制</h2>
-<p>これも自分の用途では要らなかったけどファイル単位とかで制御しても良い気がする</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq org-export-with-toc <span style="color:#66d9ef">nil</span>)
-</span></span></code></pre></div><h2 id="サイト名の出力">サイト名の出力</h2>
-<p>seesaa blog 用に記事を吐き出していた時はページ全体ではなく記事部分だけ出力したかったのでつまり h1 とかはもうテンプレート側に埋め込まれているので出す必要がなかった</p>
-<p>というわけで h1 でサイト名を出さないようにしている</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq org-export-html-preamble <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>(setq org-html-preamble <span style="color:#66d9ef">nil</span>)
-</span></span></code></pre></div><h2 id="bold-italic-などの抑制">bold, italic などの抑制</h2>
-<p>アスタリスクで囲ったりスラッシュでアンダースコアで囲ったりすると
-b タグや i タグ、 u タグにする機能があるが
-HTML 4.01 Strict 信者だったこともあって抑制している。</p>
-<p>アスタリスクで囲む時、重要と思って囲むので、そういう意味では em とかで出る方が適切だと思う。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;;; *bold* とか /italic/ とか _underline_ とかを&lt;b&gt;とかにしないようにする</span>
-</span></span><span style="display:flex;"><span>(setq org-export-with-emphasize <span style="color:#66d9ef">nil</span>)
-</span></span></code></pre></div><h2 id="export-のデフォルト出力言語は日本語">export のデフォルト出力言語は日本語</h2>
-<p>まあ日本語しか書かないので……</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq org-export-default-language <span style="color:#e6db74">&#34;ja&#34;</span>)
-</span></span></code></pre></div>
+<p><a href="https://github.com/elp-revive/origami.el">origami</a> はコードの折り畳み機能を提供するやつ。メジャーな言語は大体サポートしている感じ。大きいファイルを見る時に便利。</p>
+<h2 id="インストール">インストール</h2>
+<p>el-get 公式にはレシピがないので自前でレシピを用意している。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name origami
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/elp-revive/origami.el&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;A text folding minor mode for Emacs.&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;elp-revive/origami.el&#34;</span>
+</span></span><span style="display:flex;"><span>       :depends (s dash))
+</span></span></code></pre></div><p>そしてそれを使ってインストール</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle origami)
+</span></span></code></pre></div><h2 id="キーバインド">キーバインド</h2>
+<p>origami-mode-map では以下のように動くように設定している。</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>効果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;backtab&gt;</td>
+<td>再帰的に折り畳んだり開いたりするやつ。org-mode の fold と似た感じ</td>
+</tr>
+<tr>
+<td>M-&lt;backtab&gt;</td>
+<td>そのノードだけ表示する</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;origami</span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">define-key</span> origami-mode-map (kbd <span style="color:#e6db74">&#34;&lt;backtab&gt;&#34;</span>) <span style="color:#e6db74">&#39;origami-recursively-toggle-node</span>)
+</span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">define-key</span> origami-mode-map (kbd <span style="color:#e6db74">&#34;M-&lt;backtab&gt;&#34;</span>) <span style="color:#e6db74">&#39;origami-show-only-node</span>))
+</span></span></code></pre></div><p>ただこれだけだと多分足りないので Hydra で色々定義している。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
+</span></span><span style="display:flex;"><span>  (pretty-hydra-define origami-hydra
+</span></span><span style="display:flex;"><span>    (:separator <span style="color:#e6db74">&#34;-&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :title <span style="color:#e6db74">&#34;Origami&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;Node&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;o&#34;</span> origami-open-node <span style="color:#e6db74">&#34;Open&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;c&#34;</span> origami-close-node <span style="color:#e6db74">&#34;Close&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;s&#34;</span> origami-show-node <span style="color:#e6db74">&#34;Show&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;t&#34;</span> origami-toggle-node <span style="color:#e6db74">&#34;Toggle&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;S&#34;</span> origami-forward-toggle-node <span style="color:#e6db74">&#34;Foward toggle&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;r&#34;</span> origami-recursively-toggle-node <span style="color:#e6db74">&#34;Recursive toggle&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;All&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;O&#34;</span> origami-open-all-nodes <span style="color:#e6db74">&#34;Open&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;C&#34;</span> origami-close-all-nodes <span style="color:#e6db74">&#34;Close&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;T&#34;</span> origami-toggle-all-nodes <span style="color:#e6db74">&#34;Toggle&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Move&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;n&#34;</span> origami-next-fold <span style="color:#e6db74">&#34;Next&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;p&#34;</span> origami-previous-fold <span style="color:#e6db74">&#34;Previous&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Undo/Redo&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;/&#34;</span> origami-undo <span style="color:#e6db74">&#34;Undo&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;?&#34;</span> origami-redo <span style="color:#e6db74">&#34;Redo&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;X&#34;</span> origami-reset <span style="color:#e6db74">&#34;Reset&#34;</span>)))))
+</span></span></code></pre></div><p>この設定は <a href="/.emacs.d/ui/hydra/#main">jk で起動する Hydra</a> から呼び出せるようにしている</p>
+
 
 <footer class="footline">
 	
@@ -3195,6 +3215,7 @@ HTML 4.01 Strict 信者だったこともあって抑制している。</p>
             
                 
                     
+                    
                 
                 
 
@@ -3207,6 +3228,9 @@ HTML 4.01 Strict 信者だったこともあって抑制している。</p>
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3288,6 +3312,7 @@ HTML 4.01 Strict 信者だったこともあって抑制している。</p>
             
                 
                     
+                    
                 
                 
 
@@ -3303,6 +3328,9 @@ HTML 4.01 Strict 信者だったこともあって抑制している。</p>
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -4315,7 +4343,6 @@ HTML 4.01 Strict 信者だったこともあって抑制している。</p>
             
                 
                     
-                    
                 
                 
 
@@ -4328,9 +4355,6 @@ HTML 4.01 Strict 信者だったこともあって抑制している。</p>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -4428,7 +4452,6 @@ HTML 4.01 Strict 信者だったこともあって抑制している。</p>
             
                 
                     
-                    
                 
                 
 
@@ -4444,9 +4467,6 @@ HTML 4.01 Strict 信者だったこともあって抑制している。</p>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -4695,10 +4715,10 @@ HTML 4.01 Strict 信者だったこともあって抑制している。</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/org-mode/org-clock/" title="org-clock"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/editing/multiple-cursors/" title="multiple-cursors"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/org-mode/org-gcal/" title="org-gcal" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/editing/smartparens/" title="smartparens" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
