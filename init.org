@@ -1463,6 +1463,7 @@
    - [[*company-mode][company-mode]] :: プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ
    - [[*emojify][emojify]] :: Slack や GitHub みたいに ~:smile:~ とか入れると笑顔の絵文字を表示する、みたいなやつ
    - [[*multiple-cursors][multiple-cursors]] :: カーソルを増やして複数箇所を同時に編集できるようになるやつ
+   - [[id:f309e8bd-8e1d-4a91-ae4d-9a960373969b][origami]] :: コードの折り畳みができるようになるやつ
    - [[*smartparens][smartparens]] :: カッコや引用符などのペアになるやつの入力補助をしてくれるやつ
    - [[*undo-fu][undo-fu]] :: シンプルな undo/redo の機能を提供してくれるやつ
    - [[*view-mode][view-mode]] :: Emacs に組込まれてる閲覧専用のモード。コードリーディングの時に有効にすると便利
@@ -1701,6 +1702,76 @@
 
     キーバインドは別途定義している。
     もうちょっと真面目に定義したい
+
+** origami
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: origami
+   :ID:       f309e8bd-8e1d-4a91-ae4d-9a960373969b
+   :END:
+*** 概要
+    [[https://github.com/elp-revive/origami.el][origami]] はコードの折り畳み機能を提供するやつ。
+    メジャーな言語は大体サポートしている感じ。
+    大きいファイルを見る時に便利。
+*** インストール
+    el-get 公式にはレシピがないので自前でレシピを用意している。
+
+    #+begin_src emacs-lisp :tangle recipes/origami.rcp
+      (:name origami
+             :website "https://github.com/elp-revive/origami.el"
+             :description "A text folding minor mode for Emacs."
+             :type github
+             :pkgname "elp-revive/origami.el"
+             :depends (s dash))
+    #+end_src
+
+    そしてそれを使ってインストール
+
+    #+begin_src emacs-lisp :tangle inits/50-origami.el
+    (el-get-bundle origami)
+    #+end_src
+*** キーバインド
+    origami-mode-map では以下のように動くように設定している。
+
+    | Key         | 効果                                                              |
+    | <backtab>   | 再帰的に折り畳んだり開いたりするやつ。org-mode の fold と似た感じ |
+    | M-<backtab> | そのノードだけ表示する                                            |
+
+    #+begin_src emacs-lisp :tangle inits/50-origami.el
+      (with-eval-after-load 'origami
+        (define-key origami-mode-map (kbd "<backtab>") 'origami-recursively-toggle-node)
+        (define-key origami-mode-map (kbd "M-<backtab>") 'origami-show-only-node))
+    #+end_src
+
+    ただこれだけだと多分足りないので Hydra で色々定義している。
+
+    #+begin_src emacs-lisp :tangle inits/50-origami.el
+      (with-eval-after-load 'pretty-hydra
+        (pretty-hydra-define origami-hydra
+          (:separator "-" :quit-key "q" :title "Origami")
+          ("Node"
+           (("o" origami-open-node "Open")
+            ("c" origami-close-node "Close")
+            ("s" origami-show-node "Show")
+            ("t" origami-toggle-node "Toggle")
+            ("S" origami-forward-toggle-node "Foward toggle")
+            ("r" origami-recursively-toggle-node "Recursive toggle"))
+
+           "All"
+           (("O" origami-open-all-nodes "Open")
+            ("C" origami-close-all-nodes "Close")
+            ("T" origami-toggle-all-nodes "Toggle"))
+
+           "Move"
+           (("n" origami-next-fold "Next")
+            ("p" origami-previous-fold "Previous"))
+
+           "Undo/Redo"
+           (("/" origami-undo "Undo")
+            ("?" origami-redo "Redo")
+            ("X" origami-reset "Reset")))))
+    #+end_src
+
+    この設定は [[id:befaa52b-d054-43bd-9445-fca7f5bd8be5][jk で起動する Hydra]] から呼び出せるようにしている
 
 ** smartparens
    :PROPERTIES:
