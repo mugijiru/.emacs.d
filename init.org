@@ -5202,6 +5202,26 @@
      ~with-eval-after-load~ を使っているが
      ~css-indent-offset~ は ~defcustom~ で定義されているので
      ~custom-set-variables~ を使うように修正した方が良さそう
+
+*** flycheck の scss-stylelint を上書き
+    stylelint v14 以降は --style オプションが使えないので上書き
+    https://github.com/flycheck/flycheck/pull/1944 が取り込まれたらこれも要らなさそうだけど。
+
+     #+begin_src emacs-lisp :tangle inits/40-scss.el
+       (with-eval-after-load 'flycheck
+         (flycheck-define-checker scss-stylelint
+           "A SCSS syntax and style checker using stylelint.
+
+       See URL `http://stylelint.io/'."
+           :command ("stylelint"
+                     (eval flycheck-stylelint-args)
+                     (option-flag "--quiet" flycheck-stylelint-quiet)
+                     (config-file "--config" flycheck-stylelintrc))
+           :standard-input t
+           :error-parser flycheck-parse-stylelint
+           :predicate flycheck-buffer-nonempty-p
+           :modes (scss-mode)))
+     #+end_src
 *** hook                                                        :improvement:
     :PROPERTIES:
     :ID:       338cf09b-87b0-47bb-8cf7-080aa5cc2f85
