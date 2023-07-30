@@ -18,6 +18,7 @@
       (setq web-mode-markup-indent-offset 2)
       (setq web-mode-code-indent-offset 2)
       (setq web-mode-enable-auto-indentation nil)
+      (origami-mode 1)
       (company-mode 1)
       (turn-on-smartparens-mode)
       (display-line-numbers-mode t)
