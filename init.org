@@ -4303,11 +4303,12 @@
     - カッコの対応などもいい感じに動いて欲しいので smartparens-mode とその strict-mode を有効にしている
 
     #+begin_src emacs-lisp :tangle inits/40-emacs-lisp.el
-    (defun my/emacs-lisp-mode-hook ()
-      (display-line-numbers-mode 1)
-      (company-mode 1)
-      (smartparens-mode 1)
-      (turn-on-smartparens-strict-mode))
+      (defun my/emacs-lisp-mode-hook ()
+        (display-line-numbers-mode 1)
+        (origami-mode 1)
+        (company-mode 1)
+        (smartparens-mode 1)
+        (turn-on-smartparens-strict-mode))
     #+end_src
 
     そんで最後にその関数を hook に突っ込んでる。
