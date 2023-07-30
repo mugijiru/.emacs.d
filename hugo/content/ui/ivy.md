@@ -293,6 +293,8 @@ completing-read や ivy-completing-read を指定してもうまくいかない�
 ```emacs-lisp
 (setq ivy-re-builders-alist '((t . ivy-migemo-regex-plus)
                               (counsel-M-x . ivy--regex-plus)
+                              (counsel-describe-function . ivy--regex-plus)
+                              (counsel-describe-variable . ivy--regex-plus)
                               (swiper . ivy-migemo-regex-plus)
                               (counsel-find-file . ivy-migemo-regex-plus)))
 ```
