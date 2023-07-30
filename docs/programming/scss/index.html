@@ -12,20 +12,20 @@
     <title>scss :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1690695298" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1690695298" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1690695298" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1690695298" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1690695298" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1690695298" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1690695298" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1690695298" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1690695298" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1690695298" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1690698212" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1690698212" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1690698212" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1690698212" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1690698212" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1690698212" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1690698212" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1690698212" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1690698212" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1690698212" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1690695298"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1690698212"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1690695298"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1690695298"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1690698212"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1690698212"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1690695298"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1690698212"></script>
 
     
   </div>
@@ -2725,6 +2725,7 @@
         <li><a href="#設定">設定 <span class="tag"><span class="improvement">improvement</span></span></a></li>
       </ul>
     </li>
+    <li><a href="#flycheck-の-scss-stylelint-を上書き">flycheck の scss-stylelint を上書き</a></li>
     <li><a href="#hook">hook <span class="tag"><span class="improvement">improvement</span></span></a></li>
     <li><a href="#カラーコード-css-variable-の置き換え">カラーコード→ CSS Variable の置き換え</a></li>
     <li><a href="#キーバインド">キーバインド</a></li>
@@ -2770,7 +2771,23 @@
 </span></span></code></pre></div><p><code>with-eval-after-load</code> を使っているが
 <code>css-indent-offset</code> は <code>defcustom</code> で定義されているので
 <code>custom-set-variables</code> を使うように修正した方が良さそう</p>
-<h2 id="hook">hook <span class="tag"><span class="improvement">improvement</span></span></h2>
+<h2 id="flycheck-の-scss-stylelint-を上書き">flycheck の scss-stylelint を上書き</h2>
+<p>stylelint v14 以降は &ndash;style オプションが使えないので上書き
+<a href="https://github.com/flycheck/flycheck/pull/1944">https://github.com/flycheck/flycheck/pull/1944</a> が取り込まれたらこれも要らなさそうだけど。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;flycheck</span>
+</span></span><span style="display:flex;"><span>  (flycheck-define-checker scss-stylelint
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;A SCSS syntax and style checker using stylelint.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">See URL </span><span style="color:#e6db74">`http://stylelint.io/&#39;</span><span style="color:#e6db74">.&#34;</span>
+</span></span><span style="display:flex;"><span>    :command (<span style="color:#e6db74">&#34;stylelint&#34;</span>
+</span></span><span style="display:flex;"><span>              (<span style="color:#a6e22e">eval</span> flycheck-stylelint-args)
+</span></span><span style="display:flex;"><span>              (option-flag <span style="color:#e6db74">&#34;--quiet&#34;</span> flycheck-stylelint-quiet)
+</span></span><span style="display:flex;"><span>              (config-file <span style="color:#e6db74">&#34;--config&#34;</span> flycheck-stylelintrc))
+</span></span><span style="display:flex;"><span>    :standard-input <span style="color:#66d9ef">t</span>
+</span></span><span style="display:flex;"><span>    :error-parser flycheck-parse-stylelint
+</span></span><span style="display:flex;"><span>    :predicate flycheck-buffer-nonempty-p
+</span></span><span style="display:flex;"><span>    :modes (scss-mode)))
+</span></span></code></pre></div><h2 id="hook">hook <span class="tag"><span class="improvement">improvement</span></span></h2>
 <p>scss を使う上で hook を使って色々有効化したりしている。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/scss-mode-hook ()
 </span></span><span style="display:flex;"><span>  (flycheck-mode <span style="color:#ae81ff">1</span>)
@@ -4736,19 +4753,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1690695298"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1690695298"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1690695298"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1690695298"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1690695298"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1690695298"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1690698212"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1690698212"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1690698212"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1690698212"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1690698212"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1690698212"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1690695298"></script>
-    <script src="/.emacs.d/js/learn.js?1690695298"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1690695298"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1690698212"></script>
+    <script src="/.emacs.d/js/learn.js?1690698212"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1690698212"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1690695298"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1690698212"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
