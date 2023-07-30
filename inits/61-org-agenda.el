@@ -50,11 +50,14 @@
                 (org-agenda-todo-keyword-format "-")
                 (org-overriding-columns-format "%25ITEM %TODO")
                 (org-agenda-files '("~/Documents/org/tasks/projects.org"))
-                (org-super-agenda-groups '((:name "〆切が過ぎてる作業" :and (:deadline past :not (:category "Private")))
+                (org-super-agenda-groups `((:name "〆切が過ぎてる作業" :and (:deadline past :not (:category "Private")))
                                            (:name "予定が過ぎてる作業" :and (:scheduled past :not (:category "Private")))
                                            (:name "今日〆切の作業" :and (:deadline today :not (:category "Private")))
                                            (:name "今日予定の作業" :and (:scheduled today :not (:category "Private")))
-                                           ;; (:name "今後1週間の作業" :and (:and (:scheduled (before ,(format-time-string "%Y-%m-%d" (time-add (current-time) (* 60 60 24 7)))) (:scheduled (after (format-time-string "%Y-%m-%d" (current-time))))) :not (:category "Private")))
+                                           (:name "今後1週間の作業" :and (:and
+                                                                          (:scheduled (before ,(format-time-string "%Y-%m-%d" (time-add (current-time) (days-to-time 7))))
+                                                                                      :scheduled (after ,(format-time-string "%Y-%m-%d" (current-time))))
+                                                                          :not (:category "Private")))
                                            (:discard (:anything t))))))
     (tags-todo "-Weekday-Daily-Holiday-Weekly-Weekend"
                ((org-agenda-prefix-format " ")
