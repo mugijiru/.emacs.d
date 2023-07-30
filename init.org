@@ -5200,27 +5200,28 @@
      [[*major-mode-hydra][major-mode-hydra]] でキーを定義している
 
      #+begin_src emacs-lisp :tangle inits/40-ruby.el
-     (with-eval-after-load 'major-mode-hydra
-       (major-mode-hydra-define enh-ruby-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-alltheicon "ruby-alt") " Ruby commands"))
-         ("Enh Ruby"
-          (("{" enh-ruby-toggle-block "Toggle block")
-           ("e" enh-ruby-insert-end "Insert end"))
+       (with-eval-after-load 'major-mode-hydra
+         (major-mode-hydra-define enh-ruby-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-alltheicon "ruby-alt") " Ruby commands"))
+           ("Enh Ruby"
+            (("{" enh-ruby-toggle-block "Toggle block")
+             ("e" enh-ruby-insert-end "Insert end"))
 
-          "LSP"
-          (("i" lsp-ui-imenu "Imenu")
-           ("f" lsp-ui-flycheck-list "Flycheck list"))
+            "LSP"
+            (("i" lsp-ui-imenu "Imenu")
+             ("f" lsp-ui-flycheck-list "Flycheck list"))
 
-          "RSpec"
-          (("s" rspec-verify "Run associated spec")
-           ("m" rspec-verify-method "Run method spec")
-           ("r" rspec-rerun "Rerun")
-           ("l" rspec-run-last-failed "Run last failed"))
+            "RSpec"
+            (("s" rspec-verify "Run associated spec")
+             ("m" rspec-verify-method "Run method spec")
+             ("r" rspec-rerun "Rerun")
+             ("l" rspec-run-last-failed "Run last failed"))
 
-          "REPL"
-          (("I" inf-ruby "inf-ruby"))
+            "REPL"
+            (("I" inf-ruby "inf-ruby"))
 
-          "Other"
-          (("j" dumb-jump-go "Dumb Jump")))))
+            "Other"
+            (("j" dumb-jump-go "Dumb Jump")
+             ("o" origami-hydra/body "Origami")))))
      #+end_src
 
      | Key | 効果                                                                        |

@@ -43,4 +43,5 @@
      (("I" inf-ruby "inf-ruby"))
 
      "Other"
-     (("j" dumb-jump-go "Dumb Jump")))))
+     (("j" dumb-jump-go "Dumb Jump")
+      ("o" origami-hydra/body "Origami")))))

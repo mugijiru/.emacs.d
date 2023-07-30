@@ -165,7 +165,8 @@ Ruby を使ってる時にコメント部分はクォートの外以外では自
      (("I" inf-ruby "inf-ruby"))
 
      "Other"
-     (("j" dumb-jump-go "Dumb Jump")))))
+     (("j" dumb-jump-go "Dumb Jump")
+      ("o" origami-hydra/body "Origami")))))
 ```
 
 | Key | 効果                                                |
