@@ -106,6 +106,7 @@ hook 用の関数で補完などの機能を有効にしている
 
 ```emacs-lisp
 (defun my/enh-ruby-mode-hook ()
+  (origami-mode 1)
   (company-mode 1)
   (lsp)
   (lsp-ui-mode 1)
