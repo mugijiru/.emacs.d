@@ -239,6 +239,7 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
 
    "Edit"
    (("a" align-regexp "Align Regexp")
+    ("[" origami-hydra/body "Origami")
     (";" comment-dwim "Comment"))
 
    "Code"
