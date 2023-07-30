@@ -11,3 +11,6 @@
 (custom-set-variables
  '(company-quickhelp-color-background "#323445")
  '(company-quickhelp-mode t))
+
+(el-get-bundle company-posframe)
+(company-posframe-mode 1)
