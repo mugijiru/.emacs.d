@@ -5304,24 +5304,25 @@
     scss を使う上で hook を使って色々有効化したりしている。
 
     #+begin_src emacs-lisp :tangle inits/40-scss.el
-    (defun my/scss-mode-hook ()
-      (flycheck-mode 1)
+      (defun my/scss-mode-hook ()
+        (flycheck-mode 1)
 
-      (setq-local lsp-prefer-flymake nil)
-      (lsp)
-      (lsp-ui-mode -1)
+        (setq-local lsp-prefer-flymake nil)
+        (lsp)
+        (lsp-ui-mode -1)
 
-      (smartparens-strict-mode 1)
+        (smartparens-strict-mode 1)
 
-      ;; lsp-ui とかより後に設定しないと上書きされるのでここに移動した
-      (setq-local flycheck-checker 'scss-stylelint)
-      (setq-local flycheck-check-syntax-automatically '(save new-line idle-change))
+        ;; lsp-ui とかより後に設定しないと上書きされるのでここに移動した
+        (setq-local flycheck-checker 'scss-stylelint)
+        (setq-local flycheck-check-syntax-automatically '(save new-line idle-change))
 
-      (company-mode 1)
-      (display-line-numbers-mode 1)
+        (origami-mode 1)
+        (company-mode 1)
+        (display-line-numbers-mode 1)
 
-      (rainbow-mode))
-    (add-hook 'scss-mode-hook 'my/scss-mode-hook)
+        (rainbow-mode))
+      (add-hook 'scss-mode-hook 'my/scss-mode-hook)
     #+end_src
 
     - flycheck-mode の有効化

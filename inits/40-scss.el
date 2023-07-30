@@ -30,6 +30,7 @@ See URL `http://stylelint.io/'."
   (setq-local flycheck-checker 'scss-stylelint)
   (setq-local flycheck-check-syntax-automatically '(save new-line idle-change))
 
+  (origami-mode 1)
   (company-mode 1)
   (display-line-numbers-mode 1)
 
