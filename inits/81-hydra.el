@@ -89,6 +89,7 @@
 
    "Edit"
    (("a" align-regexp "Align Regexp")
+    ("[" origami-hydra/body "Origami")
     (";" comment-dwim "Comment"))
 
    "Code"

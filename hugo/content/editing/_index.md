@@ -23,6 +23,9 @@ disableToc = true
 [multiple-cursors]({{< relref "global-keybinds#multiple-cursors" >}})
 : カーソルを増やして複数箇所を同時に編集できるようになるやつ
 
+[origami]({{< relref "origami" >}})
+: コードの折り畳みができるようになるやつ
+
 [smartparens]({{< relref "smartparens" >}})
 : カッコや引用符などのペアになるやつの入力補助をしてくれるやつ
 

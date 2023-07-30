@@ -19,6 +19,7 @@
 
 (defun my/ts-mode-hook ()
   (company-mode 1)
+  (origami-mode 1)
   (turn-on-smartparens-strict-mode)
   (display-line-numbers-mode t)
   (lsp)

@@ -106,6 +106,7 @@ hook 用の関数で補完などの機能を有効にしている
 
 ```emacs-lisp
 (defun my/enh-ruby-mode-hook ()
+  (origami-mode 1)
   (company-mode 1)
   (lsp)
   (lsp-ui-mode 1)
@@ -164,7 +165,8 @@ Ruby を使ってる時にコメント部分はクォートの外以外では自
      (("I" inf-ruby "inf-ruby"))
 
      "Other"
-     (("j" dumb-jump-go "Dumb Jump")))))
+     (("j" dumb-jump-go "Dumb Jump")
+      ("o" origami-hydra/body "Origami")))))
 ```
 
 | Key | 効果                                                |
