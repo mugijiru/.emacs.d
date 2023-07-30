@@ -113,7 +113,7 @@ auto-save-timeout auto-save-interval で制御されている。
 設定 Mac では 14, それ以外(Linux) では 18 を基準としている。
 Mac と Linux で基準のサイズを変えているがなぜかこの方がガタガタもしないし大き過ぎもしないしでいい感じになる。
 といいつつ元々 Linux の方は WSL2 環境に合わせて 12 にしていたが Manjaro 環境に合わせて 18 に変更しているのでまたその内 WSL2 でも Manjaro でもどっちいい感じに使えるように調整するかもしれない
-(let* ((size (if (or (eq window-system &amp;#39;ns) (eq window-system &amp;#39;mac)) 14 18)) (asciifont &amp;#34;Ricty Diminished&amp;#34;) ; ASCII fonts (jpfont &amp;#34;Ricty Diminished&amp;#34;) ; Japanese fonts (h (* size 10)) (fontspec (font-spec :family asciifont)) (jp-fontspec (font-spec :family jpfont))) (set-face-attribute &amp;#39;default nil :family asciifont :height h) (set-fontset-font nil &amp;#39;japanese-jisx0213.</description>
+(defun my/set-font-size (size) (let* ((asciifont &amp;#34;Ricty Diminished&amp;#34;) ; ASCII fonts (jpfont &amp;#34;Ricty Diminished&amp;#34;) ; Japanese fonts (h (* size 10)) (fontspec (font-spec :family asciifont)) (jp-fontspec (font-spec :family jpfont))) (set-face-attribute &amp;#39;default nil :family asciifont :height h) (set-fontset-font nil &amp;#39;japanese-jisx0213.2004-1 jp-fontspec) (set-fontset-font nil &amp;#39;japanese-jisx0213-2 jp-fontspec) (set-fontset-font nil &amp;#39;katakana-jisx0201 jp-fontspec) (set-fontset-font nil &amp;#39;(#x0080 .</description>
     </item>
     
     <item>

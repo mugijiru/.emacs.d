@@ -12,20 +12,20 @@
     <title>font-config :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1690682772" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1690682772" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1690682772" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1690682772" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1690682772" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1690682772" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1690682772" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1690682772" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1690682772" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1690682772" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1690687988" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1690687988" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1690687988" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1690687988" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1690687988" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1690687988" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1690687988" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1690687988" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1690687988" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1690687988" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1690682772"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1690687988"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1690682772"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1690682772"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1690687988"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1690687988"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1690682772"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1690687988"></script>
 
     
   </div>
@@ -2747,19 +2747,26 @@
 <p>Mac と Linux で基準のサイズを変えているがなぜかこの方がガタガタもしないし大き過ぎもしないしでいい感じになる。</p>
 <p>といいつつ元々 Linux の方は WSL2 環境に合わせて 12 にしていたが
 Manjaro 環境に合わせて 18 に変更しているのでまたその内 WSL2 でも Manjaro でもどっちいい感じに使えるように調整するかもしれない</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(let* ((size (if (or (<span style="color:#a6e22e">eq</span> <span style="color:#a6e22e">window-system</span> <span style="color:#e6db74">&#39;ns</span>) (<span style="color:#a6e22e">eq</span> <span style="color:#a6e22e">window-system</span> <span style="color:#e6db74">&#39;mac</span>)) <span style="color:#ae81ff">14</span> <span style="color:#ae81ff">18</span>))
-</span></span><span style="display:flex;"><span>       (asciifont <span style="color:#e6db74">&#34;Ricty Diminished&#34;</span>)      <span style="color:#75715e">; ASCII fonts</span>
-</span></span><span style="display:flex;"><span>       (jpfont <span style="color:#e6db74">&#34;Ricty Diminished&#34;</span>)         <span style="color:#75715e">; Japanese fonts</span>
-</span></span><span style="display:flex;"><span>       (h (<span style="color:#a6e22e">*</span> size <span style="color:#ae81ff">10</span>))
-</span></span><span style="display:flex;"><span>       (fontspec (<span style="color:#a6e22e">font-spec</span> :family asciifont))
-</span></span><span style="display:flex;"><span>       (jp-fontspec (<span style="color:#a6e22e">font-spec</span> :family jpfont)))
-</span></span><span style="display:flex;"><span>  (set-face-attribute <span style="color:#e6db74">&#39;default</span> <span style="color:#66d9ef">nil</span> :family asciifont :height h)
-</span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">set-fontset-font</span> <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;japanese-jisx0213.2004-1</span> jp-fontspec)
-</span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">set-fontset-font</span> <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;japanese-jisx0213-2</span> jp-fontspec)
-</span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">set-fontset-font</span> <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;katakana-jisx0201</span> jp-fontspec)
-</span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">set-fontset-font</span> <span style="color:#66d9ef">nil</span> <span style="color:#f92672">&#39;</span>(<span style="color:#ae81ff">#x0080</span> <span style="color:#f92672">.</span> <span style="color:#ae81ff">#x024F</span>) fontspec)
-</span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">set-fontset-font</span> <span style="color:#66d9ef">nil</span> <span style="color:#f92672">&#39;</span>(<span style="color:#ae81ff">#x0370</span> <span style="color:#f92672">.</span> <span style="color:#ae81ff">#x03FF</span>) fontspec))
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/set-font-size (size)
+</span></span><span style="display:flex;"><span>  (let* ((asciifont <span style="color:#e6db74">&#34;Ricty Diminished&#34;</span>)      <span style="color:#75715e">; ASCII fonts</span>
+</span></span><span style="display:flex;"><span>         (jpfont <span style="color:#e6db74">&#34;Ricty Diminished&#34;</span>)         <span style="color:#75715e">; Japanese fonts</span>
+</span></span><span style="display:flex;"><span>         (h (<span style="color:#a6e22e">*</span> size <span style="color:#ae81ff">10</span>))
+</span></span><span style="display:flex;"><span>         (fontspec (<span style="color:#a6e22e">font-spec</span> :family asciifont))
+</span></span><span style="display:flex;"><span>         (jp-fontspec (<span style="color:#a6e22e">font-spec</span> :family jpfont)))
+</span></span><span style="display:flex;"><span>    (set-face-attribute <span style="color:#e6db74">&#39;default</span> <span style="color:#66d9ef">nil</span> :family asciifont :height h)
+</span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">set-fontset-font</span> <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;japanese-jisx0213.2004-1</span> jp-fontspec)
+</span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">set-fontset-font</span> <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;japanese-jisx0213-2</span> jp-fontspec)
+</span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">set-fontset-font</span> <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;katakana-jisx0201</span> jp-fontspec)
+</span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">set-fontset-font</span> <span style="color:#66d9ef">nil</span> <span style="color:#f92672">&#39;</span>(<span style="color:#ae81ff">#x0080</span> <span style="color:#f92672">.</span> <span style="color:#ae81ff">#x024F</span>) fontspec)
+</span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">set-fontset-font</span> <span style="color:#66d9ef">nil</span> <span style="color:#f92672">&#39;</span>(<span style="color:#ae81ff">#x0370</span> <span style="color:#f92672">.</span> <span style="color:#ae81ff">#x03FF</span>) fontspec)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(if (or (<span style="color:#a6e22e">eq</span> <span style="color:#a6e22e">window-system</span> <span style="color:#e6db74">&#39;ns</span>) (<span style="color:#a6e22e">eq</span> <span style="color:#a6e22e">window-system</span> <span style="color:#e6db74">&#39;mac</span>))
+</span></span><span style="display:flex;"><span>    (my/set-font-size <span style="color:#ae81ff">14</span>)
+</span></span><span style="display:flex;"><span>  (my/set-font-size <span style="color:#ae81ff">18</span>))
+</span></span></code></pre></div><p>フォントの設定する処理は関数に切り出しているので全体的にフォントを大きくしたい時は</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(my/set-font-size <span style="color:#ae81ff">24</span>)
+</span></span></code></pre></div><p>のようにさくっと変更できるようにしている</p>
+
 
 <footer class="footline">
 	
@@ -4645,19 +4652,19 @@ Manjaro 環境に合わせて 18 に変更しているのでまたその内 WSL2
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1690682772"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1690682772"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1690682772"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1690682772"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1690682772"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1690682772"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1690687988"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1690687988"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1690687988"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1690687988"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1690687988"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1690687988"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1690682772"></script>
-    <script src="/.emacs.d/js/learn.js?1690682772"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1690682772"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1690687988"></script>
+    <script src="/.emacs.d/js/learn.js?1690687988"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1690687988"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1690682772"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1690687988"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
