@@ -473,7 +473,7 @@ auto-save-timeout auto-save-interval で制御されている。
 (with-eval-after-load &amp;#39;company ;; active (define-key company-active-map (kbd &amp;#34;C-s&amp;#34;) &amp;#39;company-search-candidates)) それと最近追加された company-show-quick-access を有効にしている。
 (custom-set-variables &amp;#39;(company-show-quick-access t)) これを有効にしていると補完候補の末尾に quick access key が表示されて例えば4行目なら 4 とか表示されるのでそこで M-4 とか入力すると4行目が選択されて便利
 company-quickhelp company-quickhelp は候補の補足情報が見れるようにするパッケージ。それを入れて、文字色とかぶらないように背景色を設定している。
-(el-get-bundle company-quickhelp) (custom-set-variables &amp;#39;(company-quickhelp-color-background &amp;#34;#323445&amp;#34;) &amp;#39;(company-quickhelp-mode t)) company-posframe company-posframe は company-mode の表示に posframe を使うやつ。
+(el-get-bundle company-quickhelp) (company-quickhelp-mode t) (custom-set-variables &amp;#39;(company-quickhelp-color-background &amp;#34;#323445&amp;#34;)) company-posframe company-posframe は company-mode の表示に posframe を使うやつ。
 公式 README によると速度的にはまあ十分って感じなので速くはないのかなと。ただ CJK languages と相性は良いっぽい。ってことでとりあえず入れてみている
 (el-get-bundle company-posframe) (company-posframe-mode t) なお el-get 公式のレシピはファイル名や :name が間違っているのでひとまず自前でレシピ登録している。</description>
     </item>
