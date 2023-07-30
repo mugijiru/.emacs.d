@@ -47,7 +47,9 @@ draft = false
 ```emacs-lisp
 (el-get-bundle company-quickhelp)
 
-(custom-set-variables '(company-quickhelp-color-background "#323445"))
+(custom-set-variables
+ '(company-quickhelp-color-background "#323445")
+ '(company-quickhelp-mode t))
 ```
 
 
