@@ -123,6 +123,8 @@
                 (org-agenda-overriding-header "Env")))))
 
   ("p" . "Projects")
+  ("pA" "Projects Priority A"
+   ((tags-todo "LEVEL=2&PRIORITY=\"A\"" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
   ("pp" "Projects"
    ((alltodo "" ((org-agenda-prefix-format " ")
                  (org-agenda-overriding-header "今日のタスク")
