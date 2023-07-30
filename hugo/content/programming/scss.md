@@ -44,6 +44,28 @@ scss-mode は Emacs 組込みの css-mode の中で定義されているメジ�
 `custom-set-variables` を使うように修正した方が良さそう
 
 
+## flycheck の scss-stylelint を上書き {#flycheck-の-scss-stylelint-を上書き}
+
+stylelint v14 以降は --style オプションが使えないので上書き
+<https://github.com/flycheck/flycheck/pull/1944> が取り込まれたらこれも要らなさそうだけど。
+
+```emacs-lisp
+(with-eval-after-load 'flycheck
+  (flycheck-define-checker scss-stylelint
+    "A SCSS syntax and style checker using stylelint.
+
+See URL `http://stylelint.io/'."
+    :command ("stylelint"
+              (eval flycheck-stylelint-args)
+              (option-flag "--quiet" flycheck-stylelint-quiet)
+              (config-file "--config" flycheck-stylelintrc))
+    :standard-input t
+    :error-parser flycheck-parse-stylelint
+    :predicate flycheck-buffer-nonempty-p
+    :modes (scss-mode)))
+```
+
+
 ## hook <span class="tag"><span class="improvement">improvement</span></span> {#hook}
 
 scss を使う上で hook を使って色々有効化したりしている。

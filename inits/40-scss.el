@@ -3,6 +3,20 @@
 (with-eval-after-load 'scss-mode
   (setq css-indent-offset 2))
 
+(with-eval-after-load 'flycheck
+  (flycheck-define-checker scss-stylelint
+    "A SCSS syntax and style checker using stylelint.
+
+See URL `http://stylelint.io/'."
+    :command ("stylelint"
+              (eval flycheck-stylelint-args)
+              (option-flag "--quiet" flycheck-stylelint-quiet)
+              (config-file "--config" flycheck-stylelintrc))
+    :standard-input t
+    :error-parser flycheck-parse-stylelint
+    :predicate flycheck-buffer-nonempty-p
+    :modes (scss-mode)))
+
 (defun my/scss-mode-hook ()
   (flycheck-mode 1)
 
