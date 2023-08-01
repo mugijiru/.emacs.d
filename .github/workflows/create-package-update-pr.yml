@@ -59,7 +59,7 @@ jobs:
         title: ${{ env.PR_TITLE }}
         body: ${{ steps.get-pr-body.outputs.body }}
 
-    - if: env.found_update == 1
+    - if: always()
       name: Notify slack build result
       uses: lazy-actions/slatify@master
       with:
