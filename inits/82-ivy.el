@@ -101,9 +101,10 @@
 (define-key ivy-minibuffer-map (kbd "M-f") #'ivy-migemo-toggle-fuzzy)
 (define-key ivy-minibuffer-map (kbd "M-m") #'ivy-migemo-toggle-migemo)
 
-(setq ivy-re-builders-alist '((t . ivy-migemo-regex-plus)
-                              (counsel-M-x . ivy--regex-plus)
-                              (counsel-describe-function . ivy--regex-plus)
-                              (counsel-describe-variable . ivy--regex-plus)
-                              (swiper . ivy-migemo-regex-plus)
-                              (counsel-find-file . ivy-migemo-regex-plus)))
+(with-eval-after-load 'ivy-migemo
+  (setq ivy-re-builders-alist '((t . ivy-migemo-regex-plus)
+                                (counsel-M-x . ivy--regex-plus)
+                                (counsel-describe-function . ivy--regex-plus)
+                                (counsel-describe-variable . ivy--regex-plus)
+                                (swiper . ivy-migemo-regex-plus)
+                                (counsel-find-file . ivy-migemo-regex-plus))))
