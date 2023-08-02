@@ -96,6 +96,7 @@ lsp-mode から eslint を使うことでやりたいことの対応ができる
       (setq web-mode-enable-auto-indentation nil)
       (origami-mode 1)
       (company-mode 1)
+      (subword-mode 1)
       (turn-on-smartparens-mode)
       (display-line-numbers-mode t)
       (lsp)

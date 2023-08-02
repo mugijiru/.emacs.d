@@ -32,6 +32,7 @@ See URL `http://stylelint.io/'."
 
   (origami-mode 1)
   (company-mode 1)
+  (subword-mode 1)
   (display-line-numbers-mode 1)
 
   (rainbow-mode))
