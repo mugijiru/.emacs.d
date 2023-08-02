@@ -108,6 +108,7 @@ hook 用の関数で補完などの機能を有効にしている
 (defun my/enh-ruby-mode-hook ()
   (origami-mode 1)
   (company-mode 1)
+  (subword-mode 1)
   (lsp)
   (lsp-ui-mode 1)
   (add-hook 'before-save-hook #'lsp-format-buffer nil 'local)

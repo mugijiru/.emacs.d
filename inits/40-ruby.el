@@ -13,6 +13,7 @@
 (defun my/enh-ruby-mode-hook ()
   (company-mode 1)
   (origami-mode 1)
+  (subword-mode 1)
   (lsp)
   (lsp-ui-mode 1)
   (add-hook 'before-save-hook #'lsp-format-buffer nil 'local)

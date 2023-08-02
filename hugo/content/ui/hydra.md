@@ -154,6 +154,7 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
     ("v" my/toggle-view-mode       "Readonly"       :toggle view-mode)
     ("f" flycheck-mode             "Flycheck"       :toggle flycheck-mode)
     ("A" auto-fix-mode             "Auto fix"       :toggle auto-fix-mode)
+    ("^" subword-mode              "Subword"        :toggle subword-mode)
     ("E" toggle-debug-on-error     "Debug on error" :toggle debug-on-error))))
 ```
 

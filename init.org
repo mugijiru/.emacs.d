@@ -2738,6 +2738,7 @@
            ("v" my/toggle-view-mode       "Readonly"       :toggle view-mode)
            ("f" flycheck-mode             "Flycheck"       :toggle flycheck-mode)
            ("A" auto-fix-mode             "Auto fix"       :toggle auto-fix-mode)
+           ("^" subword-mode              "Subword"        :toggle subword-mode)
            ("E" toggle-debug-on-error     "Debug on error" :toggle debug-on-error))))
      #+end_src
 
@@ -4994,6 +4995,7 @@
             (setq web-mode-enable-auto-indentation nil)
             (origami-mode 1)
             (company-mode 1)
+            (subword-mode 1)
             (turn-on-smartparens-mode)
             (display-line-numbers-mode t)
             (lsp)
@@ -5162,6 +5164,7 @@
        (defun my/enh-ruby-mode-hook ()
          (origami-mode 1)
          (company-mode 1)
+         (subword-mode 1)
          (lsp)
          (lsp-ui-mode 1)
          (add-hook 'before-save-hook #'lsp-format-buffer nil 'local)
@@ -5322,6 +5325,7 @@
 
         (origami-mode 1)
         (company-mode 1)
+        (subword-mode 1)
         (display-line-numbers-mode 1)
 
         (rainbow-mode))
@@ -5453,6 +5457,7 @@
        (defun my/ts-mode-hook ()
          (origami-mode 1)
          (company-mode 1)
+         (subword-mode 1)
          (turn-on-smartparens-strict-mode)
          (display-line-numbers-mode t)
          (lsp)
