@@ -6882,14 +6882,13 @@
           ((todo "DOING" ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))
            (todo "TODO"  ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))))
          ("X" "Finished"
-          ((todo "DONE"    ((org-agenda-files '("~/Documents/org/tasks/projects.org"
+          ((tags "LEVEL=2" ((org-agenda-files '("~/Documents/org/tasks/projects.org"
                                                 "~/Documents/org/tasks/inbox.org"
                                                 "~/Documents/org/tasks/reviews.org"
-                                                "~/Documents/org/tasks/next-actions.org"))))
-           (todo "SOMEDAY" ((org-agenda-files '("~/Documents/org/tasks/projects.org"
-                                                "~/Documents/org/tasks/inbox.org"
-                                                "~/Documents/org/tasks/reviews.org"
-                                                "~/Documents/org/tasks/next-actions.org"))))))
+                                                "~/Documents/org/tasks/next-actions.org"))
+                            (org-super-agenda-groups '((:name "Finished" :todo "DONE")
+                                                       (:name "Someday" :todo "SOMEDAY")
+                                                       (:discard (:anything t))))))))
 
          ("z" "日報"
           ((agenda "" ((org-agenda-span 'day)
