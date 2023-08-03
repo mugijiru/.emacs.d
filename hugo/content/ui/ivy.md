@@ -291,12 +291,13 @@ swiper を使う時はデフォで有効になっててほしいのでその設�
 completing-read や ivy-completing-read を指定してもうまくいかないのでもうエイヤで全部 migemo に倒した
 
 ```emacs-lisp
-(setq ivy-re-builders-alist '((t . ivy-migemo-regex-plus)
-                              (counsel-M-x . ivy--regex-plus)
-                              (counsel-describe-function . ivy--regex-plus)
-                              (counsel-describe-variable . ivy--regex-plus)
-                              (swiper . ivy-migemo-regex-plus)
-                              (counsel-find-file . ivy-migemo-regex-plus)))
+(with-eval-after-load 'ivy-migemo
+  (setq ivy-re-builders-alist '((t . ivy-migemo-regex-plus)
+                                (counsel-M-x . ivy--regex-plus)
+                                (counsel-describe-function . ivy--regex-plus)
+                                (counsel-describe-variable . ivy--regex-plus)
+                                (swiper . ivy-migemo-regex-plus)
+                                (counsel-find-file . ivy-migemo-regex-plus))))
 ```
 
 また fuzzy match を有効にする設定も記載されているがそちらは自分は設定していない。なんとなく。

@@ -73,6 +73,13 @@ js2-mode 用の Hydra などを定義できて便利。
 (el-get-bundle major-mode-hydra.el)
 ```
 
+また pretty-hydra の表示フォーマットを変えるために
+`pretty-hydra-default-title-body-format-spec` を使うようにしている
+
+```emacs-lisp
+(custom-set-variables '(pretty-hydra-default-title-body-format-spec "%s\n%s"))
+```
+
 なおレシピは自前で用意している
 
 ```emacs-lisp
@@ -155,6 +162,7 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
     ("f" flycheck-mode             "Flycheck"       :toggle flycheck-mode)
     ("A" auto-fix-mode             "Auto fix"       :toggle auto-fix-mode)
     ("^" subword-mode              "Subword"        :toggle subword-mode)
+    ("(" smartparens-strict-mode   "strict parens"  :toggle smartparens-strict-mode)
     ("E" toggle-debug-on-error     "Debug on error" :toggle debug-on-error))))
 ```
 

@@ -1604,13 +1604,18 @@
 
     #+begin_src emacs-lisp :tangle inits/30-company.el
       (el-get-bundle company-quickhelp)
-      (company-quickhelp-mode t)
 
       (custom-set-variables
        '(company-quickhelp-color-background "#323445"))
+
+      (with-eval-after-load 'pos-tip
+        (company-quickhelp-mode 1))
     #+end_src
 
 *** company-posframe
+    :PROPERTIES:
+    :ID:       7e68717f-16cf-4f81-bb53-ad277551de4c
+    :END:
     [[https://github.com/tumashu/company-posframe][company-posframe]] は company-mode の表示に posframe を使うやつ。
 
     公式 README によると速度的にはまあ十分って感じなので速くはないのかなと。
@@ -1619,14 +1624,14 @@
 
     #+begin_src emacs-lisp :tangle inits/30-company.el
       (el-get-bundle company-posframe)
-      (company-posframe-mode t)
+      (company-posframe-mode 1)
     #+end_src
 
     なお el-get 公式のレシピはファイル名や :name が間違っているので
     ひとまず自前でレシピ登録している。
 
     #+begin_src emacs-lisp :tangle recipes/company-posframe.rcp
-      (:name company-postframe
+      (:name company-posframe
              :description "Use child frame as company candidate menu."
              :website "https://github.com/tumashu/company-posframe/"
              :type github
@@ -1713,6 +1718,9 @@
     メジャーな言語は大体サポートしている感じ。
     大きいファイルを見る時に便利。
 *** インストール
+    :PROPERTIES:
+    :ID:       0faef96e-da34-40de-8ab6-a3c5eff91dd0
+    :END:
     el-get 公式にはレシピがないので自前でレシピを用意している。
 
     #+begin_src emacs-lisp :tangle recipes/origami.rcp
@@ -1730,6 +1738,9 @@
     (el-get-bundle origami)
     #+end_src
 *** キーバインド
+    :PROPERTIES:
+    :ID:       fe35c944-b5f0-4698-b26f-6e6667e58bd2
+    :END:
     origami-mode-map では以下のように動くように設定している。
 
     | Key         | 効果                                                              |
@@ -2653,7 +2664,14 @@
      ってことでそれを el-get を使って GitHub からインストールしている。
 
      #+begin_src emacs-lisp :tangle inits/81-hydra.el
-     (el-get-bundle major-mode-hydra.el)
+       (el-get-bundle major-mode-hydra.el)
+     #+end_src
+
+     また pretty-hydra の表示フォーマットを変えるために
+     ~pretty-hydra-default-title-body-format-spec~ を使うようにしている
+
+     #+begin_src emacs-lisp :tangle inits/81-hydra.el
+       (custom-set-variables '(pretty-hydra-default-title-body-format-spec "%s\n%s"))
      #+end_src
 
      なおレシピは自前で用意している
@@ -2739,6 +2757,7 @@
            ("f" flycheck-mode             "Flycheck"       :toggle flycheck-mode)
            ("A" auto-fix-mode             "Auto fix"       :toggle auto-fix-mode)
            ("^" subword-mode              "Subword"        :toggle subword-mode)
+           ("(" smartparens-strict-mode   "strict parens"  :toggle smartparens-strict-mode)
            ("E" toggle-debug-on-error     "Debug on error" :toggle debug-on-error))))
      #+end_src
 
@@ -2980,6 +2999,9 @@
     (counsel-mode 1)
     #+end_src
 **** counsel-locate-cmd の設定
+     :PROPERTIES:
+     :ID:       f4b0187b-3681-4d4e-bebf-8c489a1b3fef
+     :END:
      環境によってシステム全体を検索するコマンドが異なるのでここで指定している。
      Mac は mdfind を使いそれ以外ではデフォルトの locate を使う。
 
@@ -3223,12 +3245,13 @@
       completing-read や ivy-completing-read を指定してもうまくいかないのでもうエイヤで全部 migemo に倒した
 
       #+begin_src emacs-lisp :tangle inits/82-ivy.el
-        (setq ivy-re-builders-alist '((t . ivy-migemo-regex-plus)
-                                      (counsel-M-x . ivy--regex-plus)
-                                      (counsel-describe-function . ivy--regex-plus)
-                                      (counsel-describe-variable . ivy--regex-plus)
-                                      (swiper . ivy-migemo-regex-plus)
-                                      (counsel-find-file . ivy-migemo-regex-plus)))
+        (with-eval-after-load 'ivy-migemo
+          (setq ivy-re-builders-alist '((t . ivy-migemo-regex-plus)
+                                        (counsel-M-x . ivy--regex-plus)
+                                        (counsel-describe-function . ivy--regex-plus)
+                                        (counsel-describe-variable . ivy--regex-plus)
+                                        (swiper . ivy-migemo-regex-plus)
+                                        (counsel-find-file . ivy-migemo-regex-plus))))
       #+end_src
 
       また fuzzy match を有効にする設定も記載されているが
@@ -4694,7 +4717,9 @@
 
     #+begin_src emacs-lisp :tangle inits/20-lsp.el
       (with-eval-after-load 'lsp-mode
-        (add-to-list 'lsp--formatting-indent-alist `(web-mode . web-mode-code-indent-offset)))
+        (add-to-list 'lsp--formatting-indent-alist `(web-mode . web-mode-code-indent-offset))
+        (add-to-list 'lsp-file-watch-ignored-directories "hello-friend-ng")
+        (add-to-list 'lsp-file-watch-ignored-directories "ox-hugo"))
     #+end_src
 ** markdown
    :PROPERTIES:
@@ -5285,6 +5310,9 @@
      ~custom-set-variables~ を使うように修正した方が良さそう
 
 *** flycheck の scss-stylelint を上書き
+    :PROPERTIES:
+    :ID:       9506c4e4-9020-4370-9ce1-7dd95bf2ba1b
+    :END:
     stylelint v14 以降は --style オプションが使えないので上書き
     https://github.com/flycheck/flycheck/pull/1944 が取り込まれたらこれも要らなさそうだけど。
 
@@ -6749,8 +6777,8 @@
                        (org-agenda-span 'day)
                        (org-agenda-todo-keyword-format "-")
                        (org-overriding-columns-format "%25ITEM %TODO")
-                       (org-agenda-files `("~/Documents/org/tasks/projects.org"))
-                       (org-super-agenda-groups '((:name "〆切が過ぎてる作業" :and (:deadline past :not (:category "Private")))
+                       (org-agenda-files '("~/Documents/org/tasks/projects.org"))
+                       (org-super-agenda-groups `((:name "〆切が過ぎてる作業" :and (:deadline past :not (:category "Private")))
                                                   (:name "予定が過ぎてる作業" :and (:scheduled past :not (:category "Private")))
                                                   (:name "今日〆切の作業" :and (:deadline today :not (:category "Private")))
                                                   (:name "今日予定の作業" :and (:scheduled today :not (:category "Private")))
@@ -6799,8 +6827,8 @@
                        (org-agenda-span 'day)
                        (org-agenda-todo-keyword-format "-")
                        (org-overriding-columns-format "%25ITEM %TODO")
-                       (org-agenda-files `("~/Documents/org/tasks/projects.org"))
-                       (org-super-agenda-groups '((:name "〆切が過ぎてる作業" :and (:deadline past :category "Private"))
+                       (org-agenda-files '("~/Documents/org/tasks/projects.org"))
+                       (org-super-agenda-groups `((:name "〆切が過ぎてる作業" :and (:deadline past :category "Private"))
                                                   (:name "予定が過ぎてる作業" :and (:scheduled past :category "Private"))
                                                   (:name "今日〆切の作業" :and (:deadline today :category "Private"))
                                                   (:name "今日予定の作業" :and (:scheduled today :category "Private"))
@@ -7816,9 +7844,10 @@
                       :title (concat (all-the-icons-fileicon "org") " Global Org commands")
                       :quit-key "q")
           ("Main"
-           (("a" org-agenda "Agenda")
-            ("c" counsel-org-capture "Capture")
-            ("l" org-store-link "Store link")
+           (("a" org-agenda                 "Agenda")
+            ("c" counsel-org-capture        "Capture")
+            ("l" org-store-link             "Store link")
+            ("r" my/org-reviews-execute     "Review")
             ("t" my/org-tags-view-only-todo "Tagged Todo"))
 
            "Calendar"

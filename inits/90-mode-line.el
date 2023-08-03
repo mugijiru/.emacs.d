@@ -2,7 +2,7 @@
 (add-hook 'neotree-mode-hook #'hide-mode-line-mode)
 
 (custom-set-variables '(display-time-24hr-format t))
-(display-time-mode -1) ;; 時計は i3bar にも表示されるので不要
+(display-time-mode -1)
 
 (el-get-bundle diminish)
 (require 'diminish)
