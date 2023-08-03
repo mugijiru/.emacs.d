@@ -58,9 +58,10 @@
                 :title (concat (all-the-icons-fileicon "org") " Global Org commands")
                 :quit-key "q")
     ("Main"
-     (("a" org-agenda "Agenda")
-      ("c" counsel-org-capture "Capture")
-      ("l" org-store-link "Store link")
+     (("a" org-agenda                 "Agenda")
+      ("c" counsel-org-capture        "Capture")
+      ("l" org-store-link             "Store link")
+      ("r" my/org-reviews-execute     "Review")
       ("t" my/org-tags-view-only-todo "Tagged Todo"))
 
      "Calendar"
