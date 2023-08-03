@@ -12,20 +12,20 @@
     <title>ivy :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1691037513" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1691037513" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1691037513" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1691037513" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1691037513" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1691037513" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1691037513" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1691037513" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1691037513" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1691037513" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1691073543" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1691073543" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1691073543" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1691073543" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1691073543" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1691073543" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1691073543" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1691073543" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1691073543" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1691073543" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1691037513"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1691073543"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1691037513"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1691037513"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1691073543"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1691073543"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1691037513"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1691073543"></script>
 
     
   </div>
@@ -3050,12 +3050,13 @@ posframe 表示だと Emacs の中央に表示できるので視線移動が少�
 <p>swiper を使う時はデフォで有効になっててほしいのでその設定も入れている。なおこれも公式ページに記述されている設定である。</p>
 <p>というか全体を ivy-migemo-regex-plus にしている。これは completing-read-function で指定されている ivy-completing-read でも migemo りたかったため。
 completing-read や ivy-completing-read を指定してもうまくいかないのでもうエイヤで全部 migemo に倒した</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq ivy-re-builders-alist <span style="color:#f92672">&#39;</span>((<span style="color:#66d9ef">t</span> <span style="color:#f92672">.</span> ivy-migemo-regex-plus)
-</span></span><span style="display:flex;"><span>                              (counsel-M-x <span style="color:#f92672">.</span> ivy--regex-plus)
-</span></span><span style="display:flex;"><span>                              (counsel-describe-function <span style="color:#f92672">.</span> ivy--regex-plus)
-</span></span><span style="display:flex;"><span>                              (counsel-describe-variable <span style="color:#f92672">.</span> ivy--regex-plus)
-</span></span><span style="display:flex;"><span>                              (swiper <span style="color:#f92672">.</span> ivy-migemo-regex-plus)
-</span></span><span style="display:flex;"><span>                              (counsel-find-file <span style="color:#f92672">.</span> ivy-migemo-regex-plus)))
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;ivy-migemo</span>
+</span></span><span style="display:flex;"><span>  (setq ivy-re-builders-alist <span style="color:#f92672">&#39;</span>((<span style="color:#66d9ef">t</span> <span style="color:#f92672">.</span> ivy-migemo-regex-plus)
+</span></span><span style="display:flex;"><span>                                (counsel-M-x <span style="color:#f92672">.</span> ivy--regex-plus)
+</span></span><span style="display:flex;"><span>                                (counsel-describe-function <span style="color:#f92672">.</span> ivy--regex-plus)
+</span></span><span style="display:flex;"><span>                                (counsel-describe-variable <span style="color:#f92672">.</span> ivy--regex-plus)
+</span></span><span style="display:flex;"><span>                                (swiper <span style="color:#f92672">.</span> ivy-migemo-regex-plus)
+</span></span><span style="display:flex;"><span>                                (counsel-find-file <span style="color:#f92672">.</span> ivy-migemo-regex-plus))))
 </span></span></code></pre></div><p>また fuzzy match を有効にする設定も記載されているがそちらは自分は設定していない。なんとなく。</p>
 <h2 id="counsel-osx-app-dot">counsel-osx-app. <span class="tag"><span class="improvement">improvement</span></span></h2>
 <p>Mac で Emacs を使ってる時に ivy でアプリケーションを起動するためのパッケージ。</p>
@@ -5011,19 +5012,19 @@ ivy などの絞り込み系ツールと組み合わせて使う。</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1691037513"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1691037513"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1691037513"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1691037513"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1691037513"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1691037513"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1691073543"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1691073543"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1691073543"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1691073543"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1691073543"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1691073543"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1691037513"></script>
-    <script src="/.emacs.d/js/learn.js?1691037513"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1691037513"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1691073543"></script>
+    <script src="/.emacs.d/js/learn.js?1691073543"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1691073543"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1691037513"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1691073543"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

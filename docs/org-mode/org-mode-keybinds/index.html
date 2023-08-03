@@ -12,20 +12,20 @@
     <title>org-mode 関係の keybinds :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1691037513" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1691037513" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1691037513" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1691037513" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1691037513" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1691037513" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1691037513" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1691037513" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1691037513" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1691037513" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1691073543" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1691073543" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1691073543" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1691073543" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1691073543" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1691073543" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1691073543" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1691073543" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1691073543" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1691073543" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1691037513"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1691073543"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1691037513"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1691037513"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1691073543"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1691073543"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1691037513"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1691073543"></script>
 
     
   </div>
@@ -2975,9 +2975,10 @@
 </span></span><span style="display:flex;"><span>                :title (<span style="color:#a6e22e">concat</span> (all-the-icons-fileicon <span style="color:#e6db74">&#34;org&#34;</span>) <span style="color:#e6db74">&#34; Global Org commands&#34;</span>)
 </span></span><span style="display:flex;"><span>                :quit-key <span style="color:#e6db74">&#34;q&#34;</span>)
 </span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;Main&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;a&#34;</span> org-agenda <span style="color:#e6db74">&#34;Agenda&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;c&#34;</span> counsel-org-capture <span style="color:#e6db74">&#34;Capture&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;l&#34;</span> org-store-link <span style="color:#e6db74">&#34;Store link&#34;</span>)
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;a&#34;</span> org-agenda                 <span style="color:#e6db74">&#34;Agenda&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;c&#34;</span> counsel-org-capture        <span style="color:#e6db74">&#34;Capture&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;l&#34;</span> org-store-link             <span style="color:#e6db74">&#34;Store link&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;r&#34;</span> my/org-reviews-execute     <span style="color:#e6db74">&#34;Review&#34;</span>)
 </span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;t&#34;</span> my/org-tags-view-only-todo <span style="color:#e6db74">&#34;Tagged Todo&#34;</span>))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Calendar&#34;</span>
@@ -4986,19 +4987,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1691037513"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1691037513"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1691037513"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1691037513"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1691037513"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1691037513"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1691073543"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1691073543"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1691073543"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1691073543"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1691073543"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1691073543"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1691037513"></script>
-    <script src="/.emacs.d/js/learn.js?1691037513"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1691037513"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1691073543"></script>
+    <script src="/.emacs.d/js/learn.js?1691073543"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1691073543"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1691037513"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1691073543"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

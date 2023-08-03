@@ -12,20 +12,20 @@
     <title>company-mode :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1691037513" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1691037513" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1691037513" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1691037513" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1691037513" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1691037513" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1691037513" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1691037513" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1691037513" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1691037513" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1691073542" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1691073542" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1691073542" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1691073542" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1691073542" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1691073542" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1691073542" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1691073542" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1691073542" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1691073542" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1691037513"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1691073542"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1691037513"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1691037513"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1691073542"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1691073542"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1691037513"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1691073542"></script>
 
     
   </div>
@@ -2783,17 +2783,19 @@
 <h2 id="company-quickhelp">company-quickhelp</h2>
 <p><a href="https://github.com/company-mode/company-quickhelp">company-quickhelp</a> は候補の補足情報が見れるようにするパッケージ。それを入れて、文字色とかぶらないように背景色を設定している。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle company-quickhelp)
-</span></span><span style="display:flex;"><span>(company-quickhelp-mode <span style="color:#66d9ef">t</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>(custom-set-variables
 </span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(company-quickhelp-color-background <span style="color:#e6db74">&#34;#323445&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;pos-tip</span>
+</span></span><span style="display:flex;"><span>  (company-quickhelp-mode <span style="color:#ae81ff">1</span>))
 </span></span></code></pre></div><h2 id="company-posframe">company-posframe</h2>
 <p><a href="https://github.com/tumashu/company-posframe">company-posframe</a> は company-mode の表示に posframe を使うやつ。</p>
 <p>公式 README によると速度的にはまあ十分って感じなので速くはないのかなと。ただ CJK languages と相性は良いっぽい。ってことでとりあえず入れてみている</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle company-posframe)
-</span></span><span style="display:flex;"><span>(company-posframe-mode <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>(company-posframe-mode <span style="color:#ae81ff">1</span>)
 </span></span></code></pre></div><p>なお el-get 公式のレシピはファイル名や :name が間違っているのでひとまず自前でレシピ登録している。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name company-postframe
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name company-posframe
 </span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Use child frame as company candidate menu.&#34;</span>
 </span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/tumashu/company-posframe/&#34;</span>
 </span></span><span style="display:flex;"><span>       :type github
@@ -4708,19 +4710,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1691037513"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1691037513"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1691037513"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1691037513"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1691037513"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1691037513"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1691073542"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1691073542"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1691073542"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1691073542"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1691073542"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1691073542"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1691037513"></script>
-    <script src="/.emacs.d/js/learn.js?1691037513"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1691037513"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1691073542"></script>
+    <script src="/.emacs.d/js/learn.js?1691073542"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1691073542"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1691037513"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1691073542"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
