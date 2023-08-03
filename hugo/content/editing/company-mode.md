@@ -46,10 +46,12 @@ draft = false
 
 ```emacs-lisp
 (el-get-bundle company-quickhelp)
-(company-quickhelp-mode t)
 
 (custom-set-variables
  '(company-quickhelp-color-background "#323445"))
+
+(with-eval-after-load 'pos-tip
+  (company-quickhelp-mode 1))
 ```
 
 
@@ -61,13 +63,13 @@ draft = false
 
 ```emacs-lisp
 (el-get-bundle company-posframe)
-(company-posframe-mode t)
+(company-posframe-mode 1)
 ```
 
 なお el-get 公式のレシピはファイル名や :name が間違っているのでひとまず自前でレシピ登録している。
 
 ```emacs-lisp
-(:name company-postframe
+(:name company-posframe
        :description "Use child frame as company candidate menu."
        :website "https://github.com/tumashu/company-posframe/"
        :type github

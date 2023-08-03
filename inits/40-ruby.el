@@ -11,8 +11,8 @@
   (setq enh-ruby-bounce-deep-indent nil))
 
 (defun my/enh-ruby-mode-hook ()
-  (company-mode 1)
   (origami-mode 1)
+  (company-mode 1)
   (subword-mode 1)
   (lsp)
   (lsp-ui-mode 1)

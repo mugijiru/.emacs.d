@@ -7,6 +7,7 @@
 (custom-set-variables '(company-show-quick-access t))
 
 (el-get-bundle company-quickhelp)
+
 (custom-set-variables
  '(company-quickhelp-color-background "#323445"))
 

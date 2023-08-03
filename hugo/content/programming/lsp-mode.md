@@ -89,5 +89,7 @@ lsp--formatting-indent-aliat に web-mode の設定を追加することで良�
 
 ```emacs-lisp
 (with-eval-after-load 'lsp-mode
-  (add-to-list 'lsp--formatting-indent-alist `(web-mode . web-mode-code-indent-offset)))
+  (add-to-list 'lsp--formatting-indent-alist `(web-mode . web-mode-code-indent-offset))
+  (add-to-list 'lsp-file-watch-ignored-directories "hello-friend-ng")
+  (add-to-list 'lsp-file-watch-ignored-directories "ox-hugo"))
 ```
