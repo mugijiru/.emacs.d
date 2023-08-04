@@ -4636,10 +4636,23 @@
     :PROPERTIES:
     :ID:       48a407b4-1eb1-43ac-901e-62b3de6d995f
     :END:
-    いつも通り el-get で入れている
+
+    レシピは自前で用意している
+
+    #+begin_src emacs-lisp :tangle recipes/gnuplot-mode.rcp
+      (:name gnuplot-mode
+             :description "Drive gnuplot from within emacs"
+             :type github
+             :pkgname "emacs-gnuplot/gnuplot"
+             :branch "main"
+             :build `(("make" ,(concat "EMACS=" el-get-emacs))))
+    #+end_src
+
+
+    そしていつも通り el-get で入れている
 
     #+begin_src emacs-lisp :tangle inits/40-gnuplot.el
-    (el-get-bundle gnuplot-mode)
+      (el-get-bundle gnuplot-mode)
     #+end_src
 
 *** その他
