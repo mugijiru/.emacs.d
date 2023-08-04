@@ -431,7 +431,7 @@
 	"title": "gnuplot-mode",
 	"tags": [],
 	"description": "",
-	"content": "概要 gnuplot-mode はグラフ作成ソフトである gnuplot を Emacs で使うためのパッケージ。 Syntax Highlight や 補完機能 などを提供する。\nまあほとんど使ってないんだけど。\nインストール いつも通り el-get で入れている\n(el-get-bundle gnuplot-mode) その他 org-mode から使ってた記憶があるのでそっちの方で何か設定があるかもしれない\n"
+	"content": "概要 gnuplot-mode はグラフ作成ソフトである gnuplot を Emacs で使うためのパッケージ。 Syntax Highlight や 補完機能 などを提供する。\nまあほとんど使ってないんだけど。\nインストール レシピは自前で用意している\n(:name gnuplot-mode :description \u0026#34;Drive gnuplot from within emacs\u0026#34; :type github :pkgname \u0026#34;emacs-gnuplot/gnuplot\u0026#34; :branch \u0026#34;main\u0026#34; :build `((\u0026#34;make\u0026#34; ,(concat \u0026#34;EMACS=\u0026#34; el-get-emacs)))) そしていつも通り el-get で入れている\n(el-get-bundle gnuplot-mode) その他 org-mode から使ってた記憶があるのでそっちの方で何か設定があるかもしれない\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/keybinds/google-integration/",

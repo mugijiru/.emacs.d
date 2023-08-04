@@ -727,7 +727,8 @@ Mac の設定 Mac の場合にフルスクリーンにする設定を入れて�
       <guid>https://mugijiru.github.io/.emacs.d/programming/gnuplot-mode/</guid>
       <description>概要 gnuplot-mode はグラフ作成ソフトである gnuplot を Emacs で使うためのパッケージ。 Syntax Highlight や 補完機能 などを提供する。
 まあほとんど使ってないんだけど。
-インストール いつも通り el-get で入れている
+インストール レシピは自前で用意している
+(:name gnuplot-mode :description &amp;#34;Drive gnuplot from within emacs&amp;#34; :type github :pkgname &amp;#34;emacs-gnuplot/gnuplot&amp;#34; :branch &amp;#34;main&amp;#34; :build `((&amp;#34;make&amp;#34; ,(concat &amp;#34;EMACS=&amp;#34; el-get-emacs)))) そしていつも通り el-get で入れている
 (el-get-bundle gnuplot-mode) その他 org-mode から使ってた記憶があるのでそっちの方で何か設定があるかもしれない</description>
     </item>
     
