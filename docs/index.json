@@ -732,7 +732,7 @@
 	"title": "undo-fu",
 	"tags": [],
 	"description": "",
-	"content": "概要 undo-fu はシンプルな undo/redo 機能を提供してくれるやつ。\n昔はもっと色々できる undo-tree を使っていたけどそっちにバグがあるっぽいので乗り換えた。\nインストール (el-get-bundle undo-fu) キーバインド 別の場所で定義しているけど、以下のキーバインドにしている。\nKey 効果 C-/ undo C-M-/ redo "
+	"content": "概要 undo-fu はシンプルな undo/redo 機能を提供してくれるやつ。\n昔はもっと色々できる undo-tree を使っていたけどそっちにバグがあるっぽいので乗り換えた。\nインストール レシピは自前で用意している\n(:name undo-fu :website \u0026#34;https://codeberg.org/ideasman42/emacs-undo-fu\u0026#34; :description \u0026#34;Simple, stable linear undo with redo for Emacs.\u0026#34; :type git :url \u0026#34;https://codeberg.org/ideasman42/emacs-undo-fu.git\u0026#34;) そしていつも通り el-get-bundle でインストールしている\n(el-get-bundle undo-fu) キーバインド 別の場所で定義しているけど、以下のキーバインドにしている。\nKey 効果 C-/ undo C-M-/ redo "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/ui/uniquify/",

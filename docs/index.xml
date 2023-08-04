@@ -1310,7 +1310,9 @@ typescript-mode typescript-mode は TypeScript 向けの Syntax Highlight とか
       <guid>https://mugijiru.github.io/.emacs.d/editing/undo-fu/</guid>
       <description>概要 undo-fu はシンプルな undo/redo 機能を提供してくれるやつ。
 昔はもっと色々できる undo-tree を使っていたけどそっちにバグがあるっぽいので乗り換えた。
-インストール (el-get-bundle undo-fu) キーバインド 別の場所で定義しているけど、以下のキーバインドにしている。
+インストール レシピは自前で用意している
+(:name undo-fu :website &amp;#34;https://codeberg.org/ideasman42/emacs-undo-fu&amp;#34; :description &amp;#34;Simple, stable linear undo with redo for Emacs.&amp;#34; :type git :url &amp;#34;https://codeberg.org/ideasman42/emacs-undo-fu.git&amp;#34;) そしていつも通り el-get-bundle でインストールしている
+(el-get-bundle undo-fu) キーバインド 別の場所で定義しているけど、以下のキーバインドにしている。
 Key 効果 C-/ undo C-M-/ redo </description>
     </item>
     
