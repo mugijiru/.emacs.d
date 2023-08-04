@@ -62,15 +62,14 @@
       
       <guid>https://mugijiru.github.io/.emacs.d/external-tool/google-translate/</guid>
       <description>概要 google-translate は Google 翻訳する機能を提供するパッケージ。
-インストール いつも通り el-get でインストール
+インストール レシピは自前で用意している
+(:name google-translate :description &amp;#34;Emacs interface to Google Translate&amp;#34; :type github :pkgname &amp;#34;atykhonov/google-translate&amp;#34;) そして el-get でインストール
 (el-get-bundle google-translate) 関数のオーバーライド どうも最新版でも壊れっぱなしのようなので https://github.com/atykhonov/google-translate/issues/52#issuecomment-727920888 にあるように関数を上書きしている。
 (with-eval-after-load &amp;#39;google-translate-tk (defun google-translate--search-tkk () &amp;#34;Search TKK.&amp;#34; (list 430675 2721866130))) google-translate-tk に定義されていて、それが読まれた後に上書きしないといけないので with-eval-after-load を使っている。
 default-ui の読み込み Google Translate は UI を defauult と smooth のどちらかから選べるようになっている。
 default だと
 google-translate-default-source-language google-translate-default-target-language を設定しておいて
-M-x google-translate-at-point source → target の翻訳 M-x google-translate-at-point-reverse target → source の翻訳 という使い方をする。
-smooth だと翻訳の source, target を複数設定して多言語対応ができるが、英語以外を翻訳することがないので smooth でなくていいかという感じで default を採用している。
-(with-eval-after-load &amp;#39;popup (require &amp;#39;google-translate-default-ui)) popup.</description>
+M-x google-translate-at-point source → target の翻訳 M-x google-translate-at-point-reverse target → source の翻訳 という使い方をする。</description>
     </item>
     
     <item>
