@@ -116,7 +116,7 @@ pretty-hydra を使って Global に使える org-mode のコマンドを叩け�
      (("a" org-agenda                 "Agenda")
       ("c" counsel-org-capture        "Capture")
       ("l" org-store-link             "Store link")
-      ("r" my/org-reviews-execute     "Review")
+      ("R" my/org-reviews-execute     "Review")
       ("t" my/org-tags-view-only-todo "Tagged Todo"))
 
      "Calendar"
