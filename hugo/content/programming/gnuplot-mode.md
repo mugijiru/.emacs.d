@@ -13,7 +13,18 @@ Syntax Highlight や 補完機能 などを提供する。
 
 ## インストール {#インストール}
 
-いつも通り el-get で入れている
+レシピは自前で用意している
+
+```emacs-lisp
+(:name gnuplot-mode
+       :description "Drive gnuplot from within emacs"
+       :type github
+       :pkgname "emacs-gnuplot/gnuplot"
+       :branch "main"
+       :build `(("make" ,(concat "EMACS=" el-get-emacs))))
+```
+
+そしていつも通り el-get で入れている
 
 ```emacs-lisp
 (el-get-bundle gnuplot-mode)
