@@ -12,6 +12,18 @@ draft = false
 
 ## インストール {#インストール}
 
+レシピは自前で用意している
+
+```emacs-lisp
+(:name undo-fu
+       :website "https://codeberg.org/ideasman42/emacs-undo-fu"
+       :description "Simple, stable linear undo with redo for Emacs."
+       :type git
+       :url "https://codeberg.org/ideasman42/emacs-undo-fu.git")
+```
+
+そしていつも通り `el-get-bundle` でインストールしている
+
 ```emacs-lisp
 (el-get-bundle undo-fu)
 ```
