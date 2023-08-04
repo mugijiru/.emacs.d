@@ -1847,6 +1847,19 @@
     :PROPERTIES:
     :ID:       421b5501-5ba9-4732-b237-f1e188bfa052
     :END:
+
+    レシピは自前で用意している
+
+    #+begin_src emacs-lisp :tangle recipes/undo-fu.rcp
+      (:name undo-fu
+             :website "https://codeberg.org/ideasman42/emacs-undo-fu"
+             :description "Simple, stable linear undo with redo for Emacs."
+             :type git
+             :url "https://codeberg.org/ideasman42/emacs-undo-fu.git")
+    #+end_src
+
+    そしていつも通り ~el-get-bundle~ でインストールしている
+
     #+begin_src emacs-lisp :tangle inits/80-undo-fu.el
     (el-get-bundle undo-fu)
     #+end_src
