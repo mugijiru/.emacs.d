@@ -10,7 +10,16 @@ draft = false
 
 ## インストール {#インストール}
 
-いつも通り el-get でインストール
+レシピは自前で用意している
+
+```emacs-lisp
+(:name google-translate
+       :description "Emacs interface to Google Translate"
+       :type github
+       :pkgname "atykhonov/google-translate")
+```
+
+そして el-get でインストール
 
 ```emacs-lisp
 (el-get-bundle google-translate)

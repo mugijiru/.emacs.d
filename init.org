@@ -5885,7 +5885,17 @@
     :PROPERTIES:
     :ID:       1135f297-fda7-4ab6-afc5-2f4c491dd4bc
     :END:
-    いつも通り el-get でインストール
+
+    レシピは自前で用意している
+
+    #+begin_src emacs-lisp :tangle recipes/google-translate.rcp
+      (:name google-translate
+             :description "Emacs interface to Google Translate"
+             :type github
+             :pkgname "atykhonov/google-translate")
+    #+end_src
+
+    そして el-get でインストール
 
     #+begin_src emacs-lisp :tangle inits/20-google-translate.el
     (el-get-bundle google-translate)
