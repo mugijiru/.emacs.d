@@ -1612,6 +1612,14 @@
         (company-quickhelp-mode 1))
     #+end_src
 
+    なおレシピは公式ではなかったので自前で用意している
+
+    #+begin_src emacs-lisp :tangle recipes/company-quickhelp.rcp
+      (:name company-quickhelp
+             :description "Adds documentation popup to completion candidates"
+             :type github
+             :pkgname "company-mode/company-quickhelp")
+    #+end_src
 *** company-posframe
     :PROPERTIES:
     :ID:       7e68717f-16cf-4f81-bb53-ad277551de4c
