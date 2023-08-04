@@ -54,6 +54,15 @@ draft = false
   (company-quickhelp-mode 1))
 ```
 
+なおレシピは公式ではなかったので自前で用意している
+
+```emacs-lisp
+(:name company-quickhelp
+       :description "Adds documentation popup to completion candidates"
+       :type github
+       :pkgname "company-mode/company-quickhelp")
+```
+
 
 ## company-posframe {#company-posframe}
 
