@@ -585,7 +585,7 @@
 	"title": "plantuml-mode",
 	"tags": [],
 	"description": "",
-	"content": "概要 plantuml-mode は PlantUML という、テキストだけで UML 図などが描けるツール用のモード。\nインストール いつも通り el-get で入れてる\n(el-get-bundle plantuml-mode) 設定 実行モードは 'jar を指定している。デフォルトは 'server なんだけどオフラインの時も使いたいししね。\n(setq plantuml-default-exec-mode \u0026#39;jar) el-get でインスコすると jar ファイルも自動で拾って来て plantuml-mode と同じディレクトリに設置して plantuml-jar-path も通してくれるからそっち使う方が便利だしね。\nその他 最新の develop ブランチだとインデントを調整できる機能が入っているので乗り換えたいけどそのためには el-get のレシピを書いてあげる必要がありそうで放置している。\n"
+	"content": "概要 plantuml-mode は PlantUML という、テキストだけで UML 図などが描けるツール用のモード。\nインストール el-get のレシピは自前で用意。\n(:name plantuml-mode :description \u0026#34;Major mode for PlantUML.\u0026#34; :type github :branch \u0026#34;develop\u0026#34; :pkgname \u0026#34;skuro/plantuml-mode\u0026#34; :post-init (let ((plantuml-url \u0026#34;http://sourceforge.net/projects/plantuml/files/plantuml.jar/download\u0026#34;) (plantuml-jar (expand-file-name \u0026#34;plantuml.jar\u0026#34; default-directory))) (when (not (file-exists-p plantuml-jar)) (url-copy-file plantuml-url plantuml-jar))) :prepare (setq plantuml-jar-path (expand-file-name \u0026#34;plantuml.jar\u0026#34; default-directory))) そして el-get で入れてる\n(el-get-bundle plantuml-mode) 設定 実行モードは 'jar を指定している。デフォルトは 'server なんだけどオフラインの時も使いたいししね。\n(setq plantuml-default-exec-mode \u0026#39;jar) el-get でインスコすると jar ファイルも自動で拾って来て plantuml-mode と同じディレクトリに設置して plantuml-jar-path も通してくれるからそっち使う方が便利だしね。\nその他 最新の develop ブランチだとインデントを調整できる機能が入っているので乗り換えたいけどそのためには el-get のレシピを書いてあげる必要がありそうで放置している。\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/ui/posframe/",

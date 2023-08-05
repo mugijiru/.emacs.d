@@ -1036,7 +1036,8 @@ Key 効果 &amp;lt;backtab&amp;gt; 再帰的に折り畳んだり開いたりす
       
       <guid>https://mugijiru.github.io/.emacs.d/programming/plantuml-mode/</guid>
       <description>概要 plantuml-mode は PlantUML という、テキストだけで UML 図などが描けるツール用のモード。
-インストール いつも通り el-get で入れてる
+インストール el-get のレシピは自前で用意。
+(:name plantuml-mode :description &amp;#34;Major mode for PlantUML.&amp;#34; :type github :branch &amp;#34;develop&amp;#34; :pkgname &amp;#34;skuro/plantuml-mode&amp;#34; :post-init (let ((plantuml-url &amp;#34;http://sourceforge.net/projects/plantuml/files/plantuml.jar/download&amp;#34;) (plantuml-jar (expand-file-name &amp;#34;plantuml.jar&amp;#34; default-directory))) (when (not (file-exists-p plantuml-jar)) (url-copy-file plantuml-url plantuml-jar))) :prepare (setq plantuml-jar-path (expand-file-name &amp;#34;plantuml.jar&amp;#34; default-directory))) そして el-get で入れてる
 (el-get-bundle plantuml-mode) 設定 実行モードは &#39;jar を指定している。デフォルトは &#39;server なんだけどオフラインの時も使いたいししね。
 (setq plantuml-default-exec-mode &amp;#39;jar) el-get でインスコすると jar ファイルも自動で拾って来て plantuml-mode と同じディレクトリに設置して plantuml-jar-path も通してくれるからそっち使う方が便利だしね。
 その他 最新の develop ブランチだとインデントを調整できる機能が入っているので乗り換えたいけどそのためには el-get のレシピを書いてあげる必要がありそうで放置している。</description>
