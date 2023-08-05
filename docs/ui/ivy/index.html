@@ -12,20 +12,20 @@
     <title>ivy :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1691160474" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1691160474" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1691160474" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1691160474" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1691160474" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1691160474" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1691160474" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1691160474" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1691160474" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1691160474" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1691198310" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1691198310" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1691198310" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1691198310" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1691198310" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1691198310" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1691198310" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1691198310" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1691198310" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1691198310" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1691160474"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1691198310"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1691160474"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1691160474"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1691198310"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1691198310"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1691160474"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1691198310"></script>
 
     
   </div>
@@ -2743,7 +2743,13 @@
         <li><a href="#counsel-locate-cmd-の設定">counsel-locate-cmd の設定</a></li>
       </ul>
     </li>
-    <li><a href="#ivy-posframe">ivy-posframe</a></li>
+    <li><a href="#ivy-posframe">ivy-posframe</a>
+      <ul>
+        <li><a href="#インストール">インストール</a></li>
+        <li><a href="#設定">設定</a></li>
+        <li><a href="#有効化">有効化</a></li>
+      </ul>
+    </li>
     <li><a href="#ivy-rich">ivy-rich</a>
       <ul>
         <li><a href="#インストール">インストール</a></li>
@@ -2834,11 +2840,23 @@ Windows 環境を使ってないので無視。
 <h2 id="ivy-posframe">ivy-posframe</h2>
 <p>ivy-posframe は ivy を posframe で表示してくれるようにするやつ。
 posframe 表示だと Emacs の中央に表示できるので視線移動が少なく済んで便利。</p>
+<h3 id="インストール">インストール</h3>
+<p>こちらは自前で el-get の resipe を用意している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name ivy-posframe
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;ivy-posframe is a ivy extension, which let ivy use posframe to show its candidate menu.&#34;</span>
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;tumashu/ivy-posframe&#34;</span>
+</span></span><span style="display:flex;"><span>       :minimum-emacs-version (<span style="color:#ae81ff">26</span>))
+</span></span></code></pre></div><p>そしていつも通りに el-get でインストール</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle ivy-posframe)
-</span></span><span style="display:flex;"><span>(setq ivy-posframe-display-functions-alist
+</span></span></code></pre></div><h3 id="設定">設定</h3>
+<p>Swiper だけは画面下部に表示されるようにしているが他は画面中央に表示されるようにしている。</p>
+<p>Swiper は検索なので、真ん中に表示しているとヒットした部分が隠されてしまう。というわけでそいつだけは下に表示しているのでした。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq ivy-posframe-display-functions-alist
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#39;</span>((swiper <span style="color:#f92672">.</span> ivy-display-function-fallback)
 </span></span><span style="display:flex;"><span>        (<span style="color:#66d9ef">t</span> <span style="color:#f92672">.</span> ivy-posframe-display-at-frame-center)))
-</span></span><span style="display:flex;"><span>(ivy-posframe-mode <span style="color:#ae81ff">1</span>)
+</span></span></code></pre></div><h3 id="有効化">有効化</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(ivy-posframe-mode <span style="color:#ae81ff">1</span>)
 </span></span></code></pre></div><h2 id="ivy-rich">ivy-rich</h2>
 <p>ivy-rich は ivy の見た目をよりモダンにしてくれるやつ。なんだけど、オフにした時の表示どんな感じだったか忘れたな……。</p>
 <h3 id="インストール">インストール</h3>
@@ -5012,19 +5030,19 @@ ivy などの絞り込み系ツールと組み合わせて使う。</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1691160474"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1691160474"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1691160474"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1691160474"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1691160474"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1691160474"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1691198310"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1691198310"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1691198310"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1691198310"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1691198310"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1691198310"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1691160474"></script>
-    <script src="/.emacs.d/js/learn.js?1691160474"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1691160474"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1691198310"></script>
+    <script src="/.emacs.d/js/learn.js?1691198310"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1691198310"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1691160474"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1691198310"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
