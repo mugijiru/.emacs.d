@@ -12,7 +12,17 @@ draft = false
 
 ## インストール {#インストール}
 
-いつも通り el-get から入れる。
+el-get のレシピは自前で用意している
+
+```emacs-lisp
+(:name zoom
+:type github
+:description "Fixed and automatic balanced window layout."
+:pkgname "cyrus-and/zoom"
+:minimum-emacs-version (24 4))
+```
+
+そして el-get で入れる。
 GitHub から直接取得するように設定している。
 
 ```emacs-lisp

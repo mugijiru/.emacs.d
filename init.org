@@ -3905,7 +3905,17 @@
     :ID:       4112538c-7a54-4ce4-abbb-edfa7698b9ef
     :END:
 
-    いつも通り el-get から入れる。
+    el-get のレシピは自前で用意している
+
+    #+begin_src emacs-lisp :tangle recipes/zoom.rcp
+      (:name zoom
+      :type github
+      :description "Fixed and automatic balanced window layout."
+      :pkgname "cyrus-and/zoom"
+      :minimum-emacs-version (24 4))
+    #+end_src
+
+    そして el-get で入れる。
     GitHub から直接取得するように設定している。
 
     #+begin_src emacs-lisp :tangle inits/90-zoom.el
