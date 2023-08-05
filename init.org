@@ -4830,7 +4830,24 @@
     :PROPERTIES:
     :ID:       e646d8eb-4297-45a6-bfaf-094d55a11c06
     :END:
-    いつも通り el-get で入れてる
+
+    el-get のレシピは自前で用意。
+
+    #+begin_src emacs-lisp :tangle recipes/plantuml-mode.rcp
+      (:name plantuml-mode
+             :description "Major mode for PlantUML."
+             :type github
+             :branch "develop"
+             :pkgname "skuro/plantuml-mode"
+             :post-init (let ((plantuml-url "http://sourceforge.net/projects/plantuml/files/plantuml.jar/download")
+                              (plantuml-jar (expand-file-name "plantuml.jar" default-directory)))
+                          (when (not (file-exists-p plantuml-jar))
+                            (url-copy-file plantuml-url plantuml-jar)))
+             :prepare (setq plantuml-jar-path
+                            (expand-file-name "plantuml.jar" default-directory)))
+    #+end_src
+
+    そして el-get で入れてる
 
     #+begin_src emacs-lisp :tangle inits/50-plantuml.el
     (el-get-bundle plantuml-mode)

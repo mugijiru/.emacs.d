@@ -10,7 +10,23 @@ draft = false
 
 ## インストール {#インストール}
 
-いつも通り el-get で入れてる
+el-get のレシピは自前で用意。
+
+```emacs-lisp
+(:name plantuml-mode
+       :description "Major mode for PlantUML."
+       :type github
+       :branch "develop"
+       :pkgname "skuro/plantuml-mode"
+       :post-init (let ((plantuml-url "http://sourceforge.net/projects/plantuml/files/plantuml.jar/download")
+                        (plantuml-jar (expand-file-name "plantuml.jar" default-directory)))
+                    (when (not (file-exists-p plantuml-jar))
+                      (url-copy-file plantuml-url plantuml-jar)))
+       :prepare (setq plantuml-jar-path
+                      (expand-file-name "plantuml.jar" default-directory)))
+```
+
+そして el-get で入れてる
 
 ```emacs-lisp
 (el-get-bundle plantuml-mode)
