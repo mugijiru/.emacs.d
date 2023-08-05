@@ -3043,14 +3043,46 @@
     ivy-posframe は ivy を posframe で表示してくれるようにするやつ。
     posframe 表示だと Emacs の中央に表示できるので
     視線移動が少なく済んで便利。
+**** インストール
+     :PROPERTIES:
+     :ID:       b8f180fe-eb08-4c28-8164-4be7c662228e
+     :END:
+     こちらは自前で el-get の resipe を用意している
+     #+begin_src emacs-lisp :tangle recipes/ivy-posframe.rcp
+       (:name ivy-posframe
+              :type github
+              :description "ivy-posframe is a ivy extension, which let ivy use posframe to show its candidate menu."
+              :pkgname "tumashu/ivy-posframe"
+              :minimum-emacs-version (26))
+     #+end_src
 
-    #+begin_src emacs-lisp :tangle inits/82-ivy.el
-      (el-get-bundle ivy-posframe)
-      (setq ivy-posframe-display-functions-alist
-            '((swiper . ivy-display-function-fallback)
-              (t . ivy-posframe-display-at-frame-center)))
-      (ivy-posframe-mode 1)
-    #+end_src
+     そしていつも通りに el-get でインストール
+
+     #+begin_src emacs-lisp :tangle inits/82-ivy.el
+       (el-get-bundle ivy-posframe)
+     #+end_src
+**** 設定
+     :PROPERTIES:
+     :ID:       422381a5-f9c9-4d1b-a2f1-55844ecf7825
+     :END:
+     Swiper だけは画面下部に表示されるようにしているが
+     他は画面中央に表示されるようにしている。
+
+     Swiper は検索なので、真ん中に表示しているとヒットした部分が隠されてしまう。
+     というわけでそいつだけは下に表示しているのでした。
+
+     #+begin_src emacs-lisp :tangle inits/82-ivy.el
+       (setq ivy-posframe-display-functions-alist
+             '((swiper . ivy-display-function-fallback)
+               (t . ivy-posframe-display-at-frame-center)))
+     #+end_src
+**** 有効化
+     :PROPERTIES:
+     :ID:       365205de-96fb-4df1-855a-f1407d1d15cb
+     :END:
+     #+begin_src emacs-lisp :tangle inits/82-ivy.el
+       (ivy-posframe-mode 1)
+     #+end_src
 *** ivy-rich
     ivy-rich は ivy の見た目をよりモダンにしてくれるやつ。
     なんだけど、オフにした時の表示どんな感じだったか忘れたな……。
@@ -3716,7 +3748,7 @@
     Emacs のど真ん中に表示したり、
     今あるカーソル位置のすぐそばに出したりできる。
 
-    ivy なんかを使う時に [[https://github.com/tumashu/ivy-posframe][ivy-posframe]] ど真ん中に出すと、
+    ivy なんかを使う時に [[https://github.com/tumashu/ivy-posframe][ivy-posframe]] をど真ん中に出すと、
     いつもそこに表示されるし真ん中なの視線移動が少なくて済むし
     [[https://github.com/conao3/ddskk-posframe.el][ddskk-posframe]] なんかで変換候補をカーソル位置のそばに出て来るので
     一般的な日本語変換ソフトと同様にこれまた視線移動が少なくて便利。

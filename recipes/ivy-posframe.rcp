@@ -1,6 +1,5 @@
 (:name ivy-posframe
-:type github
-:description "ivy-posframe is a ivy extension, which let ivy use posframe to show its candidate menu."
-:pkgname "tumashu/ivy-posframe"
-:minimum-emacs-version (26)
-)
+       :type github
+       :description "ivy-posframe is a ivy extension, which let ivy use posframe to show its candidate menu."
+       :pkgname "tumashu/ivy-posframe"
+       :minimum-emacs-version (26))
