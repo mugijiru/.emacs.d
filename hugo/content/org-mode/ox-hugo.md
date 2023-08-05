@@ -11,13 +11,24 @@ weight = 12
 設定にもよるけど、1つのorgファイルに全部の記事を書いておいてツリー毎に md ファイルが生成される、というのがデフォルトの動きなので
 1ファイルに詰めておくとファイルが分散しないで済んで良い。
 
-なお、この [麦汁's Emacs Config](./.org) も親サイトである [麦汁三昧](https://mugijiru.github.io/.emacs.d/) も
+なお、この [麦汁's Emacs Config]({{< relref "#top" >}}) も親サイトである [麦汁三昧](https://mugijiru.github.io/.emacs.d/) も
 ox-hugo を用いて構築している
 
 
 ## インストール・読み込み {#インストール-読み込み}
 
-いつも通り el-get でインスコしている。
+レシピは自前で用意している
+
+```emacs-lisp
+(:name ox-hugo
+       :description "A carefully crafted Org exporter back-end for Hugo https://ox-hugo.scripter.co"
+       :type github
+       :pkgname "kaushalmodi/ox-hugo"
+       :branch "main"
+       :depends (org-mode tomelr))
+```
+
+そしていつも通り el-get でインスコしている。
 
 ```emacs-lisp
 (el-get-bundle ox-hugo)

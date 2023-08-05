@@ -7640,7 +7640,18 @@
     :PROPERTIES:
     :ID:       1627458b-308f-481f-b47d-ba983ec6dbd4
     :END:
-    いつも通り el-get でインスコしている。
+    レシピは自前で用意している
+
+    #+begin_src emacs-lisp :tanle recipes/ox-hugo.rcp
+      (:name ox-hugo
+             :description "A carefully crafted Org exporter back-end for Hugo https://ox-hugo.scripter.co"
+             :type github
+             :pkgname "kaushalmodi/ox-hugo"
+             :branch "main"
+             :depends (org-mode tomelr))
+    #+end_src
+
+    そしていつも通り el-get でインスコしている。
 
     #+begin_src emacs-lisp :tangle inits/61-ox-hugo.el
     (el-get-bundle ox-hugo)
