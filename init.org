@@ -3552,7 +3552,17 @@
      :PROPERTIES:
      :ID:       543fd568-80c3-4478-b5b7-3d42d6fbe6d7
      :END:
-     いつも通り el-get で入れてるだけ
+     el-get のレシピは自前で用意している
+     #+begin_src emacs-lisp :tangle recipes/doom-modeline.rcp
+       (:name doom-modeline
+              :website "https://github.com/seagle0128/doom-modeline"
+              :description "A fancy and fast mode-line which was from DOOM Emacs, but it's more powerful and much faster."
+              :depends (shrink-path compat)
+              :type github
+              :pkgname "seagle0128/doom-modeline")
+     #+end_src
+
+     そして以下でインストール
      #+begin_src emacs-lisp :tangle inits/91-doom-modeline.el
      (el-get-bundle doom-modeline)
      #+end_src
