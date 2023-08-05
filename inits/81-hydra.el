@@ -85,8 +85,7 @@
     ("f" counsel-find-file     "Find File")
     ("d" counsel-find-dir      "Find Dir")
     ("r" counsel-recentf       "Recentf")
-    ("L" counsel-locate        "Locate")
-    ("A" counsel-osx-app       "macOS App"))
+    ("L" counsel-locate        "Locate"))
 
    "Edit"
    (("a" align-regexp "Align Regexp")
