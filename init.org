@@ -2869,8 +2869,7 @@
            ("f" counsel-find-file     "Find File")
            ("d" counsel-find-dir      "Find Dir")
            ("r" counsel-recentf       "Recentf")
-           ("L" counsel-locate        "Locate")
-           ("A" counsel-osx-app       "macOS App"))
+           ("L" counsel-locate        "Locate"))
 
           "Edit"
           (("a" align-regexp "Align Regexp")
@@ -3318,23 +3317,6 @@
 
       また fuzzy match を有効にする設定も記載されているが
       そちらは自分は設定していない。なんとなく。
-
-*** counsel-osx-app.                                            :improvement:
-    :PROPERTIES:
-    :ID:       670d52bf-59e1-4838-97bb-8de00094aebb
-    :END:
-    Mac で Emacs を使ってる時に ivy でアプリケーションを起動するためのパッケージ。
-
-    #+begin_src emacs-lisp :tangle inits/83-counsel-osx-app.el
-    (el-get-bundle counsel-osx-app)
-    #+end_src
-
-    Mac を使ってる時は Emacs がランチャー代わりになるので便利。
-
-    WSL 使ってる時に同じようなことをしてみたいんだけどどうしたらいいんだろう。
-    まあできなくてもいいんだけど、
-    このパッケージは Mac でだけ読むようにしたら良いよねって感じではある。
-
 *** ivy-kibela
     Kibela の記事を ivy で絞り込んで Emacs から開けるようにするために
     [[https://github.com/mugijiru/ivy-kibela][ivy-kibela]] という自作ツールを使っている

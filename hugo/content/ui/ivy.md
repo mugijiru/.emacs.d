@@ -334,19 +334,6 @@ completing-read や ivy-completing-read を指定してもうまくいかない�
 また fuzzy match を有効にする設定も記載されているがそちらは自分は設定していない。なんとなく。
 
 
-## counsel-osx-app. <span class="tag"><span class="improvement">improvement</span></span> {#counsel-osx-app-dot}
-
-Mac で Emacs を使ってる時に ivy でアプリケーションを起動するためのパッケージ。
-
-```emacs-lisp
-(el-get-bundle counsel-osx-app)
-```
-
-Mac を使ってる時は Emacs がランチャー代わりになるので便利。
-
-WSL 使ってる時に同じようなことをしてみたいんだけどどうしたらいいんだろう。まあできなくてもいいんだけど、このパッケージは Mac でだけ読むようにしたら良いよねって感じではある。
-
-
 ## ivy-kibela {#ivy-kibela}
 
 Kibela の記事を ivy で絞り込んで Emacs から開けるようにするために

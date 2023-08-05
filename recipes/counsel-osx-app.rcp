@@ -1,6 +1,0 @@
-(:name counsel-osx-app
-:type github
-:description "Select an app to launch using ivy completion."
-:pkgname "d12frosted/counsel-osx-app"
-:minimum-emacs-version (24 3)
-)
