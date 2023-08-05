@@ -177,7 +177,8 @@ refile 先の候補設定 いくつかの org ファイルを使っているの�
       <description>概要 ox-hugo は org-mode から Hugo 用に md ファイルを出力できる便利なやつ。
 設定にもよるけど、1つのorgファイルに全部の記事を書いておいてツリー毎に md ファイルが生成される、というのがデフォルトの動きなので 1ファイルに詰めておくとファイルが分散しないで済んで良い。
 なお、この 麦汁&amp;rsquo;s Emacs Config も親サイトである 麦汁三昧 も ox-hugo を用いて構築している
-インストール・読み込み いつも通り el-get でインスコしている。
+インストール・読み込み レシピは自前で用意している
+(:name ox-hugo :description &amp;#34;A carefully crafted Org exporter back-end for Hugo https://ox-hugo.scripter.co&amp;#34; :type github :pkgname &amp;#34;kaushalmodi/ox-hugo&amp;#34; :branch &amp;#34;main&amp;#34; :depends (org-mode tomelr)) そしていつも通り el-get でインスコしている。
 (el-get-bundle ox-hugo) そして org-mode の ox が先に読まれてないといけないので with-eval-after-load を使って、ox が読まれてから require するようにしている。
 (with-eval-after-load &amp;#39;ox (require &amp;#39;ox-hugo)) その他 デフォルト設定でいい感じに使えているので特に設定変更は加えていない。</description>
     </item>
