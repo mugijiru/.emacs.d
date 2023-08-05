@@ -174,7 +174,7 @@ nil にして表示しないようにしている。
                                                                                       :scheduled (after ,(format-time-string "%Y-%m-%d" (current-time))))
                                                                           :not (:category "Private")))
                                            (:discard (:anything t))))))
-    (tags-todo "-Weekday-Daily-Holiday-Weekly-Weekend"
+    (tags-todo "-Weekday-Daily-Holiday-Weekly-Weekend&LEVEL=2"
                ((org-agenda-prefix-format " ")
                 (org-agenda-overriding-header "今日の作業")
                 (org-habit-show-habits nil)
@@ -195,7 +195,7 @@ nil にして表示しないようにしている。
                                            (:name "今日予定" :scheduled today)
                                            (:discard (:anything t))))))))
   ("D" "Holiday"
-   ((tags-todo "-Weekday-Daily-Holiday-Weekly-Weekend"
+   ((tags-todo "-Weekday-Daily-Holiday-Weekly-Weekend&LEVEL=2"
                ((org-agenda-prefix-format " ")
                 (org-agenda-overriding-header "休日の作業")
                 (org-habit-show-habits nil)
@@ -230,7 +230,7 @@ nil にして表示しないようにしている。
                 (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                            (:name "今日予定の作業" :scheduled today)
                                            (:discard (:anything t))))))
-    (tags-todo "Emacs"
+    (tags-todo "Emacs&LEVEL=2"
                ((org-agenda-files '("~/Documents/org/tasks/projects.org"))
                 (org-agenda-overriding-header "Emacs")))
     (tags-todo "Env&LEVEL=2"
