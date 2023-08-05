@@ -1,4 +1,4 @@
-(el-get-bundle zk-phi/key-chord)
+(el-get-bundle key-chord)
 
 (setq key-chord-two-keys-delay           0.25
       key-chord-safety-interval-backward 0.1

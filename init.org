@@ -987,7 +987,7 @@
     そして el-get でインストールしている。
 
     #+begin_src emacs-lisp :tangle inits/70-key-chord.el
-    (el-get-bundle zk-phi/key-chord)
+    (el-get-bundle key-chord)
     #+end_src
 
 *** 設定

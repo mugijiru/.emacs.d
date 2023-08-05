@@ -26,7 +26,7 @@ el-get のレシピは自前で用意している。なおインストールし�
 そして el-get でインストールしている。
 
 ```emacs-lisp
-(el-get-bundle zk-phi/key-chord)
+(el-get-bundle key-chord)
 ```
 
 
