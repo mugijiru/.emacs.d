@@ -13,7 +13,7 @@ ox-hugo を使ってWebサイトに仕立て上げています。
 
 主に以下の環境で使用しています。が、動作を保証するものではありません。
 
-Manjaro Linux 22.1.0
+Manjaro Linux 23.0.0
 : pacman で手に入る Emacs 28.2
 
 また macOS や Ubuntu 20.04 LTS で利用していたのでところどころにそのあたりの設定も残っています

@@ -1,24 +1,21 @@
 * mugijiru/.emacs.d
 
-  業務などで使ってる Emacs の設定
+  普段使ってる Emacs の設定
 
-** 必須要件
-
-   - Mac OS X
-   - Homebrew
-   - https://github.com/railwaycat/homebrew-emacsmacport
+** 動作環境
+   - OS :: Manjaro Linux 23.0.0
+   - Emacs :: 28.2(pacman でインストールしています)
 
 ** 初期設定
 
    #+begin_example
-   $ brew tap railwaycat/emacsmacport
-   $ brew install emacs-mac --with-dbus --with-imagemagick --with-modern-icon
+   $ yay -Si emacs
    #+end_example
 
 ** 使い方
 
    #+begin_example
-   $ hub clone mugijiru/.emacs.d ~/.emacs.d
+   $ gh repo clone mugijiru/.emacs.d ~/.emacs.d
    #+end_example
 
    で clone してきて Emacs を起動したら動くはず
@@ -27,11 +24,14 @@
 
    - init-loader
    - el-get
+   - el-get-lock
 
 ** 構成
 
+   - init.org :: 設定ファイルの説明及び出力元コード
    - init.el :: おなじみの初期化ファイル
-   - inits/??-*.el :: init-loader に読ませる設定
-   - recipes/*.el :: 自前で定義した el-get 用のレシピ
+   - inits/??-*.el :: init-loader に読ませる設定。基本的には init.org から吐き出している
+   - recipes/*.el :: 自前で定義した el-get 用のレシピ。基本的には init.org から吐き出している
    - custom.el :: Emacs 上で customize した値を収めるファイル
    - insert/*. :: 新規ファイル作成時のテンプレート
+   - snippets :: yasnippet で使うスニペット
