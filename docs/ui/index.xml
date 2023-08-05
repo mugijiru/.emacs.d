@@ -300,7 +300,8 @@ ivy なんかを使う時に ivy-posframe をど真ん中に出すと、いつ�
       <guid>https://mugijiru.github.io/.emacs.d/ui/zoom/</guid>
       <description>概要 zoom はフォーカスが当たっている Window が大きく表示されるようにするやつ。最近流行りのビデオチャットツールではない。
 どこにフォーカスが当たっているかわかりやすくなるし、狭い画面でも見たい部分を広げて表示できるので便利。
-インストール いつも通り el-get から入れる。 GitHub から直接取得するように設定している。
+インストール el-get のレシピは自前で用意している
+(:name zoom :type github :description &amp;#34;Fixed and automatic balanced window layout.&amp;#34; :pkgname &amp;#34;cyrus-and/zoom&amp;#34; :minimum-emacs-version (24 4)) そして el-get で入れる。 GitHub から直接取得するように設定している。
 (el-get-bundle cyrus-and/zoom) 設定 起動時に有効化 1画面しか使えない時は必須なので 比率を黄金比に変更 この方が使いやすいっぽい。 という設定をしている。
 (custom-set-variables &amp;#39;(zoom-mode t) &amp;#39;(zoom-size &amp;#39;(0.618 . 0.618))) </description>
     </item>

@@ -802,7 +802,7 @@
 	"title": "zoom",
 	"tags": [],
 	"description": "",
-	"content": "概要 zoom はフォーカスが当たっている Window が大きく表示されるようにするやつ。最近流行りのビデオチャットツールではない。\nどこにフォーカスが当たっているかわかりやすくなるし、狭い画面でも見たい部分を広げて表示できるので便利。\nインストール いつも通り el-get から入れる。 GitHub から直接取得するように設定している。\n(el-get-bundle cyrus-and/zoom) 設定 起動時に有効化 1画面しか使えない時は必須なので 比率を黄金比に変更 この方が使いやすいっぽい。 という設定をしている。\n(custom-set-variables \u0026#39;(zoom-mode t) \u0026#39;(zoom-size \u0026#39;(0.618 . 0.618))) "
+	"content": "概要 zoom はフォーカスが当たっている Window が大きく表示されるようにするやつ。最近流行りのビデオチャットツールではない。\nどこにフォーカスが当たっているかわかりやすくなるし、狭い画面でも見たい部分を広げて表示できるので便利。\nインストール el-get のレシピは自前で用意している\n(:name zoom :type github :description \u0026#34;Fixed and automatic balanced window layout.\u0026#34; :pkgname \u0026#34;cyrus-and/zoom\u0026#34; :minimum-emacs-version (24 4)) そして el-get で入れる。 GitHub から直接取得するように設定している。\n(el-get-bundle cyrus-and/zoom) 設定 起動時に有効化 1画面しか使えない時は必須なので 比率を黄金比に変更 この方が使いやすいっぽい。 という設定をしている。\n(custom-set-variables \u0026#39;(zoom-mode t) \u0026#39;(zoom-size \u0026#39;(0.618 . 0.618))) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/ui/zoom-window/",
