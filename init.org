@@ -974,11 +974,20 @@
     :ID:       5b08b398-607f-4a9a-b5ab-772220abc8b6
     :END:
 
-    いつも通り el-get でインストールしている。
-    本家の方じゃないので GitHub のリポジトリから突っ込んでいる。
+    el-get のレシピは自前で用意している。
+    なおインストールしているのは本家版ではない。
+
+    #+begin_src emacs-lisp :tangle recipes/key-chord.rcp
+      (:name key-chord
+             :description "bind commands to combinations of key-strokes"
+             :type github
+             :pkgname "zk-phi/key-chord")
+    #+end_src
+
+    そして el-get でインストールしている。
 
     #+begin_src emacs-lisp :tangle inits/70-key-chord.el
-    (el-get-bundle zk-phi/key-chord)
+    (el-get-bundle key-chord)
     #+end_src
 
 *** 設定
