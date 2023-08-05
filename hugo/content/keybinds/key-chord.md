@@ -14,7 +14,16 @@ draft = false
 
 ## インストール {#インストール}
 
-いつも通り el-get でインストールしている。本家の方じゃないので GitHub のリポジトリから突っ込んでいる。
+el-get のレシピは自前で用意している。なおインストールしているのは本家版ではない。
+
+```emacs-lisp
+(:name key-chord
+       :description "bind commands to combinations of key-strokes"
+       :type github
+       :pkgname "zk-phi/key-chord")
+```
+
+そして el-get でインストールしている。
 
 ```emacs-lisp
 (el-get-bundle zk-phi/key-chord)
