@@ -80,11 +80,42 @@ Windows 環境を使ってないので無視。
 ivy-posframe は ivy を posframe で表示してくれるようにするやつ。
 posframe 表示だと Emacs の中央に表示できるので視線移動が少なく済んで便利。
 
+
+### インストール {#インストール}
+
+こちらは自前で el-get の resipe を用意している
+
+```emacs-lisp
+(:name ivy-posframe
+       :type github
+       :description "ivy-posframe is a ivy extension, which let ivy use posframe to show its candidate menu."
+       :pkgname "tumashu/ivy-posframe"
+       :minimum-emacs-version (26))
+```
+
+そしていつも通りに el-get でインストール
+
 ```emacs-lisp
 (el-get-bundle ivy-posframe)
+```
+
+
+### 設定 {#設定}
+
+Swiper だけは画面下部に表示されるようにしているが他は画面中央に表示されるようにしている。
+
+Swiper は検索なので、真ん中に表示しているとヒットした部分が隠されてしまう。というわけでそいつだけは下に表示しているのでした。
+
+```emacs-lisp
 (setq ivy-posframe-display-functions-alist
       '((swiper . ivy-display-function-fallback)
         (t . ivy-posframe-display-at-frame-center)))
+```
+
+
+### 有効化 {#有効化}
+
+```emacs-lisp
 (ivy-posframe-mode 1)
 ```
 
