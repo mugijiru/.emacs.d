@@ -25,16 +25,16 @@
       <description>概要 key-chord はキーを同時に押した時にコマンドを発動させるということができるようにしてくれるパッケージ。
 なのですが本家の方だと誤爆が多いということなのでそれを改善した zk-phi/key-chord の方を利用している。
 まあほとんど使えてないので改良版の恩恵をまだ受けてないけど……。
-インストール いつも通り el-get でインストールしている。本家の方じゃないので GitHub のリポジトリから突っ込んでいる。
-(el-get-bundle zk-phi/key-chord) 設定 同時押し時の許容時間、その前後で別のキーが押されていたら発動しない判断をする、みたいな設定を入れている。
+インストール el-get のレシピは自前で用意している。なおインストールしているのは本家版ではない。
+(:name key-chord :description &amp;#34;bind commands to combinations of key-strokes&amp;#34; :type github :pkgname &amp;#34;zk-phi/key-chord&amp;#34;) そして el-get でインストールしている。
+(el-get-bundle key-chord) 設定 同時押し時の許容時間、その前後で別のキーが押されていたら発動しない判断をする、みたいな設定を入れている。
 (setq key-chord-two-keys-delay 0.25 key-chord-safety-interval-backward 0.1 key-chord-safety-interval-forward 0.15) キーの同時押し判定は 0.15 秒で、それらのキーが押される直前の 0.1 秒以内、または直後の 0.15 秒に押されていたら発動しない、という設定にしている。
 改良版の作者の記事だと、直後判定は 0.25 秒で設定されていたが自分は Hydra の起動に使っている上に Hydra で叩けるやつでよく使うやつは覚えているので表示を待たずに次のキーを押すので 0.25 秒も待っていられないという事情があった。
 有効化 設定を入れた後は有効にするだけである。
 (key-chord-mode 1) 実際のキーバインド設定は各モードだったりグローバルキーバインドを設定しているファイルだったりで書く感じ。
 といいつつ現状では Hydra 起動のやつしか使ってないので、グローバルキーバインド設定でしか書いてない。
 sticky-shift セミコロン2つでシフトを押した状態にする セミコロンを2回叩くことで shift が押されてるという状態を実現する。
-これにより magit で P などを入力したい時にも ;;p で入力できるし通常の英字入力時にも大文字にできるので左手小指が痛い時には Shift を使わずに操作ができるようになる。
-(key-chord-define-global &amp;#34;;;&amp;#34; &amp;#39;event-apply-shift-modifier) (key-chord-define key-translation-map &amp;#34;;;&amp;#34; &amp;#39;event-apply-shift-modifier) global-key-map と key-translation-map の両方に定義しないと動かないがその原因はよく分かってない。一旦動くから良しとしている。</description>
+これにより magit で P などを入力したい時にも ;;p で入力できるし通常の英字入力時にも大文字にできるので左手小指が痛い時には Shift を使わずに操作ができるようになる。</description>
     </item>
     
     <item>
