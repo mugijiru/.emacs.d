@@ -124,7 +124,18 @@ el-get-bundle で入れて require したら有効になる
 
 ### インストール {#インストール}
 
-いつも通り el-get で入れてるだけ
+el-get のレシピは自前で用意している
+
+```emacs-lisp
+(:name doom-modeline
+       :website "https://github.com/seagle0128/doom-modeline"
+       :description "A fancy and fast mode-line which was from DOOM Emacs, but it's more powerful and much faster."
+       :depends (shrink-path compat)
+       :type github
+       :pkgname "seagle0128/doom-modeline")
+```
+
+そして以下でインストール
 
 ```emacs-lisp
 (el-get-bundle doom-modeline)
