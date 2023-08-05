@@ -3748,7 +3748,7 @@
     Emacs のど真ん中に表示したり、
     今あるカーソル位置のすぐそばに出したりできる。
 
-    ivy なんかを使う時に [[https://github.com/tumashu/ivy-posframe][ivy-posframe]] ど真ん中に出すと、
+    ivy なんかを使う時に [[https://github.com/tumashu/ivy-posframe][ivy-posframe]] をど真ん中に出すと、
     いつもそこに表示されるし真ん中なの視線移動が少なくて済むし
     [[https://github.com/conao3/ddskk-posframe.el][ddskk-posframe]] なんかで変換候補をカーソル位置のそばに出て来るので
     一般的な日本語変換ソフトと同様にこれまた視線移動が少なくて便利。
