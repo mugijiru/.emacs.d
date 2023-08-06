@@ -959,7 +959,8 @@ Mac での辞書の位置の指定 Homebrew で cmigemo を入れているので
       <guid>https://mugijiru.github.io/.emacs.d/ui/mode-line/</guid>
       <description>概要 Emacs のバッファ下部に表示されるモードライン関連の設定をここにまとめている。このメニューの並びとかはどこかで直した方が良さそう。
 hide-mode-line hide-mode-line は mode-line を隠してくれるパッケージ。ここでは neotree-mode-hook で引っ掛けて Neotree では mode-line を隠すように設定している
-(el-get-bundle hlissner/emacs-hide-mode-line) (add-hook &amp;#39;neotree-mode-hook #&amp;#39;hide-mode-line-mode) 他にも mode-line の表示が不要なモードとかってありそうだけど特に思い付かないから今のところ Neotree 専用になっている。
+(el-get-bundle hlissner/emacs-hide-mode-line) (add-hook &amp;#39;neotree-mode-hook #&amp;#39;hide-mode-line-mode) レシピは自前で用意している
+(:name emacs-hide-mode-line :type github :description &amp;#34;minor mode that hides/masks your modeline.&amp;#34; :pkgname &amp;#34;hlissner/emacs-hide-mode-line&amp;#34; :minimum-emacs-version (24 4)) 他にも mode-line の表示が不要なモードとかってありそうだけど特に思い付かないから今のところ Neotree 専用になっている。
 日時を mode-line では表示しない 今だと i3bar に時計が表示されていていつもそれを見るので mode-line の日時表示は要らないな〜と思ったので非表示にした
 (custom-set-variables &amp;#39;(display-time-24hr-format t)) (display-time-mode -1) 表示していたころの名残りで時計の表示形式は24時間表記の設定。表示する場合、「午前」とか「午後」とかの表示邪魔だしね。
 smart-mode-line 関連の設定 unused smart-mode-line は mode-line をセクシーな感じにしてくれるパッケージ。というわけで昔入れていたけどもう使ってない。一応コードの残骸があったから一旦残しておく。
