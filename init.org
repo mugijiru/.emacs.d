@@ -2644,7 +2644,16 @@
      画面の真ん中に表示される方が視線移動が少なくて便利なので
      hydra-posframe を使って画面中央に表示されるようにしている。
 
-     インストールはいつも通り el-get で行っている。
+     インストールは el-get でやっているが recipe がないのでまずそれを用意。
+
+     #+begin_src emacs-lisp :tangle recipes/hydra-posframe.rcp
+       (:name hydra-posframe
+              :description "a hydra extension which shows hydra hints on posframe."
+              :type github
+              :pkgname "Ladicle/hydra-posframe")
+     #+end_src
+
+     そして ~el-get-bundle~ でインストール
 
      #+begin_src emacs-lisp :tangle inits/81-hydra.el
      (el-get-bundle hydra-posframe)
