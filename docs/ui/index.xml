@@ -41,8 +41,9 @@
       <guid>https://mugijiru.github.io/.emacs.d/ui/color-theme-molokai/</guid>
       <description>概要 color-theme-molokai は多分 vim の molokai をベースにしたテーマ。更に元はどうも TextMate っぽい。
 ダークグレイ背景をベースにしたテーマでもう何年もこのテーマを使っている。
-インストール いつも通り el-get で入れている。 MELPA に登録されてないのかわからんけど直接 GitHub から入れている。
-(el-get-bundle alloy-d/color-theme-molokai) テーマへの PATH を通す インストールしただけでは custom-theme-load-path には追加されないので自分で add-to-list を使って PATH を通している。
+インストール el-get のレシピを自前で用意している
+(:name color-theme-molokai :type github :description &amp;#34;A pretty color theme.&amp;#34; :pkgname &amp;#34;alloy-d/color-theme-molokai&amp;#34;) そして el-get で入れている。
+(el-get-bundle color-theme-molokai) テーマへの PATH を通す インストールしただけでは custom-theme-load-path には追加されないので自分で add-to-list を使って PATH を通している。
 (add-to-list &amp;#39;custom-theme-load-path (expand-file-name &amp;#34;~/.emacs.d/el-get/color-theme-molokai&amp;#34;)) テーマの読み込み 最後に load-theme で molokai を読み込んでいる。
 (load-theme &amp;#39;molokai t) その他 もう長年これを使っているが、近年ではもっと良いテーマも出ているかもしれないのでそのうち乗り換えるかも。
 なんだけど、テーマ乗り換えるのちょっとだるいのよね〜。</description>

@@ -298,7 +298,7 @@
 	"title": "color-theme-molokai",
 	"tags": [],
 	"description": "",
-	"content": "概要 color-theme-molokai は多分 vim の molokai をベースにしたテーマ。更に元はどうも TextMate っぽい。\nダークグレイ背景をベースにしたテーマでもう何年もこのテーマを使っている。\nインストール いつも通り el-get で入れている。 MELPA に登録されてないのかわからんけど直接 GitHub から入れている。\n(el-get-bundle alloy-d/color-theme-molokai) テーマへの PATH を通す インストールしただけでは custom-theme-load-path には追加されないので自分で add-to-list を使って PATH を通している。\n(add-to-list \u0026#39;custom-theme-load-path (expand-file-name \u0026#34;~/.emacs.d/el-get/color-theme-molokai\u0026#34;)) テーマの読み込み 最後に load-theme で molokai を読み込んでいる。\n(load-theme \u0026#39;molokai t) その他 もう長年これを使っているが、近年ではもっと良いテーマも出ているかもしれないのでそのうち乗り換えるかも。\nなんだけど、テーマ乗り換えるのちょっとだるいのよね〜。\n"
+	"content": "概要 color-theme-molokai は多分 vim の molokai をベースにしたテーマ。更に元はどうも TextMate っぽい。\nダークグレイ背景をベースにしたテーマでもう何年もこのテーマを使っている。\nインストール el-get のレシピを自前で用意している\n(:name color-theme-molokai :type github :description \u0026#34;A pretty color theme.\u0026#34; :pkgname \u0026#34;alloy-d/color-theme-molokai\u0026#34;) そして el-get で入れている。\n(el-get-bundle color-theme-molokai) テーマへの PATH を通す インストールしただけでは custom-theme-load-path には追加されないので自分で add-to-list を使って PATH を通している。\n(add-to-list \u0026#39;custom-theme-load-path (expand-file-name \u0026#34;~/.emacs.d/el-get/color-theme-molokai\u0026#34;)) テーマの読み込み 最後に load-theme で molokai を読み込んでいる。\n(load-theme \u0026#39;molokai t) その他 もう長年これを使っているが、近年ではもっと良いテーマも出ているかもしれないのでそのうち乗り換えるかも。\nなんだけど、テーマ乗り換えるのちょっとだるいのよね〜。\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/editing/company-mode/",
