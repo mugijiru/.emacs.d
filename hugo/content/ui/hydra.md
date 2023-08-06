@@ -29,7 +29,16 @@ Hydra 本体は el-get で普通に入れている
 Hydra は通常だと minibuffer あたりに表示されるけど画面の真ん中に表示される方が視線移動が少なくて便利なので
 hydra-posframe を使って画面中央に表示されるようにしている。
 
-インストールはいつも通り el-get で行っている。
+インストールは el-get でやっているが recipe がないのでまずそれを用意。
+
+```emacs-lisp
+(:name hydra-posframe
+       :description "a hydra extension which shows hydra hints on posframe."
+       :type github
+       :pkgname "Ladicle/hydra-posframe")
+```
+
+そして `el-get-bundle` でインストール
 
 ```emacs-lisp
 (el-get-bundle hydra-posframe)
