@@ -17,6 +17,16 @@ Emacs のバッファ下部に表示されるモードライン関連の設定�
 (add-hook 'neotree-mode-hook #'hide-mode-line-mode)
 ```
 
+レシピは自前で用意している
+
+```emacs-lisp
+(:name emacs-hide-mode-line
+  :type github
+  :description "minor mode that hides/masks your modeline."
+  :pkgname "hlissner/emacs-hide-mode-line"
+  :minimum-emacs-version (24 4))
+```
+
 他にも mode-line の表示が不要なモードとかってありそうだけど特に思い付かないから今のところ Neotree 専用になっている。
 
 
