@@ -1,5 +1,4 @@
 (:name color-theme-molokai
-:type github
-:description "A pretty color theme."
-:pkgname "alloy-d/color-theme-molokai"
-)
+  :type github
+  :description "A pretty color theme."
+  :pkgname "alloy-d/color-theme-molokai")

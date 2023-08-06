@@ -2323,11 +2323,20 @@
     :PROPERTIES:
     :ID:       f277aedd-c295-434e-b9ce-74c0d8348c3e
     :END:
-    いつも通り el-get で入れている。
-    MELPA に登録されてないのかわからんけど直接 GitHub から入れている。
+
+    el-get のレシピを自前で用意している
+
+    #+begin_src emacs-lisp :tangle recipes/color-theme-molokai.rcp
+      (:name color-theme-molokai
+        :type github
+        :description "A pretty color theme."
+        :pkgname "alloy-d/color-theme-molokai")
+    #+end_src
+
+    そして el-get で入れている。
 
     #+begin_src emacs-lisp :tangle inits/90-theme.el
-    (el-get-bundle alloy-d/color-theme-molokai)
+      (el-get-bundle color-theme-molokai)
     #+end_src
 *** テーマへの PATH を通す
     :PROPERTIES:
