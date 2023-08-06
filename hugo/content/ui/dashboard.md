@@ -11,7 +11,18 @@ Emacs の起動時に色々な情報を表示してくれるパッケージ。
 
 ## インストール {#インストール}
 
-いつも通り el-get で入れている
+el-get のレシピは自前で用意している
+
+```emacs-lisp
+(:name dashboard
+  :type github
+  :description "A startup screen extracted from Spacemacs"
+  :pkgname "emacs-dashboard/emacs-dashboard"
+  :depends (page-break-lines)
+  :minimum-emacs-version (25 3))
+```
+
+そして `el-get-bundle` で入れている
 
 ```emacs-lisp
 (el-get-bundle dashboard)
