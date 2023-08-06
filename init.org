@@ -2366,7 +2366,19 @@
     :PROPERTIES:
     :ID:       b4907155-0c47-4d63-bcb0-ea44d2c8e0de
     :END:
-    いつも通り el-get で入れている
+
+    el-get のレシピは自前で用意している
+
+    #+begin_src emacs-lisp :tangle recipes/dashboard.rcp
+      (:name dashboard
+        :type github
+        :description "A startup screen extracted from Spacemacs"
+        :pkgname "emacs-dashboard/emacs-dashboard"
+        :depends (page-break-lines)
+        :minimum-emacs-version (25 3))
+    #+end_src
+
+    そして ~el-get-bundle~ で入れている
 
     #+begin_src emacs-lisp :tangle inits/92-dashboard.el
     (el-get-bundle dashboard)
