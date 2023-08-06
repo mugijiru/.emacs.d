@@ -828,10 +828,10 @@ peco とか fzf とかと似ているっちゃ似ているかな? fzf 使った�
 インストール Hydra 本体と関連パッケージをここでインスコしている
 Hydra 本体のインストール Hydra 本体は el-get で普通に入れている
 (el-get-bundle hydra) hydra-posframe のインストール Hydra は通常だと minibuffer あたりに表示されるけど画面の真ん中に表示される方が視線移動が少なくて便利なので hydra-posframe を使って画面中央に表示されるようにしている。
-インストールはいつも通り el-get で行っている。
+インストールは el-get でやっているが recipe がないのでまずそれを用意。
+(:name hydra-posframe :description &amp;#34;a hydra extension which shows hydra hints on posframe.&amp;#34; :type github :pkgname &amp;#34;Ladicle/hydra-posframe&amp;#34;) そして el-get-bundle でインストール
 (el-get-bundle hydra-posframe) そして Emacs の初期化処理が完了したタイミングでそれが使われるように after-init-hook で hydra-posframe を有効化している
-(add-hook &amp;#39;after-init-hook &amp;#39;hydra-posframe-enable) WebDAV Sync download の設定 作業管理用の org-mode のドキュメントは WebDAV サーバにも上げて beorg でも使えるようにしているがそれを拾って来るためのコマンドを用意している。
-(defun my/download-from-beorg () (interactive) (async-shell-command &amp;#34;java -jar ~/bin/webdav_sync1_1_9.jar -c ~/.config/webdav-sync/download.xml &amp;amp;&amp;amp; notify-send &amp;#39;WebDAV Sync&amp;#39; &amp;#39;Downloaded from WebDAV&amp;#39;&amp;#34;)) 簡単に async-shell-command を使って済ませている</description>
+(add-hook &amp;#39;after-init-hook &amp;#39;hydra-posframe-enable) WebDAV Sync download の設定 作業管理用の org-mode のドキュメントは WebDAV サーバにも上げて beorg でも使えるようにしているがそれを拾って来るためのコマンドを用意している。</description>
     </item>
     
     <item>
