@@ -498,15 +498,12 @@ company-quickhelp company-quickhelp は候補の補足情報が見れるよう�
       
       <guid>https://mugijiru.github.io/.emacs.d/ui/dashboard/</guid>
       <description>概要 emacs-dashboard は Emacs の起動時に色々な情報を表示してくれるパッケージ。
-インストール いつも通り el-get で入れている
+インストール el-get のレシピは自前で用意している
+(:name dashboard :type github :description &amp;#34;A startup screen extracted from Spacemacs&amp;#34; :pkgname &amp;#34;emacs-dashboard/emacs-dashboard&amp;#34; :depends (page-break-lines) :minimum-emacs-version (25 3)) そして el-get-bundle で入れている
 (el-get-bundle dashboard) 表示するアイコンをロゴに変更 ロゴ、画像にした方がカッコいいよねってことで logo に変更している
 (setq dashboard-startup-banner &amp;#39;logo) なお CUI で起動すると自動でテキストでの表示になる
 表示する情報の設定 dashboard-items を弄ることで表示する情報を設定している
-(setq dashboard-items &amp;#39;((recents . 5) ;; (bookmarks . 5) ;; bookmarks は使ってない (projects . 5) (agenda . 5) ;; (registers . 5) ;; registers は使ってない )) Emacs の bookmarks と register は使ってない(使えてない)のでコメントアウトしている。
-あとは最近開いたファイルとプロジェクトとagendaを表示するようにしているがイマイチ活用できてないので色々設定を詰める必要がありそう
-各セクションのタイトル部の先頭にアイコンを表示 これは見た目をちょっとだけカッコよくするために all-the-icons で装飾するための設定
-(setq dashboard-set-heading-icons t) 各ファイルの先頭にアイコンを表示 これも見た目をちょっとだエカッコよくするために all-the-icons で装飾するための設定。だけどファイルの種類がアイコンでわかるので便利。
-(setq dashboard-set-file-icons t) 最後に設定を反映 多分設定を反映するための関数だと思ってる。</description>
+(setq dashboard-items &amp;#39;((recents . 5) ;; (bookmarks . 5) ;; bookmarks は使ってない (projects . 5) (agenda . 5) ;; (registers . 5) ;; registers は使ってない )) Emacs の bookmarks と register は使ってない(使えてない)のでコメントアウトしている。</description>
     </item>
     
     <item>
