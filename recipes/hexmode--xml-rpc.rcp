@@ -1,5 +1,0 @@
-(:name hexmode--xml-rpc
-       :description "An elisp implementation of clientside XML-RPC"
-       :type github
-       :features "xml-rpc"
-       :pkgname "hexmode/xml-rpc-el")
