@@ -12,11 +12,19 @@ draft = false
 
 ## インストール {#インストール}
 
-いつも通り el-get で入れている。
-MELPA に登録されてないのかわからんけど直接 GitHub から入れている。
+el-get のレシピを自前で用意している
 
 ```emacs-lisp
-(el-get-bundle alloy-d/color-theme-molokai)
+(:name color-theme-molokai
+  :type github
+  :description "A pretty color theme."
+  :pkgname "alloy-d/color-theme-molokai")
+```
+
+そして el-get で入れている。
+
+```emacs-lisp
+(el-get-bundle color-theme-molokai)
 ```
 
 
