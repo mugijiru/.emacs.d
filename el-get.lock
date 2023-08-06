@@ -26,7 +26,7 @@
         (tablist :checksum "faab7a035ef2258cc4ea2182f67e3aedab7e2af9")
         (aio :checksum "da93523e235529fa97d6f251319d9e1d6fc24a41")
         (git-messenger :checksum "eade986ef529aa2dac6944ad61b18de55cee0b76")
-        (lsp-docker :checksum "175b587e0def23d4560abdb06b12e05ea469aaea")
+        (lsp-docker :checksum "9adabe57393c6e8740789710c614d011a697b1ed")
         (ivy-kibela :checksum "834906446a9ff76b2501d9d2656d57fb1c77faad")
         (graphql :checksum "67237f284f2dfb94f3cfba672ff64a37e1cb860f")
         (tomelr :checksum "670e0a08f625175fd80137cf69e799619bf8a381")
