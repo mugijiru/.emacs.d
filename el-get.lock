@@ -1,7 +1,7 @@
 (setq el-get-lock-package-versions
       '((origami :checksum "a8300d79f8ba7429f656ea81ae74dd9ec7f9c894")
         (company-posframe :checksum "18d6641bba72cba3c00018cee737ea8b454f64a8")
-        (nerd-icons :checksum "60ed056a72a4a93e75be32d4727be047eb2bce40")
+        (nerd-icons :checksum "ec4eaa353a966588e7b60f1fae7f9c2a562cd78d")
         (copilot :checksum "6f3eb755b5baafbdc357a8d4905ec8017cea9210")
         (json-rpc :checksum "81a5a520072e20d18aeab2aac4d66c046b031e56")
         (editorconfig :checksum "df0e5180db1d1267c9ea39abbe98b7993e83bae7")
