@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>mode-line :: 麦汁&#39;s Emacs Config</title>
+    <title>Docker :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1691648357" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/ui/mode-line/">
+  <body class="" data-url="/.emacs.d/programming/docker/">
     <nav id="sidebar" class="">
 
 
@@ -866,7 +866,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        parent
+        
         
         
         ">
@@ -1165,7 +1165,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/mode-line/" title="mode-line" class="dd-item active">
+      <li data-nav-id="/.emacs.d/ui/mode-line/" title="mode-line" class="dd-item ">
         <a href="/.emacs.d/ui/mode-line/">
         mode-line
         
@@ -1501,7 +1501,7 @@
   
     
     <li data-nav-id="/.emacs.d/programming/" title="プログラミング関係の設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -1527,7 +1527,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/programming/docker/" title="Docker" class="dd-item ">
+      <li data-nav-id="/.emacs.d/programming/docker/" title="Docker" class="dd-item active">
         <a href="/.emacs.d/programming/docker/">
         Docker
         
@@ -2741,7 +2741,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > mode-line
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/programming/'>プログラミング関係の設定</a> > Docker
           
         
           
@@ -2757,26 +2757,13 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#hide-mode-line">hide-mode-line</a></li>
-    <li><a href="#日時を-mode-line-では表示しない">日時を mode-line では表示しない</a></li>
-    <li><a href="#smart-mode-line-関連の設定">smart-mode-line 関連の設定 <span class="tag"><span class="unused">unused</span></span></a></li>
-    <li><a href="#diminish">diminish</a>
-      <ul>
-        <li><a href="#インストール-有効化">インストール・有効化</a></li>
-        <li><a href="#マクロ定義">マクロ定義</a></li>
-        <li><a href="#マイナーモード毎の表示指定">マイナーモード毎の表示指定</a></li>
-      </ul>
-    </li>
-    <li><a href="#doom-modeline">doom-modeline</a>
+    <li><a href="#dockerfile-mode">dockerfile-mode</a>
       <ul>
         <li><a href="#インストール">インストール</a></li>
-        <li><a href="#有効化">有効化</a></li>
-        <li><a href="#vcs-用表示の長さ変更">VCS 用表示の長さ変更</a></li>
-        <li><a href="#バッテリー残量表示">バッテリー残量表示</a></li>
-        <li><a href="#その他">その他</a></li>
+        <li><a href="#カスタマイズ">カスタマイズ</a></li>
+        <li><a href="#hook">hook</a></li>
       </ul>
     </li>
-    <li><a href="#その他">その他</a></li>
   </ul>
 </nav>
     </div>
@@ -2794,7 +2781,7 @@
           
             <h1>
               
-              mode-line
+              Docker
             </h1>
           
 
@@ -2802,105 +2789,27 @@
 
 
 <h2 id="概要">概要</h2>
-<p>Emacs のバッファ下部に表示されるモードライン関連の設定をここにまとめている。このメニューの並びとかはどこかで直した方が良さそう。</p>
-<h2 id="hide-mode-line">hide-mode-line</h2>
-<p><a href="https://github.com/hlissner/emacs-hide-mode-line">hide-mode-line</a> は mode-line を隠してくれるパッケージ。ここでは neotree-mode-hook で引っ掛けて Neotree では mode-line を隠すように設定している</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle hlissner/emacs-hide-mode-line)
-</span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;neotree-mode-hook</span> <span style="color:#a6e22e">#&#39;</span>hide-mode-line-mode)
-</span></span></code></pre></div><p>レシピは自前で用意している</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name emacs-hide-mode-line
-</span></span><span style="display:flex;"><span>  :type github
-</span></span><span style="display:flex;"><span>  :description <span style="color:#e6db74">&#34;minor mode that hides/masks your modeline.&#34;</span>
-</span></span><span style="display:flex;"><span>  :pkgname <span style="color:#e6db74">&#34;hlissner/emacs-hide-mode-line&#34;</span>
-</span></span><span style="display:flex;"><span>  :minimum-emacs-version (<span style="color:#ae81ff">24</span> <span style="color:#ae81ff">4</span>))
-</span></span></code></pre></div><p>他にも mode-line の表示が不要なモードとかってありそうだけど特に思い付かないから今のところ Neotree 専用になっている。</p>
-<h2 id="日時を-mode-line-では表示しない">日時を mode-line では表示しない</h2>
-<p>今だと i3bar に時計が表示されていていつもそれを見るので
-mode-line の日時表示は要らないな〜と思ったので非表示にした</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-variables <span style="color:#f92672">&#39;</span>(display-time-24hr-format <span style="color:#66d9ef">t</span>))
-</span></span><span style="display:flex;"><span>(display-time-mode <span style="color:#ae81ff">-1</span>)
-</span></span></code></pre></div><p>表示していたころの名残りで時計の表示形式は24時間表記の設定。表示する場合、「午前」とか「午後」とかの表示邪魔だしね。</p>
-<h2 id="smart-mode-line-関連の設定">smart-mode-line 関連の設定 <span class="tag"><span class="unused">unused</span></span></h2>
-<p><a href="https://github.com/Malabarba/smart-mode-line">smart-mode-line</a> は mode-line をセクシーな感じにしてくれるパッケージ。というわけで昔入れていたけどもう使ってない。一応コードの残骸があったから一旦残しておく。</p>
-<p>多分アイコン表示周りをゴリゴリ設定するのがだるくなって doom-modeline に乗り換えたんだと思う。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; (el-get-bundle smart-mode-line)</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (defvar sml/no-confirm-load-theme t)</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (defvar sml/theme &#39;dark)</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (sml/setup)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; major-mode</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (add-hook &#39;emacs-lisp-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon &#34;elisp&#34;))))</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (add-hook &#39;enh-ruby-mode-hook (lambda () (setq mode-name (concat &#34;e&#34; (all-the-icons-alltheicon &#34;ruby-alt&#34;)))))</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (add-hook &#39;ruby-mode-hook (lambda () (setq mode-name (all-the-icons-alltheicon &#34;ruby-alt&#34;))))</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (add-hook &#39;vue-mode-hook (lambda ()</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;;                            (make-local-variable &#39;mmm-submode-mode-line-format)</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;;                            (setq mmm-submode-mode-line-format &#34;~M:~m&#34;)</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;;                            (make-local-variable &#39;mmm-buffer-mode-display-name)</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;;                            (setq mmm-buffer-mode-display-name &#34;V&#34;)))</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (add-hook &#39;js-mode-hook (lambda () (setq mode-name &#34;&#34;)))</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (add-hook &#39;pug-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon &#34;pug&#34;))))</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (add-hook &#39;css-mode-hook (lambda () (setq mode-name (all-the-icons-faicon &#34;css3&#34;))))</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (add-hook &#39;twittering-mode-hook (lambda () (setq mode-name (all-the-icons-faicon &#34;twitter-square&#34;))))</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (add-hook &#39;org-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon &#34;org&#34;))))</span>
-</span></span></code></pre></div><h2 id="diminish">diminish</h2>
-<p><a href="https://github.com/emacsmirror/diminish">diminish</a> は minor-mode の表示をカスタマイズするためのモード。</p>
-<p>これも昔使ってたけど今は使ってない。というか最近はマイナーモードを mode-line で表示してない。表示しなくなったから要らなくなった感じ。</p>
-<h3 id="インストール-有効化">インストール・有効化</h3>
-<p>el-get-bundle で入れて require したら有効になる</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle diminish)
-</span></span><span style="display:flex;"><span>(require <span style="color:#e6db74">&#39;diminish</span>)
-</span></span></code></pre></div><h3 id="マクロ定義">マクロ定義</h3>
-<p>各パッケージが読まれた後に指定した表示が設定されるようにするマクロを書いている。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defmacro my/diminish (file mode <span style="color:#66d9ef">&amp;optional</span> new-name)
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;https://github.com/larstvei/dot-emacs/blob/master/init.org&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>(with-eval-after-load <span style="color:#f92672">,</span>file
-</span></span><span style="display:flex;"><span>     (diminish <span style="color:#f92672">,</span>mode <span style="color:#f92672">,</span>new-name)))
-</span></span></code></pre></div><p><a href="https://github.com/larstvei/dot-emacs/blob/master/init.org">https://github.com/larstvei/dot-emacs/blob/master/init.org</a>
-に書かれているのを流用しただけであるはずだが、リンク先にその記述が見当たらないな……。</p>
-<h3 id="マイナーモード毎の表示指定">マイナーモード毎の表示指定</h3>
-<p>上で用意したマクロを用いて各マイナーモード毎の設定を行っていた。今は使ってないので全部コメントアウトしている</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; (my/diminish &#34;git-gutter&#34; &#39;git-gutter-mode (all-the-icons-octicon &#34;git-compare&#34;))</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (my/diminish &#34;yasnippet&#34; &#39;yas-minor-mode &#34; Ys&#34;)</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (my/diminish &#34;whitespace&#34; &#39;whitespace-mode &#34;◽&#34;)</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (my/diminish &#34;whitespace&#34; &#39;global-whitespace-mode &#34;◽&#34;)</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (my/diminish &#34;tempbuf&#34; &#39;tempbuf-mode &#34;&#34;)</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (my/diminish &#34;flycheck&#34; &#39;flycheck-mode &#34;&#34;)</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (my/diminish &#34;zoom&#34; &#39;zoom-mode &#34;&#34;)</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (my/diminish &#34;rainbow&#34; &#39;rainbow-mode &#34;🌈&#34;)</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (my/diminish &#34;projectile-rails&#34; &#39;projectile-rails-mode &#34;🛤&#34;)</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (my/diminish &#34;company&#34; &#39;company-mode &#34;&#34;)</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (my/diminish &#34;ElDoc&#34; &#39;eldoc-mode &#34;&#34;)</span>
-</span></span></code></pre></div><p>結構頑張ったけど絵文字周りで思うような表示にならなかったりして最終的にはマイナーモードを mode-line に表示しないようになっている。</p>
-<p>使ってる minor-mode どうやって把握したりしたらいいんだろうね。ま、表示されなくてもなんとなくで把握しているから、困ってはいないんだけど。</p>
-<h2 id="doom-modeline">doom-modeline</h2>
-<p><a href="https://github.com/seagle0128/doom-modeline">doom-modeline</a> は Emacs の mode-line を装飾するパッケージの1つ。結構スッキリした見た目になるので気に入ってる。</p>
+<p>Dockerfile を書いたりするための設定。ちゃんと設定したら Emacs から Docker の操作もできるようだけどそこまでは対応してない</p>
+<h2 id="dockerfile-mode">dockerfile-mode</h2>
 <h3 id="インストール">インストール</h3>
-<p>el-get のレシピは自前で用意している</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name doom-modeline
-</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/seagle0128/doom-modeline&#34;</span>
-</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;A fancy and fast mode-line which was from DOOM Emacs, but it&#39;s more powerful and much faster.&#34;</span>
-</span></span><span style="display:flex;"><span>       :depends (shrink-path compat)
-</span></span><span style="display:flex;"><span>       :type github
-</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;seagle0128/doom-modeline&#34;</span>)
-</span></span></code></pre></div><p>そして以下でインストール</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle doom-modeline)
-</span></span></code></pre></div><h3 id="有効化">有効化</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(doom-modeline-mode <span style="color:#ae81ff">1</span>)
-</span></span></code></pre></div><h3 id="vcs-用表示の長さ変更">VCS 用表示の長さ変更</h3>
-<p>デフォルトだと 12 なんだけどそれだと短かくて何のブランチかよくわからんので
-30 まえのばしている。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq doom-modeline-vcs-max-length <span style="color:#ae81ff">30</span>)
-</span></span></code></pre></div><h3 id="バッテリー残量表示">バッテリー残量表示</h3>
-<p>これは doom-modeline 専用の設定ではないけど
-doom-modeline で見た目をカッコよくしているのでこっちに設定を書いている。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(display-battery-mode <span style="color:#ae81ff">1</span>)
-</span></span></code></pre></div><h3 id="その他">その他</h3>
-<p><code>doom-modeline-github</code> を t にしたら GitHub の通知数も表示されるらしいがちょっと試しに t にしているけどどうも表示されない。</p>
-<p>あとはメジャーモード名はアイコンの方があるから消したいな。
-<code>doom-modeline-def-modeline</code> で自分用に作れば良さそうな雰囲気はある</p>
-<h2 id="その他">その他</h2>
-<p>多分 mode-line 周りはもうちょっと整理した方が設定は読み易いんだろうなという気がしている</p>
-
+<p>こちらは el-get にレシピが登録されているので単純に <code>el-get-bundle</code> でインストールしている。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle dockerfile-mode)
+</span></span></code></pre></div><h3 id="カスタマイズ">カスタマイズ</h3>
+<p>とりあえずインデントはスペース 2 つで普段書いているのでそれに合わせてカスタム変数を指定している。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-variables
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(dockerfile-indent-offset <span style="color:#ae81ff">2</span>))
+</span></span></code></pre></div><h3 id="hook">hook</h3>
+<p><a href="https://emacs-lsp.github.io/lsp-mode/page/lsp-dockerfile/">lsp-mode では Dockerfile もサポートしている</a> ので</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ npm install -g dockerfile-language-server-nodejs
+</span></span></code></pre></div><p>で LSP サーバを入れた上で
+dockerfile-mode-hook で lsp を起動させるようにしている。</p>
+<p>あとついでに display-line-numbers-mode も有効にしている。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/dockerfile-mode-hook ()
+</span></span><span style="display:flex;"><span>  (display-line-numbers-mode <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>  (lsp))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;dockerfile-mode-hook</span> <span style="color:#e6db74">&#39;my/dockerfile-mode-hook</span>)
+</span></span></code></pre></div>
 
 <footer class="footline">
 	
@@ -3484,7 +3393,6 @@ doom-modeline で見た目をカッコよくしているのでこっちに設定
             
                 
                     
-                    
                 
                 
 
@@ -3497,9 +3405,6 @@ doom-modeline で見た目をカッコよくしているのでこっちに設定
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -3709,7 +3614,6 @@ doom-modeline で見た目をカッコよくしているのでこっちに設定
             
                 
                     
-                    
                 
                 
 
@@ -3725,9 +3629,6 @@ doom-modeline で見た目をカッコよくしているのでこっちに設定
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -3956,6 +3857,7 @@ doom-modeline で見た目をカッコよくしているのでこっちに設定
             
                 
                     
+                    
                 
                 
 
@@ -3968,6 +3870,7 @@ doom-modeline で見た目をカッコよくしているのでこっちに設定
             
             
                 
+                    
                     
                 
                 
@@ -3984,6 +3887,9 @@ doom-modeline で見た目をカッコよくしているのでこっちに設定
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -4808,10 +4714,10 @@ doom-modeline で見た目をカッコよくしているのでこっちに設定
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/ui/ivy/" title="ivy"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/programming/" title="プログラミング関係の設定"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/ui/neotree/" title="Neotree" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/programming/emacs-lisp/" title="emacs-lisp" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

@@ -523,6 +523,21 @@ company-quickhelp company-quickhelp は候補の補足情報が見れるよう�
     </item>
     
     <item>
+      <title>Docker</title>
+      <link>https://mugijiru.github.io/.emacs.d/programming/docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/programming/docker/</guid>
+      <description>概要 Dockerfile を書いたりするための設定。ちゃんと設定したら Emacs から Docker の操作もできるようだけどそこまでは対応してない
+dockerfile-mode インストール こちらは el-get にレシピが登録されているので単純に el-get-bundle でインストールしている。
+(el-get-bundle dockerfile-mode) カスタマイズ とりあえずインデントはスペース 2 つで普段書いているのでそれに合わせてカスタム変数を指定している。
+(custom-set-variables &amp;#39;(dockerfile-indent-offset 2)) hook lsp-mode では Dockerfile もサポートしている ので
+$ npm install -g dockerfile-language-server-nodejs で LSP サーバを入れた上で dockerfile-mode-hook で lsp を起動させるようにしている。
+あとついでに display-line-numbers-mode も有効にしている。
+(defun my/dockerfile-mode-hook () (display-line-numbers-mode t) (lsp)) (add-hook &amp;#39;dockerfile-mode-hook &amp;#39;my/dockerfile-mode-hook) </description>
+    </item>
+    
+    <item>
       <title>dumb-jump</title>
       <link>https://mugijiru.github.io/.emacs.d/nav/dumb-jump/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1312,7 +1327,7 @@ typescript-mode typescript-mode は TypeScript 向けの Syntax Highlight とか
       <description>概要 undo-fu はシンプルな undo/redo 機能を提供してくれるやつ。
 昔はもっと色々できる undo-tree を使っていたけどそっちにバグがあるっぽいので乗り換えた。
 インストール レシピは自前で用意している
-(:name undo-fu :website &amp;#34;https://codeberg.org/ideasman42/emacs-undo-fu&amp;#34; :description &amp;#34;Simple, stable linear undo with redo for Emacs.&amp;#34; :type git :url &amp;#34;https://codeberg.org/ideasman42/emacs-undo-fu.git&amp;#34;) そしていつも通り el-get-bundle でインストールしている
+(:name undo-fu :website &amp;#34;https://codeberg.org/ideasman42/emacs-undo-fu&amp;#34; :description &amp;#34;Simple, stable linear undo with redo for Emacs.&amp;#34; :type git :branch &amp;#34;main&amp;#34; :url &amp;#34;https://codeberg.org/ideasman42/emacs-undo-fu.git&amp;#34;) そしていつも通り el-get-bundle でインストールしている
 (el-get-bundle undo-fu) キーバインド 別の場所で定義しているけど、以下のキーバインドにしている。
 Key 効果 C-/ undo C-M-/ redo </description>
     </item>

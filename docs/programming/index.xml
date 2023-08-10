@@ -7,6 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Docker</title>
+      <link>https://mugijiru.github.io/.emacs.d/programming/docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/programming/docker/</guid>
+      <description>概要 Dockerfile を書いたりするための設定。ちゃんと設定したら Emacs から Docker の操作もできるようだけどそこまでは対応してない
+dockerfile-mode インストール こちらは el-get にレシピが登録されているので単純に el-get-bundle でインストールしている。
+(el-get-bundle dockerfile-mode) カスタマイズ とりあえずインデントはスペース 2 つで普段書いているのでそれに合わせてカスタム変数を指定している。
+(custom-set-variables &amp;#39;(dockerfile-indent-offset 2)) hook lsp-mode では Dockerfile もサポートしている ので
+$ npm install -g dockerfile-language-server-nodejs で LSP サーバを入れた上で dockerfile-mode-hook で lsp を起動させるようにしている。
+あとついでに display-line-numbers-mode も有効にしている。
+(defun my/dockerfile-mode-hook () (display-line-numbers-mode t) (lsp)) (add-hook &amp;#39;dockerfile-mode-hook &amp;#39;my/dockerfile-mode-hook) </description>
+    </item>
+    
+    <item>
       <title>emacs-lisp</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/emacs-lisp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
