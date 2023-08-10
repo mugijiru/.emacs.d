@@ -1,6 +1,6 @@
 (setq el-get-lock-package-versions
       '((dockerfile-mode :checksum "52c6c00da1d31c0b6c29c74335b3af63ed6bf06c")
-        (origami :checksum "a8300d79f8ba7429f656ea81ae74dd9ec7f9c894")
+        (origami :checksum "08a7152d0d3d35cc7cc9bc5553987daf2f622b9d")
         (company-posframe :checksum "18d6641bba72cba3c00018cee737ea8b454f64a8")
         (nerd-icons :checksum "ec4eaa353a966588e7b60f1fae7f9c2a562cd78d")
         (copilot :checksum "841ccd5247db829ecef899a95d4c038db2f48e83")
