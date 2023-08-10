@@ -19,6 +19,7 @@ draft = false
        :website "https://codeberg.org/ideasman42/emacs-undo-fu"
        :description "Simple, stable linear undo with redo for Emacs."
        :type git
+       :branch "main"
        :url "https://codeberg.org/ideasman42/emacs-undo-fu.git")
 ```
 
