@@ -9,6 +9,9 @@ disableToc = true
 ここでは各言語やフレームワーク毎の設定をまとめている。
 markdown-mode とか yaml-mode なんかはプログラム言語ではないけど面倒なので一旦ここにまとめている。
 
+[Docker]({{< relref "docker" >}})
+: Dockerfile を書くための設定
+
 [emacs-lisp]({{< relref "emacs-lisp" >}})
 : Emacs Lisp を書くための設定
 
