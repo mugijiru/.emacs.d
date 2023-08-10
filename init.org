@@ -4396,6 +4396,7 @@
    ここでは各言語やフレームワーク毎の設定をまとめている。
    markdown-mode とか yaml-mode なんかはプログラム言語ではないけど面倒なので一旦ここにまとめている。
 
+   - [[id:d8faf854-ed24-464d-b670-b76346fed6b4][Docker]] :: Dockerfile を書くための設定
    - [[*emacs-lisp][emacs-lisp]] :: Emacs Lisp を書くための設定
    - [[*Ember.js][Ember.js]] :: Web フロントエンド MVC フレームワークである Ember.js 用の設定を書いている
    - [[*es6][es6]] :: ES2015 以降の JS に関する設定。es6 としているのは過去の経緯のため。
@@ -4413,11 +4414,63 @@
    - [[*Vue.js][Vue.js]] :: Vue.js を書く上での設定
    - [[*yaml-mode][yaml-mode]] :: YAML を書く時のメジャーモードの設定
 
+** Docker
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: docker
+   :ID:       d8faf854-ed24-464d-b670-b76346fed6b4
+   :END:
+*** 概要
+    Dockerfile を書いたりするための設定。
+    ちゃんと設定したら Emacs から Docker の操作もできるようだけど
+    そこまでは対応してない
+*** dockerfile-mode
+**** インストール
+     :PROPERTIES:
+     :ID:       88f3745f-2c1a-4df1-ab75-6ee3270933b3
+     :END:
+     こちらは el-get にレシピが登録されているので
+     単純に ~el-get-bundle~ でインストールしている。
+
+     #+begin_src emacs-lisp :tangle inits/40-dockerfile.el
+       (el-get-bundle dockerfile-mode)
+     #+end_src
+**** カスタマイズ
+     :PROPERTIES:
+     :ID:       e83bb596-85d8-424d-a025-5e8bbf355324
+     :END:
+     とりあえずインデントはスペース 2 つで普段書いているので
+     それに合わせてカスタム変数を指定している。
+
+     #+begin_src emacs-lisp :tangle inits/40-dockerfile.el
+       (custom-set-variables
+        '(dockerfile-indent-offset 2))
+     #+end_src
+**** hook
+     :PROPERTIES:
+     :ID:       adbb5613-72a1-46aa-8794-e2cc7a679826
+     :END:
+     [[https://emacs-lsp.github.io/lsp-mode/page/lsp-dockerfile/][lsp-mode では Dockerfile もサポートしている]] ので
+
+     #+begin_example
+     $ npm install -g dockerfile-language-server-nodejs
+     #+end_example
+
+     で LSP サーバを入れた上で
+     dockerfile-mode-hook で lsp を起動させるようにしている。
+
+     あとついでに display-line-numbers-mode も有効にしている。
+
+     #+begin_src emacs-lisp :tangle inits/40-dockerfile.el
+       (defun my/dockerfile-mode-hook ()
+         (display-line-numbers-mode t)
+         (lsp))
+
+       (add-hook 'dockerfile-mode-hook 'my/dockerfile-mode-hook)
+     #+end_src
 ** emacs-lisp
    :PROPERTIES:
    :EXPORT_FILE_NAME: emacs-lisp
    :END:
-
 *** 概要
     Emacs Lisp を書くための設定。
     まあそんなにしっかり書いてないので、あんまり設定は入ってない
