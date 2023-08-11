@@ -98,6 +98,21 @@ es6 を js2-mode で扱うようにする (add-to-list &amp;#39;auto-mode-alist 
     </item>
     
     <item>
+      <title>Jest</title>
+      <link>https://mugijiru.github.io/.emacs.d/programming/jest/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/programming/jest/</guid>
+      <description>概要 Jest は JavaScript のテスティングフレームワークの1つ。なんか大体オールインワンな感じで最近はデファクトっぽい人気なやつ。
+jest-test-mode jest-test-mode は Emacs 上から Jest のテストを手軽に実行できるようにしてくれるやつ。
+インストール まず el-get のレシピが公式では置かれていないので自前で用意
+(:name jest-test-mode :website &amp;#34;https://github.com/rymndhng/jest-test-mode/tree/3126c5c5c5632da639ea34867a7342d4410d78aa&amp;#34; :description &amp;#34;Emacs minor mode for running jest.&amp;#34; :type github :pkgname &amp;#34;rymndhng/jest-test-mode&amp;#34; :minimum-emacs-version &amp;#34;25.1&amp;#34;) そしてそれを el-get-bundle でインストール
+(el-get-bundle jest-test-mode) keymap デフォルトのキーマップ以外にも C-c C-c でテストできる方が手癖でテストを実行できて便利なので jest-test-mode-map に keybind を追加している
+(with-eval-after-load &amp;#39;jest-test-mode (let ((keymap jest-test-mode-map)) (define-key keymap (kbd &amp;#34;C-c C-c&amp;#34;) &amp;#39;jest-test-run-at-point))) .dir-locals.el Jest でテストを書いているプロジェクトのテストファイルを詰めているフォルダの.dir-locals.el に以下のように書くことでそれらのコードを開いた時に jest-test-mode が自動的に有効になるようにしている
+((web-mode . ((eval . (jest-test-mode)))) (typescript-mode .</description>
+    </item>
+    
+    <item>
       <title>lsp-mode</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/lsp-mode/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -164,9 +179,9 @@ lsp-mode の仲間なので、本当はそっち側で入れるようにした�
 (el-get-bundle dap-mode) 同時に treemacs や lsp-treemacs も入ってくる罠がある。 Neotree 使ってるからちょっとアレだなあ。いずれ乗り換えようとはしていたけども。
 web-mode とりあえず tsx を弄る上では web-mode が良いという話もあるので入れておく。
 (el-get-bundle web-mode) メジャーモードの紐付け jsx/tsx ファイルを開いた時には web-mode で動いてほしいので auto-mode-alist で関連付けをする
-(add-to-list &amp;#39;auto-mode-alist &amp;#39;(&amp;#34;\\.[jt]sx&amp;#34; . web-mode)) キーバインドの追加 テスト用のファイルを開いたら C-c C-c でテストを実行できるようにするためキーバインドを設定
-(defun my/setup-web-mode-map () (let ((keymap web-mode-map)) (define-key keymap (kbd &amp;#34;C-c C-c&amp;#34;) &amp;#39;my/mocha-test-file))) 自動フォーマット hook の用意 tsx の保存時に自動でフォーマットしてほしいのでそれ用に hook を追加
-(defun my/web-mode-auto-fix-hook () (when (string-equal (file-name-extension buffer-file-name) &amp;#34;tsx&amp;#34;) (lsp-eslint-fix-all))) lsp-mode などの有効化 jsx/tsx ファイルを開く時に web-mode が有効になるようにしているのでその web-mode の hook で</description>
+(add-to-list &amp;#39;auto-mode-alist &amp;#39;(&amp;#34;\\.[jt]sx&amp;#34; . web-mode)) 自動フォーマット hook の用意 tsx の保存時に自動でフォーマットしてほしいのでそれ用に hook を追加
+(defun my/web-mode-auto-fix-hook () (when (string-equal (file-name-extension buffer-file-name) &amp;#34;tsx&amp;#34;) (lsp-eslint-fix-all))) lsp-mode などの有効化 jsx/tsx ファイルを開く時に web-mode が有効になるようにしているのでその web-mode の hook で
+display-line-numbers-mode lsp lsp-ui-mode company-mode を有効にしている。</description>
     </item>
     
     <item>
@@ -228,8 +243,8 @@ flycheck の scss-stylelint を上書き stylelint v14 以降は &amp;ndash;styl
 typescript-mode typescript-mode は TypeScript 向けの Syntax Highlight とかを提供してくれるメジャーモード。
 インストール 自分はいつも通り el-get で入れている
 (el-get-bundle typescript-mode) カスタム変数 indent は2文字がいいのでデフォルトから変更 言語設定を ja にする。エラーが日本語で出るようになるとか……? inlay-hint を有効にする。何が変わるかわかってないけど Node.js の使用メモリも 2048 MB に増加。メモリ足らんってなる時があったので 保存時の自動フォーマット などを設定している。
-(custom-set-variables &amp;#39;(typescript-indent-level 2) &amp;#39;(lsp-typescript-locale &amp;#34;ja&amp;#34;) &amp;#39;(lsp-inlay-hint-enable t) &amp;#39;(lsp-javascript-display-parameter-name-hints t) &amp;#39;(lsp-javascript-display-enum-member-value-hints t) &amp;#39;(lsp-clients-typescript-max-ts-server-memory 2048) &amp;#39;(lsp-eslint-auto-fix-on-save t)) キーマップ関数 C-c C-c でテストを実行できるようにするように keymap を設定する関数を追加。
-(defun my/setup-ts-mode-keymap () (let ((keymap typescript-mode-map)) (define-key keymap (kbd &amp;#34;C-c C-c&amp;#34;) &amp;#39;my/mocha-test-file))) auto-fix の hook 関数 保存した時に自動で整形してほしいなと思ったので自動で保存されるように hook 関数を用意している</description>
+(custom-set-variables &amp;#39;(typescript-indent-level 2) &amp;#39;(lsp-typescript-locale &amp;#34;ja&amp;#34;) &amp;#39;(lsp-inlay-hint-enable t) &amp;#39;(lsp-javascript-display-parameter-name-hints t) &amp;#39;(lsp-javascript-display-enum-member-value-hints t) &amp;#39;(lsp-clients-typescript-max-ts-server-memory 2048) &amp;#39;(lsp-eslint-auto-fix-on-save t)) auto-fix の hook 関数 保存した時に自動で整形してほしいなと思ったので自動で保存されるように hook 関数を用意している
+(defun my/ts-mode-auto-fix-hook () (when (string-equal (file-name-extension buffer-file-name) &amp;#34;ts&amp;#34;) (lsp-eslint-fix-all))) hook company-mode smartparens-strict-mode lsp/lsp-ui などのプログラミングで便利な各種のモードを hook を使って有効化している</description>
     </item>
     
     <item>
