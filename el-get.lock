@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((dockerfile-mode :checksum "52c6c00da1d31c0b6c29c74335b3af63ed6bf06c")
+      '((jest-test-mode :checksum "3126c5c5c5632da639ea34867a7342d4410d78aa")
+        (dockerfile-mode :checksum "52c6c00da1d31c0b6c29c74335b3af63ed6bf06c")
         (origami :checksum "08a7152d0d3d35cc7cc9bc5553987daf2f622b9d")
         (company-posframe :checksum "18d6641bba72cba3c00018cee737ea8b454f64a8")
         (nerd-icons :checksum "b6d3b87802f613fad289ffc3c082a815df334289")

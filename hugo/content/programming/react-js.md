@@ -41,17 +41,6 @@ auto-mode-alist で関連付けをする
 ```
 
 
-## キーバインドの追加 {#キーバインドの追加}
-
-テスト用のファイルを開いたら `C-c C-c` でテストを実行できるようにするためキーバインドを設定
-
-```emacs-lisp
-(defun my/setup-web-mode-map ()
-  (let ((keymap web-mode-map))
-    (define-key keymap (kbd "C-c C-c") 'my/mocha-test-file)))
-```
-
-
 ## 自動フォーマット hook の用意 {#自動フォーマット-hook-の用意}
 
 tsx の保存時に自動でフォーマットしてほしいのでそれ用に hook を追加
@@ -101,8 +90,7 @@ lsp-mode から eslint を使うことでやりたいことの対応ができる
       (display-line-numbers-mode t)
       (lsp)
       (lsp-ui-mode 1)
-      (add-hook 'before-save-hook 'my/web-mode-auto-fix-hook nil 'local)
-      (my/setup-web-mode-map))))
+      (add-hook 'before-save-hook 'my/web-mode-auto-fix-hook nil 'local))))
 
 (add-hook 'web-mode-hook 'my/web-mode-tsx-hook)
 ```
