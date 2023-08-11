@@ -8284,7 +8284,18 @@
     :PROPERTIES:
     :ID:       63a68984-e201-488a-b3ab-49452c438b80
     :END:
-    el-get-bundle で GitHub からインストールしている
+
+    レシピは自前で用意している
+
+    #+begin_src emacs-lisp :tangle recipes/with-simulated-input.rcp
+      (:name with-simulated-input
+             :type github
+             :description "A macro to simulate user input non-interactively."
+             :pkgname "DarwinAwardWinner/with-simulated-input"
+             :minimum-emacs-version (24 4))
+    #+end_src
+
+    そして ~el-get-bundle~ で GitHub からインストールしている
 
     #+begin_src emacs-lisp :tangle inits/99-with-simulated-input.el
     (el-get-bundle DarwinAwardWinner/with-simulated-input)

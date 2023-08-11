@@ -28,7 +28,17 @@ Emacs Lisp でやっていることはインタラクティブな部分が大き
 
 ## インストール {#インストール}
 
-el-get-bundle で GitHub からインストールしている
+レシピは自前で用意している
+
+```emacs-lisp
+(:name with-simulated-input
+       :type github
+       :description "A macro to simulate user input non-interactively."
+       :pkgname "DarwinAwardWinner/with-simulated-input"
+       :minimum-emacs-version (24 4))
+```
+
+そして `el-get-bundle` で GitHub からインストールしている
 
 ```emacs-lisp
 (el-get-bundle DarwinAwardWinner/with-simulated-input)

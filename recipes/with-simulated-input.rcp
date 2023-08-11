@@ -1,6 +1,5 @@
 (:name with-simulated-input
-:type github
-:description "A macro to simulate user input non-interactively."
-:pkgname "DarwinAwardWinner/with-simulated-input"
-:minimum-emacs-version (24 4)
-)
+       :type github
+       :description "A macro to simulate user input non-interactively."
+       :pkgname "DarwinAwardWinner/with-simulated-input"
+       :minimum-emacs-version (24 4))
