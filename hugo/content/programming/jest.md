@@ -33,6 +33,19 @@ draft = false
 ```
 
 
+#### keymap {#keymap}
+
+デフォルトのキーマップ以外にも
+`C-c C-c` でテストできる方が手癖でテストを実行できて便利なので
+jest-test-mode-map に keybind を追加している
+
+```emacs-lisp
+(with-eval-after-load 'jest-test-mode
+  (let ((keymap jest-test-mode-map))
+    (define-key keymap (kbd "C-c C-c") 'jest-test-run-at-point)))
+```
+
+
 ### その他 {#その他}
 
 類似品に [emacs-jest](https://github.com/Emiller88/emacs-jest) というのもあるが、こちらは el-get で入れようとしても jest-traverse-test.el の byte compile でエラーになるので利用を諦めた

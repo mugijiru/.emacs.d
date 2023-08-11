@@ -44,17 +44,6 @@ TypeScript ファイル(.ts) を使う上での設定を書いている。とり
 ```
 
 
-### キーマップ関数 {#キーマップ関数}
-
-`C-c C-c` でテストを実行できるようにするように keymap を設定する関数を追加。
-
-```emacs-lisp
-(defun my/setup-ts-mode-keymap ()
-  (let ((keymap typescript-mode-map))
-    (define-key keymap (kbd "C-c C-c") 'my/mocha-test-file)))
-```
-
-
 ### auto-fix の hook 関数 {#auto-fix-の-hook-関数}
 
 保存した時に自動で整形してほしいなと思ったので自動で保存されるように hook 関数を用意している
@@ -84,8 +73,7 @@ hook を使って有効化している
   (display-line-numbers-mode t)
   (lsp)
   (lsp-ui-mode 1)
-  (add-hook 'before-save-hook #'my/ts-mode-auto-fix-hook nil 'local)
-  (my/setup-ts-mode-keymap))
+  (add-hook 'before-save-hook #'my/ts-mode-auto-fix-hook nil 'local))
 ```
 
 この関数を
@@ -97,9 +85,6 @@ hook を使って有効化している
 として hook に追加している。
 
 直接 lambda で add-hook に書くという手もあるが関数を分離しておくと修正の反映が用意なのでこのようにしている。
-
-なお auto-fix については自社環境で弊害も大きかったので有効化はせずに設定だけ入れている。そろそろフォーマットするかって時だけ有効にするぐらいが良さそう。
-toggle できるようにしているしね
 
 
 ### 拡張子による有効化 {#拡張子による有効化}

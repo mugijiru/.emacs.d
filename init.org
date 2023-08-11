@@ -4834,6 +4834,20 @@
       #+begin_src emacs-lisp :tangle inits/40-jest.el
         (el-get-bundle jest-test-mode)
       #+end_src
+***** keymap
+      :PROPERTIES:
+      :ID:       58ad6ee0-d706-4bc6-afc9-15f1c76c7a09
+      :END:
+      デフォルトのキーマップ以外にも
+      ~C-c C-c~ でテストできる方が手癖でテストを実行できて便利なので
+      jest-test-mode-map に keybind を追加している
+
+      #+begin_src emacs-lisp :tangle inits/40-jest.el
+        (with-eval-after-load 'jest-test-mode
+          (let ((keymap jest-test-mode-map))
+            (define-key keymap (kbd "C-c C-c") 'jest-test-run-at-point)))
+      #+end_src
+
 **** その他
      類似品に [[https://github.com/Emiller88/emacs-jest][emacs-jest]] というのもあるが、
      こちらは el-get で入れようとしても jest-traverse-test.el の byte compile でエラーになるので利用を諦めた
@@ -5189,19 +5203,6 @@
     (add-to-list 'auto-mode-alist '("\\.[jt]sx" . web-mode))
     #+end_src
 
-*** キーバインドの追加
-    :PROPERTIES:
-    :ID:       6df42bc4-03df-45a6-b34c-813241c9559c
-    :END:
-    テスト用のファイルを開いたら ~C-c C-c~ でテストを実行できるようにするため
-    キーバインドを設定
-
-    #+begin_src emacs-lisp :tangle inits/41-react.el
-      (defun my/setup-web-mode-map ()
-        (let ((keymap web-mode-map))
-          (define-key keymap (kbd "C-c C-c") 'my/mocha-test-file)))
-    #+end_src
-
 *** 自動フォーマット hook の用意
     :PROPERTIES:
     :ID:       082f02ac-19a5-41dd-8cf6-5ad55f83e5ab
@@ -5255,8 +5256,7 @@
             (display-line-numbers-mode t)
             (lsp)
             (lsp-ui-mode 1)
-            (add-hook 'before-save-hook 'my/web-mode-auto-fix-hook nil 'local)
-            (my/setup-web-mode-map))))
+            (add-hook 'before-save-hook 'my/web-mode-auto-fix-hook nil 'local))))
 
       (add-hook 'web-mode-hook 'my/web-mode-tsx-hook)
     #+end_src
@@ -5677,17 +5677,6 @@
         '(lsp-clients-typescript-max-ts-server-memory 2048)
         '(lsp-eslint-auto-fix-on-save t))
      #+end_src
-**** キーマップ関数
-     :PROPERTIES:
-     :ID:       fad1ad45-bbd3-4073-91c1-c0dbcd693cc3
-     :END:
-     ~C-c C-c~ でテストを実行できるようにするように keymap を設定する関数を追加。
-
-     #+begin_src emacs-lisp :tangle inits/40-ts.el
-       (defun my/setup-ts-mode-keymap ()
-         (let ((keymap typescript-mode-map))
-           (define-key keymap (kbd "C-c C-c") 'my/mocha-test-file)))
-     #+end_src
 **** auto-fix の hook 関数
      :PROPERTIES:
      :ID:       26121357-e71c-4977-9046-a0d49c557069
@@ -5720,8 +5709,7 @@
          (display-line-numbers-mode t)
          (lsp)
          (lsp-ui-mode 1)
-         (add-hook 'before-save-hook #'my/ts-mode-auto-fix-hook nil 'local)
-         (my/setup-ts-mode-keymap))
+         (add-hook 'before-save-hook #'my/ts-mode-auto-fix-hook nil 'local))
      #+end_src
 
      この関数を
@@ -5734,12 +5722,6 @@
 
      直接 lambda で add-hook に書くという手もあるが
      関数を分離しておくと修正の反映が用意なのでこのようにしている。
-
-     なお auto-fix については自社環境で弊害も大きかったので
-     有効化はせずに設定だけ入れている。
-     そろそろフォーマットするかって時だけ有効にするぐらいが良さそう。
-     toggle できるようにしているしね
-
 **** 拡張子による有効化
      :PROPERTIES:
      :ID:       99bddae1-3a76-4a7a-91e2-4ca7e1889600
