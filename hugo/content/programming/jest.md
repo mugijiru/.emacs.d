@@ -46,6 +46,16 @@ jest-test-mode-map に keybind を追加している
 ```
 
 
+#### .dir-locals.el {#dot-dir-locals-dot-el}
+
+Jest でテストを書いているプロジェクトのテストファイルを詰めているフォルダの.dir-locals.el に以下のように書くことでそれらのコードを開いた時に `jest-test-mode` が自動的に有効になるようにしている
+
+```emacs-lisp
+((web-mode        . ((eval . (jest-test-mode))))
+ (typescript-mode . ((eval . (jest-test-mode)))))
+```
+
+
 ### その他 {#その他}
 
 類似品に [emacs-jest](https://github.com/Emiller88/emacs-jest) というのもあるが、こちらは el-get で入れようとしても jest-traverse-test.el の byte compile でエラーになるので利用を諦めた

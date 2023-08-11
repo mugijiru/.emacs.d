@@ -4847,6 +4847,15 @@
           (let ((keymap jest-test-mode-map))
             (define-key keymap (kbd "C-c C-c") 'jest-test-run-at-point)))
       #+end_src
+***** .dir-locals.el
+      Jest でテストを書いているプロジェクトの
+      テストファイルを詰めているフォルダの.dir-locals.el に以下のように書くことで
+      それらのコードを開いた時に ~jest-test-mode~ が自動的に有効になるようにしている
+
+      #+begin_src emacs-lisp
+        ((web-mode        . ((eval . (jest-test-mode))))
+         (typescript-mode . ((eval . (jest-test-mode)))))
+      #+end_src
 
 **** その他
      類似品に [[https://github.com/Emiller88/emacs-jest][emacs-jest]] というのもあるが、
