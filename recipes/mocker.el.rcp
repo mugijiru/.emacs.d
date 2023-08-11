@@ -1,6 +1,5 @@
 (:name mocker.el
-:type github
-:description "Mocker.el is a mocking framework for Emacs lisp."
-:pkgname "sigma/mocker.el"
-:minimum-emacs-version (25 1)
-)
+       :type github
+       :description "Mocker.el is a mocking framework for Emacs lisp."
+       :pkgname "sigma/mocker.el"
+       :minimum-emacs-version (25 1))
