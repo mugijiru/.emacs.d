@@ -1,0 +1,5 @@
+(:name terraform-mode
+       :type github
+       :pkgname "emacsorphanage/terraform-mode"
+       :description "Major mode for Terraform configuration files"
+       :depends (hcl-mode dash))

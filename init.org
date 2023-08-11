@@ -5646,6 +5646,35 @@
 
     | Key | 効果                                                                          |
     | v   | リージョンの値で CSS 変数を検索して置き換えるやつ。自作コマンドを利用している |
+** Terraform
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: terraform
+   :END:
+*** 概要
+    [[https://www.terraform.io/][Terraform]] はオープンソースの IaC ツール。結構よく使われている。
+    色々なクランドサービスに対応していて便利。
+*** terraform-mode
+    [[https://github.com/hcl-emacs/terraform-mode][terraform-mode]] は Emacs で terraform のコードを書くための major-mode を提供してくれるやつ。
+**** インストール
+     :PROPERTIES:
+     :ID:       1dcd1ae0-9eb2-4716-8a5d-1e1c9810a629
+     :END:
+     el-get にも terraform-mode のレシピはあるけど
+     dash の依存が書かれていないのでとりあえず自前で用意している
+
+     #+begin_src emacs-lisp :tangle recipes/terraform-mode.rcp
+       (:name terraform-mode
+              :type github
+              :pkgname "emacsorphanage/terraform-mode"
+              :description "Major mode for Terraform configuration files"
+              :depends (hcl-mode dash))
+     #+end_src
+
+     そしてそれを ~el-get-bundle~ で入れている
+
+     #+begin_src emacs-lisp :tangle inits/40-terraform.el
+       (el-get-bundle terraform-mode)
+     #+end_src
 ** TypeScript
    :PROPERTIES:
    :EXPORT_FILE_NAME: typescript
