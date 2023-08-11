@@ -714,6 +714,13 @@
 	"content": "概要 tempbuf-mode は不要になったと思われるバッファを自動的に kill してくれるパッケージ。使っていた時間が長い程、裏に回った時には長い時間保持してくれる。\nつまり、一瞬開いただけのファイルは明示的に kill しなくても勝手にやってくれるのでファイルを開いてそのまま放置みたいなことをしがちなズボラな人間には便利なやつ。\nインストール いつも通り el-get で入れている。\n(el-get-bundle tempbuf-mode) 勝手に kill させないファイルの指定 org-clock を使うようなファイルは kill されると org-clock が狂って面倒なことになるのでそれらのファイルは勝手に kill されないように ignore リストに突っ込んでいる\n(setq my/tempbuf-ignore-files \u0026#39;(\u0026#34;~/Documents/org/tasks/reviews.org\u0026#34; \u0026#34;~/Documents/org/tasks/interrupted.org\u0026#34; \u0026#34;~/Documents/org/tasks/next-actions.org\u0026#34; )) find-file への hook find-file した時に上でリストアップしたファイルだった場合は kill されないように tempbuf-mode が自動的に無効になるような hook を用意している。\n(defun my/find-file-tempbuf-hook () (let ((ignore-file-names (mapcar \u0026#39;expand-file-name my/tempbuf-ignore-files))) (unless (member (buffer-file-name) ignore-file-names) (turn-on-tempbuf-mode)))) hook の設定 find-file では上で作成した hook を使うことで kill されたくないファイルは kill されないようにしている\n(add-hook \u0026#39;find-file-hook \u0026#39;my/find-file-tempbuf-hook) また dired buffer も邪魔になりがちだけど、デフォルトだと対象にならないのでこいつらも tempbuf-mode の管理対象となるように tempbuf-mode を有効にしている。\n(add-hook \u0026#39;dired-mode-hook \u0026#39;turn-on-tempbuf-mode) その他 midnight-mode という、深夜に処理を実行させるようなやつで夜間にバッファをごっそり消すみたいなことをしている人も結構いるっぽい。\n"
 },
 {
+	"uri": "https://mugijiru.github.io/.emacs.d/programming/terraform/",
+	"title": "Terraform",
+	"tags": [],
+	"description": "",
+	"content": "概要 Terraform はオープンソースの IaC ツール。結構よく使われている。色々なクランドサービスに対応していて便利。\nterraform-mode terraform-mode は Emacs で terraform のコードを書くための major-mode を提供してくれるやつ。\nインストール el-get にも terraform-mode のレシピはあるけど dash の依存が書かれていないのでとりあえず自前で用意している\n(:name terraform-mode :type github :pkgname \u0026#34;emacsorphanage/terraform-mode\u0026#34; :description \u0026#34;Major mode for Terraform configuration files\u0026#34; :depends (hcl-mode dash)) そしてそれを el-get-bundle で入れている\n(el-get-bundle terraform-mode) 設定 保存時に自動で整形してほしいのでその設定を入れている\n(custom-set-variables \u0026#39;(terraform-format-on-save t)) hooks hook を使っていくつかの minor-mode を有効にしている\norigami コードの折り畳み company コード補完 smartparens-strict-mode カッコの対応を強力にしてくれるやつ display-line-numbers-mode 行数表示 :ID: dc0abe68-1440-4519-9b27-01856ebca176\n(defun my/terraform-mode-hook () (origami-mode 1) (company-mode 1) (turn-on-smartparens-strict-mode) (display-line-numbers-mode 1)) (add-hook \u0026#39;terraform-mode-hook \u0026#39;my/terraform-mode-hook) "
+},
+{
 	"uri": "https://mugijiru.github.io/.emacs.d/external-tool/todoist/",
 	"title": "todoist",
 	"tags": [],

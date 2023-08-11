@@ -9,23 +9,23 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>scratch-log :: 麦汁&#39;s Emacs Config</title>
+    <title>Terraform :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1691762627" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1691762627" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1691762627" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1691762627" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1691762627" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1691762627" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1691762627" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1691762627" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1691762627" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1691762627" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1691762628" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1691762628" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1691762628" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1691762628" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1691762628" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1691762628" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1691762628" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1691762628" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1691762628" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1691762628" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1691762627"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1691762628"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/buffer-management/scratch-log/">
+  <body class="" data-url="/.emacs.d/programming/terraform/">
     <nav id="sidebar" class="">
 
 
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1691762627"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1691762627"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1691762628"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1691762628"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1691762627"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1691762628"></script>
 
     
   </div>
@@ -407,7 +407,7 @@
   
     
     <li data-nav-id="/.emacs.d/buffer-management/" title="バッファ管理" class="dd-item
-        parent
+        
         
         
         ">
@@ -433,7 +433,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/buffer-management/scratch-log/" title="scratch-log" class="dd-item active">
+      <li data-nav-id="/.emacs.d/buffer-management/scratch-log/" title="scratch-log" class="dd-item ">
         <a href="/.emacs.d/buffer-management/scratch-log/">
         scratch-log
         
@@ -1501,7 +1501,7 @@
   
     
     <li data-nav-id="/.emacs.d/programming/" title="プログラミング関係の設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -1842,7 +1842,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/programming/terraform/" title="Terraform" class="dd-item ">
+      <li data-nav-id="/.emacs.d/programming/terraform/" title="Terraform" class="dd-item active">
         <a href="/.emacs.d/programming/terraform/">
         Terraform
         
@@ -2783,7 +2783,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/buffer-management/'>バッファ管理</a> > scratch-log
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/programming/'>プログラミング関係の設定</a> > Terraform
           
         
           
@@ -2799,9 +2799,13 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#インストール">インストール</a></li>
-    <li><a href="#有効化">有効化</a></li>
-    <li><a href="#類似品など">類似品など</a></li>
+    <li><a href="#terraform-mode">terraform-mode</a>
+      <ul>
+        <li><a href="#インストール">インストール</a></li>
+        <li><a href="#設定">設定</a></li>
+        <li><a href="#hooks">hooks</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -2819,7 +2823,7 @@
           
             <h1>
               
-              scratch-log
+              Terraform
             </h1>
           
 
@@ -2827,30 +2831,44 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/mori-dev/scratch-log">scratch-log</a> は、Emacs でちょっとした Emacs Lisp なんかを試し書きする時に使う <code>*scratch*</code> バッファを永続化してくれるパッケージ。</p>
-<p>自分なんかは Emacs Lisp だけでなくちょっとメモを置いといたりもするので勝手に永続化してくれるこいつにはとてもお世話になっている。</p>
-<p>GitHub の README には作者のブログへのリンクしかないしそのブログは消えてるので一番まともに解説しているのは <a href="http://emacs.rubikitch.com/scratch-log/">http://emacs.rubikitch.com/scratch-log/</a> だと思う。</p>
-<h2 id="インストール">インストール</h2>
-<p>el-get のレシピを自前で用意して</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name scratch-log
+<p><a href="https://www.terraform.io/">Terraform</a> はオープンソースの IaC ツール。結構よく使われている。色々なクランドサービスに対応していて便利。</p>
+<h2 id="terraform-mode">terraform-mode</h2>
+<p><a href="https://github.com/hcl-emacs/terraform-mode">terraform-mode</a> は Emacs で terraform のコードを書くための major-mode を提供してくれるやつ。</p>
+<h3 id="インストール">インストール</h3>
+<p>el-get にも terraform-mode のレシピはあるけど
+dash の依存が書かれていないのでとりあえず自前で用意している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name terraform-mode
 </span></span><span style="display:flex;"><span>       :type github
-</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;emacs の scratch バッファのログを取ります.&#34;</span>
-</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;mori-dev/scratch-log&#34;</span>)
-</span></span></code></pre></div><p><code>el-get-bundle</code> で入れるだけ。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle scratch-log)
-</span></span></code></pre></div><h2 id="有効化">有効化</h2>
-<p>どうも明示的に require しないといけないっぽくて、そうしている。ちょっと本当にそうなのか検証したい気はする。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(require <span style="color:#e6db74">&#39;scratch-log</span>)
-</span></span></code></pre></div><h2 id="類似品など">類似品など</h2>
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;emacsorphanage/terraform-mode&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Major mode for Terraform configuration files&#34;</span>
+</span></span><span style="display:flex;"><span>       :depends (hcl-mode dash))
+</span></span></code></pre></div><p>そしてそれを <code>el-get-bundle</code> で入れている</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle terraform-mode)
+</span></span></code></pre></div><h3 id="設定">設定</h3>
+<p>保存時に自動で整形してほしいのでその設定を入れている</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-variables
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(terraform-format-on-save <span style="color:#66d9ef">t</span>))
+</span></span></code></pre></div><h3 id="hooks">hooks</h3>
+<p>hook を使っていくつかの minor-mode を有効にしている</p>
 <dl>
-<dt><a href="https://github.com/Fanael/persistent-scratch">persistent-scratch</a></dt>
-<dd>これも scratch を永続化させるやつ。カスタマイズ性はこっちがありそう</dd>
-<dt><a href="https://github.com/EricCrosson/unkillable-scratch">unkillable-scratch</a></dt>
-<dd>scratch バッファを kill させないやつ。同じような機能が scratch-log にもある</dd>
-<dt><a href="https://github.com/kentaro/auto-save-buffers-enhanced">auto-save-buffers-enhanced</a></dt>
-<dd>自動保存機能がメインだけど scratch を自動保存する機能もある</dd>
+<dt>origami</dt>
+<dd>コードの折り畳み</dd>
+<dt>company</dt>
+<dd>コード補完</dd>
+<dt>smartparens-strict-mode</dt>
+<dd>カッコの対応を強力にしてくれるやつ</dd>
+<dt>display-line-numbers-mode</dt>
+<dd>行数表示</dd>
 </dl>
-
+<p>:ID:       dc0abe68-1440-4519-9b27-01856ebca176</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/terraform-mode-hook ()
+</span></span><span style="display:flex;"><span>  (origami-mode <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>  (company-mode <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>  (turn-on-smartparens-strict-mode)
+</span></span><span style="display:flex;"><span>  (display-line-numbers-mode <span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;terraform-mode-hook</span> <span style="color:#e6db74">&#39;my/terraform-mode-hook</span>)
+</span></span></code></pre></div>
 
 <footer class="footline">
 	
@@ -3114,7 +3132,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -3128,7 +3145,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -3144,9 +3160,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -3902,6 +3915,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -3916,6 +3930,9 @@
             
                 
                     
+                        
+                        
+                    
                 
                 
 
@@ -4156,6 +4173,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -4171,6 +4189,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -4787,10 +4808,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/buffer-management/" title="バッファ管理"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/programming/scss/" title="scss"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/buffer-management/tempbuf/" title="tempbuf" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/programming/typescript/" title="TypeScript" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -4800,19 +4821,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1691762627"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1691762627"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1691762627"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1691762627"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1691762627"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1691762627"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1691762628"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1691762628"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1691762628"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1691762628"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1691762628"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1691762628"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1691762627"></script>
-    <script src="/.emacs.d/js/learn.js?1691762627"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1691762627"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1691762628"></script>
+    <script src="/.emacs.d/js/learn.js?1691762628"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1691762628"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1691762627"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1691762628"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

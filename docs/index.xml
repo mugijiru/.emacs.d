@@ -1286,6 +1286,22 @@ strict モードだとペアが崩れないように強制するので雑に C-k
     </item>
     
     <item>
+      <title>Terraform</title>
+      <link>https://mugijiru.github.io/.emacs.d/programming/terraform/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/programming/terraform/</guid>
+      <description>概要 Terraform はオープンソースの IaC ツール。結構よく使われている。色々なクランドサービスに対応していて便利。
+terraform-mode terraform-mode は Emacs で terraform のコードを書くための major-mode を提供してくれるやつ。
+インストール el-get にも terraform-mode のレシピはあるけど dash の依存が書かれていないのでとりあえず自前で用意している
+(:name terraform-mode :type github :pkgname &amp;#34;emacsorphanage/terraform-mode&amp;#34; :description &amp;#34;Major mode for Terraform configuration files&amp;#34; :depends (hcl-mode dash)) そしてそれを el-get-bundle で入れている
+(el-get-bundle terraform-mode) 設定 保存時に自動で整形してほしいのでその設定を入れている
+(custom-set-variables &amp;#39;(terraform-format-on-save t)) hooks hook を使っていくつかの minor-mode を有効にしている
+origami コードの折り畳み company コード補完 smartparens-strict-mode カッコの対応を強力にしてくれるやつ display-line-numbers-mode 行数表示 :ID: dc0abe68-1440-4519-9b27-01856ebca176
+(defun my/terraform-mode-hook () (origami-mode 1) (company-mode 1) (turn-on-smartparens-strict-mode) (display-line-numbers-mode 1)) (add-hook &amp;#39;terraform-mode-hook &amp;#39;my/terraform-mode-hook) </description>
+    </item>
+    
+    <item>
       <title>todoist</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/todoist/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
