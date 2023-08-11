@@ -5675,6 +5675,16 @@
      #+begin_src emacs-lisp :tangle inits/40-terraform.el
        (el-get-bundle terraform-mode)
      #+end_src
+**** 設定
+     :PROPERTIES:
+     :ID:       504874b1-611c-4900-a0f2-f047b0aae201
+     :END:
+     保存時に自動で整形してほしいのでその設定を入れている
+
+     #+begin_src emacs-lisp :tangle inits/40-terraform.el
+       (custom-set-variables
+        '(terraform-format-on-save t))
+     #+end_src
 ** TypeScript
    :PROPERTIES:
    :EXPORT_FILE_NAME: typescript

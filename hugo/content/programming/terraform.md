@@ -31,3 +31,13 @@ dash の依存が書かれていないのでとりあえず自前で用意して
 ```emacs-lisp
 (el-get-bundle terraform-mode)
 ```
+
+
+### 設定 {#設定}
+
+保存時に自動で整形してほしいのでその設定を入れている
+
+```emacs-lisp
+(custom-set-variables
+ '(terraform-format-on-save t))
+```
