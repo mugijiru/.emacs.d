@@ -14,10 +14,19 @@ GitHub の README には作者のブログへのリンクしかないしその�
 
 ## インストール {#インストール}
 
-el-get から入れるだけ。
+el-get のレシピを自前で用意して
 
 ```emacs-lisp
-(el-get-bundle mori-dev/scratch-log)
+(:name scratch-log
+       :type github
+       :description "emacs の scratch バッファのログを取ります."
+       :pkgname "mori-dev/scratch-log")
+```
+
+`el-get-bundle` で入れるだけ。
+
+```emacs-lisp
+(el-get-bundle scratch-log)
 ```
 
 

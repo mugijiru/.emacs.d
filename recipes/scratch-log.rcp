@@ -1,5 +1,4 @@
 (:name scratch-log
-:type github
-:description "emacs の scratch バッファのログを取ります."
-:pkgname "mori-dev/scratch-log"
-)
+       :type github
+       :description "emacs の scratch バッファのログを取ります."
+       :pkgname "mori-dev/scratch-log")

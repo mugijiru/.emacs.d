@@ -849,10 +849,20 @@
     :PROPERTIES:
     :ID:       ee7551d5-b37d-4358-8621-fcc414a0a3d7
     :END:
-    el-get から入れるだけ。
+
+    el-get のレシピを自前で用意して
+
+    #+begin_src emacs-lisp :tangle recipes/scratch-log.rcp
+      (:name scratch-log
+             :type github
+             :description "emacs の scratch バッファのログを取ります."
+             :pkgname "mori-dev/scratch-log")
+    #+end_src
+
+    ~el-get-bundle~ で入れるだけ。
 
     #+begin_src emacs-lisp :tangle inits/70-scratch-log.el
-    (el-get-bundle mori-dev/scratch-log)
+      (el-get-bundle scratch-log)
     #+end_src
 *** 有効化
     :PROPERTIES:

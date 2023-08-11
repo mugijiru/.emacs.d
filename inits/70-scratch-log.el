@@ -1,3 +1,3 @@
-(el-get-bundle mori-dev/scratch-log)
+(el-get-bundle scratch-log)
 
 (require 'scratch-log)
