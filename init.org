@@ -5646,6 +5646,65 @@
 
     | Key | 効果                                                                          |
     | v   | リージョンの値で CSS 変数を検索して置き換えるやつ。自作コマンドを利用している |
+** Terraform
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: terraform
+   :END:
+*** 概要
+    [[https://www.terraform.io/][Terraform]] はオープンソースの IaC ツール。結構よく使われている。
+    色々なクランドサービスに対応していて便利。
+*** terraform-mode
+    [[https://github.com/hcl-emacs/terraform-mode][terraform-mode]] は Emacs で terraform のコードを書くための major-mode を提供してくれるやつ。
+**** インストール
+     :PROPERTIES:
+     :ID:       1dcd1ae0-9eb2-4716-8a5d-1e1c9810a629
+     :END:
+     el-get にも terraform-mode のレシピはあるけど
+     dash の依存が書かれていないのでとりあえず自前で用意している
+
+     #+begin_src emacs-lisp :tangle recipes/terraform-mode.rcp
+       (:name terraform-mode
+              :type github
+              :pkgname "emacsorphanage/terraform-mode"
+              :description "Major mode for Terraform configuration files"
+              :depends (hcl-mode dash))
+     #+end_src
+
+     そしてそれを ~el-get-bundle~ で入れている
+
+     #+begin_src emacs-lisp :tangle inits/40-terraform.el
+       (el-get-bundle terraform-mode)
+     #+end_src
+**** 設定
+     :PROPERTIES:
+     :ID:       504874b1-611c-4900-a0f2-f047b0aae201
+     :END:
+     保存時に自動で整形してほしいのでその設定を入れている
+
+     #+begin_src emacs-lisp :tangle inits/40-terraform.el
+       (custom-set-variables
+        '(terraform-format-on-save t))
+     #+end_src
+**** hooks
+     hook を使っていくつかの minor-mode を有効にしている
+
+     - origami :: コードの折り畳み
+     - company :: コード補完
+     - smartparens-strict-mode :: カッコの対応を強力にしてくれるやつ
+     - display-line-numbers-mode :: 行数表示
+
+     :PROPERTIES:
+     :ID:       dc0abe68-1440-4519-9b27-01856ebca176
+     :END:
+     #+begin_src emacs-lisp :tangle inits/40-terraform.el
+       (defun my/terraform-mode-hook ()
+         (origami-mode 1)
+         (company-mode 1)
+         (turn-on-smartparens-strict-mode)
+         (display-line-numbers-mode 1))
+
+       (add-hook 'terraform-mode-hook 'my/terraform-mode-hook)
+     #+end_src
 ** TypeScript
    :PROPERTIES:
    :EXPORT_FILE_NAME: typescript
