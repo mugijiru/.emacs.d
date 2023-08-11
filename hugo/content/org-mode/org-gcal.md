@@ -27,6 +27,18 @@ org-gcal が依存しているので [parsist](https://elpa.gnu.org/packages/per
 (el-get-bundle org-gcal)
 ```
 
+その際 el-get のレシピは自前で用意している
+
+```emacs-lisp
+(:name org-gcal
+       :description "Org sync with Google Calendar."
+       :website "https://github.com/kidd/org-gcal.el"
+       :type github
+       :minimum-emacs-version "26"
+       :depends (request alert cl-lib aio)
+       :pkgname "kidd/org-gcal.el")
+```
+
 
 ## 設定 {#設定}
 
