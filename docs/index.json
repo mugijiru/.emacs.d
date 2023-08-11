@@ -655,7 +655,7 @@
 	"title": "scratch-log",
 	"tags": [],
 	"description": "",
-	"content": "概要 scratch-log は、Emacs でちょっとした Emacs Lisp なんかを試し書きする時に使う *scratch* バッファを永続化してくれるパッケージ。\n自分なんかは Emacs Lisp だけでなくちょっとメモを置いといたりもするので勝手に永続化してくれるこいつにはとてもお世話になっている。\nGitHub の README には作者のブログへのリンクしかないしそのブログは消えてるので一番まともに解説しているのは http://emacs.rubikitch.com/scratch-log/ だと思う。\nインストール el-get から入れるだけ。\n(el-get-bundle mori-dev/scratch-log) 有効化 どうも明示的に require しないといけないっぽくて、そうしている。ちょっと本当にそうなのか検証したい気はする。\n(require \u0026#39;scratch-log) 類似品など persistent-scratch これも scratch を永続化させるやつ。カスタマイズ性はこっちがありそう unkillable-scratch scratch バッファを kill させないやつ。同じような機能が scratch-log にもある auto-save-buffers-enhanced 自動保存機能がメインだけど scratch を自動保存する機能もある "
+	"content": "概要 scratch-log は、Emacs でちょっとした Emacs Lisp なんかを試し書きする時に使う *scratch* バッファを永続化してくれるパッケージ。\n自分なんかは Emacs Lisp だけでなくちょっとメモを置いといたりもするので勝手に永続化してくれるこいつにはとてもお世話になっている。\nGitHub の README には作者のブログへのリンクしかないしそのブログは消えてるので一番まともに解説しているのは http://emacs.rubikitch.com/scratch-log/ だと思う。\nインストール el-get のレシピを自前で用意して\n(:name scratch-log :type github :description \u0026#34;emacs の scratch バッファのログを取ります.\u0026#34; :pkgname \u0026#34;mori-dev/scratch-log\u0026#34;) el-get-bundle で入れるだけ。\n(el-get-bundle scratch-log) 有効化 どうも明示的に require しないといけないっぽくて、そうしている。ちょっと本当にそうなのか検証したい気はする。\n(require \u0026#39;scratch-log) 類似品など persistent-scratch これも scratch を永続化させるやつ。カスタマイズ性はこっちがありそう unkillable-scratch scratch バッファを kill させないやつ。同じような機能が scratch-log にもある auto-save-buffers-enhanced 自動保存機能がメインだけど scratch を自動保存する機能もある "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/programming/scss/",
