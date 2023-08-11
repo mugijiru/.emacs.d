@@ -55,6 +55,19 @@ PlantUML の処理をすることが多いので以下の hook を設定する�
 非同期に org-babel の source を実行するために
 [ob-async](https://github.com/astahlman/ob-async) を入れている
 
+レシピは自前で用意している
+
+```emacs-lisp
+(:name ob-async
+       :description "Asynchronous org-babel src block execution"
+       :type github
+       :pkgname "astahlman/ob-async"
+       :depends (emacs-async org-mode dash)
+       :minimum-emacs-version (24 4))
+```
+
+そして `el-get-bundle` でインストール。
+
 ```emacs-lisp
 (el-get-bundle ob-async)
 (require 'ob-async)
