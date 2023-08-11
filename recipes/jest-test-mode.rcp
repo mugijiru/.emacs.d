@@ -1,0 +1,6 @@
+(:name jest-test-mode
+       :website "https://github.com/rymndhng/jest-test-mode/tree/3126c5c5c5632da639ea34867a7342d4410d78aa"
+       :description "Emacs minor mode for running jest."
+       :type github
+       :pkgname "rymndhng/jest-test-mode"
+       :minimum-emacs-version "25.1")

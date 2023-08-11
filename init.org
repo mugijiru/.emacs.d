@@ -4805,6 +4805,38 @@
 *** その他
     org-mode から使ってた記憶があるのでそっちの方で何か設定があるかもしれない
 
+** Jest
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: jest
+   :END:
+*** 概要
+    [[https://jestjs.io/ja/][Jest]] は JavaScript のテスティングフレームワークの1つ。
+    なんか大体オールインワンな感じで最近はデファクトっぽい人気なやつ。
+**** jest-test-mode
+     [[https://github.com/rymndhng/jest-test-mode/tree/master][jest-test-mode]] は Emacs 上から Jest のテストを手軽に実行できるようにしてくれるやつ。
+***** インストール
+      :PROPERTIES:
+      :ID:       b8b14051-8deb-49e7-b79e-e19e86244105
+      :END:
+      まず el-get のレシピが公式では置かれていないので自前で用意
+
+      #+begin_src emacs-lisp :tangle recipes/jest-test-mode.rcp
+        (:name jest-test-mode
+               :website "https://github.com/rymndhng/jest-test-mode/tree/3126c5c5c5632da639ea34867a7342d4410d78aa"
+               :description "Emacs minor mode for running jest."
+               :type github
+               :pkgname "rymndhng/jest-test-mode"
+               :minimum-emacs-version "25.1")
+      #+end_src
+
+      そしてそれを ~el-get-bundle~ でインストール
+
+      #+begin_src emacs-lisp :tangle inits/40-jest.el
+        (el-get-bundle jest-test-mode)
+      #+end_src
+**** その他
+     類似品に [[https://github.com/Emiller88/emacs-jest][emacs-jest]] というのもあるが、
+     こちらは el-get で入れようとしても jest-traverse-test.el の byte compile でエラーになるので利用を諦めた
 ** lsp-mode
    :PROPERTIES:
    :EXPORT_FILE_NAME: lsp-mode
