@@ -1,7 +1,6 @@
 (:name ob-async
-:description "Asynchronous org-babel src block execution"
-:type github
-:pkgname "astahlman/ob-async"
-:depends (emacs-async org-mode dash)
-:minimum-emacs-version (24 4)
-)
+       :description "Asynchronous org-babel src block execution"
+       :type github
+       :pkgname "astahlman/ob-async"
+       :depends (emacs-async org-mode dash)
+       :minimum-emacs-version (24 4))

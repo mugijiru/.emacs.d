@@ -6687,6 +6687,19 @@
     非同期に org-babel の source を実行するために
     [[https://github.com/astahlman/ob-async][ob-async]] を入れている
 
+    レシピは自前で用意している
+
+    #+begin_src emacs-lisp :tangle recipes/ob-async.rcp
+      (:name ob-async
+             :description "Asynchronous org-babel src block execution"
+             :type github
+             :pkgname "astahlman/ob-async"
+             :depends (emacs-async org-mode dash)
+             :minimum-emacs-version (24 4))
+    #+end_src
+
+    そして ~el-get-bundle~ でインストール。
+
     #+begin_src emacs-lisp :tangle inits/60-org.el
     (el-get-bundle ob-async)
     (require 'ob-async)
