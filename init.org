@@ -7001,6 +7001,19 @@
           ((agenda "会議など"
                    ((org-agenda-span 'day)
                     (org-agenda-files my/org-agenda-calendar-files)))
+           (tags-todo "-Weekday-Daily-Holiday-Weekly-Weekend&LEVEL=2"
+                      ((org-agenda-prefix-format " ")
+                       (org-agenda-overriding-header "今日の作業")
+                       (org-habit-show-habits nil)
+                       (org-agenda-span 'day)
+                       (org-agenda-todo-keyword-format "-")
+                       (org-overriding-columns-format "%25ITEM %TODO")
+                       (org-agenda-files '("~/Documents/org/tasks/next-actions.org"
+                                           "~/Documents/org/tasks/reviews.org"))
+                       (org-super-agenda-groups '((:name "仕掛かり中" :todo "DOING")
+                                                  (:name "TODO" :and (:todo "TODO" :not (:category "レビュー")))
+                                                  (:name "待ち" :todo "WAIT")
+                                                  (:discard (:anything t))))))
            (alltodo ""
                       ((org-agenda-prefix-format " ")
                        (org-agenda-overriding-header "予定作業")
@@ -7017,19 +7030,6 @@
                                                                                  (:scheduled (before ,(format-time-string "%Y-%m-%d" (time-add (current-time) (days-to-time 7))))
                                                                                              :scheduled (after ,(format-time-string "%Y-%m-%d" (current-time))))
                                                                                  :not (:category "Private")))
-                                                  (:discard (:anything t))))))
-           (tags-todo "-Weekday-Daily-Holiday-Weekly-Weekend&LEVEL=2"
-                      ((org-agenda-prefix-format " ")
-                       (org-agenda-overriding-header "今日の作業")
-                       (org-habit-show-habits nil)
-                       (org-agenda-span 'day)
-                       (org-agenda-todo-keyword-format "-")
-                       (org-overriding-columns-format "%25ITEM %TODO")
-                       (org-agenda-files '("~/Documents/org/tasks/next-actions.org"
-                                           "~/Documents/org/tasks/reviews.org"))
-                       (org-super-agenda-groups '((:name "仕掛かり中" :todo "DOING")
-                                                  (:name "TODO" :and (:todo "TODO" :not (:category "レビュー")))
-                                                  (:name "待ち" :todo "WAIT")
                                                   (:discard (:anything t))))))
            (tags-todo "Weekday-Finish|Daily"
                       ((org-agenda-overriding-header "習慣")
