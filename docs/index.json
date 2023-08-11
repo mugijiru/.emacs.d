@@ -39,7 +39,7 @@
 	"title": "mocker.el",
 	"tags": ["unused"],
 	"description": "",
-	"content": "概要 mocker.el は Emacs Lisp のテストで使う Mock ライブラリ。\n使おうと思って導入したけど、自分のやりたいことはちょっと違ったので死蔵中\n便利そうなのでとりあえず置いといている。\nインストール el-get で GitHub から取得している。\n(el-get-bundle sigma/mocker.el) "
+	"content": "概要 mocker.el は Emacs Lisp のテストで使う Mock ライブラリ。\n使おうと思って導入したけど、自分のやりたいことはちょっと違ったので死蔵中\n便利そうなのでとりあえず置いといている。\nインストール レシピを自前で用意して\n(:name mocker.el :type github :description \u0026#34;Mocker.el is a mocking framework for Emacs lisp.\u0026#34; :pkgname \u0026#34;sigma/mocker.el\u0026#34; :minimum-emacs-version (25 1)) el-get で GitHub から取得している。\n(el-get-bundle mocker.el) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/org-babel/",

@@ -75,8 +75,9 @@ emacs -Q --batch -l ~/.emacs.d/inits/test/*-test.el -l ~/.emacs.d/inits/test/run
       <description>概要 mocker.el は Emacs Lisp のテストで使う Mock ライブラリ。
 使おうと思って導入したけど、自分のやりたいことはちょっと違ったので死蔵中
 便利そうなのでとりあえず置いといている。
-インストール el-get で GitHub から取得している。
-(el-get-bundle sigma/mocker.el) </description>
+インストール レシピを自前で用意して
+(:name mocker.el :type github :description &amp;#34;Mocker.el is a mocking framework for Emacs lisp.&amp;#34; :pkgname &amp;#34;sigma/mocker.el&amp;#34; :minimum-emacs-version (25 1)) el-get で GitHub から取得している。
+(el-get-bundle mocker.el) </description>
     </item>
     
     <item>
