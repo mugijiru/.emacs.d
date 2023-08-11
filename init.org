@@ -7501,6 +7501,17 @@
     (el-get-bundle org-gcal)
     #+end_src
 
+    その際 el-get のレシピは自前で用意している
+
+    #+begin_src emacs-lisp :tangle recipes/org-gcal.rcp
+      (:name org-gcal
+             :description "Org sync with Google Calendar."
+             :website "https://github.com/kidd/org-gcal.el"
+             :type github
+             :minimum-emacs-version "26"
+             :depends (request alert cl-lib aio)
+             :pkgname "kidd/org-gcal.el")
+    #+end_src
 *** 設定
     :PROPERTIES:
     :ID:       247a2cfe-1bee-4293-82fb-b9e68130f258
