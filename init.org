@@ -8252,10 +8252,20 @@
     :ID:       a5c87aed-a0cb-430b-bda2-0bafc371640c
     :END:
 
+    レシピを自前で用意して
+
+    #+begin_src emacs-lisp :tangle recipes/mocker.el.rcp
+      (:name mocker.el
+             :type github
+             :description "Mocker.el is a mocking framework for Emacs lisp."
+             :pkgname "sigma/mocker.el"
+             :minimum-emacs-version (25 1))
+    #+end_src
+
     el-get で GitHub から取得している。
 
     #+begin_src emacs-lisp :tangle inits/99-mocker.el
-    (el-get-bundle sigma/mocker.el)
+    (el-get-bundle mocker.el)
     #+end_src
 
 * テストコード

@@ -1,1 +1,1 @@
-(el-get-bundle sigma/mocker.el)
+(el-get-bundle mocker.el)
