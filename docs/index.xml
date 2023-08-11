@@ -17,7 +17,8 @@
 (with-simulated-input &amp;#34;hello SPC world RET&amp;#34; (read-string &amp;#34;Say hello to the world: &amp;#34;)) を評価すると read-string に対して「hello world」を入力したことになるので echo エリアに「hello world」と表示される。
 これで何が嬉しいかというと Emacs Lisp でやっていることはインタラクティブな部分が大きいのでそういった要素をテストできるようになる。
 具体的な使用例は test:my/org-todo で示す。
-インストール el-get-bundle で GitHub からインストールしている
+インストール レシピは自前で用意している
+(:name with-simulated-input :type github :description &amp;#34;A macro to simulate user input non-interactively.&amp;#34; :pkgname &amp;#34;DarwinAwardWinner/with-simulated-input&amp;#34; :minimum-emacs-version (24 4)) そして el-get-bundle で GitHub からインストールしている
 (el-get-bundle DarwinAwardWinner/with-simulated-input) </description>
     </item>
     

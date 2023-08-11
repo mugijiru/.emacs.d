@@ -12,20 +12,20 @@
     <title>with-simulated-input :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1691760392" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1691760392" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1691760392" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1691760392" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1691760392" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1691760392" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1691760392" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1691760392" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1691760392" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1691760392" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1691760794" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1691760794" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1691760794" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1691760794" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1691760794" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1691760794" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1691760794" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1691760794" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1691760794" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1691760794" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1691760392"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1691760794"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1691760392"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1691760392"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1691760794"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1691760794"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1691760392"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1691760794"></script>
 
     
   </div>
@@ -2816,7 +2816,13 @@ echo エリアに「hello world」と表示される。</p>
 Emacs Lisp でやっていることはインタラクティブな部分が大きいのでそういった要素をテストできるようになる。</p>
 <p>具体的な使用例は <a href="/.emacs.d/testing/my-org-commands-test/#test-my-org-todo">test:my/org-todo</a> で示す。</p>
 <h2 id="インストール">インストール</h2>
-<p>el-get-bundle で GitHub からインストールしている</p>
+<p>レシピは自前で用意している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name with-simulated-input
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;A macro to simulate user input non-interactively.&#34;</span>
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;DarwinAwardWinner/with-simulated-input&#34;</span>
+</span></span><span style="display:flex;"><span>       :minimum-emacs-version (<span style="color:#ae81ff">24</span> <span style="color:#ae81ff">4</span>))
+</span></span></code></pre></div><p>そして <code>el-get-bundle</code> で GitHub からインストールしている</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle DarwinAwardWinner/with-simulated-input)
 </span></span></code></pre></div>
 
@@ -4752,19 +4758,19 @@ Emacs Lisp でやっていることはインタラクティブな部分が大き
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1691760392"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1691760392"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1691760392"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1691760392"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1691760392"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1691760392"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1691760794"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1691760794"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1691760794"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1691760794"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1691760794"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1691760794"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1691760392"></script>
-    <script src="/.emacs.d/js/learn.js?1691760392"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1691760392"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1691760794"></script>
+    <script src="/.emacs.d/js/learn.js?1691760794"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1691760794"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1691760392"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1691760794"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

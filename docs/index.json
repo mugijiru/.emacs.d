@@ -4,7 +4,7 @@
 	"title": "with-simulated-input",
 	"tags": [],
 	"description": "",
-	"content": "概要 with-simulated-input は入力処理をシミュレートするためのプラグイン。\n公式のドキュメントにあるように\n(with-simulated-input \u0026#34;hello SPC world RET\u0026#34; (read-string \u0026#34;Say hello to the world: \u0026#34;)) を評価すると read-string に対して「hello world」を入力したことになるので echo エリアに「hello world」と表示される。\nこれで何が嬉しいかというと Emacs Lisp でやっていることはインタラクティブな部分が大きいのでそういった要素をテストできるようになる。\n具体的な使用例は test:my/org-todo で示す。\nインストール el-get-bundle で GitHub からインストールしている\n(el-get-bundle DarwinAwardWinner/with-simulated-input) "
+	"content": "概要 with-simulated-input は入力処理をシミュレートするためのプラグイン。\n公式のドキュメントにあるように\n(with-simulated-input \u0026#34;hello SPC world RET\u0026#34; (read-string \u0026#34;Say hello to the world: \u0026#34;)) を評価すると read-string に対して「hello world」を入力したことになるので echo エリアに「hello world」と表示される。\nこれで何が嬉しいかというと Emacs Lisp でやっていることはインタラクティブな部分が大きいのでそういった要素をテストできるようになる。\n具体的な使用例は test:my/org-todo で示す。\nインストール レシピは自前で用意している\n(:name with-simulated-input :type github :description \u0026#34;A macro to simulate user input non-interactively.\u0026#34; :pkgname \u0026#34;DarwinAwardWinner/with-simulated-input\u0026#34; :minimum-emacs-version (24 4)) そして el-get-bundle で GitHub からインストールしている\n(el-get-bundle DarwinAwardWinner/with-simulated-input) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/basics/",
