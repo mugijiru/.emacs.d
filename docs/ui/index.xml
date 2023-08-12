@@ -26,10 +26,10 @@
       
       <guid>https://mugijiru.github.io/.emacs.d/ui/all-the-icons/</guid>
       <description>概要 all-the-icons は Emacs で様々なアイコンを表示できるようにして華やかにしてくれるパッケージです。 Neotree などでも対応していてアイコンでファイルの種類が表示されるようになってモダンな雰囲気が出ます。
-インストール いつも通り el-get-bundle で入れている。明示的に require している理由は忘れました。
+インストール improvement いつも通り el-get-bundle で入れている。明示的に require している理由は忘れました。
 (el-get-bundle all-the-icons) (require &amp;#39;all-the-icons) フォントのインストール 以下のコマンドを叩くことでフォントをインストールすることができる。 all-the-icons のインストール直後に叩いておいたら普段は叩かなくて良いはず。
 (all-the-icons-install-fonts) all-the-icons の更新後は叩いた方がいいかもしれない
-キーバインド キーバインドは覚えられないし、使えるキーも大分埋まってるので、 pretty-hydra を使って all-the-icons 用の Hydra を用意している。
+キーバインド improvement キーバインドは覚えられないし、使えるキーも大分埋まってるので、 pretty-hydra を使って all-the-icons 用の Hydra を用意している。
 (with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define all-the-icons-hydra (:separator &amp;#34;-&amp;#34; :title &amp;#34;All the icons&amp;#34; :exit t :quit-key &amp;#34;q&amp;#34;) (&amp;#34;Insert&amp;#34; ((&amp;#34;a&amp;#34; all-the-icons-insert-alltheicon &amp;#34;All the icons&amp;#34;) (&amp;#34;f&amp;#34; all-the-icons-insert-fileicon &amp;#34;File icons&amp;#34;) (&amp;#34;F&amp;#34; all-the-icons-insert-faicons &amp;#34;FontAwesome&amp;#34;) (&amp;#34;m&amp;#34; all-the-icons-insert-material &amp;#34;Material&amp;#34;) (&amp;#34;o&amp;#34; all-the-icons-insert-octicon &amp;#34;Octicon&amp;#34;) (&amp;#34;w&amp;#34; all-the-icons-insert-wicon &amp;#34;Weather&amp;#34;) (&amp;#34;*&amp;#34; all-the-icons-insert &amp;#34;All&amp;#34;))))) Key 効果 a all-the-icons で追加されてるアイコンを検索して挿入 f ファイルアイコンを検索して挿入 F FontAwesome アイコンを検索して挿入 m Material アイコンを検索して挿入 o Octicon のアイコンを検索して挿入 w 天気アイコンを検索して挿入 * 全てのアイコンを検索して挿入 フォントのインストールコマンドもここに収めてしまうのが良さそうな気がする</description>
     </item>
     
