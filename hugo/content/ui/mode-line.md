@@ -145,6 +145,17 @@ el-get のレシピは自前で用意している
        :pkgname "seagle0128/doom-modeline")
 ```
 
+依存している shrink-path も自前でレシピを用意している
+
+```emacs-lisp
+(:name shrink-path
+       :website "https://gitlab.com/bennya/shrink-path.el"
+       :description "Small utility functions that allow for fish-style trunctated directories in eshell and for example modeline."
+       :depends (dash f s)
+       :type git
+       :url "https://gitlab.com/bennya/shrink-path.el.git")
+```
+
 そして以下でインストール
 
 ```emacs-lisp

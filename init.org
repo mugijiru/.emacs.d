@@ -3626,6 +3626,17 @@
               :pkgname "seagle0128/doom-modeline")
      #+end_src
 
+     依存している shrink-path も自前でレシピを用意している
+
+     #+begin_src emacs-lisp :tangle recipes/shrink-path.rcp
+       (:name shrink-path
+              :website "https://gitlab.com/bennya/shrink-path.el"
+              :description "Small utility functions that allow for fish-style trunctated directories in eshell and for example modeline."
+              :depends (dash f s)
+              :type git
+              :url "https://gitlab.com/bennya/shrink-path.el.git")
+     #+end_src
+
      そして以下でインストール
      #+begin_src emacs-lisp :tangle inits/91-doom-modeline.el
      (el-get-bundle doom-modeline)
