@@ -3140,6 +3140,19 @@
      :PROPERTIES:
      :ID:       34d2251a-e0f7-4366-b009-fdaf681879f4
      :END:
+
+     el-get のレシピを自前で用意して
+
+     #+begin_src emacs-lisp :tangle recipes/ivy-rich.rcp
+       (:name ivy-rich
+              :type github
+              :description "More friendly interface for ivy"
+              :pkgname "Yevgnen/ivy-rich"
+              :minimum-emacs-version (25 1))
+     #+end_src
+
+     ~el-get-bundle~ でインストールしている
+
      #+begin_src emacs-lisp :tangle inits/82-ivy.el
      (el-get-bundle ivy-rich)
      #+end_src

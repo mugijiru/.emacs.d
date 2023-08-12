@@ -127,6 +127,18 @@ ivy-rich は ivy の見た目をよりモダンにしてくれるやつ。なん
 
 ### インストール {#インストール}
 
+el-get のレシピを自前で用意して
+
+```emacs-lisp
+(:name ivy-rich
+       :type github
+       :description "More friendly interface for ivy"
+       :pkgname "Yevgnen/ivy-rich"
+       :minimum-emacs-version (25 1))
+```
+
+`el-get-bundle` でインストールしている
+
 ```emacs-lisp
 (el-get-bundle ivy-rich)
 ```
