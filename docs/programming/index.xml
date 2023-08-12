@@ -175,13 +175,12 @@ TS/TSX Finder client に格納しているフロントエンドのファイル�
       <guid>https://mugijiru.github.io/.emacs.d/programming/react-js/</guid>
       <description>概要 React.js を書くための設定をここにまとめている
 dap-mode Debug Adapter Protocol をサポートするモード。入れておいた方がきっとデバッグしやすいんだろうということで入れている。
-lsp-mode の仲間なので、本当はそっち側で入れるようにした方が良さそうだけどひとまず React のために入れているので React 用の設定ファイルに書いている。
+その際に el-get のレシピは自前で用意している
+(:name dap-mode :description &amp;#34;Debug Adapter Protocol mode&amp;#34; :website &amp;#34;https://github.com/emacs-lsp/dap-mode&amp;#34; :type github :pkgname &amp;#34;emacs-lsp/dap-mode&amp;#34; :depends (bui dash f lsp-mode lsp-treemacs tree-mode posframe s lsp-docker)) lsp-mode の仲間なので、本当はそっち側で入れるようにした方が良さそうだけどひとまず React のために入れているので React 用の設定ファイルに書いている。
 (el-get-bundle dap-mode) 同時に treemacs や lsp-treemacs も入ってくる罠がある。 Neotree 使ってるからちょっとアレだなあ。いずれ乗り換えようとはしていたけども。
 web-mode とりあえず tsx を弄る上では web-mode が良いという話もあるので入れておく。
 (el-get-bundle web-mode) メジャーモードの紐付け jsx/tsx ファイルを開いた時には web-mode で動いてほしいので auto-mode-alist で関連付けをする
-(add-to-list &amp;#39;auto-mode-alist &amp;#39;(&amp;#34;\\.[jt]sx&amp;#34; . web-mode)) 自動フォーマット hook の用意 tsx の保存時に自動でフォーマットしてほしいのでそれ用に hook を追加
-(defun my/web-mode-auto-fix-hook () (when (string-equal (file-name-extension buffer-file-name) &amp;#34;tsx&amp;#34;) (lsp-eslint-fix-all))) lsp-mode などの有効化 jsx/tsx ファイルを開く時に web-mode が有効になるようにしているのでその web-mode の hook で
-display-line-numbers-mode lsp lsp-ui-mode company-mode を有効にしている。</description>
+(add-to-list &amp;#39;auto-mode-alist &amp;#39;(&amp;#34;\\.[jt]sx&amp;#34; . web-mode)) 自動フォーマット hook の用意 tsx の保存時に自動でフォーマットしてほしいのでそれ用に hook を追加</description>
     </item>
     
     <item>
