@@ -9,7 +9,7 @@ draft = false
 [Neotree]({{< relref "neotree" >}}) などでも対応していてアイコンでファイルの種類が表示されるようになってモダンな雰囲気が出ます。
 
 
-## インストール {#インストール}
+## インストール <span class="tag"><span class="improvement">improvement</span></span> {#インストール}
 
 いつも通り el-get-bundle で入れている。明示的に require している理由は忘れました。
 
@@ -31,7 +31,7 @@ all-the-icons のインストール直後に叩いておいたら普段は叩か
 all-the-icons の更新後は叩いた方がいいかもしれない
 
 
-## キーバインド {#キーバインド}
+## キーバインド <span class="tag"><span class="improvement">improvement</span></span> {#キーバインド}
 
 キーバインドは覚えられないし、使えるキーも大分埋まってるので、
 pretty-hydra を使って all-the-icons 用の Hydra を用意している。

@@ -2268,7 +2268,7 @@
     いつも通り el-get-bundle で入れている。
     明示的に require している理由は忘れました。
 
-    #+begin_src emacs-lisp :tangle inits/20-all-the-icons.el
+    #+begin_src emacs-lisp :tangle inits/21-all-the-icons.el
     (el-get-bundle all-the-icons)
     (require 'all-the-icons)
     #+end_src
@@ -2292,7 +2292,7 @@
     キーバインドは覚えられないし、使えるキーも大分埋まってるので、
     pretty-hydra を使って all-the-icons 用の Hydra を用意している。
 
-    #+begin_src emacs-lisp :tangle inits/20-all-the-icons.el
+    #+begin_src emacs-lisp :tangle inits/21-all-the-icons.el
     (with-eval-after-load 'pretty-hydra
       (pretty-hydra-define all-the-icons-hydra (:separator "-" :title "All the icons" :exit t :quit-key "q")
         ("Insert"
@@ -5686,6 +5686,7 @@
         '(terraform-format-on-save t))
      #+end_src
 **** hooks
+
      hook を使っていくつかの minor-mode を有効にしている
 
      - origami :: コードの折り畳み
