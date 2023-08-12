@@ -20,7 +20,7 @@ jobs:
     steps:
     - uses: purcell/setup-emacs@master
       with:
-        version: 28.2
+        version: 29.1
 
     - uses: actions/checkout@v3
 
