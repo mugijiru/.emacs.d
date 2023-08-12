@@ -5181,6 +5181,17 @@
     Debug Adapter Protocol をサポートするモード。
     入れておいた方がきっとデバッグしやすいんだろうということで入れている。
 
+    その際に el-get のレシピは自前で用意している
+
+    #+begin_src emacs-lisp :tangle recipes/dap-mode.rcp
+      (:name dap-mode
+             :description "Debug Adapter Protocol mode"
+             :website "https://github.com/emacs-lsp/dap-mode"
+             :type github
+             :pkgname "emacs-lsp/dap-mode"
+             :depends (bui dash f lsp-mode lsp-treemacs tree-mode posframe s lsp-docker))
+    #+end_src
+
     lsp-mode の仲間なので、本当はそっち側で入れるようにした方が良さそうだけど
     ひとまず React のために入れているので React 用の設定ファイルに書いている。
     #+begin_src emacs-lisp :tangle inits/41-react.el
@@ -5190,7 +5201,6 @@
     同時に treemacs や lsp-treemacs も入ってくる罠がある。
     Neotree 使ってるからちょっとアレだなあ。
     いずれ乗り換えようとはしていたけども。
-
 *** web-mode
     :PROPERTIES:
     :ID:       f9f9e71a-130d-4c54-8414-e5564d9e2c22
@@ -5686,6 +5696,9 @@
         '(terraform-format-on-save t))
      #+end_src
 **** hooks
+     :PROPERTIES:
+     :ID:       149b7e1d-0b04-4ceb-9924-bc31df7c9146
+     :END:
 
      hook を使っていくつかの minor-mode を有効にしている
 

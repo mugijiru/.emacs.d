@@ -12,6 +12,17 @@ React.js を書くための設定をここにまとめている
 
 Debug Adapter Protocol をサポートするモード。入れておいた方がきっとデバッグしやすいんだろうということで入れている。
 
+その際に el-get のレシピは自前で用意している
+
+```emacs-lisp
+(:name dap-mode
+       :description "Debug Adapter Protocol mode"
+       :website "https://github.com/emacs-lsp/dap-mode"
+       :type github
+       :pkgname "emacs-lsp/dap-mode"
+       :depends (bui dash f lsp-mode lsp-treemacs tree-mode posframe s lsp-docker))
+```
+
 lsp-mode の仲間なので、本当はそっち側で入れるようにした方が良さそうだけどひとまず React のために入れているので React 用の設定ファイルに書いている。
 
 ```emacs-lisp
