@@ -1,6 +1,5 @@
 (:name ivy-rich
-:type github
-:description "More friendly interface for ivy"
-:pkgname "Yevgnen/ivy-rich"
-:minimum-emacs-version (25 1)
-)
+       :type github
+       :description "More friendly interface for ivy"
+       :pkgname "Yevgnen/ivy-rich"
+       :minimum-emacs-version (25 1))
