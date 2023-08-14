@@ -7758,7 +7758,6 @@
     #+begin_src emacs-lisp :tangle inits/61-org-ql.el
     (el-get-bundle org-ql)
     #+end_src
-
 *** その他
     一時期は色々試していたけど
     これを利用している org-super-agenda の方でなんとかするようにしたので
