@@ -1,4 +1,0 @@
-(:name peg
-       :type elpa
-       :description "Parsing Expression Grammars in Emacs Lisp"
-       :website "https://elpa.gnu.org/packages/peg.html")
