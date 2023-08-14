@@ -31,7 +31,7 @@
         (aio :checksum "da93523e235529fa97d6f251319d9e1d6fc24a41")
         (git-messenger :checksum "eade986ef529aa2dac6944ad61b18de55cee0b76")
         (lsp-docker :checksum "9adabe57393c6e8740789710c614d011a697b1ed")
-        (ivy-kibela :checksum "0a8b6dc545a3f194de49ed8cf2b689b3de5dc823")
+        (ivy-kibela :checksum "622a29564aa450822ad5be55dc532a59fa736a5d")
         (graphql :checksum "67237f284f2dfb94f3cfba672ff64a37e1cb860f")
         (tomelr :checksum "670e0a08f625175fd80137cf69e799619bf8a381")
         (ivy-migemo :checksum "6022b24e72f073a7b5599f2dea611da3a1282378")
