@@ -16,7 +16,7 @@
         (magit-popup :checksum "d8585fa39f88956963d877b921322530257ba9f5")
         (keypression :checksum "9427241f3fa539e4b5ad7581a05eb7e49f2cf518")
         (noflet :checksum "7ae84dc3257637af7334101456dafe1759c6b68a")
-        (emacs-kibela :checksum "a11b66bc120c04a276924acec0e5f935ec21b680")
+        (emacs-kibela :checksum "9e831053e69541ba4b5725811fef95e922aff1a5")
         (which-key :checksum "df6b0cb8449812e7fb200bc852107fa7eb708496")
         (company-quickhelp :checksum "9505fb09d064581da142d75c139d48b5cf695bd5")
         (graphql-mode :checksum "0ad4ae0160cabad46109dfbb394297a185eb2525")
