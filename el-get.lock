@@ -5,7 +5,7 @@
         (dockerfile-mode :checksum "52c6c00da1d31c0b6c29c74335b3af63ed6bf06c")
         (origami :checksum "3fa2f5401510d7c2e934ae5870c89003f3fc60a0")
         (company-posframe :checksum "18d6641bba72cba3c00018cee737ea8b454f64a8")
-        (nerd-icons :checksum "284c6ac511dff2186f44d3d15071119bdee6e34d")
+        (nerd-icons :checksum "a16ed781c526a575620ed79308c30ecf553b1f82")
         (copilot :checksum "d00d37faf7ada42ffebeeb24cf2fb104a32a0187")
         (json-rpc :checksum "81a5a520072e20d18aeab2aac4d66c046b031e56")
         (editorconfig :checksum "df0e5180db1d1267c9ea39abbe98b7993e83bae7")
