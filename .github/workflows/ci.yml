@@ -13,6 +13,7 @@ jobs:
           - 27.2
           - 28.1
           - 28.2
+          - 29.1
 
     steps:
     - uses: purcell/setup-emacs@master
@@ -23,4 +24,8 @@ jobs:
 
     - name: Run tests
       run: |
-        emacs -Q --batch --eval "(setq user-emacs-directory \"$(pwd)/\")" -l inits/test/*-test.el -l inits/test/run-tests.el
+        emacs -Q --batch --eval "(setq user-emacs-directory \"$(pwd)/\")" \
+        --eval '(setq el-get-git-install-url "https://github.com/mugijiru/el-get.git")' \
+        --eval '(setq el-get-install-branch "fix-install-for-emacs29")' \
+        -l inits/test/*-test.el \
+        -l inits/test/run-tests.el
