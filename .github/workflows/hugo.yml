@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'hugo/content/**/*.md'
+      - '.github/workflows/hugo.yml'
     branches:
       - 'master'
 
