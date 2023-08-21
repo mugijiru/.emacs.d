@@ -6,6 +6,9 @@
 (defun my/terraform-mode-hook ()
   (origami-mode 1)
   (company-mode 1)
+  (setq-local flycheck-checker 'terraform)
+  (setq-local flycheck-disabled-checkers '(terraform-tflint))
+  (flycheck-mode 1)
   (turn-on-smartparens-strict-mode)
   (display-line-numbers-mode 1))
 
