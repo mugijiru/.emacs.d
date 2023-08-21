@@ -53,11 +53,16 @@ origami
 company
 : コード補完
 
+flyccheck
+: コードの変な部分の指摘
+
 smartparens-strict-mode
 : カッコの対応を強力にしてくれるやつ
 
 display-line-numbers-mode
 : 行数表示
+
+flycheck に関しては [terraform-tflint が tflint 0.47 に対応してない](https://github.com/flycheck/flycheck/issues/2024)のでそいつだけ無効にしている
 
 :ID:       dc0abe68-1440-4519-9b27-01856ebca176
 
@@ -65,6 +70,9 @@ display-line-numbers-mode
 (defun my/terraform-mode-hook ()
   (origami-mode 1)
   (company-mode 1)
+  (setq-local flycheck-checker 'terraform)
+  (setq-local flycheck-disabled-checkers '(terraform-tflint))
+  (flycheck-mode 1)
   (turn-on-smartparens-strict-mode)
   (display-line-numbers-mode 1))
 
