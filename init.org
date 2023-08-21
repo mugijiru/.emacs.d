@@ -5735,9 +5735,6 @@
      flycheck に関しては [[https://github.com/flycheck/flycheck/issues/2024][terraform-tflint が tflint 0.47 に対応してない]]ので
      そいつだけ無効にしている
 
-     :PROPERTIES:
-     :ID:       dc0abe68-1440-4519-9b27-01856ebca176
-     :END:
      #+begin_src emacs-lisp :tangle inits/40-terraform.el
        (defun my/terraform-mode-hook ()
          (origami-mode 1)

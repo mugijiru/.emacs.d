@@ -64,8 +64,6 @@ display-line-numbers-mode
 
 flycheck に関しては [terraform-tflint が tflint 0.47 に対応してない](https://github.com/flycheck/flycheck/issues/2024)のでそいつだけ無効にしている
 
-:ID:       dc0abe68-1440-4519-9b27-01856ebca176
-
 ```emacs-lisp
 (defun my/terraform-mode-hook ()
   (origami-mode 1)
