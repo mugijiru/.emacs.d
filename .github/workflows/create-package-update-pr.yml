@@ -27,9 +27,9 @@ jobs:
     - name: Update package
       run: |
         emacs -Q --batch --eval "(setq user-emacs-directory \"$(pwd)/\")" \
-          -l ./init-el-get.el \
           --eval '(setq el-get-git-install-url "https://github.com/mugijiru/el-get.git")' \
           --eval '(setq el-get-install-branch "fix-install-for-emacs29")' \
+          -l ./init-el-get.el \
           --eval "(my/el-get-auto-update \"$PACKAGE\")"
 
     - name: Detect el-get.lock diff
