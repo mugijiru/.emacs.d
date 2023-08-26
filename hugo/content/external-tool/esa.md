@@ -10,7 +10,16 @@ draft = false
 
 ## インストール・設定 {#インストール-設定}
 
-いつも通り el-get で入れている。
+レシピは自前で用意している
+
+```emacs-lisp
+(:name esa
+       :description "Interface to esa.io (\( ⁰⊖⁰)/)"
+       :type github
+       :pkgname "nabinno/esa.el")
+```
+
+そして el-get で入れている。
 
 設定は別ファイルに分離している。authinfo に移動したい
 
@@ -18,3 +27,5 @@ draft = false
 (el-get-bundle esa)
 (my/load-config "my-esa-config")
 ```
+
+けど今は esa 使ってないのよね。

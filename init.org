@@ -6072,7 +6072,17 @@
     :PROPERTIES:
     :ID:       3489db42-e38f-4e4f-bdb8-f6c420e12336
     :END:
-    いつも通り el-get で入れている。
+
+    レシピは自前で用意している
+
+    #+begin_src emacs-lisp :tangle recipes/esa.rcp
+      (:name esa
+             :description "Interface to esa.io (\( ⁰⊖⁰)/)"
+             :type github
+             :pkgname "nabinno/esa.el")
+    #+end_src
+
+    そして el-get で入れている。
 
     設定は別ファイルに分離している。authinfo に移動したい
 
@@ -6080,6 +6090,8 @@
     (el-get-bundle esa)
     (my/load-config "my-esa-config")
     #+end_src
+
+    けど今は esa 使ってないのよね。
 ** forge
    :PROPERTIES:
    :EXPORT_FILE_NAME: forge
