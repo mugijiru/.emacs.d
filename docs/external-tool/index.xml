@@ -81,7 +81,8 @@ M-x google-translate-at-point source → target の翻訳 M-x google-translate-a
       <description>概要 magit は Emacs の上で Git の色々な操作ができるやつ。結構使いやすいのでオススメなやつ。
 forge を使うと GitHub や GitLab とも連携できてさらに便利、なはず。
 インストール (el-get-bundle magit) その他設定 ghub を load-path に入れないとうまくいかなかった時があったので入れてたり、 orgit を入れていたり
-(with-eval-after-load &amp;#39;magit (add-to-list &amp;#39;load-path (expand-file-name &amp;#34;~/.emacs.d/el-get/ghub/lisp&amp;#34;))) (el-get-bundle orgit) 使い方 Git 管理されてるファイルを開いている時に M-x magit とかすると Git 管理用のバッファが出て来るしそこで ? を叩いたらどういうコマンドが使えるのか教えてくれるよ(雑)</description>
+(with-eval-after-load &amp;#39;magit (add-to-list &amp;#39;load-path (expand-file-name &amp;#34;~/.emacs.d/el-get/ghub/lisp&amp;#34;))) (el-get-bundle orgit) あと ghub は compat に依存するようになったのでとりあえず自前で recipe を用意している
+(:name ghub :type github :description &amp;#34;Minuscule client for the Github API&amp;#34; :pkgname &amp;#34;magit/ghub&amp;#34; :depends (let-alist treepy compat) :branch &amp;#34;main&amp;#34; :info &amp;#34;docs&amp;#34; :load-path &amp;#34;lisp/&amp;#34; :compile &amp;#34;lisp/&amp;#34; ;; Use the Makefile to produce the info manual, el-get can ;; handle compilation and autoloads on its own.</description>
     </item>
     
     <item>
