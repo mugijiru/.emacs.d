@@ -28,6 +28,16 @@ ox-hugo を用いて構築している
        :depends (org-mode tomelr))
 ```
 
+依存している tomelr のレシピも自前で用意している
+
+```emacs-lisp
+(:name tomelr
+       :description "Emacs-Lisp Library for converting S-expressions to TOML"
+       :type github
+       :pkgname "kaushalmodi/tomelr"
+       :branch "main")
+```
+
 そしていつも通り el-get でインスコしている。
 
 ```emacs-lisp
