@@ -29,6 +29,25 @@ orgit を入れていたり
 (el-get-bundle orgit)
 ```
 
+あと ghub は compat に依存するようになったのでとりあえず自前で recipe を用意している
+
+```emacs-lisp
+(:name ghub
+       :type github
+       :description "Minuscule client for the Github API"
+       :pkgname "magit/ghub"
+       :depends (let-alist treepy compat)
+       :branch "main"
+       :info "docs"
+       :load-path "lisp/"
+       :compile "lisp/"
+       ;; Use the Makefile to produce the info manual, el-get can
+       ;; handle compilation and autoloads on its own.
+       :build `(("make" ,(format "EMACSBIN=%s" el-get-emacs) "info"))
+       :build/berkeley-unix `(("gmake" ,(format "EMACSBIN=%s" el-get-emacs)
+                               "info")))
+```
+
 
 ## 使い方 {#使い方}
 
