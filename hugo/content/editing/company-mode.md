@@ -75,18 +75,6 @@ draft = false
 (company-posframe-mode 1)
 ```
 
-なお el-get 公式のレシピはファイル名や :name が間違っているのでひとまず自前でレシピ登録している。
-
-```emacs-lisp
-(:name company-posframe
-       :description "Use child frame as company candidate menu."
-       :website "https://github.com/tumashu/company-posframe/"
-       :type github
-       :minimum-emacs-version "26"
-       :depends company-mode
-       :pkgname "tumashu/company-posframe")
-```
-
 
 ## その他 {#その他}
 
