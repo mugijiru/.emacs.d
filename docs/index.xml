@@ -634,9 +634,10 @@ es6 を js2-mode で扱うようにする (add-to-list &amp;#39;auto-mode-alist 
       
       <guid>https://mugijiru.github.io/.emacs.d/external-tool/esa/</guid>
       <description>概要 esa.el は esa.io と連携するためのパッケージ。大体直接 Web で書くので活用はできてない……
-インストール・設定 いつも通り el-get で入れている。
+インストール・設定 レシピは自前で用意している
+(:name esa :description &amp;#34;Interface to esa.io (\( ⁰⊖⁰)/)&amp;#34; :type github :pkgname &amp;#34;nabinno/esa.el&amp;#34;) そして el-get で入れている。
 設定は別ファイルに分離している。authinfo に移動したい
-(el-get-bundle esa) (my/load-config &amp;#34;my-esa-config&amp;#34;) </description>
+(el-get-bundle esa) (my/load-config &amp;#34;my-esa-config&amp;#34;) けど今は esa 使ってないのよね。</description>
     </item>
     
     <item>

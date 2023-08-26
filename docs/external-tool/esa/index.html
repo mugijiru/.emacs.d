@@ -12,20 +12,20 @@
     <title>esa.el :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1693019851" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1693019851" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1693019851" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1693019851" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1693019851" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1693019851" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1693019851" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1693019851" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1693019851" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1693019851" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1693020121" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1693020121" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1693020121" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1693020121" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1693020121" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1693020121" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1693020121" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1693020121" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1693020121" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1693020121" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1693019851"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1693020121"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1693019851"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1693019851"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1693020121"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1693020121"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1693019851"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1693020121"></script>
 
     
   </div>
@@ -2827,11 +2827,17 @@
 <h2 id="概要">概要</h2>
 <p><a href="https://github.com/nabinno/esa.el">esa.el</a> は <a href="https://esa.io/">esa.io</a> と連携するためのパッケージ。大体直接 Web で書くので活用はできてない……</p>
 <h2 id="インストール-設定">インストール・設定</h2>
-<p>いつも通り el-get で入れている。</p>
+<p>レシピは自前で用意している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name esa
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Interface to esa.io (\( ⁰⊖⁰)/)&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;nabinno/esa.el&#34;</span>)
+</span></span></code></pre></div><p>そして el-get で入れている。</p>
 <p>設定は別ファイルに分離している。authinfo に移動したい</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle esa)
 </span></span><span style="display:flex;"><span>(my/load-config <span style="color:#e6db74">&#34;my-esa-config&#34;</span>)
-</span></span></code></pre></div>
+</span></span></code></pre></div><p>けど今は esa 使ってないのよね。</p>
+
 
 <footer class="footline">
 	
@@ -4784,19 +4790,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1693019851"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1693019851"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1693019851"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1693019851"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1693019851"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1693019851"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1693020121"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1693020121"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1693020121"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1693020121"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1693020121"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1693020121"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1693019851"></script>
-    <script src="/.emacs.d/js/learn.js?1693019851"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1693019851"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1693020121"></script>
+    <script src="/.emacs.d/js/learn.js?1693020121"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1693020121"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1693019851"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1693020121"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

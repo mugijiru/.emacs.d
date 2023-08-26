@@ -382,7 +382,7 @@
 	"title": "esa.el",
 	"tags": [],
 	"description": "",
-	"content": "概要 esa.el は esa.io と連携するためのパッケージ。大体直接 Web で書くので活用はできてない……\nインストール・設定 いつも通り el-get で入れている。\n設定は別ファイルに分離している。authinfo に移動したい\n(el-get-bundle esa) (my/load-config \u0026#34;my-esa-config\u0026#34;) "
+	"content": "概要 esa.el は esa.io と連携するためのパッケージ。大体直接 Web で書くので活用はできてない……\nインストール・設定 レシピは自前で用意している\n(:name esa :description \u0026#34;Interface to esa.io (\\( ⁰⊖⁰)/)\u0026#34; :type github :pkgname \u0026#34;nabinno/esa.el\u0026#34;) そして el-get で入れている。\n設定は別ファイルに分離している。authinfo に移動したい\n(el-get-bundle esa) (my/load-config \u0026#34;my-esa-config\u0026#34;) けど今は esa 使ってないのよね。\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/basics/exec-path/",
