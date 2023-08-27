@@ -145,7 +145,7 @@ el-get のレシピは自前で用意している
        :pkgname "seagle0128/doom-modeline")
 ```
 
-依存している shrink-path も自前でレシピを用意している
+依存している shrink-path と doom-modeline も自前でレシピを用意している
 
 ```emacs-lisp
 (:name shrink-path
@@ -154,6 +154,15 @@ el-get のレシピは自前で用意している
        :depends (dash f s)
        :type git
        :url "https://gitlab.com/bennya/shrink-path.el.git")
+```
+
+```emacs-lisp
+(:name nerd-icons
+       :website "https://github.com/rainstormstudio/nerd-icons.el"
+       :description "A Library for Nerd Font icons."
+       :type github
+       :branch "main"
+       :pkgname "rainstormstudio/nerd-icons.el")
 ```
 
 そして以下でインストール

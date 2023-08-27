@@ -3613,7 +3613,7 @@
               :pkgname "seagle0128/doom-modeline")
      #+end_src
 
-     依存している shrink-path も自前でレシピを用意している
+     依存している shrink-path と doom-modeline も自前でレシピを用意している
 
      #+begin_src emacs-lisp :tangle recipes/shrink-path.rcp
        (:name shrink-path
@@ -3622,6 +3622,15 @@
               :depends (dash f s)
               :type git
               :url "https://gitlab.com/bennya/shrink-path.el.git")
+     #+end_src
+
+     #+begin_src emacs-lisp :tangle recipes/nerd-icons.rcp
+       (:name nerd-icons
+              :website "https://github.com/rainstormstudio/nerd-icons.el"
+              :description "A Library for Nerd Font icons."
+              :type github
+              :branch "main"
+              :pkgname "rainstormstudio/nerd-icons.el")
      #+end_src
 
      そして以下でインストール
