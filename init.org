@@ -6068,6 +6068,95 @@
 
     今はこれだけしか入れてない。
     昔の設定はどこかにいっちゃった……。
+** emacs-kibela
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: emacs-kibela
+   :END:
+*** 概要
+    [[https://github.com/mugijiru/emacs-kibela/][emacs-kibela]] は Emacs で Kibela を操作するための自作のパッケージ。
+    あまり機能は実装されていないけど、テンプレートから記事を書いたりする程度のことはできる
+*** インストール
+    :PROPERTIES:
+    :ID:       c7e294c4-4830-416d-a512-e2fc29a1be77
+    :END:
+    MELPA には登録してないし el-get にもレシピを登録していないので
+    自前で el-get の recipe を用意している
+
+    #+begin_src emacs-lisp :tangle recipes/emacs-kibela.rcp
+      (:name emacs-kibela
+             :website "https://github.com/mugijiru/emacs-kibela"
+             :description "Kibela client."
+             :type github
+             :branch "main"
+             :pkgname "mugijiru/emacs-kibela"
+             :depends (graphql request markdown-mode))
+    #+end_src
+
+    そして ~el-get-bundle~ でインストールしている
+
+    #+begin_src emacs-lisp :tangle inits/83-kibela.el
+      (el-get-bundle emacs-kibela)
+    #+end_src
+*** 設定
+    :PROPERTIES:
+    :ID:       0568ae70-a24d-4d79-aaf1-99db2620a801
+    :END:
+    .authinfo.gpg に認証情報を突っ込んでいるので
+    そこから認証情報を拾って来て set している
+
+    #+begin_src emacs-lisp :tangle inits/83-kibela.el
+      (custom-set-variables
+       '(kibela-auth-list `(("Work"
+                              ,(plist-get (nth 0 (auth-source-search :host "emacs-kibela-work")) :team)
+                              ,(funcall (plist-get (nth 0 (auth-source-search :host "emacs-kibela-work" :max 1)) :secret)))
+                             ("Private"
+                              ,(plist-get (nth 0 (auth-source-search :host "emacs-kibela-private")) :team)
+                              ,(funcall (plist-get (nth 0 (auth-source-search :host "emacs-kibela-private" :max 1)) :secret))))))
+    #+end_src
+*** 自前の関数
+    :PROPERTIES:
+    :ID:       26f9f69f-9fd5-4f66-acfd-011a9c17ccf0
+    :END:
+    [[https://github.com/mugijiru/ivy-kibela/][ivy-kibela]] と連携して、最近投稿された記事を Emacs の中で開くためのコマンドを用意している。
+
+    もしかしたら emacs-kibela か ivy-kibela のどちらかで
+    featurep を使って有効無効を切り分けて実装すべきかも
+
+    #+begin_src emacs-lisp :tangle inits/83-kibela.el
+      (defun my/kibela-show-recent-note ()
+        "最近投稿された記事を見るためのコマンド
+      ivy-kibela-recent で最近投稿された記事を拾って
+      kibela-note-show でバッファを開く"
+        (interactive)
+        (ivy-kibela-recent (lambda (title)
+                           (let ((id (get-text-property 0 'id title)))
+                             (if id
+                                 (kibela-note-show id))))))
+    #+end_src
+*** キーバインド
+    :PROPERTIES:
+    :ID:       b6bf2676-a708-407e-9e20-bd95720c836a
+    :END:
+
+    各コマンドは Hydra で起動するように設定している。
+    しれっと ivy-kibela のコマンドも混ぜちゃってるけど、
+    使う分にはこの方がやりやすい。
+
+    #+begin_src emacs-lisp :tangle inits/83-kibela.el
+      (pretty-hydra-define kibela-hydra (:separator "-" :title "Kibela" :foreign-key warn :quit-key "q" :exit t)
+        ("ivy"
+         (("r" ivy-kibela-recent "Recent")
+          ("R" ivy-kibela-recent-browsing-notes "Recent brwosing notes")
+          ("S" ivy-kibela-search "Search"))
+         "Group"
+         (("g" kibela-group-notes "notes"))
+         "Note"
+         (("n" kibela-note-new "New")
+          ("s" my/kibela-show-recent-note "Show")
+          ("t" kibela-note-new-from-template "From template"))
+         "Team"
+         (("x" kibela-switch-team "Swtich"))))
+    #+end_src
 
 ** esa.el
    :PROPERTIES:
