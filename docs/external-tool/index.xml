@@ -7,6 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/external-tool/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>emacs-kibela</title>
+      <link>https://mugijiru.github.io/.emacs.d/external-tool/emacs-kibela/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/external-tool/emacs-kibela/</guid>
+      <description>概要 emacs-kibela は Emacs で Kibela を操作するための自作のパッケージ。あまり機能は実装されていないけど、テンプレートから記事を書いたりする程度のことはできる
+インストール MELPA には登録してないし el-get にもレシピを登録していないので自前で el-get の recipe を用意している
+(:name emacs-kibela :website &amp;#34;https://github.com/mugijiru/emacs-kibela&amp;#34; :description &amp;#34;Kibela client.&amp;#34; :type github :branch &amp;#34;main&amp;#34; :pkgname &amp;#34;mugijiru/emacs-kibela&amp;#34; :depends (graphql request markdown-mode)) そして el-get-bundle でインストールしている
+(el-get-bundle emacs-kibela) 設定 .authinfo.gpg に認証情報を突っ込んでいるのでそこから認証情報を拾って来て set している
+(custom-set-variables &amp;#39;(kibela-auth-list `((&amp;#34;Work&amp;#34; ,(plist-get (nth 0 (auth-source-search :host &amp;#34;emacs-kibela-work&amp;#34;)) :team) ,(funcall (plist-get (nth 0 (auth-source-search :host &amp;#34;emacs-kibela-work&amp;#34; :max 1)) :secret))) (&amp;#34;Private&amp;#34; ,(plist-get (nth 0 (auth-source-search :host &amp;#34;emacs-kibela-private&amp;#34;)) :team) ,(funcall (plist-get (nth 0 (auth-source-search :host &amp;#34;emacs-kibela-private&amp;#34; :max 1)) :secret)))))) 自前の関数 ivy-kibela と連携して、最近投稿された記事を Emacs の中で開くためのコマンドを用意している。</description>
+    </item>
+    
+    <item>
       <title>emacs-w3m</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/emacs-w3m/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
