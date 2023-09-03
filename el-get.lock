@@ -23,7 +23,7 @@
         (json-mode :checksum "481d5d9f4003fc14d116bf31d1bf71d14960d7d9")
         (json-snatcher :checksum "b28d1c0670636da6db508d03872d96ffddbc10f2")
         (json-reformat :checksum "9120ab67c5379c44bc7a7a07ca858670cea4f32f")
-        (orgit :checksum "4a585029875a1dbbe96d8ac157bd2fd02875f289")
+        (orgit :checksum "1f2785f78be31d65aa036aa4b1c9a41c5fa48a4e")
         (org-contrib :checksum "2380ff9985d3a21aa7746e3e9d1b96a437c748ce")
         (mocha :checksum "6a72fa20e7be6e55c09b1bc9887ee09c5df28e45")
         (pdf-tools :checksum "c69e7656a4678fe25afbd29f3503dd19ee7f9896")
