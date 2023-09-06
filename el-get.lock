@@ -17,7 +17,7 @@
         (keypression :checksum "9427241f3fa539e4b5ad7581a05eb7e49f2cf518")
         (noflet :checksum "7ae84dc3257637af7334101456dafe1759c6b68a")
         (emacs-kibela :checksum "9e831053e69541ba4b5725811fef95e922aff1a5")
-        (which-key :checksum "df6b0cb8449812e7fb200bc852107fa7eb708496")
+        (which-key :checksum "4d20bc852545a2e602f59084a630f888542052b1")
         (company-quickhelp :checksum "9505fb09d064581da142d75c139d48b5cf695bd5")
         (graphql-mode :checksum "0ad4ae0160cabad46109dfbb394297a185eb2525")
         (json-mode :checksum "481d5d9f4003fc14d116bf31d1bf71d14960d7d9")
