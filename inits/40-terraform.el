@@ -3,6 +3,10 @@
 (custom-set-variables
  '(terraform-format-on-save t))
 
+(el-get-bundle company-terraform)
+
+(company-terraform-init)
+
 (defun my/terraform-mode-hook ()
   (origami-mode 1)
   (company-mode 1)

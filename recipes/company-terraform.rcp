@@ -1,0 +1,6 @@
+(:name company-terraform
+       :website "https://github.com/rafalcieslak/emacs-company-terraform"
+       :description "Company backend for terraform files."
+       :type github
+       :pkgname "rafalcieslak/emacs-company-terraform"
+       :depends (company-mode terraform-mode))
