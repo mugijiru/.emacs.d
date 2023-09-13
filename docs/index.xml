@@ -1310,9 +1310,9 @@ terraform-mode terraform-mode は Emacs で terraform のコードを書くた�
 インストール el-get にも terraform-mode のレシピはあるけど dash の依存が書かれていないのでとりあえず自前で用意している
 (:name terraform-mode :type github :pkgname &amp;#34;emacsorphanage/terraform-mode&amp;#34; :description &amp;#34;Major mode for Terraform configuration files&amp;#34; :depends (hcl-mode dash)) そしてそれを el-get-bundle で入れている
 (el-get-bundle terraform-mode) 設定 保存時に自動で整形してほしいのでその設定を入れている
-(custom-set-variables &amp;#39;(terraform-format-on-save t)) hooks hook を使っていくつかの minor-mode を有効にしている
-origami コードの折り畳み company コード補完 flyccheck コードの変な部分の指摘 smartparens-strict-mode カッコの対応を強力にしてくれるやつ display-line-numbers-mode 行数表示 flycheck に関しては terraform-tflint が tflint 0.47 に対応してないのでそいつだけ無効にしている
-(defun my/terraform-mode-hook () (origami-mode 1) (company-mode 1) (setq-local flycheck-checker &amp;#39;terraform) (setq-local flycheck-disabled-checkers &amp;#39;(terraform-tflint)) (flycheck-mode 1) (turn-on-smartparens-strict-mode) (display-line-numbers-mode 1)) (add-hook &amp;#39;terraform-mode-hook &amp;#39;my/terraform-mode-hook) </description>
+(custom-set-variables &amp;#39;(terraform-format-on-save t)) company-terraform company-terraform は company-mode の拡張機能で terraform の補完をいい感じにしてくれるやつ
+インストール el-get 本体にはレシピが用意されてないのでとりあえず自前で用意している
+(:name company-terraform :website &amp;#34;https://github.com/rafalcieslak/emacs-company-terraform&amp;#34; :description &amp;#34;Company backend for terraform files.&amp;#34; :type github :pkgname &amp;#34;rafalcieslak/emacs-company-terraform&amp;#34; :depends (company-mode terraform-mode)) そしていつも通り el-get-bundle でインストール</description>
     </item>
     
     <item>
