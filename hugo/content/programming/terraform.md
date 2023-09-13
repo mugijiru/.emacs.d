@@ -43,7 +43,41 @@ dash の依存が書かれていないのでとりあえず自前で用意して
 ```
 
 
-### hooks {#hooks}
+## company-terraform {#company-terraform}
+
+[company-terraform](https://github.com/rafalcieslak/emacs-company-terraform) は [company-mode]({{< relref "company-mode" >}}) の拡張機能で terraform の補完をいい感じにしてくれるやつ
+
+
+### インストール {#インストール}
+
+el-get 本体にはレシピが用意されてないのでとりあえず自前で用意している
+
+```emacs-lisp
+(:name company-terraform
+       :website "https://github.com/rafalcieslak/emacs-company-terraform"
+       :description "Company backend for terraform files."
+       :type github
+       :pkgname "rafalcieslak/emacs-company-terraform"
+       :depends (company-mode terraform-mode))
+```
+
+そしていつも通り `el-get-bundle` でインストール
+
+```emacs-lisp
+(el-get-bundle company-terraform)
+```
+
+
+### 設定 {#設定}
+
+インストールした後に init してあげることで company の backend として追加してくれるのでそのようにしている
+
+```emacs-lisp
+(company-terraform-init)
+```
+
+
+## hooks {#hooks}
 
 hook を使っていくつかの minor-mode を有効にしている
 
