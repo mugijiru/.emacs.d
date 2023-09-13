@@ -1566,13 +1566,11 @@
 ** company-mode
    :PROPERTIES:
    :EXPORT_FILE_NAME: company-mode
+   :ID:       37d1ec70-38b5-451f-8873-d59aa1103c9a
    :END:
-
 *** 概要
-
     [[https://github.com/company-mode/company-mode][company-mode]] は Emacs での補完機能を提供してくれるパッケージです。
     プラグイン式に拡張しやすいのが特徴っぽい。
-
 *** インストール
     :PROPERTIES:
     :ID:       c212e7d9-f4ad-4295-83a5-8f422fea865c
@@ -5715,34 +5713,65 @@
        (custom-set-variables
         '(terraform-format-on-save t))
      #+end_src
-**** hooks
+*** company-terraform
+    [[https://github.com/rafalcieslak/emacs-company-terraform][company-terraform]] は [[id:37d1ec70-38b5-451f-8873-d59aa1103c9a][company-mode]] の拡張機能で terraform の補完をいい感じにしてくれるやつ
+**** インストール
      :PROPERTIES:
-     :ID:       149b7e1d-0b04-4ceb-9924-bc31df7c9146
+     :ID:       e6ed254e-d95b-438f-9c6e-e93a5dc85088
      :END:
+     el-get 本体にはレシピが用意されてないのでとりあえず自前で用意している
+     #+begin_src emacs-lisp :tangle recipes/company-terraform.rcp
+       (:name company-terraform
+              :website "https://github.com/rafalcieslak/emacs-company-terraform"
+              :description "Company backend for terraform files."
+              :type github
+              :pkgname "rafalcieslak/emacs-company-terraform"
+              :depends (company-mode terraform-mode))
+     #+end_src
 
-     hook を使っていくつかの minor-mode を有効にしている
-
-     - origami :: コードの折り畳み
-     - company :: コード補完
-     - flyccheck :: コードの変な部分の指摘
-     - smartparens-strict-mode :: カッコの対応を強力にしてくれるやつ
-     - display-line-numbers-mode :: 行数表示
-
-     flycheck に関しては [[https://github.com/flycheck/flycheck/issues/2024][terraform-tflint が tflint 0.47 に対応してない]]ので
-     そいつだけ無効にしている
+     そしていつも通り ~el-get-bundle~ でインストール
 
      #+begin_src emacs-lisp :tangle inits/40-terraform.el
-       (defun my/terraform-mode-hook ()
-         (origami-mode 1)
-         (company-mode 1)
-         (setq-local flycheck-checker 'terraform)
-         (setq-local flycheck-disabled-checkers '(terraform-tflint))
-         (flycheck-mode 1)
-         (turn-on-smartparens-strict-mode)
-         (display-line-numbers-mode 1))
-
-       (add-hook 'terraform-mode-hook 'my/terraform-mode-hook)
+       (el-get-bundle company-terraform)
      #+end_src
+**** 設定
+     :PROPERTIES:
+     :ID:       1dcc033e-ea7a-44d5-b1c7-8385b36cbe81
+     :END:
+     インストールした後に init してあげることで company の backend として追加してくれるので
+     そのようにしている
+
+     #+begin_src emacs-lisp :tangle inits/40-terraform.el
+       (company-terraform-init)
+     #+end_src
+*** hooks
+    :PROPERTIES:
+    :ID:       149b7e1d-0b04-4ceb-9924-bc31df7c9146
+    :END:
+
+    hook を使っていくつかの minor-mode を有効にしている
+
+    - origami :: コードの折り畳み
+    - company :: コード補完
+    - flyccheck :: コードの変な部分の指摘
+    - smartparens-strict-mode :: カッコの対応を強力にしてくれるやつ
+    - display-line-numbers-mode :: 行数表示
+
+    flycheck に関しては [[https://github.com/flycheck/flycheck/issues/2024][terraform-tflint が tflint 0.47 に対応してない]]ので
+    そいつだけ無効にしている
+
+    #+begin_src emacs-lisp :tangle inits/40-terraform.el
+      (defun my/terraform-mode-hook ()
+        (origami-mode 1)
+        (company-mode 1)
+        (setq-local flycheck-checker 'terraform)
+        (setq-local flycheck-disabled-checkers '(terraform-tflint))
+        (flycheck-mode 1)
+        (turn-on-smartparens-strict-mode)
+        (display-line-numbers-mode 1))
+
+      (add-hook 'terraform-mode-hook 'my/terraform-mode-hook)
+    #+end_src
 ** TypeScript
    :PROPERTIES:
    :EXPORT_FILE_NAME: typescript
