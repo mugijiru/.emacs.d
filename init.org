@@ -1824,8 +1824,8 @@
 ** smartparens
    :PROPERTIES:
    :EXPORT_FILE_NAME: smartparens
+   :ID:       62586c55-6455-4d41-a74a-a040739c51aa
    :END:
-
 *** 概要
 
     [[https://github.com/Fuco1/smartparens][smartparens]] はカッコとかクォートとかのペアになるようなものの入力補助をしてくれるやつ。
@@ -2609,8 +2609,8 @@
 ** highlight-indent-guides
    :PROPERTIES:
    :EXPORT_FILE_NAME: highlight-indent-guides
+   :ID:       2f778f3d-4bdc-4966-8180-5002d23ba36c
    :END:
-
 *** 概要
 
     [[https://github.com/DarthFennec/highlight-indent-guides][highlight-indent-guides]] はインデント毎にラインを引いたりして見易くしてくれるパッケージ。
@@ -4848,6 +4848,73 @@
 *** その他
     org-mode から使ってた記憶があるのでそっちの方で何か設定があるかもしれない
 
+** GraphQL
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: graphql
+   :END:
+*** 概要
+    GraphQL は API 向けのクエリ言語で
+    よく対比される REST と違いクライアント側から必要なデータ属性を指定できたりするやつ
+*** graphql-mode
+    ~*.graphql~ ファイルを編集する時のメジャーモード
+**** インストール
+     :PROPERTIES:
+     :ID:       a1e85e5e-a6f3-4eb6-bad8-cd02dbc787d1
+     :END:
+
+     こいつは el-get にレシピが用意されてないので自前で用意している
+
+     #+begin_src emacs-lisp :tangle recipes/graphql-mode.rcp
+       (:name graphql-mode
+              :description "An emacs mode to edit GraphQL schema and queries."
+              :type github
+              :pkgname "davazp/graphql-mode")
+     #+end_src
+
+     そして ~el-get-bundle~ でインストール
+
+     #+begin_src emacs-lisp :tangle inits/40-graphql.el
+       (el-get-bundle graphql-mode)
+     #+end_src
+**** hooks
+     :PROPERTIES:
+     :ID:       2665e6ad-bb10-42fc-abd9-b22376aa6896
+     :END:
+     graphql ファイルを弄る時に合わせて使いたい minor-mode があるので
+     それらを有効にする hook を用意している
+
+     #+begin_src emacs-lisp :tangle inits/40-graphql.el
+       (defun my/graphql-mode-hook ()
+         (company-mode 1)
+         (turn-on-smartparens-strict-mode)
+         (highlight-indent-guides-mode 1)
+         (display-line-numbers-mode 1))
+     #+end_src
+
+     それぞれ以下の効果がある
+
+     - [[id:37d1ec70-38b5-451f-8873-d59aa1103c9a][company-mode]] :: 補完候補を出してくれる
+     - [[id:62586c55-6455-4d41-a74a-a040739c51aa][smartparens-strict-mode]] :: カッコの対応を崩さないような編集ができるようなる
+     - [[id:2f778f3d-4bdc-4966-8180-5002d23ba36c][highlight-indent-guides-mode]] :: インデントを見易くしてくれる
+     - display-line-numbers-mode :: 左側に行数表示を出してくれる
+
+     そしてこの hook を ~graphql-mode-hook~ に突っ込んでいる
+
+     #+begin_src emacs-lisp :tangle inits/40-graphql.el
+       (add-hook 'graphql-mode-hook 'my/graphql-mode-hook)
+     #+end_src
+*** graphql
+    こちらは GraphQL API を Emacs Lisp から叩くためのライブラリ。
+    命名的にややこしいけど。
+**** インストール
+     :PROPERTIES:
+     :ID:       b7100c81-2769-446e-88d9-937a7a728d3a
+     :END:
+     こちらは el-get 本体にレシピがあるのでそのままインストールしている
+
+     #+begin_src emacs-lisp :tangle inits/40-graphql.el
+       (el-get-bundle graphql)
+     #+end_src
 ** Jest
    :PROPERTIES:
    :EXPORT_FILE_NAME: jest
