@@ -7,3 +7,5 @@
   (display-line-numbers-mode 1))
 
 (add-hook 'graphql-mode-hook 'my/graphql-mode-hook)
+
+(el-get-bundle graphql)

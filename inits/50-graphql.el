@@ -1,1 +1,0 @@
-(el-get-bundle graphql)
