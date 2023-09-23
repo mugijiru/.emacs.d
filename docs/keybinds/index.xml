@@ -56,6 +56,18 @@ sticky-shift セミコロン2つでシフトを押した状態にする セミ�
     </item>
     
     <item>
+      <title>which-key</title>
+      <link>https://mugijiru.github.io/.emacs.d/keybinds/which-key/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/keybinds/which-key/</guid>
+      <description>概要 which-key は prefix となるキーを入力してしばらく操作しなかった場合に minibuffer とかで「続けて押せるキーはこれだよ」ってのを示してくれるやつ。
+インストール こいつは el-get 本体にレシピがあるので el-get-bundle でインストールしている
+(el-get-bundle which-key) 有効化 特に設定は弄らないで有効化している
+(which-key-mode 1) </description>
+    </item>
+    
+    <item>
       <title>グローバルキーバインド</title>
       <link>https://mugijiru.github.io/.emacs.d/keybinds/global-keybinds/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

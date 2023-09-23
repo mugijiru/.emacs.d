@@ -798,6 +798,13 @@
 	"content": "概要 wakatime-mode は WakaTime というサービスと連携するためのパッケージ。\nWakaTime は自分がどのプロジェクトの作業をしているかを計測してくれるようなツール。普段の行動の改善に使えるかもしれないので、なんとなく連携してみている。\nインストール いつも通り el-get から入れている\n(el-get-bundle wakatime-mode) APIキーの設定 APIキーは .authinfo.gpg に保存しているのでそこから引っ張り出している。\n(custom-set-variables \u0026#39;(wakatime-cli-path \u0026#34;/usr/bin/wakatime\u0026#34;) \u0026#39;(wakatime-api-key (funcall (plist-get (nth 0 (auth-source-search :host \u0026#34;wakatime.com\u0026#34; :max 1)) :secret)))) 有効化 Emacs を使っている間は常に有効になっていて欲しいので global-wakatime-mode を有効にしている。\n(global-wakatime-mode 1) APIキーが取れてない時はやたらエラーを吐くので何かしら調整はしてもいいかもしれない。\n(if (boundp \u0026#39;wakatime-api-key) (global-wakatime-mode 1)) みたいにして API キーが取れている時だけ有効にするとかね。\n"
 },
 {
+	"uri": "https://mugijiru.github.io/.emacs.d/keybinds/which-key/",
+	"title": "which-key",
+	"tags": [],
+	"description": "",
+	"content": "概要 which-key は prefix となるキーを入力してしばらく操作しなかった場合に minibuffer とかで「続けて押せるキーはこれだよ」ってのを示してくれるやつ。\nインストール こいつは el-get 本体にレシピがあるので el-get-bundle でインストールしている\n(el-get-bundle which-key) 有効化 特に設定は弄らないで有効化している\n(which-key-mode 1) "
+},
+{
 	"uri": "https://mugijiru.github.io/.emacs.d/editing/whitespace/",
 	"title": "whitespace",
 	"tags": [],

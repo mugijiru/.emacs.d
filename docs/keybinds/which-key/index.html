@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>org-mode 関係の keybinds :: 麦汁&#39;s Emacs Config</title>
+    <title>which-key :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1695451588" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/org-mode/org-mode-keybinds/">
+  <body class="" data-url="/.emacs.d/keybinds/which-key/">
     <nav id="sidebar" class="">
 
 
@@ -483,7 +483,7 @@
   
     
     <li data-nav-id="/.emacs.d/keybinds/" title="キーバインド" class="dd-item
-        
+        parent
         
         
         ">
@@ -572,7 +572,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/keybinds/which-key/" title="which-key" class="dd-item ">
+      <li data-nav-id="/.emacs.d/keybinds/which-key/" title="which-key" class="dd-item active">
         <a href="/.emacs.d/keybinds/which-key/">
         which-key
         
@@ -2241,7 +2241,7 @@
   
     
     <li data-nav-id="/.emacs.d/org-mode/" title="org-mode" class="dd-item
-        parent
+        
         
         
         ">
@@ -2540,7 +2540,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/org-mode/org-mode-keybinds/" title="org-mode 関係の keybinds" class="dd-item active">
+      <li data-nav-id="/.emacs.d/org-mode/org-mode-keybinds/" title="org-mode 関係の keybinds" class="dd-item ">
         <a href="/.emacs.d/org-mode/org-mode-keybinds/">
         org-mode 関係の keybinds
         
@@ -2825,7 +2825,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/org-mode/'>org-mode</a> > org-mode 関係の keybinds
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/keybinds/'>キーバインド</a> > which-key
           
         
           
@@ -2841,9 +2841,8 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#major-mode-hydra">major-mode-hydra</a></li>
-    <li><a href="#global-な-hydra">Global な Hydra</a></li>
-    <li><a href="#その他">その他</a></li>
+    <li><a href="#インストール">インストール</a></li>
+    <li><a href="#有効化">有効化</a></li>
   </ul>
 </nav>
     </div>
@@ -2861,7 +2860,7 @@
           
             <h1>
               
-              org-mode 関係の keybinds
+              which-key
             </h1>
           
 
@@ -2869,325 +2868,16 @@
 
 
 <h2 id="概要">概要</h2>
-<p>ここでは org-mode 関係のキーバインド設定を書いている。キーバインドというか Hydra の設定になっているが。</p>
-<p>Hydra を定義しておくことで様々なキーバインドを忘れることができるし左手小指を酷使しなくて済むので便利ということで Hydra で設定している。</p>
-<h2 id="major-mode-hydra">major-mode-hydra</h2>
-<p>major-mode-hydra で、org-mode のファイルを開いている時によく使いそうなコマンドのキーバインドを定義している</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;major-mode-hydra</span>
-</span></span><span style="display:flex;"><span>  (major-mode-hydra-define org-mode (:separator <span style="color:#e6db74">&#34;-&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :title (<span style="color:#a6e22e">concat</span> (all-the-icons-fileicon <span style="color:#e6db74">&#34;org&#34;</span>) <span style="color:#e6db74">&#34; Org commands&#34;</span>))
-</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;Insert&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;l&#34;</span> org-insert-link                     <span style="color:#e6db74">&#34;Link&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;T&#34;</span> org-insert-todo-heading             <span style="color:#e6db74">&#34;Todo&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;h&#34;</span> org-insert-heading-respect-content  <span style="color:#e6db74">&#34;Heading&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;P&#34;</span> org-set-property                    <span style="color:#e6db74">&#34;Property&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;.&#34;</span> org-time-stamp                      <span style="color:#e6db74">&#34;Timestamp&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;!&#34;</span> org-time-stamp-inactive             <span style="color:#e6db74">&#34;Timestamp(inactive)&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;S&#34;</span> org-insert-structure-template       <span style="color:#e6db74">&#34;Snippet&#34;</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Edit&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;a&#34;</span> org-archive-subtree  <span style="color:#e6db74">&#34;Archive&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;r&#34;</span> org-refile           <span style="color:#e6db74">&#34;Refile&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;Q&#34;</span> org-set-tags-command <span style="color:#e6db74">&#34;Tag&#34;</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;View&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;N&#34;</span> org-toggle-narrow-to-subtree <span style="color:#e6db74">&#34;Toggle Subtree&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;C&#34;</span> org-columns <span style="color:#e6db74">&#34;Columns&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;O&#34;</span> org-global-cycle <span style="color:#e6db74">&#34;Toggle open&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;D&#34;</span> my/org-clock-toggle-display  <span style="color:#e6db74">&#34;Toggle Display&#34;</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Task&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;s&#34;</span> org-schedule         <span style="color:#e6db74">&#34;Schedule&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;d&#34;</span> org-deadline         <span style="color:#e6db74">&#34;Deadline&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;t&#34;</span> my/org-todo          <span style="color:#e6db74">&#34;Change state&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;c&#34;</span> org-toggle-checkbox  <span style="color:#e6db74">&#34;Toggle checkbox&#34;</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Clock&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;i&#34;</span> org-clock-in      <span style="color:#e6db74">&#34;In&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;o&#34;</span> org-clock-out     <span style="color:#e6db74">&#34;Out&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;E&#34;</span> org-set-effort    <span style="color:#e6db74">&#34;Effort&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;R&#34;</span> org-clock-report  <span style="color:#e6db74">&#34;Report&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;p&#34;</span> org-pomodoro      <span style="color:#e6db74">&#34;Pomodoro&#34;</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Babel&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;e&#34;</span> org-babel-confirm-evaluate <span style="color:#e6db74">&#34;Eval&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;x&#34;</span> org-babel-tangle <span style="color:#e6db74">&#34;Export SRC&#34;</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Roam&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;;&#34;</span> org-roam-hydra/body <span style="color:#e6db74">&#34;Menu&#34;</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Trello&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;K&#34;</span> org-trello-mode <span style="color:#e6db74">&#34;On/Off&#34;</span> :toggle org-trello-mode)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;k&#34;</span> (if org-trello-mode
-</span></span><span style="display:flex;"><span>               (org-trello-hydra/body)
-</span></span><span style="display:flex;"><span>             (<span style="color:#a6e22e">message</span> <span style="color:#e6db74">&#34;org-trello-mode is not enabled&#34;</span>)) <span style="color:#e6db74">&#34;Menu&#34;</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Agenda&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;,&#34;</span> org-cycle-agenda-files <span style="color:#e6db74">&#34;Cycle&#34;</span>)))))
-</span></span></code></pre></div><table>
-<thead>
-<tr>
-<th>Key</th>
-<th>効果</th>
-<th>使用頻度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>l</td>
-<td>リンク挿入</td>
-<td>C-c C-l で手が馴染んでるのでたまに使う程度</td>
-</tr>
-<tr>
-<td>T</td>
-<td>TODO ヘッドライン挿入</td>
-<td>なんかあまり使わない</td>
-</tr>
-<tr>
-<td>h</td>
-<td>ヘッドライン挿入</td>
-<td>これも C-RET で慣れてるので使ってない</td>
-</tr>
-<tr>
-<td>P</td>
-<td>プロパティ設定</td>
-<td>よく使う</td>
-</tr>
-<tr>
-<td>.</td>
-<td>タイムスタンプ挿入</td>
-<td>使ってない。使い慣れると便利かも</td>
-</tr>
-<tr>
-<td>!</td>
-<td>アジェンダのエントリに反映されないタイムスタンプ挿入</td>
-<td>使ってない。こっちも慣れると便利かも?</td>
-</tr>
-<tr>
-<td>S</td>
-<td>&lt;s TAB とかのテンプレートの挿入</td>
-<td>使ってないなあ。慣れたら便利かも</td>
-</tr>
-<tr>
-<td>a</td>
-<td>サブツリーをアーカイブ</td>
-<td>よく使う</td>
-</tr>
-<tr>
-<td>r</td>
-<td>サブツリーの移動(refile)</td>
-<td>よく使う</td>
-</tr>
-<tr>
-<td>Q</td>
-<td>タグ設定</td>
-<td>時々使う。C-c C-q の方が使うか</td>
-</tr>
-<tr>
-<td>N</td>
-<td>カーソル位置のサブツリーのみ表示</td>
-<td>使ってない。そのツリーだけに集中することがないのかも</td>
-</tr>
-<tr>
-<td>C</td>
-<td>カラム表示。ツリー内の時間などを合計して表示できる</td>
-<td>たまに使う。</td>
-</tr>
-<tr>
-<td>D</td>
-<td>各ツリーでそれぞれの掛かった時間を表示</td>
-<td>使ってない。存在忘れてた</td>
-</tr>
-<tr>
-<td>s</td>
-<td>スケジュール設定</td>
-<td>C-c C-s をよく使う</td>
-</tr>
-<tr>
-<td>d</td>
-<td>締め切り設定</td>
-<td>C-c C-d をよく使う</td>
-</tr>
-<tr>
-<td>t</td>
-<td>TODO ステータス変更</td>
-<td>同じ効果である C-c C-t と同じぐらい使う</td>
-</tr>
-<tr>
-<td>c</td>
-<td>チェックボックスの切替</td>
-<td>使うけどチェックボックスの行だけ使えればいいよなとか思う</td>
-</tr>
-<tr>
-<td>i</td>
-<td>Clock In</td>
-<td>よく使う。標準的なキーバインドは忘れた。</td>
-</tr>
-<tr>
-<td>o</td>
-<td>Clock Out</td>
-<td>よく使う。標準的なキーバインドは忘れた。</td>
-</tr>
-<tr>
-<td>E</td>
-<td>見積時間の挿入</td>
-<td>まあまあ使う。設定して予実差の確認はできてない</td>
-</tr>
-<tr>
-<td>R</td>
-<td>org-clock のレポート挿入</td>
-<td>一応毎日の稼動をこれで記録している</td>
-</tr>
-<tr>
-<td>p</td>
-<td>ポモドーロタイマーの開始</td>
-<td>ポモドーロテクニック使えてないでござる</td>
-</tr>
-<tr>
-<td>e</td>
-<td>org-babel のコード片を実行</td>
-<td>C-c C-c しか使ってない気がするお</td>
-</tr>
-<tr>
-<td>x</td>
-<td>tangle でファイル出力</td>
-<td>最近多用している</td>
-</tr>
-<tr>
-<td>K</td>
-<td>org-trello-mode の切替</td>
-<td>最近使ってない。trello 連携してないバッファでは要らんしな</td>
-</tr>
-<tr>
-<td>k</td>
-<td>org-trello-mode 用の Hydra 起動</td>
-<td>同上</td>
-</tr>
-<tr>
-<td>,</td>
-<td>agenda ファイルの移動</td>
-<td>いつも固定のファイルを見てるので使ってない。Cycle より直で飛ぶし</td>
-</tr>
-</tbody>
-</table>
-<h2 id="global-な-hydra">Global な Hydra</h2>
-<p>pretty-hydra を使って Global に使える org-mode のコマンドを叩けるようにしている</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
-</span></span><span style="display:flex;"><span>  (pretty-hydra-define
-</span></span><span style="display:flex;"><span>    global-org-hydra
-</span></span><span style="display:flex;"><span>    (:separator <span style="color:#e6db74">&#34;-&#34;</span>
-</span></span><span style="display:flex;"><span>                :color teal
-</span></span><span style="display:flex;"><span>                :foreign-key <span style="color:#a6e22e">warn</span>
-</span></span><span style="display:flex;"><span>                :title (<span style="color:#a6e22e">concat</span> (all-the-icons-fileicon <span style="color:#e6db74">&#34;org&#34;</span>) <span style="color:#e6db74">&#34; Global Org commands&#34;</span>)
-</span></span><span style="display:flex;"><span>                :quit-key <span style="color:#e6db74">&#34;q&#34;</span>)
-</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;Main&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;a&#34;</span> org-agenda                 <span style="color:#e6db74">&#34;Agenda&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;c&#34;</span> counsel-org-capture        <span style="color:#e6db74">&#34;Capture&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;l&#34;</span> org-store-link             <span style="color:#e6db74">&#34;Store link&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;R&#34;</span> my/org-reviews-execute     <span style="color:#e6db74">&#34;Review&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;t&#34;</span> my/org-tags-view-only-todo <span style="color:#e6db74">&#34;Tagged Todo&#34;</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Calendar&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;F&#34;</span> org-gcal-fetch <span style="color:#e6db74">&#34;Fetch Calendar&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;C&#34;</span> my/open-calendar <span style="color:#e6db74">&#34;Calendar&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;A&#34;</span> my/org-refresh-appt <span style="color:#e6db74">&#34;Appt&#34;</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Clock&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;i&#34;</span> org-clock-in       <span style="color:#e6db74">&#34;In&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;o&#34;</span> org-clock-out      <span style="color:#e6db74">&#34;Out&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;r&#34;</span> org-clock-in-last  <span style="color:#e6db74">&#34;Restart&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;x&#34;</span> org-clock-cancel   <span style="color:#e6db74">&#34;Cancel&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;j&#34;</span> org-clock-goto     <span style="color:#e6db74">&#34;Goto&#34;</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Search&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;H&#34;</span> org-search-view <span style="color:#e6db74">&#34;Heading&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;f&#34;</span> org-roam-find-file <span style="color:#e6db74">&#34;Roam&#34;</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Pomodoro&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;p&#34;</span> org-pomodoro <span style="color:#e6db74">&#34;Pomodoro&#34;</span>)))))
-</span></span></code></pre></div><table>
-<thead>
-<tr>
-<th>Key</th>
-<th>効果</th>
-<th>使用頻度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>a</td>
-<td>Agenda 選択</td>
-<td>よく使う</td>
-</tr>
-<tr>
-<td>c</td>
-<td>Capture</td>
-<td>よく使う</td>
-</tr>
-<tr>
-<td>l</td>
-<td>その場所へのリンクを保存</td>
-<td>使ってない</td>
-</tr>
-<tr>
-<td>t</td>
-<td>選択したタグが付与された TODO のみ表示</td>
-<td>使ってない。使うと便利かもなあ</td>
-</tr>
-<tr>
-<td>F</td>
-<td>Google Calendar の情報取得</td>
-<td>平日は毎日使っている</td>
-</tr>
-<tr>
-<td>C</td>
-<td>カレンダーを calfw で開く</td>
-<td>最近使ってない</td>
-</tr>
-<tr>
-<td>A</td>
-<td>org-gcal で拾って来た情報を appt に登録</td>
-<td>appt.el 経由で通知できるようにしている</td>
-</tr>
-<tr>
-<td>i</td>
-<td>Clock In</td>
-<td>使ってないというか major-mode-hydra の方があれば良い</td>
-</tr>
-<tr>
-<td>o</td>
-<td>Clock Out</td>
-<td>使ってない。使ってもいい気がする</td>
-</tr>
-<tr>
-<td>r</td>
-<td>最後に Clock In したやつを再開</td>
-<td>使ってない。大体常に Clock しているから最後がいつも切り替わってるので使う機会がない</td>
-</tr>
-<tr>
-<td>x</td>
-<td>Clock Cancel</td>
-<td>作業は発生しているからキャンセルしないで普通に Clock out しているなあ</td>
-</tr>
-<tr>
-<td>j</td>
-<td>最後に Clock In したやつの場所に移動</td>
-<td>ちょくちょく使う。便利</td>
-</tr>
-<tr>
-<td>H</td>
-<td>Heading の検索</td>
-<td>使ってない。インクリメンタルに検索できればいいのに</td>
-</tr>
-<tr>
-<td>p</td>
-<td>ポモドーロタイマー</td>
-<td>これも major-mode-hydra にあれば十分かな</td>
-</tr>
-</tbody>
-</table>
-<h2 id="その他">その他</h2>
-<p>org-agenda 用の Hydra も用意しておいた方が良さそうだなというのが最近の実感。同じコマンド体系で操作できるようにしておいたら考えることが減って楽。</p>
-
+<p><a href="https://github.com/justbur/emacs-which-key">which-key</a> は prefix となるキーを入力してしばらく操作しなかった場合に
+minibuffer とかで「続けて押せるキーはこれだよ」ってのを示してくれるやつ。</p>
+<h2 id="インストール">インストール</h2>
+<p>こいつは el-get 本体にレシピがあるので
+<code>el-get-bundle</code> でインストールしている</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle which-key)
+</span></span></code></pre></div><h2 id="有効化">有効化</h2>
+<p>特に設定は弄らないで有効化している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(which-key-mode <span style="color:#ae81ff">1</span>)
+</span></span></code></pre></div>
 
 <footer class="footline">
 	
@@ -3499,6 +3189,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -3511,6 +3202,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3560,6 +3254,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -3575,6 +3270,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -4779,7 +4477,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -4792,9 +4489,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -5004,7 +4698,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -5020,9 +4713,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -5159,10 +4849,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/org-mode/org-commands/" title="org-mode 用の独自コマンド"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/keybinds/sticky-control/" title="sticky-control"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/org-mode/nippou/" title="日報用の設定(旧)" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/keybinds/global-keybinds/" title="グローバルキーバインド" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
