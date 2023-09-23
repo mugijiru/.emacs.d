@@ -156,6 +156,8 @@
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/keybinds/key-chord/</loc>
   </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/ui/keypression/</loc>
+  </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/basics/load-path/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/programming/lsp-mode/</loc>

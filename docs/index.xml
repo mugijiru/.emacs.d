@@ -943,6 +943,19 @@ sticky-shift セミコロン2つでシフトを押した状態にする セミ�
     </item>
     
     <item>
+      <title>keypression</title>
+      <link>https://mugijiru.github.io/.emacs.d/ui/keypression/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/ui/keypression/</guid>
+      <description>概要 keypression は Emacs 上でのキー操作を可視化してくれるツール。操作したキーを右下とかにダダダッと表示してくれるのでデモ動画を撮る時なんかに使うと便利なやつ
+インストール el-get にはレシピがないので自前で用意している
+(:name keypression :website &amp;#34;https://github.com/chuntaro/emacs-keypression&amp;#34; :description &amp;#34;Keystroke visualizer for GUI version Emacs&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;chuntaro/emacs-keypression&amp;#34;) そしてそれを el-get-bundle でインストールしている
+(el-get-bundle keypression) 設定 あまり設定は弄っていないが、とりあえず child frame を使うようにしている
+(custom-set-variables &amp;#39;(keypression-use-child-frame t)) </description>
+    </item>
+    
+    <item>
       <title>load-path</title>
       <link>https://mugijiru.github.io/.emacs.d/basics/load-path/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

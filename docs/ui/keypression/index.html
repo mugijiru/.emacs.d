@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>git-gutter-fringe :: 麦汁&#39;s Emacs Config</title>
+    <title>keypression :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1695455091" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/ui/git-gutter-fringe/">
+  <body class="" data-url="/.emacs.d/ui/keypression/">
     <nav id="sidebar" class="">
 
 
@@ -1039,7 +1039,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/git-gutter-fringe/" title="git-gutter-fringe" class="dd-item active">
+      <li data-nav-id="/.emacs.d/ui/git-gutter-fringe/" title="git-gutter-fringe" class="dd-item ">
         <a href="/.emacs.d/ui/git-gutter-fringe/">
         git-gutter-fringe
         
@@ -1186,7 +1186,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/keypression/" title="keypression" class="dd-item ">
+      <li data-nav-id="/.emacs.d/ui/keypression/" title="keypression" class="dd-item active">
         <a href="/.emacs.d/ui/keypression/">
         keypression
         
@@ -2867,7 +2867,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > git-gutter-fringe
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > keypression
           
         
           
@@ -2884,8 +2884,7 @@
   <ul>
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
-    <li><a href="#有効化">有効化</a></li>
-    <li><a href="#その他">その他</a></li>
+    <li><a href="#設定">設定</a></li>
   </ul>
 </nav>
     </div>
@@ -2897,19 +2896,13 @@
             
         <div id="head-tags">
         
-<div class="tags">
-
-  <a class="tag-link" href="/tags/improvement">improvement</a>
-
-</div>
-
         </div>
         
         <div id="body-inner">
           
             <h1>
               
-              git-gutter-fringe
+              keypression
             </h1>
           
 
@@ -2917,20 +2910,22 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/emacsorphanage/git-gutter-fringe">git-gutter-fringe</a> は <a href="https://github.com/emacsorphanage/git-gutter">git-gutter</a> の派生版。最後のコミットからどの行を弄ったかを fringe 領域に表示してくれる。</p>
-<p>他にも hunk の操作をできる機能とかあるみたいだけどそのあたりは使ったことがない……。</p>
-<p>派生元の git-gutter は linum-mode と同じ領域を使って描画をしているようで併用ができなかったので git-gutter-fringe を利用している。</p>
-<p>が、Emacs 26 から display-line-numbers-mode が搭載されて linum-mode が不要になったので
-git-gutter に乗り換えても良さそう</p>
+<p><a href="https://github.com/chuntaro/emacs-keypression">keypression</a> は Emacs 上でのキー操作を可視化してくれるツール。操作したキーを右下とかにダダダッと表示してくれるのでデモ動画を撮る時なんかに使うと便利なやつ</p>
 <h2 id="インストール">インストール</h2>
-<p>いつも通り el-get でインストールしている</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle git-gutter-fringe)
-</span></span></code></pre></div><h2 id="有効化">有効化</h2>
-<p>Git 管理しているやつは全部差分情報が表示されて欲しいのでグローバルマイナーモードを有効にしている。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(global-git-gutter-mode <span style="color:#66d9ef">t</span>)
-</span></span></code></pre></div><h2 id="その他">その他</h2>
-<p>git-gutter ほどではないけど多少のカスタマイズはできるはずだがデフォルト設定で特に不満はないので何もしてない</p>
-
+<p>el-get にはレシピがないので自前で用意している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name keypression
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/chuntaro/emacs-keypression&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Keystroke visualizer for GUI version Emacs&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :branch <span style="color:#e6db74">&#34;master&#34;</span>
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;chuntaro/emacs-keypression&#34;</span>)
+</span></span></code></pre></div><p>そしてそれを <code>el-get-bundle</code> でインストールしている</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle keypression)
+</span></span></code></pre></div><h2 id="設定">設定</h2>
+<p>あまり設定は弄っていないが、とりあえず child frame を使うようにしている</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-variables
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(keypression-use-child-frame <span style="color:#66d9ef">t</span>))
+</span></span></code></pre></div>
 
 <footer class="footline">
 	
@@ -3643,26 +3638,6 @@ git-gutter に乗り換えても良さそう</p>
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
                 
                 
 
@@ -3774,6 +3749,26 @@ git-gutter に乗り換えても良さそう</p>
             
             
                 
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -4934,10 +4929,10 @@ git-gutter に乗り換えても良さそう</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/ui/fullscreen/" title="fullscreen"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/ui/ivy/" title="ivy"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/ui/helm/" title="helm" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/ui/mode-line/" title="mode-line" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
