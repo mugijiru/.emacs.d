@@ -1079,7 +1079,6 @@
    :PROPERTIES:
    :EXPORT_FILE_NAME: sticky-control
    :END:
-
 *** 概要
     指定したキーを2回叩いたら
     Control が押されてるような状態にしてくれるプラグイン。
@@ -1171,6 +1170,32 @@
     (sticky-control-mode)
     #+end_src
 
+** which-key
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: which-key
+   :END:
+*** 概要
+    [[https://github.com/justbur/emacs-which-key][which-key]] は prefix となるキーを入力してしばらく操作しなかった場合に
+    minibuffer とかで「続けて押せるキーはこれだよ」ってのを示してくれるやつ。
+*** インストール
+    :PROPERTIES:
+    :ID:       f71b5197-d24d-471c-89ab-e47babb20efb
+    :END:
+    こいつは el-get 本体にレシピがあるので
+    ~el-get-bundle~ でインストールしている
+
+    #+begin_src emacs-lisp :tangle inits/10-which-key.el
+      (el-get-bundle which-key)
+    #+end_src
+*** 有効化
+    :PROPERTIES:
+    :ID:       9f41a41d-65e1-43a2-a6b2-b55c3e031e8b
+    :END:
+    特に設定は弄らないで有効化している
+
+    #+begin_src emacs-lisp :tangle inits/10-which-key.el
+      (which-key-mode 1)
+    #+end_src
 ** Google 連携
    :PROPERTIES:
    :EXPORT_FILE_NAME: google-integration
