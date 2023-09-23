@@ -803,6 +803,22 @@ M-x google-translate-at-point source → target の翻訳 M-x google-translate-a
     </item>
     
     <item>
+      <title>GraphQL</title>
+      <link>https://mugijiru.github.io/.emacs.d/programming/graphql/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/programming/graphql/</guid>
+      <description>概要 GraphQL は API 向けのクエリ言語でよく対比される REST と違いクライアント側から必要なデータ属性を指定できたりするやつ
+graphql-mode *.graphql ファイルを編集する時のメジャーモード
+インストール こいつは el-get にレシピが用意されてないので自前で用意している
+(:name graphql-mode :description &amp;#34;An emacs mode to edit GraphQL schema and queries.&amp;#34; :type github :pkgname &amp;#34;davazp/graphql-mode&amp;#34;) そして el-get-bundle でインストール
+(el-get-bundle graphql-mode) hooks graphql ファイルを弄る時に合わせて使いたい minor-mode があるのでそれらを有効にする hook を用意している
+(defun my/graphql-mode-hook () (company-mode 1) (turn-on-smartparens-strict-mode) (highlight-indent-guides-mode 1) (display-line-numbers-mode 1)) それぞれ以下の効果がある
+company-mode 補完候補を出してくれる smartparens-strict-mode カッコの対応を崩さないような編集ができるようなる highlight-indent-guides-mode インデントを見易くしてくれる display-line-numbers-mode 左側に行数表示を出してくれる そしてこの hook を graphql-mode-hook に突っ込んでいる
+(add-hook &amp;#39;graphql-mode-hook &amp;#39;my/graphql-mode-hook) graphql こちらは GraphQL API を Emacs Lisp から叩くためのライブラリ。命名的にややこしいけど。</description>
+    </item>
+    
+    <item>
       <title>helm</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/helm/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
