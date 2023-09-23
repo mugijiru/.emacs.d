@@ -5883,6 +5883,7 @@
 
     - origami :: コードの折り畳み
     - company :: コード補完
+    - lsp :: terraform-ls と連携
     - flyccheck :: コードの変な部分の指摘
     - smartparens-strict-mode :: カッコの対応を強力にしてくれるやつ
     - display-line-numbers-mode :: 行数表示
@@ -5894,6 +5895,11 @@
       (defun my/terraform-mode-hook ()
         (origami-mode 1)
         (company-mode 1)
+        (setq-local lsp-terraform-ls-enable-show-reference t)
+        (setq-local lsp-semantic-tokens-enable t)
+        (setq-local lsp-semantic-tokens-honor-refresh-requests t)
+        (setq-local lsp-enable-links t)
+        (lsp)
         (setq-local flycheck-checker 'terraform)
         (setq-local flycheck-disabled-checkers '(terraform-tflint))
         (flycheck-mode 1)
