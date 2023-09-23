@@ -2606,6 +2606,44 @@
     git-gutter ほどではないけど多少のカスタマイズはできるはずだが
     デフォルト設定で特に不満はないので何もしてない
 
+** keypression
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: keypression
+   :END:
+*** 概要
+    [[https://github.com/chuntaro/emacs-keypression][keypression]] は Emacs 上でのキー操作を可視化してくれるツール。
+    操作したキーを右下とかにダダダッと表示してくれるので
+    デモ動画を撮る時なんかに使うと便利なやつ
+*** インストール
+    :PROPERTIES:
+    :ID:       f9f1053c-5806-4e34-8bc2-00cc25c0fed3
+    :END:
+    el-get にはレシピがないので自前で用意している
+
+    #+begin_src emacs-lisp :tangle recipes/keypression.rcp
+      (:name keypression
+             :website "https://github.com/chuntaro/emacs-keypression"
+             :description "Keystroke visualizer for GUI version Emacs"
+             :type github
+             :branch "master"
+             :pkgname "chuntaro/emacs-keypression")
+    #+end_src
+
+    そしてそれを ~el-get-bundle~ でインストールしている
+
+    #+begin_src emacs-lisp :tangle inits/50-keypression.el
+      (el-get-bundle keypression)
+    #+end_src
+*** 設定
+    :PROPERTIES:
+    :ID:       f0447903-00d7-4ace-804d-f5a17ace2180
+    :END:
+    あまり設定は弄っていないが、とりあえず child frame を使うようにしている
+
+    #+begin_src emacs-lisp :tangle inits/50-keypression.el
+      (custom-set-variables
+       '(keypression-use-child-frame t))
+    #+end_src
 ** highlight-indent-guides
    :PROPERTIES:
    :EXPORT_FILE_NAME: highlight-indent-guides
