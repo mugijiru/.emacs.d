@@ -43,7 +43,7 @@
         (tempbuf-mode :checksum "17a005da886436090d3812899d553deb7bdbebb2")
         (auto-fix :checksum "783e78f601d0ca42792aff40d6a72434be167900")
         (typescript-mode :checksum "4fcb4594819caf472ae42ea068a1c7795cf07f46")
-        (yaml :checksum "01a12f2345d309fe86770e0a61a7f26f47a2cd0a")
+        (yaml :checksum "fe08b8f5307af1e7b876ece64b7303213f04b63c")
         (web-mode :checksum "44c6bfa3626f476750ed3c1c0d253607c1606716")
         (dap-mode :checksum "a31f2496605d076d50d49393116f77fbb29f2631")
         (lsp-treemacs :checksum "e66ae2196503d4e84334519e56b4388feffa5060")
