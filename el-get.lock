@@ -19,7 +19,7 @@
         (noflet :checksum "7ae84dc3257637af7334101456dafe1759c6b68a")
         (emacs-kibela :checksum "9e831053e69541ba4b5725811fef95e922aff1a5")
         (which-key :checksum "4d20bc852545a2e602f59084a630f888542052b1")
-        (company-quickhelp :checksum "9505fb09d064581da142d75c139d48b5cf695bd5")
+        (company-quickhelp :checksum "5bda859577582cc42d16fc0eaf5f7c8bedfd9e69")
         (graphql-mode :checksum "49a391b5290e3354b07f7b77ded97a154c084f46")
         (json-mode :checksum "481d5d9f4003fc14d116bf31d1bf71d14960d7d9")
         (json-snatcher :checksum "b28d1c0670636da6db508d03872d96ffddbc10f2")
