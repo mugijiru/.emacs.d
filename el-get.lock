@@ -50,7 +50,7 @@
         (treemacs :checksum "95c07470b281a1eaa3ce88290748bcb2045a163a")
         (pfuture :checksum "19b53aebbc0f2da31de6326c495038901bffb73c")
         (bui :checksum "f3a137628e112a91910fd33c0cff0948fa58d470")
-        (smartparens :checksum "37f91720fe040a878600fc615bdf442f7ea316e6")
+        (smartparens :checksum "0778a8a84064cf2bc3a9857bd0e7a4619cc1e5c3")
         (mocker.el :checksum "e455599f48bad7d73fd445e70a3acf4b44c2f5c1")
         (with-simulated-input :checksum "0f43fe46d4ab098c18a90b9df18cb96bab8e4a35")
         (flycheck-pos-tip :checksum "dc57beac0e59669926ad720c7af38b27c3a30467")
