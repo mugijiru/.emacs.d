@@ -60,7 +60,7 @@
         (ox-hugo :checksum "cb1b6cfd7b080e889352150416c1725f11ba937a")
         (sticky-control :checksum "25e15e41174725600626b8dc13852aced691bd3b")
         (org-pomodoro :checksum "3f5bcfb80d61556d35fc29e5ddb09750df962cc6")
-        (org-ql :checksum "ac2d43588aa96f0b7fe88f518d6fca4fd65b5aa0")
+        (org-ql :checksum "bd2dd12a417df5403954576756d9c24273d94379")
         (org-super-agenda :checksum "4efc0bdfa3c9760256a651dc4d510658f41afe81")
         (ts :checksum "552936017cfdec89f7fc20c254ae6b37c3f22c5b")
         (ov :checksum "e2971ad986b6ac441e9849031d34c56c980cf40b")
