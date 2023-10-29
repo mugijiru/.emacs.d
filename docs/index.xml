@@ -1091,6 +1091,20 @@ Slack 連携を Toggle するコマンド 連携したい時としたくない�
     </item>
     
     <item>
+      <title>org-journal</title>
+      <link>https://mugijiru.github.io/.emacs.d/org-mode/org-journal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-journal/</guid>
+      <description>概要 org-journal は org-mode で日記を書くためのモードっぽい。
+デフォルトに近い設定だと `M-x org-journal-new-entry` でその日の日記ファイルを生成してその時刻を Headline を用意するようになってる。
+一度書いた後にまた同じコマンドを叩くと以前に書いた記事を開いて新しい時刻の Headline を用意するのでなんか書きたくなったら雑に書いておくと、時系列順に並んでいくので便利かもしれない。まだ使ってないから本当に便利かは分からない
+インストール これは el-get にはレシピがないようなので自前で用意している
+(:name org-journal :website &amp;#34;https://github.com/bastibe/org-journal&amp;#34; :description &amp;#34;Functions to maintain a simple personal diary / journal in Emacs.&amp;#34; :type github :pkgname &amp;#34;bastibe/org-journal&amp;#34;) そして el-get-bundle でインストール
+(el-get-bundle org-journal) 設定 (custom-set-variables &amp;#39;(org-journal-dir (concat org-directory &amp;#34;journal/&amp;#34;)) &amp;#39;(org-journal-date-format &amp;#34;%d日(%a)&amp;#34;)) </description>
+    </item>
+    
+    <item>
       <title>origami</title>
       <link>https://mugijiru.github.io/.emacs.d/editing/origami/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

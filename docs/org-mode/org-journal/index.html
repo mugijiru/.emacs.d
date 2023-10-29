@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>emacs-kibela :: 麦汁&#39;s Emacs Config</title>
+    <title>org-journal :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1698582128" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/external-tool/emacs-kibela/">
+  <body class="" data-url="/.emacs.d/org-mode/org-journal/">
     <nav id="sidebar" class="">
 
 
@@ -1997,7 +1997,7 @@
   
     
     <li data-nav-id="/.emacs.d/external-tool/" title="外部連携ツール設定" class="dd-item
-        parent
+        
         
         
         ">
@@ -2023,7 +2023,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/external-tool/emacs-kibela/" title="emacs-kibela" class="dd-item active">
+      <li data-nav-id="/.emacs.d/external-tool/emacs-kibela/" title="emacs-kibela" class="dd-item ">
         <a href="/.emacs.d/external-tool/emacs-kibela/">
         emacs-kibela
         
@@ -2283,7 +2283,7 @@
   
     
     <li data-nav-id="/.emacs.d/org-mode/" title="org-mode" class="dd-item
-        
+        parent
         
         
         ">
@@ -2624,7 +2624,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/org-mode/org-journal/" title="org-journal" class="dd-item ">
+      <li data-nav-id="/.emacs.d/org-mode/org-journal/" title="org-journal" class="dd-item active">
         <a href="/.emacs.d/org-mode/org-journal/">
         org-journal
         
@@ -2888,7 +2888,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/external-tool/'>外部連携ツール設定</a> > emacs-kibela
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/org-mode/'>org-mode</a> > org-journal
           
         
           
@@ -2906,8 +2906,6 @@
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
     <li><a href="#設定">設定</a></li>
-    <li><a href="#自前の関数">自前の関数</a></li>
-    <li><a href="#キーバインド">キーバインド</a></li>
   </ul>
 </nav>
     </div>
@@ -2925,7 +2923,7 @@
           
             <h1>
               
-              emacs-kibela
+              org-journal
             </h1>
           
 
@@ -2933,55 +2931,23 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/mugijiru/emacs-kibela/">emacs-kibela</a> は Emacs で Kibela を操作するための自作のパッケージ。あまり機能は実装されていないけど、テンプレートから記事を書いたりする程度のことはできる</p>
+<p><a href="https://github.com/bastibe/org-journal">org-journal</a> は org-mode で日記を書くためのモードっぽい。</p>
+<p>デフォルトに近い設定だと
+`M-x org-journal-new-entry` でその日の日記ファイルを生成してその時刻を Headline を用意するようになってる。</p>
+<p>一度書いた後にまた同じコマンドを叩くと以前に書いた記事を開いて新しい時刻の Headline を用意するのでなんか書きたくなったら雑に書いておくと、時系列順に並んでいくので便利かもしれない。まだ使ってないから本当に便利かは分からない</p>
 <h2 id="インストール">インストール</h2>
-<p>MELPA には登録してないし el-get にもレシピを登録していないので自前で el-get の recipe を用意している</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name emacs-kibela
-</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/mugijiru/emacs-kibela&#34;</span>
-</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Kibela client.&#34;</span>
+<p>これは el-get にはレシピがないようなので自前で用意している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name org-journal
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/bastibe/org-journal&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Functions to maintain a simple personal diary / journal in Emacs.&#34;</span>
 </span></span><span style="display:flex;"><span>       :type github
-</span></span><span style="display:flex;"><span>       :branch <span style="color:#e6db74">&#34;main&#34;</span>
-</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;mugijiru/emacs-kibela&#34;</span>
-</span></span><span style="display:flex;"><span>       :depends (graphql request markdown-mode))
-</span></span></code></pre></div><p>そして <code>el-get-bundle</code> でインストールしている</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle emacs-kibela)
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;bastibe/org-journal&#34;</span>)
+</span></span></code></pre></div><p>そして <code>el-get-bundle</code> でインストール</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle org-journal)
 </span></span></code></pre></div><h2 id="設定">設定</h2>
-<p>.authinfo.gpg に認証情報を突っ込んでいるのでそこから認証情報を拾って来て set している</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-variables
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(kibela-auth-list <span style="color:#f92672">`</span>((<span style="color:#e6db74">&#34;Work&#34;</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">,</span>(<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;emacs-kibela-work&#34;</span>)) :team)
-</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">,</span>(<span style="color:#a6e22e">funcall</span> (<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;emacs-kibela-work&#34;</span> :max <span style="color:#ae81ff">1</span>)) :secret)))
-</span></span><span style="display:flex;"><span>                       (<span style="color:#e6db74">&#34;Private&#34;</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">,</span>(<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;emacs-kibela-private&#34;</span>)) :team)
-</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">,</span>(<span style="color:#a6e22e">funcall</span> (<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;emacs-kibela-private&#34;</span> :max <span style="color:#ae81ff">1</span>)) :secret))))))
-</span></span></code></pre></div><h2 id="自前の関数">自前の関数</h2>
-<p><a href="https://github.com/mugijiru/ivy-kibela/">ivy-kibela</a> と連携して、最近投稿された記事を Emacs の中で開くためのコマンドを用意している。</p>
-<p>もしかしたら emacs-kibela か ivy-kibela のどちらかで
-featurep を使って有効無効を切り分けて実装すべきかも</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/kibela-show-recent-note ()
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;最近投稿された記事を見るためのコマンド
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">ivy-kibela-recent で最近投稿された記事を拾って
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">kibela-note-show でバッファを開く&#34;</span>
-</span></span><span style="display:flex;"><span>  (interactive)
-</span></span><span style="display:flex;"><span>  (ivy-kibela-recent (lambda (title)
-</span></span><span style="display:flex;"><span>                     (let ((id (<span style="color:#a6e22e">get-text-property</span> <span style="color:#ae81ff">0</span> <span style="color:#e6db74">&#39;id</span> title)))
-</span></span><span style="display:flex;"><span>                       (if id
-</span></span><span style="display:flex;"><span>                           (kibela-note-show id))))))
-</span></span></code></pre></div><h2 id="キーバインド">キーバインド</h2>
-<p>各コマンドは Hydra で起動するように設定している。しれっと ivy-kibela のコマンドも混ぜちゃってるけど、使う分にはこの方がやりやすい。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(pretty-hydra-define kibela-hydra (:separator <span style="color:#e6db74">&#34;-&#34;</span> :title <span style="color:#e6db74">&#34;Kibela&#34;</span> :foreign-key <span style="color:#a6e22e">warn</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :exit <span style="color:#66d9ef">t</span>)
-</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;ivy&#34;</span>
-</span></span><span style="display:flex;"><span>   ((<span style="color:#e6db74">&#34;r&#34;</span> ivy-kibela-recent <span style="color:#e6db74">&#34;Recent&#34;</span>)
-</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;R&#34;</span> ivy-kibela-recent-browsing-notes <span style="color:#e6db74">&#34;Recent brwosing notes&#34;</span>)
-</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;S&#34;</span> ivy-kibela-search <span style="color:#e6db74">&#34;Search&#34;</span>))
-</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;Group&#34;</span>
-</span></span><span style="display:flex;"><span>   ((<span style="color:#e6db74">&#34;g&#34;</span> kibela-group-notes <span style="color:#e6db74">&#34;notes&#34;</span>))
-</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;Note&#34;</span>
-</span></span><span style="display:flex;"><span>   ((<span style="color:#e6db74">&#34;n&#34;</span> kibela-note-new <span style="color:#e6db74">&#34;New&#34;</span>)
-</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;s&#34;</span> my/kibela-show-recent-note <span style="color:#e6db74">&#34;Show&#34;</span>)
-</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;t&#34;</span> kibela-note-new-from-template <span style="color:#e6db74">&#34;From template&#34;</span>))
-</span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;Team&#34;</span>
-</span></span><span style="display:flex;"><span>   ((<span style="color:#e6db74">&#34;x&#34;</span> kibela-switch-team <span style="color:#e6db74">&#34;Swtich&#34;</span>))))
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(org-journal-dir (<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;journal/&#34;</span>))
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(org-journal-date-format <span style="color:#e6db74">&#34;%d日(%a)&#34;</span>))
 </span></span></code></pre></div>
 
 <footer class="footline">
@@ -4398,7 +4364,6 @@ featurep を使って有効無効を切り分けて実装すべきかも</p>
             
                 
                     
-                    
                 
                 
 
@@ -4411,7 +4376,6 @@ featurep を使って有効無効を切り分けて実装すべきかも</p>
             
             
                 
-                    
                     
                 
                 
@@ -4428,9 +4392,6 @@ featurep を使って有効無効を切り分けて実装すべきかも</p>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -4611,6 +4572,7 @@ featurep を使って有効無効を切り分けて実装すべきかも</p>
             
                 
                     
+                    
                 
                 
 
@@ -4624,21 +4586,8 @@ featurep を使って有効無効を切り分けて実装すべきかも</p>
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
+                        
                     
                 
                 
@@ -4875,6 +4824,23 @@ featurep を使って有効無効を切り分けて実装すべきかも</p>
             
         
                     
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -4882,6 +4848,9 @@ featurep を使って有効無効を切り分けて実装すべきかも</p>
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -4999,10 +4968,10 @@ featurep を使って有効無効を切り分けて実装すべきかも</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/external-tool/" title="外部連携ツール設定"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/org-mode/nippou/" title="日報用の設定(旧)"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/external-tool/emacs-w3m/" title="emacs-w3m" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/testing-tool/" title="テスト用ツール" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
