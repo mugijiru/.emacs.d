@@ -8183,6 +8183,47 @@
     https://github.com/gizmomogwai/org-kanban
     と組み合わせるとビジュアル的に見れて嬉しいとかあるかもしれない
 
+** org-journal
+:PROPERTIES:
+:EXPORT_FILE_NAME: org-journal
+:END:
+*** 概要
+[[https://github.com/bastibe/org-journal][org-journal]] は org-mode で日記を書くためのモードっぽい。
+
+デフォルトに近い設定だと
+`M-x org-journal-new-entry` でその日の日記ファイルを生成して
+その時刻を Headline を用意するようになってる。
+
+一度書いた後にまた同じコマンドを叩くと以前に書いた記事を開いて
+新しい時刻の Headline を用意するので
+なんか書きたくなったら雑に書いておくと、時系列順に並んでいくので便利かもしれない。
+まだ使ってないから本当に便利かは分からない
+
+*** インストール
+これは el-get にはレシピがないようなので自前で用意している
+
+#+begin_src emacs-lisp :tangle recipes/org-journal.rcp
+(:name org-journal
+       :website "https://github.com/bastibe/org-journal"
+       :description "Functions to maintain a simple personal diary / journal in Emacs."
+       :type github
+       :pkgname "bastibe/org-journal")
+#+end_src
+
+そして ~el-get-bundle~ でインストール
+
+#+begin_src emacs-lisp :tangle inits/61-org-journal.el
+(el-get-bundle org-journal)
+#+end_src
+
+*** 設定
+
+#+begin_src emacs-lisp :tangle inits/61-org-journal.el
+(custom-set-variables
+ '(org-journal-dir (concat org-directory "journal/"))
+ '(org-journal-date-format "%d日(%a)"))
+#+end_src
+
 ** ox-hugo
    :PROPERTIES:
    :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :weight 12
