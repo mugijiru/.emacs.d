@@ -1,0 +1,5 @@
+(:name org-journal
+       :website "https://github.com/bastibe/org-journal"
+       :description "Functions to maintain a simple personal diary / journal in Emacs."
+       :type github
+       :pkgname "bastibe/org-journal")

@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((company-terraform :checksum "8d5a16d1bbeeb18ca49a8fd57b5d8cd30c8b8dc7")
+      '((org-journal :checksum "a306f76ee2b0292946a20530bd9114aefc85a263")
+        (company-terraform :checksum "8d5a16d1bbeeb18ca49a8fd57b5d8cd30c8b8dc7")
         (terraform-mode :checksum "25a22a66f81e35c75f2fdaaab89aad7f9940fe06")
         (hcl-mode :checksum "ec27736c4c16fbf7f1ecab0210ec3c71ac2406fa")
         (jest-test-mode :checksum "3126c5c5c5632da639ea34867a7342d4410d78aa")
