@@ -63,10 +63,9 @@ org-super-agenda のインストール org-mode のデフォルトの agenda だ
 (setq org-agenda-span &amp;#39;day) 週単位で何をするかについては今のところ記憶力で対応している。
 あと、基本的にカスタムビューを使ってるのでこれの影響は受けてるかどうか微妙。
 agenda の対象ファイルを指定 org-agenda を使う時に抽出対象とする org ファイルを指定している。
-(setq org-agenda-files &amp;#39;(&amp;#34;~/Documents/org/ical.org&amp;#34; &amp;#34;~/Documents/org/tasks/&amp;#34;)) けどカスタムビューを多用しているので多分この設定ちゃんと活かしてない。 ical.org とか更新してないし……。
-agenda の表示周りの設定 agenda に時間の区切りを入れない org-agenda-use-time-grid を t にしていると 10:00 とかのキリがいいところに区切り線を表示してくれるのだが日報提出時には邪魔だし、普段使いでもその区切り線はあっても邪魔っぽいので nil にして表示しないようにしている。
+(setq org-agenda-files &amp;#39;(&amp;#34;~/Documents/org/journal/&amp;#34; &amp;#34;~/Documents/org/tasks/&amp;#34;)) agenda の表示周りの設定 agenda に時間の区切りを入れない org-agenda-use-time-grid を t にしていると 10:00 とかのキリがいいところに区切り線を表示してくれるのだが日報提出時には邪魔だし、普段使いでもその区切り線はあっても邪魔っぽいので nil にして表示しないようにしている。
 (setq org-agenda-use-time-grid nil) ブロック間の区切り表示 ブロックとブロックの区切りをハイフン繋ぎの文字列で指定している。
-文字列を指定することで固定の長さの区切り文字になるが実は ?</description>
+文字列を指定することで固定の長さの区切り文字になるが実は ?- とか指定して長さが無限に伸びるようにしてもいいかもしれない。と思いつつ、多分 zoom-mode とかでバッファの幅が切り替わる時に邪魔になるから固定でいいか。</description>
     </item>
     
     <item>
