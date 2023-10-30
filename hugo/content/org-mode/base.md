@@ -11,17 +11,36 @@ weight = 1
 
 ## org-mode のインストール {#org-mode-のインストール}
 
-Emacs に標準で入っている org-mode は大体古過ぎるのでとりあえずデフォルトで入ってるやつは削除しちゃって
-el-get でインストールしている。
+Emacs に標準で入っている org-mode は古かったりするのでとりあえずデフォルトで入ってるやつは削除しちゃって el-get でインストールしている。
 
 ```emacs-lisp
 (el-get-bundle org-mode)
 ```
 
-なんか入れてるパッケージの問題か、依存関係が解決できなかったので
-Git から入れた上でバージョンを固定している。
+とりあえず今は Emacs 29.1 に標準で bundle されているバージョンを入れておいている。バージョンを固定するために el-get についているレシピをコピーして書き換えて使っている。
 
-バージョンぐらいはそのうち上げたいね
+```emacs-lisp
+(:name org-mode
+       :website "http://orgmode.org/"
+       :description "Org-mode is for keeping notes, maintaining ToDo lists, doing project planning, and authoring with a fast and effective plain-text system."
+       :type git
+       :url "https://git.savannah.gnu.org/git/emacs/org-mode.git"
+       :checkout "release_9.6.6"
+       :info "doc"
+       :build/berkeley-unix `,(mapcar
+                               (lambda (target)
+                                 (list "gmake" target (concat "EMACS=" (shell-quote-argument el-get-emacs))))
+                               '("oldorg"))
+       :build `,(mapcar
+                 (lambda (target)
+                   (list "make" target (concat "EMACS=" (shell-quote-argument el-get-emacs))))
+                 '("oldorg"))
+       :load-path ("." "lisp")
+       :load ("lisp/org-loaddefs.el"))
+```
+
+その内もっと新しいのにするけど
+<span class="timestamp-wrapper"><span class="timestamp">[2023-10-30 月] </span></span> に main ブランチのものを入れたら agenda が動かなくなって焦ったのでまた落ち着いた時にトライする
 
 
 ## org 用ディレクトリの指定 {#org-用ディレクトリの指定}
