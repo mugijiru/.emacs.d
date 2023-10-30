@@ -5,6 +5,6 @@
 
 ** `(format-time-string "%Y-%m-%d")`
 *** Reports
-#+BEGIN: clocktable :scope agenda-with-archives :maxlevel 10 :lang "ja" :block `(format-time-string "%Y-%m-%d")` :level 4
+#+BEGIN: clocktable :scope agenda-with-archives :maxlevel 10 :lang "ja" :block `(format-time-string "%Y-%m-%d")` :level 4 :fileskip0 t
 #+END:
 *** 日報
