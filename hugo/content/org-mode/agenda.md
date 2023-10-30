@@ -55,12 +55,9 @@ org-agenda を使う時に抽出対象とする org ファイルを指定して�
 
 ```emacs-lisp
 (setq org-agenda-files
-      '("~/Documents/org/ical.org"
+      '("~/Documents/org/journal/"
         "~/Documents/org/tasks/"))
 ```
-
-けどカスタムビューを多用しているので多分この設定ちゃんと活かしてない。
-ical.org とか更新してないし……。
 
 
 ## agenda の表示周りの設定 {#agenda-の表示周りの設定}
@@ -165,6 +162,7 @@ nil にして表示しないようにしている。
                 (org-agenda-todo-keyword-format "-")
                 (org-overriding-columns-format "%25ITEM %TODO")
                 (org-agenda-files '("~/Documents/org/tasks/next-actions.org"
+                                    "~/Documents/org/journal/"
                                     "~/Documents/org/tasks/reviews.org"))
                 (org-super-agenda-groups '((:name "仕掛かり中" :todo "DOING")
                                            (:name "TODO" :and (:todo "TODO" :not (:category "レビュー")))
@@ -202,7 +200,7 @@ nil にして表示しないようにしている。
                 (org-agenda-span 'day)
                 (org-agenda-todo-keyword-format "-")
                 (org-overriding-columns-format "%25ITEM %TODO")
-                (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
+                (org-agenda-files '("~/Documents/org/tasks/next-actions.org" "~/Documents/org/journal/"))
                 (org-super-agenda-groups '((:name "仕掛かり中" :and (:todo "DOING" :not (:category "レビュー") :not (:category "開発")))
                                            (:name "TODO" :and (:todo "TODO" :not (:category "レビュー") :not (:category "開発")))
                                            (:name "待ち" :and (:todo "WAIT" :not (:category "レビュー") :not (:category "開発")))
@@ -247,7 +245,7 @@ nil にして表示しないようにしている。
                           (org-agenda-span 'day)
                           (org-agenda-todo-keyword-format "-")
                           (org-overriding-columns-format "%25ITEM %TODO")
-                          (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
+                          (org-agenda-files '("~/Documents/org/tasks/next-actions.org" "~/Documents/org/journal/"))
                           (org-super-agenda-groups (append
                                                     (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
                                                     '((:name "その他" :scheduled nil)
@@ -276,7 +274,7 @@ nil にして表示しないようにしている。
                  (org-agenda-span 'day)
                  (org-agenda-todo-keyword-format "-")
                  (org-overriding-columns-format "%25ITEM %TODO")
-                 (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
+                 (org-agenda-files '("~/Documents/org/tasks/next-actions.org" "~/Documents/org/journal/"))
                  (org-super-agenda-groups (append
                                            (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
                                            '((:name "その他" :scheduled nil)
@@ -303,6 +301,7 @@ nil にして表示しないようにしている。
    ((tags "LEVEL=2" ((org-agenda-files '("~/Documents/org/tasks/projects.org"
                                          "~/Documents/org/tasks/inbox.org"
                                          "~/Documents/org/tasks/reviews.org"
+                                         "~/Documents/org/journal/"
                                          "~/Documents/org/tasks/next-actions.org"))
                      (org-super-agenda-groups '((:name "Finished" :todo "DONE")
                                                 (:name "Someday" :todo "SOMEDAY")
@@ -325,7 +324,7 @@ nil にして表示しないようにしている。
                   (org-agenda-todo-keyword-format "-")
                   ;; (org-overriding-columns-format "%25ITEM %TODO %CATEGORY")
                   (org-columns-default-format-for-agenda "%25ITEM %TODO %3PRIORITY")
-                  (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
+                  (org-agenda-files '("~/Documents/org/tasks/next-actions.org" "~/Documents/org/journal/"))
                   (org-super-agenda-groups (append
                                             (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DONE")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
                                             '((:discard (:anything t :name "discard")))))))
@@ -335,7 +334,7 @@ nil にして表示しないようにしている。
                  (org-agenda-span 'day)
                  (org-agenda-todo-keyword-format "-")
                  (org-overriding-columns-format "%25ITEM %TODO")
-                 (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
+                 (org-agenda-files '("~/Documents/org/tasks/next-actions.org" "~/Documents/org/journal/"))
                  (org-super-agenda-groups (append
                                            (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
                                            '((:discard (:anything t :name "discard")))))))))
