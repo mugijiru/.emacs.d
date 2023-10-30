@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((org-journal :checksum "a306f76ee2b0292946a20530bd9114aefc85a263")
+      '((org-mode :checksum "17608670a4f4e8edb91efe04d86fe80ff9d01b69")
+        (org-journal :checksum "a306f76ee2b0292946a20530bd9114aefc85a263")
         (company-terraform :checksum "8d5a16d1bbeeb18ca49a8fd57b5d8cd30c8b8dc7")
         (terraform-mode :checksum "25a22a66f81e35c75f2fdaaab89aad7f9940fe06")
         (hcl-mode :checksum "ec27736c4c16fbf7f1ecab0210ec3c71ac2406fa")
@@ -165,7 +166,6 @@
         (page-break-lines :checksum "5e9ed86bb56fd076b12ae7adaf40eeaa09aed4c5")
         (org-trello :checksum "fc63ed580101e6160edfb6f43215fb3200ce1ea7")
         (undo-fu :checksum "0e74116fd5c7797811a91ba4eadef50d67523eb6")
-        (emacs-todoist :checksum "e1d1b602430f7a5bb84f9b52d96fe552def9ed3d")
-        (org-mode :checksum "abedf386b3f13af2769728755d00c4698ac5d3b0")))
+        (emacs-todoist :checksum "e1d1b602430f7a5bb84f9b52d96fe552def9ed3d")))
 (setq el-get-lock-locked-packages 'nil)
 (setq el-get-lock-unlocked-packages 'nil)
