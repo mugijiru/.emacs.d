@@ -13,17 +13,9 @@
       
       <guid>https://mugijiru.github.io/.emacs.d/org-mode/base/</guid>
       <description>概要 ここでは org-mode 周りのベースとなる設定を書いているつもり。といいつつ、まだ書き方が雑だなと思っている。またその内にでも修正しよう
-org-mode のインストール Emacs に標準で入っている org-mode は大体古過ぎるのでとりあえずデフォルトで入ってるやつは削除しちゃって el-get でインストールしている。
-(el-get-bundle org-mode) なんか入れてるパッケージの問題か、依存関係が解決できなかったので Git から入れた上でバージョンを固定している。
-バージョンぐらいはそのうち上げたいね
-org 用ディレクトリの指定 org-mode のファイルを保存するデフォルトのディレクトリを指定している。
-デフォルトだと ~/org なのだけどホームディレクトリを汚したくないのと基本的に Mac を使ってるので ~/Documents/org というディレクトリを用意してそこにファイルを置いている。
-(setq org-directory (expand-file-name &amp;#34;~/Documents/org/&amp;#34;)) タスク管理ファイルのフォルダの指定 タスク管理ファイルがいくつかに分かれているがそれらをまとめて ~/Documents/org/tasks フォルダに置いている。
-(setq my/org-tasks-directory (concat org-directory &amp;#34;tasks/&amp;#34;)) とりあえずこの my/org-tasks-directory という変数を用意することであちらこちらでこれを使い回している。
-タスクの状態管理のキーワード指定 org-mode といえば TODO 管理で使ってる人も多いと思う。自分も最初はそういう使い方から始めたし、今でもそれをメインにして使っている。
-そして TODO の状態がデフォルトでは
-TODO DONE の2つしかないけど、それでは足りないので昔見たインターネットのどこかの記事を参考に以下のように設定している。
-(setq org-todo-keywords &amp;#39;((sequence &amp;#34;TODO&amp;#34; &amp;#34;EXAMINATION(e)&amp;#34; &amp;#34;READY(r)&amp;#34; &amp;#34;DOING(!)&amp;#34; &amp;#34;WAIT&amp;#34; &amp;#34;|&amp;#34; &amp;#34;DONE(!)&amp;#34; &amp;#34;SOMEDAY(s)&amp;#34;))) 初期状態は TODO で、作業開始時点で DOING にして待ちが発生したら WAIT にして完了したら DONE にしている。</description>
+org-mode のインストール Emacs に標準で入っている org-mode は古かったりするのでとりあえずデフォルトで入ってるやつは削除しちゃって el-get でインストールしている。
+(el-get-bundle org-mode) とりあえず今は Emacs 29.1 に標準で bundle されているバージョンを入れておいている。バージョンを固定するために el-get についているレシピをコピーして書き換えて使っている。
+(:name org-mode :website &amp;#34;http://orgmode.org/&amp;#34; :description &amp;#34;Org-mode is for keeping notes, maintaining ToDo lists, doing project planning, and authoring with a fast and effective plain-text system.&amp;#34; :type git :url &amp;#34;https://git.savannah.gnu.org/git/emacs/org-mode.git&amp;#34; :checkout &amp;#34;release_9.6.6&amp;#34; :info &amp;#34;doc&amp;#34; :build/berkeley-unix `,(mapcar (lambda (target) (list &amp;#34;gmake&amp;#34; target (concat &amp;#34;EMACS=&amp;#34; (shell-quote-argument el-get-emacs)))) &amp;#39;(&amp;#34;oldorg&amp;#34;)) :build `,(mapcar (lambda (target) (list &amp;#34;make&amp;#34; target (concat &amp;#34;EMACS=&amp;#34; (shell-quote-argument el-get-emacs)))) &amp;#39;(&amp;#34;oldorg&amp;#34;)) :load-path (&amp;#34;.</description>
     </item>
     
     <item>
