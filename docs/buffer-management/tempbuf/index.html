@@ -12,20 +12,20 @@
     <title>tempbuf :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1698671940" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1698671940" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1698671940" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1698671940" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1698671940" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1698671940" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1698671940" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1698671940" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1698671940" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1698671940" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1698808978" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1698808978" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1698808978" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1698808978" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1698808978" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1698808978" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1698808978" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1698808978" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1698808978" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1698808978" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1698671940"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1698808978"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1698671940"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1698671940"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1698808978"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1698808978"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1698671940"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1698808978"></script>
 
     
   </div>
@@ -2949,10 +2949,16 @@ kill されると org-clock が狂って面倒なことになるのでそれら�
 </span></span></code></pre></div><h2 id="find-file-への-hook">find-file への hook</h2>
 <p>find-file した時に上でリストアップしたファイルだった場合は kill されないように
 tempbuf-mode が自動的に無効になるような hook を用意している。</p>
+<p>あとその日の journal ファイルも勝手に kill されると org-clock 的に困るので
+tempbuf-mode をオフにしている</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/find-file-tempbuf-hook ()
-</span></span><span style="display:flex;"><span>  (let ((ignore-file-names (<span style="color:#a6e22e">mapcar</span> <span style="color:#e6db74">&#39;expand-file-name</span> my/tempbuf-ignore-files)))
-</span></span><span style="display:flex;"><span>    (unless (<span style="color:#a6e22e">member</span> (<span style="color:#a6e22e">buffer-file-name</span>) ignore-file-names)
-</span></span><span style="display:flex;"><span>      (turn-on-tempbuf-mode))))
+</span></span><span style="display:flex;"><span>  (cond
+</span></span><span style="display:flex;"><span>   ((string= (org-journal--get-entry-path) (<span style="color:#a6e22e">buffer-file-name</span>))
+</span></span><span style="display:flex;"><span>    (turn-off-tempbuf-mode))
+</span></span><span style="display:flex;"><span>   (<span style="color:#66d9ef">t</span>
+</span></span><span style="display:flex;"><span>    (let ((ignore-file-names (<span style="color:#a6e22e">mapcar</span> <span style="color:#e6db74">&#39;expand-file-name</span> my/tempbuf-ignore-files)))
+</span></span><span style="display:flex;"><span>      (unless (<span style="color:#a6e22e">member</span> (<span style="color:#a6e22e">buffer-file-name</span>) ignore-file-names)
+</span></span><span style="display:flex;"><span>        (turn-on-tempbuf-mode))))))
 </span></span></code></pre></div><h2 id="hook-の設定">hook の設定</h2>
 <p>find-file では上で作成した hook を使うことで
 kill されたくないファイルは kill されないようにしている</p>
@@ -4994,19 +5000,19 @@ kill されたくないファイルは kill されないようにしている</p
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1698671940"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1698671940"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1698671940"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1698671940"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1698671940"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1698671940"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1698808978"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1698808978"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1698808978"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1698808978"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1698808978"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1698808978"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1698671940"></script>
-    <script src="/.emacs.d/js/learn.js?1698671940"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1698671940"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1698808978"></script>
+    <script src="/.emacs.d/js/learn.js?1698808978"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1698808978"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1698671940"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1698808978"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
