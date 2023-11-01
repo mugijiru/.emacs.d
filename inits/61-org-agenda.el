@@ -4,9 +4,8 @@
 
 (setq org-agenda-span 'day)
 
-(setq org-agenda-files
-      '("~/Documents/org/journal/"
-        "~/Documents/org/tasks/"))
+(custom-set-variables
+ '(org-agenda-files '("~/Documents/org/tasks/")))
 
 (setq org-agenda-use-time-grid nil)
 
