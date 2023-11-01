@@ -5,7 +5,7 @@
 (setq org-agenda-span 'day)
 
 (custom-set-variables
- '(org-agenda-files '("~/Documents/org/tasks/")))
+ '(org-agenda-files '("~/Documents/org/gcals/mugijiru.org" "~/Documents/org/tasks/")))
 
 (setq org-agenda-use-time-grid nil)
 
