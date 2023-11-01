@@ -6,9 +6,13 @@
                                 ))
 
 (defun my/find-file-tempbuf-hook ()
-  (let ((ignore-file-names (mapcar 'expand-file-name my/tempbuf-ignore-files)))
-    (unless (member (buffer-file-name) ignore-file-names)
-      (turn-on-tempbuf-mode))))
+  (cond
+   ((string= (org-journal--get-entry-path) (buffer-file-name))
+    (turn-off-tempbuf-mode))
+   (t
+    (let ((ignore-file-names (mapcar 'expand-file-name my/tempbuf-ignore-files)))
+      (unless (member (buffer-file-name) ignore-file-names)
+        (turn-on-tempbuf-mode))))))
 
 (add-hook 'find-file-hook 'my/find-file-tempbuf-hook)
 
