@@ -37,11 +37,18 @@ kill されると org-clock が狂って面倒なことになるのでそれら�
 find-file した時に上でリストアップしたファイルだった場合は kill されないように
 tempbuf-mode が自動的に無効になるような hook を用意している。
 
+あとその日の journal ファイルも勝手に kill されると org-clock 的に困るので
+tempbuf-mode をオフにしている
+
 ```emacs-lisp
 (defun my/find-file-tempbuf-hook ()
-  (let ((ignore-file-names (mapcar 'expand-file-name my/tempbuf-ignore-files)))
-    (unless (member (buffer-file-name) ignore-file-names)
-      (turn-on-tempbuf-mode))))
+  (cond
+   ((string= (org-journal--get-entry-path) (buffer-file-name))
+    (turn-off-tempbuf-mode))
+   (t
+    (let ((ignore-file-names (mapcar 'expand-file-name my/tempbuf-ignore-files)))
+      (unless (member (buffer-file-name) ignore-file-names)
+        (turn-on-tempbuf-mode))))))
 ```
 
 
