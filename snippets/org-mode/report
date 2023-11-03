@@ -1,0 +1,6 @@
+# key: report
+# name: report
+# --
+** Report
+#+BEGIN: clocktable :scope agenda-with-archives :maxlevel 10 :lang "ja" :block 2023-11-01 :level 4 :fileskip0 t :link t
+#+END:
