@@ -1,9 +1,9 @@
 (el-get-bundle org-roam)
 
 (custom-set-variables
- '(org-roam-directory (file-truename org-directory)))
+ '(org-roam-directory (file-truename (concat org-directory "roam/"))))
 
-;; (org-roam-db-autosync-mode 1)
+(org-roam-db-autosync-mode 1)
 
 (with-eval-after-load 'pretty-hydra
   (pretty-hydra-define org-roam-hydra (:separator "-"
