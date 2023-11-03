@@ -145,7 +145,7 @@ org-super-agenda のインストール org-mode のデフォルトの agenda だ
 (setq org-agenda-span &amp;#39;day) 週単位で何をするかについては今のところ記憶力で対応している。
 あと、基本的にカスタムビューを使ってるのでこれの影響は受けてるかどうか微妙。
 agenda の対象ファイルを指定 org-agenda を使う時に抽出対象とする org ファイルを指定している。
-(setq org-agenda-files &amp;#39;(&amp;#34;~/Documents/org/journal/&amp;#34; &amp;#34;~/Documents/org/tasks/&amp;#34;)) agenda の表示周りの設定 agenda に時間の区切りを入れない org-agenda-use-time-grid を t にしていると 10:00 とかのキリがいいところに区切り線を表示してくれるのだが日報提出時には邪魔だし、普段使いでもその区切り線はあっても邪魔っぽいので nil にして表示しないようにしている。
+(custom-set-variables &amp;#39;(org-agenda-files &amp;#39;(&amp;#34;~/Documents/org/tasks/&amp;#34;))) agenda の表示周りの設定 agenda に時間の区切りを入れない org-agenda-use-time-grid を t にしていると 10:00 とかのキリがいいところに区切り線を表示してくれるのだが日報提出時には邪魔だし、普段使いでもその区切り線はあっても邪魔っぽいので nil にして表示しないようにしている。
 (setq org-agenda-use-time-grid nil) ブロック間の区切り表示 ブロックとブロックの区切りをハイフン繋ぎの文字列で指定している。
 文字列を指定することで固定の長さの区切り文字になるが実は ?- とか指定して長さが無限に伸びるようにしてもいいかもしれない。と思いつつ、多分 zoom-mode とかでバッファの幅が切り替わる時に邪魔になるから固定でいいか。</description>
     </item>
@@ -1093,7 +1093,7 @@ Slack 連携を Toggle するコマンド 連携したい時としたくない�
 インストール これは el-get にはレシピがないようなので自前で用意している
 (:name org-journal :website &amp;#34;https://github.com/bastibe/org-journal&amp;#34; :description &amp;#34;Functions to maintain a simple personal diary / journal in Emacs.&amp;#34; :type github :pkgname &amp;#34;bastibe/org-journal&amp;#34;) そして el-get-bundle でインストール
 (el-get-bundle org-journal) また refile 先の候補設定 で org-journal--get-entry-path という内部関数を使ってしまっていてそれが読み込まれていないと困るので、ここで require まで行っている
-(require &amp;#39;org-journal) 設定 (custom-set-variables &amp;#39;(org-journal-dir (concat org-directory &amp;#34;journal/&amp;#34;)) &amp;#39;(org-journal-file-format &amp;#34;%Y%m%d.org&amp;#34;) &amp;#39;(org-journal-date-format &amp;#34;%d日(%a)&amp;#34;)) </description>
+(require &amp;#39;org-journal) 設定 (custom-set-variables &amp;#39;(org-journal-dir (concat org-directory &amp;#34;journal/&amp;#34;)) &amp;#39;(org-journal-file-format &amp;#34;%Y%m%d.org&amp;#34;) &amp;#39;(org-journal-date-format &amp;#34;%d日(%a)&amp;#34;) &amp;#39;(org-journal-enable-agenda-integration t) &amp;#39;(org-journal-carryover-items &amp;#34;TODO={TODO\\|DOING\\|WAIT}&amp;#34;)) </description>
     </item>
     
     <item>
