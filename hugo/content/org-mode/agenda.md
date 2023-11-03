@@ -54,9 +54,8 @@ org-agenda の週の始まりも日曜日に設定している
 org-agenda を使う時に抽出対象とする org ファイルを指定している。
 
 ```emacs-lisp
-(setq org-agenda-files
-      '("~/Documents/org/journal/"
-        "~/Documents/org/tasks/"))
+(custom-set-variables
+ '(org-agenda-files '("~/Documents/org/tasks/")))
 ```
 
 
