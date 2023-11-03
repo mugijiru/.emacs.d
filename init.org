@@ -8118,14 +8118,15 @@
      ターゲットを以下のように設定している。
 
      #+begin_src emacs-lisp :tangle inits/61-org-refile.el
-     (setq org-refile-targets `((,(concat org-directory "tasks/projects.org") :level . 1)
-                                (,(concat org-directory "tasks/pointers.org") :level . 1)
-                                (,(concat org-directory "work/scrum/impediments.org") :level . 3)
-                                (,(concat org-directory "tasks/next-actions.org") :regexp . "today")
-                                (,(concat org-directory "tasks/next-actions.org") :regexp . "C-")
-                                (,(concat org-directory "private/2020_summary.org") :level . 2)
-                                (,(concat org-directory "tasks/shopping.org") :level . 1)
-                                (,(concat org-directory "tasks/someday.org") :level . 1)))
+       (setq org-refile-targets `((,(org-journal--get-entry-path) :regexp . "Tasks")
+                                  (,(concat org-directory "tasks/projects.org") :level . 1)
+                                  (,(concat org-directory "tasks/pointers.org") :level . 1)
+                                  (,(concat org-directory "work/scrum/impediments.org") :level . 3)
+                                  (,(concat org-directory "tasks/next-actions.org") :regexp . "today")
+                                  (,(concat org-directory "tasks/next-actions.org") :regexp . "C-")
+                                  (,(concat org-directory "private/2020_summary.org") :level . 2)
+                                  (,(concat org-directory "tasks/shopping.org") :level . 1)
+                                  (,(concat org-directory "tasks/someday.org") :level . 1)))
      #+end_src
 
      | ターゲット         | 目的                                                                                                   |
@@ -8241,6 +8242,14 @@
 
 #+begin_src emacs-lisp :tangle inits/61-org-journal.el
 (el-get-bundle org-journal)
+#+end_src
+
+また [[id:5b4ca1a6-ade9-4768-9a06-0dbf57cffcba][refile 先の候補設定]] で ~org-journal--get-entry-path~ という内部関数を使ってしまっていて
+それが読み込まれていないと困るので、
+ここで require まで行っている
+
+#+begin_src emacs-lisp :tangle inits/61-org-journal.el
+(require 'org-journal)
 #+end_src
 
 *** 設定

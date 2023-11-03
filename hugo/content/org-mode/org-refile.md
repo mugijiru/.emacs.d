@@ -39,7 +39,8 @@ nil だと移動先候補PATHの最後の部分しか表示されないのでど
 いくつかの org ファイルを使っているのでターゲットを以下のように設定している。
 
 ```emacs-lisp
-(setq org-refile-targets `((,(concat org-directory "tasks/projects.org") :level . 1)
+(setq org-refile-targets `((,(org-journal--get-entry-path) :regexp . "Tasks")
+                           (,(concat org-directory "tasks/projects.org") :level . 1)
                            (,(concat org-directory "tasks/pointers.org") :level . 1)
                            (,(concat org-directory "work/scrum/impediments.org") :level . 3)
                            (,(concat org-directory "tasks/next-actions.org") :regexp . "today")
@@ -56,6 +57,6 @@ nil だと移動先候補PATHの最後の部分しか表示されないのでど
 | impediments.org    | スクラムの妨害リストでも作ってみようかと思って用意したやつ。放置中 |
 | next-actions today | その日やる作業を放り込むところ。projects や inbox から移動する時に使う。 |
 | next-actions C-    | いくつかの作業を各階層に分けて管理しようとしていたのでターゲット指定している。放置中。 |
-| 2020\_summary.org  | 2020 年の個人ふりかえり用。もう 2020 年は大昔なので当然もう使っていない |
+| 2020_summary.org   | 2020 年の個人ふりかえり用。もう 2020 年は大昔なので当然もう使っていない |
 | shopping.org       | 買物リスト。時々思い出した時に放り込んでるが主に使うのは beorg からなので refile では使ってない |
 | someday.org        | 遠い将来やるかもしれないリスト。放り込んで忘れるためにあるところ |
