@@ -31,6 +31,12 @@ draft = false
 (el-get-bundle org-journal)
 ```
 
+また [refile 先の候補設定]({{< relref "org-refile#refile-先の候補設定" >}}) で `org-journal--get-entry-path` という内部関数を使ってしまっていてそれが読み込まれていないと困るので、ここで require まで行っている
+
+```emacs-lisp
+(require 'org-journal)
+```
+
 
 ## 設定 {#設定}
 

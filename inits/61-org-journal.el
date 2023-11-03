@@ -1,5 +1,7 @@
 (el-get-bundle org-journal)
 
+(require 'org-journal)
+
 (custom-set-variables
  '(org-journal-dir (concat org-directory "journal/"))
  '(org-journal-file-format "%Y%m%d.org")

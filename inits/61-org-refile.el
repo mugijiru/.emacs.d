@@ -2,7 +2,8 @@
 
 (setq org-refile-use-outline-path 'file)
 
-(setq org-refile-targets `((,(concat org-directory "tasks/projects.org") :level . 1)
+(setq org-refile-targets `((,(org-journal--get-entry-path) :regexp . "Tasks")
+                           (,(concat org-directory "tasks/projects.org") :level . 1)
                            (,(concat org-directory "tasks/pointers.org") :level . 1)
                            (,(concat org-directory "work/scrum/impediments.org") :level . 3)
                            (,(concat org-directory "tasks/next-actions.org") :regexp . "today")
