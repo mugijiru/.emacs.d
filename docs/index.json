@@ -95,7 +95,7 @@
 	"title": "ファイル編集/入力補助",
 	"tags": [],
 	"description": "",
-	"content": "ここにはファイル編集や入力補助の設定をまとめている\n基本設定 編集周りの基本的な設定 auto-insert ファイル新規作成時にテンプレートを挿入する機能 company-mode プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ emojify Slack や GitHub みたいに :smile: とか入れると笑顔の絵文字を表示する、みたいなやつ multiple-cursors カーソルを増やして複数箇所を同時に編集できるようになるやつ origami コードの折り畳みができるようになるやつ smartparens カッコや引用符などのペアになるやつの入力補助をしてくれるやつ undo-fu シンプルな undo/redo の機能を提供してくれるやつ view-mode Emacs に組込まれてる閲覧専用のモード。コードリーディングの時に有効にすると便利 whitespace 空白文字を可視化したり自動的に消したりする便利なやつ yasnippet テンプレート挿入機能を提供してくれるやつ "
+	"content": "ここにはファイル編集や入力補助の設定をまとめている\n基本設定 編集周りの基本的な設定 auto-insert ファイル新規作成時にテンプレートを挿入する機能 company-mode プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ emojify Slack や GitHub みたいに :smile: とか入れると笑顔の絵文字を表示する、みたいなやつ flyspell スペルチェックをしてくれるパッケージ multiple-cursors カーソルを増やして複数箇所を同時に編集できるようになるやつ origami コードの折り畳みができるようになるやつ smartparens カッコや引用符などのペアになるやつの入力補助をしてくれるやつ undo-fu シンプルな undo/redo の機能を提供してくれるやつ view-mode Emacs に組込まれてる閲覧専用のモード。コードリーディングの時に有効にすると便利 whitespace 空白文字を可視化したり自動的に消したりする便利なやつ yasnippet テンプレート挿入機能を提供してくれるやつ "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/org-capture/",
@@ -404,6 +404,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 flycheck はリアルタイムで文法チェックなんかをするのに便利なモード。 flymake よりモダンなやつだったんだけど最近は flymake に戻る人もいるっぽいのでどっちが良いかよくわかってない\nインストール flycheck と同時にカーソルのそばに pos-tip で通知内容を表示してくれる flycheck-pos-tip をインストールしている\n(el-get-bundle flycheck) (el-get-bundle flycheck-pos-tip) 設定 flycheck を読んだ後で flycheck-pos-tip-mode が有効になるようにしている。これは公式に書かれているやりかたに則っている https://github.com/flycheck/flycheck-pos-tip#installation\nまた web-mode はデフォルトでは flycheck が使えないので flycheck-add-mode を使って web-mode でも flycheck が使えるようにしている\n(with-eval-after-load \u0026#39;flycheck (flycheck-pos-tip-mode) (flycheck-add-mode \u0026#39;javascript-eslint \u0026#39;web-mode)) その他 flycheck-posframe flycheck-pos-tip は flycheck 公式のプラグインなので採用しているけど同じことを posframe でやってくれる flycheck-posframe に置き換えた方が見た目麗しくなりそうな気がしている。\n言語毎の設定 各言語向けの設定もあるけどそれは各言語の設定ファイル内に書いているのでここでは書いてない\nプログラミング関係の設定 \u0026gt; ruby とか プログラミング関係の設定 \u0026gt; scss とかに書いているはず\n"
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/editing/flyspell/",
+	"title": "flyspell",
+	"tags": [],
+	"description": "",
+	"content": "概要 flyspell はスペルチェックをしてくれるパッケージです。 Emacs 本体に組込まれているので、設定すれば素の Emacs でも使えます。\nhunspell 向けの設定 flyspell は外部のスペルチェックツールとやりとりをします。私は hunspell を使ってるので、それ向けに設定をしています。\n;; for hunspell (with-eval-after-load \u0026#34;ispell\u0026#34; (setenv \u0026#34;DICTIONARY\u0026#34; \u0026#34;en_US\u0026#34;) (add-to-list \u0026#39;ispell-skip-region-alist \u0026#39;(\u0026#34;[^\\000-\\377]+\u0026#34;))) どうせ英語のスペルしかチェックしないので DICTIONARY には en_US を設定しています。また、日英が混在している文書でもスペルチェックが動くように ispell-skip-region-alist を設定しています\nhttp://home.hatanaka.info/article/474728666.html を参考にしていますが、まあ多分 ASCII 以外をシカトしているのかなこれは\nincorrect-hook の定義 上の設定でも ASCII 以外を無視してそうだけどさらに flyspell-incorrect-hook で incorrect 判定するのを ASCII にのみ限定しています。\n(defun my/flyspell-ignore-nonascii (beg end _info) \u0026#34;incorrect判定をASCIIに限定\u0026#34; (string-match \u0026#34;[^!-~]\u0026#34; (buffer-substring beg end))) (add-hook \u0026#39;flyspell-incorrect-hook #\u0026#39;my/flyspell-ignore-nonascii) これは https://takaxp.github.io/init.html#orgdd65fc08 にある設定を持って来ています\nその他 flyspell-prog-mode を使うと、文字列やコメントにのみ有効にできるようですがそのあたりはまだ試していません。\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/basics/font-config/",

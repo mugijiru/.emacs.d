@@ -676,6 +676,21 @@ es6 を js2-mode で扱うようにする (add-to-list &amp;#39;auto-mode-alist 
     </item>
     
     <item>
+      <title>flyspell</title>
+      <link>https://mugijiru.github.io/.emacs.d/editing/flyspell/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/editing/flyspell/</guid>
+      <description>概要 flyspell はスペルチェックをしてくれるパッケージです。 Emacs 本体に組込まれているので、設定すれば素の Emacs でも使えます。
+hunspell 向けの設定 flyspell は外部のスペルチェックツールとやりとりをします。私は hunspell を使ってるので、それ向けに設定をしています。
+;; for hunspell (with-eval-after-load &amp;#34;ispell&amp;#34; (setenv &amp;#34;DICTIONARY&amp;#34; &amp;#34;en_US&amp;#34;) (add-to-list &amp;#39;ispell-skip-region-alist &amp;#39;(&amp;#34;[^\000-\377]+&amp;#34;))) どうせ英語のスペルしかチェックしないので DICTIONARY には en_US を設定しています。また、日英が混在している文書でもスペルチェックが動くように ispell-skip-region-alist を設定しています
+http://home.hatanaka.info/article/474728666.html を参考にしていますが、まあ多分 ASCII 以外をシカトしているのかなこれは
+incorrect-hook の定義 上の設定でも ASCII 以外を無視してそうだけどさらに flyspell-incorrect-hook で incorrect 判定するのを ASCII にのみ限定しています。
+(defun my/flyspell-ignore-nonascii (beg end _info) &amp;#34;incorrect判定をASCIIに限定&amp;#34; (string-match &amp;#34;[^!-~]&amp;#34; (buffer-substring beg end))) (add-hook &amp;#39;flyspell-incorrect-hook #&amp;#39;my/flyspell-ignore-nonascii) これは https://takaxp.github.io/init.html#orgdd65fc08 にある設定を持って来ています
+その他 flyspell-prog-mode を使うと、文字列やコメントにのみ有効にできるようですがそのあたりはまだ試していません。</description>
+    </item>
+    
+    <item>
       <title>font-config</title>
       <link>https://mugijiru.github.io/.emacs.d/basics/font-config/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
