@@ -6213,6 +6213,7 @@
    - [[*emacs-w3m][emacs-w3m]] :: 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ
    - [[*esa.el][esa.el]] :: [[https://esa.io/][esa.io]] と連携するためのパッケージ
    - [[*forge][forge]] :: [[*magit][magit]] と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ
+   - [[id:ce83e9b8-ef96-4a27-bcfb-a2b437ca5a28][git-messenger]] :: 現在の行の最終コミットの情報を表示してくれるパッケージ
    - [[*google-this][google-this]] :: Google 検索機能を提供してくれるパッケージ
    - [[*google-translate][google-translate]] :: Emacs から Google 翻訳するためのパッケージ
    - [[*magit][magit]] :: Emacs 上で Git の操作をするのにとても便利なパッケージ
@@ -6412,6 +6413,40 @@
 
 *** その他
     リポジトリのコミット数が多いとまともに使えない感じだけどどうしたらいいの。
+
+** git-messenger
+:PROPERTIES:
+:EXPORT_FILE_NAME: git-messenger
+:ID:       ce83e9b8-ef96-4a27-bcfb-a2b437ca5a28
+:END:
+*** 概要
+[[https://github.com/emacsorphanage/git-messenger][git-messenger]] は指定した行のコミット時の情報を表示してくれるやつ
+簡単に最終コミットの情報を見るのに便利
+*** インストール
+git-messenger は el-get のレシピに登録されているのでそのまま ~el-get-bundle~ を使ってインストールできる
+
+#+begin_src emacs-lisp :tangle inits/50-git-messenger.el
+  (el-get-bundle git-messenger)
+#+end_src
+*** 設定
+
+デフォルトでは commit message だけを表示するが
+より詳細な情報を見たいので ~git-messenger:show-detail~ を t に設定して
+コミット日時や author も表示するようにしている
+
+#+begin_src emacs-lisp :tangle inits/50-git-messenger.el
+  (custom-set-variables
+   '(git-messenger:show-detail t))
+#+end_src
+
+magit を利用しているので ~git-messenger:use-magit-popup~ も有効にしても良いかもしれない
+*** キーバインド
+
+起動には [[id:befaa52b-d054-43bd-9445-fca7f5bd8be5][pretty-hydra-usefull-commands]] で ~C~ を叩くと起動するようにしている。
+
+起動後は、デフォルトでキーバインドが定義されているので
+https://github.com/emacsorphanage/git-messenger#key-bindings
+の通りの操作ができる
 
 ** google-this
    :PROPERTIES:
