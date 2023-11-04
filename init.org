@@ -1513,6 +1513,7 @@
    - [[*auto-insert][auto-insert]] :: ファイル新規作成時にテンプレートを挿入する機能
    - [[*company-mode][company-mode]] :: プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ
    - [[*emojify][emojify]] :: Slack や GitHub みたいに ~:smile:~ とか入れると笑顔の絵文字を表示する、みたいなやつ
+   - [[id:3140f1e1-c1ee-4098-adc5-ddc695d5ea9d][flyspell]] :: スペルチェックをしてくれるパッケージ
    - [[*multiple-cursors][multiple-cursors]] :: カーソルを増やして複数箇所を同時に編集できるようになるやつ
    - [[id:f309e8bd-8e1d-4a91-ae4d-9a960373969b][origami]] :: コードの折り畳みができるようになるやつ
    - [[*smartparens][smartparens]] :: カッコや引用符などのペアになるやつの入力補助をしてくれるやつ
@@ -1728,6 +1729,47 @@
     (global-emojify-mode 1)
     (global-emojify-mode-line-mode 1)
     #+end_src
+** flyspell
+:PROPERTIES:
+:EXPORT_FILE_NAME: flyspell
+:ID:       3140f1e1-c1ee-4098-adc5-ddc695d5ea9d
+:END:
+*** 概要
+[[http://www-sop.inria.fr/members/Manuel.Serrano/flyspell/flyspell.html][flyspell]] はスペルチェックをしてくれるパッケージです。
+Emacs 本体に組込まれているので、設定すれば素の Emacs でも使えます。
+*** hunspell 向けの設定
+flyspell は外部のスペルチェックツールとやりとりをします。
+私は hunspell を使ってるので、それ向けに設定をしています。
+
+#+begin_src emacs-lisp :tangle inits/30-flyspell.el
+  ;; for hunspell
+  (with-eval-after-load "ispell"
+    (setenv "DICTIONARY" "en_US")
+    (add-to-list 'ispell-skip-region-alist '("[^\000-\377]+")))
+#+end_src
+
+どうせ英語のスペルしかチェックしないので DICTIONARY には en_US を設定しています。
+また、日英が混在している文書でもスペルチェックが動くように
+~ispell-skip-region-alist~ を設定しています
+
+http://home.hatanaka.info/article/474728666.html
+を参考にしていますが、まあ多分 ASCII 以外をシカトしているのかなこれは
+*** incorrect-hook の定義
+上の設定でも ASCII 以外を無視してそうだけど
+さらに ~flyspell-incorrect-hook~ で incorrect 判定するのを ASCII にのみ限定しています。
+
+#+begin_src emacs-lisp :tangle inits/30-flyspell.el
+(defun my/flyspell-ignore-nonascii (beg end _info)
+  "incorrect判定をASCIIに限定"
+  (string-match "[^!-~]" (buffer-substring beg end)))
+
+(add-hook 'flyspell-incorrect-hook #'my/flyspell-ignore-nonascii)
+#+end_src
+
+これは https://takaxp.github.io/init.html#orgdd65fc08 にある設定を持って来ています
+*** その他
+~flyspell-prog-mode~ を使うと、文字列やコメントにのみ有効にできるようですが
+そのあたりはまだ試していません。
 ** multiple-cursors
    :PROPERTIES:
    :EXPORT_FILE_NAME: multiple-cursors

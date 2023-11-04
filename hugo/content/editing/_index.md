@@ -20,7 +20,10 @@ disableToc = true
 [emojify]({{< relref "emojify" >}})
 : Slack や GitHub みたいに `:smile:` とか入れると笑顔の絵文字を表示する、みたいなやつ
 
-[multiple-cursors]({{< relref "global-keybinds#multiple-cursors" >}})
+[flyspell]({{< relref "flyspell" >}})
+: スペルチェックをしてくれるパッケージ
+
+[multiple-cursors]({{< relref "multiple-cursors" >}})
 : カーソルを増やして複数箇所を同時に編集できるようになるやつ
 
 [origami]({{< relref "origami" >}})
