@@ -57,6 +57,20 @@
     </item>
     
     <item>
+      <title>git-messenger</title>
+      <link>https://mugijiru.github.io/.emacs.d/external-tool/git-messenger/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/external-tool/git-messenger/</guid>
+      <description>概要 git-messenger は指定した行のコミット時の情報を表示してくれるやつ簡単に最終コミットの情報を見るのに便利
+インストール git-messenger は el-get のレシピに登録されているのでそのまま el-get-bundle を使ってインストールできる
+(el-get-bundle git-messenger) 設定 デフォルトでは commit message だけを表示するがより詳細な情報を見たいので git-messenger:show-detail を t に設定してコミット日時や author も表示するようにしている
+(custom-set-variables &amp;#39;(git-messenger:show-detail t)) magit を利用しているので git-messenger:use-magit-popup も有効にしても良いかもしれない
+キーバインド 起動には pretty-hydra-usefull-commands で C を叩くと起動するようにしている。
+起動後は、デフォルトでキーバインドが定義されているので https://github.com/emacsorphanage/git-messenger#key-bindings の通りの操作ができる</description>
+    </item>
+    
+    <item>
       <title>google-this</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/google-this/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

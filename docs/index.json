@@ -151,7 +151,7 @@
 	"title": "外部連携ツール設定",
 	"tags": [],
 	"description": "",
-	"content": "ここでは外部のサービスと連携するようなやつをまとめています\nemacs-w3m 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ esa.el esa.io と連携するためのパッケージ forge magit と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ google-this Google 検索機能を提供してくれるパッケージ google-translate Emacs から Google 翻訳するためのパッケージ magit Emacs 上で Git の操作をするのにとても便利なパッケージ notify-slack Emacs から外部コマンドを通じて Slack に通知するための関数周りの事を書いている wakatime-mode Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ todoist Todoist と連携して org-mode で扱えるようにするパッケージ twmode Emacs 上で動く Twitter クライアント ブラウザ設定 ブラウザ連携周りの設定 "
+	"content": "ここでは外部のサービスと連携するようなやつをまとめています\nemacs-w3m 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ esa.el esa.io と連携するためのパッケージ forge magit と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ git-messenger 現在の行の最終コミットの情報を表示してくれるパッケージ google-this Google 検索機能を提供してくれるパッケージ google-translate Emacs から Google 翻訳するためのパッケージ magit Emacs 上で Git の操作をするのにとても便利なパッケージ notify-slack Emacs から外部コマンドを通じて Slack に通知するための関数周りの事を書いている wakatime-mode Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ todoist Todoist と連携して org-mode で扱えるようにするパッケージ twmode Emacs 上で動く Twitter クライアント ブラウザ設定 ブラウザ連携周りの設定 "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/",
@@ -439,6 +439,13 @@
 	"tags": ["improvement"],
 	"description": "",
 	"content": "概要 git-gutter-fringe は git-gutter の派生版。最後のコミットからどの行を弄ったかを fringe 領域に表示してくれる。\n他にも hunk の操作をできる機能とかあるみたいだけどそのあたりは使ったことがない……。\n派生元の git-gutter は linum-mode と同じ領域を使って描画をしているようで併用ができなかったので git-gutter-fringe を利用している。\nが、Emacs 26 から display-line-numbers-mode が搭載されて linum-mode が不要になったので git-gutter に乗り換えても良さそう\nインストール いつも通り el-get でインストールしている\n(el-get-bundle git-gutter-fringe) 有効化 Git 管理しているやつは全部差分情報が表示されて欲しいのでグローバルマイナーモードを有効にしている。\n(global-git-gutter-mode t) その他 git-gutter ほどではないけど多少のカスタマイズはできるはずだがデフォルト設定で特に不満はないので何もしてない\n"
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/external-tool/git-messenger/",
+	"title": "git-messenger",
+	"tags": [],
+	"description": "",
+	"content": "概要 git-messenger は指定した行のコミット時の情報を表示してくれるやつ簡単に最終コミットの情報を見るのに便利\nインストール git-messenger は el-get のレシピに登録されているのでそのまま el-get-bundle を使ってインストールできる\n(el-get-bundle git-messenger) 設定 デフォルトでは commit message だけを表示するがより詳細な情報を見たいので git-messenger:show-detail を t に設定してコミット日時や author も表示するようにしている\n(custom-set-variables \u0026#39;(git-messenger:show-detail t)) magit を利用しているので git-messenger:use-magit-popup も有効にしても良いかもしれない\nキーバインド 起動には pretty-hydra-usefull-commands で C を叩くと起動するようにしている。\n起動後は、デフォルトでキーバインドが定義されているので https://github.com/emacsorphanage/git-messenger#key-bindings の通りの操作ができる\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/programming/gnuplot-mode/",

@@ -128,6 +128,8 @@
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/ui/git-gutter-fringe/</loc>
   </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/external-tool/git-messenger/</loc>
+  </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/programming/gnuplot-mode/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/keybinds/google-integration/</loc>

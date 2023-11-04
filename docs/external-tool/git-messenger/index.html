@@ -9,23 +9,23 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>基本設定 :: 麦汁&#39;s Emacs Config</title>
+    <title>git-messenger :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1699075567" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1699075567" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1699075567" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1699075567" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1699075567" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1699075567" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1699075567" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1699075567" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1699075567" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1699075567" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1699075566" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1699075566" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1699075566" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1699075566" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1699075566" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1699075566" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1699075566" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1699075566" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1699075566" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1699075566" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1699075567"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1699075566"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/basics/">
+  <body class="" data-url="/.emacs.d/external-tool/git-messenger/">
     <nav id="sidebar" class="">
 
 
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1699075567"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1699075567"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1699075566"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1699075566"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1699075567"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1699075566"></script>
 
     
   </div>
@@ -101,7 +101,7 @@
     
     <li data-nav-id="/.emacs.d/basics/" title="基本設定" class="dd-item
         
-        active
+        
         
         ">
       <a href="/.emacs.d/basics/">
@@ -1997,7 +1997,7 @@
   
     
     <li data-nav-id="/.emacs.d/external-tool/" title="外部連携ツール設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -2107,7 +2107,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/external-tool/git-messenger/" title="git-messenger" class="dd-item ">
+      <li data-nav-id="/.emacs.d/external-tool/git-messenger/" title="git-messenger" class="dd-item active">
         <a href="/.emacs.d/external-tool/git-messenger/">
         git-messenger
         
@@ -2893,6 +2893,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -2903,7 +2905,13 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > 基本設定
+            
+            
+          
+          
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/external-tool/'>外部連携ツール設定</a> > git-messenger
+          
+        
           
         
           
@@ -2911,6 +2919,20 @@
                  
                   </span>
                 </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#インストール">インストール</a></li>
+    <li><a href="#設定">設定</a></li>
+    <li><a href="#キーバインド">キーバインド</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
                 
               </div>
             </div>
@@ -2923,49 +2945,31 @@
           
             <h1>
               
-              基本設定
+              git-messenger
             </h1>
           
 
         
 
 
-
-	<p>Emacs の基本動作に関わる部分をここでは設定している</p>
-<dl>
-<dt><a href="/.emacs.d/basics/auth-source/">auth-source</a></dt>
-<dd>認証情報の取り扱いファイルの設定</dd>
-<dt><a href="/.emacs.d/basics/auto-format/">auto-format</a></dt>
-<dd>ファイル保存時に自動で整形してくれるやつ</dd>
-<dt><a href="/.emacs.d/basics/auto-save/">auto-save</a></dt>
-<dd>編集中状態の自動保存や編集前の状態のバックアップに関する設定</dd>
-<dt><a href="/.emacs.d/basics/custom-file/">custom-file</a></dt>
-<dd>カスタマイズ変数などの保存先を変更している</dd>
-<dt><a href="/.emacs.d/basics/ddskk/">ddskk</a></dt>
-<dd>ちょっと変わった日本語入力 SKK の Emacs Lisp 版</dd>
-<dt><a href="/.emacs.d/basics/exec-path/">exec-path</a></dt>
-<dd>PATH などの環境変数を shell と合わせる設定</dd>
-<dt><a href="/.emacs.d/basics/font-config/">font-config</a></dt>
-<dd>フォントの設定</dd>
-<dt><a href="/.emacs.d/basics/load-path/">load-path</a></dt>
-<dd>Emacs Lisp が読み込める path の設定</dd>
-<dt><a href="/.emacs.d/basics/migemo/">migemo</a></dt>
-<dd>日本語入力オフのままローマ字で検索できるようにするやつ</dd>
-<dt><a href="/.emacs.d/basics/savehist/">savehist</a></dt>
-<dd>ミニバッファの履歴などを保存してくれる機能</dd>
-<dt><a href="/.emacs.d/basics/server/">server</a></dt>
-<dd>起動した Emacs がサーバとしても動くように設定している</dd>
-<dt><a href="/.emacs.d/basics/gcmh/">ガベージコレクション</a></dt>
-<dd>メモリの開放関係の設定</dd>
-<dt><a href="/.emacs.d/basics/load-libraries/">ライブラリの読み込み</a></dt>
-<dd>Emacs Lisp を書く上で便利なライブラリの読み込み</dd>
-</dl>
+<h2 id="概要">概要</h2>
+<p><a href="https://github.com/emacsorphanage/git-messenger">git-messenger</a> は指定した行のコミット時の情報を表示してくれるやつ簡単に最終コミットの情報を見るのに便利</p>
+<h2 id="インストール">インストール</h2>
+<p>git-messenger は el-get のレシピに登録されているのでそのまま <code>el-get-bundle</code> を使ってインストールできる</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle git-messenger)
+</span></span></code></pre></div><h2 id="設定">設定</h2>
+<p>デフォルトでは commit message だけを表示するがより詳細な情報を見たいので <code>git-messenger:show-detail</code> を t に設定してコミット日時や author も表示するようにしている</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-variables
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(git-messenger:show-detail <span style="color:#66d9ef">t</span>))
+</span></span></code></pre></div><p>magit を利用しているので <code>git-messenger:use-magit-popup</code> も有効にしても良いかもしれない</p>
+<h2 id="キーバインド">キーバインド</h2>
+<p>起動には <a href="/.emacs.d/ui/hydra/#main">pretty-hydra-usefull-commands</a> で <code>C</code> を叩くと起動するようにしている。</p>
+<p>起動後は、デフォルトでキーバインドが定義されているので
+<a href="https://github.com/emacsorphanage/git-messenger#key-bindings">https://github.com/emacsorphanage/git-messenger#key-bindings</a>
+の通りの操作ができる</p>
 
 
-
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -3000,6 +3004,8 @@
             
                 
                     
+                        
+                        
                     
                 
                 
@@ -3013,9 +3019,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -4379,6 +4382,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -4393,6 +4397,9 @@
             
                 
                     
+                        
+                        
+                    
                 
                 
 
@@ -4457,6 +4464,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -4472,6 +4480,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -4992,10 +5003,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/" title="麦汁&#39;s Emacs Config"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/external-tool/forge/" title="forge"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/basics/auth-source/" title="auth-source" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/external-tool/google-this/" title="google-this" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -5005,19 +5016,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1699075567"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1699075567"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1699075567"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1699075567"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1699075567"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1699075567"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1699075566"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1699075566"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1699075566"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1699075566"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1699075566"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1699075566"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1699075567"></script>
-    <script src="/.emacs.d/js/learn.js?1699075567"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1699075567"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1699075566"></script>
+    <script src="/.emacs.d/js/learn.js?1699075566"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1699075566"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1699075567"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1699075566"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
@@ -5027,3 +5038,4 @@
 
   </body>
 </html>
+
