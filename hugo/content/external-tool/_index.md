@@ -17,6 +17,9 @@ disableToc = true
 [forge]({{< relref "forge" >}})
 : [magit]({{< relref "magit" >}}) と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ
 
+[git-messenger]({{< relref "git-messenger" >}})
+: 現在の行の最終コミットの情報を表示してくれるパッケージ
+
 [google-this]({{< relref "google-this" >}})
 : Google 検索機能を提供してくれるパッケージ
 
