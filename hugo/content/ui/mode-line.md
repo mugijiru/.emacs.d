@@ -145,7 +145,7 @@ el-get のレシピは自前で用意している
        :pkgname "seagle0128/doom-modeline")
 ```
 
-依存している shrink-path と doom-modeline も自前でレシピを用意している
+依存している shrink-path と nerd-icons も自前でレシピを用意している
 
 ```emacs-lisp
 (:name shrink-path
@@ -197,6 +197,21 @@ doom-modeline で見た目をカッコよくしているのでこっちに設定
 ```emacs-lisp
 (display-battery-mode 1)
 ```
+
+
+### アイコン表示 {#アイコン表示}
+
+[nerd-icons](https://github.com/rainstormstudio/nerd-icons.el) に依存しているのでそれの設定もここに書いておく
+
+```emacs-lisp
+(el-get-bundle nerd-icons)
+(require 'nerd-icons)
+
+;; if nerd-icons are not installed, run M-x nerd-icons-install-fonts
+```
+
+`if nerd-icons are not installed, run M-x nerd-icons-install-fonts` と書いているように
+nerd-icons をインストールしていない場合は `nerd-icons-install-fonts` を叩いてインストールしてあげないといけない
 
 
 ### その他 {#その他}
