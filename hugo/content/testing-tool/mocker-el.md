@@ -31,3 +31,11 @@ el-get で GitHub から取得している。
 ```emacs-lisp
 (el-get-bundle mocker.el)
 ```
+
+
+## 副作用を伴う関数の扱い {#副作用を伴う関数の扱い}
+
+基本的に入出力を置き換えるためのものなので副作用が処理の主体になるような関数には向いてなさそう。
+
+ただ <https://github.com/sigma/mocker.el#examples> を見ていると
+`output-generator` で副作用と同じ処理を書いてやるなどの逃げ道はありそう

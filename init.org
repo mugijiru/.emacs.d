@@ -8875,7 +8875,6 @@ https://github.com/emacsorphanage/git-messenger#key-bindings
     自分のやりたいことはちょっと違ったので死蔵中
 
     便利そうなのでとりあえず置いといている。
-
 *** インストール
     :PROPERTIES:
     :ID:       a5c87aed-a0cb-430b-bda2-0bafc371640c
@@ -8897,6 +8896,12 @@ https://github.com/emacsorphanage/git-messenger#key-bindings
     (el-get-bundle mocker.el)
     #+end_src
 
+*** 副作用を伴う関数の扱い
+基本的に入出力を置き換えるためのものなので
+副作用が処理の主体になるような関数には向いてなさそう。
+
+ただ https://github.com/sigma/mocker.el#examples を見ていると
+~output-generator~ で副作用と同じ処理を書いてやるなどの逃げ道はありそう
 ** noflet
 :PROPERTIES:
 :EXPORT_FILE_NAME: noflet
