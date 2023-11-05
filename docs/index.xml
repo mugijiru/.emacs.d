@@ -70,7 +70,8 @@ emacs -Q --batch -l ~/.emacs.d/inits/test/*-test.el -l ~/.emacs.d/inits/test/run
 便利そうなのでとりあえず置いといている。
 インストール レシピを自前で用意して
 (:name mocker.el :type github :description &amp;#34;Mocker.el is a mocking framework for Emacs lisp.&amp;#34; :pkgname &amp;#34;sigma/mocker.el&amp;#34; :minimum-emacs-version (25 1)) el-get で GitHub から取得している。
-(el-get-bundle mocker.el) </description>
+(el-get-bundle mocker.el) 副作用を伴う関数の扱い 基本的に入出力を置き換えるためのものなので副作用が処理の主体になるような関数には向いてなさそう。
+ただ https://github.com/sigma/mocker.el#examples を見ていると output-generator で副作用と同じ処理を書いてやるなどの逃げ道はありそう</description>
     </item>
     
     <item>
@@ -1090,6 +1091,20 @@ https://github.com/mugijiru/.emacs.d/pull/183/files#r541843206
 (setq neo-theme (if (display-graphic-p) &amp;#39;icons &amp;#39;arrow)) のだけど、実際に今使ってるやつだともっとグラフィカルな表示なので all-the-icons の設定で上書きしている気がするので要確認
 major-mode-hydra いちいちキーバインドを覚えてられないので major-mode-hydra を使って主要なキーバインドは hydra で使えるようにしている。
 とはいえ、この文書を書く前日ぐらいに設定しているのでまだ使い慣れてないというか、ほとんど使えてない。</description>
+    </item>
+    
+    <item>
+      <title>noflet</title>
+      <link>https://mugijiru.github.io/.emacs.d/testing-tool/noflet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/testing-tool/noflet/</guid>
+      <description>概要 ローカル定義の関数を用意するためのパッケージ。
+ref: http://emacs.rubikitch.com/noflet/
+テストする際に副作用を持つ関数を置き換えるのに便利。例えば https://github.com/mugijiru/emacs-kibela/pull/14/commits/da54ad30473d65539efd884f30693e1d4707067b では noflet に差し替えてテストしている。
+mocker.el との使い分け mocker.el は関数を stub/mock するのには悪くないのだけどその関数が副作用を持っていて、その副作用の結果を反映した状態を実現するのには向いてなさそうなので emacs-kibela のテストでは noflet を採用したという経緯がある
+インストール noflet は el-get 本体の recipe として登録されているので el-get-bundle で入れるだけで良い
+(el-get-bundle noflet) </description>
     </item>
     
     <item>

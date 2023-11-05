@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>flyspell :: 麦汁&#39;s Emacs Config</title>
+    <title>noflet :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1699164056" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/editing/flyspell/">
+  <body class="" data-url="/.emacs.d/testing-tool/noflet/">
     <nav id="sidebar" class="">
 
 
@@ -622,7 +622,7 @@
   
     
     <li data-nav-id="/.emacs.d/editing/" title="ファイル編集/入力補助" class="dd-item
-        parent
+        
         
         
         ">
@@ -732,7 +732,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/editing/flyspell/" title="flyspell" class="dd-item active">
+      <li data-nav-id="/.emacs.d/editing/flyspell/" title="flyspell" class="dd-item ">
         <a href="/.emacs.d/editing/flyspell/">
         flyspell
         
@@ -2695,7 +2695,7 @@
   
     
     <li data-nav-id="/.emacs.d/testing-tool/" title="テスト用ツール" class="dd-item
-        
+        parent
         
         
         ">
@@ -2763,7 +2763,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/testing-tool/noflet/" title="noflet" class="dd-item ">
+      <li data-nav-id="/.emacs.d/testing-tool/noflet/" title="noflet" class="dd-item active">
         <a href="/.emacs.d/testing-tool/noflet/">
         noflet
         
@@ -2951,7 +2951,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/editing/'>ファイル編集/入力補助</a> > flyspell
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/testing-tool/'>テスト用ツール</a> > noflet
           
         
           
@@ -2966,10 +2966,12 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#概要">概要</a></li>
-    <li><a href="#hunspell-向けの設定">hunspell 向けの設定</a></li>
-    <li><a href="#incorrect-hook-の定義">incorrect-hook の定義</a></li>
-    <li><a href="#その他">その他</a></li>
+    <li><a href="#概要">概要</a>
+      <ul>
+        <li><a href="#mocker-dot-el-との使い分け">mocker.el との使い分け</a></li>
+      </ul>
+    </li>
+    <li><a href="#インストール">インストール</a></li>
   </ul>
 </nav>
     </div>
@@ -2987,7 +2989,7 @@
           
             <h1>
               
-              flyspell
+              noflet
             </h1>
           
 
@@ -2995,29 +2997,18 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="http://www-sop.inria.fr/members/Manuel.Serrano/flyspell/flyspell.html">flyspell</a> はスペルチェックをしてくれるパッケージです。
-Emacs 本体に組込まれているので、設定すれば素の Emacs でも使えます。</p>
-<h2 id="hunspell-向けの設定">hunspell 向けの設定</h2>
-<p>flyspell は外部のスペルチェックツールとやりとりをします。私は hunspell を使ってるので、それ向けに設定をしています。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; for hunspell</span>
-</span></span><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#34;ispell&#34;</span>
-</span></span><span style="display:flex;"><span>  (setenv <span style="color:#e6db74">&#34;DICTIONARY&#34;</span> <span style="color:#e6db74">&#34;en_US&#34;</span>)
-</span></span><span style="display:flex;"><span>  (add-to-list <span style="color:#e6db74">&#39;ispell-skip-region-alist</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;[^\000-\377]+&#34;</span>)))
-</span></span></code></pre></div><p>どうせ英語のスペルしかチェックしないので DICTIONARY には en_US を設定しています。また、日英が混在している文書でもスペルチェックが動くように
-<code>ispell-skip-region-alist</code> を設定しています</p>
-<p><a href="http://home.hatanaka.info/article/474728666.html">http://home.hatanaka.info/article/474728666.html</a>
-を参考にしていますが、まあ多分 ASCII 以外をシカトしているのかなこれは</p>
-<h2 id="incorrect-hook-の定義">incorrect-hook の定義</h2>
-<p>上の設定でも ASCII 以外を無視してそうだけどさらに <code>flyspell-incorrect-hook</code> で incorrect 判定するのを ASCII にのみ限定しています。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/flyspell-ignore-nonascii (beg end _info)
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;incorrect判定をASCIIに限定&#34;</span>
-</span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">string-match</span> <span style="color:#e6db74">&#34;[^!-~]&#34;</span> (<span style="color:#a6e22e">buffer-substring</span> beg end)))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;flyspell-incorrect-hook</span> <span style="color:#a6e22e">#&#39;</span>my/flyspell-ignore-nonascii)
-</span></span></code></pre></div><p>これは <a href="https://takaxp.github.io/init.html#orgdd65fc08">https://takaxp.github.io/init.html#orgdd65fc08</a> にある設定を持って来ています</p>
-<h2 id="その他">その他</h2>
-<p><code>flyspell-prog-mode</code> を使うと、文字列やコメントにのみ有効にできるようですがそのあたりはまだ試していません。</p>
-
+<p>ローカル定義の関数を用意するためのパッケージ。</p>
+<p>ref: <a href="http://emacs.rubikitch.com/noflet/">http://emacs.rubikitch.com/noflet/</a></p>
+<p>テストする際に副作用を持つ関数を置き換えるのに便利。例えば <a href="https://github.com/mugijiru/emacs-kibela/pull/14/commits/da54ad30473d65539efd884f30693e1d4707067b">https://github.com/mugijiru/emacs-kibela/pull/14/commits/da54ad30473d65539efd884f30693e1d4707067b</a>
+では noflet に差し替えてテストしている。</p>
+<h3 id="mocker-dot-el-との使い分け">mocker.el との使い分け</h3>
+<p><a href="/.emacs.d/testing-tool/mocker-el/">mocker.el</a> は関数を stub/mock するのには悪くないのだけどその関数が副作用を持っていて、その副作用の結果を反映した状態を実現するのには向いてなさそうなので
+emacs-kibela のテストでは noflet を採用したという経緯がある</p>
+<h2 id="インストール">インストール</h2>
+<p>noflet は el-get 本体の recipe として登録されているので
+<code>el-get-bundle</code> で入れるだけで良い</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle noflet)
+</span></span></code></pre></div>
 
 <footer class="footline">
 	
@@ -3425,7 +3416,6 @@ Emacs 本体に組込まれているので、設定すれば素の Emacs でも�
             
                 
                     
-                    
                 
                 
 
@@ -3438,9 +3428,6 @@ Emacs 本体に組込まれているので、設定すれば素の Emacs でも�
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -3506,7 +3493,6 @@ Emacs 本体に組込まれているので、設定すれば素の Emacs でも�
             
                 
                     
-                    
                 
                 
 
@@ -3522,9 +3508,6 @@ Emacs 本体に組込まれているので、設定すれば素の Emacs でも�
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -4953,6 +4936,7 @@ Emacs 本体に組込まれているので、設定すれば素の Emacs でも�
             
                 
                     
+                    
                 
                 
 
@@ -4965,6 +4949,9 @@ Emacs 本体に組込まれているので、設定すれば素の Emacs でも�
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -4998,6 +4985,7 @@ Emacs 本体に組込まれているので、設定すれば素の Emacs でも�
             
                 
                     
+                    
                 
                 
 
@@ -5016,6 +5004,9 @@ Emacs 本体に組込まれているので、設定すれば素の Emacs でも�
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -5085,10 +5076,10 @@ Emacs 本体に組込まれているので、設定すれば素の Emacs でも�
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/editing/emojify/" title="emojify"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/testing-tool/mocker-el/" title="mocker.el"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/editing/multiple-cursors/" title="multiple-cursors" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/testing/" title="テストコード" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

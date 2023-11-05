@@ -12,20 +12,20 @@
     <title>mocker.el :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1699089772" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1699089772" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1699089772" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1699089772" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1699089772" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1699089772" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1699089772" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1699089772" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1699089772" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1699089772" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1699164056" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1699164056" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1699164056" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1699164056" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1699164056" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1699164056" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1699164056" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1699164056" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1699164056" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1699164056" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1699089772"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1699164056"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1699089772"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1699089772"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1699164056"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1699164056"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1699089772"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1699164056"></script>
 
     
   </div>
@@ -2754,6 +2754,27 @@
 
             
           
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/testing-tool/noflet/" title="noflet" class="dd-item ">
+        <a href="/.emacs.d/testing-tool/noflet/">
+        noflet
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
         
         </ul>
       
@@ -2947,6 +2968,7 @@
   <ul>
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
+    <li><a href="#副作用を伴う関数の扱い">副作用を伴う関数の扱い</a></li>
   </ul>
 </nav>
     </div>
@@ -2990,7 +3012,11 @@
 </span></span><span style="display:flex;"><span>       :minimum-emacs-version (<span style="color:#ae81ff">25</span> <span style="color:#ae81ff">1</span>))
 </span></span></code></pre></div><p>el-get で GitHub から取得している。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle mocker.el)
-</span></span></code></pre></div>
+</span></span></code></pre></div><h2 id="副作用を伴う関数の扱い">副作用を伴う関数の扱い</h2>
+<p>基本的に入出力を置き換えるためのものなので副作用が処理の主体になるような関数には向いてなさそう。</p>
+<p>ただ <a href="https://github.com/sigma/mocker.el#examples">https://github.com/sigma/mocker.el#examples</a> を見ていると
+<code>output-generator</code> で副作用と同じ処理を書いてやるなどの逃げ道はありそう</p>
+
 
 <footer class="footline">
 	
@@ -4963,9 +4989,6 @@
             
         
                     
-            
-        
-                    
                         
             
             
@@ -4973,6 +4996,25 @@
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -5045,7 +5087,7 @@
 			<a class="nav nav-prev" href="/.emacs.d/testing-tool/with-simulated-input/" title="with-simulated-input"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/testing/" title="テストコード" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/testing-tool/noflet/" title="noflet" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -5055,19 +5097,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1699089772"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1699089772"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1699089772"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1699089772"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1699089772"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1699089772"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1699164056"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1699164056"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1699164056"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1699164056"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1699164056"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1699164056"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1699089772"></script>
-    <script src="/.emacs.d/js/learn.js?1699089772"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1699089772"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1699164056"></script>
+    <script src="/.emacs.d/js/learn.js?1699164056"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1699164056"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1699089772"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1699164056"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

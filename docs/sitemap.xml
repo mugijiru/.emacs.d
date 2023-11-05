@@ -178,6 +178,8 @@
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/ui/neotree/</loc>
   </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/testing-tool/noflet/</loc>
+  </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/external-tool/notify-slack/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/org-mode/org-journal/</loc>

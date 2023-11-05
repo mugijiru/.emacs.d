@@ -39,7 +39,7 @@
 	"title": "mocker.el",
 	"tags": ["unused"],
 	"description": "",
-	"content": "概要 mocker.el は Emacs Lisp のテストで使う Mock ライブラリ。\n使おうと思って導入したけど、自分のやりたいことはちょっと違ったので死蔵中\n便利そうなのでとりあえず置いといている。\nインストール レシピを自前で用意して\n(:name mocker.el :type github :description \u0026#34;Mocker.el is a mocking framework for Emacs lisp.\u0026#34; :pkgname \u0026#34;sigma/mocker.el\u0026#34; :minimum-emacs-version (25 1)) el-get で GitHub から取得している。\n(el-get-bundle mocker.el) "
+	"content": "概要 mocker.el は Emacs Lisp のテストで使う Mock ライブラリ。\n使おうと思って導入したけど、自分のやりたいことはちょっと違ったので死蔵中\n便利そうなのでとりあえず置いといている。\nインストール レシピを自前で用意して\n(:name mocker.el :type github :description \u0026#34;Mocker.el is a mocking framework for Emacs lisp.\u0026#34; :pkgname \u0026#34;sigma/mocker.el\u0026#34; :minimum-emacs-version (25 1)) el-get で GitHub から取得している。\n(el-get-bundle mocker.el) 副作用を伴う関数の扱い 基本的に入出力を置き換えるためのものなので副作用が処理の主体になるような関数には向いてなさそう。\nただ https://github.com/sigma/mocker.el#examples を見ていると output-generator で副作用と同じ処理を書いてやるなどの逃げ道はありそう\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/org-babel/",
@@ -179,7 +179,7 @@
 	"title": "テスト用ツール",
 	"tags": [],
 	"description": "",
-	"content": "自動テストを実行するにあたり、追加インストールしているパッケージをここに載せている\nwith-simulated-input 入力処理をシミュレートしてくれるパッケージ mocker.el Mock/Stub するためのパッケージ。まだ使ってない "
+	"content": "自動テストを実行するにあたり、追加インストールしているパッケージをここに載せている\nwith-simulated-input 入力処理をシミュレートしてくれるパッケージ mocker.el Mock/Stub するためのパッケージ。まだ使ってない noflet ローカル定義の関数を用意するためのパッケージ。副作用の結果を含めて関数を置き換えたい時に便利 "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/org-trello/",
@@ -614,6 +614,13 @@
 	"tags": ["replacement"],
 	"description": "",
 	"content": "概要 Neotree は Emacs でフォルダのツリー表示ができるやつ。メンテは活発じゃないようなので、その内乗り換えたい。\nレシピ Neotree でメンテされているのは dev ブランチだけど el-get の公式のレシピでは master ブランチを見ているので自前で recipe を用意してそれを使っている。\n(:name emacs-neotree-dev :website \u0026#34;https://github.com/jaypei/emacs-neotree\u0026#34; :description \u0026#34;An Emacs tree plugin like NerdTree for Vim.\u0026#34; :type github :branch \u0026#34;dev\u0026#34; :pkgname \u0026#34;jaypei/emacs-neotree\u0026#34;) インストール 上に書いたレシピを使ってインストールしている。\n(el-get-bundle emacs-neotree-dev) 使わなくなったコード 元々設定していたが、 counsel-projectile を使ってると projectile-switch-project-action を設定していても反映されず意味がないのに気付いたので使わなくなった\nhttps://github.com/mugijiru/.emacs.d/pull/183/files#r541843206\n(setq projectile-switch-project-action \u0026#39;neotree-projectile-action) テーマの設定 GUI で起動している時はアイコン表示しそうでない場合は ▾ とかで表示する\n(setq neo-theme (if (display-graphic-p) \u0026#39;icons \u0026#39;arrow)) のだけど、実際に今使ってるやつだともっとグラフィカルな表示なので all-the-icons の設定で上書きしている気がするので要確認\nmajor-mode-hydra いちいちキーバインドを覚えてられないので major-mode-hydra を使って主要なキーバインドは hydra で使えるようにしている。\nとはいえ、この文書を書く前日ぐらいに設定しているのでまだ使い慣れてないというか、ほとんど使えてない。\n(with-eval-after-load \u0026#39;major-mode-hydra (major-mode-hydra-define neotree-mode (:separator \u0026#34;-\u0026#34; :quit-key \u0026#34;q\u0026#34; :title (concat (all-the-icons-octicon \u0026#34;list-unordered\u0026#34;) \u0026#34; Neotree\u0026#34;)) (\u0026#34;Nav\u0026#34; ((\u0026#34;u\u0026#34; neotree-select-up-node \u0026#34;Up\u0026#34;) (\u0026#34;g\u0026#34; neotree-refresh \u0026#34;Refresh\u0026#34;) (\u0026#34;Q\u0026#34; neotree-hide \u0026#34;Hide\u0026#34;)) \u0026#34;File\u0026#34; ((\u0026#34;a\u0026#34; neo-open-file-ace-window \u0026#34;Ace\u0026#34;) (\u0026#34;N\u0026#34; neotree-create-node \u0026#34;Create\u0026#34;) (\u0026#34;R\u0026#34; neotree-rename-node \u0026#34;Rename\u0026#34;) (\u0026#34;C\u0026#34; neotree-copy-node \u0026#34;Copy\u0026#34;) (\u0026#34;D\u0026#34; neotree-delete-node \u0026#34;Delete\u0026#34;) (\u0026#34;SPC\u0026#34; neotree-quick-look \u0026#34;Look\u0026#34;) ;; (\u0026#34;d\u0026#34; neo-open-dired \u0026#34;Dired\u0026#34;) ;; (\u0026#34;O\u0026#34; neo-open-dir-recursive \u0026#34;Recursive\u0026#34;) ) \u0026#34;Toggle\u0026#34; ((\u0026#34;z\u0026#34; neotree-stretch-toggle \u0026#34;Size\u0026#34; :toggle (not (neo-window--minimize-p))) (\u0026#34;h\u0026#34; neotree-hidden-file-toggle \u0026#34;Hidden file\u0026#34; :toggle neo-buffer--show-hidden-file-p))))) キーバインド ナビゲーション Key 効果 u 上のノードに移動 g 再描画 Q Neotree を隠す ファイル操作 Key 効果 a ファイルを開く。その際に ace-window で開く window を指定する N 新しいノードを作る R ノードの名前を変える C ノードのコピー D ノードの削除 SPC クイックルック Toggle Key 効果 z Neotree のサイズを大きくしたり小さくしたり h 隠しファイルを表示したり隠したり "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/testing-tool/noflet/",
+	"title": "noflet",
+	"tags": [],
+	"description": "",
+	"content": "概要 ローカル定義の関数を用意するためのパッケージ。\nref: http://emacs.rubikitch.com/noflet/\nテストする際に副作用を持つ関数を置き換えるのに便利。例えば https://github.com/mugijiru/emacs-kibela/pull/14/commits/da54ad30473d65539efd884f30693e1d4707067b では noflet に差し替えてテストしている。\nmocker.el との使い分け mocker.el は関数を stub/mock するのには悪くないのだけどその関数が副作用を持っていて、その副作用の結果を反映した状態を実現するのには向いてなさそうなので emacs-kibela のテストでは noflet を採用したという経緯がある\nインストール noflet は el-get 本体の recipe として登録されているので el-get-bundle で入れるだけで良い\n(el-get-bundle noflet) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/external-tool/notify-slack/",
