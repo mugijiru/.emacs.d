@@ -72,7 +72,8 @@
       <guid>https://mugijiru.github.io/.emacs.d/ui/frame-cmds/</guid>
       <description>概要 frame-cmds は Emacs のフレーム操作に関するコマンド集。上下左右に移動したり広げたりといったことができる。いや、他にもできそうなんだけど、私がそれを把握してない。
 インストール とりあえず自前でレシピを用意している
-(:name frame-cmds :website &amp;#34;https://github.com/emacsmirror/frame-cmds&amp;#34; :description &amp;#34;Frame and window commands (interactive functions).&amp;#34; :type github :depends (frame-fns) :pkgname &amp;#34;emacsmirror/frame-cmds&amp;#34;) そして el-get-bundle でインストールしている
+(:name frame-cmds :website &amp;#34;https://github.com/emacsmirror/frame-cmds&amp;#34; :description &amp;#34;Frame and window commands (interactive functions).&amp;#34; :type github :depends (frame-fns) :pkgname &amp;#34;emacsmirror/frame-cmds&amp;#34;) また依存している frame-fns もレシピを用意している
+(:name frame-fns :website &amp;#34;https://github.com/emacsmirror/frame-fns&amp;#34; :description &amp;#34;Non-interactive frame and window functions.&amp;#34; :type github :pkgname &amp;#34;emacsmirror/frame-fns&amp;#34;) そして el-get-bundle でインストールしている
 (el-get-bundle frame-cmds) キーバインド 無論キーバインドは覚えられないので以下のように Hydra で定義している
 (pretty-hydra-define window-control-hydra (:separator &amp;#34;-&amp;#34; :title &amp;#34;Window Control&amp;#34; :exit nil :quit-key &amp;#34;q&amp;#34;) (&amp;#34;Move&amp;#34; ((&amp;#34;h&amp;#34; move-frame-left &amp;#34;Left&amp;#34;) (&amp;#34;j&amp;#34; move-frame-down &amp;#34;Down&amp;#34;) (&amp;#34;k&amp;#34; move-frame-up &amp;#34;Up&amp;#34;) (&amp;#34;l&amp;#34; move-frame-right &amp;#34;Right&amp;#34;)) &amp;#34;Resize&amp;#34; ((&amp;#34;H&amp;#34; shrink-frame-horizontally &amp;#34;H-&amp;#34;) (&amp;#34;J&amp;#34; enlarge-frame &amp;#34;V+&amp;#34;) (&amp;#34;K&amp;#34; shrink-frame &amp;#34;V-&amp;#34;) (&amp;#34;L&amp;#34; enlarge-frame-horizontally &amp;#34;H+&amp;#34;)))) Key 効果 h 左に移動 j 下に移動 k 上に移動 l 右いん移動 H 左右方向に縮める J 上下方向に広げる K 上下方向に縮める L 左右方向に広げる </description>
     </item>
