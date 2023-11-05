@@ -6145,6 +6145,40 @@ nerd-icons をインストールしていない場合は ~nerd-icons-install-fon
       :PROPERTIES:
       :ID:       2985a9f9-026f-40fb-98ff-a3cc0da4f93e
       :END:
+
+      el-get レシピは自前で用意している
+
+      #+begin_src emacs-lisp :tangle recipes/vue-mode.rcp
+        (:name vue-mode
+               :description "Major mode for vue component based on mmm-mode"
+               :type github
+               :pkgname "AdamNiederer/vue-mode"
+               :depends (ssass-mode mmm-mode edit-indirect vue-html-mode))
+      #+end_src
+
+      また、依存しているパッケージもいくつかレシピを自前で用意している
+
+      #+begin_src emacs-lisp :tangle recipes/vue-html-mode.rcp
+        (:name vue-html-mode
+               :description "Major mode for editing Vue.js templates"
+               :type github
+               :pkgname "AdamNiederer/vue-html-mode")
+      #+end_src
+
+      #+begin_src emacs-lisp :tangle recipes/edit-indirect.rcp
+        (:name edit-indirect
+               :description "Edit regions in separate buffers"
+               :type github
+               :pkgname "Fanael/edit-indirect")
+      #+end_src
+
+      #+begin_src emacs-lisp :tangle recipes/ssass-mode.rcp
+        (:name ssass-mode
+               :description "Edit Sass without a Turing Machine"
+               :type github
+               :pkgname "AdamNiederer/ssass-mode")
+      #+end_src
+
       いつも透り el-get で入れている
 
       #+begin_src emacs-lisp :tangle inits/41-vue.el

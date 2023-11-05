@@ -57,6 +57,39 @@ template, script, css 部分でそれぞれ別のメジャーモードが動く�
 
 #### インストール {#インストール}
 
+el-get レシピは自前で用意している
+
+```emacs-lisp
+(:name vue-mode
+       :description "Major mode for vue component based on mmm-mode"
+       :type github
+       :pkgname "AdamNiederer/vue-mode"
+       :depends (ssass-mode mmm-mode edit-indirect vue-html-mode))
+```
+
+また、依存しているパッケージもいくつかレシピを自前で用意している
+
+```emacs-lisp
+(:name vue-html-mode
+       :description "Major mode for editing Vue.js templates"
+       :type github
+       :pkgname "AdamNiederer/vue-html-mode")
+```
+
+```emacs-lisp
+(:name edit-indirect
+       :description "Edit regions in separate buffers"
+       :type github
+       :pkgname "Fanael/edit-indirect")
+```
+
+```emacs-lisp
+(:name ssass-mode
+       :description "Edit Sass without a Turing Machine"
+       :type github
+       :pkgname "AdamNiederer/ssass-mode")
+```
+
 いつも透り el-get で入れている
 
 ```emacs-lisp
