@@ -12,20 +12,20 @@
     <title>magit :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1699186184" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1699186184" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1699186184" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1699186184" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1699186184" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1699186184" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1699186184" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1699186184" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1699186184" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1699186184" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1699186929" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1699186929" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1699186929" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1699186929" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1699186929" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1699186929" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1699186929" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1699186929" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1699186929" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1699186929" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1699186184"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1699186929"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1699186184"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1699186184"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1699186929"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1699186929"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1699186184"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1699186929"></script>
 
     
   </div>
@@ -3000,12 +3000,20 @@
 <h2 id="インストール">インストール</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle magit)
 </span></span></code></pre></div><h2 id="その他設定">その他設定</h2>
-<p>ghub を load-path に入れないとうまくいかなかった時があったので入れてたり、
+<p>ghub を load-path に入れないとうまくいかなかった時があったので load-path に入れてたり、
 orgit を入れていたり</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;magit</span>
 </span></span><span style="display:flex;"><span>  (add-to-list <span style="color:#e6db74">&#39;load-path</span> (<span style="color:#a6e22e">expand-file-name</span> <span style="color:#e6db74">&#34;~/.emacs.d/el-get/ghub/lisp&#34;</span>)))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>(el-get-bundle orgit)
+</span></span></code></pre></div><p>なお orgit は recipe を自前で用意している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name orgit
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/magit/orgit&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Link to Magit buffers from Org documents.&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :branch <span style="color:#e6db74">&#34;main&#34;</span>
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;magit/orgit&#34;</span>
+</span></span><span style="display:flex;"><span>       :depends (compat magit org-mode))
 </span></span></code></pre></div><p>あと ghub は compat に依存するようになったのでとりあえず自前で recipe を用意している</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name ghub
 </span></span><span style="display:flex;"><span>       :type github
@@ -5105,19 +5113,19 @@ orgit を入れていたり</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1699186184"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1699186184"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1699186184"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1699186184"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1699186184"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1699186184"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1699186929"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1699186929"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1699186929"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1699186929"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1699186929"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1699186929"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1699186184"></script>
-    <script src="/.emacs.d/js/learn.js?1699186184"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1699186184"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1699186929"></script>
+    <script src="/.emacs.d/js/learn.js?1699186929"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1699186929"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1699186184"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1699186929"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
