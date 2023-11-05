@@ -6730,7 +6730,7 @@ https://github.com/emacsorphanage/git-messenger#key-bindings
     :ID:       77ca776f-8289-474b-a175-aabfd5569ee2
     :END:
 
-    ghub を load-path に入れないとうまくいかなかった時があったので入れてたり、
+    ghub を load-path に入れないとうまくいかなかった時があったので load-path に入れてたり、
     orgit を入れていたり
 
     #+begin_src emacs-lisp :tangle inits/35-magit.el
@@ -6738,6 +6738,18 @@ https://github.com/emacsorphanage/git-messenger#key-bindings
       (add-to-list 'load-path (expand-file-name "~/.emacs.d/el-get/ghub/lisp")))
 
     (el-get-bundle orgit)
+    #+end_src
+
+    なお orgit は recipe を自前で用意している
+
+    #+begin_src emacs-lisp :tangle recipes/orgit.rcp
+      (:name orgit
+             :website "https://github.com/magit/orgit"
+             :description "Link to Magit buffers from Org documents."
+             :type github
+             :branch "main"
+             :pkgname "magit/orgit"
+             :depends (compat magit org-mode))
     #+end_src
 
     あと ghub は compat に依存するようになったのでとりあえず自前で recipe を用意している
