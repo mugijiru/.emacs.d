@@ -2548,6 +2548,16 @@ http://home.hatanaka.info/article/474728666.html
              :pkgname "emacsmirror/frame-cmds")
     #+end_src
 
+    また依存している ~frame-fns~ もレシピを用意している
+
+    #+begin_src emacs-lisp :tangle recipes/frame-fns.rcp
+      (:name frame-fns
+       :website "https://github.com/emacsmirror/frame-fns"
+       :description "Non-interactive frame and window functions."
+       :type github
+       :pkgname "emacsmirror/frame-fns")
+    #+end_src
+
     そして ~el-get-bundle~ でインストールしている
 
     #+begin_src emacs-lisp :tangle inits/80-frame-cmds.el
