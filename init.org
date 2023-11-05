@@ -2537,7 +2537,18 @@ http://home.hatanaka.info/article/474728666.html
     :PROPERTIES:
     :ID:       562c0173-eb1d-4fb2-96f0-d08ba5f6ffaf
     :END:
-    el-get で以下のように書くと emacswiki からインストールされる。
+    とりあえず自前でレシピを用意している
+
+    #+begin_src emacs-lisp :tangle recipes/frame-cmds.rcp
+      (:name frame-cmds
+             :website "https://github.com/emacsmirror/frame-cmds"
+             :description "Frame and window commands (interactive functions)."
+             :type github
+             :depends (frame-fns)
+             :pkgname "emacsmirror/frame-cmds")
+    #+end_src
+
+    そして ~el-get-bundle~ でインストールしている
 
     #+begin_src emacs-lisp :tangle inits/80-frame-cmds.el
     (el-get-bundle frame-cmds)

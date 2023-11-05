@@ -10,7 +10,18 @@ draft = false
 
 ## インストール {#インストール}
 
-el-get で以下のように書くと emacswiki からインストールされる。
+とりあえず自前でレシピを用意している
+
+```emacs-lisp
+(:name frame-cmds
+       :website "https://github.com/emacsmirror/frame-cmds"
+       :description "Frame and window commands (interactive functions)."
+       :type github
+       :depends (frame-fns)
+       :pkgname "emacsmirror/frame-cmds")
+```
+
+そして `el-get-bundle` でインストールしている
 
 ```emacs-lisp
 (el-get-bundle frame-cmds)
