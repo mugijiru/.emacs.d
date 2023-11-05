@@ -23,7 +23,7 @@ Debug Adapter Protocol をサポートするモード。入れておいた方が
        :depends (bui dash f lsp-mode lsp-treemacs tree-mode posframe s lsp-docker))
 ```
 
-また依存している lsp-docker 用のレシピも用意している
+また依存している lsp-docker と tree-mode 用のレシピも用意している
 
 ```emacs-lisp
 (:name lsp-docker
@@ -32,6 +32,14 @@ Debug Adapter Protocol をサポートするモード。入れておいた方が
        :type github
        :pkgname "emacs-lsp/lsp-docker"
        :depends (dash lsp-mode f yaml ht))
+```
+
+```emacs-lisp
+(:name tree-mode
+       :website "https://github.com/emacsorphanage/tree-mode"
+       :description "A mode to manage tree widgets"
+       :type github
+       :pkgname "emacsorphanage/tree-mode")
 ```
 
 lsp-mode の仲間なので、本当はそっち側で入れるようにした方が良さそうだけどひとまず React のために入れているので React 用の設定ファイルに書いている。
