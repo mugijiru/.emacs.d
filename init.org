@@ -6190,6 +6190,14 @@ nerd-icons をインストールしていない場合は ~nerd-icons-install-fon
                :pkgname "AdamNiederer/ssass-mode")
       #+end_src
 
+      #+begin_src emacs-lisp :tangle recipes/mmm-mode.rcp
+        (:name mmm-mode
+               :description "Allow Multiple Major Modes in a buffer"
+               :type github
+               :pkgname "purcell/mmm-mode"
+               :depends (cl-lib))
+      #+end_src
+
       いつも透り el-get で入れている
 
       #+begin_src emacs-lisp :tangle inits/41-vue.el
