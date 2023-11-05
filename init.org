@@ -3681,6 +3681,17 @@ http://home.hatanaka.info/article/474728666.html
      (require 'diminish)
      #+end_src
 
+     なおレシピは自前で用意している
+
+     #+begin_src emacs-lisp :tangle recipes/diminish.rcp
+       (:name diminish
+              :description "An Emacs package that diminishes the amount of space taken on the mode line by the names of minor modes."
+              :type github
+              :url "https://github.com/emacsmirror/diminish"
+              :pkgname "emacsmirror/diminish"
+              :features diminish)
+     #+end_src
+
 **** マクロ定義
      :PROPERTIES:
      :ID:       ae80e8d0-f113-412b-a6cc-bea9b029ccb7

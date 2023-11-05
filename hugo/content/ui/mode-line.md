@@ -88,6 +88,17 @@ el-get-bundle で入れて require したら有効になる
 (require 'diminish)
 ```
 
+なおレシピは自前で用意している
+
+```emacs-lisp
+(:name diminish
+       :description "An Emacs package that diminishes the amount of space taken on the mode line by the names of minor modes."
+       :type github
+       :url "https://github.com/emacsmirror/diminish"
+       :pkgname "emacsmirror/diminish"
+       :features diminish)
+```
+
 
 ### マクロ定義 {#マクロ定義}
 
