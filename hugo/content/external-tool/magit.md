@@ -19,7 +19,7 @@ draft = false
 
 ## その他設定 {#その他設定}
 
-ghub を load-path に入れないとうまくいかなかった時があったので入れてたり、
+ghub を load-path に入れないとうまくいかなかった時があったので load-path に入れてたり、
 orgit を入れていたり
 
 ```emacs-lisp
@@ -27,6 +27,18 @@ orgit を入れていたり
   (add-to-list 'load-path (expand-file-name "~/.emacs.d/el-get/ghub/lisp")))
 
 (el-get-bundle orgit)
+```
+
+なお orgit は recipe を自前で用意している
+
+```emacs-lisp
+(:name orgit
+       :website "https://github.com/magit/orgit"
+       :description "Link to Magit buffers from Org documents."
+       :type github
+       :branch "main"
+       :pkgname "magit/orgit"
+       :depends (compat magit org-mode))
 ```
 
 あと ghub は compat に依存するようになったのでとりあえず自前で recipe を用意している
