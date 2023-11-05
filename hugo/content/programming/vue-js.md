@@ -90,6 +90,14 @@ el-get レシピは自前で用意している
        :pkgname "AdamNiederer/ssass-mode")
 ```
 
+```emacs-lisp
+(:name mmm-mode
+       :description "Allow Multiple Major Modes in a buffer"
+       :type github
+       :pkgname "purcell/mmm-mode"
+       :depends (cl-lib))
+```
+
 いつも透り el-get で入れている
 
 ```emacs-lisp
