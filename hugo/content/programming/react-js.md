@@ -23,6 +23,17 @@ Debug Adapter Protocol をサポートするモード。入れておいた方が
        :depends (bui dash f lsp-mode lsp-treemacs tree-mode posframe s lsp-docker))
 ```
 
+また依存している lsp-docker 用のレシピも用意している
+
+```emacs-lisp
+(:name lsp-docker
+       :description "lsp-mode uses lsp-docker to run language servers using in containers"
+       :website "https://github.com/emacs-lsp/lsp-docker"
+       :type github
+       :pkgname "emacs-lsp/lsp-docker"
+       :depends (dash lsp-mode f yaml ht))
+```
+
 lsp-mode の仲間なので、本当はそっち側で入れるようにした方が良さそうだけどひとまず React のために入れているので React 用の設定ファイルに書いている。
 
 ```emacs-lisp
