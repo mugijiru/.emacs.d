@@ -291,8 +291,8 @@ template には pug を、CSS には scss を使っている。
 &amp;lt;template lang=&amp;#39;pug&amp;#39;&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;script&amp;gt; export default { }; &amp;lt;/script&amp;gt; &amp;lt;style lang=&amp;#39;scss&amp;#39; scoped&amp;gt; &amp;lt;/style&amp;gt; テンプレートを適用可能にする .vue という拡張子のファイルを新規作成する時には上で定義したテンプレートが自動的に挿入されるようにする。
 (define-auto-insert &amp;#34;\\.vue$&amp;#34; &amp;#34;template.vue&amp;#34;) パッケージのインストール ここでは Vue.js 開発に使っている関連パッケージを入れている。
 vue-mode vue-mode は mmm-mode をベースにして作られた Vue.js の単一ファイルコンポーネント用のモード。 mmm-mode ベースなので template, script, css 部分でそれぞれ別のメジャーモードが動くようになっている。
-インストール いつも透り el-get で入れている
-(el-get-bundle vue-mode) 備考 あまり更新は活発でなく微妙な挙動もあるので mmm-mode に乗り換えたり web-mode を使うようにしている人も多い様子。</description>
+インストール el-get レシピは自前で用意している
+(:name vue-mode :description &amp;#34;Major mode for vue component based on mmm-mode&amp;#34; :type github :pkgname &amp;#34;AdamNiederer/vue-mode&amp;#34; :depends (ssass-mode mmm-mode edit-indirect vue-html-mode)) また、依存しているパッケージもいくつかレシピを自前で用意している</description>
     </item>
     
     <item>
