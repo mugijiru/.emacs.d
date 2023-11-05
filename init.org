@@ -8813,7 +8813,7 @@ https://github.com/emacsorphanage/git-messenger#key-bindings
 
    - [[*with-simulated-input][with-simulated-input]] :: 入力処理をシミュレートしてくれるパッケージ
    - [[*mocker.el][mocker.el]] :: Mock/Stub するためのパッケージ。まだ使ってない
-
+   - [[id:2c7b3440-702b-4131-9d77-251107f1098e][noflet]] :: ローカル定義の関数を用意するためのパッケージ。副作用の結果を含めて関数を置き換えたい時に便利
 ** with-simulated-input
    :PROPERTIES:
    :EXPORT_FILE_NAME: with-simulated-input
@@ -8866,8 +8866,8 @@ https://github.com/emacsorphanage/git-messenger#key-bindings
    :PROPERTIES:
    :EXPORT_FILE_NAME: mocker-el
    :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :weight 2
+   :ID:       446d14ce-7180-4caa-ba1c-49b8a6e48e45
    :END:
-
 *** 概要
     [[https://github.com/sigma/mocker.el][mocker.el]] は Emacs Lisp のテストで使う Mock ライブラリ。
 
@@ -8897,6 +8897,30 @@ https://github.com/emacsorphanage/git-messenger#key-bindings
     (el-get-bundle mocker.el)
     #+end_src
 
+** noflet
+:PROPERTIES:
+:EXPORT_FILE_NAME: noflet
+:ID:       2c7b3440-702b-4131-9d77-251107f1098e
+:END:
+*** 概要
+ローカル定義の関数を用意するためのパッケージ。
+
+ref: http://emacs.rubikitch.com/noflet/
+
+テストする際に副作用を持つ関数を置き換えるのに便利。
+例えば https://github.com/mugijiru/emacs-kibela/pull/14/commits/da54ad30473d65539efd884f30693e1d4707067b
+では noflet に差し替えてテストしている。
+**** mocker.el との使い分け
+[[id:446d14ce-7180-4caa-ba1c-49b8a6e48e45][mocker.el]] は関数を stub/mock するのには悪くないのだけど
+その関数が副作用を持っていて、その副作用の結果を反映した状態を実現するのには向いてなさそうなので
+emacs-kibela のテストでは noflet を採用したという経緯がある
+*** インストール
+noflet は el-get 本体の recipe として登録されているので
+~el-get-bundle~ で入れるだけで良い
+
+#+begin_src emacs-lisp :tangle inits/99-noflet.el
+  (el-get-bundle noflet)
+#+end_src
 * テストコード
   :PROPERTIES:
   :EXPORT_HUGO_SECTION: testing
