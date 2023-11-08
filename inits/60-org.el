@@ -10,6 +10,9 @@
 (setq org-log-done 'time)
 (setq org-log-into-drawer "LOGBOOK")
 
+(custom-set-variables
+  '(org-complete-tags-always-offer-all-agenda-tags t))
+
 (with-eval-after-load 'org
   (require 'org-protocol)
   (add-to-list 'org-modules 'org-protocol)
@@ -59,15 +62,18 @@
     (add-hook 'org-shiftdown-final-hook 'windmove-down)
     (add-hook 'org-shiftright-final-hook 'windmove-right)))
 
-(add-hook 'org-mode-hook
-          (lambda ()
-            (my/org-mode-map-override-windmove-mode-map)
+(defun my/org-mode-hook ()
+  (my/org-mode-map-override-windmove-mode-map)
 
-            ;; http://yitang.uk/2022/07/05/move-between-window-using-builtin-package/
-            (define-key org-read-date-minibuffer-local-map (kbd "<left>") (lambda () (interactive) (org-eval-in-calendar '(calendar-backward-day 1))))
-            (define-key org-read-date-minibuffer-local-map (kbd "<right>") (lambda () (interactive) (org-eval-in-calendar '(calendar-forward-day 1))))
-            (define-key org-read-date-minibuffer-local-map (kbd "<up>") (lambda () (interactive) (org-eval-in-calendar '(calendar-backward-week 1))))
-            (define-key org-read-date-minibuffer-local-map (kbd "<down>") (lambda () (interactive) (org-eval-in-calendar '(calendar-forward-week 1))))))
+  (define-key org-mode-map [remap org-set-tags-command] #'counsel-org-tag)
+
+  ;; http://yitang.uk/2022/07/05/move-between-window-using-builtin-package/
+  (define-key org-read-date-minibuffer-local-map (kbd "<left>") (lambda () (interactive) (org-eval-in-calendar '(calendar-backward-day 1))))
+  (define-key org-read-date-minibuffer-local-map (kbd "<right>") (lambda () (interactive) (org-eval-in-calendar '(calendar-forward-day 1))))
+  (define-key org-read-date-minibuffer-local-map (kbd "<up>") (lambda () (interactive) (org-eval-in-calendar '(calendar-backward-week 1))))
+  (define-key org-read-date-minibuffer-local-map (kbd "<down>") (lambda () (interactive) (org-eval-in-calendar '(calendar-forward-week 1)))))
+
+(add-hook 'org-mode-hook 'my/org-mode-hook)
 
 (with-eval-after-load 'org-mode
   (my/org-mode-map-override-windmove-mode-map))
