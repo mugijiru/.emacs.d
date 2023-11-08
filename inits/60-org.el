@@ -10,6 +10,9 @@
 (setq org-log-done 'time)
 (setq org-log-into-drawer "LOGBOOK")
 
+(custom-set-variables
+  '(org-complete-tags-always-offer-all-agenda-tags t))
+
 (with-eval-after-load 'org
   (require 'org-protocol)
   (add-to-list 'org-modules 'org-protocol)
