@@ -163,7 +163,7 @@
         (google-translate :checksum "e60dd6eeb9cdb931d9d8bfbefc29a48ef9a21bd9")
         (el-get :checksum "a5ba5852648a90ee0cde9fb5d72e69497d260eec")
         (dashboard :checksum "9c8b0cce865e34340c6d435253f6a3aed3b3ace5")
-        (page-break-lines :checksum "5e9ed86bb56fd076b12ae7adaf40eeaa09aed4c5")
+        (page-break-lines :checksum "f4568ccba7cc5dc63c82ded1fdb52c6161c15a62")
         (org-trello :checksum "fc63ed580101e6160edfb6f43215fb3200ce1ea7")
         (undo-fu :checksum "0e74116fd5c7797811a91ba4eadef50d67523eb6")
         (emacs-todoist :checksum "e1d1b602430f7a5bb84f9b52d96fe552def9ed3d")))
