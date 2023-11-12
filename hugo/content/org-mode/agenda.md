@@ -255,6 +255,15 @@ nil にして表示しないようにしている。
     (tags-todo "LEVEL=2&CATEGORY=\"Private\"" ((org-agenda-overriding-header "Private タスク")
                                                (org-agenda-overriding-columns-format "%25ITEM %TODO")
                                                (org-agenda-files `(,(concat org-directory "tasks/projects.org")))))))
+
+  ("pC" "Category auto"
+   ((tags-todo "LEVEL=2" ((org-agenda-overriding-header "Categories")
+                          (org-agenda-files `(,(concat org-directory "tasks/projects.org")))
+                          (org-super-agenda-groups '((:auto-category t)))))))
+  ("pg" "Agenda groups"
+   ((tags-todo "LEVEL=2" ((org-agenda-overriding-header "Categories")
+                          (org-agenda-files `(,(concat org-directory "tasks/projects.org")))
+                          (org-super-agenda-groups '((:auto-group t)))))))
   ("pp" "Projects"
    ((tags-todo "LEVEL=2" ((org-agenda-prefix-format " ")
                           (org-agenda-overriding-header "今日のタスク")
