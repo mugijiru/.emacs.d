@@ -41,7 +41,7 @@
    ((agenda "会議など"
             ((org-agenda-span 'day)
              (org-agenda-files my/org-agenda-calendar-files)))
-    (tags-todo "-Weekday-Daily-Holiday-Weekly-Weekend&LEVEL=2"
+    (tags-todo "-Weekday-Daily-Holiday-Weekly-Weekend"
                ((org-agenda-prefix-format " ")
                 (org-agenda-overriding-header "今日の作業")
                 (org-habit-show-habits nil)
@@ -50,9 +50,11 @@
                 (org-agenda-files '("~/Documents/org/tasks/next-actions.org"
                                     "~/Documents/org/journal/"
                                     "~/Documents/org/tasks/reviews.org"))
-                (org-super-agenda-groups '((:name "仕掛かり中" :todo "DOING")
-                                           (:name "TODO" :and (:todo "TODO" :not (:category "レビュー")))
-                                           (:name "待ち" :todo "WAIT")
+                (org-super-agenda-groups '((:name "仕掛かり中" :todo "DOING" :property ("agenda-group" "journal-task"))
+                                           (:name "TODO" :and (:todo "TODO" :property ("agenda-group" "journal-task")))
+                                           (:name "レビュー中" :todo "DOING" :category "レビュー")
+                                           (:name "レビュー待ち" :todo "WAIT" :property ("agenda-group" "journal-task"))
+                                           (:name "修正待ち" :todo "WAIT" :category "レビュー")
                                            (:discard (:anything t))))))
     (alltodo ""
                ((org-agenda-prefix-format " ")
