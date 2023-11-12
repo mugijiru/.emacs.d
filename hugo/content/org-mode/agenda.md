@@ -159,7 +159,6 @@ nil にして表示しないようにしている。
                 (org-habit-show-habits nil)
                 (org-agenda-span 'day)
                 (org-agenda-todo-keyword-format "-")
-                (org-overriding-columns-format "%25ITEM %TODO")
                 (org-agenda-files '("~/Documents/org/tasks/next-actions.org"
                                     "~/Documents/org/journal/"
                                     "~/Documents/org/tasks/reviews.org"))
@@ -173,7 +172,6 @@ nil にして表示しないようにしている。
                 (org-habit-show-habits nil)
                 (org-agenda-span 'day)
                 (org-agenda-todo-keyword-format "-")
-                (org-overriding-columns-format "%25ITEM %TODO")
                 (org-agenda-files '("~/Documents/org/tasks/projects.org"))
                 (org-super-agenda-groups `((:name "〆切が過ぎてる作業" :and (:deadline past :not (:category "Private")))
                                            (:name "予定が過ぎてる作業" :and (:scheduled past :not (:category "Private")))
@@ -198,7 +196,6 @@ nil にして表示しないようにしている。
                 (org-habit-show-habits nil)
                 (org-agenda-span 'day)
                 (org-agenda-todo-keyword-format "-")
-                (org-overriding-columns-format "%25ITEM %TODO")
                 (org-agenda-files '("~/Documents/org/tasks/next-actions.org" "~/Documents/org/journal/"))
                 (org-super-agenda-groups '((:name "仕掛かり中" :and (:todo "DOING" :not (:category "レビュー") :not (:category "開発")))
                                            (:name "TODO" :and (:todo "TODO" :not (:category "レビュー") :not (:category "開発")))
@@ -210,7 +207,6 @@ nil にして表示しないようにしている。
                 (org-habit-show-habits nil)
                 (org-agenda-span 'day)
                 (org-agenda-todo-keyword-format "-")
-                (org-overriding-columns-format "%25ITEM %TODO")
                 (org-agenda-files '("~/Documents/org/tasks/projects.org"))
                 (org-super-agenda-groups `((:name "〆切が過ぎてる作業" :and (:deadline past :category "Private"))
                                            (:name "予定が過ぎてる作業" :and (:scheduled past :category "Private"))
@@ -243,7 +239,6 @@ nil にして表示しないようにしている。
                           (org-habit-show-habits nil)
                           (org-agenda-span 'day)
                           (org-agenda-todo-keyword-format "-")
-                          (org-overriding-columns-format "%25ITEM %TODO")
                           (org-agenda-files '("~/Documents/org/tasks/next-actions.org" "~/Documents/org/journal/"))
                           (org-super-agenda-groups (append
                                                     (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
@@ -254,7 +249,6 @@ nil にして表示しないようにしている。
                           (org-habit-show-habits nil)
                           (org-agenda-span 'day)
                           (org-agenda-todo-keyword-format "-")
-                          (org-overriding-columns-format "%25ITEM %TODO")
                           (org-agenda-files '("~/Documents/org/tasks/projects.org"))
                           (org-super-agenda-groups '((:name "〆切が過ぎてる作業" :deadline past)
                                                      (:name "予定が過ぎてる作業" :scheduled past)
@@ -272,7 +266,6 @@ nil にして表示しないようにしている。
                  (org-habit-show-habits nil)
                  (org-agenda-span 'day)
                  (org-agenda-todo-keyword-format "-")
-                 (org-overriding-columns-format "%25ITEM %TODO")
                  (org-agenda-files '("~/Documents/org/tasks/next-actions.org" "~/Documents/org/journal/"))
                  (org-super-agenda-groups (append
                                            (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
@@ -283,7 +276,6 @@ nil にして表示しないようにしている。
                  (org-habit-show-habits nil)
                  (org-agenda-span 'day)
                  (org-agenda-todo-keyword-format "-")
-                 (org-overriding-columns-format "%25ITEM %TODO")
                  (org-agenda-files '("~/Documents/org/tasks/projects.org"))
                  (org-super-agenda-groups '((:name "〆切が過ぎてる作業" :deadline past)
                                             (:name "予定が過ぎてる作業" :scheduled past)
@@ -321,7 +313,6 @@ nil にして表示しないようにしている。
                   (org-habit-show-habits nil)
                   (org-agenda-span 'day)
                   (org-agenda-todo-keyword-format "-")
-                  ;; (org-overriding-columns-format "%25ITEM %TODO %CATEGORY")
                   (org-columns-default-format-for-agenda "%25ITEM %TODO %3PRIORITY")
                   (org-agenda-files '("~/Documents/org/tasks/next-actions.org" "~/Documents/org/journal/"))
                   (org-super-agenda-groups (append
@@ -332,7 +323,6 @@ nil にして表示しないようにしている。
                  (org-habit-show-habits nil)
                  (org-agenda-span 'day)
                  (org-agenda-todo-keyword-format "-")
-                 (org-overriding-columns-format "%25ITEM %TODO")
                  (org-agenda-files '("~/Documents/org/tasks/next-actions.org" "~/Documents/org/journal/"))
                  (org-super-agenda-groups (append
                                            (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
