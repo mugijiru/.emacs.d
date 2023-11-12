@@ -121,6 +121,37 @@
   ("p" . "Projects")
   ("pA" "Projects Priority A"
    ((tags-todo "LEVEL=2&PRIORITY=\"A\"" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
+  ("pc" "Category"
+   ((tags-todo "LEVEL=2&CATEGORY=\"Work\"" ((org-agenda-overriding-header "お仕事タスク")
+                                            (org-agenda-overriding-columns-format "%25ITEM %TODO")
+                                            (org-agenda-files `(,(concat org-directory "tasks/projects.org")))))
+    (tags-todo "LEVEL=2&CATEGORY=\"Housework\"" ((org-agenda-overriding-header "家事")
+                                                 (org-agenda-overriding-columns-format "%25ITEM %TODO")
+                                                 (org-agenda-files `(,(concat org-directory "tasks/projects.org")))))
+    (tags-todo "LEVEL=2&CATEGORY=\"Config\"" ((org-agenda-overriding-header "設定弄り")
+                                              (org-agenda-overriding-columns-format "%25ITEM %TODO")
+                                              (org-agenda-files `(,(concat org-directory "tasks/projects.org")))))
+    (tags-todo "LEVEL=2&CATEGORY=\"Research\"" ((org-agenda-overriding-header "調査")
+                                                (org-agenda-overriding-columns-format "%25ITEM %TODO")
+                                                (org-agenda-files `(,(concat org-directory "tasks/projects.org")))))
+    (tags-todo "LEVEL=2&CATEGORY=\"Indie hack\"" ((org-agenda-overriding-header "個人開発")
+                                                  (org-agenda-overriding-columns-format "%25ITEM %TODO")
+                                                  (org-agenda-files `(,(concat org-directory "tasks/projects.org")))))
+    (tags-todo "LEVEL=2&CATEGORY=\"Hoby\"" ((org-agenda-overriding-header "趣味関係")
+                                            (org-agenda-overriding-columns-format "%25ITEM %TODO")
+                                            (org-agenda-files `(,(concat org-directory "tasks/projects.org")))))
+    (tags-todo "LEVEL=2&CATEGORY=\"Private\"" ((org-agenda-overriding-header "Private タスク")
+                                               (org-agenda-overriding-columns-format "%25ITEM %TODO")
+                                               (org-agenda-files `(,(concat org-directory "tasks/projects.org")))))))
+
+  ("pC" "Category auto"
+   ((tags-todo "LEVEL=2" ((org-agenda-overriding-header "Categories")
+                          (org-agenda-files `(,(concat org-directory "tasks/projects.org")))
+                          (org-super-agenda-groups '((:auto-category t)))))))
+  ("pg" "Agenda groups"
+   ((tags-todo "LEVEL=2" ((org-agenda-overriding-header "Categories")
+                          (org-agenda-files `(,(concat org-directory "tasks/projects.org")))
+                          (org-super-agenda-groups '((:auto-group t)))))))
   ("pp" "Projects"
    ((tags-todo "LEVEL=2" ((org-agenda-prefix-format " ")
                           (org-agenda-overriding-header "今日のタスク")
