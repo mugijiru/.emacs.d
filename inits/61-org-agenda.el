@@ -46,6 +46,7 @@
                 (org-agenda-overriding-header "今日の作業")
                 (org-habit-show-habits nil)
                 (org-agenda-span 'day)
+                (org-agenda-prefix-format "  %c: ")
                 (org-agenda-files '("~/Documents/org/tasks/next-actions.org"
                                     "~/Documents/org/journal/"
                                     "~/Documents/org/tasks/reviews.org"))
@@ -58,6 +59,7 @@
                 (org-agenda-overriding-header "予定業務")
                 (org-habit-show-habits nil)
                 (org-agenda-span 'day)
+                (org-agenda-prefix-format "  %c: ")
                 (org-agenda-files '("~/Documents/org/tasks/projects.org"))
                 (org-super-agenda-groups `((:name "〆切が過ぎてる作業" :and (:deadline past   :property ("agenda-group" "1. Work")))
                                            (:name "予定が過ぎてる作業" :and (:scheduled past  :property ("agenda-group" "1. Work")))
