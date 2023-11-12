@@ -12,20 +12,20 @@
     <title>Agenda 関係の設定 :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1699755685" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1699755685" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1699755685" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1699755685" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1699755685" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1699755685" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1699755685" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1699755685" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1699755685" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1699755685" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1699756003" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1699756003" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1699756003" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1699756003" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1699756003" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1699756003" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1699756003" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1699756003" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1699756003" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1699756003" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1699755685"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1699756003"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1699755685"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1699755685"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1699756003"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1699756003"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1699755685"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1699756003"></script>
 
     
   </div>
@@ -3238,6 +3238,37 @@ nil にして表示しないようにしている。</p>
 </span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;p&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;Projects&#34;</span>)
 </span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;pA&#34;</span> <span style="color:#e6db74">&#34;Projects Priority A&#34;</span>
 </span></span><span style="display:flex;"><span>   ((tags-todo <span style="color:#e6db74">&#34;LEVEL=2&amp;PRIORITY=\&#34;A\&#34;&#34;</span> ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))))))
+</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;pc&#34;</span> <span style="color:#e6db74">&#34;Category&#34;</span>
+</span></span><span style="display:flex;"><span>   ((tags-todo <span style="color:#e6db74">&#34;LEVEL=2&amp;CATEGORY=\&#34;Work\&#34;&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;お仕事タスク&#34;</span>)
+</span></span><span style="display:flex;"><span>                                            (org-agenda-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
+</span></span><span style="display:flex;"><span>                                            (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))))
+</span></span><span style="display:flex;"><span>    (tags-todo <span style="color:#e6db74">&#34;LEVEL=2&amp;CATEGORY=\&#34;Housework\&#34;&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;家事&#34;</span>)
+</span></span><span style="display:flex;"><span>                                                 (org-agenda-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
+</span></span><span style="display:flex;"><span>                                                 (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))))
+</span></span><span style="display:flex;"><span>    (tags-todo <span style="color:#e6db74">&#34;LEVEL=2&amp;CATEGORY=\&#34;Config\&#34;&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;設定弄り&#34;</span>)
+</span></span><span style="display:flex;"><span>                                              (org-agenda-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
+</span></span><span style="display:flex;"><span>                                              (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))))
+</span></span><span style="display:flex;"><span>    (tags-todo <span style="color:#e6db74">&#34;LEVEL=2&amp;CATEGORY=\&#34;Research\&#34;&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;調査&#34;</span>)
+</span></span><span style="display:flex;"><span>                                                (org-agenda-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
+</span></span><span style="display:flex;"><span>                                                (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))))
+</span></span><span style="display:flex;"><span>    (tags-todo <span style="color:#e6db74">&#34;LEVEL=2&amp;CATEGORY=\&#34;Indie hack\&#34;&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;個人開発&#34;</span>)
+</span></span><span style="display:flex;"><span>                                                  (org-agenda-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
+</span></span><span style="display:flex;"><span>                                                  (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))))
+</span></span><span style="display:flex;"><span>    (tags-todo <span style="color:#e6db74">&#34;LEVEL=2&amp;CATEGORY=\&#34;Hoby\&#34;&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;趣味関係&#34;</span>)
+</span></span><span style="display:flex;"><span>                                            (org-agenda-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
+</span></span><span style="display:flex;"><span>                                            (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))))
+</span></span><span style="display:flex;"><span>    (tags-todo <span style="color:#e6db74">&#34;LEVEL=2&amp;CATEGORY=\&#34;Private\&#34;&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;Private タスク&#34;</span>)
+</span></span><span style="display:flex;"><span>                                               (org-agenda-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
+</span></span><span style="display:flex;"><span>                                               (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))))))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;pC&#34;</span> <span style="color:#e6db74">&#34;Category auto&#34;</span>
+</span></span><span style="display:flex;"><span>   ((tags-todo <span style="color:#e6db74">&#34;LEVEL=2&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;Categories&#34;</span>)
+</span></span><span style="display:flex;"><span>                          (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))
+</span></span><span style="display:flex;"><span>                          (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:auto-category <span style="color:#66d9ef">t</span>)))))))
+</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;pg&#34;</span> <span style="color:#e6db74">&#34;Agenda groups&#34;</span>
+</span></span><span style="display:flex;"><span>   ((tags-todo <span style="color:#e6db74">&#34;LEVEL=2&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;Categories&#34;</span>)
+</span></span><span style="display:flex;"><span>                          (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))
+</span></span><span style="display:flex;"><span>                          (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:auto-group <span style="color:#66d9ef">t</span>)))))))
 </span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;pp&#34;</span> <span style="color:#e6db74">&#34;Projects&#34;</span>
 </span></span><span style="display:flex;"><span>   ((tags-todo <span style="color:#e6db74">&#34;LEVEL=2&#34;</span> ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
 </span></span><span style="display:flex;"><span>                          (org-agenda-overriding-header <span style="color:#e6db74">&#34;今日のタスク&#34;</span>)
@@ -5428,19 +5459,19 @@ nil にして表示しないようにしている。</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1699755685"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1699755685"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1699755685"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1699755685"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1699755685"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1699755685"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1699756003"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1699756003"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1699756003"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1699756003"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1699756003"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1699756003"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1699755685"></script>
-    <script src="/.emacs.d/js/learn.js?1699755685"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1699755685"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1699756003"></script>
+    <script src="/.emacs.d/js/learn.js?1699756003"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1699756003"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1699755685"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1699756003"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
