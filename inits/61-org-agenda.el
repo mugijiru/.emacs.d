@@ -85,9 +85,9 @@
                 (org-agenda-span 'day)
                 (org-agenda-todo-keyword-format "-")
                 (org-agenda-files '("~/Documents/org/tasks/next-actions.org" "~/Documents/org/journal/"))
-                (org-super-agenda-groups '((:name "仕掛かり中" :and (:todo "DOING" :not (:category "レビュー") :not (:category "開発")))
-                                           (:name "TODO"       :and (:todo "TODO"  :not (:category "レビュー") :not (:category "開発")))
-                                           (:name "待ち"       :and (:todo "WAIT"  :not (:category "レビュー") :not (:category "開発")))
+                (org-super-agenda-groups '((:name "仕掛かり中" :and (:todo "DOING" :not (:category "開発")))
+                                           (:name "TODO"       :and (:todo "TODO"  :not (:category "開発")))
+                                           (:name "待ち"       :and (:todo "WAIT"  :not (:category "開発")))
                                            (:discard (:anything t))))))
     (alltodo ""
                ((org-agenda-prefix-format " ")
