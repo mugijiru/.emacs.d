@@ -153,34 +153,36 @@ nil にして表示しないようにしている。
    ((agenda "会議など"
             ((org-agenda-span 'day)
              (org-agenda-files my/org-agenda-calendar-files)))
-    (tags-todo "-Weekday-Daily-Holiday-Weekly-Weekend&LEVEL=2"
+    (tags-todo "-Weekday-Daily-Holiday-Weekly-Weekend"
                ((org-agenda-prefix-format " ")
                 (org-agenda-overriding-header "今日の作業")
                 (org-habit-show-habits nil)
                 (org-agenda-span 'day)
-                (org-agenda-todo-keyword-format "-")
+                (org-agenda-prefix-format "  %c: ")
                 (org-agenda-files '("~/Documents/org/tasks/next-actions.org"
                                     "~/Documents/org/journal/"
                                     "~/Documents/org/tasks/reviews.org"))
-                (org-super-agenda-groups '((:name "仕掛かり中" :todo "DOING")
-                                           (:name "TODO" :and (:todo "TODO" :not (:category "レビュー")))
-                                           (:name "待ち" :todo "WAIT")
+                (org-super-agenda-groups '((:name "仕掛かり中" :todo "DOING" :property ("agenda-group" "journal-task"))
+                                           (:name "TODO" :and (:todo "TODO" :property ("agenda-group" "journal-task")))
+                                           (:name "レビュー中" :todo "DOING" :category "レビュー")
+                                           (:name "レビュー待ち" :todo "WAIT" :property ("agenda-group" "journal-task"))
+                                           (:name "修正待ち" :todo "WAIT" :category "レビュー")
                                            (:discard (:anything t))))))
     (alltodo ""
                ((org-agenda-prefix-format " ")
-                (org-agenda-overriding-header "予定作業")
+                (org-agenda-overriding-header "予定業務")
                 (org-habit-show-habits nil)
                 (org-agenda-span 'day)
-                (org-agenda-todo-keyword-format "-")
+                (org-agenda-prefix-format "  %c: ")
                 (org-agenda-files '("~/Documents/org/tasks/projects.org"))
-                (org-super-agenda-groups `((:name "〆切が過ぎてる作業" :and (:deadline past :not (:category "Private")))
-                                           (:name "予定が過ぎてる作業" :and (:scheduled past :not (:category "Private")))
-                                           (:name "今日〆切の作業" :and (:deadline today :not (:category "Private")))
-                                           (:name "今日予定の作業" :and (:scheduled today :not (:category "Private")))
-                                           (:name "今後1週間の作業" :and (:and
-                                                                          (:scheduled (before ,(format-time-string "%Y-%m-%d" (time-add (current-time) (days-to-time 7))))
-                                                                                      :scheduled (after ,(format-time-string "%Y-%m-%d" (current-time))))
-                                                                          :not (:category "Private")))
+                (org-super-agenda-groups `((:name "〆切が過ぎてる作業" :and (:deadline past   :property ("agenda-group" "1. Work")))
+                                           (:name "予定が過ぎてる作業" :and (:scheduled past  :property ("agenda-group" "1. Work")))
+                                           (:name "今日〆切の作業"     :and (:deadline today  :property ("agenda-group" "1. Work")))
+                                           (:name "今日予定の作業"     :and (:scheduled today :property ("agenda-group" "1. Work")))
+                                           (:name "今後1週間の作業"    :and (:and
+                                                                             (:scheduled (before ,(format-time-string "%Y-%m-%d" (time-add (current-time) (days-to-time 7))))
+                                                                                         :scheduled (after ,(format-time-string "%Y-%m-%d" (current-time))))
+                                                                             :property ("agenda-group" "1. Work")))
                                            (:discard (:anything t))))))
     (tags-todo "Weekday-Finish|Daily"
                ((org-agenda-overriding-header "習慣")
@@ -190,32 +192,32 @@ nil にして表示しないようにしている。
                                            (:name "今日予定" :scheduled today)
                                            (:discard (:anything t))))))))
   ("D" "Holiday"
-   ((tags-todo "-Weekday-Daily-Holiday-Weekly-Weekend&LEVEL=2"
+   ((tags-todo "-Weekday-Daily-Holiday-Weekly-Weekend&LEVEL=3"
                ((org-agenda-prefix-format " ")
                 (org-agenda-overriding-header "休日の作業")
                 (org-habit-show-habits nil)
+                (org-agenda-prefix-format "  %c: ")
                 (org-agenda-span 'day)
-                (org-agenda-todo-keyword-format "-")
-                (org-agenda-files '("~/Documents/org/tasks/next-actions.org" "~/Documents/org/journal/"))
-                (org-super-agenda-groups '((:name "仕掛かり中" :and (:todo "DOING" :not (:category "レビュー") :not (:category "開発")))
-                                           (:name "TODO" :and (:todo "TODO" :not (:category "レビュー") :not (:category "開発")))
-                                           (:name "待ち" :and (:todo "WAIT" :not (:category "レビュー") :not (:category "開発")))
+                (org-agenda-files '("~/Documents/org/journal/"))
+                (org-super-agenda-groups '((:name "仕掛かり中" :and (:todo "DOING" :not (:property ("agenda-group" "1. Work"))))
+                                           (:name "TODO"       :and (:todo "TODO"  :not (:property ("agenda-group" "1. Work"))))
+                                           (:name "待ち"       :and (:todo "WAIT"  :not (:property ("agenda-group" "1. Work"))))
                                            (:discard (:anything t))))))
     (alltodo ""
                ((org-agenda-prefix-format " ")
                 (org-agenda-overriding-header "予定作業")
                 (org-habit-show-habits nil)
+                (org-agenda-prefix-format "  %c: ")
                 (org-agenda-span 'day)
-                (org-agenda-todo-keyword-format "-")
                 (org-agenda-files '("~/Documents/org/tasks/projects.org"))
-                (org-super-agenda-groups `((:name "〆切が過ぎてる作業" :and (:deadline past :category "Private"))
-                                           (:name "予定が過ぎてる作業" :and (:scheduled past :category "Private"))
-                                           (:name "今日〆切の作業" :and (:deadline today :category "Private"))
-                                           (:name "今日予定の作業" :and (:scheduled today :category "Private"))
-                                           (:name "今後1週間の作業" :and (:and
-                                                                          (:scheduled (before ,(format-time-string "%Y-%m-%d" (time-add (current-time) (days-to-time 7))))
-                                                                                      :scheduled (after ,(format-time-string "%Y-%m-%d" (current-time))))
-                                                                          :category "Private"))
+                (org-super-agenda-groups `((:name "〆切が過ぎてる作業" :and (:deadline past   :not (:property ("agenda-group" "1. Work"))))
+                                           (:name "予定が過ぎてる作業" :and (:scheduled past  :not (:property ("agenda-group" "1. Work"))))
+                                           (:name "今日〆切の作業"     :and (:deadline today  :not (:property ("agenda-group" "1. Work"))))
+                                           (:name "今日予定の作業"     :and (:scheduled today :not (:property ("agenda-group" "1. Work"))))
+                                           (:name "今後1週間の作業"    :and (:and
+                                                                             (:scheduled (before ,(format-time-string "%Y-%m-%d" (time-add (current-time) (days-to-time 7))))
+                                                                                         :scheduled (after ,(format-time-string "%Y-%m-%d" (current-time))))
+                                                                             :not (:property ("agenda-group" "1. Work"))))
                                            (:discard (:anything t))))))
     (tags-todo "Holiday|Weekend|Daily"
                ((org-agenda-overriding-header "習慣")
@@ -371,6 +373,8 @@ nil にして表示しないようにしている。
                                     "~/Documents/org/tasks/inbox.org"))))))
   ("Ee" "without Emacs"
    ((tags-todo "+Env-Emacs-org"
+               ((org-agenda-files '("~/Documents/org/tasks/projects.org"
+                                    "~/Documents/org/tasks/inbox.org"))))))))
                ((org-agenda-files '("~/Documents/org/tasks/projects.org"
                                     "~/Documents/org/tasks/inbox.org"))))))))
 ```
