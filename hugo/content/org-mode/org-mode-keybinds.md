@@ -65,7 +65,35 @@ major-mode-hydra で、org-mode のファイルを開いている時によく使
              (message "org-trello-mode is not enabled")) "Menu"))
 
      "Agenda"
-     (("," org-cycle-agenda-files "Cycle")))))
+     (("," org-cycle-agenda-files "Cycle"))))
+
+  (major-mode-hydra-define org-agenda-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-octicon "calendar") " Agenda commands"))
+    ("Edit"
+     (("a" org-agenda-archive  "Archive")
+      ("r" org-agenda-refile   "Refile")
+      ("t" org-agenda-todo     "TODO")
+      ("Q" org-agenda-set-tags "Tag"))
+
+     "Filter"
+     (("C" org-agenda-filter-by-category     "Category")
+      ("T" org-agenda-filter-by-tag          "Tag")
+      ("H" org-agenda-filter-by-top-headline "Headline")
+      ("E" org-agenda-filter-by-effort       "Effort")
+      ("R" org-agenda-filter-by-regex        "Regex")
+      ("z" org-agenda-filter-remove-all      "Clear"))
+
+     "Priority"
+     ((">" org-agenda-priority-up   "Up")
+      ("<" org-agenda-priority-down "Down")
+      ("," org-agenda-priority      "Set"))
+
+     "Clock"
+     (("i" org-agenda-clock-in     "In")
+      ("o" org-agenda-clock-out    "Out")
+      ("p" org-pomodoro            "Pomodoro")
+      ("e" org-agenda-set-effort   "Set Effort")
+      ("g" org-agenda-clock-goto   "Go to")
+      ("x" org-agenda-clock-cancel "Cancel")))))
 ```
 
 | Key | 効果                        | 使用頻度                            |
@@ -97,6 +125,8 @@ major-mode-hydra で、org-mode のファイルを開いている時によく使
 | K   | org-trello-mode の切替      | 最近使ってない。trello 連携してないバッファでは要らんしな |
 | k   | org-trello-mode 用の Hydra 起動 | 同上                                |
 | ,   | agenda ファイルの移動       | いつも固定のファイルを見てるので使ってない。Cycle より直で飛ぶし |
+
+合わせて agenda 用の major-mode-hydra も定義しているが、こちらは情報をまだまとめていない……。
 
 
 ## Global な Hydra {#global-な-hydra}

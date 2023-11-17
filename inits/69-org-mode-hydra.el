@@ -44,7 +44,35 @@
              (message "org-trello-mode is not enabled")) "Menu"))
 
      "Agenda"
-     (("," org-cycle-agenda-files "Cycle")))))
+     (("," org-cycle-agenda-files "Cycle"))))
+
+  (major-mode-hydra-define org-agenda-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-octicon "calendar") " Agenda commands"))
+    ("Edit"
+     (("a" org-agenda-archive  "Archive")
+      ("r" org-agenda-refile   "Refile")
+      ("t" org-agenda-todo     "TODO")
+      ("Q" org-agenda-set-tags "Tag"))
+
+     "Filter"
+     (("C" org-agenda-filter-by-category     "Category")
+      ("T" org-agenda-filter-by-tag          "Tag")
+      ("H" org-agenda-filter-by-top-headline "Headline")
+      ("E" org-agenda-filter-by-effort       "Effort")
+      ("R" org-agenda-filter-by-regex        "Regex")
+      ("z" org-agenda-filter-remove-all      "Clear"))
+
+     "Priority"
+     ((">" org-agenda-priority-up   "Up")
+      ("<" org-agenda-priority-down "Down")
+      ("," org-agenda-priority      "Set"))
+
+     "Clock"
+     (("i" org-agenda-clock-in     "In")
+      ("o" org-agenda-clock-out    "Out")
+      ("p" org-pomodoro            "Pomodoro")
+      ("e" org-agenda-set-effort   "Set Effort")
+      ("g" org-agenda-clock-goto   "Go to")
+      ("x" org-agenda-clock-cancel "Cancel")))))
 
 (with-eval-after-load 'pretty-hydra
   (pretty-hydra-define
