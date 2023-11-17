@@ -12,20 +12,20 @@
     <title>org-mode 関係の keybinds :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1699836972" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1699836972" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1699836972" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1699836972" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1699836972" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1699836972" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1699836972" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1699836972" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1699836972" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1699836972" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1700200059" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1700200059" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1700200059" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1700200059" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1700200059" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1700200059" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1700200059" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1700200059" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1700200059" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1700200059" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1699836972"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1700200059"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1699836972"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1699836972"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1700200059"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1700200059"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1699836972"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1700200059"></script>
 
     
   </div>
@@ -3048,7 +3048,35 @@
 </span></span><span style="display:flex;"><span>             (<span style="color:#a6e22e">message</span> <span style="color:#e6db74">&#34;org-trello-mode is not enabled&#34;</span>)) <span style="color:#e6db74">&#34;Menu&#34;</span>))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Agenda&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;,&#34;</span> org-cycle-agenda-files <span style="color:#e6db74">&#34;Cycle&#34;</span>)))))
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;,&#34;</span> org-cycle-agenda-files <span style="color:#e6db74">&#34;Cycle&#34;</span>))))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  (major-mode-hydra-define org-agenda-mode (:separator <span style="color:#e6db74">&#34;-&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :title (<span style="color:#a6e22e">concat</span> (all-the-icons-octicon <span style="color:#e6db74">&#34;calendar&#34;</span>) <span style="color:#e6db74">&#34; Agenda commands&#34;</span>))
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;Edit&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;a&#34;</span> org-agenda-archive  <span style="color:#e6db74">&#34;Archive&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;r&#34;</span> org-agenda-refile   <span style="color:#e6db74">&#34;Refile&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;t&#34;</span> org-agenda-todo     <span style="color:#e6db74">&#34;TODO&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;Q&#34;</span> org-agenda-set-tags <span style="color:#e6db74">&#34;Tag&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Filter&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;C&#34;</span> org-agenda-filter-by-category     <span style="color:#e6db74">&#34;Category&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;T&#34;</span> org-agenda-filter-by-tag          <span style="color:#e6db74">&#34;Tag&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;H&#34;</span> org-agenda-filter-by-top-headline <span style="color:#e6db74">&#34;Headline&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;E&#34;</span> org-agenda-filter-by-effort       <span style="color:#e6db74">&#34;Effort&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;R&#34;</span> org-agenda-filter-by-regex        <span style="color:#e6db74">&#34;Regex&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;z&#34;</span> org-agenda-filter-remove-all      <span style="color:#e6db74">&#34;Clear&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Priority&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;&gt;&#34;</span> org-agenda-priority-up   <span style="color:#e6db74">&#34;Up&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;&lt;&#34;</span> org-agenda-priority-down <span style="color:#e6db74">&#34;Down&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;,&#34;</span> org-agenda-priority      <span style="color:#e6db74">&#34;Set&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Clock&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;i&#34;</span> org-agenda-clock-in     <span style="color:#e6db74">&#34;In&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;o&#34;</span> org-agenda-clock-out    <span style="color:#e6db74">&#34;Out&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;p&#34;</span> org-pomodoro            <span style="color:#e6db74">&#34;Pomodoro&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;e&#34;</span> org-agenda-set-effort   <span style="color:#e6db74">&#34;Set Effort&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;g&#34;</span> org-agenda-clock-goto   <span style="color:#e6db74">&#34;Go to&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;x&#34;</span> org-agenda-clock-cancel <span style="color:#e6db74">&#34;Cancel&#34;</span>)))))
 </span></span></code></pre></div><table>
 <thead>
 <tr>
@@ -3195,6 +3223,7 @@
 </tr>
 </tbody>
 </table>
+<p>合わせて agenda 用の major-mode-hydra も定義しているが、こちらは情報をまだまとめていない……。</p>
 <h2 id="global-な-hydra">Global な Hydra</h2>
 <p>pretty-hydra を使って Global に使える org-mode のコマンドを叩けるようにしている</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
@@ -5395,19 +5424,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1699836972"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1699836972"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1699836972"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1699836972"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1699836972"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1699836972"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1700200059"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1700200059"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1700200059"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1700200059"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1700200059"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1700200059"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1699836972"></script>
-    <script src="/.emacs.d/js/learn.js?1699836972"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1699836972"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1700200059"></script>
+    <script src="/.emacs.d/js/learn.js?1700200059"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1700200059"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1699836972"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1700200059"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
