@@ -2984,16 +2984,18 @@ http://home.hatanaka.info/article/474728666.html
            ("m" describe-minor-mode "Minor mode"))
           "Other"
           (("@" all-the-icons-hydra/body "List icons")
+           ("w" which-key-show-top-level "Which key")
            ("D" my/download-from-beorg))))
      #+end_src
 
-     | Key | 効果                                               |
-     | b   | キーバインドを調べる                               |
-     | f   | Emacs Lisp の関数を調べる                          |
-     | v   | Emacs Lisp の変数を調べる                          |
-     | m   | minor-mode を調べる                                |
-     | @   | All the icons の Hydra を起動                      |
-     | D   | beorg 連携に使ってる WebDAV サーバからダウンロード |
+     | Key | 効果                                                                               |
+     | b   | キーバインドを調べる                                                               |
+     | f   | Emacs Lisp の関数を調べる                                                          |
+     | v   | Emacs Lisp の変数を調べる                                                          |
+     | m   | minor-mode を調べる                                                                |
+     | @   | All the icons の Hydra を起動                                                      |
+     | w   | トップレベルのキーバインドを表示する                                               |
+     | D   | beorg 連携に使ってる WebDAV サーバからダウンロード(Dropbox に移行して不要になった) |
 
 **** Text Scale
      :PROPERTIES:
