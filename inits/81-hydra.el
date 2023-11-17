@@ -71,6 +71,7 @@
     ("m" describe-minor-mode "Minor mode"))
    "Other"
    (("@" all-the-icons-hydra/body "List icons")
+    ("w" which-key-show-top-level "Which key")
     ("D" my/download-from-beorg))))
 
 (pretty-hydra-define text-scale-hydra (:separator "-" :title (concat (all-the-icons-material "text_fields") " Text Scale") :exit nil :quit-key "q")
