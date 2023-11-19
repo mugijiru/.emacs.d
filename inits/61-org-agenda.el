@@ -74,6 +74,7 @@
                                            (:discard (:anything t))))))
     (tags-todo "Weekday-Finish|Daily"
                ((org-agenda-overriding-header "習慣")
+                (org-agenda-prefix-format "  ")
                 (org-habit-show-habits t)
                 (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
                 (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
@@ -109,6 +110,7 @@
                                            (:discard (:anything t))))))
     (tags-todo "Holiday|Weekend|Daily"
                ((org-agenda-overriding-header "習慣")
+                (org-agenda-prefix-format "  ")
                 (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
                 (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                            (:name "今日予定の作業" :scheduled today)
