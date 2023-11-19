@@ -95,7 +95,7 @@
 	"title": "ファイル編集/入力補助",
 	"tags": [],
 	"description": "",
-	"content": "ここにはファイル編集や入力補助の設定をまとめている\n基本設定 編集周りの基本的な設定 auto-insert ファイル新規作成時にテンプレートを挿入する機能 company-mode プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ emojify Slack や GitHub みたいに :smile: とか入れると笑顔の絵文字を表示する、みたいなやつ flyspell スペルチェックをしてくれるパッケージ multiple-cursors カーソルを増やして複数箇所を同時に編集できるようになるやつ origami コードの折り畳みができるようになるやつ smartparens カッコや引用符などのペアになるやつの入力補助をしてくれるやつ undo-fu シンプルな undo/redo の機能を提供してくれるやつ view-mode Emacs に組込まれてる閲覧専用のモード。コードリーディングの時に有効にすると便利 whitespace 空白文字を可視化したり自動的に消したりする便利なやつ yasnippet テンプレート挿入機能を提供してくれるやつ "
+	"content": "ここにはファイル編集や入力補助の設定をまとめている\n基本設定 編集周りの基本的な設定 auto-insert ファイル新規作成時にテンプレートを挿入する機能 company-mode プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ copilot GitHub Copilot を使えるようにするパッケージ emojify Slack や GitHub みたいに :smile: とか入れると笑顔の絵文字を表示する、みたいなやつ flyspell スペルチェックをしてくれるパッケージ multiple-cursors カーソルを増やして複数箇所を同時に編集できるようになるやつ origami コードの折り畳みができるようになるやつ smartparens カッコや引用符などのペアになるやつの入力補助をしてくれるやつ undo-fu シンプルな undo/redo の機能を提供してくれるやつ view-mode Emacs に組込まれてる閲覧専用のモード。コードリーディングの時に有効にすると便利 whitespace 空白文字を可視化したり自動的に消したりする便利なやつ yasnippet テンプレート挿入機能を提供してくれるやつ "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/org-capture/",
@@ -306,6 +306,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 company-mode は Emacs での補完機能を提供してくれるパッケージです。プラグイン式に拡張しやすいのが特徴っぽい。\nインストール いつも透り el-get から入れている\n(el-get-bundle company-mode) 設定 ほとんど設定は入れていない。有効な時に C-s を入力すると検索ができる程度。\nというのも最近の更新で、デフォルトが結構好みのキーバインドになったのでキーバインドはこだわる必要がなくなったのと、ついでに色もそこで好みな感じになってくれた。\nというわけで設定は以下のようにとてもシンプル。\n(with-eval-after-load \u0026#39;company ;; active (define-key company-active-map (kbd \u0026#34;C-s\u0026#34;) \u0026#39;company-search-candidates)) それと最近追加された company-show-quick-access を有効にしている。\n(custom-set-variables \u0026#39;(company-show-quick-access t)) これを有効にしていると補完候補の末尾に quick access key が表示されて例えば4行目なら 4 とか表示されるのでそこで M-4 とか入力すると4行目が選択されて便利\ncompany-quickhelp company-quickhelp は候補の補足情報が見れるようにするパッケージ。それを入れて、文字色とかぶらないように背景色を設定している。\n(el-get-bundle company-quickhelp) (custom-set-variables \u0026#39;(company-quickhelp-color-background \u0026#34;#323445\u0026#34;)) (with-eval-after-load \u0026#39;pos-tip (company-quickhelp-mode 1)) なおレシピは公式ではなかったので自前で用意している\n(:name company-quickhelp :description \u0026#34;Adds documentation popup to completion candidates\u0026#34; :type github :pkgname \u0026#34;company-mode/company-quickhelp\u0026#34;) company-posframe company-posframe は company-mode の表示に posframe を使うやつ。\n公式 README によると速度的にはまあ十分って感じなので速くはないのかなと。ただ CJK languages と相性は良いっぽい。ってことでとりあえず入れてみている\n(el-get-bundle company-posframe) (company-posframe-mode 1) その他 グローバルでは有効にしていなくて各モードで有効にするような hook を入れている。\nグローバルで有効でもいい気がしている。\n"
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/editing/copilot/",
+	"title": "copilot",
+	"tags": [],
+	"description": "",
+	"content": "概要 Copilot.el は GitHub Copilot を Emacs で使えるようにするパッケージ。これ自体は非公式なプラグインで、動かすために Vim で動く公式プラグインのバイナリを利用して動いている\nインストール 最近出て来たパッケージなので el-get には登録されていない。というわけでとりあえず自前でレシピを用意している\n(:name copilot :website \u0026#34;https://github.com/zerolfx/copilot.el\u0026#34; :description \u0026#34;An Emacs plugin for GitHub Copilot.\u0026#34; :type github :branch \u0026#34;main\u0026#34; :pkgname \u0026#34;zerolfx/copilot.el\u0026#34; :depends (s dash editorconfig json-rpc)) そして el-get-bundle でインストール\n(el-get-bundle copilot) 設定 とりあえずプログラミング系の mode で有効になるようにしている\n(add-hook \u0026#39;prog-mode-hook \u0026#39;copilot-mode) なのだけどそのままだと enh-ruby-mode では有効にならないので copilot-major-mode-alist に突っ込んでいる。なおこの設定は 公式の README にも書かれている\n(with-eval-after-load \u0026#39;copilot (add-to-list \u0026#39;copilot-major-mode-alist \u0026#39;(\u0026#34;enh-ruby\u0026#34; . \u0026#34;ruby\u0026#34;))) あと何故か忘れたけど inline preview を無効にするような設定を入れている\n(with-eval-after-load \u0026#39;company ;; disable inline previews (delq \u0026#39;company-preview-if-just-one-frontend company-frontends)) キーバインド タブで補完ができるように設定している\n(with-eval-after-load \u0026#39;copilot (define-key copilot-completion-map (kbd \u0026#34;\u0026lt;tab\u0026gt;\u0026#34;) \u0026#39;copilot-accept-completion) (define-key copilot-completion-map (kbd \u0026#34;TAB\u0026#34;) \u0026#39;copilot-accept-completion)) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/basics/custom-file/",
