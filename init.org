@@ -1512,6 +1512,7 @@
    - [[#editing-base-config][基本設定]] :: 編集周りの基本的な設定
    - [[*auto-insert][auto-insert]] :: ファイル新規作成時にテンプレートを挿入する機能
    - [[*company-mode][company-mode]] :: プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ
+   - [[id:549f0212-8e33-4ab8-bc84-418dd45bf92d][copilot]] :: GitHub Copilot を使えるようにするパッケージ
    - [[*emojify][emojify]] :: Slack や GitHub みたいに ~:smile:~ とか入れると笑顔の絵文字を表示する、みたいなやつ
    - [[id:3140f1e1-c1ee-4098-adc5-ddc695d5ea9d][flyspell]] :: スペルチェックをしてくれるパッケージ
    - [[*multiple-cursors][multiple-cursors]] :: カーソルを増やして複数箇所を同時に編集できるようになるやつ
@@ -1521,7 +1522,6 @@
    - [[*view-mode][view-mode]] :: Emacs に組込まれてる閲覧専用のモード。コードリーディングの時に有効にすると便利
    - [[*whitespace][whitespace]] :: 空白文字を可視化したり自動的に消したりする便利なやつ
    - [[*yasnippet][yasnippet]] :: テンプレート挿入機能を提供してくれるやつ
-
 ** 基本設定
    :PROPERTIES:
    :EXPORT_FILE_NAME: editing-base
@@ -1691,6 +1691,65 @@
 
     グローバルで有効でもいい気がしている。
 
+** copilot
+:PROPERTIES:
+:ID:       549f0212-8e33-4ab8-bc84-418dd45bf92d
+:EXPORT_FILE_NAME: copilot
+:END:
+*** 概要
+[[https://github.com/zerolfx/copilot.el][Copilot.el]] は [[https://github.com/features/copilot][GitHub Copilot]] を Emacs で使えるようにするパッケージ。
+これ自体は非公式なプラグインで、
+動かすために Vim で動く公式プラグインのバイナリを利用して動いている
+*** インストール
+最近出て来たパッケージなので el-get には登録されていない。
+というわけでとりあえず自前でレシピを用意している
+
+#+begin_src emacs-lisp :tangle recipes/copilot.rcp
+(:name copilot
+       :website "https://github.com/zerolfx/copilot.el"
+       :description "An Emacs plugin for GitHub Copilot."
+       :type github
+       :branch "main"
+       :pkgname "zerolfx/copilot.el"
+       :depends (s dash editorconfig json-rpc))
+#+end_src
+
+そして ~el-get-bundle~ でインストール
+
+#+begin_src emacs-lisp :tangle inits/30-copilot.el
+(el-get-bundle copilot)
+#+end_src
+*** 設定
+とりあえずプログラミング系の mode で有効になるようにしている
+
+#+begin_src emacs-lisp :tangle inits/30-copilot.el
+(add-hook 'prog-mode-hook 'copilot-mode)
+#+end_src
+
+なのだけどそのままだと enh-ruby-mode では有効にならないので
+~copilot-major-mode-alist~ に突っ込んでいる。
+なおこの設定は [[https://github.com/zerolfx/copilot.el#programming-language-detection][公式の README にも書かれている]]
+
+#+begin_src emacs-lisp :tangle inits/30-copilot.el
+(with-eval-after-load 'copilot
+  (add-to-list 'copilot-major-mode-alist '("enh-ruby" . "ruby")))
+#+end_src
+
+あと何故か忘れたけど inline preview を無効にするような設定を入れている
+
+#+begin_src emacs-lisp :tangle inits/30-copilot.el
+(with-eval-after-load 'company
+  ;; disable inline previews
+  (delq 'company-preview-if-just-one-frontend company-frontends))
+#+end_src
+*** キーバインド
+タブで補完ができるように設定している
+
+#+begin_src emacs-lisp :tangle inits/30-copilot.el
+(with-eval-after-load 'copilot
+  (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
+  (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion))
+#+end_src
 ** emojify
    :PROPERTIES:
    :EXPORT_FILE_NAME: emojify

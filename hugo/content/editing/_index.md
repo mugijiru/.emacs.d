@@ -17,6 +17,9 @@ disableToc = true
 [company-mode]({{< relref "company-mode" >}})
 : プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ
 
+[copilot]({{< relref "copilot" >}})
+: GitHub Copilot を使えるようにするパッケージ
+
 [emojify]({{< relref "emojify" >}})
 : Slack や GitHub みたいに `:smile:` とか入れると笑顔の絵文字を表示する、みたいなやつ
 
