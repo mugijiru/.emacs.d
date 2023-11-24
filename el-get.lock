@@ -12,7 +12,7 @@
         (copilot :checksum "30a054f8569550853a9b6f947a2fe1ded7e7cc6b")
         (json-rpc :checksum "81a5a520072e20d18aeab2aac4d66c046b031e56")
         (editorconfig :checksum "4bf871b7a2f2433d1032ef2b251bfb08c23347f4")
-        (emacs-sqlite3-api :checksum "b513b71012f61895f771fc6948d6511ea8ded0a6")
+        (emacs-sqlite3-api :checksum "a601c9965e4d0178705a64b7d4f88709ca9aea66")
         (org-roam :checksum "5c06471c3a11348342719fd9011486455adeb701")
         (emacs-openai :checksum "9a7a2d198662e72abd3a7b8dcf4ebddf6b7e9adc")
         (tblui :checksum "bb29323bb3e27093d50cb42db3a9329a096b6e4d")
