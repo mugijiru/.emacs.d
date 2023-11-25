@@ -17,7 +17,7 @@
         (emacs-openai :checksum "9a7a2d198662e72abd3a7b8dcf4ebddf6b7e9adc")
         (tblui :checksum "bb29323bb3e27093d50cb42db3a9329a096b6e4d")
         (magit-popup :checksum "d8585fa39f88956963d877b921322530257ba9f5")
-        (keypression :checksum "9427241f3fa539e4b5ad7581a05eb7e49f2cf518")
+        (keypression :checksum "5de175814354e6957f2ead6dbade7181f90747f5")
         (noflet :checksum "7ae84dc3257637af7334101456dafe1759c6b68a")
         (emacs-kibela :checksum "9e831053e69541ba4b5725811fef95e922aff1a5")
         (which-key :checksum "4d20bc852545a2e602f59084a630f888542052b1")
