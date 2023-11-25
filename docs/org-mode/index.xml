@@ -143,7 +143,7 @@ footnote や制作者などを出力しない HTML で記事を吐き出す時�
 (setq org-outline-path-complete-in-steps nil) refile ターゲットにファイル名を含める 以下のように設定すると refile のターゲット候補としてファイル名とその中の PATH が表示されるようになる。
 (setq org-refile-use-outline-path &amp;#39;file) nil だと移動先候補PATHの最後の部分しか表示されないのでどのファイルのどの場所かというのがわかりにくいのでこのように設定している。
 refile 先の候補設定 いくつかの org ファイルを使っているのでターゲットを以下のように設定している。
-(setq org-refile-targets `((,(org-journal--get-entry-path) :regexp . &amp;#34;Tasks&amp;#34;) (,(concat org-directory &amp;#34;tasks/projects.org&amp;#34;) :level . 1) (,(concat org-directory &amp;#34;tasks/pointers.org&amp;#34;) :level . 1) (,(concat org-directory &amp;#34;work/scrum/impediments.org&amp;#34;) :level . 3) (,(concat org-directory &amp;#34;private/2020_summary.org&amp;#34;) :level . 2) (,(concat org-directory &amp;#34;tasks/shopping.org&amp;#34;) :level . 1) (,(concat org-directory &amp;#34;tasks/someday.</description>
+(setq org-refile-targets `((,(org-journal--get-entry-path) :regexp . &amp;#34;Tasks&amp;#34;) (,(concat org-directory &amp;#34;tasks/projects.org&amp;#34;) :level . 1) (,(concat org-directory &amp;#34;tasks/pointers.org&amp;#34;) :level . 1) (,(concat org-directory &amp;#34;tasks/someday.org&amp;#34;) :level . 1))) ターゲット 目的 projects.org とりあえずその内やるタスクを放り込むところ。Work, Private の階層を設けているので :level 2 としている pointers.org 読物を突っ込むところとしている。 someday.</description>
     </item>
     
     <item>
