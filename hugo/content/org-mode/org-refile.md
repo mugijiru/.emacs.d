@@ -43,8 +43,6 @@ nil だと移動先候補PATHの最後の部分しか表示されないのでど
                            (,(concat org-directory "tasks/projects.org") :level . 1)
                            (,(concat org-directory "tasks/pointers.org") :level . 1)
                            (,(concat org-directory "work/scrum/impediments.org") :level . 3)
-                           (,(concat org-directory "tasks/next-actions.org") :regexp . "today")
-                           (,(concat org-directory "tasks/next-actions.org") :regexp . "C-")
                            (,(concat org-directory "private/2020_summary.org") :level . 2)
                            (,(concat org-directory "tasks/shopping.org") :level . 1)
                            (,(concat org-directory "tasks/someday.org") :level . 1)))

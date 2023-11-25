@@ -910,7 +910,7 @@
     #+begin_src emacs-lisp :tangle inits/70-tempbuf.el
       (setq my/tempbuf-ignore-files '("~/Documents/org/tasks/reviews.org"
                                       "~/Documents/org/tasks/interrupted.org"
-                                      "~/Documents/org/tasks/next-actions.org"
+                                      "~/Documents/org/tasks/habits.org"
                                       ))
     #+end_src
 *** find-file への hook
@@ -7693,7 +7693,7 @@ agenda ファイルに使われているタグは全部補完対象になって�
                        (org-habit-show-habits nil)
                        (org-agenda-span 'day)
                        (org-agenda-prefix-format "  %c: ")
-                       (org-agenda-files '("~/Documents/org/tasks/next-actions.org"
+                       (org-agenda-files '("~/Documents/org/tasks/habits.org"
                                            "~/Documents/org/journal/"
                                            "~/Documents/org/tasks/reviews.org"))
                        (org-super-agenda-groups '((:name "仕掛かり中" :todo "DOING" :property ("agenda-group" "journal-task"))
@@ -7722,7 +7722,7 @@ agenda ファイルに使われているタグは全部補完対象になって�
                       ((org-agenda-overriding-header "習慣")
                        (org-agenda-prefix-format "  ")
                        (org-habit-show-habits t)
-                       (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
+                       (org-agenda-files '("~/Documents/org/tasks/habits.org"))
                        (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                                   (:name "今日予定" :scheduled today)
                                                   (:discard (:anything t))))))))
@@ -7757,7 +7757,7 @@ agenda ファイルに使われているタグは全部補完対象になって�
            (tags-todo "Holiday|Weekend|Daily"
                       ((org-agenda-overriding-header "習慣")
                        (org-agenda-prefix-format "  ")
-                       (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
+                       (org-agenda-files '("~/Documents/org/tasks/habits.org"))
                        (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                                   (:name "今日予定の作業" :scheduled today)
                                                   (:discard (:anything t))))))
@@ -7808,7 +7808,7 @@ agenda ファイルに使われているタグは全部補完対象になって�
                                  (org-habit-show-habits nil)
                                  (org-agenda-span 'day)
                                  (org-agenda-todo-keyword-format "-")
-                                 (org-agenda-files '("~/Documents/org/tasks/next-actions.org" "~/Documents/org/journal/"))
+                                 (org-agenda-files '("~/Documents/org/tasks/habits.org" "~/Documents/org/journal/"))
                                  (org-super-agenda-groups (append
                                                            (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
                                                            '((:name "その他" :scheduled nil)
@@ -7835,7 +7835,7 @@ agenda ファイルに使われているタグは全部補完対象になって�
                         (org-habit-show-habits nil)
                         (org-agenda-span 'day)
                         (org-agenda-todo-keyword-format "-")
-                        (org-agenda-files '("~/Documents/org/tasks/next-actions.org" "~/Documents/org/journal/"))
+                        (org-agenda-files '("~/Documents/org/tasks/habits.org" "~/Documents/org/journal/"))
                         (org-super-agenda-groups (append
                                                   (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
                                                   '((:name "その他" :scheduled nil)
@@ -7862,7 +7862,7 @@ agenda ファイルに使われているタグは全部補完対象になって�
                                                 "~/Documents/org/tasks/inbox.org"
                                                 "~/Documents/org/tasks/reviews.org"
                                                 "~/Documents/org/journal/"
-                                                "~/Documents/org/tasks/next-actions.org"))
+                                                "~/Documents/org/tasks/habits.org"))
                             (org-super-agenda-groups '((:name "Finished" :todo "DONE")
                                                        (:name "Someday" :todo "SOMEDAY")
                                                        (:discard (:anything t))))))))
@@ -7883,7 +7883,7 @@ agenda ファイルに使われているタグは全部補完対象になって�
                          (org-agenda-span 'day)
                          (org-agenda-todo-keyword-format "-")
                          (org-columns-default-format-for-agenda "%25ITEM %TODO %3PRIORITY")
-                         (org-agenda-files '("~/Documents/org/tasks/next-actions.org" "~/Documents/org/journal/"))
+                         (org-agenda-files '("~/Documents/org/tasks/habits.org" "~/Documents/org/journal/"))
                          (org-super-agenda-groups (append
                                                    (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DONE")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
                                                    '((:discard (:anything t :name "discard")))))))
@@ -7892,7 +7892,7 @@ agenda ファイルに使われているタグは全部補完対象になって�
                         (org-habit-show-habits nil)
                         (org-agenda-span 'day)
                         (org-agenda-todo-keyword-format "-")
-                        (org-agenda-files '("~/Documents/org/tasks/next-actions.org" "~/Documents/org/journal/"))
+                        (org-agenda-files '("~/Documents/org/tasks/habits.org" "~/Documents/org/journal/"))
                         (org-super-agenda-groups (append
                                                   (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
                                                   '((:discard (:anything t :name "discard")))))))))
@@ -8415,8 +8415,6 @@ agenda ファイルに使われているタグは全部補完対象になって�
                                   (,(concat org-directory "tasks/projects.org") :level . 1)
                                   (,(concat org-directory "tasks/pointers.org") :level . 1)
                                   (,(concat org-directory "work/scrum/impediments.org") :level . 3)
-                                  (,(concat org-directory "tasks/next-actions.org") :regexp . "today")
-                                  (,(concat org-directory "tasks/next-actions.org") :regexp . "C-")
                                   (,(concat org-directory "private/2020_summary.org") :level . 2)
                                   (,(concat org-directory "tasks/shopping.org") :level . 1)
                                   (,(concat org-directory "tasks/someday.org") :level . 1)))
