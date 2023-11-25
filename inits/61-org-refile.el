@@ -5,7 +5,4 @@
 (setq org-refile-targets `((,(org-journal--get-entry-path) :regexp . "Tasks")
                            (,(concat org-directory "tasks/projects.org") :level . 1)
                            (,(concat org-directory "tasks/pointers.org") :level . 1)
-                           (,(concat org-directory "work/scrum/impediments.org") :level . 3)
-                           (,(concat org-directory "private/2020_summary.org") :level . 2)
-                           (,(concat org-directory "tasks/shopping.org") :level . 1)
                            (,(concat org-directory "tasks/someday.org") :level . 1)))
