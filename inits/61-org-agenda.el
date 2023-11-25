@@ -19,22 +19,26 @@
 '(("h" . "Habits")
   ("hs" "Weekday Start"
    ((tags "Weekday&Start|Daily"
-          ((org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+          ((org-agenda-prefix-format "  ")
+           (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                       (:name "今日の作業" :scheduled today)
                                       (:discard (:anything t))))))))
   ("hf" "Weekday Finish"
    ((tags "Weekday&Finish"
-          ((org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+          ((org-agenda-prefix-format "  ")
+           (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                       (:name "今日の作業" :scheduled today)
                                       (:discard (:anything t))))))))
   ("hw" "Weekly"
    ((tags "Weekly"
-          ((org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+          ((org-agenda-prefix-format "  ")
+           (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                       (:name "今週の作業" :scheduled today)
                                       (:discard (:anything t))))))))
   ("hh" "Holiday"
    ((tags "Weekend|Holiday|Daily"
-          ((org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+          ((org-agenda-prefix-format "  ")
+           (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                       (:name "今日の作業" :scheduled today)
                                       (:discard (:anything t))))))))
   ("d" "Today"
