@@ -2,7 +2,7 @@
 
 (setq my/tempbuf-ignore-files '("~/Documents/org/tasks/reviews.org"
                                 "~/Documents/org/tasks/interrupted.org"
-                                "~/Documents/org/tasks/next-actions.org"
+                                "~/Documents/org/tasks/habits.org"
                                 ))
 
 (defun my/find-file-tempbuf-hook ()

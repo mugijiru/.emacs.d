@@ -47,7 +47,7 @@
                 (org-habit-show-habits nil)
                 (org-agenda-span 'day)
                 (org-agenda-prefix-format "  %c: ")
-                (org-agenda-files '("~/Documents/org/tasks/next-actions.org"
+                (org-agenda-files '("~/Documents/org/tasks/habits.org"
                                     "~/Documents/org/journal/"
                                     "~/Documents/org/tasks/reviews.org"))
                 (org-super-agenda-groups '((:name "仕掛かり中" :todo "DOING" :property ("agenda-group" "journal-task"))
@@ -76,7 +76,7 @@
                ((org-agenda-overriding-header "習慣")
                 (org-agenda-prefix-format "  ")
                 (org-habit-show-habits t)
-                (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
+                (org-agenda-files '("~/Documents/org/tasks/habits.org"))
                 (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                            (:name "今日予定" :scheduled today)
                                            (:discard (:anything t))))))))
@@ -111,7 +111,7 @@
     (tags-todo "Holiday|Weekend|Daily"
                ((org-agenda-overriding-header "習慣")
                 (org-agenda-prefix-format "  ")
-                (org-agenda-files '("~/Documents/org/tasks/next-actions.org"))
+                (org-agenda-files '("~/Documents/org/tasks/habits.org"))
                 (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                            (:name "今日予定の作業" :scheduled today)
                                            (:discard (:anything t))))))
@@ -162,7 +162,7 @@
                           (org-habit-show-habits nil)
                           (org-agenda-span 'day)
                           (org-agenda-todo-keyword-format "-")
-                          (org-agenda-files '("~/Documents/org/tasks/next-actions.org" "~/Documents/org/journal/"))
+                          (org-agenda-files '("~/Documents/org/tasks/habits.org" "~/Documents/org/journal/"))
                           (org-super-agenda-groups (append
                                                     (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
                                                     '((:name "その他" :scheduled nil)
@@ -189,7 +189,7 @@
                  (org-habit-show-habits nil)
                  (org-agenda-span 'day)
                  (org-agenda-todo-keyword-format "-")
-                 (org-agenda-files '("~/Documents/org/tasks/next-actions.org" "~/Documents/org/journal/"))
+                 (org-agenda-files '("~/Documents/org/tasks/habits.org" "~/Documents/org/journal/"))
                  (org-super-agenda-groups (append
                                            (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
                                            '((:name "その他" :scheduled nil)
@@ -216,7 +216,7 @@
                                          "~/Documents/org/tasks/inbox.org"
                                          "~/Documents/org/tasks/reviews.org"
                                          "~/Documents/org/journal/"
-                                         "~/Documents/org/tasks/next-actions.org"))
+                                         "~/Documents/org/tasks/habits.org"))
                      (org-super-agenda-groups '((:name "Finished" :todo "DONE")
                                                 (:name "Someday" :todo "SOMEDAY")
                                                 (:discard (:anything t))))))))
@@ -237,7 +237,7 @@
                   (org-agenda-span 'day)
                   (org-agenda-todo-keyword-format "-")
                   (org-columns-default-format-for-agenda "%25ITEM %TODO %3PRIORITY")
-                  (org-agenda-files '("~/Documents/org/tasks/next-actions.org" "~/Documents/org/journal/"))
+                  (org-agenda-files '("~/Documents/org/tasks/habits.org" "~/Documents/org/journal/"))
                   (org-super-agenda-groups (append
                                             (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DONE")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
                                             '((:discard (:anything t :name "discard")))))))
@@ -246,7 +246,7 @@
                  (org-habit-show-habits nil)
                  (org-agenda-span 'day)
                  (org-agenda-todo-keyword-format "-")
-                 (org-agenda-files '("~/Documents/org/tasks/next-actions.org" "~/Documents/org/journal/"))
+                 (org-agenda-files '("~/Documents/org/tasks/habits.org" "~/Documents/org/journal/"))
                  (org-super-agenda-groups (append
                                            (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
                                            '((:discard (:anything t :name "discard")))))))))
