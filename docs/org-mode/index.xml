@@ -233,5 +233,21 @@ me.org とでもしておけば解決しそう……。
 (require &amp;#39;org-journal) 設定 (custom-set-variables &amp;#39;(org-journal-dir (concat org-directory &amp;#34;journal/&amp;#34;)) &amp;#39;(org-journal-file-format &amp;#34;%Y%m%d.org&amp;#34;) &amp;#39;(org-journal-date-format &amp;#34;%d日(%a)&amp;#34;) &amp;#39;(org-journal-enable-agenda-integration t) &amp;#39;(org-journal-carryover-items &amp;#34;TODO={TODO\\|DOING\\|WAIT}&amp;#34;)) </description>
     </item>
     
+    <item>
+      <title>org-roam</title>
+      <link>https://mugijiru.github.io/.emacs.d/org-mode/org-roam/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-roam/</guid>
+      <description>概要 org-roam は記事同士のリンク周りを強化して、検索機能を提供したり繋がりを可視化したりしてくれるやつ。繋がりを可視化することでアイデア同士の結び付きを見つけたりとかに使えるっぽい
+内部的には SQLite を使ってリンクを cache しているっぽい。
+インストール el-get 本体ではレシピを提供していないのでとりあえず自前で用意している
+(:name org-roam :website &amp;#34;https://www.orgroam.com/&amp;#34; :description &amp;#34;A plain-text knowledge management system.&amp;#34; :type github :branch &amp;#34;main&amp;#34; :pkgname &amp;#34;org-roam/org-roam&amp;#34; :depends (dash emacsql magit org-mode)) そしてそれを el-get-bundle でインストールしている
+(el-get-bundle org-roam) 設定 既存の org ファイル全てを対象にすると最初の DB 構築で無限に時間がかかるので org フォルダの下に roam というフォルダを掘ってその中だけを対象としている
+(custom-set-variables &amp;#39;(org-roam-directory (file-truename (concat org-directory &amp;#34;roam/&amp;#34;)))) そして自動的に SQLite3 と同期するように自動同期の設定を入れている
+(org-roam-db-autosync-mode 1) キーバインド とりあえず忘れても使えるように pretty-hydra で操作できるように設定している
+(with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define org-roam-hydra (:separator &amp;#34;-&amp;#34; :color teal :foreign-key warn :title (concat (all-the-icons-material &amp;#34;graphic_eq&amp;#34;) &amp;#34; Roam&amp;#34;) :quit-key &amp;#34;q&amp;#34;) (&amp;#34;Node&amp;#34; ((&amp;#34;f&amp;#34; org-roam-node-find &amp;#34;Find&amp;#34;) (&amp;#34;r&amp;#34; org-roam-node-random &amp;#34;Random&amp;#34;)) &amp;#34;DB&amp;#34; ((&amp;#34;S&amp;#34; org-roam-db-sync &amp;#34;Sync&amp;#34;) (&amp;#34;C&amp;#34; org-roam-db-clear-all &amp;#34;Clear&amp;#34;))))) </description>
+    </item>
+    
   </channel>
 </rss>

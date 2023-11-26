@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>dumb-jump :: 麦汁&#39;s Emacs Config</title>
+    <title>org-roam :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1700988194" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/nav/dumb-jump/">
+  <body class="" data-url="/.emacs.d/org-mode/org-roam/">
     <nav id="sidebar" class="">
 
 
@@ -1446,7 +1446,7 @@
   
     
     <li data-nav-id="/.emacs.d/nav/" title="ナビゲーション" class="dd-item
-        parent
+        
         
         
         ">
@@ -1535,7 +1535,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/nav/dumb-jump/" title="dumb-jump" class="dd-item active">
+      <li data-nav-id="/.emacs.d/nav/dumb-jump/" title="dumb-jump" class="dd-item ">
         <a href="/.emacs.d/nav/dumb-jump/">
         dumb-jump
         
@@ -2346,7 +2346,7 @@
   
     
     <li data-nav-id="/.emacs.d/org-mode/" title="org-mode" class="dd-item
-        
+        parent
         
         
         ">
@@ -2708,7 +2708,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/org-mode/org-roam/" title="org-roam" class="dd-item ">
+      <li data-nav-id="/.emacs.d/org-mode/org-roam/" title="org-roam" class="dd-item active">
         <a href="/.emacs.d/org-mode/org-roam/">
         org-roam
         
@@ -2993,7 +2993,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/nav/'>ナビゲーション</a> > dumb-jump
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/org-mode/'>org-mode</a> > org-roam
           
         
           
@@ -3010,12 +3010,7 @@
   <ul>
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
-    <li><a href="#設定">設定</a>
-      <ul>
-        <li><a href="#デフォルトプロジェクトの変更">デフォルトプロジェクトの変更</a></li>
-        <li><a href="#複数マッチした時に使う絞り込み">複数マッチした時に使う絞り込み</a></li>
-      </ul>
-    </li>
+    <li><a href="#設定">設定</a></li>
     <li><a href="#キーバインド">キーバインド</a></li>
   </ul>
 </nav>
@@ -3034,7 +3029,7 @@
           
             <h1>
               
-              dumb-jump
+              org-roam
             </h1>
           
 
@@ -3042,72 +3037,44 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/jacktasia/dumb-jump">dumb-jump</a> は関数とかの定義されてる場所にお手軽にジャンプできるようにするパッケージ。めっちゃ色々な言語をサポートしている。</p>
+<p><a href="https://www.orgroam.com/">org-roam</a> は記事同士のリンク周りを強化して、検索機能を提供したり繋がりを可視化したりしてくれるやつ。繋がりを可視化することでアイデア同士の結び付きを見つけたりとかに使えるっぽい</p>
+<p>内部的には SQLite を使ってリンクを cache しているっぽい。</p>
 <h2 id="インストール">インストール</h2>
-<p>いつも通り el-get でインストールしている。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle dumb-jump)
+<p>el-get 本体ではレシピを提供していないのでとりあえず自前で用意している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name org-roam
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://www.orgroam.com/&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;A plain-text knowledge management system.&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :branch <span style="color:#e6db74">&#34;main&#34;</span>
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;org-roam/org-roam&#34;</span>
+</span></span><span style="display:flex;"><span>       :depends (dash emacsql magit org-mode))
+</span></span></code></pre></div><p>そしてそれを <code>el-get-bundle</code> でインストールしている</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle org-roam)
 </span></span></code></pre></div><h2 id="設定">設定</h2>
-<h3 id="デフォルトプロジェクトの変更">デフォルトプロジェクトの変更</h3>
-<p>デフォルトだと <code>~/</code> がデフォルトプロジェクトらしいがそんなに上の階層から調べられてもしょうがない気がするのでソースコードを置いているフォルダを指定している。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq dumb-jump-default-project <span style="color:#e6db74">&#34;~/projects&#34;</span>)
-</span></span></code></pre></div><h3 id="複数マッチした時に使う絞り込み">複数マッチした時に使う絞り込み</h3>
-<p>最近はできるだけ ivy を使うようにしているので
-dumb-jump でも ivy を使うように指定している。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq dumb-jump-selector <span style="color:#e6db74">&#39;ivy</span>)
+<p>既存の org ファイル全てを対象にすると最初の DB 構築で無限に時間がかかるので
+org フォルダの下に roam というフォルダを掘ってその中だけを対象としている</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-variables
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(org-roam-directory (file-truename (<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;roam/&#34;</span>))))
+</span></span></code></pre></div><p>そして自動的に SQLite3 と同期するように自動同期の設定を入れている</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(org-roam-db-autosync-mode <span style="color:#ae81ff">1</span>)
 </span></span></code></pre></div><h2 id="キーバインド">キーバインド</h2>
-<p>README に書いている hydra の設定をほぼパクってるけど
-pretty-hydra を使ってキーを定義している</p>
+<p>とりあえず忘れても使えるように pretty-hydra で操作できるように設定している</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
-</span></span><span style="display:flex;"><span>  (pretty-hydra-define dumb-jump-pretty-hydra
-</span></span><span style="display:flex;"><span>    (:foreign-keys <span style="color:#a6e22e">warn</span> :title <span style="color:#e6db74">&#34;Dumb jump&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :color blue :separator <span style="color:#e6db74">&#34;-&#34;</span>)
-</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;Go&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;j&#34;</span> dumb-jump-go <span style="color:#e6db74">&#34;Jump&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;o&#34;</span> dumb-jump-go-other-window <span style="color:#e6db74">&#34;Other window&#34;</span>))
+</span></span><span style="display:flex;"><span>  (pretty-hydra-define
+</span></span><span style="display:flex;"><span>    org-roam-hydra
+</span></span><span style="display:flex;"><span>    (:separator <span style="color:#e6db74">&#34;-&#34;</span>
+</span></span><span style="display:flex;"><span>                :color teal
+</span></span><span style="display:flex;"><span>                :foreign-key <span style="color:#a6e22e">warn</span>
+</span></span><span style="display:flex;"><span>                :title (<span style="color:#a6e22e">concat</span> (all-the-icons-material <span style="color:#e6db74">&#34;graphic_eq&#34;</span>) <span style="color:#e6db74">&#34; Roam&#34;</span>)
+</span></span><span style="display:flex;"><span>                :quit-key <span style="color:#e6db74">&#34;q&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;Node&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;f&#34;</span> org-roam-node-find <span style="color:#e6db74">&#34;Find&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;r&#34;</span> org-roam-node-random <span style="color:#e6db74">&#34;Random&#34;</span>))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;External&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;e&#34;</span> dumb-jump-go-prefer-external <span style="color:#e6db74">&#34;Go external&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;x&#34;</span> dumb-jump-go-prefer-external-other-window <span style="color:#e6db74">&#34;Go external other window&#34;</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Lock&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;l&#34;</span> dumb-jump-quick-look <span style="color:#e6db74">&#34;Quick look&#34;</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Other&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;b&#34;</span> dumb-jump-back <span style="color:#e6db74">&#34;Back&#34;</span>)))))
-</span></span></code></pre></div><table>
-<thead>
-<tr>
-<th>Key</th>
-<th>効果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>j</td>
-<td>定義場所にジャンプ</td>
-</tr>
-<tr>
-<td>o</td>
-<td>定義場所を別 window で開く</td>
-</tr>
-<tr>
-<td>e</td>
-<td>定義場所にジャンプ。ただし同じファイルより外部ファイルとのマッチを優先</td>
-</tr>
-<tr>
-<td>x</td>
-<td>定義場所を別 window で開く。ただし同じファイルより外部ファイルとのマッチを優先</td>
-</tr>
-<tr>
-<td>l</td>
-<td>クイックルック。定義をツールチップ表示する</td>
-</tr>
-<tr>
-<td>b</td>
-<td>最後にジャンプされた場所に戻る。今は既に obsolute 扱い</td>
-</tr>
-</tbody>
-</table>
-
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;DB&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;S&#34;</span> org-roam-db-sync <span style="color:#e6db74">&#34;Sync&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;C&#34;</span> org-roam-db-clear-all <span style="color:#e6db74">&#34;Clear&#34;</span>)))))
+</span></span></code></pre></div>
 
 <footer class="footline">
 	
@@ -4123,7 +4090,6 @@ pretty-hydra を使ってキーを定義している</p>
             
                 
                     
-                    
                 
                 
 
@@ -4136,9 +4102,6 @@ pretty-hydra を使ってキーを定義している</p>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -4188,7 +4151,6 @@ pretty-hydra を使ってキーを定義している</p>
             
                 
                     
-                    
                 
                 
 
@@ -4204,9 +4166,6 @@ pretty-hydra を使ってキーを定義している</p>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -4787,6 +4746,7 @@ pretty-hydra を使ってキーを定義している</p>
             
                 
                     
+                    
                 
                 
 
@@ -4799,6 +4759,9 @@ pretty-hydra を使ってキーを定義している</p>
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -5056,6 +5019,7 @@ pretty-hydra を使ってキーを定義している</p>
             
                 
                     
+                    
                 
                 
 
@@ -5074,6 +5038,9 @@ pretty-hydra を使ってキーを定義している</p>
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -5207,10 +5174,10 @@ pretty-hydra を使ってキーを定義している</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/nav/browse-at-remote/" title="browse-at-remote"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/org-mode/org-journal/" title="org-journal"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/nav/projectile/" title="projectile" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/testing-tool/" title="テスト用ツール" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
