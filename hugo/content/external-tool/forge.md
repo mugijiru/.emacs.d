@@ -10,11 +10,22 @@ draft = false
 
 ## インストール {#インストール}
 
-いつも通り el-get でインストールする。ただし依存関係で必要なので emacs-sqlite3-api も合わせて入れている
+いつも通り el-get でインストールする。ただし依存関係で必要なので `emacs-sqlite3-api` も合わせて入れている
 
 ```emacs-lisp
 (el-get-bundle emacs-sqlite3-api)
 (el-get-bundle forge)
+```
+
+なお `emacs-sqlite3-api` はレシピを自前で用意している
+
+```emacs-lisp
+(:name emacs-sqlite3-api
+       3:website "https://github.com/pekingduck/emacs-sqlite3-api"
+       :description "sqlite3 is a dynamic module for GNU Emacs 25+ that provides direct access to the core SQLite3 C API from Emacs Lisp."
+       :type github
+       :branch "master"
+       :pkgname "pekingduck/emacs-sqlite3-api")
 ```
 
 
