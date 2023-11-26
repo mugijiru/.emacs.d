@@ -7164,9 +7164,10 @@ https://github.com/emacsorphanage/git-messenger#key-bindings
    10. [[*org-refile][org-refile]]
    11. [[*org-trello][org-trello]]
    12. [[*ox-hugo][ox-hugo]]
-   13. [[*org-mode 用の独自コマンド][org-mode 用の独自コマンド]]
-   14. [[*org-mode 関係の keybinds][org-mode 関係の keybinds]]
-   15. [[*日報用の設定(旧)][日報用の設定(旧)]]
+   13. [[id:e2943058-f0e2-4e6f-ba27-89ab3ec6f05e][org-roam]]
+   14. [[*org-mode 用の独自コマンド][org-mode 用の独自コマンド]]
+   15. [[*org-mode 関係の keybinds][org-mode 関係の keybinds]]
+   16. [[*日報用の設定(旧)][日報用の設定(旧)]]
 ** 基本設定
    :PROPERTIES:
    :EXPORT_FILE_NAME: base
@@ -8609,6 +8610,69 @@ agenda ファイルに使われているタグは全部補完対象になって�
     デフォルト設定でいい感じに使えているので
     特に設定変更は加えていない。
 
+** org-roam
+:PROPERTIES:
+:EXPORT_FILE_NAME: org-roam
+:ID:       e2943058-f0e2-4e6f-ba27-89ab3ec6f05e
+:END:
+*** 概要
+[[https://www.orgroam.com/][org-roam]] は記事同士のリンク周りを強化して、検索機能を提供したり繋がりを可視化したりしてくれるやつ。
+繋がりを可視化することでアイデア同士の結び付きを見つけたりとかに使えるっぽい
+
+内部的には SQLite を使ってリンクを cache しているっぽい。
+*** インストール
+el-get 本体ではレシピを提供していないのでとりあえず自前で用意している
+
+#+begin_src emacs-lisp :tangle recipes/org-roam.rcp
+  (:name org-roam
+         :website "https://www.orgroam.com/"
+         :description "A plain-text knowledge management system."
+         :type github
+         :branch "main"
+         :pkgname "org-roam/org-roam"
+         :depends (dash emacsql magit org-mode))
+#+end_src
+
+そしてそれを ~el-get-bundle~ でインストールしている
+
+#+begin_src emacs-lisp :tangle inits/65-org-roam.el
+  (el-get-bundle org-roam)
+#+end_src
+*** 設定
+既存の org ファイル全てを対象にすると最初の DB 構築で無限に時間がかかるので
+org フォルダの下に roam というフォルダを掘ってその中だけを対象としている
+
+#+begin_src emacs-lisp :tangle inits/65-org-roam.el
+  (custom-set-variables
+   '(org-roam-directory (file-truename (concat org-directory "roam/"))))
+#+end_src
+
+そして自動的に SQLite3 と同期するように自動同期の設定を入れている
+
+#+begin_src emacs-lisp :tangle inits/65-org-roam.el
+  (org-roam-db-autosync-mode 1)
+#+end_src
+*** キーバインド
+
+とりあえず忘れても使えるように pretty-hydra で操作できるように設定している
+
+#+begin_src emacs-lisp :tangle inits/65-org-roam.el
+  (with-eval-after-load 'pretty-hydra
+    (pretty-hydra-define
+      org-roam-hydra
+      (:separator "-"
+                  :color teal
+                  :foreign-key warn
+                  :title (concat (all-the-icons-material "graphic_eq") " Roam")
+                  :quit-key "q")
+      ("Node"
+       (("f" org-roam-node-find "Find")
+        ("r" org-roam-node-random "Random"))
+
+       "DB"
+       (("S" org-roam-db-sync "Sync")
+        ("C" org-roam-db-clear-all "Clear")))))
+#+end_src
 ** org-mode 用の独自コマンド
    :PROPERTIES:
    :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :weight 13
