@@ -12,20 +12,20 @@
     <title>forge :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1700988930" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1700988930" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1700988930" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1700988930" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1700988930" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1700988930" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1700988930" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1700988930" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1700988930" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1700988930" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1700989408" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1700989408" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1700989408" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1700989408" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1700989408" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1700989408" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1700989408" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1700989408" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1700989408" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1700989408" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1700988930"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1700989408"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1700988930"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1700988930"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1700989408"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1700989408"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1700988930"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1700989408"></script>
 
     
   </div>
@@ -3040,9 +3040,16 @@
 <h2 id="概要">概要</h2>
 <p><a href="https://github.com/magit/forge">forge</a> は magit と github を連携させるやつ。一応入れているけど実は使えてないのであまりこの設定を呼んでも意味はなさそう</p>
 <h2 id="インストール">インストール</h2>
-<p>いつも通り el-get でインストールする。ただし依存関係で必要なので emacs-sqlite3-api も合わせて入れている</p>
+<p>いつも通り el-get でインストールする。ただし依存関係で必要なので <code>emacs-sqlite3-api</code> も合わせて入れている</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle emacs-sqlite3-api)
 </span></span><span style="display:flex;"><span>(el-get-bundle forge)
+</span></span></code></pre></div><p>なお <code>emacs-sqlite3-api</code> はレシピを自前で用意している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name emacs-sqlite3-api
+</span></span><span style="display:flex;"><span>       3:website <span style="color:#e6db74">&#34;https://github.com/pekingduck/emacs-sqlite3-api&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;sqlite3 is a dynamic module for GNU Emacs 25+ that provides direct access to the core SQLite3 C API from Emacs Lisp.&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :branch <span style="color:#e6db74">&#34;master&#34;</span>
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;pekingduck/emacs-sqlite3-api&#34;</span>)
 </span></span></code></pre></div><h2 id="読み込み">読み込み</h2>
 <p>magit の拡張なので magit を読み込んで後に読み込まれるようにしている。依存で必要な sqlite3 も合わせて require している。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;magit</span>
@@ -5170,19 +5177,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1700988930"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1700988930"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1700988930"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1700988930"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1700988930"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1700988930"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1700989408"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1700989408"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1700989408"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1700989408"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1700989408"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1700989408"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1700988930"></script>
-    <script src="/.emacs.d/js/learn.js?1700988930"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1700988930"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1700989408"></script>
+    <script src="/.emacs.d/js/learn.js?1700989408"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1700989408"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1700988930"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1700989408"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

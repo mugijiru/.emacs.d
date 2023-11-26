@@ -51,9 +51,9 @@
       <guid>https://mugijiru.github.io/.emacs.d/external-tool/forge/</guid>
       <description>概要 forge は magit と github を連携させるやつ。一応入れているけど実は使えてないのであまりこの設定を呼んでも意味はなさそう
 インストール いつも通り el-get でインストールする。ただし依存関係で必要なので emacs-sqlite3-api も合わせて入れている
-(el-get-bundle emacs-sqlite3-api) (el-get-bundle forge) 読み込み magit の拡張なので magit を読み込んで後に読み込まれるようにしている。依存で必要な sqlite3 も合わせて require している。
-(with-eval-after-load &amp;#39;magit (require &amp;#39;sqlite3) (require &amp;#39;forge)) flycheck の有効化 Pull Request を作る時に text-lint で指摘されたいのでそのタイミングで flycheck を有効化している
-(defun my/forge-post-mode-hook () (flycheck-mode 1)) (with-eval-after-load &amp;#39;forge (add-hook &amp;#39;forge-post-mode-hook &amp;#39;my/forge-post-mode-hook)) その他 リポジトリのコミット数が多いとまともに使えない感じだけどどうしたらいいの。</description>
+(el-get-bundle emacs-sqlite3-api) (el-get-bundle forge) なお emacs-sqlite3-api はレシピを自前で用意している
+(:name emacs-sqlite3-api 3:website &amp;#34;https://github.com/pekingduck/emacs-sqlite3-api&amp;#34; :description &amp;#34;sqlite3 is a dynamic module for GNU Emacs 25+ that provides direct access to the core SQLite3 C API from Emacs Lisp.&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;pekingduck/emacs-sqlite3-api&amp;#34;) 読み込み magit の拡張なので magit を読み込んで後に読み込まれるようにしている。依存で必要な sqlite3 も合わせて require している。
+(with-eval-after-load &amp;#39;magit (require &amp;#39;sqlite3) (require &amp;#39;forge)) flycheck の有効化 Pull Request を作る時に text-lint で指摘されたいのでそのタイミングで flycheck を有効化している</description>
     </item>
     
     <item>
