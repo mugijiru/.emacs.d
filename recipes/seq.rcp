@@ -1,0 +1,4 @@
+(:name seq
+       :description "Sequence manipulation functions"
+       :type elpa
+       :website "https://elpa.gnu.org/packages/seq.html")
