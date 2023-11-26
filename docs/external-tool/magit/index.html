@@ -12,20 +12,20 @@
     <title>magit :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1700988194" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1700988194" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1700988194" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1700988194" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1700988194" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1700988194" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1700988194" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1700988194" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1700988194" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1700988194" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1700988930" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1700988930" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1700988930" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1700988930" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1700988930" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1700988930" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1700988930" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1700988930" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1700988930" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1700988930" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1700988194"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1700988930"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1700988194"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1700988194"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1700988930"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1700988930"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1700988194"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1700988930"></script>
 
     
   </div>
@@ -3011,7 +3011,6 @@
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
     <li><a href="#その他設定">その他設定</a></li>
-    <li><a href="#使い方">使い方</a></li>
   </ul>
 </nav>
     </div>
@@ -3040,6 +3039,51 @@
 <p><a href="https://github.com/magit/magit">magit</a> は Emacs の上で Git の色々な操作ができるやつ。結構使いやすいのでオススメなやつ。</p>
 <p><a href="/.emacs.d/external-tool/forge/">forge</a> を使うと GitHub や GitLab とも連携できてさらに便利、なはず。</p>
 <h2 id="インストール">インストール</h2>
+<p>レシピは el-get 本体付属のものをコピーして使ってる。
+magit の依存関係に変更があったのでそれに追従するため</p>
+<p>ref: <a href="https://github.com/mugijiru/.emacs.d/pull/2992">https://github.com/mugijiru/.emacs.d/pull/2992</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name magit
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/magit/magit#readme&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;It&#39;s Magit! An Emacs mode for Git.&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;magit/magit&#34;</span>
+</span></span><span style="display:flex;"><span>       :branch <span style="color:#e6db74">&#34;main&#34;</span>
+</span></span><span style="display:flex;"><span>       :minimum-emacs-version <span style="color:#e6db74">&#34;25.1&#34;</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#75715e">;; Note: `git-commit&#39; is shipped with `magit&#39; code itself.</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#75715e">;; Note: `magit-section&#39; is shipped with `magit&#39; code itself.</span>
+</span></span><span style="display:flex;"><span>       :depends (dash transient with-editor compat seq)
+</span></span><span style="display:flex;"><span>       :info <span style="color:#e6db74">&#34;docs&#34;</span>
+</span></span><span style="display:flex;"><span>       :load-path <span style="color:#e6db74">&#34;lisp/&#34;</span>
+</span></span><span style="display:flex;"><span>       :compile <span style="color:#e6db74">&#34;lisp/&#34;</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#75715e">;; Use the Makefile to produce the info manual, el-get can</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#75715e">;; handle compilation and autoloads on its own.  Create an</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#75715e">;; empty autoloads file because magit.el explicitly checks for</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#75715e">;; a file of that name.</span>
+</span></span><span style="display:flex;"><span>       :build <span style="color:#f92672">`</span>((<span style="color:#e6db74">&#34;make&#34;</span> <span style="color:#f92672">,</span>(<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;EMACSBIN=%s&#34;</span> el-get-emacs) <span style="color:#e6db74">&#34;docs&#34;</span>)
+</span></span><span style="display:flex;"><span>                (<span style="color:#e6db74">&#34;touch&#34;</span> <span style="color:#e6db74">&#34;lisp/magit-autoloads.el&#34;</span>))
+</span></span><span style="display:flex;"><span>       :build/berkeley-unix <span style="color:#f92672">`</span>((<span style="color:#e6db74">&#34;gmake&#34;</span> <span style="color:#f92672">,</span>(<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;EMACSBIN=%s&#34;</span> el-get-emacs) <span style="color:#e6db74">&#34;docs&#34;</span>)
+</span></span><span style="display:flex;"><span>                              (<span style="color:#e6db74">&#34;touch&#34;</span> <span style="color:#e6db74">&#34;lisp/magit-autoloads.el&#34;</span>))
+</span></span><span style="display:flex;"><span>       <span style="color:#75715e">;; assume windows lacks make and makeinfo</span>
+</span></span><span style="display:flex;"><span>       :build/windows-nt (with-temp-file <span style="color:#e6db74">&#34;lisp/magit-autoloads.el&#34;</span> <span style="color:#66d9ef">nil</span>))
+</span></span></code></pre></div><p>また依存している <code>with-editor</code> や <code>seq</code> のレシピも用意している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name with-editor
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Use the Emacsclient as $EDITOR&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;magit/with-editor&#34;</span>
+</span></span><span style="display:flex;"><span>       :branch <span style="color:#e6db74">&#34;main&#34;</span>
+</span></span><span style="display:flex;"><span>       :info <span style="color:#e6db74">&#34;docs&#34;</span>
+</span></span><span style="display:flex;"><span>       :load-path <span style="color:#e6db74">&#34;lisp/&#34;</span>
+</span></span><span style="display:flex;"><span>       :compile <span style="color:#e6db74">&#34;lisp/&#34;</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#75715e">;; Use the Makefile to produce the info manual, el-get can</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#75715e">;; handle compilation and autoloads on its own.</span>
+</span></span><span style="display:flex;"><span>       :build <span style="color:#f92672">`</span>((<span style="color:#e6db74">&#34;make&#34;</span> <span style="color:#f92672">,</span>(<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;EMACSBIN=%s&#34;</span> el-get-emacs) <span style="color:#e6db74">&#34;info&#34;</span>))
+</span></span><span style="display:flex;"><span>       :build/berkeley-unix <span style="color:#f92672">`</span>((<span style="color:#e6db74">&#34;gmake&#34;</span> <span style="color:#f92672">,</span>(<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;EMACSBIN=%s&#34;</span> el-get-emacs)
+</span></span><span style="display:flex;"><span>                               <span style="color:#e6db74">&#34;info&#34;</span>)))
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name seq
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Sequence manipulation functions&#34;</span>
+</span></span><span style="display:flex;"><span>       :type elpa
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://elpa.gnu.org/packages/seq.html&#34;</span>)
+</span></span></code></pre></div><p>そして <code>el-get-bundle</code> でインストールしている</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle magit)
 </span></span></code></pre></div><h2 id="その他設定">その他設定</h2>
 <p>ghub を load-path に入れないとうまくいかなかった時があったので load-path に入れてたり、
@@ -3056,25 +3100,7 @@ orgit を入れていたり</p>
 </span></span><span style="display:flex;"><span>       :branch <span style="color:#e6db74">&#34;main&#34;</span>
 </span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;magit/orgit&#34;</span>
 </span></span><span style="display:flex;"><span>       :depends (compat magit org-mode))
-</span></span></code></pre></div><p>あと ghub は compat に依存するようになったのでとりあえず自前で recipe を用意している</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name ghub
-</span></span><span style="display:flex;"><span>       :type github
-</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Minuscule client for the Github API&#34;</span>
-</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;magit/ghub&#34;</span>
-</span></span><span style="display:flex;"><span>       :depends (let-alist treepy compat)
-</span></span><span style="display:flex;"><span>       :branch <span style="color:#e6db74">&#34;main&#34;</span>
-</span></span><span style="display:flex;"><span>       :info <span style="color:#e6db74">&#34;docs&#34;</span>
-</span></span><span style="display:flex;"><span>       :load-path <span style="color:#e6db74">&#34;lisp/&#34;</span>
-</span></span><span style="display:flex;"><span>       :compile <span style="color:#e6db74">&#34;lisp/&#34;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#75715e">;; Use the Makefile to produce the info manual, el-get can</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#75715e">;; handle compilation and autoloads on its own.</span>
-</span></span><span style="display:flex;"><span>       :build <span style="color:#f92672">`</span>((<span style="color:#e6db74">&#34;make&#34;</span> <span style="color:#f92672">,</span>(<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;EMACSBIN=%s&#34;</span> el-get-emacs) <span style="color:#e6db74">&#34;info&#34;</span>))
-</span></span><span style="display:flex;"><span>       :build/berkeley-unix <span style="color:#f92672">`</span>((<span style="color:#e6db74">&#34;gmake&#34;</span> <span style="color:#f92672">,</span>(<span style="color:#a6e22e">format</span> <span style="color:#e6db74">&#34;EMACSBIN=%s&#34;</span> el-get-emacs)
-</span></span><span style="display:flex;"><span>                               <span style="color:#e6db74">&#34;info&#34;</span>)))
-</span></span></code></pre></div><h2 id="使い方">使い方</h2>
-<p>Git 管理されてるファイルを開いている時に
-<code>M-x magit</code> とかすると Git 管理用のバッファが出て来るしそこで <code>?</code> を叩いたらどういうコマンドが使えるのか教えてくれるよ(雑)</p>
-
+</span></span></code></pre></div>
 
 <footer class="footline">
 	
@@ -5187,19 +5213,19 @@ orgit を入れていたり</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1700988194"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1700988194"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1700988194"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1700988194"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1700988194"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1700988194"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1700988930"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1700988930"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1700988930"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1700988930"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1700988930"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1700988930"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1700988194"></script>
-    <script src="/.emacs.d/js/learn.js?1700988194"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1700988194"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1700988930"></script>
+    <script src="/.emacs.d/js/learn.js?1700988930"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1700988930"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1700988194"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1700988930"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
