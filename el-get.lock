@@ -106,7 +106,7 @@
         (esa :checksum "417e0ac55abe9b17e0b7165d0df26bc018aff42e")
         (esqlite :checksum "08a779a821f8d32c1a1985d8d9eb6cf21646ce2e")
         (exec-path-from-shell :checksum "99b1b731d55614dceb72b6f16602df2b8d030dc9")
-        (f :checksum "ab3ee3811c53f9c2144ff45130361f3da242ffa2")
+        (f :checksum "4f03d7bb724a9049b0ab9ef86127694756f99656")
         (flycheck :checksum "e56e30d8c66ffc9776d07740658d3b542c1a8e21")
         (forge :checksum "0d8eaad23cf7e64ac0412af3b5674330d7689f4b")
         (fringe-helper :checksum "ef4a9c023bae18ec1ddd7265f1f2d6d2e775efdd")
