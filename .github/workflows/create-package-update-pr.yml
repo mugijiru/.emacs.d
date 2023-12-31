@@ -62,6 +62,8 @@ jobs:
         commit-message: ${{ steps.get-pr-body.outputs.body }}
         title: ${{ env.PR_TITLE }}
         body: ${{ steps.get-pr-body.outputs.body }}
+        labels: |
+          dependency
 
     - if: always()
       name: Notify slack build result
