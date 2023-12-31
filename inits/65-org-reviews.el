@@ -192,43 +192,8 @@
     (mapcar (lambda (pr)
               (substring-no-properties (org-element-interpret-data pr))) prs)))
 
-(defun my/org-reviews-append-to-file ()
-  "レビュー依頼されてい PR 全てを取得してレビューファイルの末尾に書き出す"
-  (interactive)
-  (let* ((headlines (my/org-reviews-prs-to-headlines))
-         (text (string-join headlines)))
-    (save-excursion
-      (with-current-buffer (find-file-noselect my/org-reviews-file)
-        (goto-char (point-max))
-        (insert text)))))
-
-(defun my/org-reviews-append-to-file-2 (text)
-  "レビュー依頼されている PR 全てを取得してレビューファイルの末尾に書き出す"
-  (interactive)
-  (save-excursion
-    (with-current-buffer (find-file-noselect my/org-reviews-file)
-      (erase-buffer)
-      (goto-char (point-max))
-      (insert "#+TODO: TODO(t) DOING(d) WAIT(w) | ACCEPTED(a) | DONE(o)\n")
-      (insert text))))
-
-(defun my/org-reviews-append-to-file-meerged ()
-  "レビュー依頼されてい PR 全てを取得してレビューファイルの末尾に書き出す"
-  (interactive)
-  (let* ((headlines (my/org-reviews-prs-to-headlines))
-         (text (string-join headlines)))
-    (save-excursion
-      (with-current-buffer (find-file-noselect my/org-reviews-file)
-        (goto-char (point-max))
-        (insert text)))))
-
 ;;; org element の操作
 ;;; Note: まだちゃんと作ってない
-
-(defun XXX-my/org-reviews-change-pr-state-done-or-wait (element)
-  "レビュー依頼されていたが今はされてない Pull Request の状態を確認し、
-      Open であれば WAIT に Closed であれば DONE に変更する"
-  (let ((pull-request-id (org-element-property :PR-ID element)))))
 
 (defun my/org-reviews-extract-text-from-paragraph (paragraph)
   "org-element の paragraph から装飾なしの文字列を抜き出す関数"
