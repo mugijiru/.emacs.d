@@ -63,7 +63,7 @@ jobs:
         title: ${{ env.PR_TITLE }}
         body: ${{ steps.get-pr-body.outputs.body }}
         labels: |
-          dependency
+          dependencies
 
     - if: always()
       name: Notify slack build result
