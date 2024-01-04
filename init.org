@@ -5553,7 +5553,7 @@ nerd-icons をインストールしていない場合は ~nerd-icons-install-fon
     #+begin_src emacs-lisp :tangle inits/41-react.el
       (defun my/web-mode-auto-fix-hook ()
         (when (string-equal (file-name-extension buffer-file-name) "tsx")
-          (lsp-eslint-fix-all)))
+          (lsp-format-buffer)))
     #+end_src
 *** lsp-mode などの有効化
     :PROPERTIES:
@@ -6120,7 +6120,8 @@ nerd-icons をインストールしていない場合は ~nerd-icons-install-fon
         '(lsp-javascript-display-parameter-name-hints t)
         '(lsp-javascript-display-enum-member-value-hints t)
         '(lsp-clients-typescript-max-ts-server-memory 2048)
-        '(lsp-eslint-auto-fix-on-save t))
+        '(lsp-disabled-clients '())
+        '(lsp-eslint-auto-fix-on-save nil))
      #+end_src
 **** auto-fix の hook 関数
      :PROPERTIES:
@@ -6132,7 +6133,7 @@ nerd-icons をインストールしていない場合は ~nerd-icons-install-fon
      #+begin_src emacs-lisp :tangle inits/40-ts.el
        (defun my/ts-mode-auto-fix-hook ()
          (when (string-equal (file-name-extension buffer-file-name) "ts")
-           (lsp-eslint-fix-all)))
+           (lsp-format-buffer)))
      #+end_src
 **** hook
      :PROPERTIES:
