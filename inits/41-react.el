@@ -6,7 +6,7 @@
 
 (defun my/web-mode-auto-fix-hook ()
   (when (string-equal (file-name-extension buffer-file-name) "tsx")
-    (lsp-eslint-fix-all)))
+    (lsp-format-buffer)))
 
 (defun my/web-mode-tsx-hook ()
   (let ((ext (file-name-extension buffer-file-name)))

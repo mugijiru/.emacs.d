@@ -7,11 +7,13 @@
  '(lsp-javascript-display-parameter-name-hints t)
  '(lsp-javascript-display-enum-member-value-hints t)
  '(lsp-clients-typescript-max-ts-server-memory 2048)
- '(lsp-eslint-auto-fix-on-save t))
+ '(lsp-disabled-clients '())
+ '(lsp-eslint-auto-fix-on-save nil)
+ )
 
 (defun my/ts-mode-auto-fix-hook ()
   (when (string-equal (file-name-extension buffer-file-name) "ts")
-    (lsp-eslint-fix-all)))
+    (lsp-format-buffer)))
 
 (defun my/ts-mode-hook ()
   (origami-mode 1)
