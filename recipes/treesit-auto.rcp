@@ -1,0 +1,6 @@
+(:name treesit-auto
+       :website "https://github.com/renzmann/treesit-auto"
+       :description "Automatically install and use tree-sitter major modes in Emacs 29+."
+       :type github
+       :branch "main"
+       :pkgname "renzmann/treesit-auto")
