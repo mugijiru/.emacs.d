@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((org-mode :checksum "17608670a4f4e8edb91efe04d86fe80ff9d01b69")
+      '((treesit-auto :checksum "07a8f924cd4f020a2eb32b45d8543af9556f355d")
+        (org-mode :checksum "17608670a4f4e8edb91efe04d86fe80ff9d01b69")
         (org-journal :checksum "7cf8922003ce33c20e7fa2827276679af77664a8")
         (company-terraform :checksum "8d5a16d1bbeeb18ca49a8fd57b5d8cd30c8b8dc7")
         (terraform-mode :checksum "e8b57df8c2a3d3171f3768f60eb84067f553289c")
