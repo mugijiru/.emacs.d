@@ -80,7 +80,7 @@ hook を使って有効化している
 この関数を
 
 ```emacs-lisp
-(add-hook 'typescript-mode-hook 'my/ts-mode-hook)
+(add-hook 'typescript-ts-mode-hook 'my/ts-mode-hook)
 ```
 
 として hook に追加している。
@@ -94,11 +94,11 @@ hook を使って有効化している
 auto-mode-alist に突っ込んでいる
 
 ```emacs-lisp
-(add-to-list 'auto-mode-alist '("\\.ts" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.ts" . typescript-ts-mode))
 ```
 
 また skk もいい感じに動いてほしいので context-skk-programming-mode を有効にしている
 
 ```emacs-lisp
-(add-to-list 'context-skk-programming-mode 'typescript-mode)
+(add-to-list 'context-skk-programming-mode 'typescript-ts-mode)
 ```

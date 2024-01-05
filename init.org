@@ -6161,7 +6161,7 @@ nerd-icons をインストールしていない場合は ~nerd-icons-install-fon
      この関数を
 
      #+begin_src emacs-lisp :tangle inits/40-ts.el
-     (add-hook 'typescript-mode-hook 'my/ts-mode-hook)
+     (add-hook 'typescript-ts-mode-hook 'my/ts-mode-hook)
      #+end_src
 
      として hook に追加している。
@@ -6176,13 +6176,13 @@ nerd-icons をインストールしていない場合は ~nerd-icons-install-fon
      auto-mode-alist に突っ込んでいる
 
      #+begin_src emacs-lisp :tangle inits/40-ts.el
-     (add-to-list 'auto-mode-alist '("\\.ts" . typescript-mode))
+     (add-to-list 'auto-mode-alist '("\\.ts" . typescript-ts-mode))
      #+end_src
 
      また skk もいい感じに動いてほしいので context-skk-programming-mode を有効にしている
 
      #+begin_src emacs-lisp :tangle inits/40-ts.el
-       (add-to-list 'context-skk-programming-mode 'typescript-mode)
+       (add-to-list 'context-skk-programming-mode 'typescript-ts-mode)
      #+end_src
 ** Vue.js
    :PROPERTIES:
