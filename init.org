@@ -5541,7 +5541,7 @@ nerd-icons をインストールしていない場合は ~nerd-icons-install-fon
     auto-mode-alist で関連付けをする
 
     #+begin_src emacs-lisp :tangle inits/41-react.el
-    (add-to-list 'auto-mode-alist '("\\.[jt]sx" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.tsx" . tsx-ts-mode))
     #+end_src
 
 *** 自動フォーマット hook の用意
@@ -5551,9 +5551,9 @@ nerd-icons をインストールしていない場合は ~nerd-icons-install-fon
     tsx の保存時に自動でフォーマットしてほしいのでそれ用に hook を追加
 
     #+begin_src emacs-lisp :tangle inits/41-react.el
-      (defun my/web-mode-auto-fix-hook ()
+      (defun my/tsx-auto-fix-hook ()
         (when (string-equal (file-name-extension buffer-file-name) "tsx")
-          (lsp-format-buffer)))
+          (lsp-eslint-fix-all)))
     #+end_src
 *** lsp-mode などの有効化
     :PROPERTIES:
@@ -5584,7 +5584,7 @@ nerd-icons をインストールしていない場合は ~nerd-icons-install-fon
     lsp-mode から eslint を使うことでやりたいことの対応ができるようなのでその設定は外した。
 
     #+begin_src emacs-lisp :tangle inits/41-react.el
-      (defun my/web-mode-tsx-hook ()
+      (defun my/tsx-hook ()
         (let ((ext (file-name-extension buffer-file-name)))
           (when (or (string-equal "jsx" ext) (string-equal "tsx" ext))
             (setq web-mode-markup-indent-offset 2)
@@ -5599,7 +5599,7 @@ nerd-icons をインストールしていない場合は ~nerd-icons-install-fon
             (lsp-ui-mode 1)
             (add-hook 'before-save-hook 'my/web-mode-auto-fix-hook nil 'local))))
 
-      (add-hook 'web-mode-hook 'my/web-mode-tsx-hook)
+      (add-hook 'tsx-ts-mode-hook 'my/tsx-hook)
     #+end_src
 
 ** rspec-mode
@@ -6133,7 +6133,7 @@ nerd-icons をインストールしていない場合は ~nerd-icons-install-fon
      #+begin_src emacs-lisp :tangle inits/40-ts.el
        (defun my/ts-mode-auto-fix-hook ()
          (when (string-equal (file-name-extension buffer-file-name) "ts")
-           (lsp-format-buffer)))
+           (lsp-eslint-fix-all)))
      #+end_src
 **** hook
      :PROPERTIES:
@@ -6161,7 +6161,7 @@ nerd-icons をインストールしていない場合は ~nerd-icons-install-fon
      この関数を
 
      #+begin_src emacs-lisp :tangle inits/40-ts.el
-     (add-hook 'typescript-mode-hook 'my/ts-mode-hook)
+     (add-hook 'typescript-ts-mode-hook 'my/ts-mode-hook)
      #+end_src
 
      として hook に追加している。
@@ -6176,13 +6176,13 @@ nerd-icons をインストールしていない場合は ~nerd-icons-install-fon
      auto-mode-alist に突っ込んでいる
 
      #+begin_src emacs-lisp :tangle inits/40-ts.el
-     (add-to-list 'auto-mode-alist '("\\.ts" . typescript-mode))
+     (add-to-list 'auto-mode-alist '("\\.ts" . typescript-ts-mode))
      #+end_src
 
      また skk もいい感じに動いてほしいので context-skk-programming-mode を有効にしている
 
      #+begin_src emacs-lisp :tangle inits/40-ts.el
-       (add-to-list 'context-skk-programming-mode 'typescript-mode)
+       (add-to-list 'context-skk-programming-mode 'typescript-ts-mode)
      #+end_src
 ** Vue.js
    :PROPERTIES:

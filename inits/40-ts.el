@@ -13,7 +13,7 @@
 
 (defun my/ts-mode-auto-fix-hook ()
   (when (string-equal (file-name-extension buffer-file-name) "ts")
-    (lsp-format-buffer)))
+    (lsp-eslint-fix-all)))
 
 (defun my/ts-mode-hook ()
   (origami-mode 1)
@@ -25,8 +25,8 @@
   (lsp-ui-mode 1)
   (add-hook 'before-save-hook #'my/ts-mode-auto-fix-hook nil 'local))
 
-(add-hook 'typescript-mode-hook 'my/ts-mode-hook)
+(add-hook 'typescript-ts-mode-hook 'my/ts-mode-hook)
 
-(add-to-list 'auto-mode-alist '("\\.ts" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.ts" . typescript-ts-mode))
 
-(add-to-list 'context-skk-programming-mode 'typescript-mode)
+(add-to-list 'context-skk-programming-mode 'typescript-ts-mode)
