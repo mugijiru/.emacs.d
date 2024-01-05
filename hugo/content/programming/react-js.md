@@ -67,7 +67,7 @@ jsx/tsx ファイルを開いた時には web-mode で動いてほしいので
 auto-mode-alist で関連付けをする
 
 ```emacs-lisp
-(add-to-list 'auto-mode-alist '("\\.[jt]sx" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx" . tsx-ts-mode))
 ```
 
 
@@ -76,7 +76,7 @@ auto-mode-alist で関連付けをする
 tsx の保存時に自動でフォーマットしてほしいのでそれ用に hook を追加
 
 ```emacs-lisp
-(defun my/web-mode-auto-fix-hook ()
+(defun my/tsx-auto-fix-hook ()
   (when (string-equal (file-name-extension buffer-file-name) "tsx")
     (lsp-eslint-fix-all)))
 ```
@@ -107,7 +107,7 @@ indent は2桁スペースになるようにしているが自動インデント
 lsp-mode から eslint を使うことでやりたいことの対応ができるようなのでその設定は外した。
 
 ```emacs-lisp
-(defun my/web-mode-tsx-hook ()
+(defun my/tsx-hook ()
   (let ((ext (file-name-extension buffer-file-name)))
     (when (or (string-equal "jsx" ext) (string-equal "tsx" ext))
       (setq web-mode-markup-indent-offset 2)
@@ -122,5 +122,5 @@ lsp-mode から eslint を使うことでやりたいことの対応ができる
       (lsp-ui-mode 1)
       (add-hook 'before-save-hook 'my/web-mode-auto-fix-hook nil 'local))))
 
-(add-hook 'web-mode-hook 'my/web-mode-tsx-hook)
+(add-hook 'tsx-ts-mode-hook 'my/tsx-hook)
 ```
