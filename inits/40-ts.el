@@ -13,7 +13,7 @@
 
 (defun my/ts-mode-auto-fix-hook ()
   (when (string-equal (file-name-extension buffer-file-name) "ts")
-    (lsp-format-buffer)))
+    (lsp-eslint-fix-all)))
 
 (defun my/ts-mode-hook ()
   (origami-mode 1)

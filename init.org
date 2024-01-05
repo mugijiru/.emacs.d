@@ -5553,7 +5553,7 @@ nerd-icons をインストールしていない場合は ~nerd-icons-install-fon
     #+begin_src emacs-lisp :tangle inits/41-react.el
       (defun my/web-mode-auto-fix-hook ()
         (when (string-equal (file-name-extension buffer-file-name) "tsx")
-          (lsp-format-buffer)))
+          (lsp-eslint-fix-all)))
     #+end_src
 *** lsp-mode などの有効化
     :PROPERTIES:
@@ -6133,7 +6133,7 @@ nerd-icons をインストールしていない場合は ~nerd-icons-install-fon
      #+begin_src emacs-lisp :tangle inits/40-ts.el
        (defun my/ts-mode-auto-fix-hook ()
          (when (string-equal (file-name-extension buffer-file-name) "ts")
-           (lsp-format-buffer)))
+           (lsp-eslint-fix-all)))
      #+end_src
 **** hook
      :PROPERTIES:
