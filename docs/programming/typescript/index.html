@@ -12,20 +12,20 @@
     <title>TypeScript :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1704346997" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1704346997" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1704346997" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1704346997" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1704346997" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1704346997" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1704346997" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1704346997" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1704346997" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1704346997" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1704419625" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1704419625" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1704419625" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1704419625" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1704419625" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1704419625" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1704419625" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1704419625" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1704419625" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1704419625" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1704346997"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1704419625"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1704346997"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1704346997"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1704419625"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1704419625"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1704346997"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1704419625"></script>
 
     
   </div>
@@ -3071,7 +3071,7 @@
 <p>保存した時に自動で整形してほしいなと思ったので自動で保存されるように hook 関数を用意している</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/ts-mode-auto-fix-hook ()
 </span></span><span style="display:flex;"><span>  (when (<span style="color:#a6e22e">string-equal</span> (file-name-extension <span style="color:#a6e22e">buffer-file-name</span>) <span style="color:#e6db74">&#34;ts&#34;</span>)
-</span></span><span style="display:flex;"><span>    (lsp-format-buffer)))
+</span></span><span style="display:flex;"><span>    (lsp-eslint-fix-all)))
 </span></span></code></pre></div><h3 id="hook">hook</h3>
 <ul>
 <li>company-mode</li>
@@ -3090,15 +3090,15 @@ hook を使って有効化している</p>
 </span></span><span style="display:flex;"><span>  (lsp-ui-mode <span style="color:#ae81ff">1</span>)
 </span></span><span style="display:flex;"><span>  (add-hook <span style="color:#e6db74">&#39;before-save-hook</span> <span style="color:#a6e22e">#&#39;</span>my/ts-mode-auto-fix-hook <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;local</span>))
 </span></span></code></pre></div><p>この関数を</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;typescript-mode-hook</span> <span style="color:#e6db74">&#39;my/ts-mode-hook</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;typescript-ts-mode-hook</span> <span style="color:#e6db74">&#39;my/ts-mode-hook</span>)
 </span></span></code></pre></div><p>として hook に追加している。</p>
 <p>直接 lambda で add-hook に書くという手もあるが関数を分離しておくと修正の反映が用意なのでこのようにしている。</p>
 <h3 id="拡張子による有効化">拡張子による有効化</h3>
 <p>.ts ファイルであれば typescript-mode で動いてほしいので
 auto-mode-alist に突っ込んでいる</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;auto-mode-alist</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;\\.ts&#34;</span> <span style="color:#f92672">.</span> typescript-mode))
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;auto-mode-alist</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;\\.ts&#34;</span> <span style="color:#f92672">.</span> typescript-ts-mode))
 </span></span></code></pre></div><p>また skk もいい感じに動いてほしいので context-skk-programming-mode を有効にしている</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;context-skk-programming-mode</span> <span style="color:#e6db74">&#39;typescript-mode</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;context-skk-programming-mode</span> <span style="color:#e6db74">&#39;typescript-ts-mode</span>)
 </span></span></code></pre></div>
 
 <footer class="footline">
@@ -5212,19 +5212,19 @@ auto-mode-alist に突っ込んでいる</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1704346997"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1704346997"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1704346997"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1704346997"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1704346997"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1704346997"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1704419625"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1704419625"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1704419625"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1704419625"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1704419625"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1704419625"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1704346997"></script>
-    <script src="/.emacs.d/js/learn.js?1704346997"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1704346997"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1704419625"></script>
+    <script src="/.emacs.d/js/learn.js?1704419625"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1704419625"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1704346997"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1704419625"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
