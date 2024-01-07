@@ -87,7 +87,7 @@
         (request :checksum "01e338c335c07e4407239619e57361944a82cb8a")
         (avy :checksum "be612110cb116a38b8603df367942e2bb3d9bdbe")
         (all-the-icons :checksum "be9d5dcda9c892e8ca1535e288620eec075eb0be")
-        (alert :checksum "c762380ff71c429faf47552a83605b2578656380")
+        (alert :checksum "7774b5fd2feb98d4910ff06435d08c19fba93e26")
         (calfw :checksum "03abce97620a4a7f7ec5f911e669da9031ab9088")
         (closql :checksum "6bc90e8bef74778883bfa2092a6fedc3c4eb032c")
         (company-mode :checksum "d04e665d8ca01a5baa42b5e2dad88d5bbe5a9b8f")
