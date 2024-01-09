@@ -77,7 +77,7 @@
         (emacs-hide-mode-line :checksum "bc5d293576c5e08c29e694078b96a5ed85631942")
         (highlight-indent-guides :checksum "cf352c85cd15dd18aa096ba9d9ab9b7ab493e8f6")
         (scratch-log :checksum "1168f7f16d36ca0f4ddf2bb98881f8db62cc5dc0")
-        (vue-mode :checksum "031edd1f97db6e7d8d6c295c0e6d58dd128b9e71")
+        (vue-mode :checksum "4853d97ea8d7b2fab7d331d3a8aad18d02b792ad")
         (mmm-mode :checksum "96906747e862449b722b6e2c741b61871894ac3a")
         (ssass-mode :checksum "96f557887ad97a0066a60c54f92b7234b8407016")
         (edit-indirect :checksum "f80f63822ffae78de38dbe72cacaeb1aaa96c732")
