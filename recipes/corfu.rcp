@@ -1,0 +1,8 @@
+(:name corfu
+       :website "https://github.com/minad/corfu"
+       :description "COmpletion in Region FUnction"
+       :type github
+       :branch "main"
+       :pkgname "minad/corfu"
+       :minimum-emacs-version "27.1"
+       :depends (compat))
