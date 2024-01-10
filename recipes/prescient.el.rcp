@@ -3,4 +3,6 @@
        :description "simple but effective sorting and filtering for Emacs."
        :type github
        :branch "main"
-       :pkgname "radian-software/prescient.el")
+       :pkgname "radian-software/prescient.el"
+       :minimum-emacs-version "27.1"
+       :depends (corfu))
