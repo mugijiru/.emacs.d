@@ -25,7 +25,9 @@
     ("r" el-get-reload       "Reload"))
 
    "Recipe"
-   (("f" el-get-find-recipe-file  "Find recipe"))
+   (("f" el-get-find-recipe-file              "Find recipe")
+    ("E" el-get-elpa-build-local-recipes      "Build ELPA recipes")
+    ("W" el-get-emacswiki-build-local-recipes "Build EmacsWiki recipes"))
 
    "Lock"
    (("C" el-get-lock-checkout  "Checkout")
