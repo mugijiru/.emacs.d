@@ -19,7 +19,7 @@ draft = false
        :type github
        :branch "main"
        :pkgname "zerolfx/copilot.el"
-       :depends (s dash editorconfig json-rpc))
+       :depends (s dash editorconfig jsonrpc))
 ```
 
 そして `el-get-bundle` でインストール
