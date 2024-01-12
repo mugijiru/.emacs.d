@@ -4656,6 +4656,7 @@ nerd-icons をインストールしていない場合は ~nerd-icons-install-fon
    - [[id:65fe69f6-e8a9-4795-86c3-4269534ce074][JSON]] :: JSON ファイルを編集するための設定
    - [[*lsp-mode][lsp-mode]] :: Emacs の LSP クライアントの一種である lsp-mode に関する設定
    - [[*markdown][markdown]] :: Markdown を書く時の設定
+   - [[id:ce65c5cf-6c2a-46d2-b000-f796063f685d][Mocha]] :: Mocha を使ったテストを動かすための設定
    - [[*plantuml-mode][plantuml-mode]] :: PlantUML を書く時のメジャーモードの設定
    - [[*rails][rails]] :: Rails 開発をする上での設定
    - [[*React.js][React.js]] :: React.js アプリを開発するための設定
@@ -5320,6 +5321,44 @@ hook を色々突っ込んでる
     #+begin_src emacs-lisp :tangle inits/40-markdown.el
     (el-get-bundle markdown-mode)
     #+end_src
+
+** Mocha
+:PROPERTIES:
+:EXPORT_FILE_NAME: mocha
+:ID:       ce65c5cf-6c2a-46d2-b000-f796063f685d
+:END:
+*** 概要
+[[https://mochajs.org/][Mocha]] は JS のテストフレームワークの1つ。
+Jest より前はこっちはよく使われてた
+*** mocha.el
+**** インストール
+レシピは自前で用意している
+#+begin_src emacs-lisp :tangle recipes/mocha.rcp
+(:name mocha
+       :description "Emacs mode for running mocha tests"
+       :website "https://github.com/scottaj/mocha.el"
+       :type github
+       :pkgname "scottaj/mocha.el")
+#+end_src
+
+そしていつも通り ~el-get-bundle~ でインストールしている
+
+#+begin_src emacs-lisp :tangle inits/40-mocha.el
+(el-get-bundle mocha)
+#+end_src
+*** テスト実行コマンド
+
+mocha のテストファイルかどうかを判定してそうだったら
+mocha としてテストを実行するコマンドを用意している。
+
+#+begin_src emacs-lisp :tangle inits/40-mocha.el
+(defun my/mocha-test-file ()
+  (interactive)
+  (if my/mocha-enable-p
+      (mocha-test-file)))
+#+end_src
+
+けど今 mocha 使ってないからこれ使ってないんだよねえ……
 
 ** plantuml-mode
    :PROPERTIES:
