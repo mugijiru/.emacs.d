@@ -4651,6 +4651,9 @@ nerd-icons をインストールしていない場合は ~nerd-icons-install-fon
    - [[*es6][es6]] :: ES2015 以降の JS に関する設定。es6 としているのは過去の経緯のため。
    - [[*flycheck][flycheck]] :: Flycheck の設定について書いている
    - [[*gnuplot-mode][gnuplot-mode]] :: グラフ作成ソフト gnuplot を使うための設定
+   - [[id:ee4e05f2-c2de-4920-8ec6-b015181e85a0][GraphQL]] :: GraphQL ファイルを編集するための設定
+   - [[id:25a3eda7-2481-4a66-a803-05be7adeec81][Jest]] :: JS のテストツール Jest 関係の設定
+   - [[id:65fe69f6-e8a9-4795-86c3-4269534ce074][JSON]] :: JSON ファイルを編集するための設定
    - [[*lsp-mode][lsp-mode]] :: Emacs の LSP クライアントの一種である lsp-mode に関する設定
    - [[*markdown][markdown]] :: Markdown を書く時の設定
    - [[*plantuml-mode][plantuml-mode]] :: PlantUML を書く時のメジャーモードの設定
@@ -5046,6 +5049,7 @@ nerd-icons をインストールしていない場合は ~nerd-icons-install-fon
 ** GraphQL
    :PROPERTIES:
    :EXPORT_FILE_NAME: graphql
+   :ID:       ee4e05f2-c2de-4920-8ec6-b015181e85a0
    :END:
 *** 概要
     GraphQL は API 向けのクエリ言語で
@@ -5113,6 +5117,7 @@ nerd-icons をインストールしていない場合は ~nerd-icons-install-fon
 ** Jest
    :PROPERTIES:
    :EXPORT_FILE_NAME: jest
+   :ID:       25a3eda7-2481-4a66-a803-05be7adeec81
    :END:
 *** 概要
     [[https://jestjs.io/ja/][Jest]] は JavaScript のテスティングフレームワークの1つ。
@@ -5165,6 +5170,39 @@ nerd-icons をインストールしていない場合は ~nerd-icons-install-fon
 **** その他
      類似品に [[https://github.com/Emiller88/emacs-jest][emacs-jest]] というのもあるが、
      こちらは el-get で入れようとしても jest-traverse-test.el の byte compile でエラーになるので利用を諦めた
+** JSON
+:PROPERTIES:
+:EXPORT_FILE_NAME: json
+:ID:       65fe69f6-e8a9-4795-86c3-4269534ce074
+:END:
+*** 概要
+パッケージの設定ファイルなどでよく使われているファイル形式。
+**** json-mode
+[[https://github.com/json-emacs/json-mode][json-mode]] は Emacs で JSON を編集するためのモード。
+***** インストール
+いつも通り ~el-get-bundle~ でインストール。
+#+begin_src emacs-lisp :tangle inits/40-json.el
+(el-get-bundle json-mode)
+#+end_src
+**** hook
+補完を有効にしたり LSP を使えるようにしたり保存時に自動整形させたりするため
+hook を色々突っ込んでる
+
+#+begin_src emacs-lisp :tangle inits/40-json.el
+(defun my/json-mode-hook ()
+  (company-mode 1)
+  (lsp)
+  (lsp-ui-mode 1)
+  (add-hook 'before-save-hook #'lsp-format-buffer nil 'local)
+  (turn-on-smartparens-strict-mode)
+  (flycheck-mode 1)
+  (flycheck-select-checker 'json-jq)
+  (highlight-indent-guides-mode 1)
+  (display-line-numbers-mode 1))
+
+(add-hook 'json-mode-hook 'my/json-mode-hook)
+#+end_src
+
 ** lsp-mode
    :PROPERTIES:
    :EXPORT_FILE_NAME: lsp-mode
