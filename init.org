@@ -5165,6 +5165,38 @@ nerd-icons をインストールしていない場合は ~nerd-icons-install-fon
 **** その他
      類似品に [[https://github.com/Emiller88/emacs-jest][emacs-jest]] というのもあるが、
      こちらは el-get で入れようとしても jest-traverse-test.el の byte compile でエラーになるので利用を諦めた
+** JSON
+:PROPERTIES:
+:EXPORT_FILE_NAME: json
+:END:
+*** 概要
+パッケージの設定ファイルなどでよく使われているファイル形式。
+**** json-mode
+[[https://github.com/json-emacs/json-mode][json-mode]] は Emacs で JSON を編集するためのモード。
+***** インストール
+いつも通り ~el-get-bundle~ でインストール。
+#+begin_src emacs-lisp :tangle inits/40-json.el
+(el-get-bundle json-mode)
+#+end_src
+**** hook
+補完を有効にしたり LSP を使えるようにしたり保存時に自動整形させたりするため
+hook を色々突っ込んでる
+
+#+begin_src emacs-lisp :tangle inits/40-json.el
+(defun my/json-mode-hook ()
+  (company-mode 1)
+  (lsp)
+  (lsp-ui-mode 1)
+  (add-hook 'before-save-hook #'lsp-format-buffer nil 'local)
+  (turn-on-smartparens-strict-mode)
+  (flycheck-mode 1)
+  (flycheck-select-checker 'json-jq)
+  (highlight-indent-guides-mode 1)
+  (display-line-numbers-mode 1))
+
+(add-hook 'json-mode-hook 'my/json-mode-hook)
+#+end_src
+
 ** lsp-mode
    :PROPERTIES:
    :EXPORT_FILE_NAME: lsp-mode
