@@ -122,5 +122,6 @@ lsp-mode から eslint を使うことでやりたいことの対応ができる
       (lsp-ui-mode 1)
       (add-hook 'before-save-hook 'my/web-mode-auto-fix-hook nil 'local))))
 
+(add-to-list 'context-skk-programming-mode 'tsx-ts-mode)
 (add-hook 'tsx-ts-mode-hook 'my/tsx-hook)
 ```
