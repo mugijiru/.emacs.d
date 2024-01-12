@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>zoom :: 麦汁&#39;s Emacs Config</title>
+    <title>JSON :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1705079344" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/ui/zoom/">
+  <body class="" data-url="/.emacs.d/programming/json/">
     <nav id="sidebar" class="">
 
 
@@ -929,7 +929,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        parent
+        
         
         
         ">
@@ -1396,7 +1396,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/zoom/" title="zoom" class="dd-item active">
+      <li data-nav-id="/.emacs.d/ui/zoom/" title="zoom" class="dd-item ">
         <a href="/.emacs.d/ui/zoom/">
         zoom
         
@@ -1585,7 +1585,7 @@
   
     
     <li data-nav-id="/.emacs.d/programming/" title="プログラミング関係の設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -1779,7 +1779,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/programming/json/" title="JSON" class="dd-item ">
+      <li data-nav-id="/.emacs.d/programming/json/" title="JSON" class="dd-item active">
         <a href="/.emacs.d/programming/json/">
         JSON
         
@@ -3014,7 +3014,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > zoom
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/programming/'>プログラミング関係の設定</a> > JSON
           
         
           
@@ -3029,9 +3029,12 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#概要">概要</a></li>
-    <li><a href="#インストール">インストール</a></li>
-    <li><a href="#設定">設定</a></li>
+    <li><a href="#概要">概要</a>
+      <ul>
+        <li><a href="#json-mode">json-mode</a></li>
+        <li><a href="#hook">hook</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -3049,7 +3052,7 @@
           
             <h1>
               
-              zoom
+              JSON
             </h1>
           
 
@@ -3057,29 +3060,27 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/cyrus-and/zoom">zoom</a> はフォーカスが当たっている Window が大きく表示されるようにするやつ。最近流行りのビデオチャットツールではない。</p>
-<p>どこにフォーカスが当たっているかわかりやすくなるし、狭い画面でも見たい部分を広げて表示できるので便利。</p>
-<h2 id="インストール">インストール</h2>
-<p>el-get のレシピは自前で用意している</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name zoom
-</span></span><span style="display:flex;"><span>:type github
-</span></span><span style="display:flex;"><span>:description <span style="color:#e6db74">&#34;Fixed and automatic balanced window layout.&#34;</span>
-</span></span><span style="display:flex;"><span>:pkgname <span style="color:#e6db74">&#34;cyrus-and/zoom&#34;</span>
-</span></span><span style="display:flex;"><span>:minimum-emacs-version (<span style="color:#ae81ff">24</span> <span style="color:#ae81ff">4</span>))
-</span></span></code></pre></div><p>そして el-get で入れる。
-GitHub から直接取得するように設定している。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle cyrus-and/zoom)
-</span></span></code></pre></div><h2 id="設定">設定</h2>
-<dl>
-<dt>起動時に有効化</dt>
-<dd>1画面しか使えない時は必須なので</dd>
-<dt>比率を黄金比に変更</dt>
-<dd>この方が使いやすいっぽい。</dd>
-</dl>
-<p>という設定をしている。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-variables
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(zoom-mode <span style="color:#66d9ef">t</span>)
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(zoom-size <span style="color:#f92672">&#39;</span>(<span style="color:#ae81ff">0.618</span> <span style="color:#f92672">.</span> <span style="color:#ae81ff">0.618</span>)))
+<p>パッケージの設定ファイルなどでよく使われているファイル形式。</p>
+<h3 id="json-mode">json-mode</h3>
+<p><a href="https://github.com/json-emacs/json-mode">json-mode</a> は Emacs で JSON を編集するためのモード。</p>
+<h4 id="インストール">インストール</h4>
+<p>いつも通り <code>el-get-bundle</code> でインストール。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle json-mode)
+</span></span></code></pre></div><h3 id="hook">hook</h3>
+<p>補完を有効にしたり LSP を使えるようにしたり保存時に自動整形させたりするため
+hook を色々突っ込んでる</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/json-mode-hook ()
+</span></span><span style="display:flex;"><span>  (company-mode <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>  (lsp)
+</span></span><span style="display:flex;"><span>  (lsp-ui-mode <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>  (add-hook <span style="color:#e6db74">&#39;before-save-hook</span> <span style="color:#a6e22e">#&#39;</span>lsp-format-buffer <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;local</span>)
+</span></span><span style="display:flex;"><span>  (turn-on-smartparens-strict-mode)
+</span></span><span style="display:flex;"><span>  (flycheck-mode <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>  (flycheck-select-checker <span style="color:#e6db74">&#39;json-jq</span>)
+</span></span><span style="display:flex;"><span>  (highlight-indent-guides-mode <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>  (display-line-numbers-mode <span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;json-mode-hook</span> <span style="color:#e6db74">&#39;my/json-mode-hook</span>)
 </span></span></code></pre></div>
 
 <footer class="footline">
@@ -3712,7 +3713,6 @@ GitHub から直接取得するように設定している。</p>
             
                 
                     
-                    
                 
                 
 
@@ -3725,9 +3725,6 @@ GitHub から直接取得するように設定している。</p>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -4065,7 +4062,6 @@ GitHub から直接取得するように設定している。</p>
             
                 
                     
-                    
                 
                 
 
@@ -4081,9 +4077,6 @@ GitHub から直接取得するように設定している。</p>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -4200,6 +4193,7 @@ GitHub から直接取得するように設定している。</p>
             
                 
                     
+                    
                 
                 
 
@@ -4213,21 +4207,8 @@ GitHub から直接取得するように設定している。</p>
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
+                        
                     
                 
                 
@@ -4356,6 +4337,26 @@ GitHub から直接取得するように設定している。</p>
             
             
                 
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -5196,10 +5197,10 @@ GitHub から直接取得するように設定している。</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/ui/yascroll/" title="yascroll"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/programming/jest/" title="Jest"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/ui/zoom-window/" title="zoom-window" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/programming/lsp-mode/" title="lsp-mode" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

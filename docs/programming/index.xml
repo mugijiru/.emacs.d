@@ -129,6 +129,19 @@ jest-test-mode jest-test-mode は Emacs 上から Jest のテストを手軽に�
     </item>
     
     <item>
+      <title>JSON</title>
+      <link>https://mugijiru.github.io/.emacs.d/programming/json/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/programming/json/</guid>
+      <description>概要 パッケージの設定ファイルなどでよく使われているファイル形式。
+json-mode json-mode は Emacs で JSON を編集するためのモード。
+インストール いつも通り el-get-bundle でインストール。
+(el-get-bundle json-mode) hook 補完を有効にしたり LSP を使えるようにしたり保存時に自動整形させたりするため hook を色々突っ込んでる
+(defun my/json-mode-hook () (company-mode 1) (lsp) (lsp-ui-mode 1) (add-hook &amp;#39;before-save-hook #&amp;#39;lsp-format-buffer nil &amp;#39;local) (turn-on-smartparens-strict-mode) (flycheck-mode 1) (flycheck-select-checker &amp;#39;json-jq) (highlight-indent-guides-mode 1) (display-line-numbers-mode 1)) (add-hook &amp;#39;json-mode-hook &amp;#39;my/json-mode-hook) </description>
+    </item>
+    
+    <item>
       <title>lsp-mode</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/lsp-mode/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

@@ -137,7 +137,7 @@
 	"title": "プログラミング関係の設定",
 	"tags": [],
 	"description": "",
-	"content": "ここでは各言語やフレームワーク毎の設定をまとめている。 markdown-mode とか yaml-mode なんかはプログラム言語ではないけど面倒なので一旦ここにまとめている。\nDocker Dockerfile を書くための設定 emacs-lisp Emacs Lisp を書くための設定 Ember.js Web フロントエンド MVC フレームワークである Ember.js 用の設定を書いている es6 ES2015 以降の JS に関する設定。es6 としているのは過去の経緯のため。 flycheck Flycheck の設定について書いている gnuplot-mode グラフ作成ソフト gnuplot を使うための設定 lsp-mode Emacs の LSP クライアントの一種である lsp-mode に関する設定 markdown Markdown を書く時の設定 plantuml-mode PlantUML を書く時のメジャーモードの設定 rails Rails 開発をする上での設定 React.js React.js アプリを開発するための設定 rspec-mode Ruby のテストフレームワーク RSpec を書いたりするのに便利なモード ruby Ruby を書く上での設定 scss SCSS を書く上での設定 TypeScript TypeScript を書く上での設定 Vue.js Vue.js を書く上での設定 yaml-mode YAML を書く時のメジャーモードの設定 "
+	"content": "ここでは各言語やフレームワーク毎の設定をまとめている。 markdown-mode とか yaml-mode なんかはプログラム言語ではないけど面倒なので一旦ここにまとめている。\nDocker Dockerfile を書くための設定 emacs-lisp Emacs Lisp を書くための設定 Ember.js Web フロントエンド MVC フレームワークである Ember.js 用の設定を書いている es6 ES2015 以降の JS に関する設定。es6 としているのは過去の経緯のため。 flycheck Flycheck の設定について書いている gnuplot-mode グラフ作成ソフト gnuplot を使うための設定 GraphQL GraphQL ファイルを編集するための設定 Jest JS のテストツール Jest 関係の設定 JSON JSON ファイルを編集するための設定 lsp-mode Emacs の LSP クライアントの一種である lsp-mode に関する設定 markdown Markdown を書く時の設定 plantuml-mode PlantUML を書く時のメジャーモードの設定 rails Rails 開発をする上での設定 React.js React.js アプリを開発するための設定 rspec-mode Ruby のテストフレームワーク RSpec を書いたりするのに便利なモード ruby Ruby を書く上での設定 scss SCSS を書く上での設定 TypeScript TypeScript を書く上での設定 Vue.js Vue.js を書く上での設定 yaml-mode YAML を書く時のメジャーモードの設定 "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/org-gcal/",
@@ -551,6 +551,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 Jest は JavaScript のテスティングフレームワークの1つ。なんか大体オールインワンな感じで最近はデファクトっぽい人気なやつ。\njest-test-mode jest-test-mode は Emacs 上から Jest のテストを手軽に実行できるようにしてくれるやつ。\nインストール まず el-get のレシピが公式では置かれていないので自前で用意\n(:name jest-test-mode :website \u0026#34;https://github.com/rymndhng/jest-test-mode/tree/3126c5c5c5632da639ea34867a7342d4410d78aa\u0026#34; :description \u0026#34;Emacs minor mode for running jest.\u0026#34; :type github :pkgname \u0026#34;rymndhng/jest-test-mode\u0026#34; :minimum-emacs-version \u0026#34;25.1\u0026#34;) そしてそれを el-get-bundle でインストール\n(el-get-bundle jest-test-mode) keymap デフォルトのキーマップ以外にも C-c C-c でテストできる方が手癖でテストを実行できて便利なので jest-test-mode-map に keybind を追加している\n(with-eval-after-load \u0026#39;jest-test-mode (let ((keymap jest-test-mode-map)) (define-key keymap (kbd \u0026#34;C-c C-c\u0026#34;) \u0026#39;jest-test-run-at-point))) .dir-locals.el Jest でテストを書いているプロジェクトのテストファイルを詰めているフォルダの.dir-locals.el に以下のように書くことでそれらのコードを開いた時に jest-test-mode が自動的に有効になるようにしている\n((web-mode . ((eval . (jest-test-mode)))) (typescript-mode . ((eval . (jest-test-mode))))) その他 類似品に emacs-jest というのもあるが、こちらは el-get で入れようとしても jest-traverse-test.el の byte compile でエラーになるので利用を諦めた\n"
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/programming/json/",
+	"title": "JSON",
+	"tags": [],
+	"description": "",
+	"content": "概要 パッケージの設定ファイルなどでよく使われているファイル形式。\njson-mode json-mode は Emacs で JSON を編集するためのモード。\nインストール いつも通り el-get-bundle でインストール。\n(el-get-bundle json-mode) hook 補完を有効にしたり LSP を使えるようにしたり保存時に自動整形させたりするため hook を色々突っ込んでる\n(defun my/json-mode-hook () (company-mode 1) (lsp) (lsp-ui-mode 1) (add-hook \u0026#39;before-save-hook #\u0026#39;lsp-format-buffer nil \u0026#39;local) (turn-on-smartparens-strict-mode) (flycheck-mode 1) (flycheck-select-checker \u0026#39;json-jq) (highlight-indent-guides-mode 1) (display-line-numbers-mode 1)) (add-hook \u0026#39;json-mode-hook \u0026#39;my/json-mode-hook) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/keybinds/key-chord/",
