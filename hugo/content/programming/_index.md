@@ -42,6 +42,9 @@ markdown-mode とか yaml-mode なんかはプログラム言語ではないけ�
 [markdown]({{< relref "markdown" >}})
 : Markdown を書く時の設定
 
+[Mocha]({{< relref "mocha" >}})
+: Mocha を使ったテストを動かすための設定
+
 [plantuml-mode]({{< relref "plantuml-mode" >}})
 : PlantUML を書く時のメジャーモードの設定
 
