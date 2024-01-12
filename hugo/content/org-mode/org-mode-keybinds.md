@@ -18,7 +18,10 @@ major-mode-hydra で、org-mode のファイルを開いている時によく使
 ```emacs-lisp
 (with-eval-after-load 'major-mode-hydra
   (major-mode-hydra-define org-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-fileicon "org") " Org commands"))
-    ("Insert"
+    ("Navigation"
+     (("H" counsel-outline "Outline"))
+
+     "Insert"
      (("l" org-insert-link                     "Link")
       ("T" org-insert-todo-heading             "Todo")
       ("h" org-insert-heading-respect-content  "Heading")
@@ -164,7 +167,10 @@ pretty-hydra を使って Global に使える org-mode のコマンドを叩け�
 
      "Search"
      (("H" org-search-view "Heading")
-      ("f" org-roam-find-file "Roam"))
+      ("O" counsel-org-goto-all "Outline"))
+
+     "Roam"
+     ((";" org-roam-hydra/body "Menu"))
 
      "Pomodoro"
      (("p" org-pomodoro "Pomodoro")))))

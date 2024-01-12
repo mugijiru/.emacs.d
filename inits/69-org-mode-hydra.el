@@ -1,6 +1,9 @@
 (with-eval-after-load 'major-mode-hydra
   (major-mode-hydra-define org-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-fileicon "org") " Org commands"))
-    ("Insert"
+    ("Navigation"
+     (("H" counsel-outline "Outline"))
+
+     "Insert"
      (("l" org-insert-link                     "Link")
       ("T" org-insert-todo-heading             "Todo")
       ("h" org-insert-heading-respect-content  "Heading")
@@ -103,7 +106,8 @@
       ("j" org-clock-goto     "Goto"))
 
      "Search"
-     (("H" org-search-view "Heading"))
+     (("H" org-search-view "Heading")
+      ("O" counsel-org-goto-all "Outline"))
 
      "Roam"
      ((";" org-roam-hydra/body "Menu"))
