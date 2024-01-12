@@ -169,6 +169,19 @@ json-mode json-mode は Emacs で JSON を編集するためのモード。
     </item>
     
     <item>
+      <title>Mocha</title>
+      <link>https://mugijiru.github.io/.emacs.d/programming/mocha/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/programming/mocha/</guid>
+      <description>概要 Mocha は JS のテストフレームワークの1つ。 Jest より前はこっちはよく使われてた
+mocha.el インストール レシピは自前で用意している
+(:name mocha :description &amp;#34;Emacs mode for running mocha tests&amp;#34; :website &amp;#34;https://github.com/scottaj/mocha.el&amp;#34; :type github :pkgname &amp;#34;scottaj/mocha.el&amp;#34;) そしていつも通り el-get-bundle でインストールしている
+(el-get-bundle mocha) テスト実行コマンド mocha のテストファイルかどうかを判定してそうだったら mocha としてテストを実行するコマンドを用意している。
+(defun my/mocha-test-file () (interactive) (if my/mocha-enable-p (mocha-test-file))) けど今 mocha 使ってないからこれ使ってないんだよねえ……</description>
+    </item>
+    
+    <item>
       <title>plantuml-mode</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/plantuml-mode/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
