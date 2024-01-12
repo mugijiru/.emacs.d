@@ -23,4 +23,5 @@
       (lsp-ui-mode 1)
       (add-hook 'before-save-hook 'my/tsx-auto-fix-hook nil 'local))))
 
+(add-to-list 'context-skk-programming-mode 'tsx-ts-mode)
 (add-hook 'tsx-ts-mode-hook 'my/tsx-hook)
