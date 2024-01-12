@@ -167,7 +167,10 @@ pretty-hydra を使って Global に使える org-mode のコマンドを叩け�
 
      "Search"
      (("H" org-search-view "Heading")
-      ("f" org-roam-find-file "Roam"))
+      ("O" counsel-org-goto-all "Outline"))
+
+     "Roam"
+     ((";" org-roam-hydra/body "Menu"))
 
      "Pomodoro"
      (("p" org-pomodoro "Pomodoro")))))

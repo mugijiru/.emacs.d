@@ -9062,7 +9062,10 @@ org フォルダの下に roam というフォルダを掘ってその中だけ�
 
            "Search"
            (("H" org-search-view "Heading")
-            ("f" org-roam-find-file "Roam"))
+            ("O" counsel-org-goto-all "Outline"))
+
+           "Roam"
+           ((";" org-roam-hydra/body "Menu"))
 
            "Pomodoro"
            (("p" org-pomodoro "Pomodoro")))))

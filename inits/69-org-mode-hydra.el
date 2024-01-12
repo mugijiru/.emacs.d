@@ -106,7 +106,8 @@
       ("j" org-clock-goto     "Goto"))
 
      "Search"
-     (("H" org-search-view "Heading"))
+     (("H" org-search-view "Heading")
+      ("O" counsel-org-goto-all "Outline"))
 
      "Roam"
      ((";" org-roam-hydra/body "Menu"))
