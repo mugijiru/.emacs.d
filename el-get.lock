@@ -157,7 +157,7 @@
         (with-editor :checksum "d43db3c58c34d4dbc3ce6f68ec24fecf3452b20e")
         (yaml-mode :checksum "5b58248ab255dff6cfa4c4057a191bc4446ee5b6")
         (yascroll :checksum "9075c58856be8a0a3d3cc5e81d9abca2b0d19408")
-        (yasnippet :checksum "d7f55c7501a67a27f45154a6d4bdc50c2c235623")
+        (yasnippet :checksum "8ce506e32f629b549fd3be8c466fe87819f54d13")
         (zoom-window :checksum "9ce43b1b32dc9987e70ee778b5ca90984e2d79d1")
         (ace-window :checksum "77115afc1b0b9f633084cf7479c767988106c196")
         (pcsv :checksum "aa421d12c0da0adb9bc74a050a591dcbabf934ae")
