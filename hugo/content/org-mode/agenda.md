@@ -162,7 +162,7 @@ nil にして表示しないようにしている。
                 (org-agenda-overriding-header "今日の作業")
                 (org-habit-show-habits nil)
                 (org-agenda-span 'day)
-                (org-agenda-prefix-format "  %c: ")
+                (org-agenda-prefix-format "%l%c: ")
                 (org-agenda-files '("~/Documents/org/tasks/habits.org"
                                     "~/Documents/org/journal/"
                                     "~/Documents/org/tasks/reviews.org"))
