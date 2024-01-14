@@ -121,10 +121,16 @@
                                            (:discard (:anything t))))))
     (tags-todo "Emacs&LEVEL=2"
                ((org-agenda-files '("~/Documents/org/tasks/projects.org"))
-                (org-agenda-overriding-header "Emacs")))
+                (org-agenda-overriding-header "Emacs")
+                (org-super-agenda-groups '((:priority>= "B")
+                                           (:name "no priority" :not (:priority>= "C"))
+                                           (:discard (:anything t))))))
     (tags-todo "Env&LEVEL=2"
                ((org-agenda-files '("~/Documents/org/tasks/projects.org"))
-                (org-agenda-overriding-header "Env")))))
+                (org-agenda-overriding-header "Env")
+                (org-super-agenda-groups '((:priority>= "B")
+                                           (:name "no priority" :not (:priority>= "C"))
+                                           (:discard (:anything t))))))))
 
   ("p" . "Projects")
   ("pA" "Projects Priority A"
