@@ -14,11 +14,11 @@ draft = false
 
 ```emacs-lisp
 (:name copilot
-       :website "https://github.com/zerolfx/copilot.el"
+       :website "https://github.com/copilot-emacs/copilot.el"
        :description "An Emacs plugin for GitHub Copilot."
        :type github
        :branch "main"
-       :pkgname "zerolfx/copilot.el"
+       :pkgname "copilot-emacs/copilot.el"
        :depends (s dash editorconfig jsonrpc))
 ```
 
