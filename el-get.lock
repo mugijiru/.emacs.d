@@ -1,6 +1,6 @@
 (setq el-get-lock-package-versions
       '((corfu :checksum "f0f60de5e7f916358feda5f6509d139cbccf20f1")
-        (treesit-auto :checksum "3686c6bf12da93c1f62869dc1000818763b63310")
+        (treesit-auto :checksum "16ac5316a80954f2633f0a2fb1d87fef108278ad")
         (org-mode :checksum "17608670a4f4e8edb91efe04d86fe80ff9d01b69")
         (org-journal :checksum "605a7eb984a95fc6ec122df800632bf56ff59514")
         (company-terraform :checksum "8d5a16d1bbeeb18ca49a8fd57b5d8cd30c8b8dc7")
