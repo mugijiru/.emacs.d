@@ -124,6 +124,12 @@
                 (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                            (:name "今日予定の作業" :scheduled today)
                                            (:discard (:anything t))))))
+    (tags-todo "LEVEL=2"
+               ((org-agenda-files '("~/Documents/org/tasks/projects.org"))
+                (org-agenda-overriding-header "Private")
+                (org-super-agenda-groups '((:name "Priority >= B" :and (:priority>= "B" :property ("agenda-group" "7. Private")))
+                                           (:name "no priority" :and (:not (:priority>= "C") :property ("agenda-group" "7. Private")))
+                                           (:discard (:anything t))))))
     (tags-todo "Emacs&LEVEL=2"
                ((org-agenda-files '("~/Documents/org/tasks/projects.org"))
                 (org-agenda-overriding-header "Emacs")
