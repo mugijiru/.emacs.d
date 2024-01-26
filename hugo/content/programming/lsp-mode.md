@@ -85,11 +85,12 @@ indent-region を使えずにいた
 <https://github.com/emacs-lsp/lsp-mode/issues/2915#issuecomment-855156802>
 
 を参考に
-lsp--formatting-indent-aliat に web-mode の設定を追加することで良い感じにインデントできるように調整している
+lsp--formatting-indent-aliat に web-mode と tsx-ts-mode の設定を追加することで良い感じにインデントできるように調整している
 
 ```emacs-lisp
 (with-eval-after-load 'lsp-mode
   (add-to-list 'lsp--formatting-indent-alist `(web-mode . web-mode-code-indent-offset))
+  (add-to-list 'lsp--formatting-indent-alist `(tsx-ts-mode . typescript-ts-mode-indent-offset))
   (add-to-list 'lsp-file-watch-ignored-directories "hello-friend-ng")
   (add-to-list 'lsp-file-watch-ignored-directories "ox-hugo"))
 ```
