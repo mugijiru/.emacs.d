@@ -12,20 +12,20 @@
     <title>React.js :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1706248985" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1706248985" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1706248985" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1706248985" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1706248985" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1706248985" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1706248985" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1706248985" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1706248985" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1706248985" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1706249675" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1706249675" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1706249675" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1706249675" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1706249675" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1706249675" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1706249675" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1706249675" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1706249675" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1706249675" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1706248985"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1706249675"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1706248985"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1706248985"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1706249675"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1706249675"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1706248985"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1706249675"></script>
 
     
   </div>
@@ -3118,7 +3118,7 @@ auto-mode-alist で関連付けをする</p>
 <p>tsx の保存時に自動でフォーマットしてほしいのでそれ用に hook を追加</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/tsx-auto-fix-hook ()
 </span></span><span style="display:flex;"><span>  (when (<span style="color:#a6e22e">string-equal</span> (file-name-extension <span style="color:#a6e22e">buffer-file-name</span>) <span style="color:#e6db74">&#34;tsx&#34;</span>)
-</span></span><span style="display:flex;"><span>    (lsp-eslint-fix-all)))
+</span></span><span style="display:flex;"><span>    (lsp-eslint-apply-all-fixes)))
 </span></span></code></pre></div><h2 id="lsp-mode-などの有効化">lsp-mode などの有効化</h2>
 <p>jsx/tsx ファイルを開く時に web-mode が有効になるようにしているのでその web-mode の hook で</p>
 <ul>
@@ -3147,7 +3147,7 @@ lsp-mode から eslint を使うことでやりたいことの対応ができる
 </span></span><span style="display:flex;"><span>      (origami-mode <span style="color:#ae81ff">1</span>)
 </span></span><span style="display:flex;"><span>      (company-mode <span style="color:#ae81ff">1</span>)
 </span></span><span style="display:flex;"><span>      (subword-mode <span style="color:#ae81ff">1</span>)
-</span></span><span style="display:flex;"><span>      (turn-on-smartparens-mode)
+</span></span><span style="display:flex;"><span>      (turn-on-smartparens-strict-mode)
 </span></span><span style="display:flex;"><span>      (display-line-numbers-mode <span style="color:#66d9ef">t</span>)
 </span></span><span style="display:flex;"><span>      (lsp)
 </span></span><span style="display:flex;"><span>      (lsp-ui-mode <span style="color:#ae81ff">1</span>)
@@ -5300,19 +5300,19 @@ lsp-mode から eslint を使うことでやりたいことの対応ができる
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1706248985"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1706248985"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1706248985"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1706248985"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1706248985"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1706248985"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1706249675"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1706249675"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1706249675"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1706249675"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1706249675"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1706249675"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1706248985"></script>
-    <script src="/.emacs.d/js/learn.js?1706248985"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1706248985"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1706249675"></script>
+    <script src="/.emacs.d/js/learn.js?1706249675"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1706249675"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1706248985"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1706249675"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

@@ -1498,7 +1498,7 @@ typescript-mode typescript-mode は TypeScript 向けの Syntax Highlight とか
 インストール 自分はいつも通り el-get で入れている
 (el-get-bundle typescript-mode) カスタム変数 indent は2文字がいいのでデフォルトから変更 言語設定を ja にする。エラーが日本語で出るようになるとか……? inlay-hint を有効にする。何が変わるかわかってないけど Node.js の使用メモリも 2048 MB に増加。メモリ足らんってなる時があったので 保存時の自動フォーマット などを設定している。
 (custom-set-variables &amp;#39;(typescript-indent-level 2) &amp;#39;(lsp-typescript-locale &amp;#34;ja&amp;#34;) &amp;#39;(lsp-inlay-hint-enable t) &amp;#39;(lsp-javascript-display-parameter-name-hints t) &amp;#39;(lsp-javascript-display-enum-member-value-hints t) &amp;#39;(lsp-clients-typescript-max-ts-server-memory 2048) &amp;#39;(lsp-disabled-clients &amp;#39;()) &amp;#39;(lsp-eslint-auto-fix-on-save nil)) auto-fix の hook 関数 保存した時に自動で整形してほしいなと思ったので自動で保存されるように hook 関数を用意している
-(defun my/ts-mode-auto-fix-hook () (when (string-equal (file-name-extension buffer-file-name) &amp;#34;ts&amp;#34;) (lsp-eslint-fix-all))) hook company-mode smartparens-strict-mode lsp/lsp-ui などのプログラミングで便利な各種のモードを hook を使って有効化している</description>
+(defun my/ts-mode-auto-fix-hook () (when (string-equal (file-name-extension buffer-file-name) &amp;#34;ts&amp;#34;) (lsp-eslint-apply-all-fixes))) hook company-mode smartparens-strict-mode lsp/lsp-ui などのプログラミングで便利な各種のモードを hook を使って有効化している</description>
     </item>
     
     <item>
