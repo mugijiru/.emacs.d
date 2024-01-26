@@ -17,3 +17,6 @@
  '(org-journal-date-format "%d日(%a)")
  '(org-journal-enable-agenda-integration t)
  '(org-journal-carryover-items "TODO={TODO\\|DOING\\|WAIT}"))
+
+(with-eval-after-load 'org-journal
+  (add-to-list 'org-journal-after-header-create-hook 'my/reset-org-refile-targets))

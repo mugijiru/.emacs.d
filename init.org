@@ -8587,11 +8587,16 @@ agenda ファイルに使われているタグは全部補完対象になって�
      いくつかの org ファイルを使っているので
      ターゲットを以下のように設定している。
 
+     なお関数化することで hook で呼び出せるようにしている
+
      #+begin_src emacs-lisp :tangle inits/61-org-refile.el
-       (setq org-refile-targets `((,(org-journal--get-entry-path) :regexp . "Tasks")
-                                  (,(concat org-directory "tasks/projects.org") :level . 1)
-                                  (,(concat org-directory "tasks/pointers.org") :level . 1)
-                                  (,(concat org-directory "tasks/someday.org") :level . 1)))
+       (defun my/reset-org-refile-targets ()
+         (setq org-refile-targets `((,(org-journal--get-entry-path) :regexp . "Tasks")
+                                    (,(concat org-directory "tasks/projects.org") :level . 1)
+                                    (,(concat org-directory "tasks/pointers.org") :level . 1)
+                                    (,(concat org-directory "tasks/someday.org") :level . 1))))
+
+       (my/reset-org-refile-targets)
      #+end_src
 
      | ターゲット         | 目的                                                                                                   |
@@ -8721,6 +8726,16 @@ agenda ファイルに使われているタグは全部補完対象になって�
    '(org-journal-date-format "%d日(%a)")
    '(org-journal-enable-agenda-integration t)
    '(org-journal-carryover-items "TODO={TODO\\|DOING\\|WAIT}"))
+#+end_src
+
+*** hook
+
+org-journal ファイルを新しく作る度にそのファイルを refile target で扱って欲しいので
+hook で org-refile-targets を設定し直すようにしている
+
+#+begin_src emacs-lisp :tangle inits/61-org-journal.el
+  (with-eval-after-load 'org-journal
+    (add-to-list 'org-journal-after-header-create-hook 'my/reset-org-refile-targets))
 #+end_src
 
 ** ox-hugo

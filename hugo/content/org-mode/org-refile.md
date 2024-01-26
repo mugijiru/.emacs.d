@@ -38,11 +38,16 @@ nil だと移動先候補PATHの最後の部分しか表示されないのでど
 
 いくつかの org ファイルを使っているのでターゲットを以下のように設定している。
 
+なお関数化することで hook で呼び出せるようにしている
+
 ```emacs-lisp
-(setq org-refile-targets `((,(org-journal--get-entry-path) :regexp . "Tasks")
-                           (,(concat org-directory "tasks/projects.org") :level . 1)
-                           (,(concat org-directory "tasks/pointers.org") :level . 1)
-                           (,(concat org-directory "tasks/someday.org") :level . 1)))
+(defun my/reset-org-refile-targets ()
+  (setq org-refile-targets `((,(org-journal--get-entry-path) :regexp . "Tasks")
+                             (,(concat org-directory "tasks/projects.org") :level . 1)
+                             (,(concat org-directory "tasks/pointers.org") :level . 1)
+                             (,(concat org-directory "tasks/someday.org") :level . 1))))
+
+(my/reset-org-refile-targets)
 ```
 
 | ターゲット   | 目的                                                             |
