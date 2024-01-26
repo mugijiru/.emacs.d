@@ -5636,7 +5636,7 @@ mocha としてテストを実行するコマンドを用意している。
     #+begin_src emacs-lisp :tangle inits/41-react.el
       (defun my/tsx-auto-fix-hook ()
         (when (string-equal (file-name-extension buffer-file-name) "tsx")
-          (lsp-eslint-fix-all)))
+          (lsp-eslint-apply-all-fixes)))
     #+end_src
 *** lsp-mode などの有効化
     :PROPERTIES:
@@ -5676,7 +5676,7 @@ mocha としてテストを実行するコマンドを用意している。
             (origami-mode 1)
             (company-mode 1)
             (subword-mode 1)
-            (turn-on-smartparens-mode)
+            (turn-on-smartparens-strict-mode)
             (display-line-numbers-mode t)
             (lsp)
             (lsp-ui-mode 1)
@@ -6217,7 +6217,7 @@ mocha としてテストを実行するコマンドを用意している。
      #+begin_src emacs-lisp :tangle inits/40-ts.el
        (defun my/ts-mode-auto-fix-hook ()
          (when (string-equal (file-name-extension buffer-file-name) "ts")
-           (lsp-eslint-fix-all)))
+           (lsp-eslint-apply-all-fixes)))
      #+end_src
 **** hook
      :PROPERTIES:

@@ -78,7 +78,7 @@ tsx の保存時に自動でフォーマットしてほしいのでそれ用に 
 ```emacs-lisp
 (defun my/tsx-auto-fix-hook ()
   (when (string-equal (file-name-extension buffer-file-name) "tsx")
-    (lsp-eslint-fix-all)))
+    (lsp-eslint-apply-all-fixes)))
 ```
 
 
@@ -116,7 +116,7 @@ lsp-mode から eslint を使うことでやりたいことの対応ができる
       (origami-mode 1)
       (company-mode 1)
       (subword-mode 1)
-      (turn-on-smartparens-mode)
+      (turn-on-smartparens-strict-mode)
       (display-line-numbers-mode t)
       (lsp)
       (lsp-ui-mode 1)

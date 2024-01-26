@@ -6,7 +6,7 @@
 
 (defun my/tsx-auto-fix-hook ()
   (when (string-equal (file-name-extension buffer-file-name) "tsx")
-    (lsp-eslint-fix-all)))
+    (lsp-eslint-apply-all-fixes)))
 
 (defun my/tsx-hook ()
   (let ((ext (file-name-extension buffer-file-name)))
@@ -17,7 +17,7 @@
       (origami-mode 1)
       (company-mode 1)
       (subword-mode 1)
-      (turn-on-smartparens-mode)
+      (turn-on-smartparens-strict-mode)
       (display-line-numbers-mode t)
       (lsp)
       (lsp-ui-mode 1)
