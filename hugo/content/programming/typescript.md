@@ -52,7 +52,7 @@ TypeScript ファイル(.ts) を使う上での設定を書いている。とり
 ```emacs-lisp
 (defun my/ts-mode-auto-fix-hook ()
   (when (string-equal (file-name-extension buffer-file-name) "ts")
-    (lsp-eslint-fix-all)))
+    (lsp-eslint-apply-all-fixes)))
 ```
 
 

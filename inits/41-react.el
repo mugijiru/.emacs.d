@@ -6,7 +6,7 @@
 
 (defun my/tsx-auto-fix-hook ()
   (when (string-equal (file-name-extension buffer-file-name) "tsx")
-    (lsp-eslint-fix-all)))
+    (lsp-eslint-apply-all-fixes)))
 
 (defun my/tsx-hook ()
   (let ((ext (file-name-extension buffer-file-name)))
