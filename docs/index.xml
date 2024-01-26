@@ -226,7 +226,8 @@ footnote や制作者などを出力しない HTML で記事を吐き出す時�
 (setq org-outline-path-complete-in-steps nil) refile ターゲットにファイル名を含める 以下のように設定すると refile のターゲット候補としてファイル名とその中の PATH が表示されるようになる。
 (setq org-refile-use-outline-path &amp;#39;file) nil だと移動先候補PATHの最後の部分しか表示されないのでどのファイルのどの場所かというのがわかりにくいのでこのように設定している。
 refile 先の候補設定 いくつかの org ファイルを使っているのでターゲットを以下のように設定している。
-(setq org-refile-targets `((,(org-journal--get-entry-path) :regexp . &amp;#34;Tasks&amp;#34;) (,(concat org-directory &amp;#34;tasks/projects.org&amp;#34;) :level . 1) (,(concat org-directory &amp;#34;tasks/pointers.org&amp;#34;) :level . 1) (,(concat org-directory &amp;#34;tasks/someday.org&amp;#34;) :level . 1))) ターゲット 目的 projects.org とりあえずその内やるタスクを放り込むところ。Work, Private の階層を設けているので :level 2 としている pointers.org 読物を突っ込むところとしている。 someday.</description>
+なお関数化することで hook で呼び出せるようにしている
+(defun my/reset-org-refile-targets () (setq org-refile-targets `((,(org-journal--get-entry-path) :regexp . &amp;#34;Tasks&amp;#34;) (,(concat org-directory &amp;#34;tasks/projects.org&amp;#34;) :level . 1) (,(concat org-directory &amp;#34;tasks/pointers.org&amp;#34;) :level . 1) (,(concat org-directory &amp;#34;tasks/someday.org&amp;#34;) :level . 1)))) (my/reset-org-refile-targets) ターゲット 目的 projects.org とりあえずその内やるタスクを放り込むところ。Work, Private の階層を設けているので :level 2 としている pointers.</description>
     </item>
     
     <item>
@@ -1180,7 +1181,7 @@ Slack 連携を Toggle するコマンド 連携したい時としたくない�
 インストール これは el-get にはレシピがないようなので自前で用意している
 (:name org-journal :website &amp;#34;https://github.com/bastibe/org-journal&amp;#34; :description &amp;#34;Functions to maintain a simple personal diary / journal in Emacs.&amp;#34; :type github :pkgname &amp;#34;bastibe/org-journal&amp;#34;) そして el-get-bundle でインストール
 (el-get-bundle org-journal) また refile 先の候補設定 で org-journal--get-entry-path という内部関数を使ってしまっていてそれが読み込まれていないと困るので、ここで require まで行っている
-(require &amp;#39;org-journal) 設定 (custom-set-variables &amp;#39;(org-journal-dir (concat org-directory &amp;#34;journal/&amp;#34;)) &amp;#39;(org-journal-file-format &amp;#34;%Y%m%d.org&amp;#34;) &amp;#39;(org-journal-date-format &amp;#34;%d日(%a)&amp;#34;) &amp;#39;(org-journal-enable-agenda-integration t) &amp;#39;(org-journal-carryover-items &amp;#34;TODO={TODO\\|DOING\\|WAIT}&amp;#34;)) </description>
+(require &amp;#39;org-journal) 設定 (custom-set-variables &amp;#39;(org-journal-dir (concat org-directory &amp;#34;journal/&amp;#34;)) &amp;#39;(org-journal-file-format &amp;#34;%Y%m%d.org&amp;#34;) &amp;#39;(org-journal-date-format &amp;#34;%d日(%a)&amp;#34;) &amp;#39;(org-journal-enable-agenda-integration t) &amp;#39;(org-journal-carryover-items &amp;#34;TODO={TODO\\|DOING\\|WAIT}&amp;#34;)) hook org-journal ファイルを新しく作る度にそのファイルを refile target で扱って欲しいので hook で org-refile-targets を設定し直すようにしている</description>
     </item>
     
     <item>
