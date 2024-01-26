@@ -48,3 +48,14 @@ draft = false
  '(org-journal-enable-agenda-integration t)
  '(org-journal-carryover-items "TODO={TODO\\|DOING\\|WAIT}"))
 ```
+
+
+## hook {#hook}
+
+org-journal ファイルを新しく作る度にそのファイルを refile target で扱って欲しいので
+hook で org-refile-targets を設定し直すようにしている
+
+```emacs-lisp
+(with-eval-after-load 'org-journal
+  (add-to-list 'org-journal-after-header-create-hook 'my/reset-org-refile-targets))
+```

@@ -8728,6 +8728,16 @@ agenda ファイルに使われているタグは全部補完対象になって�
    '(org-journal-carryover-items "TODO={TODO\\|DOING\\|WAIT}"))
 #+end_src
 
+*** hook
+
+org-journal ファイルを新しく作る度にそのファイルを refile target で扱って欲しいので
+hook で org-refile-targets を設定し直すようにしている
+
+#+begin_src emacs-lisp :tangle inits/61-org-journal.el
+  (with-eval-after-load 'org-journal
+    (add-to-list 'org-journal-after-header-create-hook 'my/reset-org-refile-targets))
+#+end_src
+
 ** ox-hugo
    :PROPERTIES:
    :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :weight 12
