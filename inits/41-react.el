@@ -17,7 +17,7 @@
       (origami-mode 1)
       (company-mode 1)
       (subword-mode 1)
-      (turn-on-smartparens-mode)
+      (turn-on-smartparens-strict-mode)
       (display-line-numbers-mode t)
       (lsp)
       (lsp-ui-mode 1)
