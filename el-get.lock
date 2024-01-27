@@ -50,7 +50,7 @@
         (web-mode :checksum "82847071ce93293bdb7945db08d970f13fd883cf")
         (dap-mode :checksum "2f0c5b28578ce65ec746e4084ba72ba5c652ea79")
         (lsp-treemacs :checksum "e54e74deb8150964e3c3024e1ec14295a34e2a3b")
-        (treemacs :checksum "529876dcc0d2c30667f1697c4eb7a5f137da4c3e")
+        (treemacs :checksum "df26b6ab9a0f467e5ff99f7ed97551ccf756e06c")
         (pfuture :checksum "19b53aebbc0f2da31de6326c495038901bffb73c")
         (bui :checksum "f3a137628e112a91910fd33c0cff0948fa58d470")
         (smartparens :checksum "0778a8a84064cf2bc3a9857bd0e7a4619cc1e5c3")
