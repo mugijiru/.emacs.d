@@ -80,7 +80,7 @@
         (vue-mode :checksum "4853d97ea8d7b2fab7d331d3a8aad18d02b792ad")
         (mmm-mode :checksum "96906747e862449b722b6e2c741b61871894ac3a")
         (ssass-mode :checksum "96f557887ad97a0066a60c54f92b7234b8407016")
-        (edit-indirect :checksum "d0378d9747791fcd78370a0e52ec018d5970c482")
+        (edit-indirect :checksum "82a28d8a85277cfe453af464603ea330eae41c05")
         (vue-html-mode :checksum "1514939804bad558584feeb6298b38d22eadf64e")
         (emacs-pug-mode :checksum "73f8c2f95eba695f701df20c8436f49abadebdc1")
         (zoom :checksum "2104abb074682db79b9ff3a748e8e2e760a4d8cf")
