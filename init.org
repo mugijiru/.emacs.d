@@ -7441,6 +7441,17 @@ ref: https://github.com/mugijiru/.emacs.d/pull/2992
     (setq org-log-into-drawer "LOGBOOK")
     #+end_src
 
+*** org ファイルを開いた時の折り畳み
+デフォルト設定では全展開だけど、
+基本的に見出しだけ見れれば良いかなと思うのでそのように設定した。
+
+#+begin_src emacs-lisp :tangle inits/60-org.el
+(custom-set-variables
+ '(org-startup-folded t))
+#+end_src
+
+journal ファイルはもう少し展開してても良い気がするので
+journal のテンプレートか何かを弄っておくのも良さそう
 *** タグ設定時の補完候補設定
 agenda ファイルに使われているタグは全部補完対象になってほしいのでそのように設定している
 

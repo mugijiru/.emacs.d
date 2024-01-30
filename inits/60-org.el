@@ -11,7 +11,10 @@
 (setq org-log-into-drawer "LOGBOOK")
 
 (custom-set-variables
-  '(org-complete-tags-always-offer-all-agenda-tags t))
+ '(org-startup-folded t))
+
+(custom-set-variables
+ '(org-complete-tags-always-offer-all-agenda-tags t))
 
 (with-eval-after-load 'org
   (require 'org-protocol)
