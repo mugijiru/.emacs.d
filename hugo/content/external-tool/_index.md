@@ -32,6 +32,9 @@ disableToc = true
 [notify-slack]({{< relref "notify-slack" >}})
 : Emacs から外部コマンドを通じて Slack に通知するための関数周りの事を書いている
 
+[openai]({{< relref "openai" >}})
+: Emacs から [OpenAI API](https://openai.com/blog/openai-api) を利用するためのライブラリ
+
 [wakatime-mode]({{< relref "wakatime-mode" >}})
 : Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ
 
