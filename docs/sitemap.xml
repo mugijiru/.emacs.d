@@ -188,6 +188,8 @@
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/external-tool/notify-slack/</loc>
   </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/external-tool/openai/</loc>
+  </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/org-mode/org-journal/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/org-mode/org-roam/</loc>
