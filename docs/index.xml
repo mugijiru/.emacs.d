@@ -1452,6 +1452,20 @@ terraform-mode terraform-mode は Emacs で terraform のコードを書くた�
     </item>
     
     <item>
+      <title>textlint</title>
+      <link>https://mugijiru.github.io/.emacs.d/editing/textlint/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/editing/textlint/</guid>
+      <description>概要 textlint は plain text や Markdown の校正に使える linter です。そして flycheck でそれを呼び出すことができるので、変な文章を書いていないかチェックすることができます。
+設定 textlint の設定を ~/.config/textlint/textlintrc_ja.json に置いているのでそれを flycheck-textlint-config に設定しています。
+(custom-set-variables &amp;#39;(flycheck-textlint-config &amp;#34;~/.config/textlint/textlintrc_ja.json&amp;#34;)) magit 用の hook 関数の用意 magit で commit message を書く時に自動で textlint が起動するようにするための関数。なんだけど想定通りに動いていない
+;; 想定通りに動かない (defun my/magit-commit-create-after (&amp;amp;optional arg) (ignore arg) (flycheck-select-checker &amp;#39;textlint-no-extension)) ;; (with-eval-after-load &amp;#39;magit ;; (advice-add &amp;#39;magit-commit-create :after &amp;#39;my/magit-commit-create-after)) checker 定義 flycheck のデフォルトでも textlint は動くのですが magit でコミットメッセージを書く時なんかには動いてくれなかったので拡張子がないファイルの時にも動くように checker を定義 &amp;amp; 追加している。
+その際 forge で Pull request を作る時に自動で有効になるようにも調整している。
+(with-eval-after-load &amp;#39;flycheck (flycheck-define-checker textlint-no-extension &amp;#34;A text prose linter using textlint.</description>
+    </item>
+    
+    <item>
       <title>todoist</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/todoist/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

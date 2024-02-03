@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>実行方法 :: 麦汁&#39;s Emacs Config</title>
+    <title>textlint :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1706940809" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/testing/execution/">
+  <body class="" data-url="/.emacs.d/editing/textlint/">
     <nav id="sidebar" class="">
 
 
@@ -622,7 +622,7 @@
   
     
     <li data-nav-id="/.emacs.d/editing/" title="ファイル編集/入力補助" class="dd-item
-        
+        parent
         
         
         ">
@@ -837,7 +837,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/editing/textlint/" title="textlint" class="dd-item ">
+      <li data-nav-id="/.emacs.d/editing/textlint/" title="textlint" class="dd-item active">
         <a href="/.emacs.d/editing/textlint/">
         textlint
         
@@ -2897,7 +2897,7 @@
   
     
     <li data-nav-id="/.emacs.d/testing/" title="テストコード" class="dd-item
-        parent
+        
         
         
         ">
@@ -2923,7 +2923,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/testing/execution/" title="実行方法" class="dd-item active">
+      <li data-nav-id="/.emacs.d/testing/execution/" title="実行方法" class="dd-item ">
         <a href="/.emacs.d/testing/execution/">
         実行方法
         
@@ -3056,7 +3056,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/testing/'>テストコード</a> > 実行方法
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/editing/'>ファイル編集/入力補助</a> > textlint
           
         
           
@@ -3069,7 +3069,14 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#設定">設定</a></li>
+    <li><a href="#magit-用の-hook-関数の用意">magit 用の hook 関数の用意</a></li>
+    <li><a href="#checker-定義">checker 定義</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -3085,20 +3092,68 @@
           
             <h1>
               
-              実行方法
+              textlint
             </h1>
           
 
         
 
 
-<p>テストする時は以下のように叩いたら動く。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>emacs -Q --batch -l ~/.emacs.d/inits/test/*-test.el -l ~/.emacs.d/inits/test/run-tests.el
-</span></span></code></pre></div><p>今まで <code>.emacs.d</code> にいる状態でしか叩いたことないので他の場所にいる時に実行しても大丈夫かはわからない。</p>
-<p>単体でテストしたい時は</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>-l ~/.emacs.d/inits/test/*-test.el
-</span></span></code></pre></div><p>の部分を書き換えたらいいんじゃないかな。やったことないけど。</p>
-
+<h2 id="概要">概要</h2>
+<p><a href="https://github.com/textlint/textlint">textlint</a> は plain text や Markdown の校正に使える linter です。そして <a href="https://www.flycheck.org/en/latest/">flycheck</a> でそれを呼び出すことができるので、変な文章を書いていないかチェックすることができます。</p>
+<h2 id="設定">設定</h2>
+<p>textlint の設定を <code>~/.config/textlint/textlintrc_ja.json</code> に置いているのでそれを <code>flycheck-textlint-config</code> に設定しています。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-variables
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#39;</span>(flycheck-textlint-config <span style="color:#e6db74">&#34;~/.config/textlint/textlintrc_ja.json&#34;</span>))
+</span></span></code></pre></div><h2 id="magit-用の-hook-関数の用意">magit 用の hook 関数の用意</h2>
+<p>magit で commit message を書く時に自動で textlint が起動するようにするための関数。なんだけど想定通りに動いていない</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; 想定通りに動かない</span>
+</span></span><span style="display:flex;"><span>  (defun my/magit-commit-create-after (<span style="color:#66d9ef">&amp;optional</span> arg)
+</span></span><span style="display:flex;"><span>    (ignore arg)
+</span></span><span style="display:flex;"><span>    (flycheck-select-checker <span style="color:#e6db74">&#39;textlint-no-extension</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;; (with-eval-after-load &#39;magit</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">;;   (advice-add &#39;magit-commit-create :after &#39;my/magit-commit-create-after))</span>
+</span></span></code></pre></div><h2 id="checker-定義">checker 定義</h2>
+<p>flycheck のデフォルトでも textlint は動くのですが
+magit でコミットメッセージを書く時なんかには動いてくれなかったので拡張子がないファイルの時にも動くように checker を定義 &amp; 追加している。</p>
+<p>その際 forge で Pull request を作る時に自動で有効になるようにも調整している。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;flycheck</span>
+</span></span><span style="display:flex;"><span>  (flycheck-define-checker textlint-no-extension
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;A text prose linter using textlint.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">See URL </span><span style="color:#e6db74">`https://textlint.github.io/&#39;</span><span style="color:#e6db74">.&#34;</span>
+</span></span><span style="display:flex;"><span>  :command (<span style="color:#e6db74">&#34;textlint&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;--stdin&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;--stdin-filename&#34;</span> (<span style="color:#a6e22e">eval</span> (<span style="color:#a6e22e">concat</span> <span style="color:#a6e22e">buffer-file-name</span> <span style="color:#e6db74">&#34;.txt&#34;</span>))
+</span></span><span style="display:flex;"><span>            (config-file <span style="color:#e6db74">&#34;--config&#34;</span> flycheck-textlint-config)
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;--format&#34;</span> <span style="color:#e6db74">&#34;json&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">;; get the first matching plugin from plugin-alist</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;--plugin&#34;</span>
+</span></span><span style="display:flex;"><span>            (<span style="color:#a6e22e">eval</span> (flycheck--textlint-get-plugin)))
+</span></span><span style="display:flex;"><span>  :standard-input <span style="color:#66d9ef">t</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">;; textlint seems to say that its json output is compatible with ESLint.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">;; https://textlint.github.io/docs/formatter.html</span>
+</span></span><span style="display:flex;"><span>  :error-parser flycheck-parse-eslint
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">;; textlint can support different formats with textlint plugins, but</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">;; only text and markdown formats are installed by default. Ask the</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">;; user to add mode-&gt;plugin mappings manually in</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">;; `flycheck-textlint-plugin-alist&#39;.</span>
+</span></span><span style="display:flex;"><span>  :modes
+</span></span><span style="display:flex;"><span>  (forge-post-mode text-mode)
+</span></span><span style="display:flex;"><span>  :enabled
+</span></span><span style="display:flex;"><span>  (lambda () (and (flycheck--textlint-get-plugin) (<span style="color:#a6e22e">null</span> (file-name-extension <span style="color:#a6e22e">buffer-file-name</span>))))
+</span></span><span style="display:flex;"><span>  :verify
+</span></span><span style="display:flex;"><span>  (lambda (_)
+</span></span><span style="display:flex;"><span>    (let ((plugin (flycheck--textlint-get-plugin)))
+</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">list</span>
+</span></span><span style="display:flex;"><span>       (flycheck-verification-result-new
+</span></span><span style="display:flex;"><span>        :label <span style="color:#e6db74">&#34;textlint plugin&#34;</span>
+</span></span><span style="display:flex;"><span>        :message plugin
+</span></span><span style="display:flex;"><span>        :face <span style="color:#e6db74">&#39;success</span>)))))
+</span></span><span style="display:flex;"><span>  (add-to-list <span style="color:#e6db74">&#39;flycheck-checkers</span> <span style="color:#e6db74">&#39;textlint-no-extension</span>)
+</span></span><span style="display:flex;"><span>  (flycheck-add-mode <span style="color:#e6db74">&#39;textlint-no-extension</span> <span style="color:#e6db74">&#39;forge-post-mode</span>))
+</span></span></code></pre></div>
 
 <footer class="footline">
 	
@@ -3506,6 +3561,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -3518,6 +3574,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3663,6 +3722,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -3678,6 +3738,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -5169,7 +5232,6 @@
             
             
                 
-                    
                     
                 
                 
@@ -5184,7 +5246,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -5200,9 +5261,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -5243,10 +5301,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/testing/" title="テストコード"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/editing/smartparens/" title="smartparens"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/testing/run-tests/" title="run-tests" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/editing/undo-fu/" title="undo-fu" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
