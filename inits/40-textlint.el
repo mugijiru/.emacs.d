@@ -1,8 +1,13 @@
 (custom-set-variables
   '(flycheck-textlint-config "~/.config/textlint/textlintrc_ja.json"))
 
-(defun my/magit-commit-create-after ()
+;; 想定通りに動かない
+(defun my/magit-commit-create-after (&optional arg)
+  (ignore arg)
   (flycheck-select-checker 'textlint-no-extension))
+
+;; (with-eval-after-load 'magit
+;;   (advice-add 'magit-commit-create :after 'my/magit-commit-create-after))
 
 (with-eval-after-load 'flycheck
   (flycheck-define-checker textlint-no-extension
@@ -38,5 +43,4 @@ See URL `https://textlint.github.io/'."
         :message plugin
         :face 'success)))))
   (add-to-list 'flycheck-checkers 'textlint-no-extension)
-  (flycheck-add-mode 'textlint-no-extension 'forge-post-mode)
-  (advice-add 'magit-commit-create :after 'my/magit-commit-create-after))
+  (flycheck-add-mode 'textlint-no-extension 'forge-post-mode))

@@ -1969,6 +1969,39 @@ http://home.hatanaka.info/article/474728666.html
     各言語の hook で ~smartparens-strict-mode~ を有効にしている。
     なんか常に有効だと困りそうな気がしたので。
 
+** textlint
+:PROPERTIES:
+:ID:       6cb0b825-528c-49a1-ab97-9ac79b3a9019
+:EXPORT_FILE_NAME: textlint
+:END:
+*** 概要
+[[https://github.com/textlint/textlint][textlint]] は plain text や Markdown の校正に使える linter です。
+そして [[https://www.flycheck.org/en/latest/][flycheck]] でそれを呼び出すことができるので、
+変な文章を書いていないかチェックすることができます。
+*** 設定
+textlint の設定を ~~/.config/textlint/textlintrc_ja.json~ に置いているので
+それを ~flycheck-textlint-config~ に設定しています。
+
+#+begin_src emacs-lisp :tangle inits/40-textlint.el
+(custom-set-variables
+  '(flycheck-textlint-config "~/.config/textlint/textlintrc_ja.json"))
+#+end_src
+*** magit 用の hook 関数の用意
+
+
+#+begin_src emacs-lisp :tangle inits/40-textlint.el
+(defun my/magit-commit-create-after ()
+  (flycheck-select-checker 'textlint-no-extension))
+#+end_src
+*** checker 定義
+flycheck のデフォルトでも textlint は動くのですが
+magit でコミットメッセージを書く時なんかには動いてくれなかったので
+拡張子がないファイルの時にも動くように checker を定義しています
+
+#+begin_src emacs-lisp :tangle inits/40-textlint.el
+
+#+end_src
+
 ** undo-fu
    :PROPERTIES:
    :EXPORT_FILE_NAME: undo-fu
