@@ -1,14 +1,46 @@
++++
+title = "textlint"
+draft = false
++++
+
+## 概要 {#概要}
+
+[textlint](https://github.com/textlint/textlint) は plain text や Markdown の校正に使える linter です。そして [flycheck](https://www.flycheck.org/en/latest/) でそれを呼び出すことができるので、変な文章を書いていないかチェックすることができます。
+
+
+## 設定 {#設定}
+
+textlint の設定を `~/.config/textlint/textlintrc_ja.json` に置いているのでそれを `flycheck-textlint-config` に設定しています。
+
+```emacs-lisp
 (custom-set-variables
   '(flycheck-textlint-config "~/.config/textlint/textlintrc_ja.json"))
+```
 
+
+## magit 用の hook 関数の用意 {#magit-用の-hook-関数の用意}
+
+magit で commit message を書く時に自動で textlint が起動するようにするための関数。なんだけど想定通りに動いていない
+
+```emacs-lisp
 ;; 想定通りに動かない
-(defun my/magit-commit-create-after (&optional arg)
-  (ignore arg)
-  (flycheck-select-checker 'textlint-no-extension))
+  (defun my/magit-commit-create-after (&optional arg)
+    (ignore arg)
+    (flycheck-select-checker 'textlint-no-extension))
 
 ;; (with-eval-after-load 'magit
 ;;   (advice-add 'magit-commit-create :after 'my/magit-commit-create-after))
+```
 
+
+## checker 定義 {#checker-定義}
+
+flycheck のデフォルトでも textlint は動くのですが
+magit でコミットメッセージを書く時なんかには動いてくれなかったので拡張子がないファイルの時にも動くように checker を定義 &amp; 追加している。
+
+その際 forge で Pull request を作る時に自動で有効になるようにも調整している。
+
+```emacs-lisp
 (with-eval-after-load 'flycheck
   (flycheck-define-checker textlint-no-extension
   "A text prose linter using textlint.
@@ -44,3 +76,4 @@ See URL `https://textlint.github.io/'."
         :face 'success)))))
   (add-to-list 'flycheck-checkers 'textlint-no-extension)
   (flycheck-add-mode 'textlint-no-extension 'forge-post-mode))
+```

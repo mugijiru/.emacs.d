@@ -1518,6 +1518,7 @@
    - [[*multiple-cursors][multiple-cursors]] :: カーソルを増やして複数箇所を同時に編集できるようになるやつ
    - [[id:f309e8bd-8e1d-4a91-ae4d-9a960373969b][origami]] :: コードの折り畳みができるようになるやつ
    - [[*smartparens][smartparens]] :: カッコや引用符などのペアになるやつの入力補助をしてくれるやつ
+   - [[id:6cb0b825-528c-49a1-ab97-9ac79b3a9019][textlint]] :: 文章校正に便利なやつ
    - [[*undo-fu][undo-fu]] :: シンプルな undo/redo の機能を提供してくれるやつ
    - [[*view-mode][view-mode]] :: Emacs に組込まれてる閲覧専用のモード。コードリーディングの時に有効にすると便利
    - [[*whitespace][whitespace]] :: 空白文字を可視化したり自動的に消したりする便利なやつ
@@ -1968,6 +1969,81 @@ http://home.hatanaka.info/article/474728666.html
 
     各言語の hook で ~smartparens-strict-mode~ を有効にしている。
     なんか常に有効だと困りそうな気がしたので。
+
+** textlint
+:PROPERTIES:
+:ID:       6cb0b825-528c-49a1-ab97-9ac79b3a9019
+:EXPORT_FILE_NAME: textlint
+:END:
+*** 概要
+[[https://github.com/textlint/textlint][textlint]] は plain text や Markdown の校正に使える linter です。
+そして [[https://www.flycheck.org/en/latest/][flycheck]] でそれを呼び出すことができるので、
+変な文章を書いていないかチェックすることができます。
+*** 設定
+textlint の設定を ~~/.config/textlint/textlintrc_ja.json~ に置いているので
+それを ~flycheck-textlint-config~ に設定しています。
+
+#+begin_src emacs-lisp :tangle inits/40-textlint.el
+(custom-set-variables
+  '(flycheck-textlint-config "~/.config/textlint/textlintrc_ja.json"))
+#+end_src
+*** magit 用の hook 関数の用意
+magit で commit message を書く時に自動で textlint が起動するようにするための関数。
+なんだけど想定通りに動いていない
+
+#+begin_src emacs-lisp :tangle inits/40-textlint.el
+  ;; 想定通りに動かない
+    (defun my/magit-commit-create-after (&optional arg)
+      (ignore arg)
+      (flycheck-select-checker 'textlint-no-extension))
+
+  ;; (with-eval-after-load 'magit
+  ;;   (advice-add 'magit-commit-create :after 'my/magit-commit-create-after))
+#+end_src
+*** checker 定義
+flycheck のデフォルトでも textlint は動くのですが
+magit でコミットメッセージを書く時なんかには動いてくれなかったので
+拡張子がないファイルの時にも動くように checker を定義 & 追加している。
+
+その際 forge で Pull request を作る時に自動で有効になるようにも調整している。
+
+#+begin_src emacs-lisp :tangle inits/40-textlint.el
+(with-eval-after-load 'flycheck
+  (flycheck-define-checker textlint-no-extension
+  "A text prose linter using textlint.
+
+See URL `https://textlint.github.io/'."
+  :command ("textlint"
+            "--stdin"
+            "--stdin-filename" (eval (concat buffer-file-name ".txt"))
+            (config-file "--config" flycheck-textlint-config)
+            "--format" "json"
+            ;; get the first matching plugin from plugin-alist
+            "--plugin"
+            (eval (flycheck--textlint-get-plugin)))
+  :standard-input t
+  ;; textlint seems to say that its json output is compatible with ESLint.
+  ;; https://textlint.github.io/docs/formatter.html
+  :error-parser flycheck-parse-eslint
+  ;; textlint can support different formats with textlint plugins, but
+  ;; only text and markdown formats are installed by default. Ask the
+  ;; user to add mode->plugin mappings manually in
+  ;; `flycheck-textlint-plugin-alist'.
+  :modes
+  (forge-post-mode text-mode)
+  :enabled
+  (lambda () (and (flycheck--textlint-get-plugin) (null (file-name-extension buffer-file-name))))
+  :verify
+  (lambda (_)
+    (let ((plugin (flycheck--textlint-get-plugin)))
+      (list
+       (flycheck-verification-result-new
+        :label "textlint plugin"
+        :message plugin
+        :face 'success)))))
+  (add-to-list 'flycheck-checkers 'textlint-no-extension)
+  (flycheck-add-mode 'textlint-no-extension 'forge-post-mode))
+#+end_src
 
 ** undo-fu
    :PROPERTIES:
