@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>基本設定 :: 麦汁&#39;s Emacs Config</title>
+    <title>Deprecated :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1707032269" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/org-mode/base/">
+  <body class="" data-url="/.emacs.d/tags/deprecated/">
     <nav id="sidebar" class="">
 
 
@@ -2472,7 +2472,7 @@
   
     
     <li data-nav-id="/.emacs.d/org-mode/" title="org-mode" class="dd-item
-        parent
+        
         
         
         ">
@@ -2498,7 +2498,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/org-mode/base/" title="基本設定" class="dd-item active">
+      <li data-nav-id="/.emacs.d/org-mode/base/" title="基本設定" class="dd-item ">
         <a href="/.emacs.d/org-mode/base/">
         基本設定
         
@@ -3119,7 +3119,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/org-mode/'>org-mode</a> > 基本設定
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/tags/'>Tags</a> > Deprecated
           
         
           
@@ -3132,19 +3132,7 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#概要">概要</a></li>
-    <li><a href="#org-mode-のインストール">org-mode のインストール</a></li>
-    <li><a href="#org-用ディレクトリの指定">org 用ディレクトリの指定</a></li>
-    <li><a href="#タスク管理ファイルのフォルダの指定">タスク管理ファイルのフォルダの指定</a></li>
-    <li><a href="#タスクの状態管理のキーワード指定">タスクの状態管理のキーワード指定</a></li>
-    <li><a href="#完了時間の記録">完了時間の記録</a></li>
-    <li><a href="#org-ファイルを開いた時の折り畳み">org ファイルを開いた時の折り畳み</a></li>
-    <li><a href="#タグ設定時の補完候補設定">タグ設定時の補完候補設定</a></li>
-    <li><a href="#org-mode-読み込み後の追加実行コード">org-mode 読み込み後の追加実行コード</a></li>
-  </ul>
-</nav>
+
     </div>
 </div>
 
@@ -3160,84 +3148,26 @@
           
             <h1>
               
-              基本設定
+                tag ::
+              
+              Deprecated
             </h1>
           
 
         
 
 
-<h2 id="概要">概要</h2>
-<p>ここでは org-mode 周りのベースとなる設定を書いているつもり。といいつつ、まだ書き方が雑だなと思っている。またその内にでも修正しよう</p>
-<h2 id="org-mode-のインストール">org-mode のインストール</h2>
-<p>Emacs に標準で入っている org-mode は古かったりするのでとりあえずデフォルトで入ってるやつは削除しちゃって el-get でインストールしている。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle org-mode)
-</span></span></code></pre></div><p>とりあえず今は Emacs 29.1 に標準で bundle されているバージョンを入れておいている。バージョンを固定するために el-get についているレシピをコピーして書き換えて使っている。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name org-mode
-</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;http://orgmode.org/&#34;</span>
-</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Org-mode is for keeping notes, maintaining ToDo lists, doing project planning, and authoring with a fast and effective plain-text system.&#34;</span>
-</span></span><span style="display:flex;"><span>       :type git
-</span></span><span style="display:flex;"><span>       :url <span style="color:#e6db74">&#34;https://git.savannah.gnu.org/git/emacs/org-mode.git&#34;</span>
-</span></span><span style="display:flex;"><span>       :checkout <span style="color:#e6db74">&#34;release_9.6.6&#34;</span>
-</span></span><span style="display:flex;"><span>       :info <span style="color:#e6db74">&#34;doc&#34;</span>
-</span></span><span style="display:flex;"><span>       :build/berkeley-unix <span style="color:#f92672">`,</span>(<span style="color:#a6e22e">mapcar</span>
-</span></span><span style="display:flex;"><span>                               (lambda (target)
-</span></span><span style="display:flex;"><span>                                 (<span style="color:#a6e22e">list</span> <span style="color:#e6db74">&#34;gmake&#34;</span> target (<span style="color:#a6e22e">concat</span> <span style="color:#e6db74">&#34;EMACS=&#34;</span> (shell-quote-argument el-get-emacs))))
-</span></span><span style="display:flex;"><span>                               <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;oldorg&#34;</span>))
-</span></span><span style="display:flex;"><span>       :build <span style="color:#f92672">`,</span>(<span style="color:#a6e22e">mapcar</span>
-</span></span><span style="display:flex;"><span>                 (lambda (target)
-</span></span><span style="display:flex;"><span>                   (<span style="color:#a6e22e">list</span> <span style="color:#e6db74">&#34;make&#34;</span> target (<span style="color:#a6e22e">concat</span> <span style="color:#e6db74">&#34;EMACS=&#34;</span> (shell-quote-argument el-get-emacs))))
-</span></span><span style="display:flex;"><span>                 <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;oldorg&#34;</span>))
-</span></span><span style="display:flex;"><span>       :load-path (<span style="color:#e6db74">&#34;.&#34;</span> <span style="color:#e6db74">&#34;lisp&#34;</span>)
-</span></span><span style="display:flex;"><span>       :load (<span style="color:#e6db74">&#34;lisp/org-loaddefs.el&#34;</span>))
-</span></span></code></pre></div><p>その内もっと新しいのにするけど
-<span class="timestamp-wrapper"><span class="timestamp">[2023-10-30 月] </span></span> に main ブランチのものを入れたら agenda が動かなくなって焦ったのでまた落ち着いた時にトライする</p>
-<h2 id="org-用ディレクトリの指定">org 用ディレクトリの指定</h2>
-<p>org-mode のファイルを保存するデフォルトのディレクトリを指定している。</p>
-<p>デフォルトだと <code>~/org</code> なのだけどホームディレクトリを汚したくないのと基本的に Mac を使ってるので <code>~/Documents/org</code> というディレクトリを用意してそこにファイルを置いている。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq org-directory (<span style="color:#a6e22e">expand-file-name</span> <span style="color:#e6db74">&#34;~/Documents/org/&#34;</span>))
-</span></span></code></pre></div><h2 id="タスク管理ファイルのフォルダの指定">タスク管理ファイルのフォルダの指定</h2>
-<p>タスク管理ファイルがいくつかに分かれているがそれらをまとめて <code>~/Documents/org/tasks</code> フォルダに置いている。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq my/org-tasks-directory (<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/&#34;</span>))
-</span></span></code></pre></div><p>とりあえずこの <code>my/org-tasks-directory</code> という変数を用意することであちらこちらでこれを使い回している。</p>
-<h2 id="タスクの状態管理のキーワード指定">タスクの状態管理のキーワード指定</h2>
-<p>org-mode といえば TODO 管理で使ってる人も多いと思う。自分も最初はそういう使い方から始めたし、今でもそれをメインにして使っている。</p>
-<p>そして TODO の状態がデフォルトでは</p>
+
+
+
 <ul>
-<li>TODO</li>
-<li>DONE</li>
+	
+		<li><a href="/.emacs.d/programming/mocha/">Mocha</a></li>
+	
 </ul>
-<p>の2つしかないけど、それでは足りないので昔見たインターネットのどこかの記事を参考に以下のように設定している。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq org-todo-keywords
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#39;</span>((sequence <span style="color:#e6db74">&#34;TODO&#34;</span> <span style="color:#e6db74">&#34;EXAMINATION(e)&#34;</span> <span style="color:#e6db74">&#34;READY(r)&#34;</span> <span style="color:#e6db74">&#34;DOING(!)&#34;</span> <span style="color:#e6db74">&#34;WAIT&#34;</span> <span style="color:#e6db74">&#34;|&#34;</span> <span style="color:#e6db74">&#34;DONE(!)&#34;</span> <span style="color:#e6db74">&#34;SOMEDAY(s)&#34;</span>)))
-</span></span></code></pre></div><p>初期状態は TODO で、作業開始時点で DOING にして待ちが発生したら WAIT にして完了したら DONE にしている。</p>
-<p>SOMEDAY は「いつかやる」に付与しているけど最近ほとんど使ってない。</p>
-<p>org-todo-keywords は複数の sequence を指定したり
-type を指定したりもできるがそこまでの活用ができていないので、どこかで見直したいですね。</p>
-<h2 id="完了時間の記録">完了時間の記録</h2>
-<p>org-clock を使うようにしているしあんまり要らない気がする。もしかしたら habits で必要かもしれないけど。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq org-log-done <span style="color:#e6db74">&#39;time</span>)
-</span></span><span style="display:flex;"><span>(setq org-log-into-drawer <span style="color:#e6db74">&#34;LOGBOOK&#34;</span>)
-</span></span></code></pre></div><h2 id="org-ファイルを開いた時の折り畳み">org ファイルを開いた時の折り畳み</h2>
-<p>デフォルト設定では全展開だけど、基本的に見出しだけ見れれば良いかなと思うのでそのように設定した。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-variables
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(org-startup-folded <span style="color:#66d9ef">t</span>))
-</span></span></code></pre></div><p>journal ファイルはもう少し展開してても良い気がするので
-journal のテンプレートか何かを弄っておくのも良さそう</p>
-<h2 id="タグ設定時の補完候補設定">タグ設定時の補完候補設定</h2>
-<p>agenda ファイルに使われているタグは全部補完対象になってほしいのでそのように設定している</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-variables
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(org-complete-tags-always-offer-all-agenda-tags <span style="color:#66d9ef">t</span>))
-</span></span></code></pre></div><h2 id="org-mode-読み込み後の追加実行コード">org-mode 読み込み後の追加実行コード</h2>
-<p>まず org-protocol を使って Firefox と連携したいのでこれを読み込むようにしている。また org-mode のリンク先の拡張子が xlsx の時に OS 側で指定した標準アプリを開くようにしている。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;org</span>
-</span></span><span style="display:flex;"><span>  (require <span style="color:#e6db74">&#39;org-protocol</span>)
-</span></span><span style="display:flex;"><span>  (add-to-list <span style="color:#e6db74">&#39;org-modules</span> <span style="color:#e6db74">&#39;org-protocol</span>)
-</span></span><span style="display:flex;"><span>  (add-to-list <span style="color:#e6db74">&#39;org-file-apps</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;\\.xlsx?\\&#39;&#34;</span> <span style="color:#f92672">.</span> default)))
-</span></span></code></pre></div><p>第二引数に default を指定すると、内部的には Mac なら open コマンドが使われることを利用している。</p>
 
 
-<footer class="footline">
+<footer class=" footline" >
 	
 </footer>
 
@@ -5003,7 +4933,6 @@ journal のテンプレートか何かを弄っておくのも良さそう</p>
             
                 
                     
-                    
                 
                 
 
@@ -5016,7 +4945,6 @@ journal のテンプレートか何かを弄っておくのも良さそう</p>
             
             
                 
-                    
                     
                 
                 
@@ -5033,9 +4961,6 @@ journal のテンプレートか何かを弄っておくのも良さそう</p>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -5428,10 +5353,8 @@ journal のテンプレートか何かを弄っておくのも良さそう</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/org-mode/" title="org-mode"> <i class="fa fa-chevron-left"></i></a>
 		
-		
-			<a class="nav nav-next" href="/.emacs.d/org-mode/org-babel/" title="org-babel" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/basics/" title="基本設定" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -5463,4 +5386,3 @@ journal のテンプレートか何かを弄っておくのも良さそう</p>
 
   </body>
 </html>
-

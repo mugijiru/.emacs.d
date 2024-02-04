@@ -336,6 +336,13 @@
 	"content": "概要 ddskk は Emacs Lisp 版の SKK 実装。\n一般的な日本語変換ソフトだと文法を自動で認識して変換をしてくれるけど SKK ではその自動認識がおかしくておかしな変換になるところを、単語の区切りなんかを一切判定せずに人間がそれを教えてあげることで、そういう自動的に変な挙動をしてしまう煩わしさから開放されるようになっている。\nインストール いつも通り el-get で入れている。最近は最新版が GitHub で更新されているのでそちらから引っ張られてくる。\n(el-get-bundle ddskk) 常時有効化 find-file-hooks で有効化することでファイルを開いた時には常に skk が使える状態にしている。また skk-latin-mode にしておくことで、基本は英語入力ですぐに日本語入力に切り替えられる状態にしている。\n(defun my/always-enable-skk-latin-mode-hook () (skk-latin-mode 1)) (add-hook \u0026#39;find-file-hooks \u0026#39;my/always-enable-skk-latin-mode-hook) hook の設定 ddskk が呼び出された時に色々設定されるようにしている。\nもしかしたら customize-variable とかあるかもしれないので今度見直した方が良さそう。\n(add-hook \u0026#39;skk-load-hook (lambda () ;; コード中では自動的に英字にする。 (require \u0026#39;context-skk) (setq skk-comp-mode t) ;; 動的自動補完 (setq skk-auto-insert-paren t) (setq skk-delete-implies-kakutei nil) (setq skk-sticky-key \u0026#34;;\u0026#34;) (setq skk-henkan-strict-okuri-precedence t) (setq skk-show-annotation t) ;; 単語の意味をアノテーションとして表示。例) いぜん /以前;previous/依然;still/ (setq skk-compare-jisyo-size-when-saving nil) (setq skk-extra-jisyo-file-list `(,(expand-file-name \u0026#34;~/.config/ibus-skk/user.dict\u0026#34;) \u0026#34;/usr/share/skk/SKK-JISYO.propernoun\u0026#34; \u0026#34;/usr/share/skk/SKK-JISYO.lisp\u0026#34;)) (setq skk-tooltip-parameters \u0026#39;((background-color . \u0026#34;#323445\u0026#34;))) ;; ;; 半角で入力したい文字 ;; (setq skk-rom-kana-rule-list ;; (nconc skk-rom-kana-rule-list ;; \u0026#39;((\u0026#34;;\u0026#34; nil nil) ;; (\u0026#34;:\u0026#34; nil nil) ;; (\u0026#34;?\u0026#34; nil nil) ;; (\u0026#34;!\u0026#34; nil nil)))) )) skk-comp-mode 自動補完関係らしいが、ググっても出て来ないし死んだ設定かもしれない skk-auto-insert-paren カッコを入力するとコッカも入れてくれる便利機能の切替 skk-delete-implies-kakutei nil にすると▼モードで \u0026lt;BS\u0026gt; を押した時 に一つ前の候補を表示するようになる skk-sticky-key 設定すると、その指定したキーを押した時に変換開始状態などにする Sticky Shift を提供する skk-henkan-strict-okuri-precedence 正しい送り仮名の変換が優先的に表示されるようにする設定 skk-show-annotation 単語の意味をアノテーションとして表示する設定 skk-rom-kana-rules-list キー入力時の挙動を指定する。とりあえず自分は : とかが全角になるのが嫌なので半角になるようにしている skk-compare-jisyo-size-when-saving これを nil にすることで辞書保存時に辞書サイズが大きいことを確認させないようにしている skk-extra-jisyo-file-list 追加の辞書を設定している。ibus-skk の辞書を入れることで同期したり。 skk-tooltip-parameters ツールチップの背景色を変えることで annotation を見れるようにしている L 辞書を使うようにする improvement Mac では AquaSKK の L 辞書を、 Linux では /usr/share/skk/SKK-JISYO.L を読むようにしている。\n(let ((l-dict (if (eq window-system \u0026#39;ns) (expand-file-name \u0026#34;~/Library/Application Support/AquaSKK/SKK-JISYO.L\u0026#34;) \u0026#34;/usr/share/skk/SKK-JISYO.L\u0026#34;))) (if (file-exists-p l-dict) (setq skk-large-jisyo l-dict))) WSL で動かしている Emacs では CurvusSKK の辞書を見るように設定した方が良さそうな気もするけど /usr/share/skk/SKK-JISYO.L にもあるのでひとまずこれにしておけば良さそう\nddskk-posframe ddskk-posframe は ddskk ツールチップを posframe で表示してくれるやつ。便利。\nhttps://emacs-jp.github.io/packages/ddskk-posframe に作った本人が解説記事を日本語で載せてるので詳細はそっちを見てもらう方が早い。\nとりあえず以下でインストール、有効化している。\n(el-get-bundle ddskk-posframe.el) (ddskk-posframe-mode 1) なお el-get.lock を使ったバージョン更新確認のためにレシピも必要だったので登録している\n(:name ddskk-posframe.el :website \u0026#34;https://github.com/conao3/ddskk-posframe.el\u0026#34; :description \u0026#34;ddskk-posframe.el provides Henkan tooltip for ddskk via posframe.\u0026#34; :type github :pkgname \u0026#34;conao3/ddskk-posframe.el\u0026#34;) その他 漢字の変換すらも機械任せではなく自分で決めるみたいな漢字直接入力という方式もあり、 SKK とそれを組み合わせると入力キーを覚えている漢字は漢直で入力しそうでない漢字は SKK で入力する、といった使い分けができるらしい。\n特に同音意義語が多い場合に便利そう。\n"
 },
 {
+	"uri": "https://mugijiru.github.io/.emacs.d/tags/deprecated/",
+	"title": "Deprecated",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://mugijiru.github.io/.emacs.d/programming/docker/",
 	"title": "Docker",
 	"tags": [],
@@ -611,9 +618,9 @@
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/programming/mocha/",
 	"title": "Mocha",
-	"tags": [],
+	"tags": ["Deprecated"],
 	"description": "",
-	"content": "概要 Mocha は JS のテストフレームワークの1つ。 Jest より前はこっちはよく使われてた\nmocha.el インストール レシピは自前で用意している\n(:name mocha :description \u0026#34;Emacs mode for running mocha tests\u0026#34; :website \u0026#34;https://github.com/scottaj/mocha.el\u0026#34; :type github :pkgname \u0026#34;scottaj/mocha.el\u0026#34;) そしていつも通り el-get-bundle でインストールしている\n(el-get-bundle mocha) テスト実行コマンド mocha のテストファイルかどうかを判定してそうだったら mocha としてテストを実行するコマンドを用意している。\n(defun my/mocha-test-file () (interactive) (if my/mocha-enable-p (mocha-test-file))) けど今 mocha 使ってないからこれ使ってないんだよねえ……\n"
+	"content": "概要 Mocha は JS のテストフレームワークの1つ。 Jest より前はこっちはよく使われてた\nというわけで設定していたのだけど、今はもう使ってない。\nひょっとしたらまた使うことがあるかもしれないのでドキュメントには残しておいて tangle による出力を停止する。\nmocha.el インストール レシピは自前で用意していた\n(:name mocha :description \u0026#34;Emacs mode for running mocha tests\u0026#34; :website \u0026#34;https://github.com/scottaj/mocha.el\u0026#34; :type github :pkgname \u0026#34;scottaj/mocha.el\u0026#34;) そしていつも通り el-get-bundle でインストールしていた\n(el-get-bundle mocha) テスト実行コマンド mocha のテストファイルかどうかを判定してそうだったら mocha としてテストを実行するコマンドを用意していた\n(defun my/mocha-test-file () (interactive) (if my/mocha-enable-p (mocha-test-file))) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/ui/mode-line/",
