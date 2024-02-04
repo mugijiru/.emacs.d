@@ -1,0 +1,38 @@
+name: verify-config-diff
+
+on: push
+
+jobs:
+  verify-diff:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: purcell/setup-emacs@master
+        with:
+          version: 29.1
+
+      - uses: actions/checkout@v4
+
+      - name: Remove files
+        run: |
+          rm -r inits
+          rm -r recipes
+          rm -r insert
+
+      - name: Create directries
+        run: |
+          mkdir -p inits/test
+          mkdir recipes
+          mkdir insert
+
+      - name: tangle
+        run: |
+          emacs -Q --batch --eval "(setq user-emacs-directory \"$(pwd)/\")" \
+          --eval "(require 'org)" \
+          --eval '(org-babel-tangle-file (expand-file-name (concat user-emacs-directory "init.org")))'
+
+      - name: Detect diff
+        id: detect-diff
+        run: |
+          git add .
+          git diff --staged --exit-code
