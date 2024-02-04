@@ -1721,13 +1721,14 @@
 (el-get-bundle copilot)
 #+end_src
 *** 設定
-とりあえずプログラミング系の mode で有効になるようにしている
+とりあえずプログラミング系の mode で有効になるようにしていた。
+けど今はちょっと無効にしている
 
 #+begin_src emacs-lisp :tangle inits/30-copilot.el
-(add-hook 'prog-mode-hook 'copilot-mode)
+  ;; (add-hook 'prog-mode-hook 'copilot-mode)
 #+end_src
 
-なのだけどそのままだと enh-ruby-mode では有効にならないので
+また、そのままだと enh-ruby-mode では有効にならないので
 ~copilot-major-mode-alist~ に突っ込んでいる。
 なおこの設定は [[https://github.com/zerolfx/copilot.el#programming-language-detection][公式の README にも書かれている]]
 
@@ -1750,6 +1751,18 @@
 (with-eval-after-load 'copilot
   (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
   (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion))
+#+end_src
+*** warning 非表示
+大きいファイルが開かれると
+
+#+begin_example
+Warning (copilot): .loaddefs.el size exceeds 'copilot-max-char' (100000), copilot completions may not work
+#+end_example
+
+とか出るけど、そんなもんは分かってるので warning が出ないように黙らせている
+
+#+begin_src emacs-lisp :tangle inits/30-copilot.el
+(setq warning-suppress-log-types '((copilot copilot-exceeds-max-char)))
 #+end_src
 ** emojify
    :PROPERTIES:

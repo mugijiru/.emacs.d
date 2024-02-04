@@ -31,13 +31,13 @@ draft = false
 
 ## 設定 {#設定}
 
-とりあえずプログラミング系の mode で有効になるようにしている
+とりあえずプログラミング系の mode で有効になるようにしていた。けど今はちょっと無効にしている
 
 ```emacs-lisp
-(add-hook 'prog-mode-hook 'copilot-mode)
+;; (add-hook 'prog-mode-hook 'copilot-mode)
 ```
 
-なのだけどそのままだと enh-ruby-mode では有効にならないので
+また、そのままだと enh-ruby-mode では有効にならないので
 `copilot-major-mode-alist` に突っ込んでいる。なおこの設定は [公式の README にも書かれている](https://github.com/zerolfx/copilot.el#programming-language-detection)
 
 ```emacs-lisp
@@ -62,4 +62,19 @@ draft = false
 (with-eval-after-load 'copilot
   (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
   (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion))
+```
+
+
+## warning 非表示 {#warning-非表示}
+
+大きいファイルが開かれると
+
+```text
+Warning (copilot): .loaddefs.el size exceeds 'copilot-max-char' (100000), copilot completions may not work
+```
+
+とか出るけど、そんなもんは分かってるので warning が出ないように黙らせている
+
+```emacs-lisp
+(setq warning-suppress-log-types '((copilot copilot-exceeds-max-char)))
 ```
