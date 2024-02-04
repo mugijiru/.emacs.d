@@ -1,5 +1,6 @@
 +++
 title = "Mocha"
+tags = ["Deprecated"]
 draft = false
 +++
 
@@ -8,13 +9,18 @@ draft = false
 [Mocha](https://mochajs.org/) は JS のテストフレームワークの1つ。
 Jest より前はこっちはよく使われてた
 
+というわけで設定していたのだけど、今はもう使ってない。
+
+ひょっとしたらまた使うことがあるかもしれないのでドキュメントには残しておいて
+tangle による出力を停止する。
+
 
 ## mocha.el {#mocha-dot-el}
 
 
 ### インストール {#インストール}
 
-レシピは自前で用意している
+レシピは自前で用意していた
 
 ```emacs-lisp
 (:name mocha
@@ -24,7 +30,7 @@ Jest より前はこっちはよく使われてた
        :pkgname "scottaj/mocha.el")
 ```
 
-そしていつも通り `el-get-bundle` でインストールしている
+そしていつも通り `el-get-bundle` でインストールしていた
 
 ```emacs-lisp
 (el-get-bundle mocha)
@@ -34,7 +40,7 @@ Jest より前はこっちはよく使われてた
 ## テスト実行コマンド {#テスト実行コマンド}
 
 mocha のテストファイルかどうかを判定してそうだったら
-mocha としてテストを実行するコマンドを用意している。
+mocha としてテストを実行するコマンドを用意していた
 
 ```emacs-lisp
 (defun my/mocha-test-file ()
@@ -42,5 +48,3 @@ mocha としてテストを実行するコマンドを用意している。
   (if my/mocha-enable-p
       (mocha-test-file)))
 ```
-
-けど今 mocha 使ってないからこれ使ってないんだよねえ……
