@@ -22,6 +22,17 @@ draft = false
        :depends (s dash editorconfig jsonrpc))
 ```
 
+依存している editorconig も自前でレシピを用意している
+
+```emacs-lisp
+(:name editorconfig
+       :website "https://github.com/editorconfig/editorconfig-emacs"
+       :description "An EditorConfig plugin for Emacs."
+       :type github
+       :branch "master"
+       :pkgname "editorconfig/editorconfig-emacs")
+```
+
 そして `el-get-bundle` でインストール
 
 ```emacs-lisp
