@@ -12,20 +12,20 @@
     <title>Agenda 関係の設定 :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1707053916" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1707053916" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1707053916" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1707053916" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1707053916" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1707053916" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1707053916" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1707053916" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1707053916" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1707053916" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1707055084" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1707055084" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1707055084" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1707055084" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1707055084" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1707055084" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1707055084" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1707055084" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1707055084" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1707055084" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1707053916"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1707055084"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1707053916"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1707053916"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1707055084"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1707055084"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1707053916"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1707055084"></script>
 
     
   </div>
@@ -3218,102 +3218,29 @@ nil にして表示しないようにしている。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq my/org-agenda-calendar-files <span style="color:#f92672">&#39;</span>())
 </span></span></code></pre></div><h3 id="カスタムビュー">カスタムビュー</h3>
 <p>色々なカスタムビューを定義している。かといって全部使ってるわけではないし、つまり使いこなせているかというと微妙。</p>
-<table>
-<thead>
-<tr>
-<th>キー</th>
-<th>内容</th>
-<th>備考</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>hs</td>
-<td>稼動日の始業直後に実施する習慣タスクの表示</td>
-<td>よく使っている。その日やるタスクを決めたりしている</td>
-</tr>
-<tr>
-<td>hf</td>
-<td>稼動日の退勤直前に実施する習慣タスクの表示</td>
-<td>よく使っている。その日の日報を書くなどしている</td>
-</tr>
-<tr>
-<td>hw</td>
-<td>週間隔または隔週で実施する習慣タスクの表示</td>
-<td>週1で使う感じ。この中に放置しているタスクもある</td>
-</tr>
-<tr>
-<td>hh</td>
-<td>休日の習慣タスク</td>
-<td>最近使ってない。。。真面目にタスクを作り過ぎてだるくなってるやつ</td>
-</tr>
-<tr>
-<td>d</td>
-<td>今日の予定などを表示</td>
-<td>普段は会議部分しか見てないので改善が必要そう</td>
-</tr>
-<tr>
-<td>D</td>
-<td>休日タスクの表示</td>
-<td>使ってない。。。</td>
-</tr>
-<tr>
-<td>pp</td>
-<td>GTD の Projects の表示</td>
-<td>たまに使う程度。もうちょっと洗練させたい</td>
-</tr>
-<tr>
-<td>pP</td>
-<td>GTD の Projects の内、環境整備系以外</td>
-<td>環境整備はやっても業務に直接寄与しないので忙しい時は見たくないでござる</td>
-</tr>
-<tr>
-<td>P</td>
-<td>GTD の Pointers の表示</td>
-<td>たまーに使う。資料が貯まり過ぎて取り扱いに困っている</td>
-</tr>
-<tr>
-<td>X</td>
-<td>終了したタスクを表示</td>
-<td>まとめてお掃除する時に使っている</td>
-</tr>
-<tr>
-<td>z</td>
-<td>日報用表示</td>
-<td>毎日業務日報の提出が要求されているのでそれっぽく表示されるようにしている</td>
-</tr>
-<tr>
-<td>H</td>
-<td>GTD の Projects の中の家事を抽出</td>
-<td>最近は使ってない</td>
-</tr>
-<tr>
-<td>EO</td>
-<td>org-mode 関連の環境整備タスク</td>
-<td>最近見てない</td>
-</tr>
-<tr>
-<td>EE</td>
-<td>Emacs 関係かつ org-mode 以外の環境整備タスク</td>
-<td>貯まる一方</td>
-</tr>
-<tr>
-<td>Ee</td>
-<td>Emacs 以外の環境整備タスク</td>
-<td>これも貯まる。Emacs 設定ほどじゃないけど</td>
-</tr>
-</tbody>
-</table>
+<p>そして記述が長くなったので分割して記述していく</p>
+<h4 id="変数定義開始">変数定義開始</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-variables
 </span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(org-agenda-custom-commands
-</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;h&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;Habits&#34;</span>)
-</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;hs&#34;</span> <span style="color:#e6db74">&#34;Weekday Start&#34;</span>
+</span></span></code></pre></div><h4 id="習慣用-agenda">習慣用 agenda</h4>
+<p>習慣用の agenda custom view もいくつか用意している。というわけで h を第一段階の選択に使っている。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>   <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;h&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;Habits&#34;</span>)
+</span></span></code></pre></div><!--list-separator-->
+<ul>
+<li>
+<p>平日開始時用 agenda</p>
+<p>平日毎朝やる作業のためにタグを設定しているのでそれを抽出するためのカスタムビューの定義。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;hs&#34;</span> <span style="color:#e6db74">&#34;Weekday Start&#34;</span>
 </span></span><span style="display:flex;"><span>      ((tags <span style="color:#e6db74">&#34;Weekday&amp;Start|Daily&#34;</span>
 </span></span><span style="display:flex;"><span>             ((org-agenda-prefix-format <span style="color:#e6db74">&#34;  &#34;</span>)
 </span></span><span style="display:flex;"><span>              (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
 </span></span><span style="display:flex;"><span>                                         (:name <span style="color:#e6db74">&#34;今日の作業&#34;</span> :scheduled today)
 </span></span><span style="display:flex;"><span>                                         (:discard (:anything <span style="color:#66d9ef">t</span>))))))))
-</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;hf&#34;</span> <span style="color:#e6db74">&#34;Weekday Finish&#34;</span>
+</span></span></code></pre></div></li>
+</ul>
+<h4 id="その他">その他</h4>
+<p>以下はまだ分割対応ができてない</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;hf&#34;</span> <span style="color:#e6db74">&#34;Weekday Finish&#34;</span>
 </span></span><span style="display:flex;"><span>      ((tags <span style="color:#e6db74">&#34;Weekday&amp;Finish&#34;</span>
 </span></span><span style="display:flex;"><span>             ((org-agenda-prefix-format <span style="color:#e6db74">&#34;  &#34;</span>)
 </span></span><span style="display:flex;"><span>              (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
@@ -5786,19 +5713,19 @@ nil にして表示しないようにしている。</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1707053916"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1707053916"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1707053916"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1707053916"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1707053916"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1707053916"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1707055084"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1707055084"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1707055084"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1707055084"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1707055084"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1707055084"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1707053916"></script>
-    <script src="/.emacs.d/js/learn.js?1707053916"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1707053916"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1707055084"></script>
+    <script src="/.emacs.d/js/learn.js?1707055084"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1707055084"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1707053916"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1707055084"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
