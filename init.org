@@ -6582,30 +6582,28 @@ mocha としてテストを実行するコマンドを用意している。
     #+end_src
 
 * 外部連携ツール設定
-  :PROPERTIES:
-  :EXPORT_HUGO_SECTION: external-tool
-  :END:
-** 外部連携ツール設定
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: _index
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>8. </b>" :weight 8 :disableToc true
-   :END:
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: external-tool
+:ID:       68f0c0e7-0502-4b5e-8237-32a42afb9637
+:END:
+ 外部連携ツール設定
 
-   ここでは外部のサービスと連携するようなやつをまとめています
+ここでは外部のサービスと連携するようなやつをまとめています
 
-   - [[*emacs-w3m][emacs-w3m]] :: 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ
-   - [[*esa.el][esa.el]] :: [[https://esa.io/][esa.io]] と連携するためのパッケージ
-   - [[*forge][forge]] :: [[*magit][magit]] と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ
-   - [[id:ce83e9b8-ef96-4a27-bcfb-a2b437ca5a28][git-messenger]] :: 現在の行の最終コミットの情報を表示してくれるパッケージ
-   - [[*google-this][google-this]] :: Google 検索機能を提供してくれるパッケージ
-   - [[*google-translate][google-translate]] :: Emacs から Google 翻訳するためのパッケージ
-   - [[*magit][magit]] :: Emacs 上で Git の操作をするのにとても便利なパッケージ
-   - [[*notify-slack][notify-slack]] :: Emacs から外部コマンドを通じて Slack に通知するための関数周りの事を書いている
-   - [[id:b2277ecd-038a-4dfd-a510-6e2382f2350f][openai]] :: Emacs から [[https://openai.com/blog/openai-api][OpenAI API]] を利用するためのライブラリ
-   - [[*wakatime-mode][wakatime-mode]] :: Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ
-   - [[*todoist][todoist]] :: Todoist と連携して org-mode で扱えるようにするパッケージ
-   - [[*twmode][twmode]] :: Emacs 上で動く Twitter クライアント
-   - [[*ブラウザ設定][ブラウザ設定]] :: ブラウザ連携周りの設定
+- [[*emacs-w3m][emacs-w3m]] :: 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ
+- [[*esa.el][esa.el]] :: [[https://esa.io/][esa.io]] と連携するためのパッケージ
+- [[*forge][forge]] :: [[*magit][magit]] と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ
+- [[id:ce83e9b8-ef96-4a27-bcfb-a2b437ca5a28][git-messenger]] :: 現在の行の最終コミットの情報を表示してくれるパッケージ
+- [[*google-this][google-this]] :: Google 検索機能を提供してくれるパッケージ
+- [[*google-translate][google-translate]] :: Emacs から Google 翻訳するためのパッケージ
+- [[*magit][magit]] :: Emacs 上で Git の操作をするのにとても便利なパッケージ
+- [[*notify-slack][notify-slack]] :: Emacs から外部コマンドを通じて Slack に通知するための関数周りの事を書いている
+- [[id:b2277ecd-038a-4dfd-a510-6e2382f2350f][openai]] :: Emacs から [[https://openai.com/blog/openai-api][OpenAI API]] を利用するためのライブラリ
+- [[id:db428e03-5074-4b94-b775-8a49c4f65350][pdf-tools]] :: PDF を見るのに便利なやつ
+- [[*todoist][todoist]] :: Todoist と連携して org-mode で扱えるようにするパッケージ
+- [[*twmode][twmode]] :: Emacs 上で動く Twitter クライアント
+- [[id:9c9bff02-7627-44ae-9868-e1310ff19294][wakatime-mode]] :: Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ
+- [[*ブラウザ設定][ブラウザ設定]] :: ブラウザ連携周りの設定
 ** emacs-w3m
    :PROPERTIES:
    :EXPORT_FILE_NAME: emacs-w3m
@@ -7279,6 +7277,25 @@ API 叩いて質問ができるようにしたり、
                      :max-tokens 4000)
   (deactivate-mark t))
 #+end_src
+** pdf-tools
+:PROPERTIES:
+:ID:       db428e03-5074-4b94-b775-8a49c4f65350
+:EXPORT_FILE_NAME: pdf-tools
+:END:
+*** 概要
+[[id:db428e03-5074-4b94-b775-8a49c4f65350][pdf-tools]] は PDF を読む時にいい感じにしてくれるやつ。
+*** インストール
+これは el-get 本体にレシピがあるので、単純にそのまま入れている
+
+#+begin_src emacs-lisp :tangle inits/50-pdf-tools.el
+(el-get-bundle pdf-tools)
+#+end_src
+*** 設定
+PDF を開いたら即使えるようにするため ~pdf-loader-install~ を実行している
+
+#+begin_src emacs-lisp :tangle inits/50-pdf-tools.el
+(pdf-loader-install)
+#+end_src
 ** todoist
    :PROPERTIES:
    :EXPORT_FILE_NAME: todoist
@@ -7401,6 +7418,7 @@ API 叩いて質問ができるようにしたり、
 ** wakatime-mode
    :PROPERTIES:
    :EXPORT_FILE_NAME: wakatime-mode
+   :ID:       9c9bff02-7627-44ae-9868-e1310ff19294
    :END:
 *** 概要
     [[https://github.com/wakatime/wakatime-mode][wakatime-mode]] は [[https://wakatime.com][WakaTime]] というサービスと連携するためのパッケージ。

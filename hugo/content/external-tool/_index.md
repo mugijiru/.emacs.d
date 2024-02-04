@@ -35,14 +35,14 @@ disableToc = true
 [openai]({{< relref "openai" >}})
 : Emacs から [OpenAI API](https://openai.com/blog/openai-api) を利用するためのライブラリ
 
-[wakatime-mode]({{< relref "wakatime-mode" >}})
-: Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ
-
 [todoist]({{< relref "todoist" >}})
 : Todoist と連携して org-mode で扱えるようにするパッケージ
 
 [twmode]({{< relref "twmode" >}})
 : Emacs 上で動く Twitter クライアント
+
+[wakatime-mode]({{< relref "wakatime-mode" >}})
+: Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ
 
 [ブラウザ設定]({{< relref "browse-url" >}})
 : ブラウザ連携周りの設定
