@@ -6602,9 +6602,9 @@ mocha としてテストを実行するコマンドを用意している。
    - [[*magit][magit]] :: Emacs 上で Git の操作をするのにとても便利なパッケージ
    - [[*notify-slack][notify-slack]] :: Emacs から外部コマンドを通じて Slack に通知するための関数周りの事を書いている
    - [[id:b2277ecd-038a-4dfd-a510-6e2382f2350f][openai]] :: Emacs から [[https://openai.com/blog/openai-api][OpenAI API]] を利用するためのライブラリ
-   - [[*wakatime-mode][wakatime-mode]] :: Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ
    - [[*todoist][todoist]] :: Todoist と連携して org-mode で扱えるようにするパッケージ
    - [[*twmode][twmode]] :: Emacs 上で動く Twitter クライアント
+   - [[id:9c9bff02-7627-44ae-9868-e1310ff19294][wakatime-mode]] :: Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ
    - [[*ブラウザ設定][ブラウザ設定]] :: ブラウザ連携周りの設定
 ** emacs-w3m
    :PROPERTIES:
@@ -7401,6 +7401,7 @@ API 叩いて質問ができるようにしたり、
 ** wakatime-mode
    :PROPERTIES:
    :EXPORT_FILE_NAME: wakatime-mode
+   :ID:       9c9bff02-7627-44ae-9868-e1310ff19294
    :END:
 *** 概要
     [[https://github.com/wakatime/wakatime-mode][wakatime-mode]] は [[https://wakatime.com][WakaTime]] というサービスと連携するためのパッケージ。
