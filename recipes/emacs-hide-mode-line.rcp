@@ -1,5 +1,5 @@
 (:name emacs-hide-mode-line
-  :type github
-  :description "minor mode that hides/masks your modeline."
-  :pkgname "hlissner/emacs-hide-mode-line"
-  :minimum-emacs-version (24 4))
+       :type github
+       :description "minor mode that hides/masks your modeline."
+       :pkgname "hlissner/emacs-hide-mode-line"
+       :minimum-emacs-version (24 4))

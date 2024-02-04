@@ -1,5 +1,5 @@
 (:name zoom
-:type github
-:description "Fixed and automatic balanced window layout."
-:pkgname "cyrus-and/zoom"
-:minimum-emacs-version (24 4))
+       :type github
+       :description "Fixed and automatic balanced window layout."
+       :pkgname "cyrus-and/zoom"
+       :minimum-emacs-version (24 4))

@@ -9,7 +9,7 @@
              file-names)))
 
 (defun my/org-nippou-targets ()
-      (-concat (my/org-nippou-files) my/org-nippou-additional-files))
+  (-concat (my/org-nippou-files) my/org-nippou-additional-files))
 
 (defun my/nippou-query ()
   (interactive)
