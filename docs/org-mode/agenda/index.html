@@ -12,20 +12,20 @@
     <title>Agenda 関係の設定 :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1707032290" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1707032290" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1707032290" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1707032290" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1707032290" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1707032290" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1707032290" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1707032290" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1707032290" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1707032290" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1707048064" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1707048064" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1707048064" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1707048064" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1707048064" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1707048064" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1707048064" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1707048064" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1707048064" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1707048064" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1707032290"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1707048064"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1707032290"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1707032290"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1707048064"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1707048064"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1707032290"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1707048064"></script>
 
     
   </div>
@@ -3184,11 +3184,13 @@
 </span></span></code></pre></div><h2 id="週の始まりを日曜日に設定">週の始まりを日曜日に設定</h2>
 <p>麦汁さんは週のスタートを日曜日とする派なので
 org-agenda の週の始まりも日曜日に設定している</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq org-agenda-start-on-weekday <span style="color:#ae81ff">0</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-variables
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(org-agenda-start-on-weekday <span style="color:#ae81ff">0</span>))
 </span></span></code></pre></div><h2 id="1日単位をデフォルト表示に設定">1日単位をデフォルト表示に設定</h2>
 <p>1週間表示よりも「今日って何するんだっけ」みたいな使い方が多いので
 1日を表示単位としている。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq org-agenda-span <span style="color:#e6db74">&#39;day</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-variables
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(org-agenda-span <span style="color:#e6db74">&#39;day</span>))
 </span></span></code></pre></div><p>週単位で何をするかについては今のところ記憶力で対応している。</p>
 <p>あと、基本的にカスタムビューを使ってるのでこれの影響は受けてるかどうか微妙。</p>
 <h2 id="agenda-の対象ファイルを指定">agenda の対象ファイルを指定</h2>
@@ -3200,11 +3202,13 @@ org-agenda の週の始まりも日曜日に設定している</p>
 <p><code>org-agenda-use-time-grid</code> を t にしていると
 10:00 とかのキリがいいところに区切り線を表示してくれるのだが日報提出時には邪魔だし、普段使いでもその区切り線はあっても邪魔っぽいので
 nil にして表示しないようにしている。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq org-agenda-use-time-grid <span style="color:#66d9ef">nil</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-variables
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(org-agenda-use-time-grid <span style="color:#66d9ef">nil</span>))
 </span></span></code></pre></div><h3 id="ブロック間の区切り表示">ブロック間の区切り表示</h3>
 <p>ブロックとブロックの区切りをハイフン繋ぎの文字列で指定している。</p>
 <p>文字列を指定することで固定の長さの区切り文字になるが実は <code>?-</code> とか指定して長さが無限に伸びるようにしてもいいかもしれない。と思いつつ、多分 zoom-mode とかでバッファの幅が切り替わる時に邪魔になるから固定でいいか。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq org-agenda-block-separator <span style="color:#e6db74">&#34;------------------------------&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-variables
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(org-agenda-block-separator <span style="color:#e6db74">&#34;------------------------------&#34;</span>))
 </span></span></code></pre></div><h3 id="org-super-agnda-mode-の有効化">org-super-agnda-mode の有効化</h3>
 <p>なんでここで有効化しているのかね。インストールのやつと近付けた方がいい気がする。</p>
 <p>とりあえず有効化して使えるようにしている。</p>
@@ -3300,278 +3304,279 @@ nil にして表示しないようにしている。</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq org-agenda-custom-commands
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;h&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;Habits&#34;</span>)
-</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;hs&#34;</span> <span style="color:#e6db74">&#34;Weekday Start&#34;</span>
-</span></span><span style="display:flex;"><span>   ((tags <span style="color:#e6db74">&#34;Weekday&amp;Start|Daily&#34;</span>
-</span></span><span style="display:flex;"><span>          ((org-agenda-prefix-format <span style="color:#e6db74">&#34;  &#34;</span>)
-</span></span><span style="display:flex;"><span>           (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
-</span></span><span style="display:flex;"><span>                                      (:name <span style="color:#e6db74">&#34;今日の作業&#34;</span> :scheduled today)
-</span></span><span style="display:flex;"><span>                                      (:discard (:anything <span style="color:#66d9ef">t</span>))))))))
-</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;hf&#34;</span> <span style="color:#e6db74">&#34;Weekday Finish&#34;</span>
-</span></span><span style="display:flex;"><span>   ((tags <span style="color:#e6db74">&#34;Weekday&amp;Finish&#34;</span>
-</span></span><span style="display:flex;"><span>          ((org-agenda-prefix-format <span style="color:#e6db74">&#34;  &#34;</span>)
-</span></span><span style="display:flex;"><span>           (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
-</span></span><span style="display:flex;"><span>                                      (:name <span style="color:#e6db74">&#34;今日の作業&#34;</span> :scheduled today)
-</span></span><span style="display:flex;"><span>                                      (:discard (:anything <span style="color:#66d9ef">t</span>))))))))
-</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;hw&#34;</span> <span style="color:#e6db74">&#34;Weekly&#34;</span>
-</span></span><span style="display:flex;"><span>   ((tags <span style="color:#e6db74">&#34;Weekly&#34;</span>
-</span></span><span style="display:flex;"><span>          ((org-agenda-prefix-format <span style="color:#e6db74">&#34;  &#34;</span>)
-</span></span><span style="display:flex;"><span>           (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
-</span></span><span style="display:flex;"><span>                                      (:name <span style="color:#e6db74">&#34;今週の作業&#34;</span> :scheduled today)
-</span></span><span style="display:flex;"><span>                                      (:discard (:anything <span style="color:#66d9ef">t</span>))))))))
-</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;hh&#34;</span> <span style="color:#e6db74">&#34;Holiday&#34;</span>
-</span></span><span style="display:flex;"><span>   ((tags <span style="color:#e6db74">&#34;Weekend|Holiday|Daily&#34;</span>
-</span></span><span style="display:flex;"><span>          ((org-agenda-prefix-format <span style="color:#e6db74">&#34;  &#34;</span>)
-</span></span><span style="display:flex;"><span>           (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
-</span></span><span style="display:flex;"><span>                                      (:name <span style="color:#e6db74">&#34;今日の作業&#34;</span> :scheduled today)
-</span></span><span style="display:flex;"><span>                                      (:discard (:anything <span style="color:#66d9ef">t</span>))))))))
-</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;d&#34;</span> <span style="color:#e6db74">&#34;Today&#34;</span>
-</span></span><span style="display:flex;"><span>   ((agenda <span style="color:#e6db74">&#34;会議など&#34;</span>
-</span></span><span style="display:flex;"><span>            ((org-agenda-span <span style="color:#e6db74">&#39;day</span>)
-</span></span><span style="display:flex;"><span>             (org-agenda-files my/org-agenda-calendar-files)))
-</span></span><span style="display:flex;"><span>    (tags-todo <span style="color:#e6db74">&#34;-Weekday-Daily-Holiday-Weekly-Weekend&#34;</span>
-</span></span><span style="display:flex;"><span>               ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
-</span></span><span style="display:flex;"><span>                (org-agenda-overriding-header <span style="color:#e6db74">&#34;今日の作業&#34;</span>)
-</span></span><span style="display:flex;"><span>                (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>                (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
-</span></span><span style="display:flex;"><span>                (org-agenda-prefix-format <span style="color:#e6db74">&#34;%l%c: &#34;</span>)
-</span></span><span style="display:flex;"><span>                (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/habits.org&#34;</span>
-</span></span><span style="display:flex;"><span>                                    <span style="color:#e6db74">&#34;~/Documents/org/journal/&#34;</span>
-</span></span><span style="display:flex;"><span>                                    <span style="color:#e6db74">&#34;~/Documents/org/tasks/reviews.org&#34;</span>))
-</span></span><span style="display:flex;"><span>                (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;仕掛かり中&#34;</span> :todo <span style="color:#e6db74">&#34;DOING&#34;</span> :property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;journal-task&#34;</span>))
-</span></span><span style="display:flex;"><span>                                           (:name <span style="color:#e6db74">&#34;TODO&#34;</span> :and (:todo <span style="color:#e6db74">&#34;TODO&#34;</span> :property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;journal-task&#34;</span>)))
-</span></span><span style="display:flex;"><span>                                           (:name <span style="color:#e6db74">&#34;レビュー中&#34;</span> :todo <span style="color:#e6db74">&#34;DOING&#34;</span> :category <span style="color:#e6db74">&#34;レビュー&#34;</span>)
-</span></span><span style="display:flex;"><span>                                           (:name <span style="color:#e6db74">&#34;レビュー待ち&#34;</span> :todo <span style="color:#e6db74">&#34;WAIT&#34;</span> :property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;journal-task&#34;</span>))
-</span></span><span style="display:flex;"><span>                                           (:name <span style="color:#e6db74">&#34;修正待ち&#34;</span> :todo <span style="color:#e6db74">&#34;WAIT&#34;</span> :category <span style="color:#e6db74">&#34;レビュー&#34;</span>)
-</span></span><span style="display:flex;"><span>                                           (:discard (:anything <span style="color:#66d9ef">t</span>))))))
-</span></span><span style="display:flex;"><span>    (alltodo <span style="color:#e6db74">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>               ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
-</span></span><span style="display:flex;"><span>                (org-agenda-overriding-header <span style="color:#e6db74">&#34;予定業務&#34;</span>)
-</span></span><span style="display:flex;"><span>                (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>                (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
-</span></span><span style="display:flex;"><span>                (org-agenda-prefix-format <span style="color:#e6db74">&#34;  %c: &#34;</span>)
-</span></span><span style="display:flex;"><span>                (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))
-</span></span><span style="display:flex;"><span>                (org-super-agenda-groups <span style="color:#f92672">`</span>((:name <span style="color:#e6db74">&#34;〆切が過ぎてる作業&#34;</span> :and (:deadline past   :property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>)))
-</span></span><span style="display:flex;"><span>                                           (:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :and (:scheduled past  :property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>)))
-</span></span><span style="display:flex;"><span>                                           (:name <span style="color:#e6db74">&#34;今日〆切の作業&#34;</span>     :and (:deadline today  :property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>)))
-</span></span><span style="display:flex;"><span>                                           (:name <span style="color:#e6db74">&#34;今日予定の作業&#34;</span>     :and (:scheduled today :property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>)))
-</span></span><span style="display:flex;"><span>                                           (:name <span style="color:#e6db74">&#34;今後1週間の作業&#34;</span>    :and (:and
-</span></span><span style="display:flex;"><span>                                                                             (:scheduled (before <span style="color:#f92672">,</span>(<span style="color:#a6e22e">format-time-string</span> <span style="color:#e6db74">&#34;%Y-%m-%d&#34;</span> (<span style="color:#a6e22e">time-add</span> (<span style="color:#a6e22e">current-time</span>) (days-to-time <span style="color:#ae81ff">7</span>))))
-</span></span><span style="display:flex;"><span>                                                                                         :scheduled (after <span style="color:#f92672">,</span>(<span style="color:#a6e22e">format-time-string</span> <span style="color:#e6db74">&#34;%Y-%m-%d&#34;</span> (<span style="color:#a6e22e">current-time</span>))))
-</span></span><span style="display:flex;"><span>                                                                             :property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>)))
-</span></span><span style="display:flex;"><span>                                           (:discard (:anything <span style="color:#66d9ef">t</span>))))))
-</span></span><span style="display:flex;"><span>    (tags-todo <span style="color:#e6db74">&#34;Weekday-Finish|Daily&#34;</span>
-</span></span><span style="display:flex;"><span>               ((org-agenda-overriding-header <span style="color:#e6db74">&#34;習慣&#34;</span>)
-</span></span><span style="display:flex;"><span>                (org-agenda-prefix-format <span style="color:#e6db74">&#34;  &#34;</span>)
-</span></span><span style="display:flex;"><span>                (org-habit-show-habits <span style="color:#66d9ef">t</span>)
-</span></span><span style="display:flex;"><span>                (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/habits.org&#34;</span>))
-</span></span><span style="display:flex;"><span>                (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
-</span></span><span style="display:flex;"><span>                                           (:name <span style="color:#e6db74">&#34;今日予定&#34;</span> :scheduled today)
-</span></span><span style="display:flex;"><span>                                           (:discard (:anything <span style="color:#66d9ef">t</span>))))))
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-variables
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(org-agenda-custom-commands
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;h&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;Habits&#34;</span>)
+</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;hs&#34;</span> <span style="color:#e6db74">&#34;Weekday Start&#34;</span>
+</span></span><span style="display:flex;"><span>      ((tags <span style="color:#e6db74">&#34;Weekday&amp;Start|Daily&#34;</span>
+</span></span><span style="display:flex;"><span>             ((org-agenda-prefix-format <span style="color:#e6db74">&#34;  &#34;</span>)
+</span></span><span style="display:flex;"><span>              (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
+</span></span><span style="display:flex;"><span>                                         (:name <span style="color:#e6db74">&#34;今日の作業&#34;</span> :scheduled today)
+</span></span><span style="display:flex;"><span>                                         (:discard (:anything <span style="color:#66d9ef">t</span>))))))))
+</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;hf&#34;</span> <span style="color:#e6db74">&#34;Weekday Finish&#34;</span>
+</span></span><span style="display:flex;"><span>      ((tags <span style="color:#e6db74">&#34;Weekday&amp;Finish&#34;</span>
+</span></span><span style="display:flex;"><span>             ((org-agenda-prefix-format <span style="color:#e6db74">&#34;  &#34;</span>)
+</span></span><span style="display:flex;"><span>              (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
+</span></span><span style="display:flex;"><span>                                         (:name <span style="color:#e6db74">&#34;今日の作業&#34;</span> :scheduled today)
+</span></span><span style="display:flex;"><span>                                         (:discard (:anything <span style="color:#66d9ef">t</span>))))))))
+</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;hw&#34;</span> <span style="color:#e6db74">&#34;Weekly&#34;</span>
+</span></span><span style="display:flex;"><span>      ((tags <span style="color:#e6db74">&#34;Weekly&#34;</span>
+</span></span><span style="display:flex;"><span>             ((org-agenda-prefix-format <span style="color:#e6db74">&#34;  &#34;</span>)
+</span></span><span style="display:flex;"><span>              (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
+</span></span><span style="display:flex;"><span>                                         (:name <span style="color:#e6db74">&#34;今週の作業&#34;</span> :scheduled today)
+</span></span><span style="display:flex;"><span>                                         (:discard (:anything <span style="color:#66d9ef">t</span>))))))))
+</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;hh&#34;</span> <span style="color:#e6db74">&#34;Holiday&#34;</span>
+</span></span><span style="display:flex;"><span>      ((tags <span style="color:#e6db74">&#34;Weekend|Holiday|Daily&#34;</span>
+</span></span><span style="display:flex;"><span>             ((org-agenda-prefix-format <span style="color:#e6db74">&#34;  &#34;</span>)
+</span></span><span style="display:flex;"><span>              (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
+</span></span><span style="display:flex;"><span>                                         (:name <span style="color:#e6db74">&#34;今日の作業&#34;</span> :scheduled today)
+</span></span><span style="display:flex;"><span>                                         (:discard (:anything <span style="color:#66d9ef">t</span>))))))))
+</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;d&#34;</span> <span style="color:#e6db74">&#34;Today&#34;</span>
+</span></span><span style="display:flex;"><span>      ((agenda <span style="color:#e6db74">&#34;会議など&#34;</span>
+</span></span><span style="display:flex;"><span>               ((org-agenda-span <span style="color:#e6db74">&#39;day</span>)
+</span></span><span style="display:flex;"><span>                (org-agenda-files my/org-agenda-calendar-files)))
+</span></span><span style="display:flex;"><span>       (tags-todo <span style="color:#e6db74">&#34;-Weekday-Daily-Holiday-Weekly-Weekend&#34;</span>
+</span></span><span style="display:flex;"><span>                  ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>                   (org-agenda-overriding-header <span style="color:#e6db74">&#34;今日の作業&#34;</span>)
+</span></span><span style="display:flex;"><span>                   (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>                   (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
+</span></span><span style="display:flex;"><span>                   (org-agenda-prefix-format <span style="color:#e6db74">&#34;%l%c: &#34;</span>)
+</span></span><span style="display:flex;"><span>                   (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/habits.org&#34;</span>
+</span></span><span style="display:flex;"><span>                                       <span style="color:#e6db74">&#34;~/Documents/org/journal/&#34;</span>
+</span></span><span style="display:flex;"><span>                                       <span style="color:#e6db74">&#34;~/Documents/org/tasks/reviews.org&#34;</span>))
+</span></span><span style="display:flex;"><span>                   (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;仕掛かり中&#34;</span> :todo <span style="color:#e6db74">&#34;DOING&#34;</span> :property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;journal-task&#34;</span>))
+</span></span><span style="display:flex;"><span>                                              (:name <span style="color:#e6db74">&#34;TODO&#34;</span> :and (:todo <span style="color:#e6db74">&#34;TODO&#34;</span> :property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;journal-task&#34;</span>)))
+</span></span><span style="display:flex;"><span>                                              (:name <span style="color:#e6db74">&#34;レビュー中&#34;</span> :todo <span style="color:#e6db74">&#34;DOING&#34;</span> :category <span style="color:#e6db74">&#34;レビュー&#34;</span>)
+</span></span><span style="display:flex;"><span>                                              (:name <span style="color:#e6db74">&#34;レビュー待ち&#34;</span> :todo <span style="color:#e6db74">&#34;WAIT&#34;</span> :property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;journal-task&#34;</span>))
+</span></span><span style="display:flex;"><span>                                              (:name <span style="color:#e6db74">&#34;修正待ち&#34;</span> :todo <span style="color:#e6db74">&#34;WAIT&#34;</span> :category <span style="color:#e6db74">&#34;レビュー&#34;</span>)
+</span></span><span style="display:flex;"><span>                                              (:discard (:anything <span style="color:#66d9ef">t</span>))))))
+</span></span><span style="display:flex;"><span>       (alltodo <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>                ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>                 (org-agenda-overriding-header <span style="color:#e6db74">&#34;予定業務&#34;</span>)
+</span></span><span style="display:flex;"><span>                 (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>                 (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
+</span></span><span style="display:flex;"><span>                 (org-agenda-prefix-format <span style="color:#e6db74">&#34;  %c: &#34;</span>)
+</span></span><span style="display:flex;"><span>                 (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))
+</span></span><span style="display:flex;"><span>                 (org-super-agenda-groups <span style="color:#f92672">`</span>((:name <span style="color:#e6db74">&#34;〆切が過ぎてる作業&#34;</span> :and (:deadline past   :property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>)))
+</span></span><span style="display:flex;"><span>                                            (:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :and (:scheduled past  :property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>)))
+</span></span><span style="display:flex;"><span>                                            (:name <span style="color:#e6db74">&#34;今日〆切の作業&#34;</span>     :and (:deadline today  :property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>)))
+</span></span><span style="display:flex;"><span>                                            (:name <span style="color:#e6db74">&#34;今日予定の作業&#34;</span>     :and (:scheduled today :property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>)))
+</span></span><span style="display:flex;"><span>                                            (:name <span style="color:#e6db74">&#34;今後1週間の作業&#34;</span>    :and (:and
+</span></span><span style="display:flex;"><span>                                                                              (:scheduled (before <span style="color:#f92672">,</span>(<span style="color:#a6e22e">format-time-string</span> <span style="color:#e6db74">&#34;%Y-%m-%d&#34;</span> (<span style="color:#a6e22e">time-add</span> (<span style="color:#a6e22e">current-time</span>) (days-to-time <span style="color:#ae81ff">7</span>))))
+</span></span><span style="display:flex;"><span>                                                                                          :scheduled (after <span style="color:#f92672">,</span>(<span style="color:#a6e22e">format-time-string</span> <span style="color:#e6db74">&#34;%Y-%m-%d&#34;</span> (<span style="color:#a6e22e">current-time</span>))))
+</span></span><span style="display:flex;"><span>                                                                              :property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>)))
+</span></span><span style="display:flex;"><span>                                            (:discard (:anything <span style="color:#66d9ef">t</span>))))))
+</span></span><span style="display:flex;"><span>       (tags-todo <span style="color:#e6db74">&#34;Weekday-Finish|Daily&#34;</span>
+</span></span><span style="display:flex;"><span>                  ((org-agenda-overriding-header <span style="color:#e6db74">&#34;習慣&#34;</span>)
+</span></span><span style="display:flex;"><span>                   (org-agenda-prefix-format <span style="color:#e6db74">&#34;  &#34;</span>)
+</span></span><span style="display:flex;"><span>                   (org-habit-show-habits <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>                   (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/habits.org&#34;</span>))
+</span></span><span style="display:flex;"><span>                   (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
+</span></span><span style="display:flex;"><span>                                              (:name <span style="color:#e6db74">&#34;今日予定&#34;</span> :scheduled today)
+</span></span><span style="display:flex;"><span>                                              (:discard (:anything <span style="color:#66d9ef">t</span>))))))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    (tags-todo <span style="color:#e6db74">&#34;LEVEL=2&#34;</span>
-</span></span><span style="display:flex;"><span>               ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))
-</span></span><span style="display:flex;"><span>                (org-agenda-overriding-header <span style="color:#e6db74">&#34;予定なし&#34;</span>)
-</span></span><span style="display:flex;"><span>                (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:and (:property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>) :scheduled <span style="color:#66d9ef">nil</span> :deadline <span style="color:#66d9ef">nil</span>))
-</span></span><span style="display:flex;"><span>                                           (:discard (:anything <span style="color:#66d9ef">t</span>))))))))
-</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;D&#34;</span> <span style="color:#e6db74">&#34;Holiday&#34;</span>
-</span></span><span style="display:flex;"><span>   ((tags-todo <span style="color:#e6db74">&#34;-Weekday-Daily-Holiday-Weekly-Weekend&amp;LEVEL=3&#34;</span>
-</span></span><span style="display:flex;"><span>               ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
-</span></span><span style="display:flex;"><span>                (org-agenda-overriding-header <span style="color:#e6db74">&#34;休日の作業&#34;</span>)
-</span></span><span style="display:flex;"><span>                (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>                (org-agenda-prefix-format <span style="color:#e6db74">&#34;  %c: &#34;</span>)
-</span></span><span style="display:flex;"><span>                (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
-</span></span><span style="display:flex;"><span>                (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/journal/&#34;</span>))
-</span></span><span style="display:flex;"><span>                (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;仕掛かり中&#34;</span> :and (:todo <span style="color:#e6db74">&#34;DOING&#34;</span> :not (:property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>))))
-</span></span><span style="display:flex;"><span>                                           (:name <span style="color:#e6db74">&#34;TODO&#34;</span>       :and (:todo <span style="color:#e6db74">&#34;TODO&#34;</span>  :not (:property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>))))
-</span></span><span style="display:flex;"><span>                                           (:name <span style="color:#e6db74">&#34;待ち&#34;</span>       :and (:todo <span style="color:#e6db74">&#34;WAIT&#34;</span>  :not (:property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>))))
-</span></span><span style="display:flex;"><span>                                           (:discard (:anything <span style="color:#66d9ef">t</span>))))))
-</span></span><span style="display:flex;"><span>    (alltodo <span style="color:#e6db74">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>               ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
-</span></span><span style="display:flex;"><span>                (org-agenda-overriding-header <span style="color:#e6db74">&#34;予定作業&#34;</span>)
-</span></span><span style="display:flex;"><span>                (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>                (org-agenda-prefix-format <span style="color:#e6db74">&#34;  %c: &#34;</span>)
-</span></span><span style="display:flex;"><span>                (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
-</span></span><span style="display:flex;"><span>                (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span> <span style="color:#e6db74">&#34;~/Documents/org/tasks/inbox.org&#34;</span>))
-</span></span><span style="display:flex;"><span>                (org-super-agenda-groups <span style="color:#f92672">`</span>((:name <span style="color:#e6db74">&#34;〆切が過ぎてる作業&#34;</span> :and (:deadline past   :not (:property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>))))
-</span></span><span style="display:flex;"><span>                                           (:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :and (:scheduled past  :not (:property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>))))
-</span></span><span style="display:flex;"><span>                                           (:name <span style="color:#e6db74">&#34;今日〆切の作業&#34;</span>     :and (:deadline today  :not (:property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>))))
-</span></span><span style="display:flex;"><span>                                           (:name <span style="color:#e6db74">&#34;今日予定の作業&#34;</span>     :and (:scheduled today :not (:property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>))))
-</span></span><span style="display:flex;"><span>                                           (:name <span style="color:#e6db74">&#34;今後1週間の作業&#34;</span>    :and (:and
-</span></span><span style="display:flex;"><span>                                                                             (:scheduled (before <span style="color:#f92672">,</span>(<span style="color:#a6e22e">format-time-string</span> <span style="color:#e6db74">&#34;%Y-%m-%d&#34;</span> (<span style="color:#a6e22e">time-add</span> (<span style="color:#a6e22e">current-time</span>) (days-to-time <span style="color:#ae81ff">7</span>))))
-</span></span><span style="display:flex;"><span>                                                                                         :scheduled (after <span style="color:#f92672">,</span>(<span style="color:#a6e22e">format-time-string</span> <span style="color:#e6db74">&#34;%Y-%m-%d&#34;</span> (<span style="color:#a6e22e">current-time</span>))))
-</span></span><span style="display:flex;"><span>                                                                             :not (:property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>))))
-</span></span><span style="display:flex;"><span>                                           (:discard (:anything <span style="color:#66d9ef">t</span>))))))
-</span></span><span style="display:flex;"><span>    (tags-todo <span style="color:#e6db74">&#34;Holiday|Weekend|Daily&#34;</span>
-</span></span><span style="display:flex;"><span>               ((org-agenda-overriding-header <span style="color:#e6db74">&#34;習慣&#34;</span>)
-</span></span><span style="display:flex;"><span>                (org-agenda-prefix-format <span style="color:#e6db74">&#34;  &#34;</span>)
-</span></span><span style="display:flex;"><span>                (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/habits.org&#34;</span>))
-</span></span><span style="display:flex;"><span>                (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
-</span></span><span style="display:flex;"><span>                                           (:name <span style="color:#e6db74">&#34;今日予定の作業&#34;</span> :scheduled today)
-</span></span><span style="display:flex;"><span>                                           (:discard (:anything <span style="color:#66d9ef">t</span>))))))
-</span></span><span style="display:flex;"><span>    (tags-todo <span style="color:#e6db74">&#34;LEVEL=2&#34;</span>
-</span></span><span style="display:flex;"><span>               ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))
-</span></span><span style="display:flex;"><span>                (org-agenda-overriding-header <span style="color:#e6db74">&#34;Private&#34;</span>)
-</span></span><span style="display:flex;"><span>                (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;Priority &gt;= B&#34;</span> :and (:priority&gt;= <span style="color:#e6db74">&#34;B&#34;</span> :property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;7. Private&#34;</span>)))
-</span></span><span style="display:flex;"><span>                                           (:name <span style="color:#e6db74">&#34;no priority&#34;</span> :and (:not (:priority&gt;= <span style="color:#e6db74">&#34;C&#34;</span>) :property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;7. Private&#34;</span>)))
-</span></span><span style="display:flex;"><span>                                           (:discard (:anything <span style="color:#66d9ef">t</span>))))))
-</span></span><span style="display:flex;"><span>    (tags-todo <span style="color:#e6db74">&#34;Emacs&amp;LEVEL=2&#34;</span>
-</span></span><span style="display:flex;"><span>               ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))
-</span></span><span style="display:flex;"><span>                (org-agenda-overriding-header <span style="color:#e6db74">&#34;Emacs&#34;</span>)
-</span></span><span style="display:flex;"><span>                (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:priority&gt;= <span style="color:#e6db74">&#34;B&#34;</span>)
-</span></span><span style="display:flex;"><span>                                           (:name <span style="color:#e6db74">&#34;no priority&#34;</span> :not (:priority&gt;= <span style="color:#e6db74">&#34;C&#34;</span>))
-</span></span><span style="display:flex;"><span>                                           (:discard (:anything <span style="color:#66d9ef">t</span>))))))
-</span></span><span style="display:flex;"><span>    (tags-todo <span style="color:#e6db74">&#34;Env&amp;LEVEL=2&#34;</span>
-</span></span><span style="display:flex;"><span>               ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))
-</span></span><span style="display:flex;"><span>                (org-agenda-overriding-header <span style="color:#e6db74">&#34;Env&#34;</span>)
-</span></span><span style="display:flex;"><span>                (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:priority&gt;= <span style="color:#e6db74">&#34;B&#34;</span>)
-</span></span><span style="display:flex;"><span>                                           (:name <span style="color:#e6db74">&#34;no priority&#34;</span> :not (:priority&gt;= <span style="color:#e6db74">&#34;C&#34;</span>))
-</span></span><span style="display:flex;"><span>                                           (:discard (:anything <span style="color:#66d9ef">t</span>))))))))
+</span></span><span style="display:flex;"><span>       (tags-todo <span style="color:#e6db74">&#34;LEVEL=2&#34;</span>
+</span></span><span style="display:flex;"><span>                  ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))
+</span></span><span style="display:flex;"><span>                   (org-agenda-overriding-header <span style="color:#e6db74">&#34;予定なし&#34;</span>)
+</span></span><span style="display:flex;"><span>                   (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:and (:property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>) :scheduled <span style="color:#66d9ef">nil</span> :deadline <span style="color:#66d9ef">nil</span>))
+</span></span><span style="display:flex;"><span>                                              (:discard (:anything <span style="color:#66d9ef">t</span>))))))))
+</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;D&#34;</span> <span style="color:#e6db74">&#34;Holiday&#34;</span>
+</span></span><span style="display:flex;"><span>      ((tags-todo <span style="color:#e6db74">&#34;-Weekday-Daily-Holiday-Weekly-Weekend&amp;LEVEL=3&#34;</span>
+</span></span><span style="display:flex;"><span>                  ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>                   (org-agenda-overriding-header <span style="color:#e6db74">&#34;休日の作業&#34;</span>)
+</span></span><span style="display:flex;"><span>                   (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>                   (org-agenda-prefix-format <span style="color:#e6db74">&#34;  %c: &#34;</span>)
+</span></span><span style="display:flex;"><span>                   (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
+</span></span><span style="display:flex;"><span>                   (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/journal/&#34;</span>))
+</span></span><span style="display:flex;"><span>                   (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;仕掛かり中&#34;</span> :and (:todo <span style="color:#e6db74">&#34;DOING&#34;</span> :not (:property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>))))
+</span></span><span style="display:flex;"><span>                                              (:name <span style="color:#e6db74">&#34;TODO&#34;</span>       :and (:todo <span style="color:#e6db74">&#34;TODO&#34;</span>  :not (:property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>))))
+</span></span><span style="display:flex;"><span>                                              (:name <span style="color:#e6db74">&#34;待ち&#34;</span>       :and (:todo <span style="color:#e6db74">&#34;WAIT&#34;</span>  :not (:property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>))))
+</span></span><span style="display:flex;"><span>                                              (:discard (:anything <span style="color:#66d9ef">t</span>))))))
+</span></span><span style="display:flex;"><span>       (alltodo <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>                ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>                 (org-agenda-overriding-header <span style="color:#e6db74">&#34;予定作業&#34;</span>)
+</span></span><span style="display:flex;"><span>                 (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>                 (org-agenda-prefix-format <span style="color:#e6db74">&#34;  %c: &#34;</span>)
+</span></span><span style="display:flex;"><span>                 (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
+</span></span><span style="display:flex;"><span>                 (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span> <span style="color:#e6db74">&#34;~/Documents/org/tasks/inbox.org&#34;</span>))
+</span></span><span style="display:flex;"><span>                 (org-super-agenda-groups <span style="color:#f92672">`</span>((:name <span style="color:#e6db74">&#34;〆切が過ぎてる作業&#34;</span> :and (:deadline past   :not (:property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>))))
+</span></span><span style="display:flex;"><span>                                            (:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :and (:scheduled past  :not (:property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>))))
+</span></span><span style="display:flex;"><span>                                            (:name <span style="color:#e6db74">&#34;今日〆切の作業&#34;</span>     :and (:deadline today  :not (:property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>))))
+</span></span><span style="display:flex;"><span>                                            (:name <span style="color:#e6db74">&#34;今日予定の作業&#34;</span>     :and (:scheduled today :not (:property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>))))
+</span></span><span style="display:flex;"><span>                                            (:name <span style="color:#e6db74">&#34;今後1週間の作業&#34;</span>    :and (:and
+</span></span><span style="display:flex;"><span>                                                                              (:scheduled (before <span style="color:#f92672">,</span>(<span style="color:#a6e22e">format-time-string</span> <span style="color:#e6db74">&#34;%Y-%m-%d&#34;</span> (<span style="color:#a6e22e">time-add</span> (<span style="color:#a6e22e">current-time</span>) (days-to-time <span style="color:#ae81ff">7</span>))))
+</span></span><span style="display:flex;"><span>                                                                                          :scheduled (after <span style="color:#f92672">,</span>(<span style="color:#a6e22e">format-time-string</span> <span style="color:#e6db74">&#34;%Y-%m-%d&#34;</span> (<span style="color:#a6e22e">current-time</span>))))
+</span></span><span style="display:flex;"><span>                                                                              :not (:property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>))))
+</span></span><span style="display:flex;"><span>                                            (:discard (:anything <span style="color:#66d9ef">t</span>))))))
+</span></span><span style="display:flex;"><span>       (tags-todo <span style="color:#e6db74">&#34;Holiday|Weekend|Daily&#34;</span>
+</span></span><span style="display:flex;"><span>                  ((org-agenda-overriding-header <span style="color:#e6db74">&#34;習慣&#34;</span>)
+</span></span><span style="display:flex;"><span>                   (org-agenda-prefix-format <span style="color:#e6db74">&#34;  &#34;</span>)
+</span></span><span style="display:flex;"><span>                   (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/habits.org&#34;</span>))
+</span></span><span style="display:flex;"><span>                   (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
+</span></span><span style="display:flex;"><span>                                              (:name <span style="color:#e6db74">&#34;今日予定の作業&#34;</span> :scheduled today)
+</span></span><span style="display:flex;"><span>                                              (:discard (:anything <span style="color:#66d9ef">t</span>))))))
+</span></span><span style="display:flex;"><span>       (tags-todo <span style="color:#e6db74">&#34;LEVEL=2&#34;</span>
+</span></span><span style="display:flex;"><span>                  ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))
+</span></span><span style="display:flex;"><span>                   (org-agenda-overriding-header <span style="color:#e6db74">&#34;Private&#34;</span>)
+</span></span><span style="display:flex;"><span>                   (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;Priority &gt;= B&#34;</span> :and (:priority&gt;= <span style="color:#e6db74">&#34;B&#34;</span> :property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;7. Private&#34;</span>)))
+</span></span><span style="display:flex;"><span>                                              (:name <span style="color:#e6db74">&#34;no priority&#34;</span> :and (:not (:priority&gt;= <span style="color:#e6db74">&#34;C&#34;</span>) :property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;7. Private&#34;</span>)))
+</span></span><span style="display:flex;"><span>                                              (:discard (:anything <span style="color:#66d9ef">t</span>))))))
+</span></span><span style="display:flex;"><span>       (tags-todo <span style="color:#e6db74">&#34;Emacs&amp;LEVEL=2&#34;</span>
+</span></span><span style="display:flex;"><span>                  ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))
+</span></span><span style="display:flex;"><span>                   (org-agenda-overriding-header <span style="color:#e6db74">&#34;Emacs&#34;</span>)
+</span></span><span style="display:flex;"><span>                   (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:priority&gt;= <span style="color:#e6db74">&#34;B&#34;</span>)
+</span></span><span style="display:flex;"><span>                                              (:name <span style="color:#e6db74">&#34;no priority&#34;</span> :not (:priority&gt;= <span style="color:#e6db74">&#34;C&#34;</span>))
+</span></span><span style="display:flex;"><span>                                              (:discard (:anything <span style="color:#66d9ef">t</span>))))))
+</span></span><span style="display:flex;"><span>       (tags-todo <span style="color:#e6db74">&#34;Env&amp;LEVEL=2&#34;</span>
+</span></span><span style="display:flex;"><span>                  ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))
+</span></span><span style="display:flex;"><span>                   (org-agenda-overriding-header <span style="color:#e6db74">&#34;Env&#34;</span>)
+</span></span><span style="display:flex;"><span>                   (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:priority&gt;= <span style="color:#e6db74">&#34;B&#34;</span>)
+</span></span><span style="display:flex;"><span>                                              (:name <span style="color:#e6db74">&#34;no priority&#34;</span> :not (:priority&gt;= <span style="color:#e6db74">&#34;C&#34;</span>))
+</span></span><span style="display:flex;"><span>                                              (:discard (:anything <span style="color:#66d9ef">t</span>))))))))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;p&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;Projects&#34;</span>)
-</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;pA&#34;</span> <span style="color:#e6db74">&#34;Projects Priority A&#34;</span>
-</span></span><span style="display:flex;"><span>   ((tags-todo <span style="color:#e6db74">&#34;LEVEL=2&amp;PRIORITY=\&#34;A\&#34;&#34;</span> ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))))))
-</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;pc&#34;</span> <span style="color:#e6db74">&#34;Category&#34;</span>
-</span></span><span style="display:flex;"><span>   ((tags-todo <span style="color:#e6db74">&#34;LEVEL=2&amp;CATEGORY=\&#34;Work\&#34;&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;お仕事タスク&#34;</span>)
-</span></span><span style="display:flex;"><span>                                            (org-agenda-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
-</span></span><span style="display:flex;"><span>                                            (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))))
-</span></span><span style="display:flex;"><span>    (tags-todo <span style="color:#e6db74">&#34;LEVEL=2&amp;CATEGORY=\&#34;Housework\&#34;&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;家事&#34;</span>)
+</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;p&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;Projects&#34;</span>)
+</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;pA&#34;</span> <span style="color:#e6db74">&#34;Projects Priority A&#34;</span>
+</span></span><span style="display:flex;"><span>      ((tags-todo <span style="color:#e6db74">&#34;LEVEL=2&amp;PRIORITY=\&#34;A\&#34;&#34;</span> ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))))))
+</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;pc&#34;</span> <span style="color:#e6db74">&#34;Category&#34;</span>
+</span></span><span style="display:flex;"><span>      ((tags-todo <span style="color:#e6db74">&#34;LEVEL=2&amp;CATEGORY=\&#34;Work\&#34;&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;お仕事タスク&#34;</span>)
+</span></span><span style="display:flex;"><span>                                               (org-agenda-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
+</span></span><span style="display:flex;"><span>                                               (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))))
+</span></span><span style="display:flex;"><span>       (tags-todo <span style="color:#e6db74">&#34;LEVEL=2&amp;CATEGORY=\&#34;Housework\&#34;&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;家事&#34;</span>)
+</span></span><span style="display:flex;"><span>                                                    (org-agenda-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
+</span></span><span style="display:flex;"><span>                                                    (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))))
+</span></span><span style="display:flex;"><span>       (tags-todo <span style="color:#e6db74">&#34;LEVEL=2&amp;CATEGORY=\&#34;Config\&#34;&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;設定弄り&#34;</span>)
 </span></span><span style="display:flex;"><span>                                                 (org-agenda-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
 </span></span><span style="display:flex;"><span>                                                 (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))))
-</span></span><span style="display:flex;"><span>    (tags-todo <span style="color:#e6db74">&#34;LEVEL=2&amp;CATEGORY=\&#34;Config\&#34;&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;設定弄り&#34;</span>)
-</span></span><span style="display:flex;"><span>                                              (org-agenda-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
-</span></span><span style="display:flex;"><span>                                              (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))))
-</span></span><span style="display:flex;"><span>    (tags-todo <span style="color:#e6db74">&#34;LEVEL=2&amp;CATEGORY=\&#34;Research\&#34;&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;調査&#34;</span>)
-</span></span><span style="display:flex;"><span>                                                (org-agenda-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
-</span></span><span style="display:flex;"><span>                                                (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))))
-</span></span><span style="display:flex;"><span>    (tags-todo <span style="color:#e6db74">&#34;LEVEL=2&amp;CATEGORY=\&#34;Indie hack\&#34;&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;個人開発&#34;</span>)
-</span></span><span style="display:flex;"><span>                                                  (org-agenda-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
-</span></span><span style="display:flex;"><span>                                                  (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))))
-</span></span><span style="display:flex;"><span>    (tags-todo <span style="color:#e6db74">&#34;LEVEL=2&amp;CATEGORY=\&#34;Hoby\&#34;&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;趣味関係&#34;</span>)
-</span></span><span style="display:flex;"><span>                                            (org-agenda-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
-</span></span><span style="display:flex;"><span>                                            (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))))
-</span></span><span style="display:flex;"><span>    (tags-todo <span style="color:#e6db74">&#34;LEVEL=2&amp;CATEGORY=\&#34;Private\&#34;&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;Private タスク&#34;</span>)
+</span></span><span style="display:flex;"><span>       (tags-todo <span style="color:#e6db74">&#34;LEVEL=2&amp;CATEGORY=\&#34;Research\&#34;&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;調査&#34;</span>)
+</span></span><span style="display:flex;"><span>                                                   (org-agenda-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
+</span></span><span style="display:flex;"><span>                                                   (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))))
+</span></span><span style="display:flex;"><span>       (tags-todo <span style="color:#e6db74">&#34;LEVEL=2&amp;CATEGORY=\&#34;Indie hack\&#34;&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;個人開発&#34;</span>)
+</span></span><span style="display:flex;"><span>                                                     (org-agenda-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
+</span></span><span style="display:flex;"><span>                                                     (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))))
+</span></span><span style="display:flex;"><span>       (tags-todo <span style="color:#e6db74">&#34;LEVEL=2&amp;CATEGORY=\&#34;Hoby\&#34;&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;趣味関係&#34;</span>)
 </span></span><span style="display:flex;"><span>                                               (org-agenda-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
-</span></span><span style="display:flex;"><span>                                               (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))))))
+</span></span><span style="display:flex;"><span>                                               (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))))
+</span></span><span style="display:flex;"><span>       (tags-todo <span style="color:#e6db74">&#34;LEVEL=2&amp;CATEGORY=\&#34;Private\&#34;&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;Private タスク&#34;</span>)
+</span></span><span style="display:flex;"><span>                                                  (org-agenda-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
+</span></span><span style="display:flex;"><span>                                                  (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))))))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;pC&#34;</span> <span style="color:#e6db74">&#34;Category auto&#34;</span>
-</span></span><span style="display:flex;"><span>   ((tags-todo <span style="color:#e6db74">&#34;LEVEL=2&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;Categories&#34;</span>)
-</span></span><span style="display:flex;"><span>                          (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))
-</span></span><span style="display:flex;"><span>                          (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:auto-category <span style="color:#66d9ef">t</span>)))))))
-</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;pg&#34;</span> <span style="color:#e6db74">&#34;Agenda groups&#34;</span>
-</span></span><span style="display:flex;"><span>   ((tags-todo <span style="color:#e6db74">&#34;LEVEL=2&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;Categories&#34;</span>)
-</span></span><span style="display:flex;"><span>                          (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))
-</span></span><span style="display:flex;"><span>                          (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:auto-group <span style="color:#66d9ef">t</span>)))))))
-</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;pp&#34;</span> <span style="color:#e6db74">&#34;Projects&#34;</span>
-</span></span><span style="display:flex;"><span>   ((tags-todo <span style="color:#e6db74">&#34;LEVEL=2&#34;</span> ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
-</span></span><span style="display:flex;"><span>                          (org-agenda-overriding-header <span style="color:#e6db74">&#34;今日のタスク&#34;</span>)
-</span></span><span style="display:flex;"><span>                          (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>                          (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
-</span></span><span style="display:flex;"><span>                          (org-agenda-todo-keyword-format <span style="color:#e6db74">&#34;-&#34;</span>)
-</span></span><span style="display:flex;"><span>                          (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/habits.org&#34;</span> <span style="color:#e6db74">&#34;~/Documents/org/journal/&#34;</span>))
-</span></span><span style="display:flex;"><span>                          (org-super-agenda-groups (<span style="color:#a6e22e">append</span>
-</span></span><span style="display:flex;"><span>                                                    (<span style="color:#a6e22e">mapcar</span> (lambda (key) <span style="color:#f92672">`</span>(:name <span style="color:#f92672">,</span>key :and (:category <span style="color:#f92672">,</span>key :todo (<span style="color:#e6db74">&#34;DOING&#34;</span> <span style="color:#e6db74">&#34;WAIT&#34;</span>)))) (if (<span style="color:#a6e22e">boundp</span> <span style="color:#e6db74">&#39;my/nippou-categories</span>) my/nippou-categories <span style="color:#66d9ef">nil</span>))
-</span></span><span style="display:flex;"><span>                                                    <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;その他&#34;</span> :scheduled <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>                                                      (:discard (:anything <span style="color:#66d9ef">t</span>)))))))
-</span></span><span style="display:flex;"><span>    (tags-todo <span style="color:#e6db74">&#34;LEVEL=2&#34;</span> ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
-</span></span><span style="display:flex;"><span>                          (org-agenda-overriding-header <span style="color:#e6db74">&#34;予定に入ってる作業&#34;</span>)
-</span></span><span style="display:flex;"><span>                          (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>                          (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
-</span></span><span style="display:flex;"><span>                          (org-agenda-todo-keyword-format <span style="color:#e6db74">&#34;-&#34;</span>)
-</span></span><span style="display:flex;"><span>                          (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))
-</span></span><span style="display:flex;"><span>                          (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;〆切が過ぎてる作業&#34;</span> :deadline past)
-</span></span><span style="display:flex;"><span>                                                     (:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
-</span></span><span style="display:flex;"><span>                                                     (:name <span style="color:#e6db74">&#34;今日〆切の作業&#34;</span> :deadline today)
-</span></span><span style="display:flex;"><span>                                                     (:name <span style="color:#e6db74">&#34;今日予定の作業&#34;</span> :scheduled today)
-</span></span><span style="display:flex;"><span>                                                     (:discard (:anything <span style="color:#66d9ef">t</span>))))))
-</span></span><span style="display:flex;"><span>    (tags-todo <span style="color:#e6db74">&#34;LEVEL=2&#34;</span> ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))
-</span></span><span style="display:flex;"><span>                          (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;待ち&#34;</span> :todo <span style="color:#e6db74">&#34;WAIT&#34;</span>)
-</span></span><span style="display:flex;"><span>                                                     (:name <span style="color:#e6db74">&#34;仕掛かり中&#34;</span> :todo <span style="color:#e6db74">&#34;DOING&#34;</span>)
-</span></span><span style="display:flex;"><span>                                                     (:name <span style="color:#e6db74">&#34;TODO&#34;</span> :todo <span style="color:#e6db74">&#34;TODO&#34;</span>)
-</span></span><span style="display:flex;"><span>                                                     (:discard (:anything <span style="color:#66d9ef">t</span>))))))))
-</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;pP&#34;</span> <span style="color:#e6db74">&#34;Projects without Env&#34;</span>
-</span></span><span style="display:flex;"><span>   ((alltodo <span style="color:#e6db74">&#34;&#34;</span> ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
-</span></span><span style="display:flex;"><span>                 (org-agenda-overriding-header <span style="color:#e6db74">&#34;今日のタスク&#34;</span>)
-</span></span><span style="display:flex;"><span>                 (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>                 (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
-</span></span><span style="display:flex;"><span>                 (org-agenda-todo-keyword-format <span style="color:#e6db74">&#34;-&#34;</span>)
-</span></span><span style="display:flex;"><span>                 (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/habits.org&#34;</span> <span style="color:#e6db74">&#34;~/Documents/org/journal/&#34;</span>))
-</span></span><span style="display:flex;"><span>                 (org-super-agenda-groups (<span style="color:#a6e22e">append</span>
-</span></span><span style="display:flex;"><span>                                           (<span style="color:#a6e22e">mapcar</span> (lambda (key) <span style="color:#f92672">`</span>(:name <span style="color:#f92672">,</span>key :and (:category <span style="color:#f92672">,</span>key :todo (<span style="color:#e6db74">&#34;DOING&#34;</span> <span style="color:#e6db74">&#34;WAIT&#34;</span>)))) (if (<span style="color:#a6e22e">boundp</span> <span style="color:#e6db74">&#39;my/nippou-categories</span>) my/nippou-categories <span style="color:#66d9ef">nil</span>))
-</span></span><span style="display:flex;"><span>                                           <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;その他&#34;</span> :scheduled <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>                                             (:discard (:anything <span style="color:#66d9ef">t</span>)))))))
-</span></span><span style="display:flex;"><span>    (alltodo <span style="color:#e6db74">&#34;&#34;</span> ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
-</span></span><span style="display:flex;"><span>                 (org-agenda-overriding-header <span style="color:#e6db74">&#34;予定に入ってる作業&#34;</span>)
-</span></span><span style="display:flex;"><span>                 (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>                 (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
-</span></span><span style="display:flex;"><span>                 (org-agenda-todo-keyword-format <span style="color:#e6db74">&#34;-&#34;</span>)
-</span></span><span style="display:flex;"><span>                 (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))
-</span></span><span style="display:flex;"><span>                 (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;〆切が過ぎてる作業&#34;</span> :deadline past)
-</span></span><span style="display:flex;"><span>                                            (:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
-</span></span><span style="display:flex;"><span>                                            (:name <span style="color:#e6db74">&#34;今日〆切の作業&#34;</span> :deadline today)
-</span></span><span style="display:flex;"><span>                                            (:name <span style="color:#e6db74">&#34;今日予定の作業&#34;</span> :scheduled today)
-</span></span><span style="display:flex;"><span>                                            (:discard (:anything <span style="color:#66d9ef">t</span>))))))
-</span></span><span style="display:flex;"><span>    (tags-todo <span style="color:#e6db74">&#34;-Emacs-org-Env-Hugo&amp;LEVEL=2&#34;</span> ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))))))
-</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;pN&#34;</span> <span style="color:#e6db74">&#34;No major tags&#34;</span>
-</span></span><span style="display:flex;"><span>   ((tags-todo <span style="color:#e6db74">&#34;-Emacs-org-Env-Hugo-Kibela-Develop-ReviewLister-HouseWork-Private&amp;LEVEL=2&#34;</span> ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))))))
-</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;P&#34;</span> <span style="color:#e6db74">&#34;Pointers&#34;</span>
-</span></span><span style="display:flex;"><span>   ((todo <span style="color:#e6db74">&#34;DOING&#34;</span> ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/pointers.org&#34;</span>))))
-</span></span><span style="display:flex;"><span>    (todo <span style="color:#e6db74">&#34;TODO&#34;</span>  ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/pointers.org&#34;</span>))))))
-</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;X&#34;</span> <span style="color:#e6db74">&#34;Finished&#34;</span>
-</span></span><span style="display:flex;"><span>   ((tags <span style="color:#e6db74">&#34;LEVEL=2&#34;</span> ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>
-</span></span><span style="display:flex;"><span>                                         <span style="color:#e6db74">&#34;~/Documents/org/tasks/inbox.org&#34;</span>
-</span></span><span style="display:flex;"><span>                                         <span style="color:#e6db74">&#34;~/Documents/org/tasks/reviews.org&#34;</span>
-</span></span><span style="display:flex;"><span>                                         <span style="color:#e6db74">&#34;~/Documents/org/journal/&#34;</span>
-</span></span><span style="display:flex;"><span>                                         <span style="color:#e6db74">&#34;~/Documents/org/tasks/habits.org&#34;</span>))
-</span></span><span style="display:flex;"><span>                     (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;Finished&#34;</span> :todo <span style="color:#e6db74">&#34;DONE&#34;</span>)
-</span></span><span style="display:flex;"><span>                                                (:name <span style="color:#e6db74">&#34;Someday&#34;</span> :todo <span style="color:#e6db74">&#34;SOMEDAY&#34;</span>)
-</span></span><span style="display:flex;"><span>                                                (:discard (:anything <span style="color:#66d9ef">t</span>))))))))
+</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;pC&#34;</span> <span style="color:#e6db74">&#34;Category auto&#34;</span>
+</span></span><span style="display:flex;"><span>      ((tags-todo <span style="color:#e6db74">&#34;LEVEL=2&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;Categories&#34;</span>)
+</span></span><span style="display:flex;"><span>                             (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))
+</span></span><span style="display:flex;"><span>                             (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:auto-category <span style="color:#66d9ef">t</span>)))))))
+</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;pg&#34;</span> <span style="color:#e6db74">&#34;Agenda groups&#34;</span>
+</span></span><span style="display:flex;"><span>      ((tags-todo <span style="color:#e6db74">&#34;LEVEL=2&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;Categories&#34;</span>)
+</span></span><span style="display:flex;"><span>                             (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))
+</span></span><span style="display:flex;"><span>                             (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:auto-group <span style="color:#66d9ef">t</span>)))))))
+</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;pp&#34;</span> <span style="color:#e6db74">&#34;Projects&#34;</span>
+</span></span><span style="display:flex;"><span>      ((tags-todo <span style="color:#e6db74">&#34;LEVEL=2&#34;</span> ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>                             (org-agenda-overriding-header <span style="color:#e6db74">&#34;今日のタスク&#34;</span>)
+</span></span><span style="display:flex;"><span>                             (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>                             (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
+</span></span><span style="display:flex;"><span>                             (org-agenda-todo-keyword-format <span style="color:#e6db74">&#34;-&#34;</span>)
+</span></span><span style="display:flex;"><span>                             (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/habits.org&#34;</span> <span style="color:#e6db74">&#34;~/Documents/org/journal/&#34;</span>))
+</span></span><span style="display:flex;"><span>                             (org-super-agenda-groups (<span style="color:#a6e22e">append</span>
+</span></span><span style="display:flex;"><span>                                                       (<span style="color:#a6e22e">mapcar</span> (lambda (key) <span style="color:#f92672">`</span>(:name <span style="color:#f92672">,</span>key :and (:category <span style="color:#f92672">,</span>key :todo (<span style="color:#e6db74">&#34;DOING&#34;</span> <span style="color:#e6db74">&#34;WAIT&#34;</span>)))) (if (<span style="color:#a6e22e">boundp</span> <span style="color:#e6db74">&#39;my/nippou-categories</span>) my/nippou-categories <span style="color:#66d9ef">nil</span>))
+</span></span><span style="display:flex;"><span>                                                       <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;その他&#34;</span> :scheduled <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>                                                         (:discard (:anything <span style="color:#66d9ef">t</span>)))))))
+</span></span><span style="display:flex;"><span>       (tags-todo <span style="color:#e6db74">&#34;LEVEL=2&#34;</span> ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>                             (org-agenda-overriding-header <span style="color:#e6db74">&#34;予定に入ってる作業&#34;</span>)
+</span></span><span style="display:flex;"><span>                             (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>                             (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
+</span></span><span style="display:flex;"><span>                             (org-agenda-todo-keyword-format <span style="color:#e6db74">&#34;-&#34;</span>)
+</span></span><span style="display:flex;"><span>                             (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))
+</span></span><span style="display:flex;"><span>                             (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;〆切が過ぎてる作業&#34;</span> :deadline past)
+</span></span><span style="display:flex;"><span>                                                        (:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
+</span></span><span style="display:flex;"><span>                                                        (:name <span style="color:#e6db74">&#34;今日〆切の作業&#34;</span> :deadline today)
+</span></span><span style="display:flex;"><span>                                                        (:name <span style="color:#e6db74">&#34;今日予定の作業&#34;</span> :scheduled today)
+</span></span><span style="display:flex;"><span>                                                        (:discard (:anything <span style="color:#66d9ef">t</span>))))))
+</span></span><span style="display:flex;"><span>       (tags-todo <span style="color:#e6db74">&#34;LEVEL=2&#34;</span> ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))
+</span></span><span style="display:flex;"><span>                             (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;待ち&#34;</span> :todo <span style="color:#e6db74">&#34;WAIT&#34;</span>)
+</span></span><span style="display:flex;"><span>                                                        (:name <span style="color:#e6db74">&#34;仕掛かり中&#34;</span> :todo <span style="color:#e6db74">&#34;DOING&#34;</span>)
+</span></span><span style="display:flex;"><span>                                                        (:name <span style="color:#e6db74">&#34;TODO&#34;</span> :todo <span style="color:#e6db74">&#34;TODO&#34;</span>)
+</span></span><span style="display:flex;"><span>                                                        (:discard (:anything <span style="color:#66d9ef">t</span>))))))))
+</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;pP&#34;</span> <span style="color:#e6db74">&#34;Projects without Env&#34;</span>
+</span></span><span style="display:flex;"><span>      ((alltodo <span style="color:#e6db74">&#34;&#34;</span> ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>                    (org-agenda-overriding-header <span style="color:#e6db74">&#34;今日のタスク&#34;</span>)
+</span></span><span style="display:flex;"><span>                    (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>                    (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
+</span></span><span style="display:flex;"><span>                    (org-agenda-todo-keyword-format <span style="color:#e6db74">&#34;-&#34;</span>)
+</span></span><span style="display:flex;"><span>                    (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/habits.org&#34;</span> <span style="color:#e6db74">&#34;~/Documents/org/journal/&#34;</span>))
+</span></span><span style="display:flex;"><span>                    (org-super-agenda-groups (<span style="color:#a6e22e">append</span>
+</span></span><span style="display:flex;"><span>                                              (<span style="color:#a6e22e">mapcar</span> (lambda (key) <span style="color:#f92672">`</span>(:name <span style="color:#f92672">,</span>key :and (:category <span style="color:#f92672">,</span>key :todo (<span style="color:#e6db74">&#34;DOING&#34;</span> <span style="color:#e6db74">&#34;WAIT&#34;</span>)))) (if (<span style="color:#a6e22e">boundp</span> <span style="color:#e6db74">&#39;my/nippou-categories</span>) my/nippou-categories <span style="color:#66d9ef">nil</span>))
+</span></span><span style="display:flex;"><span>                                              <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;その他&#34;</span> :scheduled <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>                                                (:discard (:anything <span style="color:#66d9ef">t</span>)))))))
+</span></span><span style="display:flex;"><span>       (alltodo <span style="color:#e6db74">&#34;&#34;</span> ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>                    (org-agenda-overriding-header <span style="color:#e6db74">&#34;予定に入ってる作業&#34;</span>)
+</span></span><span style="display:flex;"><span>                    (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>                    (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
+</span></span><span style="display:flex;"><span>                    (org-agenda-todo-keyword-format <span style="color:#e6db74">&#34;-&#34;</span>)
+</span></span><span style="display:flex;"><span>                    (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))
+</span></span><span style="display:flex;"><span>                    (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;〆切が過ぎてる作業&#34;</span> :deadline past)
+</span></span><span style="display:flex;"><span>                                               (:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
+</span></span><span style="display:flex;"><span>                                               (:name <span style="color:#e6db74">&#34;今日〆切の作業&#34;</span> :deadline today)
+</span></span><span style="display:flex;"><span>                                               (:name <span style="color:#e6db74">&#34;今日予定の作業&#34;</span> :scheduled today)
+</span></span><span style="display:flex;"><span>                                               (:discard (:anything <span style="color:#66d9ef">t</span>))))))
+</span></span><span style="display:flex;"><span>       (tags-todo <span style="color:#e6db74">&#34;-Emacs-org-Env-Hugo&amp;LEVEL=2&#34;</span> ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))))))
+</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;pN&#34;</span> <span style="color:#e6db74">&#34;No major tags&#34;</span>
+</span></span><span style="display:flex;"><span>      ((tags-todo <span style="color:#e6db74">&#34;-Emacs-org-Env-Hugo-Kibela-Develop-ReviewLister-HouseWork-Private&amp;LEVEL=2&#34;</span> ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))))))
+</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;P&#34;</span> <span style="color:#e6db74">&#34;Pointers&#34;</span>
+</span></span><span style="display:flex;"><span>      ((todo <span style="color:#e6db74">&#34;DOING&#34;</span> ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/pointers.org&#34;</span>))))
+</span></span><span style="display:flex;"><span>       (todo <span style="color:#e6db74">&#34;TODO&#34;</span>  ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/pointers.org&#34;</span>))))))
+</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;X&#34;</span> <span style="color:#e6db74">&#34;Finished&#34;</span>
+</span></span><span style="display:flex;"><span>      ((tags <span style="color:#e6db74">&#34;LEVEL=2&#34;</span> ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>
+</span></span><span style="display:flex;"><span>                                            <span style="color:#e6db74">&#34;~/Documents/org/tasks/inbox.org&#34;</span>
+</span></span><span style="display:flex;"><span>                                            <span style="color:#e6db74">&#34;~/Documents/org/tasks/reviews.org&#34;</span>
+</span></span><span style="display:flex;"><span>                                            <span style="color:#e6db74">&#34;~/Documents/org/journal/&#34;</span>
+</span></span><span style="display:flex;"><span>                                            <span style="color:#e6db74">&#34;~/Documents/org/tasks/habits.org&#34;</span>))
+</span></span><span style="display:flex;"><span>                        (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;Finished&#34;</span> :todo <span style="color:#e6db74">&#34;DONE&#34;</span>)
+</span></span><span style="display:flex;"><span>                                                   (:name <span style="color:#e6db74">&#34;Someday&#34;</span> :todo <span style="color:#e6db74">&#34;SOMEDAY&#34;</span>)
+</span></span><span style="display:flex;"><span>                                                   (:discard (:anything <span style="color:#66d9ef">t</span>))))))))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;z&#34;</span> <span style="color:#e6db74">&#34;日報&#34;</span>
-</span></span><span style="display:flex;"><span>   ((agenda <span style="color:#e6db74">&#34;&#34;</span> ((org-agenda-span <span style="color:#e6db74">&#39;day</span>)
-</span></span><span style="display:flex;"><span>                (org-agenda-overriding-header <span style="color:#e6db74">&#34;&#34;</span>)
-</span></span><span style="display:flex;"><span>                (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>                (org-agenda-format-date <span style="color:#e6db74">&#34;## %Y/%m/%d (%a) 日報&#34;</span>)
-</span></span><span style="display:flex;"><span>                (org-agenda-prefix-format <span style="color:#e6db74">&#34; %?-12t&#34;</span>)
-</span></span><span style="display:flex;"><span>                (org-agenda-files my/org-agenda-calendar-files)
-</span></span><span style="display:flex;"><span>                (org-super-agenda-groups
-</span></span><span style="display:flex;"><span>                 <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;会議など&#34;</span> :time-grid <span style="color:#66d9ef">t</span>)
-</span></span><span style="display:flex;"><span>                   (:discard (:anything <span style="color:#66d9ef">t</span>))))))
-</span></span><span style="display:flex;"><span>    (todo <span style="color:#e6db74">&#34;DONE&#34;</span> ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
-</span></span><span style="display:flex;"><span>                  (org-agenda-overriding-header <span style="color:#e6db74">&#34;対応済&#34;</span>)
-</span></span><span style="display:flex;"><span>                  (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>                  (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
-</span></span><span style="display:flex;"><span>                  (org-agenda-todo-keyword-format <span style="color:#e6db74">&#34;-&#34;</span>)
-</span></span><span style="display:flex;"><span>                  (org-columns-default-format-for-agenda <span style="color:#e6db74">&#34;%25ITEM %TODO %3PRIORITY&#34;</span>)
-</span></span><span style="display:flex;"><span>                  (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/habits.org&#34;</span> <span style="color:#e6db74">&#34;~/Documents/org/journal/&#34;</span>))
-</span></span><span style="display:flex;"><span>                  (org-super-agenda-groups (<span style="color:#a6e22e">append</span>
-</span></span><span style="display:flex;"><span>                                            (<span style="color:#a6e22e">mapcar</span> (lambda (key) <span style="color:#f92672">`</span>(:name <span style="color:#f92672">,</span>key :and (:category <span style="color:#f92672">,</span>key :todo (<span style="color:#e6db74">&#34;DONE&#34;</span>)))) (if (<span style="color:#a6e22e">boundp</span> <span style="color:#e6db74">&#39;my/nippou-categories</span>) my/nippou-categories <span style="color:#66d9ef">nil</span>))
-</span></span><span style="display:flex;"><span>                                            <span style="color:#f92672">&#39;</span>((:discard (:anything <span style="color:#66d9ef">t</span> :name <span style="color:#e6db74">&#34;discard&#34;</span>)))))))
-</span></span><span style="display:flex;"><span>    (alltodo <span style="color:#e6db74">&#34;&#34;</span> ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
-</span></span><span style="display:flex;"><span>                 (org-agenda-overriding-header <span style="color:#e6db74">&#34;仕掛かり中&#34;</span>)
-</span></span><span style="display:flex;"><span>                 (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>                 (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
-</span></span><span style="display:flex;"><span>                 (org-agenda-todo-keyword-format <span style="color:#e6db74">&#34;-&#34;</span>)
-</span></span><span style="display:flex;"><span>                 (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/habits.org&#34;</span> <span style="color:#e6db74">&#34;~/Documents/org/journal/&#34;</span>))
-</span></span><span style="display:flex;"><span>                 (org-super-agenda-groups (<span style="color:#a6e22e">append</span>
-</span></span><span style="display:flex;"><span>                                           (<span style="color:#a6e22e">mapcar</span> (lambda (key) <span style="color:#f92672">`</span>(:name <span style="color:#f92672">,</span>key :and (:category <span style="color:#f92672">,</span>key :todo (<span style="color:#e6db74">&#34;DOING&#34;</span> <span style="color:#e6db74">&#34;WAIT&#34;</span>)))) (if (<span style="color:#a6e22e">boundp</span> <span style="color:#e6db74">&#39;my/nippou-categories</span>) my/nippou-categories <span style="color:#66d9ef">nil</span>))
-</span></span><span style="display:flex;"><span>                                           <span style="color:#f92672">&#39;</span>((:discard (:anything <span style="color:#66d9ef">t</span> :name <span style="color:#e6db74">&#34;discard&#34;</span>)))))))))
+</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;z&#34;</span> <span style="color:#e6db74">&#34;日報&#34;</span>
+</span></span><span style="display:flex;"><span>      ((agenda <span style="color:#e6db74">&#34;&#34;</span> ((org-agenda-span <span style="color:#e6db74">&#39;day</span>)
+</span></span><span style="display:flex;"><span>                   (org-agenda-overriding-header <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>                   (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>                   (org-agenda-format-date <span style="color:#e6db74">&#34;## %Y/%m/%d (%a) 日報&#34;</span>)
+</span></span><span style="display:flex;"><span>                   (org-agenda-prefix-format <span style="color:#e6db74">&#34; %?-12t&#34;</span>)
+</span></span><span style="display:flex;"><span>                   (org-agenda-files my/org-agenda-calendar-files)
+</span></span><span style="display:flex;"><span>                   (org-super-agenda-groups
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;会議など&#34;</span> :time-grid <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>                      (:discard (:anything <span style="color:#66d9ef">t</span>))))))
+</span></span><span style="display:flex;"><span>       (todo <span style="color:#e6db74">&#34;DONE&#34;</span> ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>                     (org-agenda-overriding-header <span style="color:#e6db74">&#34;対応済&#34;</span>)
+</span></span><span style="display:flex;"><span>                     (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>                     (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
+</span></span><span style="display:flex;"><span>                     (org-agenda-todo-keyword-format <span style="color:#e6db74">&#34;-&#34;</span>)
+</span></span><span style="display:flex;"><span>                     (org-columns-default-format-for-agenda <span style="color:#e6db74">&#34;%25ITEM %TODO %3PRIORITY&#34;</span>)
+</span></span><span style="display:flex;"><span>                     (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/habits.org&#34;</span> <span style="color:#e6db74">&#34;~/Documents/org/journal/&#34;</span>))
+</span></span><span style="display:flex;"><span>                     (org-super-agenda-groups (<span style="color:#a6e22e">append</span>
+</span></span><span style="display:flex;"><span>                                               (<span style="color:#a6e22e">mapcar</span> (lambda (key) <span style="color:#f92672">`</span>(:name <span style="color:#f92672">,</span>key :and (:category <span style="color:#f92672">,</span>key :todo (<span style="color:#e6db74">&#34;DONE&#34;</span>)))) (if (<span style="color:#a6e22e">boundp</span> <span style="color:#e6db74">&#39;my/nippou-categories</span>) my/nippou-categories <span style="color:#66d9ef">nil</span>))
+</span></span><span style="display:flex;"><span>                                               <span style="color:#f92672">&#39;</span>((:discard (:anything <span style="color:#66d9ef">t</span> :name <span style="color:#e6db74">&#34;discard&#34;</span>)))))))
+</span></span><span style="display:flex;"><span>       (alltodo <span style="color:#e6db74">&#34;&#34;</span> ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>                    (org-agenda-overriding-header <span style="color:#e6db74">&#34;仕掛かり中&#34;</span>)
+</span></span><span style="display:flex;"><span>                    (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>                    (org-agenda-span <span style="color:#e6db74">&#39;day</span>)
+</span></span><span style="display:flex;"><span>                    (org-agenda-todo-keyword-format <span style="color:#e6db74">&#34;-&#34;</span>)
+</span></span><span style="display:flex;"><span>                    (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/habits.org&#34;</span> <span style="color:#e6db74">&#34;~/Documents/org/journal/&#34;</span>))
+</span></span><span style="display:flex;"><span>                    (org-super-agenda-groups (<span style="color:#a6e22e">append</span>
+</span></span><span style="display:flex;"><span>                                              (<span style="color:#a6e22e">mapcar</span> (lambda (key) <span style="color:#f92672">`</span>(:name <span style="color:#f92672">,</span>key :and (:category <span style="color:#f92672">,</span>key :todo (<span style="color:#e6db74">&#34;DOING&#34;</span> <span style="color:#e6db74">&#34;WAIT&#34;</span>)))) (if (<span style="color:#a6e22e">boundp</span> <span style="color:#e6db74">&#39;my/nippou-categories</span>) my/nippou-categories <span style="color:#66d9ef">nil</span>))
+</span></span><span style="display:flex;"><span>                                              <span style="color:#f92672">&#39;</span>((:discard (:anything <span style="color:#66d9ef">t</span> :name <span style="color:#e6db74">&#34;discard&#34;</span>)))))))))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;H&#34;</span> <span style="color:#e6db74">&#34;HouseWork&#34;</span> ((tags <span style="color:#e6db74">&#34;HouseWork&#34;</span>)))
-</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;E&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;Env&#34;</span>)
-</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;EO&#34;</span> <span style="color:#e6db74">&#34;org&#34;</span>
-</span></span><span style="display:flex;"><span>   ((tags-todo <span style="color:#e6db74">&#34;+org&#34;</span>
-</span></span><span style="display:flex;"><span>               ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>
-</span></span><span style="display:flex;"><span>                                    <span style="color:#e6db74">&#34;~/Documents/org/tasks/inbox.org&#34;</span>))))))
-</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;EE&#34;</span> <span style="color:#e6db74">&#34;Emacs without org&#34;</span>
-</span></span><span style="display:flex;"><span>   ((tags-todo <span style="color:#e6db74">&#34;+Emacs-org&#34;</span>
-</span></span><span style="display:flex;"><span>               ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>
-</span></span><span style="display:flex;"><span>                                    <span style="color:#e6db74">&#34;~/Documents/org/tasks/inbox.org&#34;</span>))))))
-</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#34;Ee&#34;</span> <span style="color:#e6db74">&#34;without Emacs&#34;</span>
-</span></span><span style="display:flex;"><span>   ((tags-todo <span style="color:#e6db74">&#34;+Env-Emacs-org&#34;</span>
-</span></span><span style="display:flex;"><span>               ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>
-</span></span><span style="display:flex;"><span>                                    <span style="color:#e6db74">&#34;~/Documents/org/tasks/inbox.org&#34;</span>))))))))
+</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;H&#34;</span> <span style="color:#e6db74">&#34;HouseWork&#34;</span> ((tags <span style="color:#e6db74">&#34;HouseWork&#34;</span>)))
+</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;E&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;Env&#34;</span>)
+</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;EO&#34;</span> <span style="color:#e6db74">&#34;org&#34;</span>
+</span></span><span style="display:flex;"><span>      ((tags-todo <span style="color:#e6db74">&#34;+org&#34;</span>
+</span></span><span style="display:flex;"><span>                  ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>
+</span></span><span style="display:flex;"><span>                                       <span style="color:#e6db74">&#34;~/Documents/org/tasks/inbox.org&#34;</span>))))))
+</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;EE&#34;</span> <span style="color:#e6db74">&#34;Emacs without org&#34;</span>
+</span></span><span style="display:flex;"><span>      ((tags-todo <span style="color:#e6db74">&#34;+Emacs-org&#34;</span>
+</span></span><span style="display:flex;"><span>                  ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>
+</span></span><span style="display:flex;"><span>                                       <span style="color:#e6db74">&#34;~/Documents/org/tasks/inbox.org&#34;</span>))))))
+</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;Ee&#34;</span> <span style="color:#e6db74">&#34;without Emacs&#34;</span>
+</span></span><span style="display:flex;"><span>      ((tags-todo <span style="color:#e6db74">&#34;+Env-Emacs-org&#34;</span>
+</span></span><span style="display:flex;"><span>                  ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>
+</span></span><span style="display:flex;"><span>                                       <span style="color:#e6db74">&#34;~/Documents/org/tasks/inbox.org&#34;</span>)))))))))
 </span></span></code></pre></div>
 
 <footer class="footline">
@@ -5781,19 +5786,19 @@ nil にして表示しないようにしている。</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1707032290"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1707032290"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1707032290"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1707032290"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1707032290"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1707032290"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1707048064"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1707048064"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1707048064"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1707048064"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1707048064"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1707048064"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1707032290"></script>
-    <script src="/.emacs.d/js/learn.js?1707032290"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1707032290"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1707048064"></script>
+    <script src="/.emacs.d/js/learn.js?1707048064"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1707048064"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1707032290"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1707048064"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
