@@ -24,7 +24,7 @@
         (which-key :checksum "4d20bc852545a2e602f59084a630f888542052b1")
         (company-quickhelp :checksum "5bda859577582cc42d16fc0eaf5f7c8bedfd9e69")
         (graphql-mode :checksum "49a391b5290e3354b07f7b77ded97a154c084f46")
-        (json-mode :checksum "a93a0c76784376fbb9105719f25c7489991056a1")
+        (json-mode :checksum "bfd1557aaa20b7518b808fdc869f094b52205234")
         (json-snatcher :checksum "b28d1c0670636da6db508d03872d96ffddbc10f2")
         (json-reformat :checksum "9120ab67c5379c44bc7a7a07ca858670cea4f32f")
         (orgit :checksum "84bcb5c318f01b9ffc8d5aa18a7c393fe9c714b2")
