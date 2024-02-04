@@ -37,8 +37,8 @@
 (require 'ob-async)
 
 (add-hook 'ob-async-pre-execute-src-block-hook
-      '(lambda ()
-         (setq org-plantuml-jar-path "~/bin/plantuml.jar")))
+          '(lambda ()
+             (setq org-plantuml-jar-path "~/bin/plantuml.jar")))
 
 (custom-set-variables
  '(org-id-link-to-org-use-id t)
@@ -80,3 +80,7 @@
 
 (with-eval-after-load 'org-mode
   (my/org-mode-map-override-windmove-mode-map))
+
+(custom-set-variables
+ '(org-src-preserve-indentation t)
+ '(org-edit-src-content-indentation 0))

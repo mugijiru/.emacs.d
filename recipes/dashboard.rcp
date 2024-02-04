@@ -1,6 +1,6 @@
 (:name dashboard
-  :type github
-  :description "A startup screen extracted from Spacemacs"
-  :pkgname "emacs-dashboard/emacs-dashboard"
-  :depends (page-break-lines)
-  :minimum-emacs-version (25 3))
+       :type github
+       :description "A startup screen extracted from Spacemacs"
+       :pkgname "emacs-dashboard/emacs-dashboard"
+       :depends (page-break-lines)
+       :minimum-emacs-version (25 3))

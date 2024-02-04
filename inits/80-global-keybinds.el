@@ -1,7 +1,7 @@
 (if (eq window-system 'ns)
     (progn
-          (setq ns-alternate-modifier (quote super)) ;; option  => super
-          (setq ns-command-modifier (quote meta))))  ;; command => meta
+      (setq ns-alternate-modifier (quote super)) ;; option  => super
+      (setq ns-command-modifier (quote meta))))  ;; command => meta
 
 (keyboard-translate ?\C-h ?\C-?)
 (global-set-key "\C-h" nil)

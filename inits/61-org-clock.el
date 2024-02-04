@@ -1,9 +1,9 @@
 (setq org-clock-clocktable-default-properties
       '(:maxlevel 10
-                 :lang "ja"
-                 :scope agenda-with-archives
-                 :block today
-                 :level 4))
+                  :lang "ja"
+                  :scope agenda-with-archives
+                  :block today
+                  :level 4))
 
 (defun my/org-clock-in-hook ()
   (let* ((task org-clock-current-task)
