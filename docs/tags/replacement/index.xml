@@ -17,8 +17,8 @@
 インストール org-gcal が依存しているので parsist を入れている。
 (el-get-bundle persist) あとは当然 org-gcal 本体を入れないと動かない
 (el-get-bundle org-gcal) その際 el-get のレシピは自前で用意している
-(:name org-gcal :description &amp;#34;Org sync with Google Calendar.&amp;#34; :website &amp;#34;https://github.com/kidd/org-gcal.el&amp;#34; :type github :minimum-emacs-version &amp;#34;26&amp;#34; :depends (request alert cl-lib aio) :pkgname &amp;#34;kidd/org-gcal.el&amp;#34;) 設定 まずは org-gcal の設定が authinfo から読み込まれるようにする
-(custom-set-variables &amp;#39;(org-gcal-client-id (plist-get (nth 0 (auth-source-search :host &amp;#34;googleusercontent.com&amp;#34;)) :client)) &amp;#39;(org-gcal-client-secret (funcall (plist-get (nth 0 (auth-source-search :host &amp;#34;googleusercontent.</description>
+(:name org-gcal :description &amp;#34;Org sync with Google Calendar.&amp;#34; :website &amp;#34;https://github.com/kidd/org-gcal.el&amp;#34; :type github :minimum-emacs-version &amp;#34;26&amp;#34; :depends (request alert cl-lib aio) :pkgname &amp;#34;kidd/org-gcal.el&amp;#34;) emacs-aio も recipe を自前で用意している
+(:name aio :website &amp;#34;https://github.com/skeeto/emacs-aio&amp;#34; :description &amp;#34;aio is to Emacs Lisp as asyncio is to Python.</description>
     </item>
     
     <item>
