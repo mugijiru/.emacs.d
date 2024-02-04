@@ -12,20 +12,20 @@
     <title>org-journal :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1707031303" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1707031303" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1707031303" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1707031303" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1707031303" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1707031303" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1707031303" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1707031303" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1707031303" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1707031303" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1707031333" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1707031333" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1707031333" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1707031333" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1707031333" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1707031333" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1707031333" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1707031333" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1707031333" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1707031333" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1707031303"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1707031333"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1707031303"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1707031303"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1707031333"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1707031333"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1707031303"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1707031333"></script>
 
     
   </div>
@@ -2031,6 +2031,27 @@
  
   
     
+      <li data-nav-id="/.emacs.d/programming/tree-sitter/" title="tree-sitter" class="dd-item ">
+        <a href="/.emacs.d/programming/tree-sitter/">
+        tree-sitter
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
       <li data-nav-id="/.emacs.d/programming/typescript/" title="TypeScript" class="dd-item ">
         <a href="/.emacs.d/programming/typescript/">
         TypeScript
@@ -3115,6 +3136,7 @@
   <ul>
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
+    <li><a href="#agenda-のスコープ設定用関数">agenda のスコープ設定用関数</a></li>
     <li><a href="#設定">設定</a></li>
     <li><a href="#hook">hook</a></li>
   </ul>
@@ -3157,6 +3179,16 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle org-journal)
 </span></span></code></pre></div><p>また <a href="/.emacs.d/org-mode/org-refile/#refile-先の候補設定">refile 先の候補設定</a> で <code>org-journal--get-entry-path</code> という内部関数を使ってしまっていてそれが読み込まれていないと困るので、ここで require まで行っている</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(require <span style="color:#e6db74">&#39;org-journal</span>)
+</span></span></code></pre></div><h2 id="agenda-のスコープ設定用関数">agenda のスコープ設定用関数</h2>
+<p>org-clock-report では前日分も target に入れてほしいのでそれの <code>:scope</code> に指定するための関数を自前で用意している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/org-agenda-scope-with-yesterday-journal ()
+</span></span><span style="display:flex;"><span>  (let* ((agenda-files (org-agenda-files <span style="color:#66d9ef">t</span>))
+</span></span><span style="display:flex;"><span>         (24-hours-ago (<span style="color:#a6e22e">*</span> <span style="color:#ae81ff">-60</span> <span style="color:#ae81ff">60</span> <span style="color:#ae81ff">24</span>))
+</span></span><span style="display:flex;"><span>         (yesterday (<span style="color:#a6e22e">time-add</span> (<span style="color:#a6e22e">current-time</span>) 24-hours-ago))
+</span></span><span style="display:flex;"><span>         (yesterday-string (<span style="color:#a6e22e">format-time-string</span> <span style="color:#e6db74">&#34;%Y%m%d&#34;</span> yesterday))
+</span></span><span style="display:flex;"><span>         (yesterday-journal-file-path (<span style="color:#a6e22e">concat</span> org-journal-dir yesterday-string <span style="color:#e6db74">&#34;.org&#34;</span>))
+</span></span><span style="display:flex;"><span>         (files (<span style="color:#a6e22e">append</span> <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>yesterday-journal-file-path) agenda-files)))
+</span></span><span style="display:flex;"><span>    (org-add-archive-files files)))
 </span></span></code></pre></div><h2 id="設定">設定</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-variables
 </span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(org-journal-dir (<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;journal/&#34;</span>))
@@ -4657,6 +4689,22 @@ hook で org-refile-targets を設定し直すようにしている</p>
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -5362,19 +5410,19 @@ hook で org-refile-targets を設定し直すようにしている</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1707031303"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1707031303"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1707031303"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1707031303"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1707031303"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1707031303"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1707031333"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1707031333"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1707031333"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1707031333"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1707031333"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1707031333"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1707031303"></script>
-    <script src="/.emacs.d/js/learn.js?1707031303"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1707031303"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1707031333"></script>
+    <script src="/.emacs.d/js/learn.js?1707031333"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1707031333"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1707031303"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1707031333"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

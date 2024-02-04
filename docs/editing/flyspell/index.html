@@ -12,20 +12,20 @@
     <title>flyspell :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1707031303" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1707031303" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1707031303" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1707031303" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1707031303" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1707031303" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1707031303" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1707031303" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1707031303" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1707031303" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1707031333" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1707031333" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1707031333" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1707031333" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1707031333" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1707031333" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1707031333" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1707031333" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1707031333" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1707031333" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1707031303"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1707031333"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1707031303"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1707031303"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1707031333"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1707031333"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1707031303"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1707031333"></script>
 
     
   </div>
@@ -2031,6 +2031,27 @@
  
   
     
+      <li data-nav-id="/.emacs.d/programming/tree-sitter/" title="tree-sitter" class="dd-item ">
+        <a href="/.emacs.d/programming/tree-sitter/">
+        tree-sitter
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
       <li data-nav-id="/.emacs.d/programming/typescript/" title="TypeScript" class="dd-item ">
         <a href="/.emacs.d/programming/typescript/">
         TypeScript
@@ -3156,7 +3177,8 @@ Emacs 本体に組込まれているので、設定すれば素の Emacs でも�
 を参考にしていますが、まあ多分 ASCII 以外をシカトしているのかなこれは</p>
 <h2 id="incorrect-hook-の定義">incorrect-hook の定義</h2>
 <p>上の設定でも ASCII 以外を無視してそうだけどさらに <code>flyspell-incorrect-hook</code> で incorrect 判定するのを ASCII にのみ限定しています。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/flyspell-ignore-nonascii (beg end _info)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; Original: https://takaxp.github.io/init.html#orgdd65fc08</span>
+</span></span><span style="display:flex;"><span>(defun my/flyspell-ignore-nonascii (beg end _info)
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;incorrect判定をASCIIに限定&#34;</span>
 </span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">string-match</span> <span style="color:#e6db74">&#34;[^!-~]&#34;</span> (<span style="color:#a6e22e">buffer-substring</span> beg end)))
 </span></span><span style="display:flex;"><span>
@@ -4660,6 +4682,22 @@ Emacs 本体に組込まれているので、設定すれば素の Emacs でも�
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -5357,19 +5395,19 @@ Emacs 本体に組込まれているので、設定すれば素の Emacs でも�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1707031303"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1707031303"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1707031303"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1707031303"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1707031303"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1707031303"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1707031333"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1707031333"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1707031333"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1707031333"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1707031333"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1707031333"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1707031303"></script>
-    <script src="/.emacs.d/js/learn.js?1707031303"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1707031303"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1707031333"></script>
+    <script src="/.emacs.d/js/learn.js?1707031333"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1707031333"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1707031303"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1707031333"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

@@ -288,6 +288,20 @@ terraform-mode terraform-mode は Emacs で terraform のコードを書くた�
     </item>
     
     <item>
+      <title>tree-sitter</title>
+      <link>https://mugijiru.github.io/.emacs.d/programming/tree-sitter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/programming/tree-sitter/</guid>
+      <description>概要 ここでは今現在は、 tree-sitter が使えることを自動判定して mode を切り替えて tree-sitter の文法定義が存在しなければ自動的にインストールしてくれる treesit-auto 用の設定を記述している
+インストール treesit-auto のレシピは自前で用意している
+(:name treesit-auto :website &amp;#34;https://github.com/renzmann/treesit-auto&amp;#34; :description &amp;#34;Automatically install and use tree-sitter major modes in Emacs 29+.&amp;#34; :type github :branch &amp;#34;main&amp;#34; :pkgname &amp;#34;renzmann/treesit-auto&amp;#34;) そしていつも通り el-get-bundle でインストールしている
+(el-get-bundle treesit-auto) 設定 インストール時には一応確認してほしいので、確認が入るような設定にしている
+(custom-set-variables &amp;#39;(treesit-auto-install &amp;#39;prompt)) 有効化 require した上で global に有効化している
+(require &amp;#39;treesit-auto) (global-treesit-auto-mode) </description>
+    </item>
+    
+    <item>
       <title>TypeScript</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/typescript/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

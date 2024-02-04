@@ -240,6 +240,8 @@
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/ui/toolbar/</loc>
   </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/programming/tree-sitter/</loc>
+  </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/external-tool/twmode/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/programming/typescript/</loc>
