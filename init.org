@@ -1715,6 +1715,17 @@
        :depends (s dash editorconfig jsonrpc))
 #+end_src
 
+依存している editorconig も自前でレシピを用意している
+
+#+begin_src emacs-lisp :tangle recipes/editorconfig-emacs.rcp
+(:name editorconfig
+       :website "https://github.com/editorconfig/editorconfig-emacs"
+       :description "An EditorConfig plugin for Emacs."
+       :type github
+       :branch "master"
+       :pkgname "editorconfig/editorconfig-emacs")
+#+end_src
+
 そして ~el-get-bundle~ でインストール
 
 #+begin_src emacs-lisp :tangle inits/30-copilot.el
