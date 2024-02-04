@@ -71,7 +71,8 @@ org-agenda を使う時に抽出対象とする org ファイルを指定して�
 nil にして表示しないようにしている。
 
 ```emacs-lisp
-(setq org-agenda-use-time-grid nil)
+(custom-set-variables
+ '(org-agenda-use-time-grid nil))
 ```
 
 

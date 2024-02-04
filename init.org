@@ -8030,9 +8030,9 @@ agenda ファイルに使われているタグは全部補完対象になって�
      nil にして表示しないようにしている。
 
      #+begin_src emacs-lisp :tangle inits/61-org-agenda.el
-     (setq org-agenda-use-time-grid nil)
+       (custom-set-variables
+        '(org-agenda-use-time-grid nil))
      #+end_src
-
 **** ブロック間の区切り表示
      :PROPERTIES:
      :ID:       15653745-8d52-4033-9cca-22c6b100fd96

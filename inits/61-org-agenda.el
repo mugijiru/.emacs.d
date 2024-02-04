@@ -9,7 +9,8 @@
 (custom-set-variables
  '(org-agenda-files '("~/Documents/org/gcals/mugijiru.org" "~/Documents/org/tasks/")))
 
-(setq org-agenda-use-time-grid nil)
+(custom-set-variables
+ '(org-agenda-use-time-grid nil))
 
 (setq org-agenda-block-separator "------------------------------")
 
