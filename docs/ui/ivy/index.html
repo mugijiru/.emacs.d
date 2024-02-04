@@ -12,20 +12,20 @@
     <title>ivy :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1707032269" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1707032269" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1707032269" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1707032269" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1707032269" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1707032269" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1707032269" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1707032269" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1707032269" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1707032269" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1707032290" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1707032290" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1707032290" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1707032290" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1707032290" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1707032290" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1707032290" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1707032290" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1707032290" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1707032290" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1707032269"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1707032290"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1707032269"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1707032269"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1707032290"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1707032290"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1707032269"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1707032290"></script>
 
     
   </div>
@@ -3519,7 +3519,18 @@ ivy などの絞り込み系ツールと組み合わせて使う。</p>
 </span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;simple but effective sorting and filtering for Emacs.&#34;</span>
 </span></span><span style="display:flex;"><span>       :type github
 </span></span><span style="display:flex;"><span>       :branch <span style="color:#e6db74">&#34;main&#34;</span>
-</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;radian-software/prescient.el&#34;</span>)
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;radian-software/prescient.el&#34;</span>
+</span></span><span style="display:flex;"><span>       :minimum-emacs-version <span style="color:#e6db74">&#34;27.1&#34;</span>
+</span></span><span style="display:flex;"><span>       :depends (corfu))
+</span></span></code></pre></div><p>依存している corfu も自前で追加している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name corfu
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/minad/corfu&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;COmpletion in Region FUnction&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :branch <span style="color:#e6db74">&#34;main&#34;</span>
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;minad/corfu&#34;</span>
+</span></span><span style="display:flex;"><span>       :minimum-emacs-version <span style="color:#e6db74">&#34;27.1&#34;</span>
+</span></span><span style="display:flex;"><span>       :depends (compat))
 </span></span></code></pre></div><p>そんで ivy でそれが使われるように ivy-prescient-mode を有効にしている。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(ivy-prescient-mode <span style="color:#ae81ff">1</span>)
 </span></span></code></pre></div><p>ただ候補文字列の長さで sort されるのはどうも微妙さを感じるので無効にしている。</p>
@@ -5734,19 +5745,19 @@ ivy などの絞り込み系ツールと組み合わせて使う。</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1707032269"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1707032269"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1707032269"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1707032269"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1707032269"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1707032269"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1707032290"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1707032290"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1707032290"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1707032290"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1707032290"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1707032290"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1707032269"></script>
-    <script src="/.emacs.d/js/learn.js?1707032269"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1707032269"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1707032290"></script>
+    <script src="/.emacs.d/js/learn.js?1707032290"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1707032290"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1707032269"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1707032290"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
