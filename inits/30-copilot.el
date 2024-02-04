@@ -1,6 +1,7 @@
 (el-get-bundle copilot)
 
 ;; (add-hook 'prog-mode-hook 'copilot-mode)
+
 (with-eval-after-load 'copilot
   (add-to-list 'copilot-major-mode-alist '("enh-ruby" . "ruby")))
 

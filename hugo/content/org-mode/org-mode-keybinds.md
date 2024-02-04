@@ -58,9 +58,6 @@ major-mode-hydra で、org-mode のファイルを開いている時によく使
      (("e" org-babel-confirm-evaluate "Eval")
       ("x" org-babel-tangle "Export SRC"))
 
-     "Roam"
-     ((";" org-roam-hydra/body "Menu"))
-
      "Trello"
      (("K" org-trello-mode "On/Off" :toggle org-trello-mode)
       ("k" (if org-trello-mode

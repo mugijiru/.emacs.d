@@ -55,7 +55,7 @@ org-agenda を使う時に抽出対象とする org ファイルを指定して�
 
 ```emacs-lisp
 (custom-set-variables
- '(org-agenda-files '("~/Documents/org/tasks/")))
+ '(org-agenda-files '("~/Documents/org/gcals/mugijiru.org" "~/Documents/org/tasks/")))
 ```
 
 
@@ -238,11 +238,11 @@ nil にして表示しないようにしている。
                                            (:name "今日予定の作業" :scheduled today)
                                            (:discard (:anything t))))))
     (tags-todo "LEVEL=2"
-              ((org-agenda-files '("~/Documents/org/tasks/projects.org"))
-               (org-agenda-overriding-header "Private")
-               (org-super-agenda-groups '((:name "Priority >= B" :and (:priority>= "B" :property ("agenda-group" "7. Private")))
-                                          (:name "no priority" :and (:not (:priority>= "C") :property ("agenda-group" "7. Private")))
-                                          (:discard (:anything t))))))
+               ((org-agenda-files '("~/Documents/org/tasks/projects.org"))
+                (org-agenda-overriding-header "Private")
+                (org-super-agenda-groups '((:name "Priority >= B" :and (:priority>= "B" :property ("agenda-group" "7. Private")))
+                                           (:name "no priority" :and (:not (:priority>= "C") :property ("agenda-group" "7. Private")))
+                                           (:discard (:anything t))))))
     (tags-todo "Emacs&LEVEL=2"
                ((org-agenda-files '("~/Documents/org/tasks/projects.org"))
                 (org-agenda-overriding-header "Emacs")
@@ -397,8 +397,6 @@ nil にして表示しないようにしている。
                                     "~/Documents/org/tasks/inbox.org"))))))
   ("Ee" "without Emacs"
    ((tags-todo "+Env-Emacs-org"
-               ((org-agenda-files '("~/Documents/org/tasks/projects.org"
-                                    "~/Documents/org/tasks/inbox.org"))))))))
                ((org-agenda-files '("~/Documents/org/tasks/projects.org"
                                     "~/Documents/org/tasks/inbox.org"))))))))
 ```

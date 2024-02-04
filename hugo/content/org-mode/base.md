@@ -118,7 +118,7 @@ agenda ファイルに使われているタグは全部補完対象になって�
 
 ```emacs-lisp
 (custom-set-variables
-  '(org-complete-tags-always-offer-all-agenda-tags t))
+ '(org-complete-tags-always-offer-all-agenda-tags t))
 ```
 
 

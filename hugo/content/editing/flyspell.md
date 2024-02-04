@@ -32,6 +32,7 @@ flyspell は外部のスペルチェックツールとやりとりをします�
 上の設定でも ASCII 以外を無視してそうだけどさらに `flyspell-incorrect-hook` で incorrect 判定するのを ASCII にのみ限定しています。
 
 ```emacs-lisp
+;; Original: https://takaxp.github.io/init.html#orgdd65fc08
 (defun my/flyspell-ignore-nonascii (beg end _info)
   "incorrect判定をASCIIに限定"
   (string-match "[^!-~]" (buffer-substring beg end)))

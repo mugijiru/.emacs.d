@@ -1843,11 +1843,12 @@ http://home.hatanaka.info/article/474728666.html
 さらに ~flyspell-incorrect-hook~ で incorrect 判定するのを ASCII にのみ限定しています。
 
 #+begin_src emacs-lisp :tangle inits/30-flyspell.el
-(defun my/flyspell-ignore-nonascii (beg end _info)
-  "incorrect判定をASCIIに限定"
-  (string-match "[^!-~]" (buffer-substring beg end)))
+  ;; Original: https://takaxp.github.io/init.html#orgdd65fc08
+  (defun my/flyspell-ignore-nonascii (beg end _info)
+    "incorrect判定をASCIIに限定"
+    (string-match "[^!-~]" (buffer-substring beg end)))
 
-(add-hook 'flyspell-incorrect-hook #'my/flyspell-ignore-nonascii)
+  (add-hook 'flyspell-incorrect-hook #'my/flyspell-ignore-nonascii)
 #+end_src
 
 これは https://takaxp.github.io/init.html#orgdd65fc08 にある設定を持って来ています
@@ -2017,9 +2018,9 @@ magit で commit message を書く時に自動で textlint が起動するよう
 
 #+begin_src emacs-lisp :tangle inits/40-textlint.el
   ;; 想定通りに動かない
-    (defun my/magit-commit-create-after (&optional arg)
-      (ignore arg)
-      (flycheck-select-checker 'textlint-no-extension))
+  (defun my/magit-commit-create-after (&optional arg)
+    (ignore arg)
+    (flycheck-select-checker 'textlint-no-extension))
 
   ;; (with-eval-after-load 'magit
   ;;   (advice-add 'magit-commit-create :after 'my/magit-commit-create-after))
@@ -3977,7 +3978,7 @@ See URL `https://textlint.github.io/'."
 **** アイコン表示
 [[https://github.com/rainstormstudio/nerd-icons.el][nerd-icons]] に依存しているのでそれの設定もここに書いておく
 
-#+begin_src emacs-lisp :tangle 20-nerd-icons.el
+#+begin_src emacs-lisp :tangle inits/20-nerd-icons.el
 (el-get-bundle nerd-icons)
 (require 'nerd-icons)
 
@@ -4763,10 +4764,10 @@ nerd-icons をインストールしていない場合は ~nerd-icons-install-fon
    - [[*rspec-mode][rspec-mode]] :: Ruby のテストフレームワーク RSpec を書いたりするのに便利なモード
    - [[*ruby][ruby]] :: Ruby を書く上での設定
    - [[*scss][scss]] :: SCSS を書く上での設定
+   - [[id:42db24e0-aa7c-43d6-9cb5-31bc1e95df40][tree-sitter]] :: 軽量な文法解析ツールである [[https://tree-sitter.github.io/tree-sitter/][tree-sitter]] を利用するための設定を書いている
    - [[TypeScript][TypeScript]] :: TypeScript を書く上での設定
    - [[*Vue.js][Vue.js]] :: Vue.js を書く上での設定
    - [[*yaml-mode][yaml-mode]] :: YAML を書く時のメジャーモードの設定
-
 ** Docker
    :PROPERTIES:
    :EXPORT_FILE_NAME: docker
@@ -5780,7 +5781,7 @@ mocha としてテストを実行するコマンドを用意している。
             (display-line-numbers-mode t)
             (lsp)
             (lsp-ui-mode 1)
-            (add-hook 'before-save-hook 'my/web-mode-auto-fix-hook nil 'local))))
+            (add-hook 'before-save-hook 'my/tsx-auto-fix-hook nil 'local))))
 
       (add-to-list 'context-skk-programming-mode 'tsx-ts-mode)
       (add-hook 'tsx-ts-mode-hook 'my/tsx-hook)
@@ -6266,6 +6267,49 @@ mocha としてテストを実行するコマンドを用意している。
 
       (add-hook 'terraform-mode-hook 'my/terraform-mode-hook)
     #+end_src
+** tree-sitter
+:PROPERTIES:
+:EXPORT_FILE_NAME: tree-sitter
+:ID:       42db24e0-aa7c-43d6-9cb5-31bc1e95df40
+:END:
+*** 概要
+ここでは今現在は、
+tree-sitter が使えることを自動判定して mode を切り替えて
+tree-sitter の文法定義が存在しなければ自動的にインストールしてくれる
+[[https://github.com/renzmann/treesit-auto][treesit-auto]] 用の設定を記述している
+*** インストール
+treesit-auto のレシピは自前で用意している
+
+#+begin_src emacs-lisp :tangle recipes/treesit-auto.rcp
+(:name treesit-auto
+       :website "https://github.com/renzmann/treesit-auto"
+       :description "Automatically install and use tree-sitter major modes in Emacs 29+."
+       :type github
+       :branch "main"
+       :pkgname "renzmann/treesit-auto")
+#+end_src
+
+そしていつも通り ~el-get-bundle~ でインストールしている
+
+#+begin_src emacs-lisp :tangle inits/50-tree-sitter.el
+(el-get-bundle treesit-auto)
+#+end_src
+*** 設定
+インストール時には一応確認してほしいので、確認が入るような設定にしている
+
+#+begin_src emacs-lisp :tangle inits/50-tree-sitter.el
+(custom-set-variables
+ '(treesit-auto-install 'prompt))
+#+end_src
+*** 有効化
+require した上で global に有効化している
+
+#+begin_src emacs-lisp :tangle inits/50-tree-sitter.el
+(require 'treesit-auto)
+
+(global-treesit-auto-mode)
+#+end_src
+
 ** TypeScript
    :PROPERTIES:
    :EXPORT_FILE_NAME: typescript
@@ -7671,8 +7715,8 @@ journal のテンプレートか何かを弄っておくのも良さそう
 agenda ファイルに使われているタグは全部補完対象になってほしいのでそのように設定している
 
 #+begin_src emacs-lisp :tangle inits/60-org.el
-(custom-set-variables
-  '(org-complete-tags-always-offer-all-agenda-tags t))
+  (custom-set-variables
+   '(org-complete-tags-always-offer-all-agenda-tags t))
 #+end_src
 *** org-mode 読み込み後の追加実行コード
     :PROPERTIES:
@@ -7953,7 +7997,7 @@ agenda ファイルに使われているタグは全部補完対象になって�
 
     #+begin_src emacs-lisp :tangle inits/61-org-agenda.el
       (custom-set-variables
-       '(org-agenda-files '("~/Documents/org/tasks/")))
+       '(org-agenda-files '("~/Documents/org/gcals/mugijiru.org" "~/Documents/org/tasks/")))
     #+end_src
 
 *** agenda の表示周りの設定
@@ -8153,11 +8197,11 @@ agenda ファイルに使われているタグは全部補完対象になって�
                                                   (:name "今日予定の作業" :scheduled today)
                                                   (:discard (:anything t))))))
            (tags-todo "LEVEL=2"
-                     ((org-agenda-files '("~/Documents/org/tasks/projects.org"))
-                      (org-agenda-overriding-header "Private")
-                      (org-super-agenda-groups '((:name "Priority >= B" :and (:priority>= "B" :property ("agenda-group" "7. Private")))
-                                                 (:name "no priority" :and (:not (:priority>= "C") :property ("agenda-group" "7. Private")))
-                                                 (:discard (:anything t))))))
+                      ((org-agenda-files '("~/Documents/org/tasks/projects.org"))
+                       (org-agenda-overriding-header "Private")
+                       (org-super-agenda-groups '((:name "Priority >= B" :and (:priority>= "B" :property ("agenda-group" "7. Private")))
+                                                  (:name "no priority" :and (:not (:priority>= "C") :property ("agenda-group" "7. Private")))
+                                                  (:discard (:anything t))))))
            (tags-todo "Emacs&LEVEL=2"
                       ((org-agenda-files '("~/Documents/org/tasks/projects.org"))
                        (org-agenda-overriding-header "Emacs")
@@ -8312,8 +8356,6 @@ agenda ファイルに使われているタグは全部補完対象になって�
                                            "~/Documents/org/tasks/inbox.org"))))))
          ("Ee" "without Emacs"
           ((tags-todo "+Env-Emacs-org"
-                      ((org-agenda-files '("~/Documents/org/tasks/projects.org"
-                                           "~/Documents/org/tasks/inbox.org"))))))))
                       ((org-agenda-files '("~/Documents/org/tasks/projects.org"
                                            "~/Documents/org/tasks/inbox.org"))))))))
      #+end_src
@@ -8956,6 +8998,20 @@ agenda ファイルに使われているタグは全部補完対象になって�
 (require 'org-journal)
 #+end_src
 
+*** agenda のスコープ設定用関数
+org-clock-report では前日分も target に入れてほしいので
+それの ~:scope~ に指定するための関数を自前で用意している
+
+#+begin_src emacs-lisp :tangle inits/61-org-journal.el
+(defun my/org-agenda-scope-with-yesterday-journal ()
+  (let* ((agenda-files (org-agenda-files t))
+         (24-hours-ago (* -60 60 24))
+         (yesterday (time-add (current-time) 24-hours-ago))
+         (yesterday-string (format-time-string "%Y%m%d" yesterday))
+         (yesterday-journal-file-path (concat org-journal-dir yesterday-string ".org"))
+         (files (append `(,yesterday-journal-file-path) agenda-files)))
+    (org-add-archive-files files)))
+#+end_src
 *** 設定
 
 #+begin_src emacs-lisp :tangle inits/61-org-journal.el
@@ -9579,9 +9635,6 @@ org フォルダの下に roam というフォルダを掘ってその中だけ�
            "Babel"
            (("e" org-babel-confirm-evaluate "Eval")
             ("x" org-babel-tangle "Export SRC"))
-
-           "Roam"
-           ((";" org-roam-hydra/body "Menu"))
 
            "Trello"
            (("K" org-trello-mode "On/Off" :toggle org-trello-mode)
