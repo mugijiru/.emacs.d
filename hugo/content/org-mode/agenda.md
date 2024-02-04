@@ -42,7 +42,8 @@ org-agenda の週の始まりも日曜日に設定している
 1日を表示単位としている。
 
 ```emacs-lisp
-(setq org-agenda-span 'day)
+(custom-set-variables
+ '(org-agenda-span 'day))
 ```
 
 週単位で何をするかについては今のところ記憶力で対応している。

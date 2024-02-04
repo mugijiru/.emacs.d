@@ -3,7 +3,8 @@
 (custom-set-variables
  '(org-agenda-start-on-weekday 0))
 
-(setq org-agenda-span 'day)
+(custom-set-variables
+ '(org-agenda-span 'day))
 
 (custom-set-variables
  '(org-agenda-files '("~/Documents/org/gcals/mugijiru.org" "~/Documents/org/tasks/")))
