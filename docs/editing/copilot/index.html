@@ -12,20 +12,20 @@
     <title>copilot :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1706945139" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1706945139" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1706945139" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1706945139" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1706945139" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1706945139" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1706945139" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1706945139" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1706945139" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1706945139" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1707009066" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1707009066" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1707009066" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1707009066" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1707009066" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1707009066" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1707009066" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1707009066" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1707009066" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1707009066" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1706945139"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1707009066"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1706945139"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1706945139"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1707009066"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1707009066"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1706945139"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1707009066"></script>
 
     
   </div>
@@ -3096,6 +3096,7 @@
     <li><a href="#インストール">インストール</a></li>
     <li><a href="#設定">設定</a></li>
     <li><a href="#キーバインド">キーバインド</a></li>
+    <li><a href="#warning-非表示">warning 非表示</a></li>
   </ul>
 </nav>
     </div>
@@ -3134,9 +3135,9 @@
 </span></span></code></pre></div><p>そして <code>el-get-bundle</code> でインストール</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle copilot)
 </span></span></code></pre></div><h2 id="設定">設定</h2>
-<p>とりあえずプログラミング系の mode で有効になるようにしている</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;prog-mode-hook</span> <span style="color:#e6db74">&#39;copilot-mode</span>)
-</span></span></code></pre></div><p>なのだけどそのままだと enh-ruby-mode では有効にならないので
+<p>とりあえずプログラミング系の mode で有効になるようにしていた。けど今はちょっと無効にしている</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; (add-hook &#39;prog-mode-hook &#39;copilot-mode)</span>
+</span></span></code></pre></div><p>また、そのままだと enh-ruby-mode では有効にならないので
 <code>copilot-major-mode-alist</code> に突っ込んでいる。なおこの設定は <a href="https://github.com/zerolfx/copilot.el#programming-language-detection">公式の README にも書かれている</a></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;copilot</span>
 </span></span><span style="display:flex;"><span>  (add-to-list <span style="color:#e6db74">&#39;copilot-major-mode-alist</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;enh-ruby&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;ruby&#34;</span>)))
@@ -3149,6 +3150,11 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;copilot</span>
 </span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">define-key</span> copilot-completion-map (kbd <span style="color:#e6db74">&#34;&lt;tab&gt;&#34;</span>) <span style="color:#e6db74">&#39;copilot-accept-completion</span>)
 </span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">define-key</span> copilot-completion-map (kbd <span style="color:#e6db74">&#34;TAB&#34;</span>) <span style="color:#e6db74">&#39;copilot-accept-completion</span>))
+</span></span></code></pre></div><h2 id="warning-非表示">warning 非表示</h2>
+<p>大きいファイルが開かれると</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Warning (copilot): .loaddefs.el size exceeds &#39;copilot-max-char&#39; (100000), copilot completions may not work
+</span></span></code></pre></div><p>とか出るけど、そんなもんは分かってるので warning が出ないように黙らせている</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq warning-suppress-log-types <span style="color:#f92672">&#39;</span>((copilot copilot-exceeds-max-char)))
 </span></span></code></pre></div>
 
 <footer class="footline">
@@ -5326,19 +5332,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1706945139"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1706945139"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1706945139"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1706945139"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1706945139"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1706945139"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1707009066"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1707009066"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1707009066"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1707009066"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1707009066"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1707009066"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1706945139"></script>
-    <script src="/.emacs.d/js/learn.js?1706945139"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1706945139"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1707009066"></script>
+    <script src="/.emacs.d/js/learn.js?1707009066"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1707009066"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1706945139"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1707009066"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
