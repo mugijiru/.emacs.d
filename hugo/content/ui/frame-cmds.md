@@ -25,10 +25,10 @@ draft = false
 
 ```emacs-lisp
 (:name frame-fns
- :website "https://github.com/emacsmirror/frame-fns"
- :description "Non-interactive frame and window functions."
- :type github
- :pkgname "emacsmirror/frame-fns")
+       :website "https://github.com/emacsmirror/frame-fns"
+       :description "Non-interactive frame and window functions."
+       :type github
+       :pkgname "emacsmirror/frame-fns")
 ```
 
 そして `el-get-bundle` でインストールしている

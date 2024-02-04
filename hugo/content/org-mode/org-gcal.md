@@ -43,10 +43,10 @@ org-gcal が依存しているので [parsist](https://elpa.gnu.org/packages/per
 
 ```emacs-lisp
 (:name aio
- :website "https://github.com/skeeto/emacs-aio"
- :description "aio is to Emacs Lisp as asyncio is to Python."
- :type github
- :pkgname "skeeto/emacs-aio")
+       :website "https://github.com/skeeto/emacs-aio"
+       :description "aio is to Emacs Lisp as asyncio is to Python."
+       :type github
+       :pkgname "skeeto/emacs-aio")
 ```
 
 のだけど確か org-gcal のレシピは修正されているし emacs-aio も recipe 追加されてたはずなので多分これは el-get 本体のものに切り替えても良いはず……

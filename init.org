@@ -2712,10 +2712,10 @@ See URL `https://textlint.github.io/'."
 
     #+begin_src emacs-lisp :tangle recipes/frame-fns.rcp
       (:name frame-fns
-       :website "https://github.com/emacsmirror/frame-fns"
-       :description "Non-interactive frame and window functions."
-       :type github
-       :pkgname "emacsmirror/frame-fns")
+             :website "https://github.com/emacsmirror/frame-fns"
+             :description "Non-interactive frame and window functions."
+             :type github
+             :pkgname "emacsmirror/frame-fns")
     #+end_src
 
     そして ~el-get-bundle~ でインストールしている
@@ -3734,7 +3734,22 @@ See URL `https://textlint.github.io/'."
              :description "simple but effective sorting and filtering for Emacs."
              :type github
              :branch "main"
-             :pkgname "radian-software/prescient.el")
+             :pkgname "radian-software/prescient.el"
+             :minimum-emacs-version "27.1"
+             :depends (corfu))
+    #+end_src
+
+    依存している corfu も自前で追加している
+
+    #+begin_src emacs-lisp :tangle recipes/corfu.rcp
+      (:name corfu
+             :website "https://github.com/minad/corfu"
+             :description "COmpletion in Region FUnction"
+             :type github
+             :branch "main"
+             :pkgname "minad/corfu"
+             :minimum-emacs-version "27.1"
+             :depends (compat))
     #+end_src
 
     そんで ivy でそれが使われるように ivy-prescient-mode を有効にしている。
@@ -8713,10 +8728,10 @@ agenda ファイルに使われているタグは全部補完対象になって�
 
     #+begin_src emacs-lisp :tangle recipes/aio.rcp
       (:name aio
-       :website "https://github.com/skeeto/emacs-aio"
-       :description "aio is to Emacs Lisp as asyncio is to Python."
-       :type github
-       :pkgname "skeeto/emacs-aio")
+             :website "https://github.com/skeeto/emacs-aio"
+             :description "aio is to Emacs Lisp as asyncio is to Python."
+             :type github
+             :pkgname "skeeto/emacs-aio")
     #+end_src
 
     のだけど確か org-gcal のレシピは修正されているし emacs-aio も recipe 追加されてたはずなので
@@ -9058,7 +9073,7 @@ hook で org-refile-targets を設定し直すようにしている
     :END:
     レシピは自前で用意している
 
-    #+begin_src emacs-lisp :tanle recipes/ox-hugo.rcp
+    #+begin_src emacs-lisp :tangle recipes/ox-hugo.rcp
       (:name ox-hugo
              :description "A carefully crafted Org exporter back-end for Hugo https://ox-hugo.scripter.co"
              :type github
