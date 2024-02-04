@@ -80,3 +80,7 @@
 
 (with-eval-after-load 'org-mode
   (my/org-mode-map-override-windmove-mode-map))
+
+(custom-set-variables
+ '(org-src-preserve-indentation t)
+ '(org-edit-src-content-indentation 0))

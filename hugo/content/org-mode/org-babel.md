@@ -79,8 +79,8 @@ PlantUML の処理をすることが多いので以下の hook を設定する�
 
 ```emacs-lisp
 (add-hook 'ob-async-pre-execute-src-block-hook
-      '(lambda ()
-         (setq org-plantuml-jar-path "~/bin/plantuml.jar")))
+          '(lambda ()
+             (setq org-plantuml-jar-path "~/bin/plantuml.jar")))
 ```
 
 多分 custom-set-variables でちゃんと設定したらいいんだろうなあ。
@@ -153,4 +153,16 @@ windmove にそれを奪われてしまうので、カーソルキー単体で�
 
 (with-eval-after-load 'org-mode
   (my/org-mode-map-override-windmove-mode-map))
+```
+
+
+## org-src の設定 {#org-src-の設定}
+
+関数内とかで分割して `init.org` に書いた時にデフォルト設定だとインデントが消失してしまって不便なのでコードブロック内のインデントがそのまま反映されるように `org-src-preserve-indentation` を有効にして、さらにコードブロック内で自動で2文字下げられるとまあ面倒なので
+`org-edit-src-content-indentation` を 0 に設定している
+
+```emacs-lisp
+(custom-set-variables
+ '(org-src-preserve-indentation t)
+ '(org-edit-src-content-indentation 0))
 ```

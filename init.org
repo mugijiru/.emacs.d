@@ -7910,6 +7910,17 @@ agenda ファイルに使われているタグは全部補完対象になって�
       (with-eval-after-load 'org-mode
         (my/org-mode-map-override-windmove-mode-map))
     #+end_src
+*** org-src の設定
+関数内とかで分割して ~init.org~ に書いた時にデフォルト設定だとインデントが消失してしまって不便なので
+コードブロック内のインデントがそのまま反映されるように ~org-src-preserve-indentation~ を有効にして、
+さらにコードブロック内で自動で2文字下げられるとまあ面倒なので
+~org-edit-src-content-indentation~ を 0 に設定している
+
+#+begin_src emacs-lisp :tangle inits/60-org.el
+(custom-set-variables
+ '(org-src-preserve-indentation t)
+ '(org-edit-src-content-indentation 0))
+#+end_src
 ** 予定のカレンダー表示
    :PROPERTIES:
    :EXPORT_FILE_NAME: calendar
