@@ -423,7 +423,22 @@ ivy などの絞り込み系ツールと組み合わせて使う。
        :description "simple but effective sorting and filtering for Emacs."
        :type github
        :branch "main"
-       :pkgname "radian-software/prescient.el")
+       :pkgname "radian-software/prescient.el"
+       :minimum-emacs-version "27.1"
+       :depends (corfu))
+```
+
+依存している corfu も自前で追加している
+
+```emacs-lisp
+(:name corfu
+       :website "https://github.com/minad/corfu"
+       :description "COmpletion in Region FUnction"
+       :type github
+       :branch "main"
+       :pkgname "minad/corfu"
+       :minimum-emacs-version "27.1"
+       :depends (compat))
 ```
 
 そんで ivy でそれが使われるように ivy-prescient-mode を有効にしている。
