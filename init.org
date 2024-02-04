@@ -7216,6 +7216,18 @@ ref: https://github.com/mugijiru/.emacs.d/pull/2992
        :depends (request tblui))
 #+end_src
 
+依存している ~tblui~ も el-get 本体にはレシピがないのでこれも自前で用意
+
+#+begin_src emacs-lisp :tangle recipes/tblui.rcp
+(:name tblui
+       :website "https://github.com/Yuki-Inoue/tblui.el"
+       :description "Define tabulated-list based UI easily."
+       :type github
+       :branch "master"
+       :pkgname "Yuki-Inoue/tblui.el"
+       :depends (dash magit-popup tablist))
+#+end_src
+
 そして ~el-get-bundle~ でインストール
 
 #+begin_src emacs-lisp :tangle inits/50-openai.el

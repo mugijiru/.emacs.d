@@ -24,6 +24,18 @@ draft = false
        :depends (request tblui))
 ```
 
+依存している `tblui` も el-get 本体にはレシピがないのでこれも自前で用意
+
+```emacs-lisp
+(:name tblui
+       :website "https://github.com/Yuki-Inoue/tblui.el"
+       :description "Define tabulated-list based UI easily."
+       :type github
+       :branch "master"
+       :pkgname "Yuki-Inoue/tblui.el"
+       :depends (dash magit-popup tablist))
+```
+
 そして `el-get-bundle` でインストール
 
 ```emacs-lisp
