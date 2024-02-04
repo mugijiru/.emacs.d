@@ -1,6 +1,7 @@
 (el-get-bundle org-super-agenda)
 
-(setq org-agenda-start-on-weekday 0)
+(custom-set-variables
+ '(org-agenda-start-on-weekday 0))
 
 (setq org-agenda-span 'day)
 

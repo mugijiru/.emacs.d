@@ -31,7 +31,8 @@ org-mode のデフォルトの agenda だと表示周りが物足りなかった
 org-agenda の週の始まりも日曜日に設定している
 
 ```emacs-lisp
-(setq org-agenda-start-on-weekday 0)
+(custom-set-variables
+ '(org-agenda-start-on-weekday 0))
 ```
 
 

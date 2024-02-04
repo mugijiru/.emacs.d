@@ -7988,7 +7988,8 @@ agenda ファイルに使われているタグは全部補完対象になって�
     org-agenda の週の始まりも日曜日に設定している
 
     #+begin_src emacs-lisp :tangle inits/61-org-agenda.el
-    (setq org-agenda-start-on-weekday 0)
+      (custom-set-variables
+       '(org-agenda-start-on-weekday 0))
     #+end_src
 
 *** 1日単位をデフォルト表示に設定
