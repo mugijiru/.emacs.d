@@ -8044,9 +8044,9 @@ agenda ファイルに使われているタグは全部補完対象になって�
      と思いつつ、多分 zoom-mode とかでバッファの幅が切り替わる時に邪魔になるから固定でいいか。
 
      #+begin_src emacs-lisp :tangle inits/61-org-agenda.el
-     (setq org-agenda-block-separator "------------------------------")
+       (custom-set-variables
+        '(org-agenda-block-separator "------------------------------"))
      #+end_src
-
 **** org-super-agnda-mode の有効化
      :PROPERTIES:
      :ID:       084249f6-cfb7-4eaf-9be0-1b8f3c923c6c

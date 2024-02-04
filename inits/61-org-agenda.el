@@ -12,7 +12,8 @@
 (custom-set-variables
  '(org-agenda-use-time-grid nil))
 
-(setq org-agenda-block-separator "------------------------------")
+(custom-set-variables
+ '(org-agenda-block-separator "------------------------------"))
 
 (org-super-agenda-mode 1)
 
