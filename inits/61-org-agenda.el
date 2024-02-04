@@ -21,13 +21,16 @@
 
 (custom-set-variables
  '(org-agenda-custom-commands
+
    '(("h" . "Habits")
+
      ("hs" "Weekday Start"
       ((tags "Weekday&Start|Daily"
              ((org-agenda-prefix-format "  ")
               (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                          (:name "今日の作業" :scheduled today)
                                          (:discard (:anything t))))))))
+
      ("hf" "Weekday Finish"
       ((tags "Weekday&Finish"
              ((org-agenda-prefix-format "  ")

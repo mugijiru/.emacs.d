@@ -112,34 +112,46 @@ nil にして表示しないようにしている。
 
 色々なカスタムビューを定義している。かといって全部使ってるわけではないし、つまり使いこなせているかというと微妙。
 
-| キー | 内容                           | 備考                                 |
-|----|------------------------------|------------------------------------|
-| hs | 稼動日の始業直後に実施する習慣タスクの表示 | よく使っている。その日やるタスクを決めたりしている |
-| hf | 稼動日の退勤直前に実施する習慣タスクの表示 | よく使っている。その日の日報を書くなどしている |
-| hw | 週間隔または隔週で実施する習慣タスクの表示 | 週1で使う感じ。この中に放置しているタスクもある |
-| hh | 休日の習慣タスク               | 最近使ってない。。。真面目にタスクを作り過ぎてだるくなってるやつ |
-| d  | 今日の予定などを表示           | 普段は会議部分しか見てないので改善が必要そう |
-| D  | 休日タスクの表示               | 使ってない。。。                     |
-| pp | GTD の Projects の表示         | たまに使う程度。もうちょっと洗練させたい |
-| pP | GTD の Projects の内、環境整備系以外 | 環境整備はやっても業務に直接寄与しないので忙しい時は見たくないでござる |
-| P  | GTD の Pointers の表示         | たまーに使う。資料が貯まり過ぎて取り扱いに困っている |
-| X  | 終了したタスクを表示           | まとめてお掃除する時に使っている     |
-| z  | 日報用表示                     | 毎日業務日報の提出が要求されているのでそれっぽく表示されるようにしている |
-| H  | GTD の Projects の中の家事を抽出 | 最近は使ってない                     |
-| EO | org-mode 関連の環境整備タスク  | 最近見てない                         |
-| EE | Emacs 関係かつ org-mode 以外の環境整備タスク | 貯まる一方                           |
-| Ee | Emacs 以外の環境整備タスク     | これも貯まる。Emacs 設定ほどじゃないけど |
+そして記述が長くなったので分割して記述していく
+
+
+#### 変数定義開始 {#変数定義開始}
 
 ```emacs-lisp
 (custom-set-variables
  '(org-agenda-custom-commands
+```
+
+
+#### 習慣用 agenda {#習慣用-agenda}
+
+習慣用の agenda custom view もいくつか用意している。というわけで h を第一段階の選択に使っている。
+
+```emacs-lisp
    '(("h" . "Habits")
-     ("hs" "Weekday Start"
-      ((tags "Weekday&Start|Daily"
-             ((org-agenda-prefix-format "  ")
-              (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
-                                         (:name "今日の作業" :scheduled today)
-                                         (:discard (:anything t))))))))
+```
+
+<!--list-separator-->
+
+-  平日開始時用 agenda
+
+    平日毎朝やる作業のためにタグを設定しているのでそれを抽出するためのカスタムビューの定義。
+
+    ```emacs-lisp
+         ("hs" "Weekday Start"
+          ((tags "Weekday&Start|Daily"
+                 ((org-agenda-prefix-format "  ")
+                  (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+                                             (:name "今日の作業" :scheduled today)
+                                             (:discard (:anything t))))))))
+    ```
+
+
+#### その他 {#その他}
+
+以下はまだ分割対応ができてない
+
+```emacs-lisp
      ("hf" "Weekday Finish"
       ((tags "Weekday&Finish"
              ((org-agenda-prefix-format "  ")

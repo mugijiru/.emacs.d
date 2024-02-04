@@ -29,6 +29,7 @@ jobs:
         run: |
           emacs -Q --batch --eval "(setq user-emacs-directory \"$(pwd)/\")" \
           --eval "(require 'org)" \
+          --eval "(custom-set-variables '(org-src-preserve-indentation t))" \
           --eval '(org-babel-tangle-file (expand-file-name (concat user-emacs-directory "init.org")))'
 
       - name: Detect diff
