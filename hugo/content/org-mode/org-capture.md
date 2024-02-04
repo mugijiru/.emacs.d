@@ -63,8 +63,8 @@ org-capture は org-mode 用にさくっとメモを取るための機能。
       `(("g" "Inbox にエントリー" entry
          (file ,my/org-capture-inbox-file)
          "* TODO %? %^G\n** Ready の定義
-   - Why?, Goal, How? が埋められていること
-   - How がある程度具体的に書かれていること
+- Why?, Goal, How? が埋められていること
+- How がある程度具体的に書かれていること
 ** Why?
 ** Info
 ** Goal
