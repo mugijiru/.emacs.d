@@ -8089,16 +8089,35 @@ nil にして表示しないようにしている。
 色々なカスタムビューを定義している。
 かといって全部使ってるわけではないし、つまり使いこなせているかというと微妙。
 
+そして記述が長くなったので分割して記述していく
+***** 変数定義開始
 #+begin_src emacs-lisp :tangle inits/61-org-agenda.el
 (custom-set-variables
  '(org-agenda-custom-commands
+#+end_src
+***** 習慣用 agenda
+習慣用の agenda custom view もいくつか用意している。
+というわけで h を第一段階の選択に使っている。
+
+#+begin_src emacs-lisp :tangle inits/61-org-agenda.el
    '(("h" . "Habits")
+#+end_src
+****** 平日開始時用 agenda
+平日毎朝やる作業のためにタグを設定しているので
+それを抽出するためのカスタムビューの定義。
+
+#+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("hs" "Weekday Start"
       ((tags "Weekday&Start|Daily"
              ((org-agenda-prefix-format "  ")
               (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                          (:name "今日の作業" :scheduled today)
                                          (:discard (:anything t))))))))
+#+end_src
+***** その他
+以下はまだ分割対応ができてない
+
+#+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("hf" "Weekday Finish"
       ((tags "Weekday&Finish"
              ((org-agenda-prefix-format "  ")
