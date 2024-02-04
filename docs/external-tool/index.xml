@@ -148,6 +148,18 @@ API 叩いて質問ができるようにしたり、補完して続きを適当�
     </item>
     
     <item>
+      <title>pdf-tools</title>
+      <link>https://mugijiru.github.io/.emacs.d/external-tool/pdf-tools/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/external-tool/pdf-tools/</guid>
+      <description>概要 pdf-tools は PDF を読む時にいい感じにしてくれるやつ。
+インストール これは el-get 本体にレシピがあるので、単純にそのまま入れている
+(el-get-bundle pdf-tools) 設定 PDF を開いたら即使えるようにするため pdf-loader-install を実行している
+(pdf-loader-install) </description>
+    </item>
+    
+    <item>
       <title>todoist</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/todoist/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

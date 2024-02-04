@@ -151,7 +151,7 @@
 	"title": "外部連携ツール設定",
 	"tags": [],
 	"description": "",
-	"content": "ここでは外部のサービスと連携するようなやつをまとめています\nemacs-w3m 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ esa.el esa.io と連携するためのパッケージ forge magit と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ git-messenger 現在の行の最終コミットの情報を表示してくれるパッケージ google-this Google 検索機能を提供してくれるパッケージ google-translate Emacs から Google 翻訳するためのパッケージ magit Emacs 上で Git の操作をするのにとても便利なパッケージ notify-slack Emacs から外部コマンドを通じて Slack に通知するための関数周りの事を書いている openai Emacs から OpenAI API を利用するためのライブラリ wakatime-mode Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ todoist Todoist と連携して org-mode で扱えるようにするパッケージ twmode Emacs 上で動く Twitter クライアント ブラウザ設定 ブラウザ連携周りの設定 "
+	"content": "ここでは外部のサービスと連携するようなやつをまとめています\nemacs-w3m 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ esa.el esa.io と連携するためのパッケージ forge magit と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ git-messenger 現在の行の最終コミットの情報を表示してくれるパッケージ google-this Google 検索機能を提供してくれるパッケージ google-translate Emacs から Google 翻訳するためのパッケージ magit Emacs 上で Git の操作をするのにとても便利なパッケージ notify-slack Emacs から外部コマンドを通じて Slack に通知するための関数周りの事を書いている openai Emacs から OpenAI API を利用するためのライブラリ todoist Todoist と連携して org-mode で扱えるようにするパッケージ twmode Emacs 上で動く Twitter クライアント wakatime-mode Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ ブラウザ設定 ブラウザ連携周りの設定 "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/",
@@ -677,6 +677,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 origami はコードの折り畳み機能を提供するやつ。メジャーな言語は大体サポートしている感じ。大きいファイルを見る時に便利。\nインストール el-get 公式にはレシピがないので自前でレシピを用意している。\n(:name origami :website \u0026#34;https://github.com/elp-revive/origami.el\u0026#34; :description \u0026#34;A text folding minor mode for Emacs.\u0026#34; :type github :pkgname \u0026#34;elp-revive/origami.el\u0026#34; :depends (s dash)) そしてそれを使ってインストール\n(el-get-bundle origami) キーバインド origami-mode-map では以下のように動くように設定している。\nKey 効果 \u0026lt;backtab\u0026gt; 再帰的に折り畳んだり開いたりするやつ。org-mode の fold と似た感じ M-\u0026lt;backtab\u0026gt; そのノードだけ表示する (with-eval-after-load \u0026#39;origami (define-key origami-mode-map (kbd \u0026#34;\u0026lt;backtab\u0026gt;\u0026#34;) \u0026#39;origami-recursively-toggle-node) (define-key origami-mode-map (kbd \u0026#34;M-\u0026lt;backtab\u0026gt;\u0026#34;) \u0026#39;origami-show-only-node)) ただこれだけだと多分足りないので Hydra で色々定義している。\n(with-eval-after-load \u0026#39;pretty-hydra (pretty-hydra-define origami-hydra (:separator \u0026#34;-\u0026#34; :quit-key \u0026#34;q\u0026#34; :title \u0026#34;Origami\u0026#34;) (\u0026#34;Node\u0026#34; ((\u0026#34;o\u0026#34; origami-open-node \u0026#34;Open\u0026#34;) (\u0026#34;c\u0026#34; origami-close-node \u0026#34;Close\u0026#34;) (\u0026#34;s\u0026#34; origami-show-node \u0026#34;Show\u0026#34;) (\u0026#34;t\u0026#34; origami-toggle-node \u0026#34;Toggle\u0026#34;) (\u0026#34;S\u0026#34; origami-forward-toggle-node \u0026#34;Foward toggle\u0026#34;) (\u0026#34;r\u0026#34; origami-recursively-toggle-node \u0026#34;Recursive toggle\u0026#34;)) \u0026#34;All\u0026#34; ((\u0026#34;O\u0026#34; origami-open-all-nodes \u0026#34;Open\u0026#34;) (\u0026#34;C\u0026#34; origami-close-all-nodes \u0026#34;Close\u0026#34;) (\u0026#34;T\u0026#34; origami-toggle-all-nodes \u0026#34;Toggle\u0026#34;)) \u0026#34;Move\u0026#34; ((\u0026#34;n\u0026#34; origami-next-fold \u0026#34;Next\u0026#34;) (\u0026#34;p\u0026#34; origami-previous-fold \u0026#34;Previous\u0026#34;)) \u0026#34;Undo/Redo\u0026#34; ((\u0026#34;/\u0026#34; origami-undo \u0026#34;Undo\u0026#34;) (\u0026#34;?\u0026#34; origami-redo \u0026#34;Redo\u0026#34;) (\u0026#34;X\u0026#34; origami-reset \u0026#34;Reset\u0026#34;))))) この設定は jk で起動する Hydra から呼び出せるようにしている\n"
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/external-tool/pdf-tools/",
+	"title": "pdf-tools",
+	"tags": [],
+	"description": "",
+	"content": "概要 pdf-tools は PDF を読む時にいい感じにしてくれるやつ。\nインストール これは el-get 本体にレシピがあるので、単純にそのまま入れている\n(el-get-bundle pdf-tools) 設定 PDF を開いたら即使えるようにするため pdf-loader-install を実行している\n(pdf-loader-install) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/programming/plantuml-mode/",
