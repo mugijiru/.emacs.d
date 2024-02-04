@@ -8,8 +8,7 @@
  '(lsp-javascript-display-enum-member-value-hints t)
  '(lsp-clients-typescript-max-ts-server-memory 2048)
  '(lsp-disabled-clients '())
- '(lsp-eslint-auto-fix-on-save nil)
- )
+ '(lsp-eslint-auto-fix-on-save nil))
 
 (defun my/ts-mode-auto-fix-hook ()
   (when (string-equal (file-name-extension buffer-file-name) "ts")

@@ -24,9 +24,9 @@ magit で commit message を書く時に自動で textlint が起動するよう
 
 ```emacs-lisp
 ;; 想定通りに動かない
-  (defun my/magit-commit-create-after (&optional arg)
-    (ignore arg)
-    (flycheck-select-checker 'textlint-no-extension))
+(defun my/magit-commit-create-after (&optional arg)
+  (ignore arg)
+  (flycheck-select-checker 'textlint-no-extension))
 
 ;; (with-eval-after-load 'magit
 ;;   (advice-add 'magit-commit-create :after 'my/magit-commit-create-after))
