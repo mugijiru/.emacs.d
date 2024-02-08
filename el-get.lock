@@ -28,7 +28,7 @@
         (json-snatcher :checksum "b28d1c0670636da6db508d03872d96ffddbc10f2")
         (json-reformat :checksum "9120ab67c5379c44bc7a7a07ca858670cea4f32f")
         (orgit :checksum "a57beefa24712430fe6b5016b9273129931a8287")
-        (org-contrib :checksum "4f767bb0aea18ae0bf8c03fa3b019b775b4fe63f")
+        (org-contrib :checksum "ddafb2efcb10310ff80a171435ad06d065ccbfb7")
         (mocha :checksum "6a72fa20e7be6e55c09b1bc9887ee09c5df28e45")
         (pdf-tools :checksum "c69e7656a4678fe25afbd29f3503dd19ee7f9896")
         (tablist :checksum "faab7a035ef2258cc4ea2182f67e3aedab7e2af9")
