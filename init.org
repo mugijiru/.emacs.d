@@ -8102,9 +8102,13 @@ nil にして表示しないようにしている。
 #+begin_src emacs-lisp :tangle inits/61-org-agenda.el
    '(("h" . "Habits")
 #+end_src
-****** 平日開始時用 agenda
-平日毎朝やる作業のためにタグを設定しているので
+****** 平日業務開始時用 agenda
+平日業務開始時にやる作業にタグを設定しているので
 それを抽出するためのカスタムビューの定義。
+出勤打刻とか直近の TODO の整理だとかをここでやっている。
+
+まあ実は業務前にやっとくような TODO も混じってるんだけど
+業務開始時に「これはやったから DONE」みたいにしている。
 
 #+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("hs" "Weekday Start"
