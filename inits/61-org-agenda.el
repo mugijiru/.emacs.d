@@ -37,12 +37,14 @@
               (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                          (:name "今日の作業" :scheduled today)
                                          (:discard (:anything t))))))))
+
      ("hw" "Weekly"
       ((tags "Weekly"
              ((org-agenda-prefix-format "  ")
               (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                          (:name "今週の作業" :scheduled today)
                                          (:discard (:anything t))))))))
+
      ("hh" "Holiday"
       ((tags "Weekend|Holiday|Daily"
              ((org-agenda-prefix-format "  ")

@@ -133,9 +133,11 @@ nil にして表示しないようにしている。
 
 <!--list-separator-->
 
--  平日開始時用 agenda
+-  平日業務開始時用 agenda
 
-    平日毎朝やる作業のためにタグを設定しているのでそれを抽出するためのカスタムビューの定義。
+    平日業務開始時にやる作業にタグを設定しているのでそれを抽出するためのカスタムビューの定義。出勤打刻とか直近の TODO の整理だとかをここでやっている。
+
+    まあ実は業務前にやっとくような TODO も混じってるんだけど業務開始時に「これはやったから DONE」みたいにしている。
 
     ```emacs-lisp
          ("hs" "Weekday Start"
@@ -146,24 +148,42 @@ nil にして表示しないようにしている。
                                              (:discard (:anything t))))))))
     ```
 
+<!--list-separator-->
+
+-  平日業務終了時用 agenda
+
+    こちらは業務終了時に使うカスタムビュー。「退勤打刻」とか「日報を書く」というようなやつが入っている。ちゃんと TODO 管理しないと忘れちゃうからさ、退勤打刻。
+
+    ```emacs-lisp
+         ("hf" "Weekday Finish"
+          ((tags "Weekday&Finish"
+                 ((org-agenda-prefix-format "  ")
+                  (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+                                             (:name "今日の作業" :scheduled today)
+                                             (:discard (:anything t))))))))
+    ```
+
+<!--list-separator-->
+
+-  週次作業用 agenda
+
+    定例 MTG 用の準備とかのタスクを管理しているカスタムビュー。なのだけど、最近は特に使ってない
+
+    ```emacs-lisp
+         ("hw" "Weekly"
+          ((tags "Weekly"
+                 ((org-agenda-prefix-format "  ")
+                  (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+                                             (:name "今週の作業" :scheduled today)
+                                             (:discard (:anything t))))))))
+    ```
+
 
 #### その他 {#その他}
 
 以下はまだ分割対応ができてない
 
 ```emacs-lisp
-     ("hf" "Weekday Finish"
-      ((tags "Weekday&Finish"
-             ((org-agenda-prefix-format "  ")
-              (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
-                                         (:name "今日の作業" :scheduled today)
-                                         (:discard (:anything t))))))))
-     ("hw" "Weekly"
-      ((tags "Weekly"
-             ((org-agenda-prefix-format "  ")
-              (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
-                                         (:name "今週の作業" :scheduled today)
-                                         (:discard (:anything t))))))))
      ("hh" "Holiday"
       ((tags "Weekend|Holiday|Daily"
              ((org-agenda-prefix-format "  ")

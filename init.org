@@ -8102,9 +8102,13 @@ nil にして表示しないようにしている。
 #+begin_src emacs-lisp :tangle inits/61-org-agenda.el
    '(("h" . "Habits")
 #+end_src
-****** 平日開始時用 agenda
-平日毎朝やる作業のためにタグを設定しているので
+****** 平日業務開始時用 agenda
+平日業務開始時にやる作業にタグを設定しているので
 それを抽出するためのカスタムビューの定義。
+出勤打刻とか直近の TODO の整理だとかをここでやっている。
+
+まあ実は業務前にやっとくような TODO も混じってるんだけど
+業務開始時に「これはやったから DONE」みたいにしている。
 
 #+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("hs" "Weekday Start"
@@ -8114,8 +8118,10 @@ nil にして表示しないようにしている。
                                          (:name "今日の作業" :scheduled today)
                                          (:discard (:anything t))))))))
 #+end_src
-***** その他
-以下はまだ分割対応ができてない
+****** 平日業務終了時用 agenda
+こちらは業務終了時に使うカスタムビュー。
+「退勤打刻」とか「日報を書く」というようなやつが入っている。
+ちゃんと TODO 管理しないと忘れちゃうからさ、退勤打刻。
 
 #+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("hf" "Weekday Finish"
@@ -8124,12 +8130,23 @@ nil にして表示しないようにしている。
               (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                          (:name "今日の作業" :scheduled today)
                                          (:discard (:anything t))))))))
+#+end_src
+****** 週次作業用 agenda
+定例 MTG 用の準備とかのタスクを管理しているカスタムビュー。
+なのだけど、最近は特に使ってない
+
+#+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("hw" "Weekly"
       ((tags "Weekly"
              ((org-agenda-prefix-format "  ")
               (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                          (:name "今週の作業" :scheduled today)
                                          (:discard (:anything t))))))))
+#+end_src
+***** その他
+以下はまだ分割対応ができてない
+
+#+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("hh" "Holiday"
       ((tags "Weekend|Holiday|Daily"
              ((org-agenda-prefix-format "  ")
