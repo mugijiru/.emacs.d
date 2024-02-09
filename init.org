@@ -8131,9 +8131,9 @@ nil にして表示しないようにしている。
                                          (:name "今日の作業" :scheduled today)
                                          (:discard (:anything t))))))))
 #+end_src
-
-***** その他
-以下はまだ分割対応ができてない
+****** 週次作業用 agenda
+定例 MTG 用の準備とかのタスクを管理しているカスタムビュー。
+なのだけど、最近は特に使ってない
 
 #+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("hw" "Weekly"
@@ -8142,6 +8142,11 @@ nil にして表示しないようにしている。
               (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                          (:name "今週の作業" :scheduled today)
                                          (:discard (:anything t))))))))
+#+end_src
+***** その他
+以下はまだ分割対応ができてない
+
+#+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("hh" "Holiday"
       ((tags "Weekend|Holiday|Daily"
              ((org-agenda-prefix-format "  ")
