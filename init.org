@@ -8118,8 +8118,10 @@ nil にして表示しないようにしている。
                                          (:name "今日の作業" :scheduled today)
                                          (:discard (:anything t))))))))
 #+end_src
-***** その他
-以下はまだ分割対応ができてない
+****** 平日業務終了時用 agenda
+こちらは業務終了時に使うカスタムビュー。
+「退勤打刻」とか「日報を書く」というようなやつが入っている。
+ちゃんと TODO 管理しないと忘れちゃうからさ、退勤打刻。
 
 #+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("hf" "Weekday Finish"
@@ -8128,6 +8130,12 @@ nil にして表示しないようにしている。
               (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                          (:name "今日の作業" :scheduled today)
                                          (:discard (:anything t))))))))
+#+end_src
+
+***** その他
+以下はまだ分割対応ができてない
+
+#+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("hw" "Weekly"
       ((tags "Weekly"
              ((org-agenda-prefix-format "  ")
