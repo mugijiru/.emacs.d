@@ -25,11 +25,11 @@ org-mode のインストール Emacs に標準で入っている org-mode は古
       
       <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-babel/</guid>
       <description>概要 ここでは org-babel の設定をまとめている。
-org-babel で評価可能な言語の指定 なんか普段から使いそうな奴をとりあえず選定しているつもり。
-(org-babel-do-load-languages &amp;#39;org-babel-load-languages &amp;#39;((plantuml . t) (sql . t) (gnuplot . t) (emacs-lisp . t) (shell . t) (js . t) (org . t) (ruby . t))) js, ruby 仕事でメインで使ってる言語なので入れている。 shell 入れてる方が便利そう、ぐらいの雑な理由。 sql メモしておいて手元から実行できると便利そう plantuml 図の出力。一番使ってる。 gnuplot 趣味で入れてみているけど実際使う機会ほとんどないよなって気がしてきている。 org-babel-execute 後に画像を再表示 PlantUML の処理をすることが多いので以下の hook を設定することで実行後に画像を再表示するようにしている
-(add-hook &amp;#39;org-babel-after-execute-hook &amp;#39;org-redisplay-inline-images) org-babel の非同期実行 improvement 非同期に org-babel の source を実行するために ob-async を入れている
-レシピは自前で用意している
-(:name ob-async :description &amp;#34;Asynchronous org-babel src block execution&amp;#34; :type github :pkgname &amp;#34;astahlman/ob-async&amp;#34; :depends (emacs-async org-mode dash) :minimum-emacs-version (24 4)) そして el-get-bundle でインストール。</description>
+org-babel のプラグイン追加 言語によってはデフォルトでは提供されていないのでプラグインを追加する
+ob-graphql レシピは el-get 本体にはないので自前で用意。
+(:name ob-graphql :website &amp;#34;https://github.com/jdormit/ob-graphql&amp;#34; :description &amp;#34;GraphQL execution backend for org-babel.&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;jdormit/ob-graphql&amp;#34; :depends (graphql-mode request)) そしていつも通り el-get-bundle でインストール。
+(el-get-bundle ob-graphql) org-babel で評価可能な言語の指定 なんか普段から使いそうな奴をとりあえず選定しているつもり。
+(org-babel-do-load-languages &amp;#39;org-babel-load-languages &amp;#39;((plantuml . t) (sql . t) (gnuplot . t) (emacs-lisp . t) (shell . t) (js . t) (org . t) (graphql . t) (ruby . t))) js, ruby 仕事でメインで使ってる言語なので入れている。 shell 入れてる方が便利そう、ぐらいの雑な理由。 sql メモしておいて手元から実行できると便利そう plantuml 図の出力。一番使ってる。 gnuplot 趣味で入れてみているけど実際使う機会ほとんどないよなって気がしてきている。 org-babel-execute 後に画像を再表示 PlantUML の処理をすることが多いので以下の hook を設定することで実行後に画像を再表示するようにしている</description>
     </item>
     
     <item>

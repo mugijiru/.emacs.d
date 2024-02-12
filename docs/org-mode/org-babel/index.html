@@ -12,20 +12,20 @@
     <title>org-babel :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1707440498" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1707440498" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1707440498" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1707440498" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1707440498" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1707440498" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1707440498" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1707440498" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1707440498" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1707440498" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1707706598" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1707706598" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1707706598" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1707706598" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1707706598" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1707706598" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1707706598" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1707706598" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1707706598" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1707706598" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1707440498"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1707706598"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1707440498"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1707440498"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1707706598"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1707706598"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1707440498"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1707706598"></script>
 
     
   </div>
@@ -3135,6 +3135,11 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
+    <li><a href="#org-babel-のプラグイン追加">org-babel のプラグイン追加</a>
+      <ul>
+        <li><a href="#ob-graphql">ob-graphql</a></li>
+      </ul>
+    </li>
     <li><a href="#org-babel-で評価可能な言語の指定">org-babel で評価可能な言語の指定</a></li>
     <li><a href="#org-babel-execute-後に画像を再表示">org-babel-execute 後に画像を再表示</a></li>
     <li><a href="#org-babel-の非同期実行">org-babel の非同期実行 <span class="tag"><span class="improvement">improvement</span></span></a></li>
@@ -3168,7 +3173,20 @@
 
 <h2 id="概要">概要</h2>
 <p>ここでは org-babel の設定をまとめている。</p>
-<h2 id="org-babel-で評価可能な言語の指定">org-babel で評価可能な言語の指定</h2>
+<h2 id="org-babel-のプラグイン追加">org-babel のプラグイン追加</h2>
+<p>言語によってはデフォルトでは提供されていないのでプラグインを追加する</p>
+<h3 id="ob-graphql">ob-graphql</h3>
+<p>レシピは el-get 本体にはないので自前で用意。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name ob-graphql
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/jdormit/ob-graphql&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;GraphQL execution backend for org-babel.&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :branch <span style="color:#e6db74">&#34;master&#34;</span>
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;jdormit/ob-graphql&#34;</span>
+</span></span><span style="display:flex;"><span>       :depends (graphql-mode request))
+</span></span></code></pre></div><p>そしていつも通り <code>el-get-bundle</code> でインストール。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle ob-graphql)
+</span></span></code></pre></div><h2 id="org-babel-で評価可能な言語の指定">org-babel で評価可能な言語の指定</h2>
 <p>なんか普段から使いそうな奴をとりあえず選定しているつもり。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(org-babel-do-load-languages <span style="color:#e6db74">&#39;org-babel-load-languages</span>
 </span></span><span style="display:flex;"><span>                             <span style="color:#f92672">&#39;</span>((plantuml <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
@@ -3178,6 +3196,7 @@
 </span></span><span style="display:flex;"><span>                               (shell <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
 </span></span><span style="display:flex;"><span>                               (js <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
 </span></span><span style="display:flex;"><span>                               (org <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>                               (graphql <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
 </span></span><span style="display:flex;"><span>                               (ruby <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)))
 </span></span></code></pre></div><dl>
 <dt>js, ruby</dt>
@@ -5477,19 +5496,19 @@ windmove にそれを奪われてしまうので、カーソルキー単体で�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1707440498"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1707440498"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1707440498"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1707440498"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1707440498"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1707440498"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1707706598"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1707706598"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1707706598"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1707706598"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1707706598"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1707706598"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1707440498"></script>
-    <script src="/.emacs.d/js/learn.js?1707440498"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1707440498"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1707706598"></script>
+    <script src="/.emacs.d/js/learn.js?1707706598"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1707706598"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1707440498"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1707706598"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
