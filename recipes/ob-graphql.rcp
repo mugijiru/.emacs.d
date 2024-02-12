@@ -1,0 +1,7 @@
+(:name ob-graphql
+       :website "https://github.com/jdormit/ob-graphql"
+       :description "GraphQL execution backend for org-babel."
+       :type github
+       :branch "master"
+       :pkgname "jdormit/ob-graphql"
+       :depends (graphql-mode request))

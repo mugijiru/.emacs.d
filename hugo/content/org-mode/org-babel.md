@@ -9,6 +9,32 @@ weight = 2
 ここでは org-babel の設定をまとめている。
 
 
+## org-babel のプラグイン追加 {#org-babel-のプラグイン追加}
+
+言語によってはデフォルトでは提供されていないのでプラグインを追加する
+
+
+### ob-graphql {#ob-graphql}
+
+レシピは el-get 本体にはないので自前で用意。
+
+```emacs-lisp
+(:name ob-graphql
+       :website "https://github.com/jdormit/ob-graphql"
+       :description "GraphQL execution backend for org-babel."
+       :type github
+       :branch "master"
+       :pkgname "jdormit/ob-graphql"
+       :depends (graphql-mode request))
+```
+
+そしていつも通り `el-get-bundle` でインストール。
+
+```emacs-lisp
+(el-get-bundle ob-graphql)
+```
+
+
 ## org-babel で評価可能な言語の指定 {#org-babel-で評価可能な言語の指定}
 
 なんか普段から使いそうな奴をとりあえず選定しているつもり。
@@ -22,6 +48,7 @@ weight = 2
                                (shell . t)
                                (js . t)
                                (org . t)
+                               (graphql . t)
                                (ruby . t)))
 ```
 

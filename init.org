@@ -7760,7 +7760,26 @@ agenda ファイルに使われているタグは全部補完対象になって�
 :END:
 *** 概要
 ここでは org-babel の設定をまとめている。
+*** org-babel のプラグイン追加
+言語によってはデフォルトでは提供されていないのでプラグインを追加する
+**** ob-graphql
+レシピは el-get 本体にはないので自前で用意。
 
+#+begin_src emacs-lisp :tangle recipes/ob-graphql.rcp
+(:name ob-graphql
+       :website "https://github.com/jdormit/ob-graphql"
+       :description "GraphQL execution backend for org-babel."
+       :type github
+       :branch "master"
+       :pkgname "jdormit/ob-graphql"
+       :depends (graphql-mode request))
+#+end_src
+
+そしていつも通り ~el-get-bundle~ でインストール。
+
+#+begin_src emacs-lisp :tangle inits/60-org.el
+(el-get-bundle ob-graphql)
+#+end_src
 *** org-babel で評価可能な言語の指定
 :PROPERTIES:
 :ID:       7ed80c8c-8aad-40d6-a186-05869b96d015
@@ -7777,6 +7796,7 @@ agenda ファイルに使われているタグは全部補完対象になって�
                                (shell . t)
                                (js . t)
                                (org . t)
+                               (graphql . t)
                                (ruby . t)))
 #+end_src
 
@@ -7921,6 +7941,7 @@ windmove にそれを奪われてしまうので、カーソルキー単体で�
  '(org-src-preserve-indentation t)
  '(org-edit-src-content-indentation 0))
 #+end_src
+
 ** 予定のカレンダー表示
 :PROPERTIES:
 :EXPORT_FILE_NAME: calendar

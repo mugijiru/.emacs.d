@@ -21,6 +21,8 @@
   (add-to-list 'org-modules 'org-protocol)
   (add-to-list 'org-file-apps '("\\.xlsx?\\'" . default)))
 
+(el-get-bundle ob-graphql)
+
 (org-babel-do-load-languages 'org-babel-load-languages
                              '((plantuml . t)
                                (sql . t)
@@ -29,6 +31,7 @@
                                (shell . t)
                                (js . t)
                                (org . t)
+                               (graphql . t)
                                (ruby . t)))
 
 (add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images)
