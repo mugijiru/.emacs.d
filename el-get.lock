@@ -3,7 +3,7 @@
         (corfu :checksum "ba38c4d75018908e7140e7fc5c1b3b6fa939c304")
         (treesit-auto :checksum "e5a71408d29d3e5796369e3091ecd3f78751c80e")
         (org-mode :checksum "17608670a4f4e8edb91efe04d86fe80ff9d01b69")
-        (org-journal :checksum "605a7eb984a95fc6ec122df800632bf56ff59514")
+        (org-journal :checksum "745ae15ff1a63d732f633ff282c19c206055f031")
         (company-terraform :checksum "8d5a16d1bbeeb18ca49a8fd57b5d8cd30c8b8dc7")
         (terraform-mode :checksum "e8b57df8c2a3d3171f3768f60eb84067f553289c")
         (hcl-mode :checksum "ec27736c4c16fbf7f1ecab0210ec3c71ac2406fa")
