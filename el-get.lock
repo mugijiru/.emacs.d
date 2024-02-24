@@ -1,7 +1,7 @@
 (setq el-get-lock-package-versions
       '((ob-graphql :checksum "7c35419f9eec5dc44967cbcfa13c7135b9a96bfc")
         (corfu :checksum "ba38c4d75018908e7140e7fc5c1b3b6fa939c304")
-        (treesit-auto :checksum "e5a71408d29d3e5796369e3091ecd3f78751c80e")
+        (treesit-auto :checksum "299dd88c9e5f1ff91a8f1989ad1e97e86c220020")
         (org-mode :checksum "17608670a4f4e8edb91efe04d86fe80ff9d01b69")
         (org-journal :checksum "745ae15ff1a63d732f633ff282c19c206055f031")
         (company-terraform :checksum "8d5a16d1bbeeb18ca49a8fd57b5d8cd30c8b8dc7")
