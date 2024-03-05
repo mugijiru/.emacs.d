@@ -8,7 +8,7 @@
         (terraform-mode :checksum "e8b57df8c2a3d3171f3768f60eb84067f553289c")
         (hcl-mode :checksum "ec27736c4c16fbf7f1ecab0210ec3c71ac2406fa")
         (jest-test-mode :checksum "a397507d8bb41e4aa6b97994f1d7512e78d3dee3")
-        (dockerfile-mode :checksum "35178a080fb3b61051437570f51fa0cdf2b7772b")
+        (dockerfile-mode :checksum "afcd418d82a0162dd59c44a5e0c558bcb1d1d7ca")
         (origami :checksum "6938ba93a8c58eb76bb81227931f7067dbd66fd5")
         (company-posframe :checksum "18d6641bba72cba3c00018cee737ea8b454f64a8")
         (nerd-icons :checksum "c6a4acf19454b415cba1c43daf4bfca8fccdd9ba")
