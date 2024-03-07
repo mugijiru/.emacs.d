@@ -4953,10 +4953,11 @@ el-get.lock を用いたバージョン更新確認スクリプトのため
 レシピを追加している
 
 #+begin_src emacs-lisp :tangle recipes/ember-mode.rcp
-(:name madnificent/ember-mode
+(:name ember-mode
        :website "https://github.com/madnificent/ember-mode"
        :description "Ember-mode speeds up navigation in EmberJS projects."
        :type github
+       :branch "master"
        :pkgname "madnificent/ember-mode")
 #+end_src
 
