@@ -28,10 +28,11 @@ projectile なんかがやってるようにフォルダ構成から判定させ
 el-get.lock を用いたバージョン更新確認スクリプトのためレシピを追加している
 
 ```emacs-lisp
-(:name madnificent/ember-mode
+(:name ember-mode
        :website "https://github.com/madnificent/ember-mode"
        :description "Ember-mode speeds up navigation in EmberJS projects."
        :type github
+       :branch "master"
        :pkgname "madnificent/ember-mode")
 ```
 
