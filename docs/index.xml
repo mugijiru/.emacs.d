@@ -543,7 +543,7 @@ dockerfile-mode インストール こちらは el-get にレシピが登録さ�
 (custom-set-variables &amp;#39;(dockerfile-indent-offset 2)) hook lsp-mode では Dockerfile もサポートしている ので
 $ npm install -g dockerfile-language-server-nodejs で LSP サーバを入れた上で dockerfile-mode-hook で lsp を起動させるようにしている。
 あとついでに display-line-numbers-mode も有効にしている。
-(defun my/dockerfile-mode-hook () (display-line-numbers-mode t) (lsp)) (add-hook &amp;#39;dockerfile-mode-hook &amp;#39;my/dockerfile-mode-hook) </description>
+(defun my/dockerfile-mode-hook () (display-line-numbers-mode t) (flycheck-mode 1) (lsp)) (add-hook &amp;#39;dockerfile-mode-hook &amp;#39;my/dockerfile-mode-hook) (add-hook &amp;#39;dockerfile-ts-mode-hook &amp;#39;my/dockerfile-mode-hook) </description>
     </item>
     
     <item>
