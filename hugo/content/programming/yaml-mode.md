@@ -25,16 +25,18 @@ lambda で書いてしまうと hook を弄りたい時に結構面倒なのだ�
 hook で動作する中身が変更できて便利。
 
 とりあえず yaml-mode では以下のようにして
-[highlight-indent-guides](https://github.com/DarthFennec/highlight-indent-guides) を有効にしている。
+[lsp-mode]({{< relref "lsp-mode" >}}) と [flycheck]({{< relref "flycheck" >}}), [highlight-indent-guides](https://github.com/DarthFennec/highlight-indent-guides) を有効にしている。
 
 ```emacs-lisp
 (defun my/yaml-mode-hook ()
   (lsp 1)
+  (flycheck-mode 1)
   (highlight-indent-guides-mode 1))
 ```
 
-で、その hook を最後に yaml-mode-hook に追加している。
+で、その hook を最後に yaml-mode-hook と yaml-ts-mode-hook に追加している。
 
 ```emacs-lisp
 (add-hook 'yaml-mode-hook 'my/yaml-mode-hook)
+(add-hook 'yaml-ts-mode-hook 'my/yaml-mode-hook)
 ```
