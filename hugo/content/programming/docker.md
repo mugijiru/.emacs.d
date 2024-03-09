@@ -49,4 +49,5 @@ dockerfile-mode-hook で lsp を起動させるようにしている。
   (lsp))
 
 (add-hook 'dockerfile-mode-hook 'my/dockerfile-mode-hook)
+(add-hook 'dockerfile-ts-mode-hook 'my/dockerfile-mode-hook)
 ```
