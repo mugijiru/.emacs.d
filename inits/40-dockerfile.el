@@ -5,6 +5,7 @@
 
 (defun my/dockerfile-mode-hook ()
   (display-line-numbers-mode t)
+  (flycheck-mode 1)
   (lsp))
 
 (add-hook 'dockerfile-mode-hook 'my/dockerfile-mode-hook)
