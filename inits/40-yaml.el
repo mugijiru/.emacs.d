@@ -5,3 +5,4 @@
   (highlight-indent-guides-mode 1))
 
 (add-hook 'yaml-mode-hook 'my/yaml-mode-hook)
+(add-hook 'yaml-ts-mode-hook 'my/yaml-mode-hook)

@@ -33,8 +33,9 @@ hook で動作する中身が変更できて便利。
   (highlight-indent-guides-mode 1))
 ```
 
-で、その hook を最後に yaml-mode-hook に追加している。
+で、その hook を最後に yaml-mode-hook と yaml-ts-mode-hook に追加している。
 
 ```emacs-lisp
 (add-hook 'yaml-mode-hook 'my/yaml-mode-hook)
+(add-hook 'yaml-ts-mode-hook 'my/yaml-mode-hook)
 ```
