@@ -5086,6 +5086,7 @@ Node.js と連携してステップ実行とかができるようになるらし
 ** flycheck
 :PROPERTIES:
 :EXPORT_FILE_NAME: flycheck
+:ID:       c001bbc2-e937-4296-9791-cedb1b3b16fe
 :END:
 *** 概要
 [[https://www.flycheck.org/en/latest/][flycheck]] はリアルタイムで文法チェックなんかをするのに便利なモード。
@@ -5326,6 +5327,7 @@ hook を色々突っ込んでる
 ** lsp-mode
 :PROPERTIES:
 :EXPORT_FILE_NAME: lsp-mode
+:ID:       efae3643-0001-4313-a621-83517950652f
 :END:
 *** 概要
 [[https://github.com/emacs-lsp/lsp-mode][lsp-mode]] は Emacs で Language server protocol が使えるようにするパッケージ。
@@ -6642,11 +6644,12 @@ lambda で書いてしまうと hook を弄りたい時に結構面倒なのだ�
 hook で動作する中身が変更できて便利。
 
 とりあえず yaml-mode では以下のようにして
-[[https://github.com/DarthFennec/highlight-indent-guides][highlight-indent-guides]] を有効にしている。
+[[id:efae3643-0001-4313-a621-83517950652f][lsp-mode]] と [[id:c001bbc2-e937-4296-9791-cedb1b3b16fe][flycheck]], [[https://github.com/DarthFennec/highlight-indent-guides][highlight-indent-guides]] を有効にしている。
 
 #+begin_src emacs-lisp :tangle inits/40-yaml.el
 (defun my/yaml-mode-hook ()
   (lsp 1)
+  (flycheck-mode 1)
   (highlight-indent-guides-mode 1))
 #+end_src
 
