@@ -4821,7 +4821,7 @@ Dockerfile を書いたりするための設定。
 [[https://emacs-lsp.github.io/lsp-mode/page/lsp-dockerfile/][lsp-mode では Dockerfile もサポートしている]] ので
 
 #+begin_example
-     $ npm install -g dockerfile-language-server-nodejs
+$ npm install -g dockerfile-language-server-nodejs
 #+end_example
 
 で LSP サーバを入れた上で
@@ -4832,9 +4832,11 @@ dockerfile-mode-hook で lsp を起動させるようにしている。
 #+begin_src emacs-lisp :tangle inits/40-dockerfile.el
 (defun my/dockerfile-mode-hook ()
   (display-line-numbers-mode t)
+  (flycheck-mode 1)
   (lsp))
 
 (add-hook 'dockerfile-mode-hook 'my/dockerfile-mode-hook)
+(add-hook 'dockerfile-ts-mode-hook 'my/dockerfile-mode-hook)
 #+end_src
 ** emacs-lisp
 :PROPERTIES:
@@ -4854,7 +4856,7 @@ Hook 用の関数を定義してその中に色々書いている。
 - 当然補完もしたいので company-mode を有効にしている
 - カッコの対応などもいい感じに動いて欲しいので smartparens-mode とその strict-mode を有効にしている
 
-  #+begin_src emacs-lisp :tangle inits/40-emacs-lisp.el
+#+begin_src emacs-lisp :tangle inits/40-emacs-lisp.el
 (defun my/emacs-lisp-mode-hook ()
   (display-line-numbers-mode 1)
   (origami-mode 1)
@@ -4867,7 +4869,7 @@ Hook 用の関数を定義してその中に色々書いている。
 
   #+begin_src emacs-lisp :tangle inits/40-emacs-lisp.el
 (add-hook 'emacs-lisp-mode-hook 'my/emacs-lisp-mode-hook)
-  #+end_src
+#+end_src
 *** アイコン挿入コマンドの用意
 :PROPERTIES:
 :ID:       cbcc5bb0-f684-4c40-a34c-c51dd46bf519
