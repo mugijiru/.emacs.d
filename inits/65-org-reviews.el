@@ -34,7 +34,7 @@
     (condition-case err
         (json-parse-string result)
       (error
-       (format "error: %s\ncmd:%s\nresult:%s" err cmd-with-args result)
+       (message "error: %s\ncmd: %s\nresult: %s" err cmd-with-args result)
        nil))))
 
 (defun my/org-reviews-prs ()
