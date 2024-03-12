@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((ob-graphql :checksum "7c35419f9eec5dc44967cbcfa13c7135b9a96bfc")
+      '((git-modes :checksum "3cc94974c09c43462dfbfbe20396a414352dbb92")
+        (ob-graphql :checksum "7c35419f9eec5dc44967cbcfa13c7135b9a96bfc")
         (corfu :checksum "d82bc357c9baccfaaca288526d128c895af61274")
         (treesit-auto :checksum "299dd88c9e5f1ff91a8f1989ad1e97e86c220020")
         (org-mode :checksum "17608670a4f4e8edb91efe04d86fe80ff9d01b69")

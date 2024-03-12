@@ -1813,6 +1813,19 @@ Warning (copilot): .loaddefs.el size exceeds 'copilot-max-char' (100000), copilo
 (global-emojify-mode 1)
 (global-emojify-mode-line-mode 1)
     #+end_src
+** git-modes
+:PROPERTIES:
+:EXPORT_FILE_NAME: git-modes
+:END:
+*** 概要
+[[https://github.com/magit/git-modes][git-modes]] は Git 関連の設定ファイルを編集するための mode 集。
+~.gitignore~ とかを編集する時に便利。
+*** インストール
+magit のレシピに登録済なので ~el-get-bundle~ でインストール
+
+#+begin_src emacs-lisp :tangle inits/50-git-modes.el
+(el-get-bundle git-modes)
+#+end_src
 ** flyspell
 :PROPERTIES:
 :EXPORT_FILE_NAME: flyspell
