@@ -469,6 +469,13 @@
 	"content": "概要 git-messenger は指定した行のコミット時の情報を表示してくれるやつ簡単に最終コミットの情報を見るのに便利\nインストール git-messenger は el-get のレシピに登録されているのでそのまま el-get-bundle を使ってインストールできる\n(el-get-bundle git-messenger) 設定 デフォルトでは commit message だけを表示するがより詳細な情報を見たいので git-messenger:show-detail を t に設定してコミット日時や author も表示するようにしている\n(custom-set-variables \u0026#39;(git-messenger:show-detail t)) magit を利用しているので git-messenger:use-magit-popup も有効にしても良いかもしれない\nキーバインド 起動には pretty-hydra-usefull-commands で C を叩くと起動するようにしている。\n起動後は、デフォルトでキーバインドが定義されているので https://github.com/emacsorphanage/git-messenger#key-bindings の通りの操作ができる\n"
 },
 {
+	"uri": "https://mugijiru.github.io/.emacs.d/editing/git-modes/",
+	"title": "git-modes",
+	"tags": [],
+	"description": "",
+	"content": "概要 git-modes は Git 関連の設定ファイルを編集するための mode 集。 .gitignore とかを編集する時に便利。\nインストール magit のレシピに登録済なので el-get-bundle でインストール\n(el-get-bundle git-modes) "
+},
+{
 	"uri": "https://mugijiru.github.io/.emacs.d/programming/gnuplot-mode/",
 	"title": "gnuplot-mode",
 	"tags": [],

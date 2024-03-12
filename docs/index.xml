@@ -787,6 +787,17 @@ Mac の設定 Mac の場合にフルスクリーンにする設定を入れて�
     </item>
     
     <item>
+      <title>git-modes</title>
+      <link>https://mugijiru.github.io/.emacs.d/editing/git-modes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/editing/git-modes/</guid>
+      <description>概要 git-modes は Git 関連の設定ファイルを編集するための mode 集。 .gitignore とかを編集する時に便利。
+インストール magit のレシピに登録済なので el-get-bundle でインストール
+(el-get-bundle git-modes) </description>
+    </item>
+    
+    <item>
       <title>gnuplot-mode</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/gnuplot-mode/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

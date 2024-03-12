@@ -136,6 +136,8 @@
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/external-tool/git-messenger/</loc>
   </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/editing/git-modes/</loc>
+  </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/programming/gnuplot-mode/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/keybinds/google-integration/</loc>
