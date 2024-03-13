@@ -9,23 +9,23 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>キーバインド :: 麦汁&#39;s Emacs Config</title>
+    <title>calibredb :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1710298843" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1710298843" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1710298843" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1710298843" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1710298843" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1710298843" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1710298843" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1710298843" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1710298843" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1710298843" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1710298842" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1710298842" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1710298842" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1710298842" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1710298842" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1710298842" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1710298842" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1710298842" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1710298842" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1710298842" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1710298843"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1710298842"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/keybinds/">
+  <body class="" data-url="/.emacs.d/external-tool/calibredb/">
     <nav id="sidebar" class="">
 
 
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1710298843"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1710298843"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1710298842"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1710298842"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1710298843"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1710298842"></script>
 
     
   </div>
@@ -484,7 +484,7 @@
     
     <li data-nav-id="/.emacs.d/keybinds/" title="キーバインド" class="dd-item
         
-        active
+        
         
         ">
       <a href="/.emacs.d/keybinds/">
@@ -2144,7 +2144,7 @@
   
     
     <li data-nav-id="/.emacs.d/external-tool/" title="外部連携ツール設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -2170,7 +2170,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/external-tool/calibredb/" title="calibredb" class="dd-item ">
+      <li data-nav-id="/.emacs.d/external-tool/calibredb/" title="calibredb" class="dd-item active">
         <a href="/.emacs.d/external-tool/calibredb/">
         calibredb
         
@@ -3145,6 +3145,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -3155,7 +3157,13 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > キーバインド
+            
+            
+          
+          
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/external-tool/'>外部連携ツール設定</a> > calibredb
+          
+        
           
         
           
@@ -3163,6 +3171,19 @@
                  
                   </span>
                 </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#インストール">インストール</a></li>
+    <li><a href="#設定">設定</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
                 
               </div>
             </div>
@@ -3175,31 +3196,34 @@
           
             <h1>
               
-              キーバインド
+              calibredb
             </h1>
           
 
         
 
 
+<h2 id="概要">概要</h2>
+<p><a href="https://github.com/chenyanming/calibredb.el">calibredb.el</a> は電子書籍管理ツール <a href="https://calibre-ebook.com/">Calibre</a> のデータを Emacs から弄ったりするためのパッケージ。同じことは Calibre からもできるんだけどやっぱり Emacs のインターフェースがある方が便利だよねってことで導入した。
+<a href="https://github.com/chenyanming/calibredb.el#configure-to-support-org-ref">org-ref もサポートしているみたい</a> だしね</p>
+<h2 id="インストール">インストール</h2>
+<p>el-get 本体にはレシピがないので自前で用意。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name calibredb
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;Yet another calibre client for emacs.&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Fix current buffer automatically&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :branch <span style="color:#e6db74">&#34;master&#34;</span>
+</span></span><span style="display:flex;"><span>       :depends (esxml)
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;chenyanming/calibredb.el&#34;</span>)
+</span></span></code></pre></div><p>そしてそれを <code>el-get-bundle</code> で入れている。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle calibredb)
+</span></span></code></pre></div><h2 id="設定">設定</h2>
+<p>今はとりあえず Calibre のライブラリのパスだけを指定している。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-variables
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(calibredb-root-dir <span style="color:#e6db74">&#34;~/calibre-library&#34;</span>))
+</span></span></code></pre></div>
 
-	<p>ここでは全体に関わるキーバインド系の設定を記載している。</p>
-<dl>
-<dt><a href="/.emacs.d/keybinds/google-integration/">Google 連携</a></dt>
-<dd>Google 連携する機能のキーバインドをまとめている</dd>
-<dt><a href="/.emacs.d/keybinds/key-chord/">key-chord</a></dt>
-<dd>同時押しというキーバインドを提供してくれるやつ</dd>
-<dt><a href="/.emacs.d/keybinds/sticky-control/">sticky-control</a></dt>
-<dd>Control の入力を sticky にしてくれるやつ</dd>
-<dt><a href="/.emacs.d/keybinds/global-keybinds/">グローバルキーバインド</a></dt>
-<dd>いつでもどこでも使えるキーバインド周りの設定をここにまとめている</dd>
-</dl>
-
-
-
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -3509,7 +3533,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -3522,9 +3545,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -4729,6 +4749,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -4741,6 +4762,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -4757,6 +4779,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -5421,10 +5446,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/buffer-management/tempbuf/" title="tempbuf"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/external-tool/" title="外部連携ツール設定"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/keybinds/google-integration/" title="Google 連携" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/external-tool/emacs-kibela/" title="emacs-kibela" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -5434,19 +5459,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1710298843"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1710298843"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1710298843"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1710298843"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1710298843"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1710298843"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1710298842"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1710298842"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1710298842"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1710298842"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1710298842"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1710298842"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1710298843"></script>
-    <script src="/.emacs.d/js/learn.js?1710298843"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1710298843"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1710298842"></script>
+    <script src="/.emacs.d/js/learn.js?1710298842"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1710298842"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1710298843"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1710298842"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
@@ -5456,3 +5481,4 @@
 
   </body>
 </html>
+

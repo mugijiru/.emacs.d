@@ -287,6 +287,13 @@
 	"content": "概要 browse-at-remote は Emacs で見ているファイルについて GitHub や GitLab などのサービス上での該当ブランチ、該当ファイル、該当行を開いてくれる便利なやつ。\n業務だとレビュー中に「ここにこういう関数あるよ」みたいに示すことがあるけどその時に Emacs 内で関数を探して browse-at-remote で GitHub 上の位置を開くことでそこへのリンクを拾いやすく便利。\nインストール いつも透り el-get で入れている。\n(el-get-bundle browse-at-remote) 使い方 ブラウザで見たい行の上で M-x browse-at-remote を実行する。\nまたは Region を選択している状態で実行すると、その範囲を選択している状態で開いてくれる。便利。\nその他 Hydra でいつでも使えるようにキーバインドを割り当てている。\n"
 },
 {
+	"uri": "https://mugijiru.github.io/.emacs.d/external-tool/calibredb/",
+	"title": "calibredb",
+	"tags": [],
+	"description": "",
+	"content": "概要 calibredb.el は電子書籍管理ツール Calibre のデータを Emacs から弄ったりするためのパッケージ。同じことは Calibre からもできるんだけどやっぱり Emacs のインターフェースがある方が便利だよねってことで導入した。 org-ref もサポートしているみたい だしね\nインストール el-get 本体にはレシピがないので自前で用意。\n(:name calibredb :website \u0026#34;Yet another calibre client for emacs.\u0026#34; :description \u0026#34;Fix current buffer automatically\u0026#34; :type github :branch \u0026#34;master\u0026#34; :depends (esxml) :pkgname \u0026#34;chenyanming/calibredb.el\u0026#34;) そしてそれを el-get-bundle で入れている。\n(el-get-bundle calibredb) 設定 今はとりあえず Calibre のライブラリのパスだけを指定している。\n(custom-set-variables \u0026#39;(calibredb-root-dir \u0026#34;~/calibre-library\u0026#34;)) "
+},
+{
 	"uri": "https://mugijiru.github.io/.emacs.d/categories/",
 	"title": "Categories",
 	"tags": [],
