@@ -6683,6 +6683,7 @@ hook で動作する中身が変更できて便利。
 ここでは外部のサービスと連携するようなやつをまとめています
 
 - [[*emacs-w3m][emacs-w3m]] :: 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ
+- [[id:3bede284-b3db-45ad-9f49-ce31ec47ce6f][calibredb]] :: 電子書籍管理ツール [[https://calibre-ebook.com/][Calibre]] のデータを Emacs から操作するためのパッケージ
 - [[*esa.el][esa.el]] :: [[https://esa.io/][esa.io]] と連携するためのパッケージ
 - [[*forge][forge]] :: [[*magit][magit]] と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ
 - [[id:ce83e9b8-ef96-4a27-bcfb-a2b437ca5a28][git-messenger]] :: 現在の行の最終コミットの情報を表示してくれるパッケージ
@@ -6696,6 +6697,41 @@ hook で動作する中身が変更できて便利。
 - [[*twmode][twmode]] :: Emacs 上で動く Twitter クライアント
 - [[id:9c9bff02-7627-44ae-9868-e1310ff19294][wakatime-mode]] :: Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ
 - [[*ブラウザ設定][ブラウザ設定]] :: ブラウザ連携周りの設定
+** calibredb
+:PROPERTIES:
+:ID:       3bede284-b3db-45ad-9f49-ce31ec47ce6f
+:EXPORT_FILE_NAME: calibredb
+:END:
+*** 概要
+[[https://github.com/chenyanming/calibredb.el][calibredb.el]] は電子書籍管理ツール [[https://calibre-ebook.com/][Calibre]] のデータを Emacs から弄ったりするためのパッケージ。
+同じことは Calibre からもできるんだけど
+やっぱり Emacs のインターフェースがある方が便利だよねってことで導入した。
+[[https://github.com/chenyanming/calibredb.el#configure-to-support-org-ref][org-ref もサポートしているみたい]] だしね
+*** インストール
+el-get 本体にはレシピがないので自前で用意。
+
+#+begin_src emacs-lisp :tangle recipes/calibredb.rcp
+(:name calibredb
+       :website "Yet another calibre client for emacs."
+       :description "Fix current buffer automatically"
+       :type github
+       :branch "master"
+       :depends (esxml)
+       :pkgname "chenyanming/calibredb.el")
+#+end_src
+
+そしてそれを ~el-get-bundle~ で入れている。
+
+#+begin_src emacs-lisp :tangle inits/50-calibredb.el
+(el-get-bundle calibredb)
+#+end_src
+*** 設定
+今はとりあえず Calibre のライブラリのパスだけを指定している。
+
+#+begin_src emacs-lisp :tangle inits/50-calibredb.el
+(custom-set-variables
+ '(calibredb-root-dir "~/calibre-library"))
+#+end_src
 ** emacs-w3m
 :PROPERTIES:
 :EXPORT_FILE_NAME: emacs-w3m

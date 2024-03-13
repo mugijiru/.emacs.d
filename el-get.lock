@@ -1,5 +1,8 @@
 (setq el-get-lock-package-versions
-      '((git-modes :checksum "3cc94974c09c43462dfbfbe20396a414352dbb92")
+      '((esxml :checksum "225693096a587492d76bf696d1f0c25c61f7d531")
+        (kv :checksum "721148475bce38a70e0b678ba8aa923652e8900e")
+        (calibredb :checksum "124c916f203511c64d03fac28d303dfb102a6ead")
+        (git-modes :checksum "3cc94974c09c43462dfbfbe20396a414352dbb92")
         (ob-graphql :checksum "7c35419f9eec5dc44967cbcfa13c7135b9a96bfc")
         (corfu :checksum "d82bc357c9baccfaaca288526d128c895af61274")
         (treesit-auto :checksum "299dd88c9e5f1ff91a8f1989ad1e97e86c220020")

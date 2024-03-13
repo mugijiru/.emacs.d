@@ -1,0 +1,7 @@
+(:name calibredb
+       :website "Yet another calibre client for emacs."
+       :description "Fix current buffer automatically"
+       :type github
+       :branch "master"
+       :depends (esxml)
+       :pkgname "chenyanming/calibredb.el")
