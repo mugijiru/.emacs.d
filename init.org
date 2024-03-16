@@ -1515,6 +1515,7 @@
    - [[id:549f0212-8e33-4ab8-bc84-418dd45bf92d][copilot]] :: GitHub Copilot を使えるようにするパッケージ
    - [[*emojify][emojify]] :: Slack や GitHub みたいに ~:smile:~ とか入れると笑顔の絵文字を表示する、みたいなやつ
    - [[id:3140f1e1-c1ee-4098-adc5-ddc695d5ea9d][flyspell]] :: スペルチェックをしてくれるパッケージ
+   - [[id:1e135071-8d60-4435-8819-3572c031f787][moccur-edit]] :: color-moccur でディレクトリごと検索した後にそのバッファでそのまま編集できるようにするやつ
    - [[*multiple-cursors][multiple-cursors]] :: カーソルを増やして複数箇所を同時に編集できるようになるやつ
    - [[id:f309e8bd-8e1d-4a91-ae4d-9a960373969b][origami]] :: コードの折り畳みができるようになるやつ
    - [[*smartparens][smartparens]] :: カッコや引用符などのペアになるやつの入力補助をしてくれるやつ
@@ -1868,6 +1869,34 @@ http://home.hatanaka.info/article/474728666.html
 *** その他
 ~flyspell-prog-mode~ を使うと、文字列やコメントにのみ有効にできるようですが
 そのあたりはまだ試していません。
+** moccur-edit
+:PROPERTIES:
+:EXPORT_FILE_NAME: moccur-edit
+:ID:       1e135071-8d60-4435-8819-3572c031f787
+:END:
+*** 概要
+[[https://github.com/myuhe/moccur-edit.el][moccur-edit]] は [[https://github.com/myuhe/color-moccur.el][color-moccur]] で検索した結果を編集するためのツール。
+*** インストール
+el-get 本体にレシピがあるのでそちらからインストールしている。
+
+#+begin_src emacs-lisp :tangle inits/40-moccur.el
+(el-get-bundle moccur-edit)
+#+end_src
+
+なお EmacsWiki に moccur-edit も color-moccur もあるのだけど
+color-moccur の方がソースコードが古めなので
+GitHub から入れるのを推奨する。
+
+el-get のレシピは GitHub を見ているので安心
+*** 設定
+とりあえず color-moccur で migemo が使えると検索する時に便利なのでその機能を有効にしている。
+また、編集したところがわかりやすい方がいいかなと思ったので、そこをハイライトする設定も入れておいた
+
+#+begin_src emacs-lisp :tangle inits/40-moccur.el
+(custom-set-variables
+ '(moccur-use-migemo t)
+ '(moccur-edit-highlight-edited-text t))
+#+end_src
 ** multiple-cursors
    :PROPERTIES:
    :EXPORT_FILE_NAME: multiple-cursors
