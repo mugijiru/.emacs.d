@@ -95,7 +95,7 @@
 	"title": "ファイル編集/入力補助",
 	"tags": [],
 	"description": "",
-	"content": "ここにはファイル編集や入力補助の設定をまとめている\n基本設定 編集周りの基本的な設定 auto-insert ファイル新規作成時にテンプレートを挿入する機能 company-mode プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ copilot GitHub Copilot を使えるようにするパッケージ emojify Slack や GitHub みたいに :smile: とか入れると笑顔の絵文字を表示する、みたいなやつ flyspell スペルチェックをしてくれるパッケージ multiple-cursors カーソルを増やして複数箇所を同時に編集できるようになるやつ origami コードの折り畳みができるようになるやつ smartparens カッコや引用符などのペアになるやつの入力補助をしてくれるやつ textlint 文章校正に便利なやつ undo-fu シンプルな undo/redo の機能を提供してくれるやつ view-mode Emacs に組込まれてる閲覧専用のモード。コードリーディングの時に有効にすると便利 whitespace 空白文字を可視化したり自動的に消したりする便利なやつ yasnippet テンプレート挿入機能を提供してくれるやつ "
+	"content": "ここにはファイル編集や入力補助の設定をまとめている\n基本設定 編集周りの基本的な設定 auto-insert ファイル新規作成時にテンプレートを挿入する機能 company-mode プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ copilot GitHub Copilot を使えるようにするパッケージ emojify Slack や GitHub みたいに :smile: とか入れると笑顔の絵文字を表示する、みたいなやつ flyspell スペルチェックをしてくれるパッケージ moccur-edit color-moccur でディレクトリごと検索した後にそのバッファでそのまま編集できるようにするやつ multiple-cursors カーソルを増やして複数箇所を同時に編集できるようになるやつ origami コードの折り畳みができるようになるやつ smartparens カッコや引用符などのペアになるやつの入力補助をしてくれるやつ textlint 文章校正に便利なやつ undo-fu シンプルな undo/redo の機能を提供してくれるやつ view-mode Emacs に組込まれてる閲覧専用のモード。コードリーディングの時に有効にすると便利 whitespace 空白文字を可視化したり自動的に消したりする便利なやつ yasnippet テンプレート挿入機能を提供してくれるやつ "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/org-capture/",
@@ -628,6 +628,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 migemo.el は cmigemo などと通信して、日本語入力オフのままローマ字入力をして日本語検索ができるようにするパッケージ。\nこれとても便利で抜け出せない。\nインストール いつも通り el-get でインストール。\n(el-get-bundle migemo) (load \u0026#34;migemo\u0026#34;) load はする必要あるのかわからんけど、そういう設定が既に入ってるのでそのままにしている。\nMac での辞書の位置の指定 Homebrew で cmigemo を入れているのでそれに合わせて辞書の位置を指定している。\n;; Mac (let ((path \u0026#34;/usr/local/share/migemo/utf-8/migemo-dict\u0026#34;)) (if (file-exists-p path) (setq migemo-dictionary path))) Ubuntu での辞書の位置の指定 apt で cmigemo を入れているのでそれに合わせて辞書の位置を指定している。\n;; Ubuntu (let ((path \u0026#34;/usr/share/cmigemo/utf-8/migemo-dict\u0026#34;)) (if (file-exists-p path) (setq migemo-dictionary path))) Manjaro での辞書の位置の指定 yay で cmigemo-git を入れているのでそれに合わせて辞書の位置を指定している。\n;; Manjaro (let ((path \u0026#34;/usr/share/migemo/utf-8/migemo-dict\u0026#34;)) (if (file-exists-p path) (setq migemo-dictionary path))) cmigemo コマンドの PATH 指定 環境で PATH が変わるので which コマンドの結果を migemo-command に設定している。\n(let ((path (s-chomp (shell-command-to-string \u0026#34;which cmigemo\u0026#34;)))) (if (s-ends-with? \u0026#34;not found\u0026#34; path) (message \u0026#34;cmigemo not found\u0026#34;) (setq migemo-command path))) オプション設定 裏側で動くのでうるさくならないように -q を指定しているのと Emacs から叩くから --emacs を指定しているだけ。\n(setq migemo-options \u0026#39;(\u0026#34;-q\u0026#34; \u0026#34;--emacs\u0026#34;)) coding system の指定 Mac と Ubuntu でしか使わないしそれらの環境だと統一で utf-8-unix でいいよねってことでそれを指定している。\n(setq migemo-coding-system \u0026#39;utf-8-unix) 今時なら euc とかにする必要もないだろうしね。\n初期化 以上の設定を入れた上で初期化をしている。\n(migemo-init) "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/editing/moccur-edit/",
+	"title": "moccur-edit",
+	"tags": [],
+	"description": "",
+	"content": "概要 moccur-edit は color-moccur で検索した結果を編集するためのツール。\nインストール el-get 本体にレシピがあるのでそちらからインストールしている。\n(el-get-bundle moccur-edit) なお EmacsWiki に moccur-edit も color-moccur もあるのだけど color-moccur の方がソースコードが古めなので GitHub から入れるのを推奨する。\nel-get のレシピは GitHub を見ているので安心\n設定 とりあえず color-moccur で migemo が使えると検索する時に便利なのでその機能を有効にしている。また、編集したところがわかりやすい方がいいかなと思ったので、そこをハイライトする設定も入れておいた\n(custom-set-variables \u0026#39;(moccur-use-migemo t) \u0026#39;(moccur-edit-highlight-edited-text t)) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/programming/mocha/",

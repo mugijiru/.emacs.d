@@ -9,23 +9,23 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>JSON :: 麦汁&#39;s Emacs Config</title>
+    <title>moccur-edit :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1710590646" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1710590646" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1710590646" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1710590646" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1710590646" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1710590646" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1710590646" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1710590646" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1710590646" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1710590646" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1710590645" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1710590645" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1710590645" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1710590645" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1710590645" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1710590645" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1710590645" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1710590645" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1710590645" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1710590645" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1710590646"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1710590645"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/programming/json/">
+  <body class="" data-url="/.emacs.d/editing/moccur-edit/">
     <nav id="sidebar" class="">
 
 
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1710590646"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1710590646"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1710590645"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1710590645"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1710590646"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1710590645"></script>
 
     
   </div>
@@ -622,7 +622,7 @@
   
     
     <li data-nav-id="/.emacs.d/editing/" title="ファイル編集/入力補助" class="dd-item
-        
+        parent
         
         
         ">
@@ -795,7 +795,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/editing/moccur-edit/" title="moccur-edit" class="dd-item ">
+      <li data-nav-id="/.emacs.d/editing/moccur-edit/" title="moccur-edit" class="dd-item active">
         <a href="/.emacs.d/editing/moccur-edit/">
         moccur-edit
         
@@ -1648,7 +1648,7 @@
   
     
     <li data-nav-id="/.emacs.d/programming/" title="プログラミング関係の設定" class="dd-item
-        parent
+        
         
         
         ">
@@ -1842,7 +1842,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/programming/json/" title="JSON" class="dd-item active">
+      <li data-nav-id="/.emacs.d/programming/json/" title="JSON" class="dd-item ">
         <a href="/.emacs.d/programming/json/">
         JSON
         
@@ -3182,7 +3182,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/programming/'>プログラミング関係の設定</a> > JSON
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/editing/'>ファイル編集/入力補助</a> > moccur-edit
           
         
           
@@ -3197,12 +3197,9 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#概要">概要</a>
-      <ul>
-        <li><a href="#json-mode">json-mode</a></li>
-        <li><a href="#hook">hook</a></li>
-      </ul>
-    </li>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#インストール">インストール</a></li>
+    <li><a href="#設定">設定</a></li>
   </ul>
 </nav>
     </div>
@@ -3220,7 +3217,7 @@
           
             <h1>
               
-              JSON
+              moccur-edit
             </h1>
           
 
@@ -3228,27 +3225,19 @@
 
 
 <h2 id="概要">概要</h2>
-<p>パッケージの設定ファイルなどでよく使われているファイル形式。</p>
-<h3 id="json-mode">json-mode</h3>
-<p><a href="https://github.com/json-emacs/json-mode">json-mode</a> は Emacs で JSON を編集するためのモード。</p>
-<h4 id="インストール">インストール</h4>
-<p>いつも通り <code>el-get-bundle</code> でインストール。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle json-mode)
-</span></span></code></pre></div><h3 id="hook">hook</h3>
-<p>補完を有効にしたり LSP を使えるようにしたり保存時に自動整形させたりするため
-hook を色々突っ込んでる</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/json-mode-hook ()
-</span></span><span style="display:flex;"><span>  (company-mode <span style="color:#ae81ff">1</span>)
-</span></span><span style="display:flex;"><span>  (lsp)
-</span></span><span style="display:flex;"><span>  (lsp-ui-mode <span style="color:#ae81ff">1</span>)
-</span></span><span style="display:flex;"><span>  (add-hook <span style="color:#e6db74">&#39;before-save-hook</span> <span style="color:#a6e22e">#&#39;</span>lsp-format-buffer <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;local</span>)
-</span></span><span style="display:flex;"><span>  (turn-on-smartparens-strict-mode)
-</span></span><span style="display:flex;"><span>  (flycheck-mode <span style="color:#ae81ff">1</span>)
-</span></span><span style="display:flex;"><span>  (flycheck-select-checker <span style="color:#e6db74">&#39;json-jq</span>)
-</span></span><span style="display:flex;"><span>  (highlight-indent-guides-mode <span style="color:#ae81ff">1</span>)
-</span></span><span style="display:flex;"><span>  (display-line-numbers-mode <span style="color:#ae81ff">1</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;json-mode-hook</span> <span style="color:#e6db74">&#39;my/json-mode-hook</span>)
+<p><a href="https://github.com/myuhe/moccur-edit.el">moccur-edit</a> は <a href="https://github.com/myuhe/color-moccur.el">color-moccur</a> で検索した結果を編集するためのツール。</p>
+<h2 id="インストール">インストール</h2>
+<p>el-get 本体にレシピがあるのでそちらからインストールしている。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle moccur-edit)
+</span></span></code></pre></div><p>なお EmacsWiki に moccur-edit も color-moccur もあるのだけど
+color-moccur の方がソースコードが古めなので
+GitHub から入れるのを推奨する。</p>
+<p>el-get のレシピは GitHub を見ているので安心</p>
+<h2 id="設定">設定</h2>
+<p>とりあえず color-moccur で migemo が使えると検索する時に便利なのでその機能を有効にしている。また、編集したところがわかりやすい方がいいかなと思ったので、そこをハイライトする設定も入れておいた</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-variables
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(moccur-use-migemo <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(moccur-edit-highlight-edited-text <span style="color:#66d9ef">t</span>))
 </span></span></code></pre></div>
 
 <footer class="footline">
@@ -3657,6 +3646,7 @@ hook を色々突っ込んでる</p>
             
                 
                     
+                    
                 
                 
 
@@ -3664,6 +3654,365 @@ hook を色々突っ込んでる</p>
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -3921,22 +4270,6 @@ hook を色々突っ込んでる</p>
             
         
                     
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
                         
             
             
@@ -3969,19 +4302,6 @@ hook を色々突っ込んでる</p>
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
             
         
                     
@@ -3997,233 +4317,6 @@ hook を色々突っ込んでる</p>
                     
                     
 
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -4401,42 +4494,6 @@ hook を色々突っ込んでる</p>
             
         
                     
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
             
             
@@ -4505,74 +4562,6 @@ hook を色々突っ込んでる</p>
             
             
                 
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -5493,10 +5482,10 @@ hook を色々突っ込んでる</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/programming/jest/" title="Jest"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/editing/git-modes/" title="git-modes"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/programming/lsp-mode/" title="lsp-mode" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/editing/multiple-cursors/" title="multiple-cursors" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -5506,19 +5495,19 @@ hook を色々突っ込んでる</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1710590646"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1710590646"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1710590646"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1710590646"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1710590646"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1710590646"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1710590645"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1710590645"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1710590645"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1710590645"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1710590645"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1710590645"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1710590646"></script>
-    <script src="/.emacs.d/js/learn.js?1710590646"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1710590646"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1710590645"></script>
+    <script src="/.emacs.d/js/learn.js?1710590645"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1710590645"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1710590646"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1710590645"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

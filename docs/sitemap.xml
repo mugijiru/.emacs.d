@@ -182,6 +182,8 @@
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/basics/migemo/</loc>
   </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/editing/moccur-edit/</loc>
+  </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/programming/mocha/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/ui/mode-line/</loc>
