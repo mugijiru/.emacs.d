@@ -26,6 +26,9 @@ disableToc = true
 [flyspell]({{< relref "flyspell" >}})
 : スペルチェックをしてくれるパッケージ
 
+[moccur-edit]({{< relref "moccur-edit" >}})
+: color-moccur でディレクトリごと検索した後にそのバッファでそのまま編集できるようにするやつ
+
 [multiple-cursors]({{< relref "multiple-cursors" >}})
 : カーソルを増やして複数箇所を同時に編集できるようになるやつ
 
