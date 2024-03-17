@@ -1523,6 +1523,7 @@
    - [[*undo-fu][undo-fu]] :: シンプルな undo/redo の機能を提供してくれるやつ
    - [[*view-mode][view-mode]] :: Emacs に組込まれてる閲覧専用のモード。コードリーディングの時に有効にすると便利
    - [[*whitespace][whitespace]] :: 空白文字を可視化したり自動的に消したりする便利なやつ
+   - [[id:acdfb708-1ada-430c-a500-715f0cc978aa][wgrep]] :: grep などで検索した結果バッファで直接編集できるようにするやつ
    - [[*yasnippet][yasnippet]] :: テンプレート挿入機能を提供してくれるやつ
 ** 基本設定
    :PROPERTIES:
@@ -2370,6 +2371,24 @@ See URL `https://textlint.github.io/'."
 (global-whitespace-mode 1)
     #+end_src
 
+** wgrep
+:PROPERTIES:
+:EXPORT_FILE_NAME: wgrep
+:ID:       acdfb708-1ada-430c-a500-715f0cc978aa
+:END:
+*** 概要
+[[https://github.com/mhayashi1120/Emacs-wgrep][wgrep]] は grep などでの検索結果バッファから直接ファイル編集ができるやつ。
+
+類似品に [[id:1e135071-8d60-4435-8819-3572c031f787][moccur-edit]] もあるけど外部ツールを使う分速いみたい。
+その代わり migemo は使えない。
+*** インストール
+こいつは el-get 本体にレシピがあるので単にインストールするだけで OK
+
+#+begin_src emacs-lisp :tangle inits/40-wgrep.el
+(el-get-bundle wgrep)
+#+end_src
+
+特に設定はしていない
 ** yasnippet
    :PROPERTIES:
    :EXPORT_FILE_NAME: yasnippet
@@ -3242,7 +3261,7 @@ el-get の Hydra はここで定義してしまっている。
     (";" comment-dwim "Comment"))
 
    "Code"
-   (("G" counsel-projectile-ag       "Grep")
+   (("G" counsel-projectile-rg       "Grep")
     ("j" dumb-jump-pretty-hydra/body "Dumb jump")
     ("g" avy-hydra/body              "Avy")
     ("l" pretty-hydra-lsp/body       "LSP")
@@ -6709,7 +6728,7 @@ hook で動作する中身が変更できて便利。
 :END:
 外部連携ツール設定
 
-ここでは外部のサービスと連携するようなやつをまとめています
+ここでは外部のサービスや外部コマンド連携するようなやつをまとめています
 
 - [[*emacs-w3m][emacs-w3m]] :: 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ
 - [[id:3bede284-b3db-45ad-9f49-ce31ec47ce6f][calibredb]] :: 電子書籍管理ツール [[https://calibre-ebook.com/][Calibre]] のデータを Emacs から操作するためのパッケージ
@@ -6722,6 +6741,7 @@ hook で動作する中身が変更できて便利。
 - [[*notify-slack][notify-slack]] :: Emacs から外部コマンドを通じて Slack に通知するための関数周りの事を書いている
 - [[id:b2277ecd-038a-4dfd-a510-6e2382f2350f][openai]] :: Emacs から [[https://openai.com/blog/openai-api][OpenAI API]] を利用するためのライブラリ
 - [[id:db428e03-5074-4b94-b775-8a49c4f65350][pdf-tools]] :: PDF を見るのに便利なやつ
+- [[id:502cd8c0-a87a-4ff6-a332-e46b6bb1e938][rg]] :: [[https://github.com/BurntSushi/ripgrep][ripgrep]] を使って高速に検索するためのパッケージ
 - [[*todoist][todoist]] :: Todoist と連携して org-mode で扱えるようにするパッケージ
 - [[*twmode][twmode]] :: Emacs 上で動く Twitter クライアント
 - [[id:9c9bff02-7627-44ae-9868-e1310ff19294][wakatime-mode]] :: Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ
@@ -7464,6 +7484,30 @@ PDF を開いたら即使えるようにするため ~pdf-loader-install~ を実
 
 #+begin_src emacs-lisp :tangle inits/50-pdf-tools.el
 (pdf-loader-install)
+#+end_src
+** rg
+:PROPERTIES:
+:EXPORT_FILE_NAME: rg
+:ID:       502cd8c0-a87a-4ff6-a332-e46b6bb1e938
+:END:
+*** 概要
+[[https://github.com/dajva/rg.el][rg.el]] は [[https://github.com/BurntSushi/ripgrep][ripgrep]] を使って高速に検索するためのパッケージ。
+*** インストール
+el-get 本体にはレシピがないので自前で用意している。
+
+#+begin_src emacs-lisp :tangle recipes/rg.rcp
+(:name rg
+       :website "https://github.com/dajva/rg.el"
+       :description "Use ripgrep in Emacs."
+       :type github
+       :depends (transient wgrep)
+       :pkgname "dajva/rg.el")
+#+end_src
+
+そしてそれを ~el-get-bundle~ でインストール
+
+#+begin_src emacs-lisp :tangle inits/20-rg.el
+(el-get-bundle rg)
 #+end_src
 ** todoist
 :PROPERTIES:

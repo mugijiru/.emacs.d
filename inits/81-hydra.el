@@ -96,7 +96,7 @@
     (";" comment-dwim "Comment"))
 
    "Code"
-   (("G" counsel-projectile-ag       "Grep")
+   (("G" counsel-projectile-rg       "Grep")
     ("j" dumb-jump-pretty-hydra/body "Dumb jump")
     ("g" avy-hydra/body              "Avy")
     ("l" pretty-hydra-lsp/body       "LSP")

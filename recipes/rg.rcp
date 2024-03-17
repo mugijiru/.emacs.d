@@ -1,0 +1,6 @@
+(:name rg
+       :website "https://github.com/dajva/rg.el"
+       :description "Use ripgrep in Emacs."
+       :type github
+       :depends (transient wgrep)
+       :pkgname "dajva/rg.el")
