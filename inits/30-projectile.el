@@ -29,4 +29,4 @@
      (("R" projectile-replace "Replace"))
 
      "Other"
-     (("p" (counsel-projectile-switch-project 'neotree-dir) "Switch Project")))))
+     (("p" (counsel-projectile-switch-project 'counsel-projectile-switch-project-action-vc) "Switch Project")))))
