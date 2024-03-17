@@ -1523,6 +1523,7 @@
    - [[*undo-fu][undo-fu]] :: シンプルな undo/redo の機能を提供してくれるやつ
    - [[*view-mode][view-mode]] :: Emacs に組込まれてる閲覧専用のモード。コードリーディングの時に有効にすると便利
    - [[*whitespace][whitespace]] :: 空白文字を可視化したり自動的に消したりする便利なやつ
+   - [[id:acdfb708-1ada-430c-a500-715f0cc978aa][wgrep]] :: grep などで検索した結果バッファで直接編集できるようにするやつ
    - [[*yasnippet][yasnippet]] :: テンプレート挿入機能を提供してくれるやつ
 ** 基本設定
    :PROPERTIES:
@@ -2370,6 +2371,24 @@ See URL `https://textlint.github.io/'."
 (global-whitespace-mode 1)
     #+end_src
 
+** wgrep
+:PROPERTIES:
+:EXPORT_FILE_NAME: wgrep
+:ID:       acdfb708-1ada-430c-a500-715f0cc978aa
+:END:
+*** 概要
+[[https://github.com/mhayashi1120/Emacs-wgrep][wgrep]] は grep などでの検索結果バッファから直接ファイル編集ができるやつ。
+
+類似品に [[id:1e135071-8d60-4435-8819-3572c031f787][moccur-edit]] もあるけど外部ツールを使う分速いみたい。
+その代わり migemo は使えない。
+*** インストール
+こいつは el-get 本体にレシピがあるので単にインストールするだけで OK
+
+#+begin_src emacs-lisp :tangle inits/40-wgrep.el
+(el-get-bundle wgrep)
+#+end_src
+
+特に設定はしていない
 ** yasnippet
    :PROPERTIES:
    :EXPORT_FILE_NAME: yasnippet

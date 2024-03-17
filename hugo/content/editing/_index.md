@@ -50,5 +50,8 @@ disableToc = true
 [whitespace]({{< relref "whitespace" >}})
 : 空白文字を可視化したり自動的に消したりする便利なやつ
 
+[wgrep]({{< relref "wgrep" >}})
+: grep などで検索した結果バッファで直接編集できるようにするやつ
+
 [yasnippet]({{< relref "yasnippet" >}})
 : テンプレート挿入機能を提供してくれるやつ
