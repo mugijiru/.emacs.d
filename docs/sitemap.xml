@@ -218,6 +218,8 @@
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/tags/replacement/</loc>
   </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/external-tool/rg/</loc>
+  </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/programming/rspec-mode/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/programming/ruby/</loc>
@@ -265,6 +267,8 @@
     <loc>https://mugijiru.github.io/.emacs.d/programming/vue-js/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/external-tool/wakatime-mode/</loc>
+  </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/editing/wgrep/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/keybinds/which-key/</loc>
   </url><url>

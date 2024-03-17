@@ -1352,6 +1352,18 @@ dap-mode Debug Adapter Protocol をサポートするモード。入れておい
     </item>
     
     <item>
+      <title>rg</title>
+      <link>https://mugijiru.github.io/.emacs.d/external-tool/rg/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/external-tool/rg/</guid>
+      <description>概要 rg.el は ripgrep を使って高速に検索するためのパッケージ。
+インストール el-get 本体にはレシピがないので自前で用意している。
+(:name rg :website &amp;#34;https://github.com/dajva/rg.el&amp;#34; :description &amp;#34;Use ripgrep in Emacs.&amp;#34; :type github :depends (transient wgrep) :pkgname &amp;#34;dajva/rg.el&amp;#34;) そしてそれを el-get-bundle でインストール
+(el-get-bundle rg) </description>
+    </item>
+    
+    <item>
       <title>rspec-mode</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/rspec-mode/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1665,6 +1677,18 @@ WakaTime は自分がどのプロジェクトの作業をしているかを計�
 (custom-set-variables &amp;#39;(wakatime-cli-path &amp;#34;/usr/bin/wakatime&amp;#34;) &amp;#39;(wakatime-api-key (funcall (plist-get (nth 0 (auth-source-search :host &amp;#34;wakatime.com&amp;#34; :max 1)) :secret)))) 有効化 Emacs を使っている間は常に有効になっていて欲しいので global-wakatime-mode を有効にしている。
 (global-wakatime-mode 1) APIキーが取れてない時はやたらエラーを吐くので何かしら調整はしてもいいかもしれない。
 (if (boundp &amp;#39;wakatime-api-key) (global-wakatime-mode 1)) みたいにして API キーが取れている時だけ有効にするとかね。</description>
+    </item>
+    
+    <item>
+      <title>wgrep</title>
+      <link>https://mugijiru.github.io/.emacs.d/editing/wgrep/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/editing/wgrep/</guid>
+      <description>概要 wgrep は grep などでの検索結果バッファから直接ファイル編集ができるやつ。
+類似品に moccur-edit もあるけど外部ツールを使う分速いみたい。その代わり migemo は使えない。
+インストール こいつは el-get 本体にレシピがあるので単にインストールするだけで OK
+(el-get-bundle wgrep) 特に設定はしていない</description>
     </item>
     
     <item>

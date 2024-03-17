@@ -12,20 +12,20 @@
     <title>hydra :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1710590646" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1710590646" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1710590646" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1710590646" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1710590646" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1710590646" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1710590646" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1710590646" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1710590646" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1710590646" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1710671012" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1710671012" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1710671012" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1710671012" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1710671012" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1710671012" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1710671012" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1710671012" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1710671012" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1710671012" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1710590646"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1710671012"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1710590646"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1710590646"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1710671012"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1710671012"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1710590646"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1710671012"></script>
 
     
   </div>
@@ -924,6 +924,27 @@
       <li data-nav-id="/.emacs.d/editing/view-mode/" title="view-mode" class="dd-item ">
         <a href="/.emacs.d/editing/view-mode/">
         view-mode
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/.emacs.d/editing/wgrep/" title="wgrep" class="dd-item ">
+        <a href="/.emacs.d/editing/wgrep/">
+        wgrep
         
         </a>
     </li>
@@ -2443,6 +2464,27 @@
  
   
     
+      <li data-nav-id="/.emacs.d/external-tool/rg/" title="rg" class="dd-item ">
+        <a href="/.emacs.d/external-tool/rg/">
+        rg
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
       <li data-nav-id="/.emacs.d/external-tool/todoist/" title="todoist" class="dd-item ">
         <a href="/.emacs.d/external-tool/todoist/">
         todoist
@@ -3529,7 +3571,7 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
 </span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;;&#34;</span> comment-dwim <span style="color:#e6db74">&#34;Comment&#34;</span>))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>   <span style="color:#e6db74">&#34;Code&#34;</span>
-</span></span><span style="display:flex;"><span>   ((<span style="color:#e6db74">&#34;G&#34;</span> counsel-projectile-ag       <span style="color:#e6db74">&#34;Grep&#34;</span>)
+</span></span><span style="display:flex;"><span>   ((<span style="color:#e6db74">&#34;G&#34;</span> counsel-projectile-rg       <span style="color:#e6db74">&#34;Grep&#34;</span>)
 </span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;j&#34;</span> dumb-jump-pretty-hydra/body <span style="color:#e6db74">&#34;Dumb jump&#34;</span>)
 </span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;g&#34;</span> avy-hydra/body              <span style="color:#e6db74">&#34;Avy&#34;</span>)
 </span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;l&#34;</span> pretty-hydra-lsp/body       <span style="color:#e6db74">&#34;LSP&#34;</span>)
@@ -4336,42 +4378,6 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
             
         
                     
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
             
             
@@ -4387,131 +4393,6 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
             
         
@@ -4529,9 +4410,6 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
                     
                     
 
-                    
-            
-        
                     
                         
             
@@ -4701,6 +4579,186 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                 
                 
 
@@ -4839,38 +4897,6 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -5208,6 +5234,19 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
             
         
                     
@@ -5223,6 +5262,41 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
                     
                     
 
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -5921,19 +5995,19 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1710590646"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1710590646"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1710590646"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1710590646"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1710590646"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1710590646"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1710671012"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1710671012"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1710671012"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1710671012"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1710671012"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1710671012"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1710590646"></script>
-    <script src="/.emacs.d/js/learn.js?1710590646"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1710590646"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1710671012"></script>
+    <script src="/.emacs.d/js/learn.js?1710671012"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1710671012"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1710590646"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1710671012"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

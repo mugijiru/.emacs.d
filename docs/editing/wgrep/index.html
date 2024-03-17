@@ -9,23 +9,23 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>helm-posframe :: 麦汁&#39;s Emacs Config</title>
+    <title>wgrep :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1710671012" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1710671012" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1710671012" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1710671012" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1710671012" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1710671012" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1710671012" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1710671012" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1710671012" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1710671012" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1710671011" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1710671011" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1710671011" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1710671011" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1710671011" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1710671011" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1710671011" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1710671011" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1710671011" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1710671011" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1710671012"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1710671011"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/ui/helm-posframe/">
+  <body class="" data-url="/.emacs.d/editing/wgrep/">
     <nav id="sidebar" class="">
 
 
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1710671012"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1710671012"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1710671011"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1710671011"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1710671012"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1710671011"></script>
 
     
   </div>
@@ -622,7 +622,7 @@
   
     
     <li data-nav-id="/.emacs.d/editing/" title="ファイル編集/入力補助" class="dd-item
-        
+        parent
         
         
         ">
@@ -942,7 +942,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/editing/wgrep/" title="wgrep" class="dd-item ">
+      <li data-nav-id="/.emacs.d/editing/wgrep/" title="wgrep" class="dd-item active">
         <a href="/.emacs.d/editing/wgrep/">
         wgrep
         
@@ -1013,7 +1013,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        parent
+        
         
         
         ">
@@ -1207,7 +1207,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/helm-posframe/" title="helm-posframe" class="dd-item active">
+      <li data-nav-id="/.emacs.d/ui/helm-posframe/" title="helm-posframe" class="dd-item ">
         <a href="/.emacs.d/ui/helm-posframe/">
         helm-posframe
         
@@ -3224,7 +3224,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > helm-posframe
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/editing/'>ファイル編集/入力補助</a> > wgrep
           
         
           
@@ -3241,7 +3241,6 @@
   <ul>
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
-    <li><a href="#有効化">有効化</a></li>
   </ul>
 </nav>
     </div>
@@ -3259,7 +3258,7 @@
           
             <h1>
               
-              helm-posframe
+              wgrep
             </h1>
           
 
@@ -3267,17 +3266,13 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/tumashu/helm-posframe">helm-posframe</a> は <a href="https://github.com/emacs-helm/helm">helm</a> の拡張で
-Helm のバッファの表示を <a href="https://github.com/tumashu/posframe">posframe</a> を使うようにしてくれるやつ。</p>
-<p>実は helm 本体の方でも posframe 対応しているのであまり使う必要もなさそうなのでいずれ外すかもしれない。</p>
-<p>ただ確か本体の方の挙動が気に入らなかったような気はする。</p>
+<p><a href="https://github.com/mhayashi1120/Emacs-wgrep">wgrep</a> は grep などでの検索結果バッファから直接ファイル編集ができるやつ。</p>
+<p>類似品に <a href="/.emacs.d/editing/moccur-edit/">moccur-edit</a> もあるけど外部ツールを使う分速いみたい。その代わり migemo は使えない。</p>
 <h2 id="インストール">インストール</h2>
-<p>いつも通り el-get でインストール。
-GitHub にあるのでそれを取得するようにしている。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle tumashu/helm-posframe)
-</span></span></code></pre></div><h2 id="有効化">有効化</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(helm-posframe-enable)
-</span></span></code></pre></div>
+<p>こいつは el-get 本体にレシピがあるので単にインストールするだけで OK</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle wgrep)
+</span></span></code></pre></div><p>特に設定はしていない</p>
+
 
 <footer class="footline">
 	
@@ -3685,6 +3680,7 @@ GitHub にあるのでそれを取得するようにしている。</p>
             
                 
                     
+                    
                 
                 
 
@@ -3698,101 +3694,8 @@ GitHub にあるのでそれを取得するようにしている。</p>
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -3965,106 +3868,6 @@ GitHub にあるのでそれを取得するようにしている。</p>
             
         
                     
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
             
             
@@ -4137,6 +3940,198 @@ GitHub にあるのでそれを取得するようにしている。</p>
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -5553,10 +5548,10 @@ GitHub にあるのでそれを取得するようにしている。</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/ui/helm/" title="helm"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/editing/view-mode/" title="view-mode"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/ui/highlight-indent-guides/" title="highlight-indent-guides" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/editing/whitespace/" title="whitespace" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -5566,19 +5561,19 @@ GitHub にあるのでそれを取得するようにしている。</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1710671012"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1710671012"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1710671012"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1710671012"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1710671012"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1710671012"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1710671011"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1710671011"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1710671011"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1710671011"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1710671011"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1710671011"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1710671012"></script>
-    <script src="/.emacs.d/js/learn.js?1710671012"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1710671012"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1710671011"></script>
+    <script src="/.emacs.d/js/learn.js?1710671011"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1710671011"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1710671012"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1710671011"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
