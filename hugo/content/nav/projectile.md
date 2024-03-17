@@ -86,7 +86,7 @@ counsel-projectile はいくつかの絞り込み処理を提供してくれて�
      (("R" projectile-replace "Replace"))
 
      "Other"
-     (("p" (counsel-projectile-switch-project 'neotree-dir) "Switch Project")))))
+     (("p" (counsel-projectile-switch-project 'counsel-projectile-switch-project-action-vc) "Switch Project")))))
 ```
 
 | Key | 効果                    |
@@ -98,9 +98,9 @@ counsel-projectile はいくつかの絞り込み処理を提供してくれて�
 
 -   `projectile-find-implementation-or-test`
 -   `projectile-replace`
--   `projectile-replace-regxp`
+-   `projectile-replace-regexp`
 
-あたりも使えるようにするともしかしたら便利かもしれない。あとは `counsel-projectile-grep` とかの類か。
+あたりも使えるようにするともしかしたら便利かもしれない。あとは `counsel-projectile-grep` とかの類かな〜
 
 
 ## その他 {#その他}

@@ -4740,7 +4740,6 @@ pretty-hydra を使ってキーを定義している
 #+end_src
 
 node_modules もここに突っ込んでも良いかもしれない。
-
 **** 無視するファイル
 :PROPERTIES:
 :ID:       8675762a-4677-4106-9f83-66a3bcb07c0d
@@ -4754,7 +4753,6 @@ node_modules もここに突っ込んでも良いかもしれない。
 tags ファイルは昔は使っていたけど、
 最近は dumb-jump が優秀なのと、面倒で使ってないので
 そろそろ gems.tags と project.tags は不要かもしれない。
-
 *** ivy/counsel との連携
 :PROPERTIES:
 :ID:       7d645d02-3805-4fdd-90c4-e68465d0971b
@@ -4790,7 +4788,7 @@ counsel-projectile はいくつかの絞り込み処理を提供してくれて�
      (("R" projectile-replace "Replace"))
 
      "Other"
-     (("p" (counsel-projectile-switch-project 'neotree-dir) "Switch Project")))))
+     (("p" (counsel-projectile-switch-project 'counsel-projectile-switch-project-action-vc) "Switch Project")))))
 #+end_src
 
 | Key | 効果                                           |
@@ -4801,10 +4799,11 @@ counsel-projectile はいくつかの絞り込み処理を提供してくれて�
 
 - ~projectile-find-implementation-or-test~
 - ~projectile-replace~
-- ~projectile-replace-regxp~
+- ~projectile-replace-regexp~
 
-  あたりも使えるようにするともしかしたら便利かもしれない。
-  あとは ~counsel-projectile-grep~ とかの類か。
+あたりも使えるようにするともしかしたら便利かもしれない。
+あとは ~counsel-projectile-grep~ とかの類かな〜
+
 *** その他
 基本的に Rails のプロジェクトをやっているので
 projectile-rails をベースにいつも触ってるので projectile そのものはあまり弄ってないのであった
