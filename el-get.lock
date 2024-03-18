@@ -13,7 +13,7 @@
         (org-mode :checksum "17608670a4f4e8edb91efe04d86fe80ff9d01b69")
         (org-journal :checksum "17b34ce8df9649a73b715c13698220bde1628668")
         (company-terraform :checksum "8d5a16d1bbeeb18ca49a8fd57b5d8cd30c8b8dc7")
-        (terraform-mode :checksum "e8b57df8c2a3d3171f3768f60eb84067f553289c")
+        (terraform-mode :checksum "f16a7ff3b9a1e455daaca4208272440b858d2e0a")
         (hcl-mode :checksum "ec27736c4c16fbf7f1ecab0210ec3c71ac2406fa")
         (jest-test-mode :checksum "a397507d8bb41e4aa6b97994f1d7512e78d3dee3")
         (dockerfile-mode :checksum "afcd418d82a0162dd59c44a5e0c558bcb1d1d7ca")
