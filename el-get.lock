@@ -164,7 +164,7 @@
         (twittering-mode :checksum "114891e8fdb4f06b1326a6cf795e49c205cf9e29")
         (wakatime-mode :checksum "25fb775178d16decb818b75f32fd23301c0f5da0")
         (with-editor :checksum "5db5f0eb2202f52d44f529fe00654c866bb64eb1")
-        (yaml-mode :checksum "5b58248ab255dff6cfa4c4057a191bc4446ee5b6")
+        (yaml-mode :checksum "7b5ce294fb15c2c8926fa476d7218aa415550a2a")
         (yascroll :checksum "40502608333a075fc4f3eb669593f63025a1bf33")
         (yasnippet :checksum "33587a8551b8f6991b607d3532062a384c010ce1")
         (zoom-window :checksum "a9b4962e4c47436779d6a250af340b3db3a6ecb3")
