@@ -6425,9 +6425,9 @@ TypeScript ファイル(.ts) を使う上での設定を書いている。
 - Node.js の使用メモリも 2048 MB に増加。メモリ足らんってなる時があったので
 - 保存時の自動フォーマット
 
-  などを設定している。
+などを設定している。
 
-  #+begin_src emacs-lisp :tangle inits/40-ts.el
+#+begin_src emacs-lisp :tangle inits/40-ts.el
 (custom-set-variables
  '(typescript-indent-level 2)
  '(lsp-typescript-locale "ja")
@@ -6437,7 +6437,7 @@ TypeScript ファイル(.ts) を使う上での設定を書いている。
  '(lsp-clients-typescript-max-ts-server-memory 2048)
  '(lsp-disabled-clients '())
  '(lsp-eslint-auto-fix-on-save nil))
-  #+end_src
+#+end_src
 **** auto-fix の hook 関数
 :PROPERTIES:
 :ID:       26121357-e71c-4977-9046-a0d49c557069
@@ -6458,31 +6458,32 @@ TypeScript ファイル(.ts) を使う上での設定を書いている。
 - smartparens-strict-mode
 - lsp/lsp-ui
 
-  などのプログラミングで便利な各種のモードを
-  hook を使って有効化している
+などのプログラミングで便利な各種のモードを
+hook を使って有効化している
 
-  #+begin_src emacs-lisp :tangle inits/40-ts.el
+#+begin_src emacs-lisp :tangle inits/40-ts.el
 (defun my/ts-mode-hook ()
   (origami-mode 1)
   (company-mode 1)
   (subword-mode 1)
+  (which-function-mode 1)
   (turn-on-smartparens-strict-mode)
   (display-line-numbers-mode t)
   (lsp)
   (lsp-ui-mode 1)
   (add-hook 'before-save-hook #'my/ts-mode-auto-fix-hook nil 'local))
-  #+end_src
+#+end_src
 
-  この関数を
+この関数を
 
-  #+begin_src emacs-lisp :tangle inits/40-ts.el
+#+begin_src emacs-lisp :tangle inits/40-ts.el
 (add-hook 'typescript-ts-mode-hook 'my/ts-mode-hook)
-  #+end_src
+#+end_src
 
-  として hook に追加している。
+として hook に追加している。
 
-  直接 lambda で add-hook に書くという手もあるが
-  関数を分離しておくと修正の反映が用意なのでこのようにしている。
+直接 lambda で add-hook に書くという手もあるが
+関数を分離しておくと修正の反映が用意なのでこのようにしている。
 **** 拡張子による有効化
 :PROPERTIES:
 :ID:       99bddae1-3a76-4a7a-91e2-4ca7e1889600
