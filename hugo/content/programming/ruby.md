@@ -77,8 +77,8 @@ encoding 設定のマジックコメントが入らないようにしている�
 
 ```ruby
 hoge = {
-         foo: 1
-       }
+  foo: 1
+}
 ```
 
 みたいな深いインデントになるけど
@@ -109,6 +109,7 @@ hook 用の関数で補完などの機能を有効にしている
   (origami-mode 1)
   (company-mode 1)
   (subword-mode 1)
+  (which-function-mode 1)
   (lsp)
   (lsp-ui-mode 1)
   (add-hook 'before-save-hook #'lsp-format-buffer nil 'local)
@@ -116,7 +117,10 @@ hook 用の関数で補完などの機能を有効にしている
   (display-line-numbers-mode 1))
 ```
 
+-   コード折り畳み用に origami を有効化
 -   補完用に company-mode を有効化
+-   CamelCase の単語区切りを有効にするため subword-mode を有効化
+-   今いる関数名が mode-line に出てると便利げなので which-function-mode を有効化
 -   [solargraph](https://github.com/castwide/solargraph) を使ってるので lsp-mode を有効にしている
     -   lsp-ui-mode も有効にして色々な情報を表示している
 -   また lsp-mode の自動フォーマットを保存時に実行するようにしている
@@ -142,8 +146,7 @@ Ruby を使ってる時にコメント部分はクォートの外以外では自
 
 ### キーバインド {#キーバインド}
 
-キーバインドは覚えられないので
-[major-mode-hydra]({{< relref "neotree#major-mode-hydra" >}}) でキーを定義している
+キーバインドは覚えられないので [major-mode-hydra]({{< relref "hydra#major-mode-hydra-のインストール" >}}) でキーを定義している
 
 ```emacs-lisp
 (with-eval-after-load 'major-mode-hydra

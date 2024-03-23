@@ -3159,6 +3159,7 @@ el-get の Hydra はここで定義してしまっている。
    (("z" zoom-mode                 "zoom-mode"      :toggle zoom-mode)
     ("Z" toggle-frame-fullscreen   "Fullscreen"     :toggle (frame-parameter nil 'fullscreen))
     ("e" emojify-mode              "Emojify"        :toggle emojify-mode)
+    ("w" which-function-mode       "Which func"     :toggle which-func-mode)
     ("b" display-battery-mode      "Battery"        :toggle display-battery-mode)
     ("L" display-line-numbers-mode "Line Number"    :toggle display-line-numbers-mode)
     ("N" neotree-toggle            "Neotree"        :toggle (if (fboundp 'neo-global--window-exists-p) (neo-global--window-exists-p) nil)))
@@ -3176,7 +3177,9 @@ el-get の Hydra はここで定義してしまっている。
 | Key | 効果                                                                                              |
 | z   | [[*zoom][zoom-mode]] のON/OFF切替。狭いディスプレイの時は ON にするが、大きいディスプレイだと OFF にしている |
 | Z   | フルスクリーンの切替。狭いディスプレイの時は ON にするが、大きいディスプレイだと OFF にしている   |
-| b   | バッテリー表示モードの切替。OFF にしたことないな……                                                |
+| e   | 常に絵文字に変換されると厳しい時があるので toggle できるようにしている                            |
+| w   | 関数名の表示が邪魔になることもありそうなので toggle できるようにしている                          |
+| b   | バッテリー表示モードの切替。OFF にしたことないな……                                              |
 | L   | 行番号表示の切替。邪魔になる時もあるので ON/OFF 切り替えている                                    |
 | N   | [[*Neotree][Neotree]] の表示切替。普段は邪魔なので OFF にしている                                               |
 | S   | Slack 通知の切替。org-clock-in とかのタイミングで Slack に通知を飛ばしているが切る時もある        |
@@ -5918,6 +5921,7 @@ Docker と連携するように調整
 (custom-set-variables
  '(rspec-use-docker-when-possible t))
 #+end_src
+
 ** ruby
 :PROPERTIES:
 :EXPORT_FILE_NAME: ruby
@@ -6028,6 +6032,7 @@ hook 用の関数で補完などの機能を有効にしている
   (origami-mode 1)
   (company-mode 1)
   (subword-mode 1)
+  (which-function-mode 1)
   (lsp)
   (lsp-ui-mode 1)
   (add-hook 'before-save-hook #'lsp-format-buffer nil 'local)
@@ -6035,18 +6040,21 @@ hook 用の関数で補完などの機能を有効にしている
   (display-line-numbers-mode 1))
 #+end_src
 
-  - 補完用に company-mode を有効化
-  - [[https://github.com/castwide/solargraph][solargraph]] を使ってるので lsp-mode を有効にしている
-    - lsp-ui-mode も有効にして色々な情報を表示している
-  - また lsp-mode の自動フォーマットを保存時に実行するようにしている
-  - 開きカッコと閉じカッコの組み合わせがズレないように smartparens-strict-mode を有効にしている
-  - 行番号も表示されている方が便利なので display-line-numbers-mode を有効にしている
+- コード折り畳み用に origami を有効化
+- 補完用に company-mode を有効化
+- CamelCase の単語区切りを有効にするため subword-mode を有効化
+- 今いる関数名が mode-line に出てると便利げなので which-function-mode を有効化
+- [[https://github.com/castwide/solargraph][solargraph]] を使ってるので lsp-mode を有効にしている
+  - lsp-ui-mode も有効にして色々な情報を表示している
+- また lsp-mode の自動フォーマットを保存時に実行するようにしている
+- 開きカッコと閉じカッコの組み合わせがズレないように smartparens-strict-mode を有効にしている
+- 行番号も表示されている方が便利なので display-line-numbers-mode を有効にしている
 
-    それらを設定する関数を enh-ruby-mode-hook に突っ込んでいる
+それらを設定する関数を enh-ruby-mode-hook に突っ込んでいる
 
-    #+begin_src emacs-lisp :tangle inits/40-ruby.el
+#+begin_src emacs-lisp :tangle inits/40-ruby.el
 (add-hook 'enh-ruby-mode-hook 'my/enh-ruby-mode-hook)
-    #+end_src
+#+end_src
 
 **** SKK の調整
 :PROPERTIES:
@@ -6059,13 +6067,11 @@ Ruby を使ってる時にコメント部分はクォートの外以外では
 #+begin_src emacs-lisp :tangle inits/40-ruby.el
 (add-to-list 'context-skk-programming-mode 'enh-ruby-mode)
 #+end_src
-
 **** キーバインド
 :PROPERTIES:
 :ID:       edd06a6f-6845-475a-83f5-df8d934fd241
 :END:
-キーバインドは覚えられないので
-[[*major-mode-hydra][major-mode-hydra]] でキーを定義している
+キーバインドは覚えられないので [[id:1daf2240-355e-4ecf-8a7d-875062872207][major-mode-hydra]] でキーを定義している
 
 #+begin_src emacs-lisp :tangle inits/40-ruby.el
 (with-eval-after-load 'major-mode-hydra
@@ -6103,7 +6109,6 @@ Ruby を使ってる時にコメント部分はクォートの外以外では
 | l   | 最後に失敗したテストの再実行                                                |
 | I   | REPL バッファで Ruby を実行する                                             |
 | j   | dumb-jump で関数定義にジャンプ。dumb-jump 用の hydra があるから要らなさそう |
-
 ** scss
 :PROPERTIES:
 :EXPORT_FILE_NAME: scss
