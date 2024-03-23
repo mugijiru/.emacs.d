@@ -44,10 +44,12 @@
    (("z" zoom-mode                 "zoom-mode"      :toggle zoom-mode)
     ("Z" toggle-frame-fullscreen   "Fullscreen"     :toggle (frame-parameter nil 'fullscreen))
     ("e" emojify-mode              "Emojify"        :toggle emojify-mode)
-    ("w" which-function-mode       "Which func"     :toggle which-func-mode)
-    ("b" display-battery-mode      "Battery"        :toggle display-battery-mode)
     ("L" display-line-numbers-mode "Line Number"    :toggle display-line-numbers-mode)
     ("N" neotree-toggle            "Neotree"        :toggle (if (fboundp 'neo-global--window-exists-p) (neo-global--window-exists-p) nil)))
+
+   "Mode Line"
+   (("w" which-function-mode       "Which func"     :toggle which-func-mode)
+    ("b" display-battery-mode      "Battery"        :toggle display-battery-mode))
 
    "Behavior"
    (("S" my/notify-slack-toggle    "Notify Slack"   :toggle my/notify-slack-enable-p)
