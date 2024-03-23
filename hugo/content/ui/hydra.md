@@ -163,6 +163,7 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
    (("z" zoom-mode                 "zoom-mode"      :toggle zoom-mode)
     ("Z" toggle-frame-fullscreen   "Fullscreen"     :toggle (frame-parameter nil 'fullscreen))
     ("e" emojify-mode              "Emojify"        :toggle emojify-mode)
+    ("w" which-function-mode       "Which func"     :toggle which-func-mode)
     ("b" display-battery-mode      "Battery"        :toggle display-battery-mode)
     ("L" display-line-numbers-mode "Line Number"    :toggle display-line-numbers-mode)
     ("N" neotree-toggle            "Neotree"        :toggle (if (fboundp 'neo-global--window-exists-p) (neo-global--window-exists-p) nil)))
@@ -181,6 +182,8 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
 |-----|--------------------------------------------------------------------------------------|
 | z   | [zoom-mode]({{< relref "zoom" >}}) のON/OFF切替。狭いディスプレイの時は ON にするが、大きいディスプレイだと OFF にしている |
 | Z   | フルスクリーンの切替。狭いディスプレイの時は ON にするが、大きいディスプレイだと OFF にしている |
+| e   | 常に絵文字に変換されると厳しい時があるので toggle できるようにしている                 |
+| w   | 関数名の表示が邪魔になることもありそうなので toggle できるようにしている               |
 | b   | バッテリー表示モードの切替。OFF にしたことないな……                                   |
 | L   | 行番号表示の切替。邪魔になる時もあるので ON/OFF 切り替えている                         |
 | N   | [Neotree]({{< relref "neotree" >}}) の表示切替。普段は邪魔なので OFF にしている        |
