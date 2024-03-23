@@ -200,8 +200,8 @@ nil にして表示しないようにしている。
                    (org-habit-show-habits nil)
                    (org-agenda-span 'day)
                    (org-agenda-prefix-format "%l%c: ")
-                   (org-agenda-files '("~/Documents/org/tasks/habits.org"
-                                       "~/Documents/org/journal/"
+                   (org-agenda-files `("~/Documents/org/tasks/habits.org"
+                                       ,(org-journal--get-entry-path)
                                        "~/Documents/org/tasks/reviews.org"))
                    (org-super-agenda-groups '((:name "仕掛かり中" :todo "DOING" :property ("agenda-group" "journal-task"))
                                               (:name "TODO" :and (:todo "TODO" :property ("agenda-group" "journal-task")))
@@ -246,7 +246,7 @@ nil にして表示しないようにしている。
                    (org-habit-show-habits nil)
                    (org-agenda-prefix-format "  %c: ")
                    (org-agenda-span 'day)
-                   (org-agenda-files '("~/Documents/org/journal/"))
+                   (org-agenda-files `(,(org-journal--get-entry-path)))
                    (org-super-agenda-groups '((:name "仕掛かり中" :and (:todo "DOING" :not (:property ("agenda-group" "1. Work"))))
                                               (:name "TODO"       :and (:todo "TODO"  :not (:property ("agenda-group" "1. Work"))))
                                               (:name "待ち"       :and (:todo "WAIT"  :not (:property ("agenda-group" "1. Work"))))
@@ -333,7 +333,7 @@ nil にして表示しないようにしている。
                              (org-habit-show-habits nil)
                              (org-agenda-span 'day)
                              (org-agenda-todo-keyword-format "-")
-                             (org-agenda-files '("~/Documents/org/tasks/habits.org" "~/Documents/org/journal/"))
+                             (org-agenda-files `("~/Documents/org/tasks/habits.org" ,(org-journal--get-entry-path)))
                              (org-super-agenda-groups (append
                                                        (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
                                                        '((:name "その他" :scheduled nil)
@@ -360,7 +360,7 @@ nil にして表示しないようにしている。
                     (org-habit-show-habits nil)
                     (org-agenda-span 'day)
                     (org-agenda-todo-keyword-format "-")
-                    (org-agenda-files '("~/Documents/org/tasks/habits.org" "~/Documents/org/journal/"))
+                    (org-agenda-files `("~/Documents/org/tasks/habits.org" ,(org-journal--get-entry-path)))
                     (org-super-agenda-groups (append
                                               (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
                                               '((:name "その他" :scheduled nil)
@@ -383,10 +383,10 @@ nil にして表示しないようにしている。
       ((todo "DOING" ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))
        (todo "TODO"  ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))))
      ("X" "Finished"
-      ((tags "LEVEL=2" ((org-agenda-files '("~/Documents/org/tasks/projects.org"
+      ((tags "LEVEL=2" ((org-agenda-files `("~/Documents/org/tasks/projects.org"
                                             "~/Documents/org/tasks/inbox.org"
                                             "~/Documents/org/tasks/reviews.org"
-                                            "~/Documents/org/journal/"
+                                            ,(org-journal--get-entry-path)
                                             "~/Documents/org/tasks/habits.org"))
                         (org-super-agenda-groups '((:name "Finished" :todo "DONE")
                                                    (:name "Someday" :todo "SOMEDAY")
@@ -408,7 +408,7 @@ nil にして表示しないようにしている。
                      (org-agenda-span 'day)
                      (org-agenda-todo-keyword-format "-")
                      (org-columns-default-format-for-agenda "%25ITEM %TODO %3PRIORITY")
-                     (org-agenda-files '("~/Documents/org/tasks/habits.org" "~/Documents/org/journal/"))
+                     (org-agenda-files `("~/Documents/org/tasks/habits.org" ,(org-journal--get-entry-path)))
                      (org-super-agenda-groups (append
                                                (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DONE")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
                                                '((:discard (:anything t :name "discard")))))))
@@ -417,7 +417,7 @@ nil にして表示しないようにしている。
                     (org-habit-show-habits nil)
                     (org-agenda-span 'day)
                     (org-agenda-todo-keyword-format "-")
-                    (org-agenda-files '("~/Documents/org/tasks/habits.org" "~/Documents/org/journal/"))
+                    (org-agenda-files `("~/Documents/org/tasks/habits.org" ,(org-journal--get-entry-path)))
                     (org-super-agenda-groups (append
                                               (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
                                               '((:discard (:anything t :name "discard")))))))))
