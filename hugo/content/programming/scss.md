@@ -87,6 +87,7 @@ scss を使う上で hook を使って色々有効化したりしている。
   (origami-mode 1)
   (company-mode 1)
   (subword-mode 1)
+  (which-function-mode 1)
   (display-line-numbers-mode 1)
 
   (rainbow-mode))
@@ -104,6 +105,7 @@ scss を使う上で hook を使って色々有効化したりしている。
     -   lsp-ui とかより後に設定しないと上書きされるので、それらより後に設定している
     -   設定の書き方の悪さのせいな気もする
 -   company-mode の有効化。これがないと補完できなくて厳しいよね
+-   which-function-mode が有効だと今編集している css が分かりやすくて便利
 -   display-line-numbers-mode の有効化。行数表示も欲しいよね。巨大ファイルだと邪魔だけど巨大にしなきゃいい
 -   [rainbow-mode](#rainbow-mode) の有効化
 
