@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>Vue.js :: 麦汁&#39;s Emacs Config</title>
+    <title>blamer.el :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1711260691" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/programming/vue-js/">
+  <body class="" data-url="/.emacs.d/external-tool/blamer/">
     <nav id="sidebar" class="">
 
 
@@ -1669,7 +1669,7 @@
   
     
     <li data-nav-id="/.emacs.d/programming/" title="プログラミング関係の設定" class="dd-item
-        parent
+        
         
         
         ">
@@ -2136,7 +2136,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/programming/vue-js/" title="Vue.js" class="dd-item active">
+      <li data-nav-id="/.emacs.d/programming/vue-js/" title="Vue.js" class="dd-item ">
         <a href="/.emacs.d/programming/vue-js/">
         Vue.js
         
@@ -2186,7 +2186,7 @@
   
     
     <li data-nav-id="/.emacs.d/external-tool/" title="外部連携ツール設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -2212,7 +2212,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/external-tool/blamer/" title="blamer.el" class="dd-item ">
+      <li data-nav-id="/.emacs.d/external-tool/blamer/" title="blamer.el" class="dd-item active">
         <a href="/.emacs.d/external-tool/blamer/">
         blamer.el
         
@@ -3245,7 +3245,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/programming/'>プログラミング関係の設定</a> > Vue.js
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/external-tool/'>外部連携ツール設定</a> > blamer.el
           
         
           
@@ -3261,25 +3261,9 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#auto-insert-の設定">auto-insert の設定</a>
-      <ul>
-        <li><a href="#テンプレート">テンプレート</a></li>
-        <li><a href="#テンプレートを適用可能にする">テンプレートを適用可能にする</a></li>
-      </ul>
-    </li>
-    <li><a href="#パッケージのインストール">パッケージのインストール</a>
-      <ul>
-        <li><a href="#vue-mode">vue-mode</a></li>
-        <li><a href="#pug-mode">pug-mode</a></li>
-      </ul>
-    </li>
-    <li><a href="#hooks">hooks</a>
-      <ul>
-        <li><a href="#css-mode">css-mode</a></li>
-        <li><a href="#vue-mode">vue-mode</a></li>
-      </ul>
-    </li>
-    <li><a href="#キーバインド">キーバインド</a></li>
+    <li><a href="#インストール">インストール</a></li>
+    <li><a href="#設定">設定</a></li>
+    <li><a href="#その他">その他</a></li>
   </ul>
 </nav>
     </div>
@@ -3297,7 +3281,7 @@
           
             <h1>
               
-              Vue.js
+              blamer.el
             </h1>
           
 
@@ -3305,121 +3289,28 @@
 
 
 <h2 id="概要">概要</h2>
-<p>ここでは Vue.js アプリケーションを書く上での設定を書いている。</p>
-<h2 id="auto-insert-の設定">auto-insert の設定</h2>
-<p>Vue.js のコンポーネントファイルを新規作成する時にテンプレートが自動挿入できるようにしている</p>
-<h3 id="テンプレート">テンプレート</h3>
-<p>Vue.js の単一ファイルコンポーネントなので template, script, style を出力している。</p>
-<p>template には <a href="https://pugjs.org/api/getting-started.html">pug</a> を、CSS には scss を使っている。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;pug&#39;</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">style</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;scss&#39;</span> <span style="color:#a6e22e">scoped</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">style</span>&gt;
-</span></span></code></pre></div><h3 id="テンプレートを適用可能にする">テンプレートを適用可能にする</h3>
-<p><code>.vue</code> という拡張子のファイルを新規作成する時には上で定義したテンプレートが自動的に挿入されるようにする。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(define-auto-insert <span style="color:#e6db74">&#34;\\.vue$&#34;</span> <span style="color:#e6db74">&#34;template.vue&#34;</span>)
-</span></span></code></pre></div><h2 id="パッケージのインストール">パッケージのインストール</h2>
-<p>ここでは Vue.js 開発に使っている関連パッケージを入れている。</p>
-<h3 id="vue-mode">vue-mode</h3>
-<p><a href="https://github.com/AdamNiederer/vue-mode">vue-mode</a> は <a href="https://github.com/purcell/mmm-mode">mmm-mode</a> をベースにして作られた Vue.js の単一ファイルコンポーネント用のモード。
-mmm-mode ベースなので
-template, script, css 部分でそれぞれ別のメジャーモードが動くようになっている。</p>
-<h4 id="インストール">インストール</h4>
-<p>el-get レシピは自前で用意している</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name vue-mode
-</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Major mode for vue component based on mmm-mode&#34;</span>
+<p><a href="https://github.com/Artawower/blamer.el">blamer.el</a> は VS code の Git Lens プラグインのようにその行の最後のコミット情報を表示してくれるやつ。</p>
+<p>blamer-mode をオンにすると横の方に1行内で表示するが
+posframe で overlay 表示させることもできる</p>
+<h2 id="インストール">インストール</h2>
+<p>el-get 本体にはレシピがないので自前で用意している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name blamer
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/Artawower/blamer.el&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;A git blame plugin for emacs inspired by VS Code’s GitLens plugin and Vim plugin&#34;</span>
 </span></span><span style="display:flex;"><span>       :type github
-</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;AdamNiederer/vue-mode&#34;</span>
-</span></span><span style="display:flex;"><span>       :depends (ssass-mode mmm-mode edit-indirect vue-html-mode))
-</span></span></code></pre></div><p>また、依存しているパッケージもいくつかレシピを自前で用意している</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name vue-html-mode
-</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Major mode for editing Vue.js templates&#34;</span>
-</span></span><span style="display:flex;"><span>       :type github
-</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;AdamNiederer/vue-html-mode&#34;</span>)
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name edit-indirect
-</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Edit regions in separate buffers&#34;</span>
-</span></span><span style="display:flex;"><span>       :type github
-</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;Fanael/edit-indirect&#34;</span>)
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name ssass-mode
-</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Edit Sass without a Turing Machine&#34;</span>
-</span></span><span style="display:flex;"><span>       :type github
-</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;AdamNiederer/ssass-mode&#34;</span>)
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name mmm-mode
-</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Allow Multiple Major Modes in a buffer&#34;</span>
-</span></span><span style="display:flex;"><span>       :type github
-</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;purcell/mmm-mode&#34;</span>
-</span></span><span style="display:flex;"><span>       :depends (cl-lib))
-</span></span></code></pre></div><p>いつも透り el-get で入れている</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle vue-mode)
-</span></span></code></pre></div><h4 id="備考">備考</h4>
-<p>あまり更新は活発でなく微妙な挙動もあるので
-mmm-mode に乗り換えたり web-mode を使うようにしている人も多い様子。</p>
-<p>自分もそういった乗り換えを検討した方がいいかもと思いつつ最近あまり Vue.js 触ってないから、まあいいかという気持ちもある。</p>
-<p>なお vue-mode では JS 部分は js2-mode は使えないはず。
-mmm-mode の方が何かの制限で使えないという話だったはずなので。
-<a href="https://github.com/mooz/js2-mode/issues/124">https://github.com/mooz/js2-mode/issues/124</a></p>
-<h3 id="pug-mode">pug-mode</h3>
-<p><a href="https://github.com/hlissner/emacs-pug-mode">pug-mode</a> は <a href="https://pugjs.org/api/getting-started.html">pug</a> というテンプレートエンジンを使って記述するためのモード。
-Vue.js でテンプレートエンジンに pug を利用することが多いので入れている。麦汁さんは HTML をそのまま書くようなことは好きじゃないのです。</p>
-<h4 id="インストール">インストール</h4>
-<p>いつも透り el-get で入れている</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle hlissner/emacs-pug-mode)
-</span></span></code></pre></div><h2 id="hooks">hooks</h2>
-<p>css-mode と vue-mode だけは hook を定義している。
-pug-mode や js-mode についても何か手を入れた方がいいのかもしれない。</p>
-<h3 id="css-mode">css-mode</h3>
-<p>Vue.js では style に scss を指定いちえる場合には css-mode が利用されるようになっているので
-css-mode の hook としている。
-<a href="https://github.com/AdamNiederer/vue-mode/blob/031edd1f97db6e7d8d6c295c0e6d58dd128b9e71/vue-mode.el#L63">https://github.com/AdamNiederer/vue-mode/blob/031edd1f97db6e7d8d6c295c0e6d58dd128b9e71/vue-mode.el#L63</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/css-mode-hook ()
-</span></span><span style="display:flex;"><span>  (setq-local flycheck-checker <span style="color:#e6db74">&#39;css-stylelint</span>)
-</span></span><span style="display:flex;"><span>  (rainbow-mode <span style="color:#ae81ff">1</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;css-mode-hook</span> <span style="color:#e6db74">&#39;my/css-mode-hook</span>)
-</span></span></code></pre></div><p>見ての透り rainbow-mode と flycheck-checker の設定ぐらいしかしてない。
-<a href="/.emacs.d/programming/scss/#scss-mode">scss-mode</a> の方ではもう少し手を入れているので同じようなのをここに反映してもいいかもしれない。</p>
-<p>もしくは設定を統合するという手もあるかも。</p>
-<h3 id="vue-mode">vue-mode</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/vue-mode-hook ()
-</span></span><span style="display:flex;"><span>  (display-line-numbers-mode <span style="color:#66d9ef">t</span>)
-</span></span><span style="display:flex;"><span>  (lsp)
-</span></span><span style="display:flex;"><span>  (flycheck-mode <span style="color:#ae81ff">1</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;vue-mode-hook</span> <span style="color:#e6db74">&#39;my/vue-mode-hook</span>)
-</span></span></code></pre></div><ul>
-<li>行番号表示</li>
-<li>lsp を有効化</li>
-<li>flyckeck-mode を有効化</li>
-</ul>
-<p>しているだけである。
-lsp-ui とか色々設定の余地はありそうな気がする。</p>
-<h2 id="キーバインド">キーバインド</h2>
-<p>これもろくに設定してないし、ろくに使ってないもいないが、一応設定自体はある。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;major-mode-hydra</span>
-</span></span><span style="display:flex;"><span>  (major-mode-hydra-define css-mode (:quit-key <span style="color:#e6db74">&#34;q&#34;</span> :title (<span style="color:#a6e22e">concat</span> (all-the-icons-alltheicon <span style="color:#e6db74">&#34;css3&#34;</span>) <span style="color:#e6db74">&#34; CSS&#34;</span>))
-</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;Edit&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;v&#34;</span> my/replace-var <span style="color:#e6db74">&#34;replace-var&#34;</span>)))))
-</span></span></code></pre></div><table>
-<thead>
-<tr>
-<th>Key</th>
-<th>効果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>v</td>
-<td>リージョンの値で CSS 変数を検索して置き換えるやつ。自作コマンドを利用している</td>
-</tr>
-</tbody>
-</table>
+</span></span><span style="display:flex;"><span>       :branch <span style="color:#e6db74">&#34;master&#34;</span>
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;Artawower/blamer.el&#34;</span>)
+</span></span></code></pre></div><p>そしてそれを <code>el-get-bundle</code> でインストールしている</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle blamer)
+</span></span></code></pre></div><h2 id="設定">設定</h2>
+<p><code>blame-show-posframe-commit-info</code> の際に上でも下でも適当な位置に表示してくれるように
+smart 表示を指定している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setopt blammer--overlay-popup-position <span style="color:#e6db74">&#39;smart</span>)
+</span></span></code></pre></div><h2 id="その他">その他</h2>
+<p>普段は表示されると邪魔そうなので今のところオフのままにしているが
+<a href="/.emacs.d/ui/hydra/#toggle-switches">Hydra による Toggle Switches</a> で切り替え可能にしている。</p>
+<p>またより細かい情報を手軽に見られるようにするために
+posframe でコミット情報を表示するコマンドを <a href="/.emacs.d/ui/hydra/#main">jk で起動する Hydra</a> に設定している。</p>
 
 
 <footer class="footline">
@@ -4596,7 +4487,6 @@ lsp-ui とか色々設定の余地はありそうな気がする。</p>
             
                 
                     
-                    
                 
                 
 
@@ -4609,9 +4499,6 @@ lsp-ui とか色々設定の余地はありそうな気がする。</p>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -4949,7 +4836,6 @@ lsp-ui とか色々設定の余地はありそうな気がする。</p>
             
                 
                     
-                    
                 
                 
 
@@ -4965,9 +4851,6 @@ lsp-ui とか色々設定の余地はありそうな気がする。</p>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -4988,6 +4871,7 @@ lsp-ui とか色々設定の余地はありそうな気がする。</p>
             
                 
                     
+                    
                 
                 
 
@@ -5000,6 +4884,7 @@ lsp-ui とか色々設定の余地はありそうな気がする。</p>
             
             
                 
+                    
                     
                 
                 
@@ -5016,6 +4901,9 @@ lsp-ui とか色々設定の余地はありそうな気がする。</p>
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -5712,10 +5600,10 @@ lsp-ui とか色々設定の余地はありそうな気がする。</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/programming/typescript/" title="TypeScript"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/external-tool/" title="外部連携ツール設定"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/programming/yaml-mode/" title="yaml-mode" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/external-tool/calibredb/" title="calibredb" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

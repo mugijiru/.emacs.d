@@ -427,6 +427,21 @@ auto-save-timeout auto-save-interval で制御されている。
     </item>
     
     <item>
+      <title>blamer.el</title>
+      <link>https://mugijiru.github.io/.emacs.d/external-tool/blamer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/external-tool/blamer/</guid>
+      <description>概要 blamer.el は VS code の Git Lens プラグインのようにその行の最後のコミット情報を表示してくれるやつ。
+blamer-mode をオンにすると横の方に1行内で表示するが posframe で overlay 表示させることもできる
+インストール el-get 本体にはレシピがないので自前で用意している
+(:name blamer :website &amp;#34;https://github.com/Artawower/blamer.el&amp;#34; :description &amp;#34;A git blame plugin for emacs inspired by VS Code’s GitLens plugin and Vim plugin&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;Artawower/blamer.el&amp;#34;) そしてそれを el-get-bundle でインストールしている
+(el-get-bundle blamer) 設定 blame-show-posframe-commit-info の際に上でも下でも適当な位置に表示してくれるように smart 表示を指定している
+(setopt blammer--overlay-popup-position &amp;#39;smart) その他 普段は表示されると邪魔そうなので今のところオフのままにしているが Hydra による Toggle Switches で切り替え可能にしている。
+またより細かい情報を手軽に見られるようにするために posframe でコミット情報を表示するコマンドを jk で起動する Hydra に設定している。</description>
+    </item>
+    
+    <item>
       <title>browse-at-remote</title>
       <link>https://mugijiru.github.io/.emacs.d/nav/browse-at-remote/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
