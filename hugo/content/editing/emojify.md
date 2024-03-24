@@ -24,12 +24,11 @@ dash.el は他でも使うので、ライブラリの読み込みのところで
 
 ## 有効化 {#有効化}
 
-emojify がグローバルに有効になるようにしている。
+emojify は正直邪魔になることも多いのでグローバルでは有効にしていない。
 
-mode-line でも有効になるようにしているので
-mode-line のカスタマイズ時に emojify で装飾することもできる。今そんなことやってないけど。
+一方 mode-line では有効になるようにしている。とはいえ mode-line で絵文字が表示された記憶はないけれども。
 
 ```emacs-lisp
-(global-emojify-mode 1)
+(global-emojify-mode -1)
 (global-emojify-mode-line-mode 1)
 ```
