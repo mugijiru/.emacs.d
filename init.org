@@ -6739,8 +6739,8 @@ hook で動作する中身が変更できて便利。
 
 ここでは外部のサービスや外部コマンド連携するようなやつをまとめています
 
-- [[*emacs-w3m][emacs-w3m]] :: 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ
 - [[id:3bede284-b3db-45ad-9f49-ce31ec47ce6f][calibredb]] :: 電子書籍管理ツール [[https://calibre-ebook.com/][Calibre]] のデータを Emacs から操作するためのパッケージ
+- [[*emacs-w3m][emacs-w3m]] :: 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ
 - [[*esa.el][esa.el]] :: [[https://esa.io/][esa.io]] と連携するためのパッケージ
 - [[*forge][forge]] :: [[*magit][magit]] と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ
 - [[id:ce83e9b8-ef96-4a27-bcfb-a2b437ca5a28][git-messenger]] :: 現在の行の最終コミットの情報を表示してくれるパッケージ
