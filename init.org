@@ -6739,6 +6739,7 @@ hook で動作する中身が変更できて便利。
 
 ここでは外部のサービスや外部コマンド連携するようなやつをまとめています
 
+- [[id:448067b2-3791-4cf7-b3bc-016efb494569][blamer.el]] :: 最後のコミット情報を表示してくれる便利なやつ
 - [[id:3bede284-b3db-45ad-9f49-ce31ec47ce6f][calibredb]] :: 電子書籍管理ツール [[https://calibre-ebook.com/][Calibre]] のデータを Emacs から操作するためのパッケージ
 - [[*emacs-w3m][emacs-w3m]] :: 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ
 - [[*esa.el][esa.el]] :: [[https://esa.io/][esa.io]] と連携するためのパッケージ
@@ -6758,6 +6759,7 @@ hook で動作する中身が変更できて便利。
 ** blamer.el
 :PROPERTIES:
 :EXPORT_FILE_NAME: blamer
+:ID:       448067b2-3791-4cf7-b3bc-016efb494569
 :END:
 *** 概要
 [[https://github.com/Artawower/blamer.el][blamer.el]] は VS code の Git Lens プラグインのように
