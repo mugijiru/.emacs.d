@@ -3159,6 +3159,7 @@ el-get の Hydra はここで定義してしまっている。
    (("z" zoom-mode                 "zoom-mode"      :toggle zoom-mode)
     ("Z" toggle-frame-fullscreen   "Fullscreen"     :toggle (frame-parameter nil 'fullscreen))
     ("e" emojify-mode              "Emojify"        :toggle emojify-mode)
+    ("B" blamer-mode               "Blamer"         :toggle blamer-mode)
     ("L" display-line-numbers-mode "Line Number"    :toggle display-line-numbers-mode)
     ("N" neotree-toggle            "Neotree"        :toggle (if (fboundp 'neo-global--window-exists-p) (neo-global--window-exists-p) nil)))
 
@@ -3266,15 +3267,15 @@ el-get の Hydra はここで定義してしまっている。
     (";" comment-dwim "Comment"))
 
    "Code"
-   (("G" counsel-projectile-rg       "Grep")
-    ("j" dumb-jump-pretty-hydra/body "Dumb jump")
-    ("g" avy-hydra/body              "Avy")
-    ("l" pretty-hydra-lsp/body       "LSP")
-    ("i" counsel-imenu               "imenu")
-    ("y" yasnippet-hydra/body        "Yasnippet")
-    ("B" browse-at-remote            "Browse")
-    ("C" git-messenger:popup-message "Git Message")
-    ("m" magit-status                "Magit"))
+   (("G" counsel-projectile-rg            "Grep")
+    ("j" dumb-jump-pretty-hydra/body      "Dumb jump")
+    ("g" avy-hydra/body                   "Avy")
+    ("l" pretty-hydra-lsp/body            "LSP")
+    ("i" counsel-imenu                    "imenu")
+    ("y" yasnippet-hydra/body             "Yasnippet")
+    ("B" browse-at-remote                 "Browse")
+    ("C" blamer-show-posframe-commit-info "Bramer")
+    ("m" magit-status                     "Magit"))
 
    "View"
    (("D" delete-other-windows      "Only This Win")
@@ -6739,8 +6740,9 @@ hook で動作する中身が変更できて便利。
 
 ここでは外部のサービスや外部コマンド連携するようなやつをまとめています
 
-- [[*emacs-w3m][emacs-w3m]] :: 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ
+- [[id:448067b2-3791-4cf7-b3bc-016efb494569][blamer.el]] :: 最後のコミット情報を表示してくれる便利なやつ
 - [[id:3bede284-b3db-45ad-9f49-ce31ec47ce6f][calibredb]] :: 電子書籍管理ツール [[https://calibre-ebook.com/][Calibre]] のデータを Emacs から操作するためのパッケージ
+- [[*emacs-w3m][emacs-w3m]] :: 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ
 - [[*esa.el][esa.el]] :: [[https://esa.io/][esa.io]] と連携するためのパッケージ
 - [[*forge][forge]] :: [[*magit][magit]] と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ
 - [[id:ce83e9b8-ef96-4a27-bcfb-a2b437ca5a28][git-messenger]] :: 現在の行の最終コミットの情報を表示してくれるパッケージ
@@ -6755,6 +6757,47 @@ hook で動作する中身が変更できて便利。
 - [[*twmode][twmode]] :: Emacs 上で動く Twitter クライアント
 - [[id:9c9bff02-7627-44ae-9868-e1310ff19294][wakatime-mode]] :: Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ
 - [[*ブラウザ設定][ブラウザ設定]] :: ブラウザ連携周りの設定
+** blamer.el
+:PROPERTIES:
+:EXPORT_FILE_NAME: blamer
+:ID:       448067b2-3791-4cf7-b3bc-016efb494569
+:END:
+*** 概要
+[[https://github.com/Artawower/blamer.el][blamer.el]] は VS code の Git Lens プラグインのように
+その行の最後のコミット情報を表示してくれるやつ。
+
+blamer-mode をオンにすると横の方に1行内で表示するが
+posframe で overlay 表示させることもできる
+*** インストール
+el-get 本体にはレシピがないので自前で用意している
+
+#+begin_src emacs-lisp :tangle recipes/blamer.rcp
+(:name blamer
+       :website "https://github.com/Artawower/blamer.el"
+       :description "A git blame plugin for emacs inspired by VS Code’s GitLens plugin and Vim plugin"
+       :type github
+       :branch "master"
+       :pkgname "Artawower/blamer.el")
+#+end_src
+
+そしてそれを ~el-get-bundle~ でインストールしている
+
+#+begin_src emacs-lisp :tangle inits/50-blamer.el
+(el-get-bundle blamer)
+#+end_src
+*** 設定
+~blame-show-posframe-commit-info~ の際に上でも下でも適当な位置に表示してくれるように
+smart 表示を指定している
+
+#+begin_src emacs-lisp :tangle inits/50-blamer.el
+(setopt blammer--overlay-popup-position 'smart)
+#+end_src
+*** その他
+普段は表示されると邪魔そうなので今のところオフのままにしているが
+[[id:ff1539f7-39b2-4985-80e2-e7eb18dd817d][Hydra による Toggle Switches]] で切り替え可能にしている。
+
+またより細かい情報を手軽に見られるようにするために
+posframe でコミット情報を表示するコマンドを [[id:befaa52b-d054-43bd-9445-fca7f5bd8be5][jk で起動する Hydra]] に設定している。
 ** calibredb
 :PROPERTIES:
 :ID:       3bede284-b3db-45ad-9f49-ce31ec47ce6f
