@@ -1,0 +1,6 @@
+(:name blamer
+       :website "https://github.com/Artawower/blamer.el"
+       :description "A git blame plugin for emacs inspired by VS Code’s GitLens plugin and Vim plugin"
+       :type github
+       :branch "master"
+       :pkgname "Artawower/blamer.el")
