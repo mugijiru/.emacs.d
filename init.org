@@ -1778,43 +1778,39 @@ Warning (copilot): .loaddefs.el size exceeds 'copilot-max-char' (100000), copilo
 (setq warning-suppress-log-types '((copilot copilot-exceeds-max-char)))
 #+end_src
 ** emojify
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: emojify
-   :END:
+:PROPERTIES:
+:EXPORT_FILE_NAME: emojify
+:END:
 *** 概要
-    [[https://github.com/iqbalansari/emacs-emojify][emojify]] は ~:smile:~ のような入力を笑顔の絵文字が表示されたりするようにするパッケージ。
+[[https://github.com/iqbalansari/emacs-emojify][emojify]] は ~:smile:~ のような入力を笑顔の絵文字が表示されたりするようにするパッケージ。
 
-    文書を書く時に emojify で絵文字に置き換わるような文字列を入れておくと
-    文書が華やかになって良いぞ!
+文書を書く時に emojify で絵文字に置き換わるような文字列を入れておくと
+文書が華やかになって良いぞ!
+*** インストール
+:PROPERTIES:
+:ID:       299ea3d1-44a2-402e-bdc9-ef9ec0a31796
+:END:
+いつも通り el-get で入れている。
+何か依存でもあるのが別途 dash.el も読み込んでる。
 
-*** インストール                                                :improvement:
-    :PROPERTIES:
-    :ID:       299ea3d1-44a2-402e-bdc9-ef9ec0a31796
-    :END:
-    いつも通り el-get で入れている。
-    何か依存でもあるのが別途 dash.el も読み込んでる。
-
-    #+begin_src emacs-lisp :tangle inits/20-emojify.el
+#+begin_src emacs-lisp :tangle inits/20-emojify.el
 (el-get-bundle emojify)
 (el-get-bundle dash)
-    #+end_src
-
-    dash.el は他でも使うので、ライブラリの読み込みのところで対応した方が良さそうだな。
-    今度対応しよう。
-
+#+end_src
+dash.el は他でも使うので、ライブラリの読み込みのところで対応した方が良さそうだな。
+今度対応しよう。
 *** 有効化
-    :PROPERTIES:
-    :ID:       4d1c6699-272c-402f-bae5-d10df996e344
-    :END:
+:PROPERTIES:
+:ID:       4d1c6699-272c-402f-bae5-d10df996e344
+:END:
+emojify は正直邪魔になることも多いのでグローバルでは有効にしていない。
 
-    emojify がグローバルに有効になるようにしている。
-
-    mode-line でも有効になるようにしているので
-    mode-line のカスタマイズ時に emojify で装飾することもできる。今そんなことやってないけど。
-    #+begin_src emacs-lisp :tangle inits/20-emojify.el
-(global-emojify-mode 1)
+一方 mode-line では有効になるようにしている。
+とはいえ mode-line で絵文字が表示された記憶はないけれども。
+#+begin_src emacs-lisp :tangle inits/20-emojify.el
+(global-emojify-mode -1)
 (global-emojify-mode-line-mode 1)
-    #+end_src
+#+end_src
 ** git-modes
 :PROPERTIES:
 :EXPORT_FILE_NAME: git-modes
