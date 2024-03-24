@@ -12,20 +12,20 @@
     <title>emojify :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1711260691" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1711260691" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1711260691" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1711260691" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1711260691" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1711260691" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1711260691" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1711260691" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1711260691" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1711260691" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1711261416" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1711261416" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1711261416" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1711261416" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1711261416" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1711261416" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1711261416" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1711261416" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1711261416" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1711261416" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1711260691"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1711261416"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1711260691"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1711260691"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1711261416"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1711261416"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1711260691"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1711261416"></script>
 
     
   </div>
@@ -3296,10 +3296,9 @@
 </span></span><span style="display:flex;"><span>(el-get-bundle dash)
 </span></span></code></pre></div><p>dash.el は他でも使うので、ライブラリの読み込みのところで対応した方が良さそうだな。今度対応しよう。</p>
 <h2 id="有効化">有効化</h2>
-<p>emojify がグローバルに有効になるようにしている。</p>
-<p>mode-line でも有効になるようにしているので
-mode-line のカスタマイズ時に emojify で装飾することもできる。今そんなことやってないけど。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(global-emojify-mode <span style="color:#ae81ff">1</span>)
+<p>emojify は正直邪魔になることも多いのでグローバルでは有効にしていない。</p>
+<p>一方 mode-line では有効になるようにしている。とはいえ mode-line で絵文字が表示された記憶はないけれども。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(global-emojify-mode <span style="color:#ae81ff">-1</span>)
 </span></span><span style="display:flex;"><span>(global-emojify-mode-line-mode <span style="color:#ae81ff">1</span>)
 </span></span></code></pre></div>
 
@@ -5606,19 +5605,19 @@ mode-line のカスタマイズ時に emojify で装飾することもできる�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1711260691"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1711260691"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1711260691"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1711260691"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1711260691"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1711260691"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1711261416"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1711261416"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1711261416"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1711261416"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1711261416"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1711261416"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1711260691"></script>
-    <script src="/.emacs.d/js/learn.js?1711260691"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1711260691"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1711261416"></script>
+    <script src="/.emacs.d/js/learn.js?1711261416"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1711261416"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1711260691"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1711261416"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

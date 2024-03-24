@@ -403,7 +403,7 @@
 	"title": "emojify",
 	"tags": [],
 	"description": "",
-	"content": "概要 emojify は :smile: のような入力を笑顔の絵文字が表示されたりするようにするパッケージ。\n文書を書く時に emojify で絵文字に置き換わるような文字列を入れておくと文書が華やかになって良いぞ!\nインストール いつも通り el-get で入れている。何か依存でもあるのが別途 dash.el も読み込んでる。\n(el-get-bundle emojify) (el-get-bundle dash) dash.el は他でも使うので、ライブラリの読み込みのところで対応した方が良さそうだな。今度対応しよう。\n有効化 emojify がグローバルに有効になるようにしている。\nmode-line でも有効になるようにしているので mode-line のカスタマイズ時に emojify で装飾することもできる。今そんなことやってないけど。\n(global-emojify-mode 1) (global-emojify-mode-line-mode 1) "
+	"content": "概要 emojify は :smile: のような入力を笑顔の絵文字が表示されたりするようにするパッケージ。\n文書を書く時に emojify で絵文字に置き換わるような文字列を入れておくと文書が華やかになって良いぞ!\nインストール いつも通り el-get で入れている。何か依存でもあるのが別途 dash.el も読み込んでる。\n(el-get-bundle emojify) (el-get-bundle dash) dash.el は他でも使うので、ライブラリの読み込みのところで対応した方が良さそうだな。今度対応しよう。\n有効化 emojify は正直邪魔になることも多いのでグローバルでは有効にしていない。\n一方 mode-line では有効になるようにしている。とはいえ mode-line で絵文字が表示された記憶はないけれども。\n(global-emojify-mode -1) (global-emojify-mode-line-mode 1) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/programming/es6/",
