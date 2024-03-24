@@ -57,12 +57,11 @@ org-clock-report では前日分も target に入れてほしいのでそれの 
 ## 設定 {#設定}
 
 ```emacs-lisp
-(custom-set-variables
- '(org-journal-dir (concat org-directory "journal/"))
- '(org-journal-file-format "%Y%m%d.org")
- '(org-journal-date-format "%d日(%a)")
- '(org-journal-enable-agenda-integration nil)
- '(org-journal-carryover-items "TODO={TODO\\|DOING\\|WAIT}"))
+(setopt org-journal-dir (concat org-directory "journal/"))
+(setopt org-journal-file-format "%Y%m%d.org")
+(setopt org-journal-date-format "%d日(%a)")
+(setopt org-journal-enable-agenda-integration nil)
+(setopt org-journal-carryover-items "TODO={TODO\\|DOING\\|WAIT}")
 ```
 
 
