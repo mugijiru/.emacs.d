@@ -163,6 +163,7 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
    (("z" zoom-mode                 "zoom-mode"      :toggle zoom-mode)
     ("Z" toggle-frame-fullscreen   "Fullscreen"     :toggle (frame-parameter nil 'fullscreen))
     ("e" emojify-mode              "Emojify"        :toggle emojify-mode)
+    ("B" blamer-mode               "Blamer"         :toggle blamer-mode)
     ("L" display-line-numbers-mode "Line Number"    :toggle display-line-numbers-mode)
     ("N" neotree-toggle            "Neotree"        :toggle (if (fboundp 'neo-global--window-exists-p) (neo-global--window-exists-p) nil)))
 
@@ -269,15 +270,15 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
     (";" comment-dwim "Comment"))
 
    "Code"
-   (("G" counsel-projectile-rg       "Grep")
-    ("j" dumb-jump-pretty-hydra/body "Dumb jump")
-    ("g" avy-hydra/body              "Avy")
-    ("l" pretty-hydra-lsp/body       "LSP")
-    ("i" counsel-imenu               "imenu")
-    ("y" yasnippet-hydra/body        "Yasnippet")
-    ("B" browse-at-remote            "Browse")
-    ("C" git-messenger:popup-message "Git Message")
-    ("m" magit-status                "Magit"))
+   (("G" counsel-projectile-rg            "Grep")
+    ("j" dumb-jump-pretty-hydra/body      "Dumb jump")
+    ("g" avy-hydra/body                   "Avy")
+    ("l" pretty-hydra-lsp/body            "LSP")
+    ("i" counsel-imenu                    "imenu")
+    ("y" yasnippet-hydra/body             "Yasnippet")
+    ("B" browse-at-remote                 "Browse")
+    ("C" blamer-show-posframe-commit-info "Bramer")
+    ("m" magit-status                     "Magit"))
 
    "View"
    (("D" delete-other-windows      "Only This Win")

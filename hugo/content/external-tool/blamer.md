@@ -39,3 +39,12 @@ smart 表示を指定している
 ```emacs-lisp
 (setopt blammer--overlay-popup-position 'smart)
 ```
+
+
+## その他 {#その他}
+
+普段は表示されると邪魔そうなので今のところオフのままにしているが
+[Hydra による Toggle Switches]({{< relref "hydra#toggle-switches" >}}) で切り替え可能にしている。
+
+またより細かい情報を手軽に見られるようにするために
+posframe でコミット情報を表示するコマンドを [jk で起動する Hydra]({{< relref "hydra#main" >}}) に設定している。
