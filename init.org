@@ -6755,6 +6755,40 @@ hook で動作する中身が変更できて便利。
 - [[*twmode][twmode]] :: Emacs 上で動く Twitter クライアント
 - [[id:9c9bff02-7627-44ae-9868-e1310ff19294][wakatime-mode]] :: Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ
 - [[*ブラウザ設定][ブラウザ設定]] :: ブラウザ連携周りの設定
+** blamer.el
+:PROPERTIES:
+:EXPORT_FILE_NAME: blamer
+:END:
+*** 概要
+[[https://github.com/Artawower/blamer.el][blamer.el]] は VS code の Git Lens プラグインのように
+その行の最後のコミット情報を表示してくれるやつ。
+
+blamer-mode をオンにすると横の方に1行内で表示するが
+posframe で overlay 表示させることもできる
+*** インストール
+el-get 本体にはレシピがないので自前で用意している
+
+#+begin_src emacs-lisp :tangle recipes/blamer.rcp
+(:name blamer
+       :website "https://github.com/Artawower/blamer.el"
+       :description "A git blame plugin for emacs inspired by VS Code’s GitLens plugin and Vim plugin"
+       :type github
+       :branch "master"
+       :pkgname "Artawower/blamer.el")
+#+end_src
+
+そしてそれを ~el-get-bundle~ でインストールしている
+
+#+begin_src emacs-lisp :tangle inits/50-blamer.el
+(el-get-bundle blamer)
+#+end_src
+*** 設定
+~blame-show-posframe-commit-info~ の際に上でも下でも適当な位置に表示してくれるように
+smart 表示を指定している
+
+#+begin_src emacs-lisp :tangle inits/50-blamer.el
+(setopt blammer--overlay-popup-position 'smart)
+#+end_src
 ** calibredb
 :PROPERTIES:
 :ID:       3bede284-b3db-45ad-9f49-ce31ec47ce6f
