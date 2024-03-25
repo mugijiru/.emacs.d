@@ -15,7 +15,9 @@
 (setq org-capture-templates
       `(("g" "Inbox にエントリー" entry
          (file ,my/org-capture-inbox-file)
-         "* TODO %? %^G\n** Ready の定義
+         "* TODO %? %^G
+%t
+** Ready の定義
 - Why?, Goal, How? が埋められていること
 - How がある程度具体的に書かれていること
 ** Why?
