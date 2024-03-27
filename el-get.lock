@@ -18,7 +18,7 @@
         (hcl-mode :checksum "ec27736c4c16fbf7f1ecab0210ec3c71ac2406fa")
         (jest-test-mode :checksum "a397507d8bb41e4aa6b97994f1d7512e78d3dee3")
         (dockerfile-mode :checksum "39a012a27fcf6fb629c447d13b6974baf906714c")
-        (origami :checksum "6938ba93a8c58eb76bb81227931f7067dbd66fd5")
+        (origami :checksum "e5bf68a665f4c8922cdbc001d95184478a376922")
         (company-posframe :checksum "18d6641bba72cba3c00018cee737ea8b454f64a8")
         (nerd-icons :checksum "8095215a503d8048739de8b4ea4066598edb8cbb")
         (copilot :checksum "d61196b0819273d0867111d9ba77ef5b0adae405")
