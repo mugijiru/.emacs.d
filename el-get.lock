@@ -99,7 +99,7 @@
         (all-the-icons :checksum "ee414384938ccf2ce93c77d717b85dc5538a257d")
         (alert :checksum "7774b5fd2feb98d4910ff06435d08c19fba93e26")
         (calfw :checksum "03abce97620a4a7f7ec5f911e669da9031ab9088")
-        (closql :checksum "81f04f60aab27c0d9161746384d4eeb0633202e2")
+        (closql :checksum "042a6b3657ceab8fc952b9d2b8190c81307c20cb")
         (company-mode :checksum "b0a522ac5bf8ba3d2f4f22e3aa846a4f82978a16")
         (counsel-projectile :checksum "40d1e1d4bb70acb00fddd6f4df9778bf2c52734b")
         (dash :checksum "e018d7669911a69fe73a02e06019fa01c872dad9")
