@@ -46,6 +46,9 @@ org-capture は org-mode 用にさくっとメモを取るための機能。
 | g   | GTD でとりあえず最初に放り込む Inbox に相当するファイルに登録 | Why?, Goal, How? 等の欄を設けることでそのタスクの諸々をハッキリさせようとしている                       |
 | m   | とりあえずメモっておきたいやつを放り込む | 最近使ってない。使いにくいのかも                                                                        |
 | p   | 資料を放り込むやつ                   | あとで読むリストになってる。読み終わっても、便利そうなのは DONE のまま置いている                        |
+| lr  | 読書メモ用                           |                                                                                                         |
+| lb  | ブログ記事感想とかに使う             |                                                                                                         |
+| lm  | 映画感想用                           |                                                                                                         |
 | i   | 割込みタスクの登録                   | [org-modeで割り込みにも対応した時間記録をとる方法](https://grugrut.hatenablog.jp/entry/2016/03/13/085417) のやつを流用している。たまに使う。 |
 | I   | 開発を進める上での障害をリストアップする用 | 最近使ってない。溜めても振り替えってないので溜める気すらなくなった                                      |
 | s   | SQL 用のメモに登録                   | さくっと書いた SQL を後からまた使えないかな〜と思って溜めてみている                                     |
@@ -75,6 +78,31 @@ org-capture は org-mode 用にさくっとメモを取るための機能。
         ("p" "Pointersにエントリー" entry
          (file+headline ,my/org-capture-pointers-file "Pointers")
          "** %?\n\t")
+        ("l" "鑑賞ログ")
+        ("lr" "読書メモ" entry
+         (id "a0e30a2f-d4ee-426d-9f19-a1bbab2b2563")
+         "** %?
+%t
+*** Reference
+
+*** 感想など
+")
+        ("lb" "ブログ記事メモ" entry
+         (id "e4eed87b-0852-4691-9cd6-4b1596f2b09b")
+         "** %?
+%t
+*** Reference
+
+*** 感想など
+")
+        ("lm" "映画" entry
+         (id "56af8238-c9e8-497c-9695-46849cc8e091")
+         "** %?
+%t
+*** Reference
+
+*** 感想など
+")
         ("i" "割り込みタスクにエントリー" entry ;; 参考: http://grugrut.hatenablog.jp/entry/2016/03/13/085417
          (file+headline ,my/org-capture-interrupted-file "Interrupted")
          "** %?\n\t" :clock-in t :clock-resume t)

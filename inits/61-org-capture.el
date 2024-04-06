@@ -30,6 +30,31 @@
         ("p" "Pointersにエントリー" entry
          (file+headline ,my/org-capture-pointers-file "Pointers")
          "** %?\n\t")
+        ("l" "鑑賞ログ")
+        ("lr" "読書メモ" entry
+         (id "a0e30a2f-d4ee-426d-9f19-a1bbab2b2563")
+         "** %?
+%t
+*** Reference
+
+*** 感想など
+")
+        ("lb" "ブログ記事メモ" entry
+         (id "e4eed87b-0852-4691-9cd6-4b1596f2b09b")
+         "** %?
+%t
+*** Reference
+
+*** 感想など
+")
+        ("lm" "映画" entry
+         (id "56af8238-c9e8-497c-9695-46849cc8e091")
+         "** %?
+%t
+*** Reference
+
+*** 感想など
+")
         ("i" "割り込みタスクにエントリー" entry ;; 参考: http://grugrut.hatenablog.jp/entry/2016/03/13/085417
          (file+headline ,my/org-capture-interrupted-file "Interrupted")
          "** %?\n\t" :clock-in t :clock-resume t)
