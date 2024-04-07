@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((blamer :checksum "ab7d19c2ee54424d3ffc853982fe875ad47b6e7f")
+      '((org-protocol-capture-html :checksum "d15ca434444a574e7b97f4f0773d0a16f2e48cfc")
+        (blamer :checksum "ab7d19c2ee54424d3ffc853982fe875ad47b6e7f")
         (rg :checksum "4885473a6d248a6ee508b7b7ef3705762af631d9")
         (wgrep :checksum "208b9d01cfffa71037527e3a324684b3ce45ddc4")
         (moccur-edit :checksum "026f5dd4159bd1b68c430ab385757157ba01a361")

@@ -7764,17 +7764,18 @@ org-mode だけでも書くことが多いからね……。
 3. [[*予定のカレンダー表示][予定のカレンダー表示]]
 4. [[*Agenda 関係の設定][Agenda 関係の設定]]
 5. [[*org-capture][org-capture]]
-6. [[*org-clock][org-clock]]
-7. [[*org-export][org-export]]
-8. [[*org-gcal][org-gcal]]
-9. [[*org-ql][org-ql]]
-10. [[*org-refile][org-refile]]
-11. [[*org-trello][org-trello]]
-12. [[*ox-hugo][ox-hugo]]
-13. [[id:e2943058-f0e2-4e6f-ba27-89ab3ec6f05e][org-roam]]
-14. [[*org-mode 用の独自コマンド][org-mode 用の独自コマンド]]
-15. [[*org-mode 関係の keybinds][org-mode 関係の keybinds]]
-16. [[*日報用の設定(旧)][日報用の設定(旧)]]
+6. [[id:a9fde2f5-163f-437f-9f78-56f69f81cf12][org-protocol-capture-html]]
+7. [[*org-clock][org-clock]]
+8. [[*org-export][org-export]]
+9. [[*org-gcal][org-gcal]]
+10. [[*org-ql][org-ql]]
+11. [[*org-refile][org-refile]]
+12. [[*org-trello][org-trello]]
+13. [[*ox-hugo][ox-hugo]]
+14. [[id:e2943058-f0e2-4e6f-ba27-89ab3ec6f05e][org-roam]]
+15. [[*org-mode 用の独自コマンド][org-mode 用の独自コマンド]]
+16. [[*org-mode 関係の keybinds][org-mode 関係の keybinds]]
+17. [[*日報用の設定(旧)][日報用の設定(旧)]]
 ** 基本設定
 :PROPERTIES:
 :EXPORT_FILE_NAME: base
@@ -8731,6 +8732,45 @@ https://qiita.com/takaxp/items/0b717ad1d0488b74429d を参考に設定したや�
          "** TODO %?\n\t")))
 #+end_src
 
+** org-protocol-capture-html
+:PROPERTIES:
+:EXPORT_FILE_NAME: org-protocol-capture-html
+:ID:       a9fde2f5-163f-437f-9f78-56f69f81cf12
+:END:
+*** 概要
+[[https://github.com/alphapapa/org-protocol-capture-html][org-protocol-capture-html]] は [[https://pandoc.org/][Pandoc]] やブックマークレットと組み合わせて
+Web ページを org-capture で保存できるようにするやつ。
+
+Emacs 25.1 以降なら eww の機能を使って Web ページの表記を丸ごと capture できるので
+Firefox の拡張機能 [[https://github.com/sprig/org-capture-extension][org-capture-extension]] を使って capture するよりも便利。
+*** インストール
+org-protocol-capture-html はあまりちゃんとメンテされていないようなのと
+自分の環境では ~eval-when-compile~ の際にコンパイルされて定義されるはずの関数が定義されないので
+[[https://github.com/mugijiru/org-protocol-capture-html/][自分で fork したやつ]]を使っている
+
+というわけでレシピも自前で用意している。
+
+#+begin_src emacs-lisp :tangle recipes/org-protocol-capture-html.rcp
+(:name org-protocol-capture-html
+       :description "Capture HTML from the browser selection into Emacs as org-mode content."
+       :type github
+       :pkgname "mugijiru/org-protocol-capture-html"
+       :branch "feat/always-define-eww-readable-functions"
+       :minimum-emacs-version "25.1"
+       :depends (org-mode s))
+#+end_src
+
+そしてそれを ~el-get-bundle~ でインストールしている
+
+#+begin_src emacs-lisp :tangle inits/61-org-protocol-capture-html.el
+(el-get-bundle org-protocol-capture-html)
+#+end_src
+
+このパッケージは audoload も指定されていないのでとりあえず require して全部読み込むようにしている
+
+#+begin_src emacs-lisp :tangle inits/61-org-protocol-capture-html.el
+(require 'org-protocol-capture-html)
+#+end_src
 ** org-clock
 :PROPERTIES:
 :EXPORT_FILE_NAME: org-clock
