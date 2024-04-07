@@ -8727,6 +8727,12 @@ https://qiita.com/takaxp/items/0b717ad1d0488b74429d を参考に設定したや�
         ("L" "Protocol Link" entry
          (file+headline ,my/org-capture-pointers-file "Pointers")
          "** %:description\n   %:link\n   %?\n   Captured On: %U")
+        ("w" "Web site" entry
+         (file+headline ,my/org-capture-pointers-file "Pointers")
+         "* %a %^G
+%U
+%:initial
+")
         ("c" "同期カレンダーにエントリー" entry
          (file+headline ,org-capture-ical-file "Schedule")
          "** TODO %?\n\t")))
