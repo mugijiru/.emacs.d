@@ -124,6 +124,12 @@ org-capture は org-mode 用にさくっとメモを取るための機能。
         ("L" "Protocol Link" entry
          (file+headline ,my/org-capture-pointers-file "Pointers")
          "** %:description\n   %:link\n   %?\n   Captured On: %U")
+        ("w" "Web site" entry
+         (file+headline ,my/org-capture-pointers-file "Pointers")
+         "* %a %^G
+%U
+%:initial
+")
         ("c" "同期カレンダーにエントリー" entry
          (file+headline ,org-capture-ical-file "Schedule")
          "** TODO %?\n\t")))
