@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>toolbar :: 麦汁&#39;s Emacs Config</title>
+    <title>org-protocol-capture-html :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1712574490" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/ui/toolbar/">
+  <body class="" data-url="/.emacs.d/org-mode/org-protocol-capture-html/">
     <nav id="sidebar" class="">
 
 
@@ -1013,7 +1013,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        parent
+        
         
         
         ">
@@ -1417,7 +1417,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/toolbar/" title="toolbar" class="dd-item active">
+      <li data-nav-id="/.emacs.d/ui/toolbar/" title="toolbar" class="dd-item ">
         <a href="/.emacs.d/ui/toolbar/">
         toolbar
         
@@ -2598,7 +2598,7 @@
   
     
     <li data-nav-id="/.emacs.d/org-mode/" title="org-mode" class="dd-item
-        
+        parent
         
         
         ">
@@ -2960,7 +2960,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/org-mode/org-protocol-capture-html/" title="org-protocol-capture-html" class="dd-item ">
+      <li data-nav-id="/.emacs.d/org-mode/org-protocol-capture-html/" title="org-protocol-capture-html" class="dd-item active">
         <a href="/.emacs.d/org-mode/org-protocol-capture-html/">
         org-protocol-capture-html
         
@@ -3266,7 +3266,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > toolbar
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/org-mode/'>org-mode</a> > org-protocol-capture-html
           
         
           
@@ -3282,7 +3282,7 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#設定">設定</a></li>
+    <li><a href="#インストール">インストール</a></li>
   </ul>
 </nav>
     </div>
@@ -3300,7 +3300,7 @@
           
             <h1>
               
-              toolbar
+              org-protocol-capture-html
             </h1>
           
 
@@ -3308,10 +3308,25 @@
 
 
 <h2 id="概要">概要</h2>
-<p>Emacs 標準の toolbar の設定。麦汁さんは使わないし幅を取るので隠す派。</p>
-<h2 id="設定">設定</h2>
-<p>単に無効にして隠している</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(tool-bar-mode <span style="color:#ae81ff">-1</span>)
+<p><a href="https://github.com/alphapapa/org-protocol-capture-html">org-protocol-capture-html</a> は <a href="https://pandoc.org/">Pandoc</a> やブックマークレットと組み合わせて
+Web ページを org-capture で保存できるようにするやつ。</p>
+<p>Emacs 25.1 以降なら eww の機能を使って Web ページの表記を丸ごと capture できるので
+Firefox の拡張機能 <a href="https://github.com/sprig/org-capture-extension">org-capture-extension</a> を使って capture するよりも便利。</p>
+<h2 id="インストール">インストール</h2>
+<p>org-protocol-capture-html はあまりちゃんとメンテされていないようなのと自分の環境では <code>eval-when-compile</code> の際にコンパイルされて定義されるはずの関数が定義されないので
+<a href="https://github.com/mugijiru/org-protocol-capture-html/">自分で fork したやつ</a>を使っている</p>
+<p>というわけでレシピも自前で用意している。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name org-protocol-capture-html
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Capture HTML from the browser selection into Emacs as org-mode content.&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;mugijiru/org-protocol-capture-html&#34;</span>
+</span></span><span style="display:flex;"><span>       :branch <span style="color:#e6db74">&#34;feat/always-define-eww-readable-functions&#34;</span>
+</span></span><span style="display:flex;"><span>       :minimum-emacs-version <span style="color:#e6db74">&#34;25.1&#34;</span>
+</span></span><span style="display:flex;"><span>       :depends (org-mode s))
+</span></span></code></pre></div><p>そしてそれを <code>el-get-bundle</code> でインストールしている</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle org-protocol-capture-html)
+</span></span></code></pre></div><p>このパッケージは audoload も指定されていないのでとりあえず require して全部読み込むようにしている</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(require <span style="color:#e6db74">&#39;org-protocol-capture-html</span>)
 </span></span></code></pre></div>
 
 <footer class="footline">
@@ -4008,7 +4023,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -4021,9 +4035,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -4313,7 +4324,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -4329,9 +4339,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -5184,6 +5191,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -5196,6 +5204,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -5453,6 +5464,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -5468,6 +5480,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -5620,10 +5635,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/ui/show-paren-mode/" title="show-paren-mode"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/org-mode/org-journal/" title="org-journal"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/ui/uniquify/" title="uniquify" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/org-mode/org-roam/" title="org-roam" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

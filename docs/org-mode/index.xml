@@ -236,6 +236,21 @@ me.org とでもしておけば解決しそう……。
     </item>
     
     <item>
+      <title>org-protocol-capture-html</title>
+      <link>https://mugijiru.github.io/.emacs.d/org-mode/org-protocol-capture-html/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-protocol-capture-html/</guid>
+      <description>概要 org-protocol-capture-html は Pandoc やブックマークレットと組み合わせて Web ページを org-capture で保存できるようにするやつ。
+Emacs 25.1 以降なら eww の機能を使って Web ページの表記を丸ごと capture できるので Firefox の拡張機能 org-capture-extension を使って capture するよりも便利。
+インストール org-protocol-capture-html はあまりちゃんとメンテされていないようなのと自分の環境では eval-when-compile の際にコンパイルされて定義されるはずの関数が定義されないので 自分で fork したやつを使っている
+というわけでレシピも自前で用意している。
+(:name org-protocol-capture-html :description &amp;#34;Capture HTML from the browser selection into Emacs as org-mode content.&amp;#34; :type github :pkgname &amp;#34;mugijiru/org-protocol-capture-html&amp;#34; :branch &amp;#34;feat/always-define-eww-readable-functions&amp;#34; :minimum-emacs-version &amp;#34;25.1&amp;#34; :depends (org-mode s)) そしてそれを el-get-bundle でインストールしている
+(el-get-bundle org-protocol-capture-html) このパッケージは audoload も指定されていないのでとりあえず require して全部読み込むようにしている
+(require &amp;#39;org-protocol-capture-html) </description>
+    </item>
+    
+    <item>
       <title>org-roam</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/org-roam/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
