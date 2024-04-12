@@ -117,7 +117,7 @@
         (epl :checksum "78ab7a85c08222cd15582a298a364774e3282ce6")
         (esa :checksum "417e0ac55abe9b17e0b7165d0df26bc018aff42e")
         (esqlite :checksum "08a779a821f8d32c1a1985d8d9eb6cf21646ce2e")
-        (exec-path-from-shell :checksum "d95677ad608c214647b87bc20df1642763e3b400")
+        (exec-path-from-shell :checksum "72ede29a0e0467b3b433e8edbee3c79bab005884")
         (f :checksum "1e7020dc0d4c52d3da9bd610d431cab13aa02d8c")
         (flycheck :checksum "bec59eeb58f86b10f8235bf94c873f3b0352ac41")
         (forge :checksum "99d319823719339e0c324ad3e9f78564865ec07a")
