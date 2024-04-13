@@ -1995,40 +1995,47 @@ el-get のレシピは GitHub を見ているので安心
     この設定は [[id:befaa52b-d054-43bd-9445-fca7f5bd8be5][jk で起動する Hydra]] から呼び出せるようにしている
 
 ** smartparens
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: smartparens
-   :ID:       62586c55-6455-4d41-a74a-a040739c51aa
-   :END:
+:PROPERTIES:
+:EXPORT_FILE_NAME: smartparens
+:ID:       62586c55-6455-4d41-a74a-a040739c51aa
+:END:
 *** 概要
+[[https://github.com/Fuco1/smartparens][smartparens]] はカッコとかクォートとかのペアになるようなものの入力補助をしてくれるやつ。
 
-    [[https://github.com/Fuco1/smartparens][smartparens]] はカッコとかクォートとかのペアになるようなものの入力補助をしてくれるやつ。
-
-    strict モードだとペアが崩れないように強制するので
-    雑に C-k で行削除しててもペアが維持されて便利。
+strict モードだとペアが崩れないように強制するので
+雑に C-k で行削除しててもペアが維持されて便利。
 
 *** インストール
-    :PROPERTIES:
-    :ID:       713c0278-fc89-4ce1-a664-14bb99b43bdf
-    :END:
+:PROPERTIES:
+:ID:       713c0278-fc89-4ce1-a664-14bb99b43bdf
+:END:
 
-    いつも透り el-get で導入している
+いつも透り el-get で導入している
 
-    #+begin_src emacs-lisp :tangle inits/20-smartparens.el
+#+begin_src emacs-lisp :tangle inits/20-smartparens.el
 (el-get-bundle smartparens)
-    #+end_src
+#+end_src
 
 *** 設定
-    :PROPERTIES:
-    :ID:       51bfc1b6-514d-440a-81aa-830f8b1267d5
-    :END:
+:PROPERTIES:
+:ID:       51bfc1b6-514d-440a-81aa-830f8b1267d5
+:END:
 
-    実は導入して間もないので、提供されてるオススメ設定のみ突っ込んでいる。
-    オススメ設定は別途 reqiure したら良いという作りなので、以下のようにして突っ込んでいる。
+実は導入して間もないので、提供されてるオススメ設定のみ突っ込んでいる。
+オススメ設定は別途 reqiure したら良いという作りなので、以下のようにして突っ込んでいる。
 
-    #+begin_src emacs-lisp :tangle inits/20-smartparens.el
+#+begin_src emacs-lisp :tangle inits/20-smartparens.el
 (require 'smartparens-config)
-    #+end_src
+#+end_src
+*** Monkey patch
+今現在 ~symbol definition void sp--syntax-class-to-char~ というエラーが生じるので
+https://github.com/Fuco1/smartparens/issues/1204#issuecomment-2052434191 に書かれているコードを moneky patch として適用している
 
+#+begin_src emacs-lisp :tangle inits/20-smartparens.el
+;; monkey patch for symbol definition void sp--syntax-class-to-char
+;; See: https://github.com/Fuco1/smartparens/issues/1204#issuecomment-2052434191
+(defalias 'sp--syntax-class-to-char #'syntax-class-to-char)
+#+end_src
 *** その他
 
     各言語の hook で ~smartparens-strict-mode~ を有効にしている。
