@@ -155,7 +155,8 @@ Key 効果 &amp;lt;backtab&amp;gt; 再帰的に折り畳んだり開いたりす
 strict モードだとペアが崩れないように強制するので雑に C-k で行削除しててもペアが維持されて便利。
 インストール いつも透り el-get で導入している
 (el-get-bundle smartparens) 設定 実は導入して間もないので、提供されてるオススメ設定のみ突っ込んでいる。オススメ設定は別途 reqiure したら良いという作りなので、以下のようにして突っ込んでいる。
-(require &amp;#39;smartparens-config) その他 各言語の hook で smartparens-strict-mode を有効にしている。なんか常に有効だと困りそうな気がしたので。</description>
+(require &amp;#39;smartparens-config) Monkey patch 今現在 symbol definition void sp--syntax-class-to-char というエラーが生じるので https://github.com/Fuco1/smartparens/issues/1204#issuecomment-2052434191 に書かれているコードを moneky patch として適用している
+;; monkey patch for symbol definition void sp--syntax-class-to-char ;; See: https://github.com/Fuco1/smartparens/issues/1204#issuecomment-2052434191 (defalias &amp;#39;sp--syntax-class-to-char #&amp;#39;syntax-class-to-char) その他 各言語の hook で smartparens-strict-mode を有効にしている。なんか常に有効だと困りそうな気がしたので。</description>
     </item>
     
     <item>
