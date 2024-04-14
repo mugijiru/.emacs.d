@@ -50,4 +50,29 @@
      "Other"
      (("." calibredb-set-metadata-dispatch "Dispatch"))))
 
-  )
+  (major-mode-hydra-define calibredb-search-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-material "book") " calibredb-search"))
+    ("File/Dir"
+     (("a" calibredb-add     "Add")
+      ("A" calibredb-add-dir "Add dir")
+      ("c" calibredb-clone   "Clone")
+      ("r" calibre-remove    "Remove"))
+
+     "Nav"
+     (("RET" calibredb-view "Show")
+      ("o"   calibredb-open-file-with-default-tool "Open")
+      ;; This feature only support macOS
+      ;; ("SPC" calibredb-quick-look "Quick")
+      )
+
+     "Index"
+     (("f" calibredb-filter-hydra/body "Filter")
+      ("s" calibredb-sort-hydra/body "Sort")
+      ("/" calibredb-search-live-filter "Live"))
+
+     "Virtual Library"
+     (("l" calibredb-virtual-library-list     "List")
+      ("N" calibredb-virtual-library-next     "Next")
+      ("P" calibredb-virtual-library-previous "Prev"))
+
+     "Other"
+     (("M" calibredb-metadata-hydra/body "Metadata")))))
