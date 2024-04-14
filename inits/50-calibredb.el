@@ -34,4 +34,20 @@
     "ASC/DESC"
     (("z" calibredb-toggle-order "Toggle"))))
 
+  (pretty-hydra-define calibredb-metadata-hydra (:separator "-" :exit t :quit-key "q" :title (concat (all-the-icons-material "book") " calibredb metadata"))
+    ("Set"
+     (("t" calibredb-set-metadata--title       "Title")
+      ("g" calibredb-set-metadata--tags        "Tags")
+      ("a" calibredb-set-metadata--author_sort "Author sort")
+      ("A" calibredb-set-metadata--authors     "Authors")
+      ("c" calibredb-set-metadata--comments    "comments"))
+
+     "Fetch"
+     (("A" calibredb-fetch-and-set-metadata-by-author-and-title "Author/Title")
+      ("I" calibredb-fetch-and-set-metadata-by-isbn             "ISBN")
+      ("D" calibredb-fetch-and-set-metadata-by-id               "ID"))
+
+     "Other"
+     (("." calibredb-set-metadata-dispatch "Dispatch"))))
+
   )
