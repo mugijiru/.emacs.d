@@ -22,7 +22,7 @@
         (origami :checksum "e5bf68a665f4c8922cdbc001d95184478a376922")
         (company-posframe :checksum "18d6641bba72cba3c00018cee737ea8b454f64a8")
         (nerd-icons :checksum "fb395120e9de33b276d16caaccaefd98d4340b92")
-        (copilot :checksum "5f30a2b667df03c120ba31ce3af933255c8a558b")
+        (copilot :checksum "edf517a57f539eb41eaa2f92c6752538f3a62b72")
         (editorconfig :checksum "d73b6392ded0476af93ec7ba75cca2909aa8d2dc")
         (emacs-sqlite3-api :checksum "a601c9965e4d0178705a64b7d4f88709ca9aea66")
         (org-roam :checksum "8667e441876cd2583fbf7282a65796ea149f0e5f")
