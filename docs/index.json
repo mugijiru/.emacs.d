@@ -830,7 +830,7 @@
 	"title": "smartparens",
 	"tags": [],
 	"description": "",
-	"content": "概要 smartparens はカッコとかクォートとかのペアになるようなものの入力補助をしてくれるやつ。\nstrict モードだとペアが崩れないように強制するので雑に C-k で行削除しててもペアが維持されて便利。\nインストール いつも透り el-get で導入している\n(el-get-bundle smartparens) 設定 実は導入して間もないので、提供されてるオススメ設定のみ突っ込んでいる。オススメ設定は別途 reqiure したら良いという作りなので、以下のようにして突っ込んでいる。\n(require \u0026#39;smartparens-config) Monkey patch 今現在 symbol definition void sp--syntax-class-to-char というエラーが生じるので https://github.com/Fuco1/smartparens/issues/1204#issuecomment-2052434191 に書かれているコードを moneky patch として適用している\n;; monkey patch for symbol definition void sp--syntax-class-to-char ;; See: https://github.com/Fuco1/smartparens/issues/1204#issuecomment-2052434191 (defalias \u0026#39;sp--syntax-class-to-char #\u0026#39;syntax-class-to-char) その他 各言語の hook で smartparens-strict-mode を有効にしている。なんか常に有効だと困りそうな気がしたので。\n"
+	"content": "概要 smartparens はカッコとかクォートとかのペアになるようなものの入力補助をしてくれるやつ。\nstrict モードだとペアが崩れないように強制するので雑に C-k で行削除しててもペアが維持されて便利。\nインストール いつも透り el-get で導入している\n(el-get-bundle smartparens) 設定 実は導入して間もないので、提供されてるオススメ設定のみ突っ込んでいる。オススメ設定は別途 reqiure したら良いという作りなので、以下のようにして突っ込んでいる。\n(require \u0026#39;smartparens-config) その他 各言語の hook で smartparens-strict-mode を有効にしている。なんか常に有効だと困りそうな気がしたので。\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/keybinds/sticky-control/",
