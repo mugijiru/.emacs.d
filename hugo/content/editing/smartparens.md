@@ -28,18 +28,6 @@ strict モードだとペアが崩れないように強制するので雑に C-k
 ```
 
 
-## Monkey patch {#monkey-patch}
-
-今現在 `symbol definition void sp--syntax-class-to-char` というエラーが生じるので
-<https://github.com/Fuco1/smartparens/issues/1204#issuecomment-2052434191> に書かれているコードを moneky patch として適用している
-
-```emacs-lisp
-;; monkey patch for symbol definition void sp--syntax-class-to-char
-;; See: https://github.com/Fuco1/smartparens/issues/1204#issuecomment-2052434191
-(defalias 'sp--syntax-class-to-char #'syntax-class-to-char)
-```
-
-
 ## その他 {#その他}
 
 各言語の hook で `smartparens-strict-mode` を有効にしている。なんか常に有効だと困りそうな気がしたので。
