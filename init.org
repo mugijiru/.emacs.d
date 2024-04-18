@@ -5827,31 +5827,27 @@ tsx の保存時に自動でフォーマットしてほしいのでそれ用に 
 :PROPERTIES:
 :ID:       240d8f05-5125-496b-b453-a3021dddfd8d
 :END:
-jsx/tsx ファイルを開く時に web-mode が有効になるようにしているので
-その web-mode の hook で
+jsx/tsx ファイルを開く時に tsx-ts-mode が有効になるようにしているので
+その tsx-ts-mode の hook で
 
-    - display-line-numbers-mode
-    - lsp
-    - lsp-ui-mode
-    - company-mode
+- display-line-numbers-mode
+- lsp
+- lsp-ui-mode
+- company-mode
 
-      を有効にしている。
+を有効にしている。
 
-      また
+また
 
-      - 保存時の自動補正 hook の追加
-      - 自動テストのキーバインドの設定
+- 保存時の自動補正 hook の追加
+- 自動テストのキーバインドの設定
 
-        も合わせて行っている。
+も合わせて行っている。
 
-        それ以外にも web-mode の設定も少し弄っていて
-        indent は2桁スペースになるようにしているが
-        自動インデントだとそれが反映されないっぽいので自動インデントはオフにしている。
+なお過去の設定では flycheck も少し設定していたが
+lsp-mode から eslint を使うことでやりたいことの対応ができるようなのでその設定は外した。
 
-        なお過去の設定では flycheck も少し設定していたが
-        lsp-mode から eslint を使うことでやりたいことの対応ができるようなのでその設定は外した。
-
-        #+begin_src emacs-lisp :tangle inits/41-react.el
+#+begin_src emacs-lisp :tangle inits/41-react.el
 (defun my/tsx-hook ()
   (let ((ext (file-name-extension buffer-file-name)))
     (when (or (string-equal "jsx" ext) (string-equal "tsx" ext))
@@ -5861,6 +5857,7 @@ jsx/tsx ファイルを開く時に web-mode が有効になるようにして�
       (origami-mode 1)
       (company-mode 1)
       (subword-mode 1)
+      (copilot-mode 1)
       (turn-on-smartparens-strict-mode)
       (display-line-numbers-mode t)
       (lsp)
@@ -5869,7 +5866,7 @@ jsx/tsx ファイルを開く時に web-mode が有効になるようにして�
 
 (add-to-list 'context-skk-programming-mode 'tsx-ts-mode)
 (add-hook 'tsx-ts-mode-hook 'my/tsx-hook)
-        #+end_src
+#+end_src
 
 ** rspec-mode
 :PROPERTIES:
@@ -6032,6 +6029,7 @@ hook 用の関数で補完などの機能を有効にしている
   (company-mode 1)
   (subword-mode 1)
   (which-function-mode 1)
+  (copilot-mode 1)
   (lsp)
   (lsp-ui-mode 1)
   (add-hook 'before-save-hook #'lsp-format-buffer nil 'local)
@@ -6197,6 +6195,7 @@ scss を使う上で hook を使って色々有効化したりしている。
   (company-mode 1)
   (subword-mode 1)
   (which-function-mode 1)
+  (copilot-mode 1)
   (display-line-numbers-mode 1)
 
   (rainbow-mode))
@@ -6468,6 +6467,7 @@ hook を使って有効化している
   (company-mode 1)
   (subword-mode 1)
   (which-function-mode 1)
+  (copilot-mode 1)
   (turn-on-smartparens-strict-mode)
   (display-line-numbers-mode t)
   (lsp)

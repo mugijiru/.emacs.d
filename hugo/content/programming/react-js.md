@@ -84,7 +84,7 @@ tsx の保存時に自動でフォーマットしてほしいのでそれ用に 
 
 ## lsp-mode などの有効化 {#lsp-mode-などの有効化}
 
-jsx/tsx ファイルを開く時に web-mode が有効になるようにしているのでその web-mode の hook で
+jsx/tsx ファイルを開く時に tsx-ts-mode が有効になるようにしているのでその tsx-ts-mode の hook で
 
 -   display-line-numbers-mode
 -   lsp
@@ -100,9 +100,6 @@ jsx/tsx ファイルを開く時に web-mode が有効になるようにして�
 
 も合わせて行っている。
 
-それ以外にも web-mode の設定も少し弄っていて
-indent は2桁スペースになるようにしているが自動インデントだとそれが反映されないっぽいので自動インデントはオフにしている。
-
 なお過去の設定では flycheck も少し設定していたが
 lsp-mode から eslint を使うことでやりたいことの対応ができるようなのでその設定は外した。
 
@@ -116,6 +113,7 @@ lsp-mode から eslint を使うことでやりたいことの対応ができる
       (origami-mode 1)
       (company-mode 1)
       (subword-mode 1)
+      (copilot-mode 1)
       (turn-on-smartparens-strict-mode)
       (display-line-numbers-mode t)
       (lsp)

@@ -110,6 +110,7 @@ hook 用の関数で補完などの機能を有効にしている
   (company-mode 1)
   (subword-mode 1)
   (which-function-mode 1)
+  (copilot-mode 1)
   (lsp)
   (lsp-ui-mode 1)
   (add-hook 'before-save-hook #'lsp-format-buffer nil 'local)
