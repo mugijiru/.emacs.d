@@ -5,82 +5,42 @@
     <link>https://mugijiru.github.io/.emacs.d/keybinds/</link>
     <description>Recent content in キーバインド on 麦汁&#39;s Emacs Config</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/keybinds/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja-JP</language>
+    <atom:link href="https://mugijiru.github.io/.emacs.d/keybinds/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Google 連携</title>
       <link>https://mugijiru.github.io/.emacs.d/keybinds/google-integration/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/keybinds/google-integration/</guid>
-      <description>概要 Google と連携するパッケージとして google-this と google-translate を入れているが、どっちも Google を使うので1つの Hydra にまとめていた方が扱いやすいと思って統合している
-キーバインド (with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define google-pretty-hydra (:foreign-keys warn :title &amp;#34;Google&amp;#34; :quit-key &amp;#34;q&amp;#34; :color blue :separator &amp;#34;-&amp;#34;) (&amp;#34;Current&amp;#34; ((&amp;#34;SPC&amp;#34; google-this-noconfirm &amp;#34;No Confirm&amp;#34;) (&amp;#34;RET&amp;#34; google-this &amp;#34;Auto&amp;#34;) (&amp;#34;w&amp;#34; google-this-word &amp;#34;Word&amp;#34;) (&amp;#34;l&amp;#34; google-this-line &amp;#34;Line&amp;#34;) (&amp;#34;s&amp;#34; google-this-symbol &amp;#34;Symbol&amp;#34;) (&amp;#34;r&amp;#34; google-this-region &amp;#34;Region&amp;#34;) (&amp;#34;e&amp;#34; google-this-error &amp;#34;Error&amp;#34;)) &amp;#34;Feeling Lucky&amp;#34; ((&amp;#34;L&amp;#34; google-this-lucky-search &amp;#34;Lucky&amp;#34;) (&amp;#34;i&amp;#34; google-this-lucky-and-insert-url &amp;#34;Insert URL&amp;#34;)) &amp;#34;Translate&amp;#34; ((&amp;#34;t&amp;#34; google-translate-at-point &amp;#34;EN =&amp;gt; JP&amp;#34;) (&amp;#34;T&amp;#34; google-translate-at-point-reverse &amp;#34;JP =&amp;gt; EN&amp;#34;)) &amp;#34;Tool&amp;#34; ((&amp;#34;W&amp;#34; google-this-forecast &amp;#34;Weather&amp;#34;))))) Key 効果 SPC 確認なしで検索 RET どの範囲の情報で検索するか自動判定して検索 w 近くの単語で検索 l その行の内容で検索。エラーの検索とかに良いかも s シンボルで検索。使うのは Emacs Lisp の関数調べる時ぐらいか?</description>
+      <description>概要 Google と連携するパッケージとして google-this と google-translate を入れているが、どっちも Google を使うので1つの Hydra にまとめていた方が扱いやすいと思って統合している&#xA;キーバインド (with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define google-pretty-hydra (:foreign-keys warn :title &amp;#34;Google&amp;#34; :quit-key &amp;#34;q&amp;#34; :color blue :separator &amp;#34;-&amp;#34;) (&amp;#34;Current&amp;#34; ((&amp;#34;SPC&amp;#34; google-this-noconfirm &amp;#34;No Confirm&amp;#34;) (&amp;#34;RET&amp;#34; google-this &amp;#34;Auto&amp;#34;) (&amp;#34;w&amp;#34; google-this-word &amp;#34;Word&amp;#34;) (&amp;#34;l&amp;#34; google-this-line &amp;#34;Line&amp;#34;) (&amp;#34;s&amp;#34; google-this-symbol &amp;#34;Symbol&amp;#34;) (&amp;#34;r&amp;#34; google-this-region &amp;#34;Region&amp;#34;) (&amp;#34;e&amp;#34; google-this-error &amp;#34;Error&amp;#34;)) &amp;#34;Feeling Lucky&amp;#34; ((&amp;#34;L&amp;#34; google-this-lucky-search &amp;#34;Lucky&amp;#34;) (&amp;#34;i&amp;#34; google-this-lucky-and-insert-url &amp;#34;Insert URL&amp;#34;)) &amp;#34;Translate&amp;#34; ((&amp;#34;t&amp;#34; google-translate-at-point &amp;#34;EN =&amp;gt; JP&amp;#34;) (&amp;#34;T&amp;#34; google-translate-at-point-reverse &amp;#34;JP =&amp;gt; EN&amp;#34;)) &amp;#34;Tool&amp;#34; ((&amp;#34;W&amp;#34; google-this-forecast &amp;#34;Weather&amp;#34;))))) Key 効果 SPC 確認なしで検索 RET どの範囲の情報で検索するか自動判定して検索 w 近くの単語で検索 l その行の内容で検索。エラーの検索とかに良いかも s シンボルで検索。使うのは Emacs Lisp の関数調べる時ぐらいか?</description>
     </item>
-    
     <item>
       <title>key-chord</title>
       <link>https://mugijiru.github.io/.emacs.d/keybinds/key-chord/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/keybinds/key-chord/</guid>
-      <description>概要 key-chord はキーを同時に押した時にコマンドを発動させるということができるようにしてくれるパッケージ。
-なのですが本家の方だと誤爆が多いということなのでそれを改善した zk-phi/key-chord の方を利用している。
-まあほとんど使えてないので改良版の恩恵をまだ受けてないけど……。
-インストール el-get のレシピは自前で用意している。なおインストールしているのは本家版ではない。
-(:name key-chord :description &amp;#34;bind commands to combinations of key-strokes&amp;#34; :type github :pkgname &amp;#34;zk-phi/key-chord&amp;#34;) そして el-get でインストールしている。
-(el-get-bundle key-chord) 設定 同時押し時の許容時間、その前後で別のキーが押されていたら発動しない判断をする、みたいな設定を入れている。
-(setq key-chord-two-keys-delay 0.25 key-chord-safety-interval-backward 0.1 key-chord-safety-interval-forward 0.15) キーの同時押し判定は 0.15 秒で、それらのキーが押される直前の 0.1 秒以内、または直後の 0.15 秒に押されていたら発動しない、という設定にしている。
-改良版の作者の記事だと、直後判定は 0.25 秒で設定されていたが自分は Hydra の起動に使っている上に Hydra で叩けるやつでよく使うやつは覚えているので表示を待たずに次のキーを押すので 0.25 秒も待っていられないという事情があった。
-有効化 設定を入れた後は有効にするだけである。
-(key-chord-mode 1) 実際のキーバインド設定は各モードだったりグローバルキーバインドを設定しているファイルだったりで書く感じ。
-といいつつ現状では Hydra 起動のやつしか使ってないので、グローバルキーバインド設定でしか書いてない。
-sticky-shift セミコロン2つでシフトを押した状態にする セミコロンを2回叩くことで shift が押されてるという状態を実現する。
-これにより magit で P などを入力したい時にも ;;p で入力できるし通常の英字入力時にも大文字にできるので左手小指が痛い時には Shift を使わずに操作ができるようになる。</description>
+      <description>概要 key-chord はキーを同時に押した時にコマンドを発動させるということができるようにしてくれるパッケージ。&#xA;なのですが本家の方だと誤爆が多いということなのでそれを改善した zk-phi/key-chord の方を利用している。&#xA;まあほとんど使えてないので改良版の恩恵をまだ受けてないけど……。&#xA;インストール el-get のレシピは自前で用意している。なおインストールしているのは本家版ではない。&#xA;(:name key-chord :description &amp;#34;bind commands to combinations of key-strokes&amp;#34; :type github :pkgname &amp;#34;zk-phi/key-chord&amp;#34;) そして el-get でインストールしている。&#xA;(el-get-bundle key-chord) 設定 同時押し時の許容時間、その前後で別のキーが押されていたら発動しない判断をする、みたいな設定を入れている。&#xA;(setq key-chord-two-keys-delay 0.25 key-chord-safety-interval-backward 0.1 key-chord-safety-interval-forward 0.15) キーの同時押し判定は 0.15 秒で、それらのキーが押される直前の 0.1 秒以内、または直後の 0.15 秒に押されていたら発動しない、という設定にしている。&#xA;改良版の作者の記事だと、直後判定は 0.25 秒で設定されていたが自分は Hydra の起動に使っている上に Hydra で叩けるやつでよく使うやつは覚えているので表示を待たずに次のキーを押すので 0.25 秒も待っていられないという事情があった。&#xA;有効化 設定を入れた後は有効にするだけである。&#xA;(key-chord-mode 1) 実際のキーバインド設定は各モードだったりグローバルキーバインドを設定しているファイルだったりで書く感じ。&#xA;といいつつ現状では Hydra 起動のやつしか使ってないので、グローバルキーバインド設定でしか書いてない。&#xA;sticky-shift セミコロン2つでシフトを押した状態にする セミコロンを2回叩くことで shift が押されてるという状態を実現する。&#xA;これにより magit で P などを入力したい時にも ;;p で入力できるし通常の英字入力時にも大文字にできるので左手小指が痛い時には Shift を使わずに操作ができるようになる。</description>
     </item>
-    
     <item>
       <title>sticky-control</title>
       <link>https://mugijiru.github.io/.emacs.d/keybinds/sticky-control/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/keybinds/sticky-control/</guid>
-      <description>概要 指定したキーを2回叩いたら Control が押されてるような状態にしてくれるプラグイン。
-その2回の間隔はデフォルトだと 0.5 秒以内となっている。そのため、そのキーを押して 0.5 秒が経過したら、普通にそのキーが押されたことになる
-さらに sticky-control-shortcuts に指定されてる一部のキーについては sticky 用のキーを押した直後に shortcuts のキーを押すと Control を押している状態でそのキーを押したことになる。
-例えば私は , を sticky 用のキーにしていて shortcuts に c を入れているので ,c と素早くタイプをすればそれだけで C-c が押された状態になる。
-インストール まずは el-get-bundle でインストール。
-(el-get-bundle sticky-control) ちなみにレシピは公式ではなかったのでとりあえず自分の環境で使えるように自作レシピを置いている。
-(:name sticky-control :description &amp;#34;save your left little finger&amp;#34; :type http :url &amp;#34;https://raw.githubusercontent.com/martialboniou/emacs-revival/master/sticky-control.el&amp;#34; :features &amp;#34;sticky-control&amp;#34;) 元々は http://www.cs.toronto.edu/~ryanjohn/sticky-control.el にあったのだけど最近そこからは取得できなくなったので https://github.com/martialboniou/emacs-revival/blob/master/sticky-control.el から取得して利用している
-設定 まずは「2回叩いたら Control を押している状態になる」キーを指定する。
-(sticky-control-set-key &amp;#39;sticky-control-key ?,) 私は , を sticky-control のキーにしているのでこの指定。
-そして次に sticky-control-shortuts の指定。ここに指定しておくと、例えば ,c と素早くタイプすることで C-c が入力された状態とすることができる。</description>
+      <description>概要 指定したキーを2回叩いたら Control が押されてるような状態にしてくれるプラグイン。&#xA;その2回の間隔はデフォルトだと 0.5 秒以内となっている。そのため、そのキーを押して 0.5 秒が経過したら、普通にそのキーが押されたことになる&#xA;さらに sticky-control-shortcuts に指定されてる一部のキーについては sticky 用のキーを押した直後に shortcuts のキーを押すと Control を押している状態でそのキーを押したことになる。&#xA;例えば私は , を sticky 用のキーにしていて shortcuts に c を入れているので ,c と素早くタイプをすればそれだけで C-c が押された状態になる。&#xA;インストール まずは el-get-bundle でインストール。&#xA;(el-get-bundle sticky-control) ちなみにレシピは公式ではなかったのでとりあえず自分の環境で使えるように自作レシピを置いている。&#xA;(:name sticky-control :description &amp;#34;save your left little finger&amp;#34; :type http :url &amp;#34;https://raw.githubusercontent.com/martialboniou/emacs-revival/master/sticky-control.el&amp;#34; :features &amp;#34;sticky-control&amp;#34;) 元々は http://www.cs.toronto.edu/~ryanjohn/sticky-control.el にあったのだけど最近そこからは取得できなくなったので https://github.com/martialboniou/emacs-revival/blob/master/sticky-control.el から取得して利用している&#xA;設定 まずは「2回叩いたら Control を押している状態になる」キーを指定する。&#xA;(sticky-control-set-key &amp;#39;sticky-control-key ?,) 私は , を sticky-control のキーにしているのでこの指定。&#xA;そして次に sticky-control-shortuts の指定。ここに指定しておくと、例えば ,c と素早くタイプすることで C-c が入力された状態とすることができる。</description>
     </item>
-    
     <item>
       <title>which-key</title>
       <link>https://mugijiru.github.io/.emacs.d/keybinds/which-key/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/keybinds/which-key/</guid>
-      <description>概要 which-key は prefix となるキーを入力してしばらく操作しなかった場合に minibuffer とかで「続けて押せるキーはこれだよ」ってのを示してくれるやつ。
-インストール こいつは el-get 本体にレシピがあるので el-get-bundle でインストールしている
-(el-get-bundle which-key) 有効化 特に設定は弄らないで有効化している
-(which-key-mode 1) </description>
+      <description>概要 which-key は prefix となるキーを入力してしばらく操作しなかった場合に minibuffer とかで「続けて押せるキーはこれだよ」ってのを示してくれるやつ。&#xA;インストール こいつは el-get 本体にレシピがあるので el-get-bundle でインストールしている&#xA;(el-get-bundle which-key) 有効化 特に設定は弄らないで有効化している&#xA;(which-key-mode 1) </description>
     </item>
-    
     <item>
       <title>グローバルキーバインド</title>
       <link>https://mugijiru.github.io/.emacs.d/keybinds/global-keybinds/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/keybinds/global-keybinds/</guid>
-      <description>概要 Emacs では様々なグローバルマイナーモードが存在したりしていていつでも使えるようなコマンドが多数存在するのでここでまとめて定義している。
-が、Hydra 関係もここに書くと項目が大きくなりすぎるので、それはまた別途定義している。
-Mac での修飾キー変更 (if (eq window-system &amp;#39;ns) (progn (setq ns-alternate-modifier (quote super)) ;; option =&amp;gt; super (setq ns-command-modifier (quote meta)))) ;; command =&amp;gt; meta C-h を backspace に変更 C-h で文字を消せないと不便なのでずっと昔からこの設定は入れている。
-(keyboard-translate ?\C-h ?\C-?) (global-set-key &amp;#34;\C-h&amp;#34; nil) M-g rをstring-replaceに割り当て string-replace はよく使うのでそれなりに使いやすいキーにアサインしている
-(global-set-key (kbd &amp;#34;M-g r&amp;#34;) &amp;#39;replace-string) replace-regexp もまあまあ使うけどそれはキーを当ててないのでどこかでなんとかしたい。 Hydra 使う?
-C-\ で SKK が有効になるようにする C-\ で skk-mode を起動できるようにしている。 C-x C-j の方も設定は生きているが使ってない。っていうか忘れてた。
-(global-set-key (kbd &amp;#34;C-\\&amp;#34;) &amp;#39;skk-mode) 余談だけど org-mode とか commit message 書く時とかは自動で有効になるようにしたい気はする。</description>
+      <description>概要 Emacs では様々なグローバルマイナーモードが存在したりしていていつでも使えるようなコマンドが多数存在するのでここでまとめて定義している。&#xA;が、Hydra 関係もここに書くと項目が大きくなりすぎるので、それはまた別途定義している。&#xA;Mac での修飾キー変更 (if (eq window-system &amp;#39;ns) (progn (setq ns-alternate-modifier (quote super)) ;; option =&amp;gt; super (setq ns-command-modifier (quote meta)))) ;; command =&amp;gt; meta C-h を backspace に変更 C-h で文字を消せないと不便なのでずっと昔からこの設定は入れている。&#xA;(keyboard-translate ?\C-h ?\C-?) (global-set-key &amp;#34;\C-h&amp;#34; nil) M-g rをstring-replaceに割り当て string-replace はよく使うのでそれなりに使いやすいキーにアサインしている&#xA;(global-set-key (kbd &amp;#34;M-g r&amp;#34;) &amp;#39;replace-string) replace-regexp もまあまあ使うけどそれはキーを当ててないのでどこかでなんとかしたい。 Hydra 使う?&#xA;C-\ で SKK が有効になるようにする C-\ で skk-mode を起動できるようにしている。 C-x C-j の方も設定は生きているが使ってない。っていうか忘れてた。&#xA;(global-set-key (kbd &amp;#34;C-\\&amp;#34;) &amp;#39;skk-mode) 余談だけど org-mode とか commit message 書く時とかは自動で有効になるようにしたい気はする。</description>
     </item>
-    
   </channel>
 </rss>

@@ -5,348 +5,168 @@
     <link>https://mugijiru.github.io/.emacs.d/programming/</link>
     <description>Recent content in プログラミング関係の設定 on 麦汁&#39;s Emacs Config</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/programming/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja-JP</language>
+    <atom:link href="https://mugijiru.github.io/.emacs.d/programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/docker/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/programming/docker/</guid>
-      <description>概要 Dockerfile を書いたりするための設定。ちゃんと設定したら Emacs から Docker の操作もできるようだけどそこまでは対応してない
-dockerfile-mode インストール こちらは el-get にレシピが登録されているので単純に el-get-bundle でインストールしている。
-(el-get-bundle dockerfile-mode) カスタマイズ とりあえずインデントはスペース 2 つで普段書いているのでそれに合わせてカスタム変数を指定している。
-(custom-set-variables &amp;#39;(dockerfile-indent-offset 2)) hook lsp-mode では Dockerfile もサポートしている ので
-$ npm install -g dockerfile-language-server-nodejs で LSP サーバを入れた上で dockerfile-mode-hook で lsp を起動させるようにしている。
-あとついでに display-line-numbers-mode も有効にしている。
-(defun my/dockerfile-mode-hook () (display-line-numbers-mode t) (flycheck-mode 1) (lsp)) (add-hook &amp;#39;dockerfile-mode-hook &amp;#39;my/dockerfile-mode-hook) (add-hook &amp;#39;dockerfile-ts-mode-hook &amp;#39;my/dockerfile-mode-hook) </description>
+      <description>概要 Dockerfile を書いたりするための設定。ちゃんと設定したら Emacs から Docker の操作もできるようだけどそこまでは対応してない&#xA;dockerfile-mode インストール こちらは el-get にレシピが登録されているので単純に el-get-bundle でインストールしている。&#xA;(el-get-bundle dockerfile-mode) カスタマイズ とりあえずインデントはスペース 2 つで普段書いているのでそれに合わせてカスタム変数を指定している。&#xA;(custom-set-variables &amp;#39;(dockerfile-indent-offset 2)) hook lsp-mode では Dockerfile もサポートしている ので&#xA;$ npm install -g dockerfile-language-server-nodejs で LSP サーバを入れた上で dockerfile-mode-hook で lsp を起動させるようにしている。&#xA;あとついでに display-line-numbers-mode も有効にしている。&#xA;(defun my/dockerfile-mode-hook () (display-line-numbers-mode t) (flycheck-mode 1) (lsp)) (add-hook &amp;#39;dockerfile-mode-hook &amp;#39;my/dockerfile-mode-hook) (add-hook &amp;#39;dockerfile-ts-mode-hook &amp;#39;my/dockerfile-mode-hook) </description>
     </item>
-    
     <item>
       <title>emacs-lisp</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/emacs-lisp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/programming/emacs-lisp/</guid>
-      <description>概要 Emacs Lisp を書くための設定。まあそんなにしっかり書いてないので、あんまり設定は入ってない
-Hook Hook 用の関数を定義してその中に色々書いている。
-とりあえず行数表示が欲しいので display-line-numbers-mode を有効化 当然補完もしたいので company-mode を有効にしている カッコの対応などもいい感じに動いて欲しいので smartparens-mode とその strict-mode を有効にしている (defun my/emacs-lisp-mode-hook () (display-line-numbers-mode 1) (origami-mode 1) (company-mode 1) (smartparens-mode 1) (turn-on-smartparens-strict-mode)) そんで最後にその関数を hook に突っ込んでる。
-(add-hook &amp;#39;emacs-lisp-mode-hook &amp;#39;my/emacs-lisp-mode-hook) アイコン挿入コマンドの用意 時々 UI 設定目的で絵文字を使うことがあるので挿入できるコマンドを用意している。最近使った記憶ないけど。
-(defun my/insert-all-the-icons-code (family) (interactive) (let* ((candidates (all-the-icons--read-candidates-for-family family)) (prompt (format &amp;#34;%s Icon: &amp;#34; (funcall (all-the-icons--family-name family)))) (selection (completing-read prompt candidates nil t))) (insert &amp;#34;(all-the-icons-&amp;#34; (symbol-name family) &amp;#34; \&amp;#34;&amp;#34; selection &amp;#34;\&amp;#34;)&amp;#34;))) キーバインド emacs-lisp-mode 用に major-mode-hydra を設定している。けどそんなにしっかり Emacs Lisp を書いてるわけではないのがバレバレな感じである。</description>
+      <description>概要 Emacs Lisp を書くための設定。まあそんなにしっかり書いてないので、あんまり設定は入ってない&#xA;Hook Hook 用の関数を定義してその中に色々書いている。&#xA;とりあえず行数表示が欲しいので display-line-numbers-mode を有効化 当然補完もしたいので company-mode を有効にしている カッコの対応などもいい感じに動いて欲しいので smartparens-mode とその strict-mode を有効にしている (defun my/emacs-lisp-mode-hook () (display-line-numbers-mode 1) (origami-mode 1) (company-mode 1) (smartparens-mode 1) (turn-on-smartparens-strict-mode)) そんで最後にその関数を hook に突っ込んでる。&#xA;(add-hook &amp;#39;emacs-lisp-mode-hook &amp;#39;my/emacs-lisp-mode-hook) アイコン挿入コマンドの用意 時々 UI 設定目的で絵文字を使うことがあるので挿入できるコマンドを用意している。最近使った記憶ないけど。&#xA;(defun my/insert-all-the-icons-code (family) (interactive) (let* ((candidates (all-the-icons--read-candidates-for-family family)) (prompt (format &amp;#34;%s Icon: &amp;#34; (funcall (all-the-icons--family-name family)))) (selection (completing-read prompt candidates nil t))) (insert &amp;#34;(all-the-icons-&amp;#34; (symbol-name family) &amp;#34; \&amp;#34;&amp;#34; selection &amp;#34;\&amp;#34;)&amp;#34;))) キーバインド emacs-lisp-mode 用に major-mode-hydra を設定している。けどそんなにしっかり Emacs Lisp を書いてるわけではないのがバレバレな感じである。</description>
     </item>
-    
     <item>
       <title>Ember.js</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/ember-js/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/programming/ember-js/</guid>
-      <description>概要 Ember.js 用の Emacs の拡張としては ember-mode と handlebars-mode が存在する
-ember-mode unused ember-mode は Ember.js アプリケーションのファイルナビゲーションや生成を行ってくれるモード。実は麦汁さんは使えてない。
-インストールするだけではダメで、 ember-mode を明示的に起動しないといけない。
-そのためには dir-locals を使うとか projectile なんかがやってるようにフォルダ構成から判定させるみたいなことが必要そう。だるい。
-というわけで死蔵中。
-ついでにいうとキーバインドもだるい系なので使う時は Hydra を用意した方が良さそう
-インストールは GitHub からできるが el-get.lock を用いたバージョン更新確認スクリプトのためレシピを追加している
-(:name ember-mode :website &amp;#34;https://github.com/madnificent/ember-mode&amp;#34; :description &amp;#34;Ember-mode speeds up navigation in EmberJS projects.&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;madnificent/ember-mode&amp;#34;) このレシピを用意した上で以下でインストール
-(el-get-bundle ember-mode) handlebars-mode improvement handlebars-mode は Ember.js のテンプレートエンジンとして採用されている Handlebars を書くためのモード。
-syntax highlight と、いくつかの編集機能を備えている。が、今のところ麦汁さんは syntax highlight しか使えてない。
-編集コマンドは major-mode-hydra で使えるようにしてあげれば良さそう</description>
+      <description>概要 Ember.js 用の Emacs の拡張としては ember-mode と handlebars-mode が存在する&#xA;ember-mode unused ember-mode は Ember.js アプリケーションのファイルナビゲーションや生成を行ってくれるモード。実は麦汁さんは使えてない。&#xA;インストールするだけではダメで、 ember-mode を明示的に起動しないといけない。&#xA;そのためには dir-locals を使うとか projectile なんかがやってるようにフォルダ構成から判定させるみたいなことが必要そう。だるい。&#xA;というわけで死蔵中。&#xA;ついでにいうとキーバインドもだるい系なので使う時は Hydra を用意した方が良さそう&#xA;インストールは GitHub からできるが el-get.lock を用いたバージョン更新確認スクリプトのためレシピを追加している&#xA;(:name ember-mode :website &amp;#34;https://github.com/madnificent/ember-mode&amp;#34; :description &amp;#34;Ember-mode speeds up navigation in EmberJS projects.&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;madnificent/ember-mode&amp;#34;) このレシピを用意した上で以下でインストール&#xA;(el-get-bundle ember-mode) handlebars-mode improvement handlebars-mode は Ember.js のテンプレートエンジンとして採用されている Handlebars を書くためのモード。&#xA;syntax highlight と、いくつかの編集機能を備えている。が、今のところ麦汁さんは syntax highlight しか使えてない。&#xA;編集コマンドは major-mode-hydra で使えるようにしてあげれば良さそう</description>
     </item>
-    
     <item>
       <title>es6</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/es6/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/programming/es6/</guid>
-      <description>概要 ES5 以前ではない JS を書くための設定。 es6 といいつつ ES2016(ES7) などもこの設定のまま書いている。
-sprockets-es6 を使って ES6 対応をしていた時に es6 という拡張子を使っていたのでこのファイル名になっている。
-インストール es6 はつまり JS なのでとりあえず el-get で js2-mode を入れている。
-(el-get-bundle js2-mode) Hook flycheck を有効にしてリアルタイムに文法チェックをしている また javascript-eslint を使いたいので他2つは disable にしている company-mode で補完できるようにしている smartparens-strict-mode でカッコなどの入力補助をしている インデントは空白2文字としている (defun my/js2-mode-hook () (flycheck-mode 1) (setq flycheck-disabled-checkers &amp;#39;(javascript-standard javascript-jshint)) (company-mode 1) (turn-on-smartparens-strict-mode) (setq js2-basic-offset 2)) という Hook 用関数を用意しておいて
-(add-hook &amp;#39;js2-mode-hook &amp;#39;my/js2-mode-hook) という感じで js2-mode-hook に追加している。
-Lambda で一括でやる方法もあるけども、関数名つけて分離しておくと中身を簡単に入れ替えられて便利。
-es6 を js2-mode で扱うようにする (add-to-list &amp;#39;auto-mode-alist &amp;#39;(&amp;#34;\\.</description>
+      <description>概要 ES5 以前ではない JS を書くための設定。 es6 といいつつ ES2016(ES7) などもこの設定のまま書いている。&#xA;sprockets-es6 を使って ES6 対応をしていた時に es6 という拡張子を使っていたのでこのファイル名になっている。&#xA;インストール es6 はつまり JS なのでとりあえず el-get で js2-mode を入れている。&#xA;(el-get-bundle js2-mode) Hook flycheck を有効にしてリアルタイムに文法チェックをしている また javascript-eslint を使いたいので他2つは disable にしている company-mode で補完できるようにしている smartparens-strict-mode でカッコなどの入力補助をしている インデントは空白2文字としている (defun my/js2-mode-hook () (flycheck-mode 1) (setq flycheck-disabled-checkers &amp;#39;(javascript-standard javascript-jshint)) (company-mode 1) (turn-on-smartparens-strict-mode) (setq js2-basic-offset 2)) という Hook 用関数を用意しておいて&#xA;(add-hook &amp;#39;js2-mode-hook &amp;#39;my/js2-mode-hook) という感じで js2-mode-hook に追加している。&#xA;Lambda で一括でやる方法もあるけども、関数名つけて分離しておくと中身を簡単に入れ替えられて便利。&#xA;es6 を js2-mode で扱うようにする (add-to-list &amp;#39;auto-mode-alist &amp;#39;(&amp;#34;\\.</description>
     </item>
-    
     <item>
       <title>flycheck</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/flycheck/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/programming/flycheck/</guid>
-      <description>概要 flycheck はリアルタイムで文法チェックなんかをするのに便利なモード。 flymake よりモダンなやつだったんだけど最近は flymake に戻る人もいるっぽいのでどっちが良いかよくわかってない
-インストール flycheck と同時にカーソルのそばに pos-tip で通知内容を表示してくれる flycheck-pos-tip をインストールしている
-(el-get-bundle flycheck) (el-get-bundle flycheck-pos-tip) 設定 flycheck を読んだ後で flycheck-pos-tip-mode が有効になるようにしている。これは公式に書かれているやりかたに則っている https://github.com/flycheck/flycheck-pos-tip#installation
-また web-mode はデフォルトでは flycheck が使えないので flycheck-add-mode を使って web-mode でも flycheck が使えるようにしている
-(with-eval-after-load &amp;#39;flycheck (flycheck-pos-tip-mode) (flycheck-add-mode &amp;#39;javascript-eslint &amp;#39;web-mode)) その他 flycheck-posframe flycheck-pos-tip は flycheck 公式のプラグインなので採用しているけど同じことを posframe でやってくれる flycheck-posframe に置き換えた方が見た目麗しくなりそうな気がしている。
-言語毎の設定 各言語向けの設定もあるけどそれは各言語の設定ファイル内に書いているのでここでは書いてない
-プログラミング関係の設定 &amp;gt; ruby とか プログラミング関係の設定 &amp;gt; scss とかに書いているはず</description>
+      <description>概要 flycheck はリアルタイムで文法チェックなんかをするのに便利なモード。 flymake よりモダンなやつだったんだけど最近は flymake に戻る人もいるっぽいのでどっちが良いかよくわかってない&#xA;インストール flycheck と同時にカーソルのそばに pos-tip で通知内容を表示してくれる flycheck-pos-tip をインストールしている&#xA;(el-get-bundle flycheck) (el-get-bundle flycheck-pos-tip) 設定 flycheck を読んだ後で flycheck-pos-tip-mode が有効になるようにしている。これは公式に書かれているやりかたに則っている https://github.com/flycheck/flycheck-pos-tip#installation&#xA;また web-mode はデフォルトでは flycheck が使えないので flycheck-add-mode を使って web-mode でも flycheck が使えるようにしている&#xA;(with-eval-after-load &amp;#39;flycheck (flycheck-pos-tip-mode) (flycheck-add-mode &amp;#39;javascript-eslint &amp;#39;web-mode)) その他 flycheck-posframe flycheck-pos-tip は flycheck 公式のプラグインなので採用しているけど同じことを posframe でやってくれる flycheck-posframe に置き換えた方が見た目麗しくなりそうな気がしている。&#xA;言語毎の設定 各言語向けの設定もあるけどそれは各言語の設定ファイル内に書いているのでここでは書いてない&#xA;プログラミング関係の設定 &amp;gt; ruby とか プログラミング関係の設定 &amp;gt; scss とかに書いているはず</description>
     </item>
-    
     <item>
       <title>gnuplot-mode</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/gnuplot-mode/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/programming/gnuplot-mode/</guid>
-      <description>概要 gnuplot-mode はグラフ作成ソフトである gnuplot を Emacs で使うためのパッケージ。 Syntax Highlight や 補完機能 などを提供する。
-まあほとんど使ってないんだけど。
-インストール レシピは自前で用意している
-(:name gnuplot-mode :description &amp;#34;Drive gnuplot from within emacs&amp;#34; :type github :pkgname &amp;#34;emacs-gnuplot/gnuplot&amp;#34; :branch &amp;#34;main&amp;#34; :build `((&amp;#34;make&amp;#34; ,(concat &amp;#34;EMACS=&amp;#34; el-get-emacs)))) そしていつも通り el-get で入れている
-(el-get-bundle gnuplot-mode) その他 org-mode から使ってた記憶があるのでそっちの方で何か設定があるかもしれない</description>
+      <description>概要 gnuplot-mode はグラフ作成ソフトである gnuplot を Emacs で使うためのパッケージ。 Syntax Highlight や 補完機能 などを提供する。&#xA;まあほとんど使ってないんだけど。&#xA;インストール レシピは自前で用意している&#xA;(:name gnuplot-mode :description &amp;#34;Drive gnuplot from within emacs&amp;#34; :type github :pkgname &amp;#34;emacs-gnuplot/gnuplot&amp;#34; :branch &amp;#34;main&amp;#34; :build `((&amp;#34;make&amp;#34; ,(concat &amp;#34;EMACS=&amp;#34; el-get-emacs)))) そしていつも通り el-get で入れている&#xA;(el-get-bundle gnuplot-mode) その他 org-mode から使ってた記憶があるのでそっちの方で何か設定があるかもしれない</description>
     </item>
-    
     <item>
       <title>GraphQL</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/graphql/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/programming/graphql/</guid>
-      <description>概要 GraphQL は API 向けのクエリ言語でよく対比される REST と違いクライアント側から必要なデータ属性を指定できたりするやつ
-graphql-mode *.graphql ファイルを編集する時のメジャーモード
-インストール こいつは el-get にレシピが用意されてないので自前で用意している
-(:name graphql-mode :description &amp;#34;An emacs mode to edit GraphQL schema and queries.&amp;#34; :type github :pkgname &amp;#34;davazp/graphql-mode&amp;#34;) そして el-get-bundle でインストール
-(el-get-bundle graphql-mode) hooks graphql ファイルを弄る時に合わせて使いたい minor-mode があるのでそれらを有効にする hook を用意している
-(defun my/graphql-mode-hook () (company-mode 1) (turn-on-smartparens-strict-mode) (highlight-indent-guides-mode 1) (display-line-numbers-mode 1)) それぞれ以下の効果がある
-company-mode 補完候補を出してくれる smartparens-strict-mode カッコの対応を崩さないような編集ができるようなる highlight-indent-guides-mode インデントを見易くしてくれる display-line-numbers-mode 左側に行数表示を出してくれる そしてこの hook を graphql-mode-hook に突っ込んでいる
-(add-hook &amp;#39;graphql-mode-hook &amp;#39;my/graphql-mode-hook) graphql こちらは GraphQL API を Emacs Lisp から叩くためのライブラリ。命名的にややこしいけど。</description>
+      <description>概要 GraphQL は API 向けのクエリ言語でよく対比される REST と違いクライアント側から必要なデータ属性を指定できたりするやつ&#xA;graphql-mode *.graphql ファイルを編集する時のメジャーモード&#xA;インストール こいつは el-get にレシピが用意されてないので自前で用意している&#xA;(:name graphql-mode :description &amp;#34;An emacs mode to edit GraphQL schema and queries.&amp;#34; :type github :pkgname &amp;#34;davazp/graphql-mode&amp;#34;) そして el-get-bundle でインストール&#xA;(el-get-bundle graphql-mode) hooks graphql ファイルを弄る時に合わせて使いたい minor-mode があるのでそれらを有効にする hook を用意している&#xA;(defun my/graphql-mode-hook () (company-mode 1) (turn-on-smartparens-strict-mode) (highlight-indent-guides-mode 1) (display-line-numbers-mode 1)) それぞれ以下の効果がある&#xA;company-mode 補完候補を出してくれる smartparens-strict-mode カッコの対応を崩さないような編集ができるようなる highlight-indent-guides-mode インデントを見易くしてくれる display-line-numbers-mode 左側に行数表示を出してくれる そしてこの hook を graphql-mode-hook に突っ込んでいる&#xA;(add-hook &amp;#39;graphql-mode-hook &amp;#39;my/graphql-mode-hook) graphql こちらは GraphQL API を Emacs Lisp から叩くためのライブラリ。命名的にややこしいけど。</description>
     </item>
-    
     <item>
       <title>Jest</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/jest/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/programming/jest/</guid>
-      <description>概要 Jest は JavaScript のテスティングフレームワークの1つ。なんか大体オールインワンな感じで最近はデファクトっぽい人気なやつ。
-jest-test-mode jest-test-mode は Emacs 上から Jest のテストを手軽に実行できるようにしてくれるやつ。
-インストール まず el-get のレシピが公式では置かれていないので自前で用意
-(:name jest-test-mode :website &amp;#34;https://github.com/rymndhng/jest-test-mode/tree/3126c5c5c5632da639ea34867a7342d4410d78aa&amp;#34; :description &amp;#34;Emacs minor mode for running jest.&amp;#34; :type github :pkgname &amp;#34;rymndhng/jest-test-mode&amp;#34; :minimum-emacs-version &amp;#34;25.1&amp;#34;) そしてそれを el-get-bundle でインストール
-(el-get-bundle jest-test-mode) keymap デフォルトのキーマップ以外にも C-c C-c でテストできる方が手癖でテストを実行できて便利なので jest-test-mode-map に keybind を追加している
-(with-eval-after-load &amp;#39;jest-test-mode (let ((keymap jest-test-mode-map)) (define-key keymap (kbd &amp;#34;C-c C-c&amp;#34;) &amp;#39;jest-test-run-at-point))) .dir-locals.el Jest でテストを書いているプロジェクトのテストファイルを詰めているフォルダの.dir-locals.el に以下のように書くことでそれらのコードを開いた時に jest-test-mode が自動的に有効になるようにしている
-((web-mode . ((eval . (jest-test-mode)))) (typescript-mode .</description>
+      <description>概要 Jest は JavaScript のテスティングフレームワークの1つ。なんか大体オールインワンな感じで最近はデファクトっぽい人気なやつ。&#xA;jest-test-mode jest-test-mode は Emacs 上から Jest のテストを手軽に実行できるようにしてくれるやつ。&#xA;インストール まず el-get のレシピが公式では置かれていないので自前で用意&#xA;(:name jest-test-mode :website &amp;#34;https://github.com/rymndhng/jest-test-mode/tree/3126c5c5c5632da639ea34867a7342d4410d78aa&amp;#34; :description &amp;#34;Emacs minor mode for running jest.&amp;#34; :type github :pkgname &amp;#34;rymndhng/jest-test-mode&amp;#34; :minimum-emacs-version &amp;#34;25.1&amp;#34;) そしてそれを el-get-bundle でインストール&#xA;(el-get-bundle jest-test-mode) keymap デフォルトのキーマップ以外にも C-c C-c でテストできる方が手癖でテストを実行できて便利なので jest-test-mode-map に keybind を追加している&#xA;(with-eval-after-load &amp;#39;jest-test-mode (let ((keymap jest-test-mode-map)) (define-key keymap (kbd &amp;#34;C-c C-c&amp;#34;) &amp;#39;jest-test-run-at-point))) .dir-locals.el Jest でテストを書いているプロジェクトのテストファイルを詰めているフォルダの.dir-locals.el に以下のように書くことでそれらのコードを開いた時に jest-test-mode が自動的に有効になるようにしている&#xA;((web-mode . ((eval . (jest-test-mode)))) (typescript-mode .</description>
     </item>
-    
     <item>
       <title>JSON</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/json/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/programming/json/</guid>
-      <description>概要 パッケージの設定ファイルなどでよく使われているファイル形式。
-json-mode json-mode は Emacs で JSON を編集するためのモード。
-インストール いつも通り el-get-bundle でインストール。
-(el-get-bundle json-mode) hook 補完を有効にしたり LSP を使えるようにしたり保存時に自動整形させたりするため hook を色々突っ込んでる
-(defun my/json-mode-hook () (company-mode 1) (lsp) (lsp-ui-mode 1) (add-hook &amp;#39;before-save-hook #&amp;#39;lsp-format-buffer nil &amp;#39;local) (turn-on-smartparens-strict-mode) (flycheck-mode 1) (flycheck-select-checker &amp;#39;json-jq) (highlight-indent-guides-mode 1) (display-line-numbers-mode 1)) (add-hook &amp;#39;json-mode-hook &amp;#39;my/json-mode-hook) </description>
+      <description>概要 パッケージの設定ファイルなどでよく使われているファイル形式。&#xA;json-mode json-mode は Emacs で JSON を編集するためのモード。&#xA;インストール いつも通り el-get-bundle でインストール。&#xA;(el-get-bundle json-mode) hook 補完を有効にしたり LSP を使えるようにしたり保存時に自動整形させたりするため hook を色々突っ込んでる&#xA;(defun my/json-mode-hook () (company-mode 1) (lsp) (lsp-ui-mode 1) (add-hook &amp;#39;before-save-hook #&amp;#39;lsp-format-buffer nil &amp;#39;local) (turn-on-smartparens-strict-mode) (flycheck-mode 1) (flycheck-select-checker &amp;#39;json-jq) (highlight-indent-guides-mode 1) (display-line-numbers-mode 1)) (add-hook &amp;#39;json-mode-hook &amp;#39;my/json-mode-hook) </description>
     </item>
-    
     <item>
       <title>lsp-mode</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/lsp-mode/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/programming/lsp-mode/</guid>
-      <description>概要 lsp-mode は Emacs で Language server protocol が使えるようにするパッケージ。
-より軽そうなやつに eglot というのもあるがこっちは試したことがない。
-インストール lsp-mode 本体と UI 周りを担当する lsp-ui-mode の両方をインストールしている。また lsp-mode が有効になる際に lsp-ui-mode も同時に有効になるようにしている。
-(el-get-bundle lsp-mode) (el-get-bundle lsp-ui) (add-hook &amp;#39;lsp-mode-hook &amp;#39;lsp-ui-mode) カスタム変数 lsp-ui-doc はカーソル位置にある変数や関数などの説明を child frame で表示してくれるやつ。
-これがデフォルトではフレーム基準で右上に表示するのだが大きめの画面を分割して使っていると大分遠くに表示されてしまうので window 基準で表示するように設定を変更している
-(custom-set-variables &amp;#39;(lsp-diagnostics-provider :flycheck) &amp;#39;(lsp-ui-doc-show-with-cursor t) &amp;#39;(lsp-ui-doc-alignment &amp;#39;window)) パッチ 文字を拡大している時の折り返しがおかしくならないようにするパッチ
-;; Patch ;; https://github.com/emacs-lsp/lsp-ui/issues/184#issuecomment-1158057166 (with-eval-after-load &amp;#39;lsp-ui-sideline (defun lsp-ui-sideline--align (&amp;amp;rest lengths) &amp;#34;Align sideline string by LENGTHS from the right of the window.&amp;#34; (cons (+ (apply &amp;#39;+ lengths) (if (display-graphic-p) 1 2)) &amp;#39;width)) (defun lsp-ui-sideline--compute-height () nil)) Hydra の設定 (with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define pretty-hydra-lsp (:separator &amp;#34;-&amp;#34; :color blue :foreign-keys warn :title &amp;#34;LSP&amp;#34; :quit-key &amp;#34;q&amp;#34;) (&amp;#34;Find&amp;#34; ((&amp;#34;x&amp;#34; lsp-find-definition &amp;#34;definition&amp;#34;) (&amp;#34;r&amp;#34; lsp-find-references &amp;#34;references&amp;#34;) (&amp;#34;t&amp;#34; lsp-find-type-definition &amp;#34;type&amp;#34;) (&amp;#34;i&amp;#34; lsp-find-implementation &amp;#34;implementation&amp;#34;) (&amp;#34;D&amp;#34; lsp-find-declaration &amp;#34;declaration&amp;#34;)) &amp;#34;Code&amp;#34; ((&amp;#34;m&amp;#34; lsp-rename &amp;#34;Rename&amp;#34;)) &amp;#34;UI&amp;#34; ((&amp;#34;I&amp;#34; lsp-ui-imenu &amp;#34;imenu&amp;#34;) (&amp;#34;X&amp;#34; lsp-ui-peek-find-definitions &amp;#34;def&amp;#34;) (&amp;#34;R&amp;#34; lsp-ui-peek-find-references &amp;#34;refs&amp;#34;))))) TSX のインデント調整 tab 押下時は web-mode-code-indent-offset 等の設定で動いていたが indent-region ではそれと違う値(4)でインデントされていて indent-region を使えずにいた</description>
+      <description>概要 lsp-mode は Emacs で Language server protocol が使えるようにするパッケージ。&#xA;より軽そうなやつに eglot というのもあるがこっちは試したことがない。&#xA;インストール lsp-mode 本体と UI 周りを担当する lsp-ui-mode の両方をインストールしている。また lsp-mode が有効になる際に lsp-ui-mode も同時に有効になるようにしている。&#xA;(el-get-bundle lsp-mode) (el-get-bundle lsp-ui) (add-hook &amp;#39;lsp-mode-hook &amp;#39;lsp-ui-mode) カスタム変数 lsp-ui-doc はカーソル位置にある変数や関数などの説明を child frame で表示してくれるやつ。&#xA;これがデフォルトではフレーム基準で右上に表示するのだが大きめの画面を分割して使っていると大分遠くに表示されてしまうので window 基準で表示するように設定を変更している&#xA;(custom-set-variables &amp;#39;(lsp-diagnostics-provider :flycheck) &amp;#39;(lsp-ui-doc-show-with-cursor t) &amp;#39;(lsp-ui-doc-alignment &amp;#39;window)) パッチ 文字を拡大している時の折り返しがおかしくならないようにするパッチ&#xA;;; Patch ;; https://github.com/emacs-lsp/lsp-ui/issues/184#issuecomment-1158057166 (with-eval-after-load &amp;#39;lsp-ui-sideline (defun lsp-ui-sideline--align (&amp;amp;rest lengths) &amp;#34;Align sideline string by LENGTHS from the right of the window.&amp;#34; (cons (+ (apply &amp;#39;+ lengths) (if (display-graphic-p) 1 2)) &amp;#39;width)) (defun lsp-ui-sideline--compute-height () nil)) Hydra の設定 (with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define pretty-hydra-lsp (:separator &amp;#34;-&amp;#34; :color blue :foreign-keys warn :title &amp;#34;LSP&amp;#34; :quit-key &amp;#34;q&amp;#34;) (&amp;#34;Find&amp;#34; ((&amp;#34;x&amp;#34; lsp-find-definition &amp;#34;definition&amp;#34;) (&amp;#34;r&amp;#34; lsp-find-references &amp;#34;references&amp;#34;) (&amp;#34;t&amp;#34; lsp-find-type-definition &amp;#34;type&amp;#34;) (&amp;#34;i&amp;#34; lsp-find-implementation &amp;#34;implementation&amp;#34;) (&amp;#34;D&amp;#34; lsp-find-declaration &amp;#34;declaration&amp;#34;)) &amp;#34;Code&amp;#34; ((&amp;#34;m&amp;#34; lsp-rename &amp;#34;Rename&amp;#34;)) &amp;#34;UI&amp;#34; ((&amp;#34;I&amp;#34; lsp-ui-imenu &amp;#34;imenu&amp;#34;) (&amp;#34;X&amp;#34; lsp-ui-peek-find-definitions &amp;#34;def&amp;#34;) (&amp;#34;R&amp;#34; lsp-ui-peek-find-references &amp;#34;refs&amp;#34;))))) TSX のインデント調整 tab 押下時は web-mode-code-indent-offset 等の設定で動いていたが indent-region ではそれと違う値(4)でインデントされていて indent-region を使えずにいた</description>
     </item>
-    
     <item>
       <title>markdown</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/markdown/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/programming/markdown/</guid>
-      <description>概要 Markdown を書くための設定。といいつつ markdown-mode を入れてるだけだけども。
-手元でテキストドキュメントを弄るのは org-mode が多いからなあ……
-インストール いつも通り el-get で入れている。
-(el-get-bundle markdown-mode) </description>
+      <description>概要 Markdown を書くための設定。といいつつ markdown-mode を入れてるだけだけども。&#xA;手元でテキストドキュメントを弄るのは org-mode が多いからなあ……&#xA;インストール いつも通り el-get で入れている。&#xA;(el-get-bundle markdown-mode) </description>
     </item>
-    
     <item>
       <title>Mocha</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/mocha/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/programming/mocha/</guid>
-      <description>概要 Mocha は JS のテストフレームワークの1つ。 Jest より前はこっちはよく使われてた
-というわけで設定していたのだけど、今はもう使ってない。
-ひょっとしたらまた使うことがあるかもしれないのでドキュメントには残しておいて tangle による出力を停止する。
-mocha.el インストール レシピは自前で用意していた
-(:name mocha :description &amp;#34;Emacs mode for running mocha tests&amp;#34; :website &amp;#34;https://github.com/scottaj/mocha.el&amp;#34; :type github :pkgname &amp;#34;scottaj/mocha.el&amp;#34;) そしていつも通り el-get-bundle でインストールしていた
-(el-get-bundle mocha) テスト実行コマンド mocha のテストファイルかどうかを判定してそうだったら mocha としてテストを実行するコマンドを用意していた
-(defun my/mocha-test-file () (interactive) (if my/mocha-enable-p (mocha-test-file))) </description>
+      <description>概要 Mocha は JS のテストフレームワークの1つ。 Jest より前はこっちはよく使われてた&#xA;というわけで設定していたのだけど、今はもう使ってない。&#xA;ひょっとしたらまた使うことがあるかもしれないのでドキュメントには残しておいて tangle による出力を停止する。&#xA;mocha.el インストール レシピは自前で用意していた&#xA;(:name mocha :description &amp;#34;Emacs mode for running mocha tests&amp;#34; :website &amp;#34;https://github.com/scottaj/mocha.el&amp;#34; :type github :pkgname &amp;#34;scottaj/mocha.el&amp;#34;) そしていつも通り el-get-bundle でインストールしていた&#xA;(el-get-bundle mocha) テスト実行コマンド mocha のテストファイルかどうかを判定してそうだったら mocha としてテストを実行するコマンドを用意していた&#xA;(defun my/mocha-test-file () (interactive) (if my/mocha-enable-p (mocha-test-file))) </description>
     </item>
-    
     <item>
       <title>plantuml-mode</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/plantuml-mode/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/programming/plantuml-mode/</guid>
-      <description>概要 plantuml-mode は PlantUML という、テキストだけで UML 図などが描けるツール用のモード。
-インストール el-get のレシピは自前で用意。
-(:name plantuml-mode :description &amp;#34;Major mode for PlantUML.&amp;#34; :type github :branch &amp;#34;develop&amp;#34; :pkgname &amp;#34;skuro/plantuml-mode&amp;#34; :post-init (let ((plantuml-url &amp;#34;http://sourceforge.net/projects/plantuml/files/plantuml.jar/download&amp;#34;) (plantuml-jar (expand-file-name &amp;#34;plantuml.jar&amp;#34; default-directory))) (when (not (file-exists-p plantuml-jar)) (url-copy-file plantuml-url plantuml-jar))) :prepare (setq plantuml-jar-path (expand-file-name &amp;#34;plantuml.jar&amp;#34; default-directory))) そして el-get で入れてる
-(el-get-bundle plantuml-mode) 設定 実行モードは &#39;jar を指定している。デフォルトは &#39;server なんだけどオフラインの時も使いたいししね。
-(setq plantuml-default-exec-mode &amp;#39;jar) el-get でインスコすると jar ファイルも自動で拾って来て plantuml-mode と同じディレクトリに設置して plantuml-jar-path も通してくれるからそっち使う方が便利だしね。
-その他 最新の develop ブランチだとインデントを調整できる機能が入っているので乗り換えたいけどそのためには el-get のレシピを書いてあげる必要がありそうで放置している。</description>
+      <description>概要 plantuml-mode は PlantUML という、テキストだけで UML 図などが描けるツール用のモード。&#xA;インストール el-get のレシピは自前で用意。&#xA;(:name plantuml-mode :description &amp;#34;Major mode for PlantUML.&amp;#34; :type github :branch &amp;#34;develop&amp;#34; :pkgname &amp;#34;skuro/plantuml-mode&amp;#34; :post-init (let ((plantuml-url &amp;#34;http://sourceforge.net/projects/plantuml/files/plantuml.jar/download&amp;#34;) (plantuml-jar (expand-file-name &amp;#34;plantuml.jar&amp;#34; default-directory))) (when (not (file-exists-p plantuml-jar)) (url-copy-file plantuml-url plantuml-jar))) :prepare (setq plantuml-jar-path (expand-file-name &amp;#34;plantuml.jar&amp;#34; default-directory))) そして el-get で入れてる&#xA;(el-get-bundle plantuml-mode) 設定 実行モードは &#39;jar を指定している。デフォルトは &#39;server なんだけどオフラインの時も使いたいししね。&#xA;(setq plantuml-default-exec-mode &amp;#39;jar) el-get でインスコすると jar ファイルも自動で拾って来て plantuml-mode と同じディレクトリに設置して plantuml-jar-path も通してくれるからそっち使う方が便利だしね。&#xA;その他 最新の develop ブランチだとインデントを調整できる機能が入っているので乗り換えたいけどそのためには el-get のレシピを書いてあげる必要がありそうで放置している。</description>
     </item>
-    
     <item>
       <title>rails</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/rails/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/programming/rails/</guid>
-      <description>概要 Rails 開発関係だけど Ruby 開発とはちょっと違う設定をここに書いている。
-関連パッケージのインストール テンプレートエンジンには haml を使っているので haml-mode を入れていてファイルナビゲーションには projectile の拡張である projectile-rails を利用している。
-(el-get-bundle haml-mode) (el-get-bundle projectile-rails) (projectile-rails-global-mode 1) projectile-rails 用のコマンド追加 自身のプロジェクトだと少しナビゲーション用のコマンドが不足していたので projectile-rails の実装を参考にコマンドを追加している
-TS/TSX Finder client に格納しているフロントエンドのファイルを検索するコマンド
-(defun my/projectile-rails-find-typescript () &amp;#34;Find a TS/TSX files.&amp;#34; (interactive) (projectile-rails-find-resource &amp;#34;ts/tsx: &amp;#34; &amp;#39;((&amp;#34;client/&amp;#34; &amp;#34;\\(.+\\.tsx?\\)$&amp;#34;)) &amp;#34;client/${filename}&amp;#34;)) TS/TSX test files Finder spec/javascript に格納しているフロントエンドのテストファイルを検索するコマンド
-(defun my/projectile-rails-find-typescript-spec () &amp;#34;Find a TS/TSX test files.&amp;#34; (interactive) (projectile-rails-find-resource &amp;#34;ts/tsx spec: &amp;#34; &amp;#39;((&amp;#34;spec/javascripts/&amp;#34; &amp;#34;\\(.+\\.spec.tsx?\\)$&amp;#34;)) &amp;#34;spec/javascripts/${filename}&amp;#34;)) キーバインド もちろん基本的にコマンドなんて覚えられないのでいつも通り Hydra を定義して大体キーバインドは忘れている。</description>
+      <description>概要 Rails 開発関係だけど Ruby 開発とはちょっと違う設定をここに書いている。&#xA;関連パッケージのインストール テンプレートエンジンには haml を使っているので haml-mode を入れていてファイルナビゲーションには projectile の拡張である projectile-rails を利用している。&#xA;(el-get-bundle haml-mode) (el-get-bundle projectile-rails) (projectile-rails-global-mode 1) projectile-rails 用のコマンド追加 自身のプロジェクトだと少しナビゲーション用のコマンドが不足していたので projectile-rails の実装を参考にコマンドを追加している&#xA;TS/TSX Finder client に格納しているフロントエンドのファイルを検索するコマンド&#xA;(defun my/projectile-rails-find-typescript () &amp;#34;Find a TS/TSX files.&amp;#34; (interactive) (projectile-rails-find-resource &amp;#34;ts/tsx: &amp;#34; &amp;#39;((&amp;#34;client/&amp;#34; &amp;#34;\\(.+\\.tsx?\\)$&amp;#34;)) &amp;#34;client/${filename}&amp;#34;)) TS/TSX test files Finder spec/javascript に格納しているフロントエンドのテストファイルを検索するコマンド&#xA;(defun my/projectile-rails-find-typescript-spec () &amp;#34;Find a TS/TSX test files.&amp;#34; (interactive) (projectile-rails-find-resource &amp;#34;ts/tsx spec: &amp;#34; &amp;#39;((&amp;#34;spec/javascripts/&amp;#34; &amp;#34;\\(.+\\.spec.tsx?\\)$&amp;#34;)) &amp;#34;spec/javascripts/${filename}&amp;#34;)) キーバインド もちろん基本的にコマンドなんて覚えられないのでいつも通り Hydra を定義して大体キーバインドは忘れている。</description>
     </item>
-    
     <item>
       <title>React.js</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/react-js/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/programming/react-js/</guid>
-      <description>概要 React.js を書くための設定をここにまとめている
-dap-mode Debug Adapter Protocol をサポートするモード。入れておいた方がきっとデバッグしやすいんだろうということで入れている。
-その際に el-get のレシピは自前で用意している
-(:name dap-mode :description &amp;#34;Debug Adapter Protocol mode&amp;#34; :website &amp;#34;https://github.com/emacs-lsp/dap-mode&amp;#34; :type github :pkgname &amp;#34;emacs-lsp/dap-mode&amp;#34; :depends (bui dash f lsp-mode lsp-treemacs tree-mode posframe s lsp-docker)) また依存している lsp-docker と tree-mode 用のレシピも用意している
-(:name lsp-docker :description &amp;#34;lsp-mode uses lsp-docker to run language servers using in containers&amp;#34; :website &amp;#34;https://github.com/emacs-lsp/lsp-docker&amp;#34; :type github :pkgname &amp;#34;emacs-lsp/lsp-docker&amp;#34; :depends (dash lsp-mode f yaml ht)) (:name tree-mode :website &amp;#34;https://github.com/emacsorphanage/tree-mode&amp;#34; :description &amp;#34;A mode to manage tree widgets&amp;#34; :type github :pkgname &amp;#34;emacsorphanage/tree-mode&amp;#34;) lsp-mode の仲間なので、本当はそっち側で入れるようにした方が良さそうだけどひとまず React のために入れているので React 用の設定ファイルに書いている。</description>
+      <description>概要 React.js を書くための設定をここにまとめている&#xA;dap-mode Debug Adapter Protocol をサポートするモード。入れておいた方がきっとデバッグしやすいんだろうということで入れている。&#xA;その際に el-get のレシピは自前で用意している&#xA;(:name dap-mode :description &amp;#34;Debug Adapter Protocol mode&amp;#34; :website &amp;#34;https://github.com/emacs-lsp/dap-mode&amp;#34; :type github :pkgname &amp;#34;emacs-lsp/dap-mode&amp;#34; :depends (bui dash f lsp-mode lsp-treemacs tree-mode posframe s lsp-docker)) また依存している lsp-docker と tree-mode 用のレシピも用意している&#xA;(:name lsp-docker :description &amp;#34;lsp-mode uses lsp-docker to run language servers using in containers&amp;#34; :website &amp;#34;https://github.com/emacs-lsp/lsp-docker&amp;#34; :type github :pkgname &amp;#34;emacs-lsp/lsp-docker&amp;#34; :depends (dash lsp-mode f yaml ht)) (:name tree-mode :website &amp;#34;https://github.com/emacsorphanage/tree-mode&amp;#34; :description &amp;#34;A mode to manage tree widgets&amp;#34; :type github :pkgname &amp;#34;emacsorphanage/tree-mode&amp;#34;) lsp-mode の仲間なので、本当はそっち側で入れるようにした方が良さそうだけどひとまず React のために入れているので React 用の設定ファイルに書いている。</description>
     </item>
-    
     <item>
       <title>rspec-mode</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/rspec-mode/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/programming/rspec-mode/</guid>
-      <description>概要 rspec-mode は Emacs で RSpec を実行したりする時に便利なパッケージ。といいつつ麦汁さんはちゃんと使いこなしていない……
-インストール (el-get-bundle rspec-mode) 有効化 rspec 実行バッファで byebug などで止まった際に C-x C-q したら inf-ruby が動くようにしている。
-(add-hook &amp;#39;after-init-hook &amp;#39;inf-ruby-switch-setup) binding.pry は何故かまともに動かないので byebug か binding.irb 推奨。麦汁さんはいつも debugger とコードに入れて使っている。
-キーバインド C-c C-c で開いている rspec ファイルのカーソルがある行のテストを実行できるようにしている。
-(define-key rspec-mode-map (kbd &amp;#34;C-c C-c&amp;#34;) &amp;#39;rspec-verify-single) 他にも色々な機能があるのだけどキーバインド未設定なのでこれだけしか使ってない。
-Docker 連携 Docker と連携するように調整
-(custom-set-variables &amp;#39;(rspec-use-docker-when-possible t)) </description>
+      <description>概要 rspec-mode は Emacs で RSpec を実行したりする時に便利なパッケージ。といいつつ麦汁さんはちゃんと使いこなしていない……&#xA;インストール (el-get-bundle rspec-mode) 有効化 rspec 実行バッファで byebug などで止まった際に C-x C-q したら inf-ruby が動くようにしている。&#xA;(add-hook &amp;#39;after-init-hook &amp;#39;inf-ruby-switch-setup) binding.pry は何故かまともに動かないので byebug か binding.irb 推奨。麦汁さんはいつも debugger とコードに入れて使っている。&#xA;キーバインド C-c C-c で開いている rspec ファイルのカーソルがある行のテストを実行できるようにしている。&#xA;(define-key rspec-mode-map (kbd &amp;#34;C-c C-c&amp;#34;) &amp;#39;rspec-verify-single) 他にも色々な機能があるのだけどキーバインド未設定なのでこれだけしか使ってない。&#xA;Docker 連携 Docker と連携するように調整&#xA;(custom-set-variables &amp;#39;(rspec-use-docker-when-possible t)) </description>
     </item>
-    
     <item>
       <title>ruby</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/ruby/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/programming/ruby/</guid>
-      <description>概要 Ruby のコードを編集する上での設定をここには書いている。別の箇所で rspec-mode などの設定も書いているのでいつか記述場所を統合した方が良さそうな気もする
-rbenv.el Ruby のバージョンを切り替えられる rbenv を使ってるので Emacs 上でもそれが使えるように rbenv.el を導入している。
-インストール インストールはいつも通り el-get でやっている
-(el-get-bundle rbenv) 有効化 そして global に有効化している。というか global じゃない有効化ってあるのかなってのと、あるとしても意味があるのかな的な。
-(global-rbenv-mode) enh-ruby-mode メジャーモードは enhanced-ruby-mode を利用している。が、最近は ruby-mode の方がやっぱり良いみたいな話もどこかで見た気がするので戻ってみるのも手かもしれないと思っている。
-インストール いつも通り el-get で入れている。
-(el-get-bundle enh-ruby-mode) カスタム設定 enh-ruby-mode が読み込まれた後に setq で以下のように設定されている
-(with-eval-after-load &amp;#39;enh-ruby-mode (setq enh-ruby-add-encoding-comment-on-save nil) (setq enh-ruby-deep-indent-paren nil) (setq enh-ruby-deep-indent-construct nil) (setq enh-ruby-bounce-deep-indent nil)) encoding のマジックコメントが入らないようにする enh-ruby-add-encoding-comment-on-save を nil にすることで encoding 設定のマジックコメントが入らないようにしている。
-これは昔は有効にしておいた方が良かったけど最近の Ruby では設定しなくても UTF-8 が前提になるからむしろ無い方が良いというお話だったはず。</description>
+      <description>概要 Ruby のコードを編集する上での設定をここには書いている。別の箇所で rspec-mode などの設定も書いているのでいつか記述場所を統合した方が良さそうな気もする&#xA;rbenv.el Ruby のバージョンを切り替えられる rbenv を使ってるので Emacs 上でもそれが使えるように rbenv.el を導入している。&#xA;インストール インストールはいつも通り el-get でやっている&#xA;(el-get-bundle rbenv) 有効化 そして global に有効化している。というか global じゃない有効化ってあるのかなってのと、あるとしても意味があるのかな的な。&#xA;(global-rbenv-mode) enh-ruby-mode メジャーモードは enhanced-ruby-mode を利用している。が、最近は ruby-mode の方がやっぱり良いみたいな話もどこかで見た気がするので戻ってみるのも手かもしれないと思っている。&#xA;インストール いつも通り el-get で入れている。&#xA;(el-get-bundle enh-ruby-mode) カスタム設定 enh-ruby-mode が読み込まれた後に setq で以下のように設定されている&#xA;(with-eval-after-load &amp;#39;enh-ruby-mode (setq enh-ruby-add-encoding-comment-on-save nil) (setq enh-ruby-deep-indent-paren nil) (setq enh-ruby-deep-indent-construct nil) (setq enh-ruby-bounce-deep-indent nil)) encoding のマジックコメントが入らないようにする enh-ruby-add-encoding-comment-on-save を nil にすることで encoding 設定のマジックコメントが入らないようにしている。&#xA;これは昔は有効にしておいた方が良かったけど最近の Ruby では設定しなくても UTF-8 が前提になるからむしろ無い方が良いというお話だったはず。</description>
     </item>
-    
     <item>
       <title>scss</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/scss/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/programming/scss/</guid>
-      <description>概要 scss を使う上での設定をここではまとめている。長いこと手を入れてないので今はより良い設定がありそうな気がする。
-rainbow-mode rainbow-mode はカラーコードを入力した際に、そのカラーコード部分の背景色をカラーコードの色に変化させるパッケージ。ぱっと見で大体どんな色かわかって便利なやつ
-インストール 自分はel-get で入れている。
-(el-get-bundle rainbow-mode) ELPA に登録されているので package-install でもいける
-scss-mode scss-mode は Emacs 組込みの css-mode の中で定義されているメジャーモード。なのでインストール不要で使えるし .scss という拡張子なら自動的に scss-mode で開いてくれるようになっている。
-設定 improvement インデントはデフォルトだと半角空白 4 つとなっているが麦汁さん的には 2 の方が良いのでそのように変更している。
-(with-eval-after-load &amp;#39;scss-mode (setq css-indent-offset 2)) with-eval-after-load を使っているが css-indent-offset は defcustom で定義されているので custom-set-variables を使うように修正した方が良さそう
-flycheck の scss-stylelint を上書き stylelint v14 以降は &amp;ndash;style オプションが使えないので上書き https://github.com/flycheck/flycheck/pull/1944 が取り込まれたらこれも要らなさそうだけど。
-(with-eval-after-load &amp;#39;flycheck (flycheck-define-checker scss-stylelint &amp;#34;A SCSS syntax and style checker using stylelint. See URL `http://stylelint.</description>
+      <description>概要 scss を使う上での設定をここではまとめている。長いこと手を入れてないので今はより良い設定がありそうな気がする。&#xA;rainbow-mode rainbow-mode はカラーコードを入力した際に、そのカラーコード部分の背景色をカラーコードの色に変化させるパッケージ。ぱっと見で大体どんな色かわかって便利なやつ&#xA;インストール 自分はel-get で入れている。&#xA;(el-get-bundle rainbow-mode) ELPA に登録されているので package-install でもいける&#xA;scss-mode scss-mode は Emacs 組込みの css-mode の中で定義されているメジャーモード。なのでインストール不要で使えるし .scss という拡張子なら自動的に scss-mode で開いてくれるようになっている。&#xA;設定 improvement インデントはデフォルトだと半角空白 4 つとなっているが麦汁さん的には 2 の方が良いのでそのように変更している。&#xA;(with-eval-after-load &amp;#39;scss-mode (setq css-indent-offset 2)) with-eval-after-load を使っているが css-indent-offset は defcustom で定義されているので custom-set-variables を使うように修正した方が良さそう&#xA;flycheck の scss-stylelint を上書き stylelint v14 以降は &amp;ndash;style オプションが使えないので上書き https://github.com/flycheck/flycheck/pull/1944 が取り込まれたらこれも要らなさそうだけど。&#xA;(with-eval-after-load &amp;#39;flycheck (flycheck-define-checker scss-stylelint &amp;#34;A SCSS syntax and style checker using stylelint. See URL `http://stylelint.</description>
     </item>
-    
     <item>
       <title>Terraform</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/terraform/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/programming/terraform/</guid>
-      <description>概要 Terraform はオープンソースの IaC ツール。結構よく使われている。色々なクランドサービスに対応していて便利。
-terraform-mode terraform-mode は Emacs で terraform のコードを書くための major-mode を提供してくれるやつ。
-インストール el-get にも terraform-mode のレシピはあるけど dash の依存が書かれていないのでとりあえず自前で用意している
-(:name terraform-mode :type github :pkgname &amp;#34;emacsorphanage/terraform-mode&amp;#34; :description &amp;#34;Major mode for Terraform configuration files&amp;#34; :depends (hcl-mode dash)) そしてそれを el-get-bundle で入れている
-(el-get-bundle terraform-mode) 設定 保存時に自動で整形してほしいのでその設定を入れている
-(custom-set-variables &amp;#39;(terraform-format-on-save t)) company-terraform company-terraform は company-mode の拡張機能で terraform の補完をいい感じにしてくれるやつ
-インストール el-get 本体にはレシピが用意されてないのでとりあえず自前で用意している
-(:name company-terraform :website &amp;#34;https://github.com/rafalcieslak/emacs-company-terraform&amp;#34; :description &amp;#34;Company backend for terraform files.&amp;#34; :type github :pkgname &amp;#34;rafalcieslak/emacs-company-terraform&amp;#34; :depends (company-mode terraform-mode)) そしていつも通り el-get-bundle でインストール</description>
+      <description>概要 Terraform はオープンソースの IaC ツール。結構よく使われている。色々なクランドサービスに対応していて便利。&#xA;terraform-mode terraform-mode は Emacs で terraform のコードを書くための major-mode を提供してくれるやつ。&#xA;インストール el-get にも terraform-mode のレシピはあるけど dash の依存が書かれていないのでとりあえず自前で用意している&#xA;(:name terraform-mode :type github :pkgname &amp;#34;emacsorphanage/terraform-mode&amp;#34; :description &amp;#34;Major mode for Terraform configuration files&amp;#34; :depends (hcl-mode dash)) そしてそれを el-get-bundle で入れている&#xA;(el-get-bundle terraform-mode) 設定 保存時に自動で整形してほしいのでその設定を入れている&#xA;(custom-set-variables &amp;#39;(terraform-format-on-save t)) company-terraform company-terraform は company-mode の拡張機能で terraform の補完をいい感じにしてくれるやつ&#xA;インストール el-get 本体にはレシピが用意されてないのでとりあえず自前で用意している&#xA;(:name company-terraform :website &amp;#34;https://github.com/rafalcieslak/emacs-company-terraform&amp;#34; :description &amp;#34;Company backend for terraform files.&amp;#34; :type github :pkgname &amp;#34;rafalcieslak/emacs-company-terraform&amp;#34; :depends (company-mode terraform-mode)) そしていつも通り el-get-bundle でインストール</description>
     </item>
-    
     <item>
       <title>tree-sitter</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/tree-sitter/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/programming/tree-sitter/</guid>
-      <description>概要 ここでは今現在は、 tree-sitter が使えることを自動判定して mode を切り替えて tree-sitter の文法定義が存在しなければ自動的にインストールしてくれる treesit-auto 用の設定を記述している
-インストール treesit-auto のレシピは自前で用意している
-(:name treesit-auto :website &amp;#34;https://github.com/renzmann/treesit-auto&amp;#34; :description &amp;#34;Automatically install and use tree-sitter major modes in Emacs 29+.&amp;#34; :type github :branch &amp;#34;main&amp;#34; :pkgname &amp;#34;renzmann/treesit-auto&amp;#34;) そしていつも通り el-get-bundle でインストールしている
-(el-get-bundle treesit-auto) 設定 インストール時には一応確認してほしいので、確認が入るような設定にしている
-(custom-set-variables &amp;#39;(treesit-auto-install &amp;#39;prompt)) 有効化 require した上で global に有効化している
-(require &amp;#39;treesit-auto) (global-treesit-auto-mode) </description>
+      <description>概要 ここでは今現在は、 tree-sitter が使えることを自動判定して mode を切り替えて tree-sitter の文法定義が存在しなければ自動的にインストールしてくれる treesit-auto 用の設定を記述している&#xA;インストール treesit-auto のレシピは自前で用意している&#xA;(:name treesit-auto :website &amp;#34;https://github.com/renzmann/treesit-auto&amp;#34; :description &amp;#34;Automatically install and use tree-sitter major modes in Emacs 29+.&amp;#34; :type github :branch &amp;#34;main&amp;#34; :pkgname &amp;#34;renzmann/treesit-auto&amp;#34;) そしていつも通り el-get-bundle でインストールしている&#xA;(el-get-bundle treesit-auto) 設定 インストール時には一応確認してほしいので、確認が入るような設定にしている&#xA;(custom-set-variables &amp;#39;(treesit-auto-install &amp;#39;prompt)) 有効化 require した上で global に有効化している&#xA;(require &amp;#39;treesit-auto) (global-treesit-auto-mode) </description>
     </item>
-    
     <item>
       <title>TypeScript</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/typescript/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/programming/typescript/</guid>
-      <description>概要 TypeScript ファイル(.ts) を使う上での設定を書いている。とりあえず簡単な設定だけ。
-typescript-mode typescript-mode は TypeScript 向けの Syntax Highlight とかを提供してくれるメジャーモード。
-インストール 自分はいつも通り el-get で入れている
-(el-get-bundle typescript-mode) カスタム変数 indent は2文字がいいのでデフォルトから変更 言語設定を ja にする。エラーが日本語で出るようになるとか……? inlay-hint を有効にする。何が変わるかわかってないけど Node.js の使用メモリも 2048 MB に増加。メモリ足らんってなる時があったので 保存時の自動フォーマット などを設定している。
-(custom-set-variables &amp;#39;(typescript-indent-level 2) &amp;#39;(lsp-typescript-locale &amp;#34;ja&amp;#34;) &amp;#39;(lsp-inlay-hint-enable t) &amp;#39;(lsp-javascript-display-parameter-name-hints t) &amp;#39;(lsp-javascript-display-enum-member-value-hints t) &amp;#39;(lsp-clients-typescript-max-ts-server-memory 2048) &amp;#39;(lsp-disabled-clients &amp;#39;()) &amp;#39;(lsp-eslint-auto-fix-on-save nil)) auto-fix の hook 関数 保存した時に自動で整形してほしいなと思ったので自動で保存されるように hook 関数を用意している
-(defun my/ts-mode-auto-fix-hook () (when (string-equal (file-name-extension buffer-file-name) &amp;#34;ts&amp;#34;) (lsp-eslint-apply-all-fixes))) hook company-mode smartparens-strict-mode lsp/lsp-ui などのプログラミングで便利な各種のモードを hook を使って有効化している</description>
+      <description>概要 TypeScript ファイル(.ts) を使う上での設定を書いている。とりあえず簡単な設定だけ。&#xA;typescript-mode typescript-mode は TypeScript 向けの Syntax Highlight とかを提供してくれるメジャーモード。&#xA;インストール 自分はいつも通り el-get で入れている&#xA;(el-get-bundle typescript-mode) カスタム変数 indent は2文字がいいのでデフォルトから変更 言語設定を ja にする。エラーが日本語で出るようになるとか……? inlay-hint を有効にする。何が変わるかわかってないけど Node.js の使用メモリも 2048 MB に増加。メモリ足らんってなる時があったので 保存時の自動フォーマット などを設定している。&#xA;(custom-set-variables &amp;#39;(typescript-indent-level 2) &amp;#39;(lsp-typescript-locale &amp;#34;ja&amp;#34;) &amp;#39;(lsp-inlay-hint-enable t) &amp;#39;(lsp-javascript-display-parameter-name-hints t) &amp;#39;(lsp-javascript-display-enum-member-value-hints t) &amp;#39;(lsp-clients-typescript-max-ts-server-memory 2048) &amp;#39;(lsp-disabled-clients &amp;#39;()) &amp;#39;(lsp-eslint-auto-fix-on-save nil)) auto-fix の hook 関数 保存した時に自動で整形してほしいなと思ったので自動で保存されるように hook 関数を用意している&#xA;(defun my/ts-mode-auto-fix-hook () (when (string-equal (file-name-extension buffer-file-name) &amp;#34;ts&amp;#34;) (lsp-eslint-apply-all-fixes))) hook company-mode smartparens-strict-mode lsp/lsp-ui などのプログラミングで便利な各種のモードを hook を使って有効化している</description>
     </item>
-    
     <item>
       <title>Vue.js</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/vue-js/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/programming/vue-js/</guid>
-      <description>概要 ここでは Vue.js アプリケーションを書く上での設定を書いている。
-auto-insert の設定 Vue.js のコンポーネントファイルを新規作成する時にテンプレートが自動挿入できるようにしている
-テンプレート Vue.js の単一ファイルコンポーネントなので template, script, style を出力している。
-template には pug を、CSS には scss を使っている。
-&amp;lt;template lang=&amp;#39;pug&amp;#39;&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;script&amp;gt; export default { }; &amp;lt;/script&amp;gt; &amp;lt;style lang=&amp;#39;scss&amp;#39; scoped&amp;gt; &amp;lt;/style&amp;gt; テンプレートを適用可能にする .vue という拡張子のファイルを新規作成する時には上で定義したテンプレートが自動的に挿入されるようにする。
-(define-auto-insert &amp;#34;\\.vue$&amp;#34; &amp;#34;template.vue&amp;#34;) パッケージのインストール ここでは Vue.js 開発に使っている関連パッケージを入れている。
-vue-mode vue-mode は mmm-mode をベースにして作られた Vue.js の単一ファイルコンポーネント用のモード。 mmm-mode ベースなので template, script, css 部分でそれぞれ別のメジャーモードが動くようになっている。
-インストール el-get レシピは自前で用意している
-(:name vue-mode :description &amp;#34;Major mode for vue component based on mmm-mode&amp;#34; :type github :pkgname &amp;#34;AdamNiederer/vue-mode&amp;#34; :depends (ssass-mode mmm-mode edit-indirect vue-html-mode)) また、依存しているパッケージもいくつかレシピを自前で用意している</description>
+      <description>概要 ここでは Vue.js アプリケーションを書く上での設定を書いている。&#xA;auto-insert の設定 Vue.js のコンポーネントファイルを新規作成する時にテンプレートが自動挿入できるようにしている&#xA;テンプレート Vue.js の単一ファイルコンポーネントなので template, script, style を出力している。&#xA;template には pug を、CSS には scss を使っている。&#xA;&amp;lt;template lang=&amp;#39;pug&amp;#39;&amp;gt; &amp;lt;/template&amp;gt; &amp;lt;script&amp;gt; export default { }; &amp;lt;/script&amp;gt; &amp;lt;style lang=&amp;#39;scss&amp;#39; scoped&amp;gt; &amp;lt;/style&amp;gt; テンプレートを適用可能にする .vue という拡張子のファイルを新規作成する時には上で定義したテンプレートが自動的に挿入されるようにする。&#xA;(define-auto-insert &amp;#34;\\.vue$&amp;#34; &amp;#34;template.vue&amp;#34;) パッケージのインストール ここでは Vue.js 開発に使っている関連パッケージを入れている。&#xA;vue-mode vue-mode は mmm-mode をベースにして作られた Vue.js の単一ファイルコンポーネント用のモード。 mmm-mode ベースなので template, script, css 部分でそれぞれ別のメジャーモードが動くようになっている。&#xA;インストール el-get レシピは自前で用意している&#xA;(:name vue-mode :description &amp;#34;Major mode for vue component based on mmm-mode&amp;#34; :type github :pkgname &amp;#34;AdamNiederer/vue-mode&amp;#34; :depends (ssass-mode mmm-mode edit-indirect vue-html-mode)) また、依存しているパッケージもいくつかレシピを自前で用意している</description>
     </item>
-    
     <item>
       <title>yaml-mode</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/yaml-mode/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/programming/yaml-mode/</guid>
-      <description>概要 yaml-mode は yaml を編集する時のメジャーモード。インデントを調整しやすい。
-インストール いつも通り el-get でインストール
-(el-get-bundle yaml-mode) hook mode に対する hook は関数を定義してその中で呼びたいコードを書いていくようにしている。
-lambda で書いてしまうと hook を弄りたい時に結構面倒なのだけど関数を定義しておくと、その関数の中身を変更して評価しておくだけで hook で動作する中身が変更できて便利。
-とりあえず yaml-mode では以下のようにして lsp-mode と flycheck, highlight-indent-guides を有効にしている。
-(defun my/yaml-mode-hook () (lsp 1) (flycheck-mode 1) (highlight-indent-guides-mode 1)) で、その hook を最後に yaml-mode-hook と yaml-ts-mode-hook に追加している。
-(add-hook &amp;#39;yaml-mode-hook &amp;#39;my/yaml-mode-hook) (add-hook &amp;#39;yaml-ts-mode-hook &amp;#39;my/yaml-mode-hook) </description>
+      <description>概要 yaml-mode は yaml を編集する時のメジャーモード。インデントを調整しやすい。&#xA;インストール いつも通り el-get でインストール&#xA;(el-get-bundle yaml-mode) hook mode に対する hook は関数を定義してその中で呼びたいコードを書いていくようにしている。&#xA;lambda で書いてしまうと hook を弄りたい時に結構面倒なのだけど関数を定義しておくと、その関数の中身を変更して評価しておくだけで hook で動作する中身が変更できて便利。&#xA;とりあえず yaml-mode では以下のようにして lsp-mode と flycheck, highlight-indent-guides を有効にしている。&#xA;(defun my/yaml-mode-hook () (lsp 1) (flycheck-mode 1) (highlight-indent-guides-mode 1)) で、その hook を最後に yaml-mode-hook と yaml-ts-mode-hook に追加している。&#xA;(add-hook &amp;#39;yaml-mode-hook &amp;#39;my/yaml-mode-hook) (add-hook &amp;#39;yaml-ts-mode-hook &amp;#39;my/yaml-mode-hook) </description>
     </item>
-    
   </channel>
 </rss>

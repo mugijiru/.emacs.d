@@ -5,236 +5,126 @@
     <link>https://mugijiru.github.io/.emacs.d/editing/</link>
     <description>Recent content in ファイル編集/入力補助 on 麦汁&#39;s Emacs Config</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/editing/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja-JP</language>
+    <atom:link href="https://mugijiru.github.io/.emacs.d/editing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>基本設定</title>
       <link>https://mugijiru.github.io/.emacs.d/editing/editing-base/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/editing/editing-base/</guid>
-      <description>概要 なんか編集周りの基本的な設定としてまとめられていたのでここに置いとく
-インデントにタブを使わないようにする 最近の開発スタイルではインデントにタブを混ぜないスタイルなのでそのように設定している。
-(setq indent-tabs-mode nil) 以前に開いていた位置を保存/復元する save-place-mode を有効にしていると以前に開いたことのあるファイルの、開いていた場所を覚えておいてくれる。
-一度閉じてまた開いた時なんかに再度移動しないで済んで地味に便利なやつ
-(save-place-mode 1) </description>
+      <description>概要 なんか編集周りの基本的な設定としてまとめられていたのでここに置いとく&#xA;インデントにタブを使わないようにする 最近の開発スタイルではインデントにタブを混ぜないスタイルなのでそのように設定している。&#xA;(setq indent-tabs-mode nil) 以前に開いていた位置を保存/復元する save-place-mode を有効にしていると以前に開いたことのあるファイルの、開いていた場所を覚えておいてくれる。&#xA;一度閉じてまた開いた時なんかに再度移動しないで済んで地味に便利なやつ&#xA;(save-place-mode 1) </description>
     </item>
-    
     <item>
       <title>auto-insert</title>
       <link>https://mugijiru.github.io/.emacs.d/editing/auto-insert/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/editing/auto-insert/</guid>
-      <description>概要 auto-insert はファイルを新規作成した時にファイル名に応じたテンプレートを挿入する機能。
-Emacs が標準で持ってるライブラリなのでインストールは不要
-設定 Emacs の設定は .emacs.d の中に閉じ込めたいので auto-insert のテンプレートも ~/.emacs.d/insert に閉じ込める設定にしている。
-(custom-set-variables &amp;#39;(auto-insert-directory &amp;#34;~/.emacs.d/insert/&amp;#34;)) 有効化 あとは単に有効化している。
-(auto-insert-mode 1) 他の設定 ファイル名を正規表現でマッチさせてテンプレートが選択されるので各言語やフレームワーク毎に設定を入れることにしている。
-実際は今のところ inits/41-vue.el でのみ追加設定を入れている。</description>
+      <description>概要 auto-insert はファイルを新規作成した時にファイル名に応じたテンプレートを挿入する機能。&#xA;Emacs が標準で持ってるライブラリなのでインストールは不要&#xA;設定 Emacs の設定は .emacs.d の中に閉じ込めたいので auto-insert のテンプレートも ~/.emacs.d/insert に閉じ込める設定にしている。&#xA;(custom-set-variables &amp;#39;(auto-insert-directory &amp;#34;~/.emacs.d/insert/&amp;#34;)) 有効化 あとは単に有効化している。&#xA;(auto-insert-mode 1) 他の設定 ファイル名を正規表現でマッチさせてテンプレートが選択されるので各言語やフレームワーク毎に設定を入れることにしている。&#xA;実際は今のところ inits/41-vue.el でのみ追加設定を入れている。</description>
     </item>
-    
     <item>
       <title>company-mode</title>
       <link>https://mugijiru.github.io/.emacs.d/editing/company-mode/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/editing/company-mode/</guid>
-      <description>概要 company-mode は Emacs での補完機能を提供してくれるパッケージです。プラグイン式に拡張しやすいのが特徴っぽい。
-インストール いつも透り el-get から入れている
-(el-get-bundle company-mode) 設定 ほとんど設定は入れていない。有効な時に C-s を入力すると検索ができる程度。
-というのも最近の更新で、デフォルトが結構好みのキーバインドになったのでキーバインドはこだわる必要がなくなったのと、ついでに色もそこで好みな感じになってくれた。
-というわけで設定は以下のようにとてもシンプル。
-(with-eval-after-load &amp;#39;company ;; active (define-key company-active-map (kbd &amp;#34;C-s&amp;#34;) &amp;#39;company-search-candidates)) それと最近追加された company-show-quick-access を有効にしている。
-(custom-set-variables &amp;#39;(company-show-quick-access t)) これを有効にしていると補完候補の末尾に quick access key が表示されて例えば4行目なら 4 とか表示されるのでそこで M-4 とか入力すると4行目が選択されて便利
-company-quickhelp company-quickhelp は候補の補足情報が見れるようにするパッケージ。それを入れて、文字色とかぶらないように背景色を設定している。
-(el-get-bundle company-quickhelp) (custom-set-variables &amp;#39;(company-quickhelp-color-background &amp;#34;#323445&amp;#34;)) (with-eval-after-load &amp;#39;pos-tip (company-quickhelp-mode 1)) なおレシピは公式ではなかったので自前で用意している
-(:name company-quickhelp :description &amp;#34;Adds documentation popup to completion candidates&amp;#34; :type github :pkgname &amp;#34;company-mode/company-quickhelp&amp;#34;) company-posframe company-posframe は company-mode の表示に posframe を使うやつ。</description>
+      <description>概要 company-mode は Emacs での補完機能を提供してくれるパッケージです。プラグイン式に拡張しやすいのが特徴っぽい。&#xA;インストール いつも透り el-get から入れている&#xA;(el-get-bundle company-mode) 設定 ほとんど設定は入れていない。有効な時に C-s を入力すると検索ができる程度。&#xA;というのも最近の更新で、デフォルトが結構好みのキーバインドになったのでキーバインドはこだわる必要がなくなったのと、ついでに色もそこで好みな感じになってくれた。&#xA;というわけで設定は以下のようにとてもシンプル。&#xA;(with-eval-after-load &amp;#39;company ;; active (define-key company-active-map (kbd &amp;#34;C-s&amp;#34;) &amp;#39;company-search-candidates)) それと最近追加された company-show-quick-access を有効にしている。&#xA;(custom-set-variables &amp;#39;(company-show-quick-access t)) これを有効にしていると補完候補の末尾に quick access key が表示されて例えば4行目なら 4 とか表示されるのでそこで M-4 とか入力すると4行目が選択されて便利&#xA;company-quickhelp company-quickhelp は候補の補足情報が見れるようにするパッケージ。それを入れて、文字色とかぶらないように背景色を設定している。&#xA;(el-get-bundle company-quickhelp) (custom-set-variables &amp;#39;(company-quickhelp-color-background &amp;#34;#323445&amp;#34;)) (with-eval-after-load &amp;#39;pos-tip (company-quickhelp-mode 1)) なおレシピは公式ではなかったので自前で用意している&#xA;(:name company-quickhelp :description &amp;#34;Adds documentation popup to completion candidates&amp;#34; :type github :pkgname &amp;#34;company-mode/company-quickhelp&amp;#34;) company-posframe company-posframe は company-mode の表示に posframe を使うやつ。</description>
     </item>
-    
     <item>
       <title>copilot</title>
       <link>https://mugijiru.github.io/.emacs.d/editing/copilot/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/editing/copilot/</guid>
-      <description>概要 Copilot.el は GitHub Copilot を Emacs で使えるようにするパッケージ。これ自体は非公式なプラグインで、動かすために Vim で動く公式プラグインのバイナリを利用して動いている
-インストール 最近出て来たパッケージなので el-get には登録されていない。というわけでとりあえず自前でレシピを用意している
-(:name copilot :website &amp;#34;https://github.com/copilot-emacs/copilot.el&amp;#34; :description &amp;#34;An Emacs plugin for GitHub Copilot.&amp;#34; :type github :branch &amp;#34;main&amp;#34; :pkgname &amp;#34;copilot-emacs/copilot.el&amp;#34; :depends (s dash editorconfig jsonrpc)) 依存している editorconig も自前でレシピを用意している
-(:name editorconfig :website &amp;#34;https://github.com/editorconfig/editorconfig-emacs&amp;#34; :description &amp;#34;An EditorConfig plugin for Emacs.&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;editorconfig/editorconfig-emacs&amp;#34;) そして el-get-bundle でインストール
-(el-get-bundle copilot) 設定 とりあえずプログラミング系の mode で有効になるようにしていた。けど今はちょっと無効にしている
-;; (add-hook &amp;#39;prog-mode-hook &amp;#39;copilot-mode) また、そのままだと enh-ruby-mode では有効にならないので copilot-major-mode-alist に突っ込んでいる。なおこの設定は 公式の README にも書かれている</description>
+      <description>概要 Copilot.el は GitHub Copilot を Emacs で使えるようにするパッケージ。これ自体は非公式なプラグインで、動かすために Vim で動く公式プラグインのバイナリを利用して動いている&#xA;インストール 最近出て来たパッケージなので el-get には登録されていない。というわけでとりあえず自前でレシピを用意している&#xA;(:name copilot :website &amp;#34;https://github.com/copilot-emacs/copilot.el&amp;#34; :description &amp;#34;An Emacs plugin for GitHub Copilot.&amp;#34; :type github :branch &amp;#34;main&amp;#34; :pkgname &amp;#34;copilot-emacs/copilot.el&amp;#34; :depends (s dash editorconfig jsonrpc)) 依存している editorconig も自前でレシピを用意している&#xA;(:name editorconfig :website &amp;#34;https://github.com/editorconfig/editorconfig-emacs&amp;#34; :description &amp;#34;An EditorConfig plugin for Emacs.&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;editorconfig/editorconfig-emacs&amp;#34;) そして el-get-bundle でインストール&#xA;(el-get-bundle copilot) 設定 とりあえずプログラミング系の mode で有効になるようにしていた。けど今はちょっと無効にしている&#xA;;; (add-hook &amp;#39;prog-mode-hook &amp;#39;copilot-mode) また、そのままだと enh-ruby-mode では有効にならないので copilot-major-mode-alist に突っ込んでいる。なおこの設定は 公式の README にも書かれている</description>
     </item>
-    
     <item>
       <title>emojify</title>
       <link>https://mugijiru.github.io/.emacs.d/editing/emojify/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/editing/emojify/</guid>
-      <description>概要 emojify は :smile: のような入力を笑顔の絵文字が表示されたりするようにするパッケージ。
-文書を書く時に emojify で絵文字に置き換わるような文字列を入れておくと文書が華やかになって良いぞ!
-インストール いつも通り el-get で入れている。何か依存でもあるのが別途 dash.el も読み込んでる。
-(el-get-bundle emojify) (el-get-bundle dash) dash.el は他でも使うので、ライブラリの読み込みのところで対応した方が良さそうだな。今度対応しよう。
-有効化 emojify は正直邪魔になることも多いのでグローバルでは有効にしていない。
-一方 mode-line では有効になるようにしている。とはいえ mode-line で絵文字が表示された記憶はないけれども。
-(global-emojify-mode -1) (global-emojify-mode-line-mode 1) </description>
+      <description>概要 emojify は :smile: のような入力を笑顔の絵文字が表示されたりするようにするパッケージ。&#xA;文書を書く時に emojify で絵文字に置き換わるような文字列を入れておくと文書が華やかになって良いぞ!&#xA;インストール いつも通り el-get で入れている。何か依存でもあるのが別途 dash.el も読み込んでる。&#xA;(el-get-bundle emojify) (el-get-bundle dash) dash.el は他でも使うので、ライブラリの読み込みのところで対応した方が良さそうだな。今度対応しよう。&#xA;有効化 emojify は正直邪魔になることも多いのでグローバルでは有効にしていない。&#xA;一方 mode-line では有効になるようにしている。とはいえ mode-line で絵文字が表示された記憶はないけれども。&#xA;(global-emojify-mode -1) (global-emojify-mode-line-mode 1) </description>
     </item>
-    
     <item>
       <title>flyspell</title>
       <link>https://mugijiru.github.io/.emacs.d/editing/flyspell/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/editing/flyspell/</guid>
-      <description>概要 flyspell はスペルチェックをしてくれるパッケージです。 Emacs 本体に組込まれているので、設定すれば素の Emacs でも使えます。
-hunspell 向けの設定 flyspell は外部のスペルチェックツールとやりとりをします。私は hunspell を使ってるので、それ向けに設定をしています。
-;; for hunspell (with-eval-after-load &amp;#34;ispell&amp;#34; (setenv &amp;#34;DICTIONARY&amp;#34; &amp;#34;en_US&amp;#34;) (add-to-list &amp;#39;ispell-skip-region-alist &amp;#39;(&amp;#34;[^\000-\377]+&amp;#34;))) どうせ英語のスペルしかチェックしないので DICTIONARY には en_US を設定しています。また、日英が混在している文書でもスペルチェックが動くように ispell-skip-region-alist を設定しています
-http://home.hatanaka.info/article/474728666.html を参考にしていますが、まあ多分 ASCII 以外をシカトしているのかなこれは
-incorrect-hook の定義 上の設定でも ASCII 以外を無視してそうだけどさらに flyspell-incorrect-hook で incorrect 判定するのを ASCII にのみ限定しています。
-;; Original: https://takaxp.github.io/init.html#orgdd65fc08 (defun my/flyspell-ignore-nonascii (beg end _info) &amp;#34;incorrect判定をASCIIに限定&amp;#34; (string-match &amp;#34;[^!-~]&amp;#34; (buffer-substring beg end))) (add-hook &amp;#39;flyspell-incorrect-hook #&amp;#39;my/flyspell-ignore-nonascii) これは https://takaxp.github.io/init.html#orgdd65fc08 にある設定を持って来ています
-その他 flyspell-prog-mode を使うと、文字列やコメントにのみ有効にできるようですがそのあたりはまだ試していません。</description>
+      <description>概要 flyspell はスペルチェックをしてくれるパッケージです。 Emacs 本体に組込まれているので、設定すれば素の Emacs でも使えます。&#xA;hunspell 向けの設定 flyspell は外部のスペルチェックツールとやりとりをします。私は hunspell を使ってるので、それ向けに設定をしています。&#xA;;; for hunspell (with-eval-after-load &amp;#34;ispell&amp;#34; (setenv &amp;#34;DICTIONARY&amp;#34; &amp;#34;en_US&amp;#34;) (add-to-list &amp;#39;ispell-skip-region-alist &amp;#39;(&amp;#34;[^\000-\377]+&amp;#34;))) どうせ英語のスペルしかチェックしないので DICTIONARY には en_US を設定しています。また、日英が混在している文書でもスペルチェックが動くように ispell-skip-region-alist を設定しています&#xA;http://home.hatanaka.info/article/474728666.html を参考にしていますが、まあ多分 ASCII 以外をシカトしているのかなこれは&#xA;incorrect-hook の定義 上の設定でも ASCII 以外を無視してそうだけどさらに flyspell-incorrect-hook で incorrect 判定するのを ASCII にのみ限定しています。&#xA;;; Original: https://takaxp.github.io/init.html#orgdd65fc08 (defun my/flyspell-ignore-nonascii (beg end _info) &amp;#34;incorrect判定をASCIIに限定&amp;#34; (string-match &amp;#34;[^!-~]&amp;#34; (buffer-substring beg end))) (add-hook &amp;#39;flyspell-incorrect-hook #&amp;#39;my/flyspell-ignore-nonascii) これは https://takaxp.github.io/init.html#orgdd65fc08 にある設定を持って来ています&#xA;その他 flyspell-prog-mode を使うと、文字列やコメントにのみ有効にできるようですがそのあたりはまだ試していません。</description>
     </item>
-    
     <item>
       <title>git-modes</title>
       <link>https://mugijiru.github.io/.emacs.d/editing/git-modes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/editing/git-modes/</guid>
-      <description>概要 git-modes は Git 関連の設定ファイルを編集するための mode 集。 .gitignore とかを編集する時に便利。
-インストール magit のレシピに登録済なので el-get-bundle でインストール
-(el-get-bundle git-modes) </description>
+      <description>概要 git-modes は Git 関連の設定ファイルを編集するための mode 集。 .gitignore とかを編集する時に便利。&#xA;インストール magit のレシピに登録済なので el-get-bundle でインストール&#xA;(el-get-bundle git-modes) </description>
     </item>
-    
     <item>
       <title>moccur-edit</title>
       <link>https://mugijiru.github.io/.emacs.d/editing/moccur-edit/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/editing/moccur-edit/</guid>
-      <description>概要 moccur-edit は color-moccur で検索した結果を編集するためのツール。
-インストール el-get 本体にレシピがあるのでそちらからインストールしている。
-(el-get-bundle moccur-edit) なお EmacsWiki に moccur-edit も color-moccur もあるのだけど color-moccur の方がソースコードが古めなので GitHub から入れるのを推奨する。
-el-get のレシピは GitHub を見ているので安心
-設定 とりあえず color-moccur で migemo が使えると検索する時に便利なのでその機能を有効にしている。また、編集したところがわかりやすい方がいいかなと思ったので、そこをハイライトする設定も入れておいた
-(custom-set-variables &amp;#39;(moccur-use-migemo t) &amp;#39;(moccur-edit-highlight-edited-text t)) </description>
+      <description>概要 moccur-edit は color-moccur で検索した結果を編集するためのツール。&#xA;インストール el-get 本体にレシピがあるのでそちらからインストールしている。&#xA;(el-get-bundle moccur-edit) なお EmacsWiki に moccur-edit も color-moccur もあるのだけど color-moccur の方がソースコードが古めなので GitHub から入れるのを推奨する。&#xA;el-get のレシピは GitHub を見ているので安心&#xA;設定 とりあえず color-moccur で migemo が使えると検索する時に便利なのでその機能を有効にしている。また、編集したところがわかりやすい方がいいかなと思ったので、そこをハイライトする設定も入れておいた&#xA;(custom-set-variables &amp;#39;(moccur-use-migemo t) &amp;#39;(moccur-edit-highlight-edited-text t)) </description>
     </item>
-    
     <item>
       <title>multiple-cursors</title>
       <link>https://mugijiru.github.io/.emacs.d/editing/multiple-cursors/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/editing/multiple-cursors/</guid>
-      <description>概要 multiple-cursors はカーソルを増やせるやつ。複数箇所を同時に編集できるようになって便利。
-インストール el-get からインストールしている
-(el-get-bundle multiple-cursors) キーバインド キーバインドは別途定義している。もうちょっと真面目に定義したい</description>
+      <description>概要 multiple-cursors はカーソルを増やせるやつ。複数箇所を同時に編集できるようになって便利。&#xA;インストール el-get からインストールしている&#xA;(el-get-bundle multiple-cursors) キーバインド キーバインドは別途定義している。もうちょっと真面目に定義したい</description>
     </item>
-    
     <item>
       <title>origami</title>
       <link>https://mugijiru.github.io/.emacs.d/editing/origami/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/editing/origami/</guid>
-      <description>概要 origami はコードの折り畳み機能を提供するやつ。メジャーな言語は大体サポートしている感じ。大きいファイルを見る時に便利。
-インストール el-get 公式にはレシピがないので自前でレシピを用意している。
-(:name origami :website &amp;#34;https://github.com/elp-revive/origami.el&amp;#34; :description &amp;#34;A text folding minor mode for Emacs.&amp;#34; :type github :pkgname &amp;#34;elp-revive/origami.el&amp;#34; :depends (s dash)) そしてそれを使ってインストール
-(el-get-bundle origami) キーバインド origami-mode-map では以下のように動くように設定している。
-Key 効果 &amp;lt;backtab&amp;gt; 再帰的に折り畳んだり開いたりするやつ。org-mode の fold と似た感じ M-&amp;lt;backtab&amp;gt; そのノードだけ表示する (with-eval-after-load &amp;#39;origami (define-key origami-mode-map (kbd &amp;#34;&amp;lt;backtab&amp;gt;&amp;#34;) &amp;#39;origami-recursively-toggle-node) (define-key origami-mode-map (kbd &amp;#34;M-&amp;lt;backtab&amp;gt;&amp;#34;) &amp;#39;origami-show-only-node)) ただこれだけだと多分足りないので Hydra で色々定義している。
-(with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define origami-hydra (:separator &amp;#34;-&amp;#34; :quit-key &amp;#34;q&amp;#34; :title &amp;#34;Origami&amp;#34;) (&amp;#34;Node&amp;#34; ((&amp;#34;o&amp;#34; origami-open-node &amp;#34;Open&amp;#34;) (&amp;#34;c&amp;#34; origami-close-node &amp;#34;Close&amp;#34;) (&amp;#34;s&amp;#34; origami-show-node &amp;#34;Show&amp;#34;) (&amp;#34;t&amp;#34; origami-toggle-node &amp;#34;Toggle&amp;#34;) (&amp;#34;S&amp;#34; origami-forward-toggle-node &amp;#34;Foward toggle&amp;#34;) (&amp;#34;r&amp;#34; origami-recursively-toggle-node &amp;#34;Recursive toggle&amp;#34;)) &amp;#34;All&amp;#34; ((&amp;#34;O&amp;#34; origami-open-all-nodes &amp;#34;Open&amp;#34;) (&amp;#34;C&amp;#34; origami-close-all-nodes &amp;#34;Close&amp;#34;) (&amp;#34;T&amp;#34; origami-toggle-all-nodes &amp;#34;Toggle&amp;#34;)) &amp;#34;Move&amp;#34; ((&amp;#34;n&amp;#34; origami-next-fold &amp;#34;Next&amp;#34;) (&amp;#34;p&amp;#34; origami-previous-fold &amp;#34;Previous&amp;#34;)) &amp;#34;Undo/Redo&amp;#34; ((&amp;#34;/&amp;#34; origami-undo &amp;#34;Undo&amp;#34;) (&amp;#34;?</description>
+      <description>概要 origami はコードの折り畳み機能を提供するやつ。メジャーな言語は大体サポートしている感じ。大きいファイルを見る時に便利。&#xA;インストール el-get 公式にはレシピがないので自前でレシピを用意している。&#xA;(:name origami :website &amp;#34;https://github.com/elp-revive/origami.el&amp;#34; :description &amp;#34;A text folding minor mode for Emacs.&amp;#34; :type github :pkgname &amp;#34;elp-revive/origami.el&amp;#34; :depends (s dash)) そしてそれを使ってインストール&#xA;(el-get-bundle origami) キーバインド origami-mode-map では以下のように動くように設定している。&#xA;Key 効果 &amp;lt;backtab&amp;gt; 再帰的に折り畳んだり開いたりするやつ。org-mode の fold と似た感じ M-&amp;lt;backtab&amp;gt; そのノードだけ表示する (with-eval-after-load &amp;#39;origami (define-key origami-mode-map (kbd &amp;#34;&amp;lt;backtab&amp;gt;&amp;#34;) &amp;#39;origami-recursively-toggle-node) (define-key origami-mode-map (kbd &amp;#34;M-&amp;lt;backtab&amp;gt;&amp;#34;) &amp;#39;origami-show-only-node)) ただこれだけだと多分足りないので Hydra で色々定義している。&#xA;(with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define origami-hydra (:separator &amp;#34;-&amp;#34; :quit-key &amp;#34;q&amp;#34; :title &amp;#34;Origami&amp;#34;) (&amp;#34;Node&amp;#34; ((&amp;#34;o&amp;#34; origami-open-node &amp;#34;Open&amp;#34;) (&amp;#34;c&amp;#34; origami-close-node &amp;#34;Close&amp;#34;) (&amp;#34;s&amp;#34; origami-show-node &amp;#34;Show&amp;#34;) (&amp;#34;t&amp;#34; origami-toggle-node &amp;#34;Toggle&amp;#34;) (&amp;#34;S&amp;#34; origami-forward-toggle-node &amp;#34;Foward toggle&amp;#34;) (&amp;#34;r&amp;#34; origami-recursively-toggle-node &amp;#34;Recursive toggle&amp;#34;)) &amp;#34;All&amp;#34; ((&amp;#34;O&amp;#34; origami-open-all-nodes &amp;#34;Open&amp;#34;) (&amp;#34;C&amp;#34; origami-close-all-nodes &amp;#34;Close&amp;#34;) (&amp;#34;T&amp;#34; origami-toggle-all-nodes &amp;#34;Toggle&amp;#34;)) &amp;#34;Move&amp;#34; ((&amp;#34;n&amp;#34; origami-next-fold &amp;#34;Next&amp;#34;) (&amp;#34;p&amp;#34; origami-previous-fold &amp;#34;Previous&amp;#34;)) &amp;#34;Undo/Redo&amp;#34; ((&amp;#34;/&amp;#34; origami-undo &amp;#34;Undo&amp;#34;) (&amp;#34;?</description>
     </item>
-    
     <item>
       <title>smartparens</title>
       <link>https://mugijiru.github.io/.emacs.d/editing/smartparens/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/editing/smartparens/</guid>
-      <description>概要 smartparens はカッコとかクォートとかのペアになるようなものの入力補助をしてくれるやつ。
-strict モードだとペアが崩れないように強制するので雑に C-k で行削除しててもペアが維持されて便利。
-インストール いつも透り el-get で導入している
-(el-get-bundle smartparens) 設定 実は導入して間もないので、提供されてるオススメ設定のみ突っ込んでいる。オススメ設定は別途 reqiure したら良いという作りなので、以下のようにして突っ込んでいる。
-(require &amp;#39;smartparens-config) その他 各言語の hook で smartparens-strict-mode を有効にしている。なんか常に有効だと困りそうな気がしたので。</description>
+      <description>概要 smartparens はカッコとかクォートとかのペアになるようなものの入力補助をしてくれるやつ。&#xA;strict モードだとペアが崩れないように強制するので雑に C-k で行削除しててもペアが維持されて便利。&#xA;インストール いつも透り el-get で導入している&#xA;(el-get-bundle smartparens) 設定 実は導入して間もないので、提供されてるオススメ設定のみ突っ込んでいる。オススメ設定は別途 reqiure したら良いという作りなので、以下のようにして突っ込んでいる。&#xA;(require &amp;#39;smartparens-config) その他 各言語の hook で smartparens-strict-mode を有効にしている。なんか常に有効だと困りそうな気がしたので。</description>
     </item>
-    
     <item>
       <title>textlint</title>
       <link>https://mugijiru.github.io/.emacs.d/editing/textlint/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/editing/textlint/</guid>
-      <description>概要 textlint は plain text や Markdown の校正に使える linter です。そして flycheck でそれを呼び出すことができるので、変な文章を書いていないかチェックすることができます。
-設定 textlint の設定を ~/.config/textlint/textlintrc_ja.json に置いているのでそれを flycheck-textlint-config に設定しています。
-(custom-set-variables &amp;#39;(flycheck-textlint-config &amp;#34;~/.config/textlint/textlintrc_ja.json&amp;#34;)) magit 用の hook 関数の用意 magit で commit message を書く時に自動で textlint が起動するようにするための関数。なんだけど想定通りに動いていない
-;; 想定通りに動かない (defun my/magit-commit-create-after (&amp;amp;optional arg) (ignore arg) (flycheck-select-checker &amp;#39;textlint-no-extension)) ;; (with-eval-after-load &amp;#39;magit ;; (advice-add &amp;#39;magit-commit-create :after &amp;#39;my/magit-commit-create-after)) checker 定義 flycheck のデフォルトでも textlint は動くのですが magit でコミットメッセージを書く時なんかには動いてくれなかったので拡張子がないファイルの時にも動くように checker を定義 &amp;amp; 追加している。
-その際 forge で Pull request を作る時に自動で有効になるようにも調整している。
-(with-eval-after-load &amp;#39;flycheck (flycheck-define-checker textlint-no-extension &amp;#34;A text prose linter using textlint.</description>
+      <description>概要 textlint は plain text や Markdown の校正に使える linter です。そして flycheck でそれを呼び出すことができるので、変な文章を書いていないかチェックすることができます。&#xA;設定 textlint の設定を ~/.config/textlint/textlintrc_ja.json に置いているのでそれを flycheck-textlint-config に設定しています。&#xA;(custom-set-variables &amp;#39;(flycheck-textlint-config &amp;#34;~/.config/textlint/textlintrc_ja.json&amp;#34;)) magit 用の hook 関数の用意 magit で commit message を書く時に自動で textlint が起動するようにするための関数。なんだけど想定通りに動いていない&#xA;;; 想定通りに動かない (defun my/magit-commit-create-after (&amp;amp;optional arg) (ignore arg) (flycheck-select-checker &amp;#39;textlint-no-extension)) ;; (with-eval-after-load &amp;#39;magit ;; (advice-add &amp;#39;magit-commit-create :after &amp;#39;my/magit-commit-create-after)) checker 定義 flycheck のデフォルトでも textlint は動くのですが magit でコミットメッセージを書く時なんかには動いてくれなかったので拡張子がないファイルの時にも動くように checker を定義 &amp;amp; 追加している。&#xA;その際 forge で Pull request を作る時に自動で有効になるようにも調整している。&#xA;(with-eval-after-load &amp;#39;flycheck (flycheck-define-checker textlint-no-extension &amp;#34;A text prose linter using textlint.</description>
     </item>
-    
     <item>
       <title>undo-fu</title>
       <link>https://mugijiru.github.io/.emacs.d/editing/undo-fu/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/editing/undo-fu/</guid>
-      <description>概要 undo-fu はシンプルな undo/redo 機能を提供してくれるやつ。
-昔はもっと色々できる undo-tree を使っていたけどそっちにバグがあるっぽいので乗り換えた。
-インストール レシピは自前で用意している
-(:name undo-fu :website &amp;#34;https://codeberg.org/ideasman42/emacs-undo-fu&amp;#34; :description &amp;#34;Simple, stable linear undo with redo for Emacs.&amp;#34; :type git :branch &amp;#34;main&amp;#34; :url &amp;#34;https://codeberg.org/ideasman42/emacs-undo-fu.git&amp;#34;) そしていつも通り el-get-bundle でインストールしている
-(el-get-bundle undo-fu) キーバインド 別の場所で定義しているけど、以下のキーバインドにしている。
-Key 効果 C-/ undo C-M-/ redo </description>
+      <description>概要 undo-fu はシンプルな undo/redo 機能を提供してくれるやつ。&#xA;昔はもっと色々できる undo-tree を使っていたけどそっちにバグがあるっぽいので乗り換えた。&#xA;インストール レシピは自前で用意している&#xA;(:name undo-fu :website &amp;#34;https://codeberg.org/ideasman42/emacs-undo-fu&amp;#34; :description &amp;#34;Simple, stable linear undo with redo for Emacs.&amp;#34; :type git :branch &amp;#34;main&amp;#34; :url &amp;#34;https://codeberg.org/ideasman42/emacs-undo-fu.git&amp;#34;) そしていつも通り el-get-bundle でインストールしている&#xA;(el-get-bundle undo-fu) キーバインド 別の場所で定義しているけど、以下のキーバインドにしている。&#xA;Key 効果 C-/ undo C-M-/ redo </description>
     </item>
-    
     <item>
       <title>view-mode</title>
       <link>https://mugijiru.github.io/.emacs.d/editing/view-mode/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/editing/view-mode/</guid>
-      <description>概要 view-mode は Emacs に標準で組込まれているモードで、バッファを閲覧専用にする機能を提供してくれるやつ。コードを眺めたい時などに使っている。
-キーバインド view-mode の時は文字入力をする必要がないので通常のモードの時とは違うキーバインドが使えるようにしている。
-(defun my/setup-view-mode-keymap () (let ((keymap view-mode-map)) (define-key keymap (kbd &amp;#34;h&amp;#34;) &amp;#39;backward-char) (define-key keymap (kbd &amp;#34;j&amp;#34;) &amp;#39;next-line) (define-key keymap (kbd &amp;#34;k&amp;#34;) &amp;#39;previous-line) (define-key keymap (kbd &amp;#34;l&amp;#34;) &amp;#39;forward-char) (define-key keymap (kbd &amp;#34;e&amp;#34;) &amp;#39;forward-word) (define-key keymap (kbd &amp;#34;b&amp;#34;) &amp;#39;scroll-down) (define-key keymap (kbd &amp;#34;SPC&amp;#34;) &amp;#39;scroll-up) (define-key keymap (kbd &amp;#34;g&amp;#34;) &amp;#39;beginning-of-buffer) (define-key keymap (kbd &amp;#34;G&amp;#34;) &amp;#39;end-of-buffer) (define-key keymap (kbd &amp;#34;&amp;lt;&amp;#34;) &amp;#39;beginning-of-buffer) (define-key keymap (kbd &amp;#34;&amp;gt;&amp;#34;) &amp;#39;end-of-buffer))) Key 効果 h 1文字戻る j 1行下がる k 1行上がる l 1文字進む e 単語の直後に移動 b 1スクロール戻る SPC 1スクロール進む g, &amp;lt; バッファの先頭に移動 G, &amp;gt; バッファの末尾に移動 適当だけど Vim の通常モードの時みたいな操作ができるようにしている。</description>
+      <description>概要 view-mode は Emacs に標準で組込まれているモードで、バッファを閲覧専用にする機能を提供してくれるやつ。コードを眺めたい時などに使っている。&#xA;キーバインド view-mode の時は文字入力をする必要がないので通常のモードの時とは違うキーバインドが使えるようにしている。&#xA;(defun my/setup-view-mode-keymap () (let ((keymap view-mode-map)) (define-key keymap (kbd &amp;#34;h&amp;#34;) &amp;#39;backward-char) (define-key keymap (kbd &amp;#34;j&amp;#34;) &amp;#39;next-line) (define-key keymap (kbd &amp;#34;k&amp;#34;) &amp;#39;previous-line) (define-key keymap (kbd &amp;#34;l&amp;#34;) &amp;#39;forward-char) (define-key keymap (kbd &amp;#34;e&amp;#34;) &amp;#39;forward-word) (define-key keymap (kbd &amp;#34;b&amp;#34;) &amp;#39;scroll-down) (define-key keymap (kbd &amp;#34;SPC&amp;#34;) &amp;#39;scroll-up) (define-key keymap (kbd &amp;#34;g&amp;#34;) &amp;#39;beginning-of-buffer) (define-key keymap (kbd &amp;#34;G&amp;#34;) &amp;#39;end-of-buffer) (define-key keymap (kbd &amp;#34;&amp;lt;&amp;#34;) &amp;#39;beginning-of-buffer) (define-key keymap (kbd &amp;#34;&amp;gt;&amp;#34;) &amp;#39;end-of-buffer))) Key 効果 h 1文字戻る j 1行下がる k 1行上がる l 1文字進む e 単語の直後に移動 b 1スクロール戻る SPC 1スクロール進む g, &amp;lt; バッファの先頭に移動 G, &amp;gt; バッファの末尾に移動 適当だけど Vim の通常モードの時みたいな操作ができるようにしている。</description>
     </item>
-    
     <item>
       <title>wgrep</title>
       <link>https://mugijiru.github.io/.emacs.d/editing/wgrep/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/editing/wgrep/</guid>
-      <description>概要 wgrep は grep などでの検索結果バッファから直接ファイル編集ができるやつ。
-類似品に moccur-edit もあるけど外部ツールを使う分速いみたい。その代わり migemo は使えない。
-インストール こいつは el-get 本体にレシピがあるので単にインストールするだけで OK
-(el-get-bundle wgrep) 特に設定はしていない</description>
+      <description>概要 wgrep は grep などでの検索結果バッファから直接ファイル編集ができるやつ。&#xA;類似品に moccur-edit もあるけど外部ツールを使う分速いみたい。その代わり migemo は使えない。&#xA;インストール こいつは el-get 本体にレシピがあるので単にインストールするだけで OK&#xA;(el-get-bundle wgrep) 特に設定はしていない</description>
     </item>
-    
     <item>
       <title>whitespace</title>
       <link>https://mugijiru.github.io/.emacs.d/editing/whitespace/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/editing/whitespace/</guid>
-      <description>概要 whitespace-mode は Emacs に標準添付されている、空白文字を可視化したりするためのモード。
-全角空白を可視化したり、行末の空白を可視化したりしておくと便利なので入れている。
-設定 (require &amp;#39;whitespace) 可視化対象 可視化対象の空白について設定している。
-(setq whitespace-style &amp;#39;(face trailing tabs spaces empty space-mark tab-mark)) 値 意味 face face による可視化を有効にする。これがないと *-mark 以外が有効にならない trailing 行末の空白を可視化する tabs タブ文字の可視化 spaces 空白の可視化。ただし後の設定で全角のみを可視化するようにている empty バッファの前後に空行があれば可視化 space-mark 空白文字を別の文字に置き換える設定。置き換え文字は後述 tab-mark タブ文字を別の文字に置き換える設定。置き換え文字は後述 他にも lines, lines-tail, indentation, big-indent, newline-mark などがある
-lines-tail あたりを使うと1行80文字制限でコーディングする時などに便利かもしれないなって思ってる。設定したことがないからわからんが……。
-置き換え表示用の文字の設定 (setq whitespace-display-mappings &amp;#39;((space-mark ?\u3000 [?\u25a1]) ;; WARNING: the mapping below has a problem. ;; When a TAB occupies exactly one column, it will display the ;; character ?</description>
+      <description>概要 whitespace-mode は Emacs に標準添付されている、空白文字を可視化したりするためのモード。&#xA;全角空白を可視化したり、行末の空白を可視化したりしておくと便利なので入れている。&#xA;設定 (require &amp;#39;whitespace) 可視化対象 可視化対象の空白について設定している。&#xA;(setq whitespace-style &amp;#39;(face trailing tabs spaces empty space-mark tab-mark)) 値 意味 face face による可視化を有効にする。これがないと *-mark 以外が有効にならない trailing 行末の空白を可視化する tabs タブ文字の可視化 spaces 空白の可視化。ただし後の設定で全角のみを可視化するようにている empty バッファの前後に空行があれば可視化 space-mark 空白文字を別の文字に置き換える設定。置き換え文字は後述 tab-mark タブ文字を別の文字に置き換える設定。置き換え文字は後述 他にも lines, lines-tail, indentation, big-indent, newline-mark などがある&#xA;lines-tail あたりを使うと1行80文字制限でコーディングする時などに便利かもしれないなって思ってる。設定したことがないからわからんが……。&#xA;置き換え表示用の文字の設定 (setq whitespace-display-mappings &amp;#39;((space-mark ?\u3000 [?\u25a1]) ;; WARNING: the mapping below has a problem. ;; When a TAB occupies exactly one column, it will display the ;; character ?</description>
     </item>
-    
     <item>
       <title>yasnippet</title>
       <link>https://mugijiru.github.io/.emacs.d/editing/yasnippet/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/editing/yasnippet/</guid>
-      <description>概要 yasnippet はテンプレートを挿入する機能を持ったパッケージ。 Emacs でそこそこ何かを書いている人なら大体知ってるような有名なやつだと思う。
-インストール いつも通り el-get でインストール
-(el-get-bundle yasnippet) 有効化 どこでも使いたいぐらい便利なやつなので global に有効化している
-(yas-global-mode 1) キーバインド 基本的に覚えられないので Hydra を使って定義している
-(with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define yasnippet-hydra (:separator &amp;#34;-&amp;#34; :title &amp;#34;Yasnippet&amp;#34; :foreign-key warn :quit-key &amp;#34;q&amp;#34; :exit t) (&amp;#34;Edit&amp;#34; ((&amp;#34;n&amp;#34; yas-new-snippet &amp;#34;New&amp;#34;) (&amp;#34;v&amp;#34; yas-visit-snippet-file &amp;#34;Visit&amp;#34;)) &amp;#34;Other&amp;#34; ((&amp;#34;i&amp;#34; yas-insert-snippet &amp;#34;Insert&amp;#34;) (&amp;#34;l&amp;#34; yas-describe-tables &amp;#34;List&amp;#34;) (&amp;#34;r&amp;#34; yas-reload-all &amp;#34;Reload all&amp;#34;))))) Key 効果 n 現在のメジャーモード用に新しい snippet を作る v 現在のメジャーモードの登録済 snippet ファイルを開く i snippet の挿入。選択は ivy で行われる。 l 現在のメジャーモードの登録済 snippet の一覧表示 r snippet を全部 load し直す その他 実は、どういう snippet があれば便利なのかよくわかってなくて snippet をほとんど登録してない。</description>
+      <description>概要 yasnippet はテンプレートを挿入する機能を持ったパッケージ。 Emacs でそこそこ何かを書いている人なら大体知ってるような有名なやつだと思う。&#xA;インストール いつも通り el-get でインストール&#xA;(el-get-bundle yasnippet) 有効化 どこでも使いたいぐらい便利なやつなので global に有効化している&#xA;(yas-global-mode 1) キーバインド 基本的に覚えられないので Hydra を使って定義している&#xA;(with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define yasnippet-hydra (:separator &amp;#34;-&amp;#34; :title &amp;#34;Yasnippet&amp;#34; :foreign-key warn :quit-key &amp;#34;q&amp;#34; :exit t) (&amp;#34;Edit&amp;#34; ((&amp;#34;n&amp;#34; yas-new-snippet &amp;#34;New&amp;#34;) (&amp;#34;v&amp;#34; yas-visit-snippet-file &amp;#34;Visit&amp;#34;)) &amp;#34;Other&amp;#34; ((&amp;#34;i&amp;#34; yas-insert-snippet &amp;#34;Insert&amp;#34;) (&amp;#34;l&amp;#34; yas-describe-tables &amp;#34;List&amp;#34;) (&amp;#34;r&amp;#34; yas-reload-all &amp;#34;Reload all&amp;#34;))))) Key 効果 n 現在のメジャーモード用に新しい snippet を作る v 現在のメジャーモードの登録済 snippet ファイルを開く i snippet の挿入。選択は ivy で行われる。 l 現在のメジャーモードの登録済 snippet の一覧表示 r snippet を全部 load し直す その他 実は、どういう snippet があれば便利なのかよくわかってなくて snippet をほとんど登録してない。</description>
     </item>
-    
   </channel>
 </rss>

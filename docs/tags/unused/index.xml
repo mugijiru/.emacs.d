@@ -1,64 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>unused on 麦汁&#39;s Emacs Config</title>
+    <title>Unused on 麦汁&#39;s Emacs Config</title>
     <link>https://mugijiru.github.io/.emacs.d/tags/unused/</link>
-    <description>Recent content in unused on 麦汁&#39;s Emacs Config</description>
+    <description>Recent content in Unused on 麦汁&#39;s Emacs Config</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/tags/unused/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja-JP</language>
+    <atom:link href="https://mugijiru.github.io/.emacs.d/tags/unused/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>mocker.el</title>
       <link>https://mugijiru.github.io/.emacs.d/testing-tool/mocker-el/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/testing-tool/mocker-el/</guid>
-      <description>概要 mocker.el は Emacs Lisp のテストで使う Mock ライブラリ。
-使おうと思って導入したけど、自分のやりたいことはちょっと違ったので死蔵中
-便利そうなのでとりあえず置いといている。
-インストール レシピを自前で用意して
-(:name mocker.el :type github :description &amp;#34;Mocker.el is a mocking framework for Emacs lisp.&amp;#34; :pkgname &amp;#34;sigma/mocker.el&amp;#34; :minimum-emacs-version (25 1)) el-get で GitHub から取得している。
-(el-get-bundle mocker.el) 副作用を伴う関数の扱い 基本的に入出力を置き換えるためのものなので副作用が処理の主体になるような関数には向いてなさそう。
-ただ https://github.com/sigma/mocker.el#examples を見ていると output-generator で副作用と同じ処理を書いてやるなどの逃げ道はありそう</description>
+      <description>概要 mocker.el は Emacs Lisp のテストで使う Mock ライブラリ。&#xA;使おうと思って導入したけど、自分のやりたいことはちょっと違ったので死蔵中&#xA;便利そうなのでとりあえず置いといている。&#xA;インストール レシピを自前で用意して&#xA;(:name mocker.el :type github :description &amp;#34;Mocker.el is a mocking framework for Emacs lisp.&amp;#34; :pkgname &amp;#34;sigma/mocker.el&amp;#34; :minimum-emacs-version (25 1)) el-get で GitHub から取得している。&#xA;(el-get-bundle mocker.el) 副作用を伴う関数の扱い 基本的に入出力を置き換えるためのものなので副作用が処理の主体になるような関数には向いてなさそう。&#xA;ただ https://github.com/sigma/mocker.el#examples を見ていると output-generator で副作用と同じ処理を書いてやるなどの逃げ道はありそう</description>
     </item>
-    
     <item>
       <title>org-ql</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/org-ql/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-ql/</guid>
-      <description>概要 org-ql は org-mode の情報を検索するためのパッケージ。柔軟な検索ができるようになるので貴方好みの検索で業務効率向上ができちゃうかも!?
-インストール いつも透り el-get でインストールしている
-(el-get-bundle org-ql) その他 一時期は色々試していたけどこれを利用している org-super-agenda の方でなんとかするようにしたのでもう直接は使ってないでござる</description>
+      <description>概要 org-ql は org-mode の情報を検索するためのパッケージ。柔軟な検索ができるようになるので貴方好みの検索で業務効率向上ができちゃうかも!?&#xA;インストール いつも透り el-get でインストールしている&#xA;(el-get-bundle org-ql) その他 一時期は色々試していたけどこれを利用している org-super-agenda の方でなんとかするようにしたのでもう直接は使ってないでござる</description>
     </item>
-    
     <item>
       <title>日報用の設定(旧)</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/nippou/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/org-mode/nippou/</guid>
-      <description>概要 業務で日報を提出する必要があったのでそれっぽいのを作れるようにしていた。
-今では org-super-agenda を使っているのでこれは使ってないが、とりあえず載せておく。
-シークレット設定の読み込み 表に出したくない情報については別ファイルに分離して setq している。が、内容的に本名が露出する程度の情報ではある。
-(my/load-config &amp;#34;my-nippou-config&amp;#34;) これの中で my/org-nippou-additional-files を定義していてそのファイル名に名前が含まれてるだけであった。
-me.org とでもしておけば解決しそう……。
-日報構築の対象となるファイルをリストアップする関数の定義 ~/Documenets/org/tasks に作業記録用ファイルなどを find コマンドを使ってリストアップする関数。
-(defun my/org-nippou-files () (let* ((dir my/org-tasks-directory) (cmd (format &amp;#34;find \&amp;#34;%s\&amp;#34; -name &amp;#39;*.org&amp;#39; -or -name &amp;#39;*.org_archive&amp;#39;&amp;#34; dir)) (result (shell-command-to-string cmd)) (file-names (split-string result &amp;#34;\n&amp;#34;))) (-remove (lambda (file-name) (string= &amp;#34;&amp;#34; file-name)) file-names))) org-agenda-files を使えば要らないっぽいけどね。 agenda 全然使えてなかったらこんなことに。
-日報構築元ファイルを取得する関数の定義 シークレット設定で定義した変数と上で定義した my/org-nippou-files を結合して 1つのリストにするだけの関数を用意している。 1つにまとまってる方が扱いやすいので。
-(defun my/org-nippou-targets () (-concat (my/org-nippou-files) my/org-nippou-additional-files)) 日報を出力する関数 上記の関数群で target になるファイルから日報用に TODO 項目を引っ張り出してくる関数を用意している。</description>
+      <description>概要 業務で日報を提出する必要があったのでそれっぽいのを作れるようにしていた。&#xA;今では org-super-agenda を使っているのでこれは使ってないが、とりあえず載せておく。&#xA;シークレット設定の読み込み 表に出したくない情報については別ファイルに分離して setq している。が、内容的に本名が露出する程度の情報ではある。&#xA;(my/load-config &amp;#34;my-nippou-config&amp;#34;) これの中で my/org-nippou-additional-files を定義していてそのファイル名に名前が含まれてるだけであった。&#xA;me.org とでもしておけば解決しそう……。&#xA;日報構築の対象となるファイルをリストアップする関数の定義 ~/Documenets/org/tasks に作業記録用ファイルなどを find コマンドを使ってリストアップする関数。&#xA;(defun my/org-nippou-files () (let* ((dir my/org-tasks-directory) (cmd (format &amp;#34;find \&amp;#34;%s\&amp;#34; -name &amp;#39;*.org&amp;#39; -or -name &amp;#39;*.org_archive&amp;#39;&amp;#34; dir)) (result (shell-command-to-string cmd)) (file-names (split-string result &amp;#34;\n&amp;#34;))) (-remove (lambda (file-name) (string= &amp;#34;&amp;#34; file-name)) file-names))) org-agenda-files を使えば要らないっぽいけどね。 agenda 全然使えてなかったらこんなことに。&#xA;日報構築元ファイルを取得する関数の定義 シークレット設定で定義した変数と上で定義した my/org-nippou-files を結合して 1つのリストにするだけの関数を用意している。 1つにまとまってる方が扱いやすいので。&#xA;(defun my/org-nippou-targets () (-concat (my/org-nippou-files) my/org-nippou-additional-files)) 日報を出力する関数 上記の関数群で target になるファイルから日報用に TODO 項目を引っ張り出してくる関数を用意している。</description>
     </item>
-    
     <item>
       <title>ブラウザ設定</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/browse-url/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/external-tool/browse-url/</guid>
-      <description>browse-url の時の開くプログラムの指定。
-(setq browse-url-generic-program &amp;#34;vivaldi&amp;#34;) Vivaldi を指定しているが、最近 Emacs から何かブラウザ立ち上げても Firefox がいつも開いているし、この設定ほんとうに生きてる? って感じ。
-WSL2 を入れてる Windows の方は Vivladi 入れてないし Mac の方は入れてるけど別に Emacs から Vivaldi が立ち上がるのも観測してないしほんと謎……。</description>
+      <description>browse-url の時の開くプログラムの指定。&#xA;(setq browse-url-generic-program &amp;#34;vivaldi&amp;#34;) Vivaldi を指定しているが、最近 Emacs から何かブラウザ立ち上げても Firefox がいつも開いているし、この設定ほんとうに生きてる? って感じ。&#xA;WSL2 を入れてる Windows の方は Vivladi 入れてないし Mac の方は入れてるけど別に Emacs から Vivaldi が立ち上がるのも観測してないしほんと謎……。</description>
     </item>
-    
   </channel>
 </rss>

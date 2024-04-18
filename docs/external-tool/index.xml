@@ -5,251 +5,133 @@
     <link>https://mugijiru.github.io/.emacs.d/external-tool/</link>
     <description>Recent content in 外部連携ツール設定 on 麦汁&#39;s Emacs Config</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/external-tool/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja-JP</language>
+    <atom:link href="https://mugijiru.github.io/.emacs.d/external-tool/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>blamer.el</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/blamer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/external-tool/blamer/</guid>
-      <description>概要 blamer.el は VS code の Git Lens プラグインのようにその行の最後のコミット情報を表示してくれるやつ。
-blamer-mode をオンにすると横の方に1行内で表示するが posframe で overlay 表示させることもできる
-インストール el-get 本体にはレシピがないので自前で用意している
-(:name blamer :website &amp;#34;https://github.com/Artawower/blamer.el&amp;#34; :description &amp;#34;A git blame plugin for emacs inspired by VS Code’s GitLens plugin and Vim plugin&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;Artawower/blamer.el&amp;#34;) そしてそれを el-get-bundle でインストールしている
-(el-get-bundle blamer) 設定 blame-show-posframe-commit-info の際に上でも下でも適当な位置に表示してくれるように smart 表示を指定している
-(setopt blammer--overlay-popup-position &amp;#39;smart) その他 普段は表示されると邪魔そうなので今のところオフのままにしているが Hydra による Toggle Switches で切り替え可能にしている。
-またより細かい情報を手軽に見られるようにするために posframe でコミット情報を表示するコマンドを jk で起動する Hydra に設定している。</description>
+      <description>概要 blamer.el は VS code の Git Lens プラグインのようにその行の最後のコミット情報を表示してくれるやつ。&#xA;blamer-mode をオンにすると横の方に1行内で表示するが posframe で overlay 表示させることもできる&#xA;インストール el-get 本体にはレシピがないので自前で用意している&#xA;(:name blamer :website &amp;#34;https://github.com/Artawower/blamer.el&amp;#34; :description &amp;#34;A git blame plugin for emacs inspired by VS Code’s GitLens plugin and Vim plugin&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;Artawower/blamer.el&amp;#34;) そしてそれを el-get-bundle でインストールしている&#xA;(el-get-bundle blamer) 設定 blame-show-posframe-commit-info の際に上でも下でも適当な位置に表示してくれるように smart 表示を指定している&#xA;(setopt blammer--overlay-popup-position &amp;#39;smart) その他 普段は表示されると邪魔そうなので今のところオフのままにしているが Hydra による Toggle Switches で切り替え可能にしている。&#xA;またより細かい情報を手軽に見られるようにするために posframe でコミット情報を表示するコマンドを jk で起動する Hydra に設定している。</description>
     </item>
-    
     <item>
       <title>calibredb</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/calibredb/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/external-tool/calibredb/</guid>
-      <description>概要 calibredb.el は電子書籍管理ツール Calibre のデータを Emacs から弄ったりするためのパッケージ。同じことは Calibre からもできるんだけどやっぱり Emacs のインターフェースがある方が便利だよねってことで導入した。 org-ref もサポートしているみたい だしね
-インストール el-get 本体にはレシピがないので自前で用意。
-(:name calibredb :website &amp;#34;Yet another calibre client for emacs.&amp;#34; :description &amp;#34;Fix current buffer automatically&amp;#34; :type github :branch &amp;#34;master&amp;#34; :depends (esxml) :pkgname &amp;#34;chenyanming/calibredb.el&amp;#34;) そしてそれを el-get-bundle で入れている。
-(el-get-bundle calibredb) 設定 とりあえず Calibre のライブラリのパスだけを指定している。
-(custom-set-variables &amp;#39;(calibredb-root-dir &amp;#34;~/calibre-library&amp;#34;)) キーバインド デフォルトで transient を用いたキーバインドが定義されているけど自分は Hydra が好きなので pretty-hydra/major-mode-hydra を使って少しだけ Hydra で calibredb のコマンドを叩けるようにしている
-(with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define calibredb-filter-hydra (:separator &amp;#34;-&amp;#34; :exit t :quit-key &amp;#34;q&amp;#34; :title (concat (all-the-icons-material &amp;#34;filter_list&amp;#34;) &amp;#34; calibredb filter&amp;#34;)) (&amp;#34;by&amp;#34; ((&amp;#34;t&amp;#34; calibredb-filter-by-tag &amp;#34;Tag&amp;#34;) (&amp;#34;a&amp;#34; calibredb-filter-by-author-sort &amp;#34;Author&amp;#34;) (&amp;#34;f&amp;#34; calibredb-filter-by-book-format &amp;#34;Format&amp;#34;) (&amp;#34;d&amp;#34; calibredb-filter-by-last_modified &amp;#34;Updated at&amp;#34;) (&amp;#34;v&amp;#34; calibredb-virtual-library-list &amp;#34;Virtual Library&amp;#34;) (&amp;#34;l&amp;#34; calibredb-library-list &amp;#34;Library&amp;#34;)) &amp;#34;Other&amp;#34; ((&amp;#34;R&amp;#34; calibredb-search-clear-filter &amp;#34;Reset&amp;#34;)))) (pretty-hydra-define calibredb-sort-hydra (:separator &amp;#34;-&amp;#34; :exit t :quit-key &amp;#34;q&amp;#34; :title (concat (all-the-icons-material &amp;#34;book&amp;#34;) &amp;#34; calibredb sort&amp;#34;)) (&amp;#34;by&amp;#34; ((&amp;#34;i&amp;#34; calibredb-sort-by-id &amp;#34;Id&amp;#34;) (&amp;#34;t&amp;#34; calibredb-sort-by-title &amp;#34;Title&amp;#34;) (&amp;#34;f&amp;#34; calibredb-sort-by-format &amp;#34;Format&amp;#34;) (&amp;#34;a&amp;#34; calibredb-sort-by-author &amp;#34;Author&amp;#34;) (&amp;#34;d&amp;#34; calibredb-sort-by-date &amp;#34;Created at&amp;#34;) (&amp;#34;p&amp;#34; calibredb-sort-by-pubdate &amp;#34;Published at&amp;#34;) (&amp;#34;T&amp;#34; calibredb-sort-by-tag &amp;#34;Tag&amp;#34;) (&amp;#34;s&amp;#34; calibredb-sort-by-size &amp;#34;Size&amp;#34;) (&amp;#34;l&amp;#34; calibredb-sort-by-language &amp;#34;Language&amp;#34;) ;; 関数を定義したりしたら恐らく以下でも検索可能 ;; author_sort, cover, isbn, last_modified, publisher, rating, series, seried_index, template, uuid) ) &amp;#34;ASC/DESC&amp;#34; ((&amp;#34;z&amp;#34; calibredb-toggle-order &amp;#34;Toggle&amp;#34;)))) (pretty-hydra-define calibredb-metadata-hydra (:separator &amp;#34;-&amp;#34; :exit t :quit-key &amp;#34;q&amp;#34; :title (concat (all-the-icons-material &amp;#34;book&amp;#34;) &amp;#34; calibredb metadata&amp;#34;)) (&amp;#34;Set&amp;#34; ((&amp;#34;t&amp;#34; calibredb-set-metadata--title &amp;#34;Title&amp;#34;) (&amp;#34;g&amp;#34; calibredb-set-metadata--tags &amp;#34;Tags&amp;#34;) (&amp;#34;a&amp;#34; calibredb-set-metadata--author_sort &amp;#34;Author sort&amp;#34;) (&amp;#34;A&amp;#34; calibredb-set-metadata--authors &amp;#34;Authors&amp;#34;) (&amp;#34;c&amp;#34; calibredb-set-metadata--comments &amp;#34;comments&amp;#34;)) &amp;#34;Fetch&amp;#34; ((&amp;#34;A&amp;#34; calibredb-fetch-and-set-metadata-by-author-and-title &amp;#34;Author/Title&amp;#34;) (&amp;#34;I&amp;#34; calibredb-fetch-and-set-metadata-by-isbn &amp;#34;ISBN&amp;#34;) (&amp;#34;D&amp;#34; calibredb-fetch-and-set-metadata-by-id &amp;#34;ID&amp;#34;)) &amp;#34;Other&amp;#34; ((&amp;#34;.</description>
+      <description>概要 calibredb.el は電子書籍管理ツール Calibre のデータを Emacs から弄ったりするためのパッケージ。同じことは Calibre からもできるんだけどやっぱり Emacs のインターフェースがある方が便利だよねってことで導入した。 org-ref もサポートしているみたい だしね&#xA;インストール el-get 本体にはレシピがないので自前で用意。&#xA;(:name calibredb :website &amp;#34;Yet another calibre client for emacs.&amp;#34; :description &amp;#34;Fix current buffer automatically&amp;#34; :type github :branch &amp;#34;master&amp;#34; :depends (esxml) :pkgname &amp;#34;chenyanming/calibredb.el&amp;#34;) そしてそれを el-get-bundle で入れている。&#xA;(el-get-bundle calibredb) 設定 とりあえず Calibre のライブラリのパスだけを指定している。&#xA;(custom-set-variables &amp;#39;(calibredb-root-dir &amp;#34;~/calibre-library&amp;#34;)) キーバインド デフォルトで transient を用いたキーバインドが定義されているけど自分は Hydra が好きなので pretty-hydra/major-mode-hydra を使って少しだけ Hydra で calibredb のコマンドを叩けるようにしている&#xA;(with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define calibredb-filter-hydra (:separator &amp;#34;-&amp;#34; :exit t :quit-key &amp;#34;q&amp;#34; :title (concat (all-the-icons-material &amp;#34;filter_list&amp;#34;) &amp;#34; calibredb filter&amp;#34;)) (&amp;#34;by&amp;#34; ((&amp;#34;t&amp;#34; calibredb-filter-by-tag &amp;#34;Tag&amp;#34;) (&amp;#34;a&amp;#34; calibredb-filter-by-author-sort &amp;#34;Author&amp;#34;) (&amp;#34;f&amp;#34; calibredb-filter-by-book-format &amp;#34;Format&amp;#34;) (&amp;#34;d&amp;#34; calibredb-filter-by-last_modified &amp;#34;Updated at&amp;#34;) (&amp;#34;v&amp;#34; calibredb-virtual-library-list &amp;#34;Virtual Library&amp;#34;) (&amp;#34;l&amp;#34; calibredb-library-list &amp;#34;Library&amp;#34;)) &amp;#34;Other&amp;#34; ((&amp;#34;R&amp;#34; calibredb-search-clear-filter &amp;#34;Reset&amp;#34;)))) (pretty-hydra-define calibredb-sort-hydra (:separator &amp;#34;-&amp;#34; :exit t :quit-key &amp;#34;q&amp;#34; :title (concat (all-the-icons-material &amp;#34;book&amp;#34;) &amp;#34; calibredb sort&amp;#34;)) (&amp;#34;by&amp;#34; ((&amp;#34;i&amp;#34; calibredb-sort-by-id &amp;#34;Id&amp;#34;) (&amp;#34;t&amp;#34; calibredb-sort-by-title &amp;#34;Title&amp;#34;) (&amp;#34;f&amp;#34; calibredb-sort-by-format &amp;#34;Format&amp;#34;) (&amp;#34;a&amp;#34; calibredb-sort-by-author &amp;#34;Author&amp;#34;) (&amp;#34;d&amp;#34; calibredb-sort-by-date &amp;#34;Created at&amp;#34;) (&amp;#34;p&amp;#34; calibredb-sort-by-pubdate &amp;#34;Published at&amp;#34;) (&amp;#34;T&amp;#34; calibredb-sort-by-tag &amp;#34;Tag&amp;#34;) (&amp;#34;s&amp;#34; calibredb-sort-by-size &amp;#34;Size&amp;#34;) (&amp;#34;l&amp;#34; calibredb-sort-by-language &amp;#34;Language&amp;#34;) ;; 関数を定義したりしたら恐らく以下でも検索可能 ;; author_sort, cover, isbn, last_modified, publisher, rating, series, seried_index, template, uuid) ) &amp;#34;ASC/DESC&amp;#34; ((&amp;#34;z&amp;#34; calibredb-toggle-order &amp;#34;Toggle&amp;#34;)))) (pretty-hydra-define calibredb-metadata-hydra (:separator &amp;#34;-&amp;#34; :exit t :quit-key &amp;#34;q&amp;#34; :title (concat (all-the-icons-material &amp;#34;book&amp;#34;) &amp;#34; calibredb metadata&amp;#34;)) (&amp;#34;Set&amp;#34; ((&amp;#34;t&amp;#34; calibredb-set-metadata--title &amp;#34;Title&amp;#34;) (&amp;#34;g&amp;#34; calibredb-set-metadata--tags &amp;#34;Tags&amp;#34;) (&amp;#34;a&amp;#34; calibredb-set-metadata--author_sort &amp;#34;Author sort&amp;#34;) (&amp;#34;A&amp;#34; calibredb-set-metadata--authors &amp;#34;Authors&amp;#34;) (&amp;#34;c&amp;#34; calibredb-set-metadata--comments &amp;#34;comments&amp;#34;)) &amp;#34;Fetch&amp;#34; ((&amp;#34;A&amp;#34; calibredb-fetch-and-set-metadata-by-author-and-title &amp;#34;Author/Title&amp;#34;) (&amp;#34;I&amp;#34; calibredb-fetch-and-set-metadata-by-isbn &amp;#34;ISBN&amp;#34;) (&amp;#34;D&amp;#34; calibredb-fetch-and-set-metadata-by-id &amp;#34;ID&amp;#34;)) &amp;#34;Other&amp;#34; ((&amp;#34;.</description>
     </item>
-    
     <item>
       <title>emacs-kibela</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/emacs-kibela/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/external-tool/emacs-kibela/</guid>
-      <description>概要 emacs-kibela は Emacs で Kibela を操作するための自作のパッケージ。あまり機能は実装されていないけど、テンプレートから記事を書いたりする程度のことはできる
-インストール MELPA には登録してないし el-get にもレシピを登録していないので自前で el-get の recipe を用意している
-(:name emacs-kibela :website &amp;#34;https://github.com/mugijiru/emacs-kibela&amp;#34; :description &amp;#34;Kibela client.&amp;#34; :type github :branch &amp;#34;main&amp;#34; :pkgname &amp;#34;mugijiru/emacs-kibela&amp;#34; :depends (graphql request markdown-mode)) そして el-get-bundle でインストールしている
-(el-get-bundle emacs-kibela) 設定 .authinfo.gpg に認証情報を突っ込んでいるのでそこから認証情報を拾って来て set している
-(custom-set-variables &amp;#39;(kibela-auth-list `((&amp;#34;Work&amp;#34; ,(plist-get (nth 0 (auth-source-search :host &amp;#34;emacs-kibela-work&amp;#34;)) :team) ,(funcall (plist-get (nth 0 (auth-source-search :host &amp;#34;emacs-kibela-work&amp;#34; :max 1)) :secret))) (&amp;#34;Private&amp;#34; ,(plist-get (nth 0 (auth-source-search :host &amp;#34;emacs-kibela-private&amp;#34;)) :team) ,(funcall (plist-get (nth 0 (auth-source-search :host &amp;#34;emacs-kibela-private&amp;#34; :max 1)) :secret)))))) 自前の関数 ivy-kibela と連携して、最近投稿された記事を Emacs の中で開くためのコマンドを用意している。</description>
+      <description>概要 emacs-kibela は Emacs で Kibela を操作するための自作のパッケージ。あまり機能は実装されていないけど、テンプレートから記事を書いたりする程度のことはできる&#xA;インストール MELPA には登録してないし el-get にもレシピを登録していないので自前で el-get の recipe を用意している&#xA;(:name emacs-kibela :website &amp;#34;https://github.com/mugijiru/emacs-kibela&amp;#34; :description &amp;#34;Kibela client.&amp;#34; :type github :branch &amp;#34;main&amp;#34; :pkgname &amp;#34;mugijiru/emacs-kibela&amp;#34; :depends (graphql request markdown-mode)) そして el-get-bundle でインストールしている&#xA;(el-get-bundle emacs-kibela) 設定 .authinfo.gpg に認証情報を突っ込んでいるのでそこから認証情報を拾って来て set している&#xA;(custom-set-variables &amp;#39;(kibela-auth-list `((&amp;#34;Work&amp;#34; ,(plist-get (nth 0 (auth-source-search :host &amp;#34;emacs-kibela-work&amp;#34;)) :team) ,(funcall (plist-get (nth 0 (auth-source-search :host &amp;#34;emacs-kibela-work&amp;#34; :max 1)) :secret))) (&amp;#34;Private&amp;#34; ,(plist-get (nth 0 (auth-source-search :host &amp;#34;emacs-kibela-private&amp;#34;)) :team) ,(funcall (plist-get (nth 0 (auth-source-search :host &amp;#34;emacs-kibela-private&amp;#34; :max 1)) :secret)))))) 自前の関数 ivy-kibela と連携して、最近投稿された記事を Emacs の中で開くためのコマンドを用意している。</description>
     </item>
-    
     <item>
       <title>emacs-w3m</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/emacs-w3m/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/external-tool/emacs-w3m/</guid>
-      <description>概要 w3m という和製のテキストブラウザを Emacs 上で使うためのパッケージ。つまり w3m 自体もインストールしておく必要がある。
-インストール emacs-w3m は el-get で入れられるので以下のようにして入れている
-(el-get-bundle emacs-w3m) 今はこれだけしか入れてない。昔の設定はどこかにいっちゃった……。</description>
+      <description>概要 w3m という和製のテキストブラウザを Emacs 上で使うためのパッケージ。つまり w3m 自体もインストールしておく必要がある。&#xA;インストール emacs-w3m は el-get で入れられるので以下のようにして入れている&#xA;(el-get-bundle emacs-w3m) 今はこれだけしか入れてない。昔の設定はどこかにいっちゃった……。</description>
     </item>
-    
     <item>
       <title>esa.el</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/esa/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/external-tool/esa/</guid>
-      <description>概要 esa.el は esa.io と連携するためのパッケージ。大体直接 Web で書くので活用はできてない……
-インストール・設定 レシピは自前で用意している
-(:name esa :description &amp;#34;Interface to esa.io (\( ⁰⊖⁰)/)&amp;#34; :type github :pkgname &amp;#34;nabinno/esa.el&amp;#34;) そして el-get で入れている。
-設定は別ファイルに分離している。authinfo に移動したい
-(el-get-bundle esa) (my/load-config &amp;#34;my-esa-config&amp;#34;) けど今は esa 使ってないのよね。</description>
+      <description>概要 esa.el は esa.io と連携するためのパッケージ。大体直接 Web で書くので活用はできてない……&#xA;インストール・設定 レシピは自前で用意している&#xA;(:name esa :description &amp;#34;Interface to esa.io (\( ⁰⊖⁰)/)&amp;#34; :type github :pkgname &amp;#34;nabinno/esa.el&amp;#34;) そして el-get で入れている。&#xA;設定は別ファイルに分離している。authinfo に移動したい&#xA;(el-get-bundle esa) (my/load-config &amp;#34;my-esa-config&amp;#34;) けど今は esa 使ってないのよね。</description>
     </item>
-    
     <item>
       <title>forge</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/forge/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/external-tool/forge/</guid>
-      <description>概要 forge は magit と github を連携させるやつ。一応入れているけど実は使えてないのであまりこの設定を呼んでも意味はなさそう
-インストール いつも通り el-get でインストールする。ただし依存関係で必要なので emacs-sqlite3-api も合わせて入れている
-(el-get-bundle emacs-sqlite3-api) (el-get-bundle forge) なお emacs-sqlite3-api はレシピを自前で用意している
-(:name emacs-sqlite3-api 3:website &amp;#34;https://github.com/pekingduck/emacs-sqlite3-api&amp;#34; :description &amp;#34;sqlite3 is a dynamic module for GNU Emacs 25+ that provides direct access to the core SQLite3 C API from Emacs Lisp.&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;pekingduck/emacs-sqlite3-api&amp;#34;) 読み込み magit の拡張なので magit を読み込んで後に読み込まれるようにしている。依存で必要な sqlite3 も合わせて require している。
-(with-eval-after-load &amp;#39;magit (require &amp;#39;sqlite3) (require &amp;#39;forge)) flycheck の有効化 Pull Request を作る時に text-lint で指摘されたいのでそのタイミングで flycheck を有効化している</description>
+      <description>概要 forge は magit と github を連携させるやつ。一応入れているけど実は使えてないのであまりこの設定を呼んでも意味はなさそう&#xA;インストール いつも通り el-get でインストールする。ただし依存関係で必要なので emacs-sqlite3-api も合わせて入れている&#xA;(el-get-bundle emacs-sqlite3-api) (el-get-bundle forge) なお emacs-sqlite3-api はレシピを自前で用意している&#xA;(:name emacs-sqlite3-api 3:website &amp;#34;https://github.com/pekingduck/emacs-sqlite3-api&amp;#34; :description &amp;#34;sqlite3 is a dynamic module for GNU Emacs 25+ that provides direct access to the core SQLite3 C API from Emacs Lisp.&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;pekingduck/emacs-sqlite3-api&amp;#34;) 読み込み magit の拡張なので magit を読み込んで後に読み込まれるようにしている。依存で必要な sqlite3 も合わせて require している。&#xA;(with-eval-after-load &amp;#39;magit (require &amp;#39;sqlite3) (require &amp;#39;forge)) flycheck の有効化 Pull Request を作る時に text-lint で指摘されたいのでそのタイミングで flycheck を有効化している</description>
     </item>
-    
     <item>
       <title>git-messenger</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/git-messenger/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/external-tool/git-messenger/</guid>
-      <description>概要 git-messenger は指定した行のコミット時の情報を表示してくれるやつ簡単に最終コミットの情報を見るのに便利
-インストール git-messenger は el-get のレシピに登録されているのでそのまま el-get-bundle を使ってインストールできる
-(el-get-bundle git-messenger) 設定 デフォルトでは commit message だけを表示するがより詳細な情報を見たいので git-messenger:show-detail を t に設定してコミット日時や author も表示するようにしている
-(custom-set-variables &amp;#39;(git-messenger:show-detail t)) magit を利用しているので git-messenger:use-magit-popup も有効にしても良いかもしれない
-キーバインド 起動には pretty-hydra-usefull-commands で C を叩くと起動するようにしている。
-起動後は、デフォルトでキーバインドが定義されているので https://github.com/emacsorphanage/git-messenger#key-bindings の通りの操作ができる</description>
+      <description>概要 git-messenger は指定した行のコミット時の情報を表示してくれるやつ簡単に最終コミットの情報を見るのに便利&#xA;インストール git-messenger は el-get のレシピに登録されているのでそのまま el-get-bundle を使ってインストールできる&#xA;(el-get-bundle git-messenger) 設定 デフォルトでは commit message だけを表示するがより詳細な情報を見たいので git-messenger:show-detail を t に設定してコミット日時や author も表示するようにしている&#xA;(custom-set-variables &amp;#39;(git-messenger:show-detail t)) magit を利用しているので git-messenger:use-magit-popup も有効にしても良いかもしれない&#xA;キーバインド 起動には pretty-hydra-usefull-commands で C を叩くと起動するようにしている。&#xA;起動後は、デフォルトでキーバインドが定義されているので https://github.com/emacsorphanage/git-messenger#key-bindings の通りの操作ができる</description>
     </item>
-    
     <item>
       <title>google-this</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/google-this/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/external-tool/google-this/</guid>
-      <description>概要 google-this は Google 検索を Emacs の中から行えるやつ。
-インストール いつも通り el-get でインストール
-(el-get-bundle google-this) で、本来の使い方だとこのあとに
-(google-this-mode 1) とやって有効化することになるがそれをしても google-this のデフォルトキーバインドが設定されるぐらいで自分はそのデフォルトキーバインドを使う気がないので有効化はしてない。
-キーバインド キーバインドは Hydra で設定しているが、 google-translate と統合したので キーバインド &amp;gt; Google 連携 に記載している。</description>
+      <description>概要 google-this は Google 検索を Emacs の中から行えるやつ。&#xA;インストール いつも通り el-get でインストール&#xA;(el-get-bundle google-this) で、本来の使い方だとこのあとに&#xA;(google-this-mode 1) とやって有効化することになるがそれをしても google-this のデフォルトキーバインドが設定されるぐらいで自分はそのデフォルトキーバインドを使う気がないので有効化はしてない。&#xA;キーバインド キーバインドは Hydra で設定しているが、 google-translate と統合したので キーバインド &amp;gt; Google 連携 に記載している。</description>
     </item>
-    
     <item>
       <title>google-translate</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/google-translate/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/external-tool/google-translate/</guid>
-      <description>概要 google-translate は Google 翻訳する機能を提供するパッケージ。
-インストール レシピは自前で用意している
-(:name google-translate :description &amp;#34;Emacs interface to Google Translate&amp;#34; :type github :pkgname &amp;#34;atykhonov/google-translate&amp;#34;) そして el-get でインストール
-(el-get-bundle google-translate) 関数のオーバーライド どうも最新版でも壊れっぱなしのようなので https://github.com/atykhonov/google-translate/issues/52#issuecomment-727920888 にあるように関数を上書きしている。
-(with-eval-after-load &amp;#39;google-translate-tk (defun google-translate--search-tkk () &amp;#34;Search TKK.&amp;#34; (list 430675 2721866130))) google-translate-tk に定義されていて、それが読まれた後に上書きしないといけないので with-eval-after-load を使っている。
-default-ui の読み込み Google Translate は UI を defauult と smooth のどちらかから選べるようになっている。
-default だと
-google-translate-default-source-language google-translate-default-target-language を設定しておいて
-M-x google-translate-at-point source → target の翻訳 M-x google-translate-at-point-reverse target → source の翻訳 という使い方をする。</description>
+      <description>概要 google-translate は Google 翻訳する機能を提供するパッケージ。&#xA;インストール レシピは自前で用意している&#xA;(:name google-translate :description &amp;#34;Emacs interface to Google Translate&amp;#34; :type github :pkgname &amp;#34;atykhonov/google-translate&amp;#34;) そして el-get でインストール&#xA;(el-get-bundle google-translate) 関数のオーバーライド どうも最新版でも壊れっぱなしのようなので https://github.com/atykhonov/google-translate/issues/52#issuecomment-727920888 にあるように関数を上書きしている。&#xA;(with-eval-after-load &amp;#39;google-translate-tk (defun google-translate--search-tkk () &amp;#34;Search TKK.&amp;#34; (list 430675 2721866130))) google-translate-tk に定義されていて、それが読まれた後に上書きしないといけないので with-eval-after-load を使っている。&#xA;default-ui の読み込み Google Translate は UI を defauult と smooth のどちらかから選べるようになっている。&#xA;default だと&#xA;google-translate-default-source-language google-translate-default-target-language を設定しておいて&#xA;M-x google-translate-at-point source → target の翻訳 M-x google-translate-at-point-reverse target → source の翻訳 という使い方をする。</description>
     </item>
-    
     <item>
       <title>magit</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/magit/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/external-tool/magit/</guid>
-      <description>概要 magit は Emacs の上で Git の色々な操作ができるやつ。結構使いやすいのでオススメなやつ。
-forge を使うと GitHub や GitLab とも連携できてさらに便利、なはず。
-インストール レシピは el-get 本体付属のものをコピーして使ってる。 magit の依存関係に変更があったのでそれに追従するため
-ref: https://github.com/mugijiru/.emacs.d/pull/2992
-(:name magit :website &amp;#34;https://github.com/magit/magit#readme&amp;#34; :description &amp;#34;It&amp;#39;s Magit! An Emacs mode for Git.&amp;#34; :type github :pkgname &amp;#34;magit/magit&amp;#34; :branch &amp;#34;main&amp;#34; :minimum-emacs-version &amp;#34;25.1&amp;#34; ;; Note: `git-commit&amp;#39; is shipped with `magit&amp;#39; code itself. ;; Note: `magit-section&amp;#39; is shipped with `magit&amp;#39; code itself. :depends (dash transient with-editor compat seq) :info &amp;#34;docs&amp;#34; :load-path &amp;#34;lisp/&amp;#34; :compile &amp;#34;lisp/&amp;#34; ;; Use the Makefile to produce the info manual, el-get can ;; handle compilation and autoloads on its own.</description>
+      <description>概要 magit は Emacs の上で Git の色々な操作ができるやつ。結構使いやすいのでオススメなやつ。&#xA;forge を使うと GitHub や GitLab とも連携できてさらに便利、なはず。&#xA;インストール レシピは el-get 本体付属のものをコピーして使ってる。 magit の依存関係に変更があったのでそれに追従するため&#xA;ref: https://github.com/mugijiru/.emacs.d/pull/2992&#xA;(:name magit :website &amp;#34;https://github.com/magit/magit#readme&amp;#34; :description &amp;#34;It&amp;#39;s Magit! An Emacs mode for Git.&amp;#34; :type github :pkgname &amp;#34;magit/magit&amp;#34; :branch &amp;#34;main&amp;#34; :minimum-emacs-version &amp;#34;25.1&amp;#34; ;; Note: `git-commit&amp;#39; is shipped with `magit&amp;#39; code itself. ;; Note: `magit-section&amp;#39; is shipped with `magit&amp;#39; code itself. :depends (dash transient with-editor compat seq) :info &amp;#34;docs&amp;#34; :load-path &amp;#34;lisp/&amp;#34; :compile &amp;#34;lisp/&amp;#34; ;; Use the Makefile to produce the info manual, el-get can ;; handle compilation and autoloads on its own.</description>
     </item>
-    
     <item>
       <title>notify-slack</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/notify-slack/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/external-tool/notify-slack/</guid>
-      <description>概要 Emacs から Slack に通知するための自作関数。実体は同じく自作の外部コマンドを叩いているだけである。
-何に使ってるかというと org-clock-in, org-clock-out の時に作業の開始と終了を分報チャンネルに投稿しているだけである。作業の可視化である。
-実装 分報チャンネル設定用の変数 通知先のチャンネル名を格納する変数が必要なので defvar で定義しておく
-(defvar my/notify-slack-times-channel nil) 送信するコマンド start-process を使って外部コマンドを叩いている。
-(defun my/notify-slack (channel text) (if my/notify-slack-enable-p (start-process &amp;#34;my/org-clock-slack-notifier&amp;#34; &amp;#34;*my/org-clock-slack-notifier*&amp;#34; &amp;#34;my-slack-notifier&amp;#34; channel text))) my/notify-slack-enable-p という変数が nil だと大分コマンドが実行されないようになっている。
-Slack 連携を Toggle するコマンド 連携したい時としたくない時があるので送信したりしなかったりを切り替えられるコマンドを用意している。
-中身は何をしているかというと上に書いた my/notify-slack-enable-p という変数を切り替えているだけ。
-(defun my/notify-slack-toggle () (interactive) (if my/notify-slack-enable-p (setq my/notify-slack-enable-p nil) (setq my/notify-slack-enable-p t))) 分報チャンネル投稿関数 「分報チャンネル投稿関数」としているけどデフォルト投稿先に投稿するための関数というような扱いの関数。
-単純に前出の my/notify-slack 関数の第一引数に my/notify-slack-times-channel という変数を設定してそのチャンネルに向けて投稿するだけ。
-(defun my/notify-slack-times (text) (if my/notify-slack-times-channel (my/notify-slack my/notify-slack-times-channel text))) 設定 あまり見せたくない設定ファイルを別ファイルに分離しているのでそれを読み出している。</description>
+      <description>概要 Emacs から Slack に通知するための自作関数。実体は同じく自作の外部コマンドを叩いているだけである。&#xA;何に使ってるかというと org-clock-in, org-clock-out の時に作業の開始と終了を分報チャンネルに投稿しているだけである。作業の可視化である。&#xA;実装 分報チャンネル設定用の変数 通知先のチャンネル名を格納する変数が必要なので defvar で定義しておく&#xA;(defvar my/notify-slack-times-channel nil) 送信するコマンド start-process を使って外部コマンドを叩いている。&#xA;(defun my/notify-slack (channel text) (if my/notify-slack-enable-p (start-process &amp;#34;my/org-clock-slack-notifier&amp;#34; &amp;#34;*my/org-clock-slack-notifier*&amp;#34; &amp;#34;my-slack-notifier&amp;#34; channel text))) my/notify-slack-enable-p という変数が nil だと大分コマンドが実行されないようになっている。&#xA;Slack 連携を Toggle するコマンド 連携したい時としたくない時があるので送信したりしなかったりを切り替えられるコマンドを用意している。&#xA;中身は何をしているかというと上に書いた my/notify-slack-enable-p という変数を切り替えているだけ。&#xA;(defun my/notify-slack-toggle () (interactive) (if my/notify-slack-enable-p (setq my/notify-slack-enable-p nil) (setq my/notify-slack-enable-p t))) 分報チャンネル投稿関数 「分報チャンネル投稿関数」としているけどデフォルト投稿先に投稿するための関数というような扱いの関数。&#xA;単純に前出の my/notify-slack 関数の第一引数に my/notify-slack-times-channel という変数を設定してそのチャンネルに向けて投稿するだけ。&#xA;(defun my/notify-slack-times (text) (if my/notify-slack-times-channel (my/notify-slack my/notify-slack-times-channel text))) 設定 あまり見せたくない設定ファイルを別ファイルに分離しているのでそれを読み出している。</description>
     </item>
-    
     <item>
       <title>openai</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/openai/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/external-tool/openai/</guid>
-      <description>概要 OpenAI.el は OpenAI などの API を使うための Emacs Lisp ライブラリ。直接使うよりは、これを使ったアプリを開発するために使うものなのかなと思う。
-最近は特に使ってないけどとりあえず設定ファイルがあるのでドキュメントにも反映しておく
-インストール 例によってレシピは el-get 本体にはなので自前で用意
-(:name emacs-openai :website &amp;#34;https://github.com/emacs-openai/openai&amp;#34; :description &amp;#34;Elisp library for the OpenAI API.&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;emacs-openai/openai&amp;#34; :depends (request tblui)) 依存している tblui も el-get 本体にはレシピがないのでこれも自前で用意
-(:name tblui :website &amp;#34;https://github.com/Yuki-Inoue/tblui.el&amp;#34; :description &amp;#34;Define tabulated-list based UI easily.&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;Yuki-Inoue/tblui.el&amp;#34; :depends (dash magit-popup tablist)) そして el-get-bundle でインストール
-(el-get-bundle emacs-openai) API キーなどの設定 authinfo で管理してそこから読み取るよういしている
-(setq openai-user (plist-get (nth 0 (auth-source-search :host &amp;#34;api.</description>
+      <description>概要 OpenAI.el は OpenAI などの API を使うための Emacs Lisp ライブラリ。直接使うよりは、これを使ったアプリを開発するために使うものなのかなと思う。&#xA;最近は特に使ってないけどとりあえず設定ファイルがあるのでドキュメントにも反映しておく&#xA;インストール 例によってレシピは el-get 本体にはなので自前で用意&#xA;(:name emacs-openai :website &amp;#34;https://github.com/emacs-openai/openai&amp;#34; :description &amp;#34;Elisp library for the OpenAI API.&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;emacs-openai/openai&amp;#34; :depends (request tblui)) 依存している tblui も el-get 本体にはレシピがないのでこれも自前で用意&#xA;(:name tblui :website &amp;#34;https://github.com/Yuki-Inoue/tblui.el&amp;#34; :description &amp;#34;Define tabulated-list based UI easily.&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;Yuki-Inoue/tblui.el&amp;#34; :depends (dash magit-popup tablist)) そして el-get-bundle でインストール&#xA;(el-get-bundle emacs-openai) API キーなどの設定 authinfo で管理してそこから読み取るよういしている&#xA;(setq openai-user (plist-get (nth 0 (auth-source-search :host &amp;#34;api.</description>
     </item>
-    
     <item>
       <title>pdf-tools</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/pdf-tools/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/external-tool/pdf-tools/</guid>
-      <description>概要 pdf-tools は PDF を読む時にいい感じにしてくれるやつ。
-インストール これは el-get 本体にレシピがあるので、単純にそのまま入れている
-(el-get-bundle pdf-tools) 設定 PDF を開いたら即使えるようにするため pdf-loader-install を実行している
-(pdf-loader-install) </description>
+      <description>概要 pdf-tools は PDF を読む時にいい感じにしてくれるやつ。&#xA;インストール これは el-get 本体にレシピがあるので、単純にそのまま入れている&#xA;(el-get-bundle pdf-tools) 設定 PDF を開いたら即使えるようにするため pdf-loader-install を実行している&#xA;(pdf-loader-install) </description>
     </item>
-    
     <item>
       <title>rg</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/rg/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/external-tool/rg/</guid>
-      <description>概要 rg.el は ripgrep を使って高速に検索するためのパッケージ。
-インストール el-get 本体にはレシピがないので自前で用意している。
-(:name rg :website &amp;#34;https://github.com/dajva/rg.el&amp;#34; :description &amp;#34;Use ripgrep in Emacs.&amp;#34; :type github :depends (transient wgrep) :pkgname &amp;#34;dajva/rg.el&amp;#34;) そしてそれを el-get-bundle でインストール
-(el-get-bundle rg) </description>
+      <description>概要 rg.el は ripgrep を使って高速に検索するためのパッケージ。&#xA;インストール el-get 本体にはレシピがないので自前で用意している。&#xA;(:name rg :website &amp;#34;https://github.com/dajva/rg.el&amp;#34; :description &amp;#34;Use ripgrep in Emacs.&amp;#34; :type github :depends (transient wgrep) :pkgname &amp;#34;dajva/rg.el&amp;#34;) そしてそれを el-get-bundle でインストール&#xA;(el-get-bundle rg) </description>
     </item>
-    
     <item>
       <title>todoist</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/todoist/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/external-tool/todoist/</guid>
-      <description>概要 emacs-todoist は Todo 管理サービスである Todoist と連携するためのパッケージ。 org-mode に依存している。
-インストール まず以下のレシピを用意している
-(:name emacs-todoist :website &amp;#34;https://github.com/abrochard/emacs-todoist&amp;#34; :description &amp;#34;Emacs interface to Todoist&amp;#34; :type github :pkgname &amp;#34;abrochard/emacs-todoist&amp;#34;) その上で以下のようにしてインストールしている
-(el-get-bundle emacs-todoist) 設定 API キーを設定するので別ファイルに分離している。いつか .authinfo.gpg に移動しようかなと思っているけどそもそも最近 TODOIST 使ってない……
-(with-eval-after-load &amp;#39;todoist (setq todoist-token (funcall (plist-get (nth 0 (auth-source-search :host &amp;#34;todoist.com&amp;#34; :max 1)) :secret)))) </description>
+      <description>概要 emacs-todoist は Todo 管理サービスである Todoist と連携するためのパッケージ。 org-mode に依存している。&#xA;インストール まず以下のレシピを用意している&#xA;(:name emacs-todoist :website &amp;#34;https://github.com/abrochard/emacs-todoist&amp;#34; :description &amp;#34;Emacs interface to Todoist&amp;#34; :type github :pkgname &amp;#34;abrochard/emacs-todoist&amp;#34;) その上で以下のようにしてインストールしている&#xA;(el-get-bundle emacs-todoist) 設定 API キーを設定するので別ファイルに分離している。いつか .authinfo.gpg に移動しようかなと思っているけどそもそも最近 TODOIST 使ってない……&#xA;(with-eval-after-load &amp;#39;todoist (setq todoist-token (funcall (plist-get (nth 0 (auth-source-search :host &amp;#34;todoist.com&amp;#34; :max 1)) :secret)))) </description>
     </item>
-    
     <item>
       <title>twmode</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/twmode/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/external-tool/twmode/</guid>
-      <description>概要 twmode は Emacs 上で動く Twitter クライアント。
-今でもたまーに使っている。勉強会に参加して実況する時などに。
-インストール いつも通り el-get でインスコしている。
-(el-get-bundle twittering-mode) 設定 (setq twittering-username &amp;#34;mugijiru&amp;#34;) (setq twittering-jojo-mode t) (setq twittering-timer-interval 60) ;(setq twittering-auth-method &amp;#39;xauth) (setq twittering-auth-method &amp;#39;oauth) (setq twittering-update-status-function &amp;#39;twittering-update-status-from-minibuffer) (setq twittering-status-format &amp;#34;%i %S(%s)%p, %@:\n%FILL{ %T // from %f%L%r%R}\n &amp;#34;) (setq twittering-retweet-format &amp;#34;RT @%s %t&amp;#34;) (setq twittering-display-remaining t) なんか色々設定しているけど、まあ大体こんな感じ。
-ユーザー名の指定 twittering-jojo-mode を有効化 自動リロードの間隔を60秒に設定 OAuth で認証するように設定 投稿時にミニバッファから投稿するように設定 各ツイートのフォーマット指定 旧式の Retweet 時のフォーマット指定 late limit をmode-line に表示 キーバインド (let ((km twittering-mode-map)) (define-key km (kbd &amp;#34;SPC&amp;#34;) &amp;#39;scroll-up) (define-key km (kbd &amp;#34;b&amp;#34;) &amp;#39;scroll-down) (define-key km (kbd &amp;#34;g&amp;#34;) &amp;#39;beginning-of-buffer) (define-key km (kbd &amp;#34;G&amp;#34;) &amp;#39;end-of-buffer) (define-key km (kbd &amp;#34;&amp;lt;&amp;#34;) &amp;#39;beginning-of-buffer) (define-key km (kbd &amp;#34;&amp;gt;&amp;#34;) &amp;#39;end-of-buffer) (define-key km (kbd &amp;#34;R&amp;#34;) &amp;#39;twittering-current-timeline) (define-key km (kbd &amp;#34;F&amp;#34;) &amp;#39;twittering-favorite) (define-key km (kbd &amp;#34;\C-cfd&amp;#34;) &amp;#39;twittering-unfavorite) (define-key km (kbd &amp;#34;\C-c[&amp;#34;) &amp;#39;twittering-follow) (define-key km (kbd &amp;#34;\C-c]&amp;#34;) &amp;#39;twittering-unfollow) nil) Key 効果 SPC スクロールする b 上にスクロールする g, &amp;lt; バッファの先頭に移動 G, &amp;gt; バッファの末尾に移動 R 現在のタイムラインを更新 F ふぁぼる C-c f d ふぁぼ取り消し C-c [ フォローする C-c ] アンフォロー </description>
+      <description>概要 twmode は Emacs 上で動く Twitter クライアント。&#xA;今でもたまーに使っている。勉強会に参加して実況する時などに。&#xA;インストール いつも通り el-get でインスコしている。&#xA;(el-get-bundle twittering-mode) 設定 (setq twittering-username &amp;#34;mugijiru&amp;#34;) (setq twittering-jojo-mode t) (setq twittering-timer-interval 60) ;(setq twittering-auth-method &amp;#39;xauth) (setq twittering-auth-method &amp;#39;oauth) (setq twittering-update-status-function &amp;#39;twittering-update-status-from-minibuffer) (setq twittering-status-format &amp;#34;%i %S(%s)%p, %@:\n%FILL{ %T // from %f%L%r%R}\n &amp;#34;) (setq twittering-retweet-format &amp;#34;RT @%s %t&amp;#34;) (setq twittering-display-remaining t) なんか色々設定しているけど、まあ大体こんな感じ。&#xA;ユーザー名の指定 twittering-jojo-mode を有効化 自動リロードの間隔を60秒に設定 OAuth で認証するように設定 投稿時にミニバッファから投稿するように設定 各ツイートのフォーマット指定 旧式の Retweet 時のフォーマット指定 late limit をmode-line に表示 キーバインド (let ((km twittering-mode-map)) (define-key km (kbd &amp;#34;SPC&amp;#34;) &amp;#39;scroll-up) (define-key km (kbd &amp;#34;b&amp;#34;) &amp;#39;scroll-down) (define-key km (kbd &amp;#34;g&amp;#34;) &amp;#39;beginning-of-buffer) (define-key km (kbd &amp;#34;G&amp;#34;) &amp;#39;end-of-buffer) (define-key km (kbd &amp;#34;&amp;lt;&amp;#34;) &amp;#39;beginning-of-buffer) (define-key km (kbd &amp;#34;&amp;gt;&amp;#34;) &amp;#39;end-of-buffer) (define-key km (kbd &amp;#34;R&amp;#34;) &amp;#39;twittering-current-timeline) (define-key km (kbd &amp;#34;F&amp;#34;) &amp;#39;twittering-favorite) (define-key km (kbd &amp;#34;\C-cfd&amp;#34;) &amp;#39;twittering-unfavorite) (define-key km (kbd &amp;#34;\C-c[&amp;#34;) &amp;#39;twittering-follow) (define-key km (kbd &amp;#34;\C-c]&amp;#34;) &amp;#39;twittering-unfollow) nil) Key 効果 SPC スクロールする b 上にスクロールする g, &amp;lt; バッファの先頭に移動 G, &amp;gt; バッファの末尾に移動 R 現在のタイムラインを更新 F ふぁぼる C-c f d ふぁぼ取り消し C-c [ フォローする C-c ] アンフォロー </description>
     </item>
-    
     <item>
       <title>wakatime-mode</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/wakatime-mode/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/external-tool/wakatime-mode/</guid>
-      <description>概要 wakatime-mode は WakaTime というサービスと連携するためのパッケージ。
-WakaTime は自分がどのプロジェクトの作業をしているかを計測してくれるようなツール。普段の行動の改善に使えるかもしれないので、なんとなく連携してみている。
-インストール いつも通り el-get から入れている
-(el-get-bundle wakatime-mode) APIキーの設定 APIキーは .authinfo.gpg に保存しているのでそこから引っ張り出している。
-(custom-set-variables &amp;#39;(wakatime-cli-path &amp;#34;/usr/bin/wakatime&amp;#34;) &amp;#39;(wakatime-api-key (funcall (plist-get (nth 0 (auth-source-search :host &amp;#34;wakatime.com&amp;#34; :max 1)) :secret)))) 有効化 Emacs を使っている間は常に有効になっていて欲しいので global-wakatime-mode を有効にしている。
-(global-wakatime-mode 1) APIキーが取れてない時はやたらエラーを吐くので何かしら調整はしてもいいかもしれない。
-(if (boundp &amp;#39;wakatime-api-key) (global-wakatime-mode 1)) みたいにして API キーが取れている時だけ有効にするとかね。</description>
+      <description>概要 wakatime-mode は WakaTime というサービスと連携するためのパッケージ。&#xA;WakaTime は自分がどのプロジェクトの作業をしているかを計測してくれるようなツール。普段の行動の改善に使えるかもしれないので、なんとなく連携してみている。&#xA;インストール いつも通り el-get から入れている&#xA;(el-get-bundle wakatime-mode) APIキーの設定 APIキーは .authinfo.gpg に保存しているのでそこから引っ張り出している。&#xA;(custom-set-variables &amp;#39;(wakatime-cli-path &amp;#34;/usr/bin/wakatime&amp;#34;) &amp;#39;(wakatime-api-key (funcall (plist-get (nth 0 (auth-source-search :host &amp;#34;wakatime.com&amp;#34; :max 1)) :secret)))) 有効化 Emacs を使っている間は常に有効になっていて欲しいので global-wakatime-mode を有効にしている。&#xA;(global-wakatime-mode 1) APIキーが取れてない時はやたらエラーを吐くので何かしら調整はしてもいいかもしれない。&#xA;(if (boundp &amp;#39;wakatime-api-key) (global-wakatime-mode 1)) みたいにして API キーが取れている時だけ有効にするとかね。</description>
     </item>
-    
     <item>
       <title>ブラウザ設定</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/browse-url/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/external-tool/browse-url/</guid>
-      <description>browse-url の時の開くプログラムの指定。
-(setq browse-url-generic-program &amp;#34;vivaldi&amp;#34;) Vivaldi を指定しているが、最近 Emacs から何かブラウザ立ち上げても Firefox がいつも開いているし、この設定ほんとうに生きてる? って感じ。
-WSL2 を入れてる Windows の方は Vivladi 入れてないし Mac の方は入れてるけど別に Emacs から Vivaldi が立ち上がるのも観測してないしほんと謎……。</description>
+      <description>browse-url の時の開くプログラムの指定。&#xA;(setq browse-url-generic-program &amp;#34;vivaldi&amp;#34;) Vivaldi を指定しているが、最近 Emacs から何かブラウザ立ち上げても Firefox がいつも開いているし、この設定ほんとうに生きてる? って感じ。&#xA;WSL2 を入れてる Windows の方は Vivladi 入れてないし Mac の方は入れてるけど別に Emacs から Vivaldi が立ち上がるのも観測してないしほんと謎……。</description>
     </item>
-    
   </channel>
 </rss>

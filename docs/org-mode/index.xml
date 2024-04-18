@@ -5,266 +5,133 @@
     <link>https://mugijiru.github.io/.emacs.d/org-mode/</link>
     <description>Recent content in org-mode on 麦汁&#39;s Emacs Config</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/org-mode/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja-JP</language>
+    <atom:link href="https://mugijiru.github.io/.emacs.d/org-mode/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>基本設定</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/base/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/org-mode/base/</guid>
-      <description>概要 ここでは org-mode 周りのベースとなる設定を書いているつもり。といいつつ、まだ書き方が雑だなと思っている。またその内にでも修正しよう
-org-mode のインストール Emacs に標準で入っている org-mode は古かったりするのでとりあえずデフォルトで入ってるやつは削除しちゃって el-get でインストールしている。
-(el-get-bundle org-mode) とりあえず今は Emacs 29.1 に標準で bundle されているバージョンを入れておいている。バージョンを固定するために el-get についているレシピをコピーして書き換えて使っている。
-(:name org-mode :website &amp;#34;http://orgmode.org/&amp;#34; :description &amp;#34;Org-mode is for keeping notes, maintaining ToDo lists, doing project planning, and authoring with a fast and effective plain-text system.&amp;#34; :type git :url &amp;#34;https://git.savannah.gnu.org/git/emacs/org-mode.git&amp;#34; :checkout &amp;#34;release_9.6.6&amp;#34; :info &amp;#34;doc&amp;#34; :build/berkeley-unix `,(mapcar (lambda (target) (list &amp;#34;gmake&amp;#34; target (concat &amp;#34;EMACS=&amp;#34; (shell-quote-argument el-get-emacs)))) &amp;#39;(&amp;#34;oldorg&amp;#34;)) :build `,(mapcar (lambda (target) (list &amp;#34;make&amp;#34; target (concat &amp;#34;EMACS=&amp;#34; (shell-quote-argument el-get-emacs)))) &amp;#39;(&amp;#34;oldorg&amp;#34;)) :load-path (&amp;#34;.</description>
+      <description>概要 ここでは org-mode 周りのベースとなる設定を書いているつもり。といいつつ、まだ書き方が雑だなと思っている。またその内にでも修正しよう&#xA;org-mode のインストール Emacs に標準で入っている org-mode は古かったりするのでとりあえずデフォルトで入ってるやつは削除しちゃって el-get でインストールしている。&#xA;(el-get-bundle org-mode) とりあえず今は Emacs 29.1 に標準で bundle されているバージョンを入れておいている。バージョンを固定するために el-get についているレシピをコピーして書き換えて使っている。&#xA;(:name org-mode :website &amp;#34;http://orgmode.org/&amp;#34; :description &amp;#34;Org-mode is for keeping notes, maintaining ToDo lists, doing project planning, and authoring with a fast and effective plain-text system.&amp;#34; :type git :url &amp;#34;https://git.savannah.gnu.org/git/emacs/org-mode.git&amp;#34; :checkout &amp;#34;release_9.6.6&amp;#34; :info &amp;#34;doc&amp;#34; :build/berkeley-unix `,(mapcar (lambda (target) (list &amp;#34;gmake&amp;#34; target (concat &amp;#34;EMACS=&amp;#34; (shell-quote-argument el-get-emacs)))) &amp;#39;(&amp;#34;oldorg&amp;#34;)) :build `,(mapcar (lambda (target) (list &amp;#34;make&amp;#34; target (concat &amp;#34;EMACS=&amp;#34; (shell-quote-argument el-get-emacs)))) &amp;#39;(&amp;#34;oldorg&amp;#34;)) :load-path (&amp;#34;.</description>
     </item>
-    
     <item>
       <title>org-babel</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/org-babel/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-babel/</guid>
-      <description>概要 ここでは org-babel の設定をまとめている。
-org-babel のプラグイン追加 言語によってはデフォルトでは提供されていないのでプラグインを追加する
-ob-graphql レシピは el-get 本体にはないので自前で用意。
-(:name ob-graphql :website &amp;#34;https://github.com/jdormit/ob-graphql&amp;#34; :description &amp;#34;GraphQL execution backend for org-babel.&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;jdormit/ob-graphql&amp;#34; :depends (graphql-mode request)) そしていつも通り el-get-bundle でインストール。
-(el-get-bundle ob-graphql) org-babel で評価可能な言語の指定 なんか普段から使いそうな奴をとりあえず選定しているつもり。
-(org-babel-do-load-languages &amp;#39;org-babel-load-languages &amp;#39;((plantuml . t) (sql . t) (gnuplot . t) (emacs-lisp . t) (shell . t) (js . t) (org . t) (graphql . t) (ruby . t))) js, ruby 仕事でメインで使ってる言語なので入れている。 shell 入れてる方が便利そう、ぐらいの雑な理由。 sql メモしておいて手元から実行できると便利そう plantuml 図の出力。一番使ってる。 gnuplot 趣味で入れてみているけど実際使う機会ほとんどないよなって気がしてきている。 org-babel-execute 後に画像を再表示 PlantUML の処理をすることが多いので以下の hook を設定することで実行後に画像を再表示するようにしている</description>
+      <description>概要 ここでは org-babel の設定をまとめている。&#xA;org-babel のプラグイン追加 言語によってはデフォルトでは提供されていないのでプラグインを追加する&#xA;ob-graphql レシピは el-get 本体にはないので自前で用意。&#xA;(:name ob-graphql :website &amp;#34;https://github.com/jdormit/ob-graphql&amp;#34; :description &amp;#34;GraphQL execution backend for org-babel.&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;jdormit/ob-graphql&amp;#34; :depends (graphql-mode request)) そしていつも通り el-get-bundle でインストール。&#xA;(el-get-bundle ob-graphql) org-babel で評価可能な言語の指定 なんか普段から使いそうな奴をとりあえず選定しているつもり。&#xA;(org-babel-do-load-languages &amp;#39;org-babel-load-languages &amp;#39;((plantuml . t) (sql . t) (gnuplot . t) (emacs-lisp . t) (shell . t) (js . t) (org . t) (graphql . t) (ruby . t))) js, ruby 仕事でメインで使ってる言語なので入れている。 shell 入れてる方が便利そう、ぐらいの雑な理由。 sql メモしておいて手元から実行できると便利そう plantuml 図の出力。一番使ってる。 gnuplot 趣味で入れてみているけど実際使う機会ほとんどないよなって気がしてきている。 org-babel-execute 後に画像を再表示 PlantUML の処理をすることが多いので以下の hook を設定することで実行後に画像を再表示するようにしている</description>
     </item>
-    
     <item>
       <title>予定のカレンダー表示</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/calendar/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/org-mode/calendar/</guid>
-      <description>概要 普段の予定をカレンダー表示で見れると嬉しいな〜と思って calfw で予定が見れるようにしている。
-が、今ここに書いているのはまだ設定の一部である。 agenda 部分と関わっていてまだうまく整理しきれてない。
-日本の休日 calfw に日本の休日を表示できるように japanese-holidays を入れている。
-(el-get-bundle japanese-holidays) (require &amp;#39;japanese-holidays) (setq calendar-holidays (append japanese-holidays)) もっとちゃんと設定したら Emacs のデフォルトのカレンダーでも休日表示がわかりやすくなって良いので今度設定し直す。
-その時には多分 org-mode カテゴリではないところに移動するはず。
-calfw calfw を el-get で入れた上で、 org-mode と連携するように calfw-org も require している。
-(el-get-bundle calfw) (require &amp;#39;calfw) (require &amp;#39;calfw-org) ここではまだこれ以上のことはしてない</description>
+      <description>概要 普段の予定をカレンダー表示で見れると嬉しいな〜と思って calfw で予定が見れるようにしている。&#xA;が、今ここに書いているのはまだ設定の一部である。 agenda 部分と関わっていてまだうまく整理しきれてない。&#xA;日本の休日 calfw に日本の休日を表示できるように japanese-holidays を入れている。&#xA;(el-get-bundle japanese-holidays) (require &amp;#39;japanese-holidays) (setq calendar-holidays (append japanese-holidays)) もっとちゃんと設定したら Emacs のデフォルトのカレンダーでも休日表示がわかりやすくなって良いので今度設定し直す。&#xA;その時には多分 org-mode カテゴリではないところに移動するはず。&#xA;calfw calfw を el-get で入れた上で、 org-mode と連携するように calfw-org も require している。&#xA;(el-get-bundle calfw) (require &amp;#39;calfw) (require &amp;#39;calfw-org) ここではまだこれ以上のことはしてない</description>
     </item>
-    
     <item>
       <title>Agenda 関係の設定</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/agenda/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/org-mode/agenda/</guid>
-      <description>概要 org-mode の素晴らしい機能の1つに Agenda というものがある。
-これは色々な org ファイルに散らばった情報を1つのビューに表示するための機能で、使いこなすとファイルがバラけていてもいい感じに情報が抽出できて便利なやつ。
-まあ麦汁さんはまだ使いこなせてないけど。
-それでもいくつか Agenda 用の View を用意したりして日常業務に役立てている。
-org-super-agenda のインストール org-mode のデフォルトの agenda だと表示周りが物足りなかったので org-super-agenda を導入している。
-(el-get-bundle org-super-agenda) 週の始まりを日曜日に設定 麦汁さんは週のスタートを日曜日とする派なので org-agenda の週の始まりも日曜日に設定している
-(custom-set-variables &amp;#39;(org-agenda-start-on-weekday 0)) 1日単位をデフォルト表示に設定 1週間表示よりも「今日って何するんだっけ」みたいな使い方が多いので 1日を表示単位としている。
-(custom-set-variables &amp;#39;(org-agenda-span &amp;#39;day)) 週単位で何をするかについては今のところ記憶力で対応している。
-あと、基本的にカスタムビューを使ってるのでこれの影響は受けてるかどうか微妙。
-agenda の対象ファイルを指定 org-agenda を使う時に抽出対象とする org ファイルを指定している。
-(custom-set-variables &amp;#39;(org-agenda-files &amp;#39;(&amp;#34;~/Documents/org/gcals/mugijiru.org&amp;#34; &amp;#34;~/Documents/org/tasks/&amp;#34;))) agenda の表示周りの設定 agenda に時間の区切りを入れない org-agenda-use-time-grid を t にしていると 10:00 とかのキリがいいところに区切り線を表示してくれるのだが日報提出時には邪魔だし、普段使いでもその区切り線はあっても邪魔っぽいので nil にして表示しないようにしている。
-(custom-set-variables &amp;#39;(org-agenda-use-time-grid nil)) ブロック間の区切り表示 ブロックとブロックの区切りをハイフン繋ぎの文字列で指定している。
-文字列を指定することで固定の長さの区切り文字になるが実は ?- とか指定して長さが無限に伸びるようにしてもいいかもしれない。と思いつつ、多分 zoom-mode とかでバッファの幅が切り替わる時に邪魔になるから固定でいいか。</description>
+      <description>概要 org-mode の素晴らしい機能の1つに Agenda というものがある。&#xA;これは色々な org ファイルに散らばった情報を1つのビューに表示するための機能で、使いこなすとファイルがバラけていてもいい感じに情報が抽出できて便利なやつ。&#xA;まあ麦汁さんはまだ使いこなせてないけど。&#xA;それでもいくつか Agenda 用の View を用意したりして日常業務に役立てている。&#xA;org-super-agenda のインストール org-mode のデフォルトの agenda だと表示周りが物足りなかったので org-super-agenda を導入している。&#xA;(el-get-bundle org-super-agenda) 週の始まりを日曜日に設定 麦汁さんは週のスタートを日曜日とする派なので org-agenda の週の始まりも日曜日に設定している&#xA;(custom-set-variables &amp;#39;(org-agenda-start-on-weekday 0)) 1日単位をデフォルト表示に設定 1週間表示よりも「今日って何するんだっけ」みたいな使い方が多いので 1日を表示単位としている。&#xA;(custom-set-variables &amp;#39;(org-agenda-span &amp;#39;day)) 週単位で何をするかについては今のところ記憶力で対応している。&#xA;あと、基本的にカスタムビューを使ってるのでこれの影響は受けてるかどうか微妙。&#xA;agenda の対象ファイルを指定 org-agenda を使う時に抽出対象とする org ファイルを指定している。&#xA;(custom-set-variables &amp;#39;(org-agenda-files &amp;#39;(&amp;#34;~/Documents/org/gcals/mugijiru.org&amp;#34; &amp;#34;~/Documents/org/tasks/&amp;#34;))) agenda の表示周りの設定 agenda に時間の区切りを入れない org-agenda-use-time-grid を t にしていると 10:00 とかのキリがいいところに区切り線を表示してくれるのだが日報提出時には邪魔だし、普段使いでもその区切り線はあっても邪魔っぽいので nil にして表示しないようにしている。&#xA;(custom-set-variables &amp;#39;(org-agenda-use-time-grid nil)) ブロック間の区切り表示 ブロックとブロックの区切りをハイフン繋ぎの文字列で指定している。&#xA;文字列を指定することで固定の長さの区切り文字になるが実は ?- とか指定して長さが無限に伸びるようにしてもいいかもしれない。と思いつつ、多分 zoom-mode とかでバッファの幅が切り替わる時に邪魔になるから固定でいいか。</description>
     </item>
-    
     <item>
       <title>org-capture</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/org-capture/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-capture/</guid>
-      <description>概要 org-capture は org-mode 用にさくっとメモを取るための機能。
-org-capture-ical-file unused https://qiita.com/takaxp/items/0b717ad1d0488b74429d を参考に設定したやつ。
-今は別で Google Calendar 連携しているので使ってない……。
-;; org-capture (defvar org-capture-ical-file (concat org-directory &amp;#34;ical.org&amp;#34;)) (setq org-capture-ical-file (concat org-directory &amp;#34;ical.org&amp;#34;)) capture 用ファイルを変数定義 improvement 変数定義しなくてもいい気がしないでもないけどとりあえず変数定義している。バラバラの変数にするよりも alist とか plist とかにする方が適切な気がする
-(setq my/org-capture-interrupted-file (concat my/org-tasks-directory &amp;#34;interrupted.org&amp;#34;)) (setq my/org-capture-inbox-file (concat my/org-tasks-directory &amp;#34;inbox.org&amp;#34;)) (setq my/org-capture-pointers-file (concat my/org-tasks-directory &amp;#34;pointers.org&amp;#34;)) (setq my/org-capture-impediments-file (concat org-directory &amp;#34;work/scrum/impediments.org&amp;#34;)) (setq my/org-capture-memo-file (concat org-directory &amp;#34;memo.org&amp;#34;)) (setq my/org-capture-sql-file (concat org-directory &amp;#34;work/sql.org&amp;#34;)) (setq my/org-small-topic-file (concat org-directory &amp;#34;small-topic.org&amp;#34;)) テンプレートの定義 上記の変数を使って capture 用テンプレートを登録している。</description>
+      <description>概要 org-capture は org-mode 用にさくっとメモを取るための機能。&#xA;org-capture-ical-file unused https://qiita.com/takaxp/items/0b717ad1d0488b74429d を参考に設定したやつ。&#xA;今は別で Google Calendar 連携しているので使ってない……。&#xA;;; org-capture (defvar org-capture-ical-file (concat org-directory &amp;#34;ical.org&amp;#34;)) (setq org-capture-ical-file (concat org-directory &amp;#34;ical.org&amp;#34;)) capture 用ファイルを変数定義 improvement 変数定義しなくてもいい気がしないでもないけどとりあえず変数定義している。バラバラの変数にするよりも alist とか plist とかにする方が適切な気がする&#xA;(setq my/org-capture-interrupted-file (concat my/org-tasks-directory &amp;#34;interrupted.org&amp;#34;)) (setq my/org-capture-inbox-file (concat my/org-tasks-directory &amp;#34;inbox.org&amp;#34;)) (setq my/org-capture-pointers-file (concat my/org-tasks-directory &amp;#34;pointers.org&amp;#34;)) (setq my/org-capture-impediments-file (concat org-directory &amp;#34;work/scrum/impediments.org&amp;#34;)) (setq my/org-capture-memo-file (concat org-directory &amp;#34;memo.org&amp;#34;)) (setq my/org-capture-sql-file (concat org-directory &amp;#34;work/sql.org&amp;#34;)) (setq my/org-small-topic-file (concat org-directory &amp;#34;small-topic.org&amp;#34;)) テンプレートの定義 上記の変数を使って capture 用テンプレートを登録している。</description>
     </item>
-    
     <item>
       <title>org-clock</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/org-clock/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-clock/</guid>
-      <description>概要 org-clock 関係の設定をここにまとめている
-clocktable の設定 clocktable は report 表示などで使う表の設定。
-(setq org-clock-clocktable-default-properties &amp;#39;(:maxlevel 10 :lang &amp;#34;ja&amp;#34; :scope agenda-with-archives :block today :level 4)) 項目名 設定内容 maxlevel ツリーの何段目まで表示するかの設定。隠さないで欲しいので大きい値を指定している lang 日本語ネイティブなので日本語で scope agenda とそのアーカイブもチェック。結構するアーカイブするので block 基本的に退勤前に実行するので today にしている level 最低限表示するレベル。まあ適当 hooks clock-in 時の hook clock-in のタイミングで以下の処理をするための hook を用意している
-作業開始したことを Slack 通知する TODO ステータスを DOING に変更 (defun my/org-clock-in-hook () (let* ((task org-clock-current-task) (message (format &amp;#34;開始: %s&amp;#34; task))) (my/notify-slack-times message)) (if (org-clocking-p) (org-todo &amp;#34;DOING&amp;#34;))) (setq org-clock-in-hook &amp;#39;my/org-clock-in-hook) clock-out 時の hook clock-out のタイミングで以下の処理をするための hook を用意している</description>
+      <description>概要 org-clock 関係の設定をここにまとめている&#xA;clocktable の設定 clocktable は report 表示などで使う表の設定。&#xA;(setq org-clock-clocktable-default-properties &amp;#39;(:maxlevel 10 :lang &amp;#34;ja&amp;#34; :scope agenda-with-archives :block today :level 4)) 項目名 設定内容 maxlevel ツリーの何段目まで表示するかの設定。隠さないで欲しいので大きい値を指定している lang 日本語ネイティブなので日本語で scope agenda とそのアーカイブもチェック。結構するアーカイブするので block 基本的に退勤前に実行するので today にしている level 最低限表示するレベル。まあ適当 hooks clock-in 時の hook clock-in のタイミングで以下の処理をするための hook を用意している&#xA;作業開始したことを Slack 通知する TODO ステータスを DOING に変更 (defun my/org-clock-in-hook () (let* ((task org-clock-current-task) (message (format &amp;#34;開始: %s&amp;#34; task))) (my/notify-slack-times message)) (if (org-clocking-p) (org-todo &amp;#34;DOING&amp;#34;))) (setq org-clock-in-hook &amp;#39;my/org-clock-in-hook) clock-out 時の hook clock-out のタイミングで以下の処理をするための hook を用意している</description>
     </item>
-    
     <item>
       <title>org-export</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/org-export/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-export/</guid>
-      <description>概要 ここではファイルへの出力用の設定をまとめている。というか昔書いた設定をとりあえずここに押し込めている
-footnote や制作者などを出力しない HTML で記事を吐き出す時に邪魔だったの非表示にしている記憶。随分昔に設定したのであんまり覚えてない。
-;; フッターなくしたり (setq org-export-html-footnotes-section &amp;#34;&amp;#34;) (setq org-export-html-footnote-format &amp;#34;&amp;#34;) (setq org-export-with-footnotes nil) (setq org-export-with-creator nil) (setq org-export-with-author nil) (setq org-html-validation-link nil) 以下は seesaa blog への吐き出し用設定なのだけどもう向こうを更新することはないので消しても良さそう
-;; for seesaa blog settings (setq org-export-author-info nil) (setq org-export-email-info nil) (setq org-export-creator-info nil) (setq org-export-time-stamp-file nil) (setq org-export-with-timestamps nil) (setq org-export-with-section-numbers nil) (setq org-export-with-sub-superscripts nil) Table of Contents 出力抑制 これも自分の用途では要らなかったけどファイル単位とかで制御しても良い気がする
-(setq org-export-with-toc nil) サイト名の出力 seesaa blog 用に記事を吐き出していた時はページ全体ではなく記事部分だけ出力したかったのでつまり h1 とかはもうテンプレート側に埋め込まれているので出す必要がなかった</description>
+      <description>概要 ここではファイルへの出力用の設定をまとめている。というか昔書いた設定をとりあえずここに押し込めている&#xA;footnote や制作者などを出力しない HTML で記事を吐き出す時に邪魔だったの非表示にしている記憶。随分昔に設定したのであんまり覚えてない。&#xA;;; フッターなくしたり (setq org-export-html-footnotes-section &amp;#34;&amp;#34;) (setq org-export-html-footnote-format &amp;#34;&amp;#34;) (setq org-export-with-footnotes nil) (setq org-export-with-creator nil) (setq org-export-with-author nil) (setq org-html-validation-link nil) 以下は seesaa blog への吐き出し用設定なのだけどもう向こうを更新することはないので消しても良さそう&#xA;;; for seesaa blog settings (setq org-export-author-info nil) (setq org-export-email-info nil) (setq org-export-creator-info nil) (setq org-export-time-stamp-file nil) (setq org-export-with-timestamps nil) (setq org-export-with-section-numbers nil) (setq org-export-with-sub-superscripts nil) Table of Contents 出力抑制 これも自分の用途では要らなかったけどファイル単位とかで制御しても良い気がする&#xA;(setq org-export-with-toc nil) サイト名の出力 seesaa blog 用に記事を吐き出していた時はページ全体ではなく記事部分だけ出力したかったのでつまり h1 とかはもうテンプレート側に埋め込まれているので出す必要がなかった</description>
     </item>
-    
     <item>
       <title>org-gcal</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/org-gcal/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-gcal/</guid>
-      <description>概要 org-gcal は org-mode と Google Calendar を連携させるためのパッケージ。
-オリジナルは https://github.com/myuhe/org-gcal.el なのだけど今は fork されてるやつが MELPA にも登録されていて el-get のレシピもそっちを見ている。
-インストール org-gcal が依存しているので parsist を入れている。
-(el-get-bundle persist) あとは当然 org-gcal 本体を入れないと動かない
-(el-get-bundle org-gcal) その際 el-get のレシピは自前で用意している
-(:name org-gcal :description &amp;#34;Org sync with Google Calendar.&amp;#34; :website &amp;#34;https://github.com/kidd/org-gcal.el&amp;#34; :type github :minimum-emacs-version &amp;#34;26&amp;#34; :depends (request alert cl-lib aio) :pkgname &amp;#34;kidd/org-gcal.el&amp;#34;) emacs-aio も recipe を自前で用意している
-(:name aio :website &amp;#34;https://github.com/skeeto/emacs-aio&amp;#34; :description &amp;#34;aio is to Emacs Lisp as asyncio is to Python.</description>
+      <description>概要 org-gcal は org-mode と Google Calendar を連携させるためのパッケージ。&#xA;オリジナルは https://github.com/myuhe/org-gcal.el なのだけど今は fork されてるやつが MELPA にも登録されていて el-get のレシピもそっちを見ている。&#xA;インストール org-gcal が依存しているので parsist を入れている。&#xA;(el-get-bundle persist) あとは当然 org-gcal 本体を入れないと動かない&#xA;(el-get-bundle org-gcal) その際 el-get のレシピは自前で用意している&#xA;(:name org-gcal :description &amp;#34;Org sync with Google Calendar.&amp;#34; :website &amp;#34;https://github.com/kidd/org-gcal.el&amp;#34; :type github :minimum-emacs-version &amp;#34;26&amp;#34; :depends (request alert cl-lib aio) :pkgname &amp;#34;kidd/org-gcal.el&amp;#34;) emacs-aio も recipe を自前で用意している&#xA;(:name aio :website &amp;#34;https://github.com/skeeto/emacs-aio&amp;#34; :description &amp;#34;aio is to Emacs Lisp as asyncio is to Python.</description>
     </item>
-    
     <item>
       <title>org-ql</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/org-ql/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-ql/</guid>
-      <description>概要 org-ql は org-mode の情報を検索するためのパッケージ。柔軟な検索ができるようになるので貴方好みの検索で業務効率向上ができちゃうかも!?
-インストール いつも透り el-get でインストールしている
-(el-get-bundle org-ql) その他 一時期は色々試していたけどこれを利用している org-super-agenda の方でなんとかするようにしたのでもう直接は使ってないでござる</description>
+      <description>概要 org-ql は org-mode の情報を検索するためのパッケージ。柔軟な検索ができるようになるので貴方好みの検索で業務効率向上ができちゃうかも!?&#xA;インストール いつも透り el-get でインストールしている&#xA;(el-get-bundle org-ql) その他 一時期は色々試していたけどこれを利用している org-super-agenda の方でなんとかするようにしたのでもう直接は使ってないでござる</description>
     </item>
-    
     <item>
       <title>org-refile</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/org-refile/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-refile/</guid>
-      <description>概要 org-refile は org-mode の1機能で org-mode のエントリを別のファイルなどに移動するための機能。実はコピーもできるけど、コピーは使ったことがない。
-設定 org ファイル内の階層を選択候補に入れる これを nil に設定することでファイルの選択だけでなく、その中の PATH まで選択できるようになる
-(setq org-outline-path-complete-in-steps nil) refile ターゲットにファイル名を含める 以下のように設定すると refile のターゲット候補としてファイル名とその中の PATH が表示されるようになる。
-(setq org-refile-use-outline-path &amp;#39;file) nil だと移動先候補PATHの最後の部分しか表示されないのでどのファイルのどの場所かというのがわかりにくいのでこのように設定している。
-refile 先の候補設定 いくつかの org ファイルを使っているのでターゲットを以下のように設定している。
-なお関数化することで hook で呼び出せるようにしている
-(defun my/reset-org-refile-targets () (setq org-refile-targets `((,(org-journal--get-entry-path) :regexp . &amp;#34;Tasks&amp;#34;) (,(concat org-directory &amp;#34;tasks/projects.org&amp;#34;) :level . 1) (,(concat org-directory &amp;#34;tasks/pointers.org&amp;#34;) :level . 1) (,(concat org-directory &amp;#34;tasks/someday.org&amp;#34;) :level . 1)))) (my/reset-org-refile-targets) ターゲット 目的 projects.org とりあえずその内やるタスクを放り込むところ。Work, Private の階層を設けているので :level 2 としている pointers.</description>
+      <description>概要 org-refile は org-mode の1機能で org-mode のエントリを別のファイルなどに移動するための機能。実はコピーもできるけど、コピーは使ったことがない。&#xA;設定 org ファイル内の階層を選択候補に入れる これを nil に設定することでファイルの選択だけでなく、その中の PATH まで選択できるようになる&#xA;(setq org-outline-path-complete-in-steps nil) refile ターゲットにファイル名を含める 以下のように設定すると refile のターゲット候補としてファイル名とその中の PATH が表示されるようになる。&#xA;(setq org-refile-use-outline-path &amp;#39;file) nil だと移動先候補PATHの最後の部分しか表示されないのでどのファイルのどの場所かというのがわかりにくいのでこのように設定している。&#xA;refile 先の候補設定 いくつかの org ファイルを使っているのでターゲットを以下のように設定している。&#xA;なお関数化することで hook で呼び出せるようにしている&#xA;(defun my/reset-org-refile-targets () (setq org-refile-targets `((,(org-journal--get-entry-path) :regexp . &amp;#34;Tasks&amp;#34;) (,(concat org-directory &amp;#34;tasks/projects.org&amp;#34;) :level . 1) (,(concat org-directory &amp;#34;tasks/pointers.org&amp;#34;) :level . 1) (,(concat org-directory &amp;#34;tasks/someday.org&amp;#34;) :level . 1)))) (my/reset-org-refile-targets) ターゲット 目的 projects.org とりあえずその内やるタスクを放り込むところ。Work, Private の階層を設けているので :level 2 としている pointers.</description>
     </item>
-    
     <item>
       <title>org-trello</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/org-trello/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-trello/</guid>
-      <description>概要 org-trello は org-mode を使って Trello のタスクを管理するためのパッケージ。
-インストール いつも通り el-get でインストールしている
-(el-get-bundle org-trello) 同期するコマンドの用意 バッファと Trello との同期する関数はあるのだけどコマンドにはなっていなかったので同期するためのコマンドを用意している
-(defun my/org-trello-fetch-buffer () (interactive) (org-trello-sync-buffer t)) キーバインド設定 キーバインドは覚えられないので、いつも通り pretty-hydra で Hydra のやつを用意している
-(with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define org-trello-hydra (:separator &amp;#34;-&amp;#34; :color teal :foreign-key warn :title (concat (all-the-icons-faicon &amp;#34;trello&amp;#34;) &amp;#34; Org Trello commands&amp;#34;) :quit-key &amp;#34;q&amp;#34;) (&amp;#34;Install&amp;#34; ((&amp;#34;i&amp;#34; org-trello-install-board-metadata &amp;#34;Board metadata&amp;#34;) (&amp;#34;I&amp;#34; org-trello-install-key-and-token &amp;#34;Setup&amp;#34;)) &amp;#34;Sync&amp;#34; ((&amp;#34;s&amp;#34; my/org-trello-fetch-buffer &amp;#34;← Trello&amp;#34;) (&amp;#34;S&amp;#34; org-trello-sync-buffer &amp;#34;→ Trello&amp;#34;)) &amp;#34;Other&amp;#34; ((&amp;#34;V&amp;#34; org-trello-version &amp;#34;Version&amp;#34;))))) Key 効果 i Board のメタデータをインストールする I Key と トークンを設定する s Trello の情報を引っ張ってくる S Trello の情報を連携する V バージョン情報を表示 その他 まだ試していないが https://github.</description>
+      <description>概要 org-trello は org-mode を使って Trello のタスクを管理するためのパッケージ。&#xA;インストール いつも通り el-get でインストールしている&#xA;(el-get-bundle org-trello) 同期するコマンドの用意 バッファと Trello との同期する関数はあるのだけどコマンドにはなっていなかったので同期するためのコマンドを用意している&#xA;(defun my/org-trello-fetch-buffer () (interactive) (org-trello-sync-buffer t)) キーバインド設定 キーバインドは覚えられないので、いつも通り pretty-hydra で Hydra のやつを用意している&#xA;(with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define org-trello-hydra (:separator &amp;#34;-&amp;#34; :color teal :foreign-key warn :title (concat (all-the-icons-faicon &amp;#34;trello&amp;#34;) &amp;#34; Org Trello commands&amp;#34;) :quit-key &amp;#34;q&amp;#34;) (&amp;#34;Install&amp;#34; ((&amp;#34;i&amp;#34; org-trello-install-board-metadata &amp;#34;Board metadata&amp;#34;) (&amp;#34;I&amp;#34; org-trello-install-key-and-token &amp;#34;Setup&amp;#34;)) &amp;#34;Sync&amp;#34; ((&amp;#34;s&amp;#34; my/org-trello-fetch-buffer &amp;#34;← Trello&amp;#34;) (&amp;#34;S&amp;#34; org-trello-sync-buffer &amp;#34;→ Trello&amp;#34;)) &amp;#34;Other&amp;#34; ((&amp;#34;V&amp;#34; org-trello-version &amp;#34;Version&amp;#34;))))) Key 効果 i Board のメタデータをインストールする I Key と トークンを設定する s Trello の情報を引っ張ってくる S Trello の情報を連携する V バージョン情報を表示 その他 まだ試していないが https://github.</description>
     </item>
-    
     <item>
       <title>ox-hugo</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/ox-hugo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/org-mode/ox-hugo/</guid>
-      <description>概要 ox-hugo は org-mode から Hugo 用に md ファイルを出力できる便利なやつ。
-設定にもよるけど、1つのorgファイルに全部の記事を書いておいてツリー毎に md ファイルが生成される、というのがデフォルトの動きなので 1ファイルに詰めておくとファイルが分散しないで済んで良い。
-なお、この 麦汁&amp;rsquo;s Emacs Config も親サイトである 麦汁三昧 も ox-hugo を用いて構築している
-インストール・読み込み レシピは自前で用意している
-(:name ox-hugo :description &amp;#34;A carefully crafted Org exporter back-end for Hugo https://ox-hugo.scripter.co&amp;#34; :type github :pkgname &amp;#34;kaushalmodi/ox-hugo&amp;#34; :branch &amp;#34;main&amp;#34; :depends (org-mode tomelr)) 依存している tomelr のレシピも自前で用意している
-(:name tomelr :description &amp;#34;Emacs-Lisp Library for converting S-expressions to TOML&amp;#34; :type github :pkgname &amp;#34;kaushalmodi/tomelr&amp;#34; :branch &amp;#34;main&amp;#34;) そしていつも通り el-get でインスコしている。
-(el-get-bundle ox-hugo) そして org-mode の ox が先に読まれてないといけないので with-eval-after-load を使って、ox が読まれてから require するようにしている。</description>
+      <description>概要 ox-hugo は org-mode から Hugo 用に md ファイルを出力できる便利なやつ。&#xA;設定にもよるけど、1つのorgファイルに全部の記事を書いておいてツリー毎に md ファイルが生成される、というのがデフォルトの動きなので 1ファイルに詰めておくとファイルが分散しないで済んで良い。&#xA;なお、この 麦汁&amp;rsquo;s Emacs Config も親サイトである 麦汁三昧 も ox-hugo を用いて構築している&#xA;インストール・読み込み レシピは自前で用意している&#xA;(:name ox-hugo :description &amp;#34;A carefully crafted Org exporter back-end for Hugo https://ox-hugo.scripter.co&amp;#34; :type github :pkgname &amp;#34;kaushalmodi/ox-hugo&amp;#34; :branch &amp;#34;main&amp;#34; :depends (org-mode tomelr)) 依存している tomelr のレシピも自前で用意している&#xA;(:name tomelr :description &amp;#34;Emacs-Lisp Library for converting S-expressions to TOML&amp;#34; :type github :pkgname &amp;#34;kaushalmodi/tomelr&amp;#34; :branch &amp;#34;main&amp;#34;) そしていつも通り el-get でインスコしている。&#xA;(el-get-bundle ox-hugo) そして org-mode の ox が先に読まれてないといけないので with-eval-after-load を使って、ox が読まれてから require するようにしている。</description>
     </item>
-    
     <item>
       <title>org-mode 用の独自コマンド</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/org-commands/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-commands/</guid>
-      <description>概要 org-mode を使う上で、標準で用意されているコマンド以外に自分でも適当にコマンドを用意しているのでここにまとめている。
-org-mode 用のファイルを作成するコマンド unused 指定したフォルダに org-mode なファイルを作るためのコマンドを用意している。
-が、使ってないし意味をあまり感じないし消して良さそう。
-(setq my/org-document-dir (expand-file-name &amp;#34;~/Documents/org/&amp;#34;)) (defun my/create-org-document () (interactive) (find-file-other-window my/org-document-dir)) 各ツリーの所要時間表示/非表示切替 org-clock-display で各ツリーにおける org-clock で記録された所要時間が表示でき、 org-clock-remove-overlays でそれを非表示にできるが、それを Toggle できるようにコマンド/関数を定義している。
-(defun my/org-clock-toggle-display () &amp;#34;各ツリーの末尾に掛かった作業時間を表示/非表示を切り替えるコマンド&amp;#34; (interactive) (if org-clock-overlays (org-clock-remove-overlays) (org-clock-display))) org-todo-keywords から装飾を省いた文字列のリストを返す関数 ivy で org-todo-keywords を選択可能にするために org-todo-keywords を加工してシンプルな文字列の配列にする関数を定義している。
-後述の my/org-todo で利用している
-(defun my/org-todo-keyword-strings () &amp;#34;org-todo-keywords から装飾を省いた文字列のリストを返す関数&amp;#34; (let* ((keywords (cl-rest (cl-first org-todo-keywords))) (without-delimiter (cl-remove-if (lambda (elm) (string= &amp;#34;|&amp;#34; elm)) keywords))) (mapcar (lambda (element) (replace-regexp-in-string &amp;#34;\(.</description>
+      <description>概要 org-mode を使う上で、標準で用意されているコマンド以外に自分でも適当にコマンドを用意しているのでここにまとめている。&#xA;org-mode 用のファイルを作成するコマンド unused 指定したフォルダに org-mode なファイルを作るためのコマンドを用意している。&#xA;が、使ってないし意味をあまり感じないし消して良さそう。&#xA;(setq my/org-document-dir (expand-file-name &amp;#34;~/Documents/org/&amp;#34;)) (defun my/create-org-document () (interactive) (find-file-other-window my/org-document-dir)) 各ツリーの所要時間表示/非表示切替 org-clock-display で各ツリーにおける org-clock で記録された所要時間が表示でき、 org-clock-remove-overlays でそれを非表示にできるが、それを Toggle できるようにコマンド/関数を定義している。&#xA;(defun my/org-clock-toggle-display () &amp;#34;各ツリーの末尾に掛かった作業時間を表示/非表示を切り替えるコマンド&amp;#34; (interactive) (if org-clock-overlays (org-clock-remove-overlays) (org-clock-display))) org-todo-keywords から装飾を省いた文字列のリストを返す関数 ivy で org-todo-keywords を選択可能にするために org-todo-keywords を加工してシンプルな文字列の配列にする関数を定義している。&#xA;後述の my/org-todo で利用している&#xA;(defun my/org-todo-keyword-strings () &amp;#34;org-todo-keywords から装飾を省いた文字列のリストを返す関数&amp;#34; (let* ((keywords (cl-rest (cl-first org-todo-keywords))) (without-delimiter (cl-remove-if (lambda (elm) (string= &amp;#34;|&amp;#34; elm)) keywords))) (mapcar (lambda (element) (replace-regexp-in-string &amp;#34;\(.</description>
     </item>
-    
     <item>
       <title>org-mode 関係の keybinds</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/org-mode-keybinds/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-mode-keybinds/</guid>
-      <description>概要 ここでは org-mode 関係のキーバインド設定を書いている。キーバインドというか Hydra の設定になっているが。
-Hydra を定義しておくことで様々なキーバインドを忘れることができるし左手小指を酷使しなくて済むので便利ということで Hydra で設定している。
-major-mode-hydra major-mode-hydra で、org-mode のファイルを開いている時によく使いそうなコマンドのキーバインドを定義している
-(with-eval-after-load &amp;#39;major-mode-hydra (major-mode-hydra-define org-mode (:separator &amp;#34;-&amp;#34; :quit-key &amp;#34;q&amp;#34; :title (concat (all-the-icons-fileicon &amp;#34;org&amp;#34;) &amp;#34; Org commands&amp;#34;)) (&amp;#34;Navigation&amp;#34; ((&amp;#34;H&amp;#34; counsel-outline &amp;#34;Outline&amp;#34;)) &amp;#34;Insert&amp;#34; ((&amp;#34;l&amp;#34; org-insert-link &amp;#34;Link&amp;#34;) (&amp;#34;T&amp;#34; org-insert-todo-heading &amp;#34;Todo&amp;#34;) (&amp;#34;h&amp;#34; org-insert-heading-respect-content &amp;#34;Heading&amp;#34;) (&amp;#34;P&amp;#34; org-set-property &amp;#34;Property&amp;#34;) (&amp;#34;.&amp;#34; org-time-stamp &amp;#34;Timestamp&amp;#34;) (&amp;#34;!&amp;#34; org-time-stamp-inactive &amp;#34;Timestamp(inactive)&amp;#34;) (&amp;#34;S&amp;#34; org-insert-structure-template &amp;#34;Snippet&amp;#34;)) &amp;#34;Edit&amp;#34; ((&amp;#34;a&amp;#34; org-archive-subtree &amp;#34;Archive&amp;#34;) (&amp;#34;r&amp;#34; org-refile &amp;#34;Refile&amp;#34;) (&amp;#34;Q&amp;#34; org-set-tags-command &amp;#34;Tag&amp;#34;)) &amp;#34;View&amp;#34; ((&amp;#34;N&amp;#34; org-toggle-narrow-to-subtree &amp;#34;Toggle Subtree&amp;#34;) (&amp;#34;C&amp;#34; org-columns &amp;#34;Columns&amp;#34;) (&amp;#34;O&amp;#34; org-global-cycle &amp;#34;Toggle open&amp;#34;) (&amp;#34;D&amp;#34; my/org-clock-toggle-display &amp;#34;Toggle Display&amp;#34;)) &amp;#34;Task&amp;#34; ((&amp;#34;s&amp;#34; org-schedule &amp;#34;Schedule&amp;#34;) (&amp;#34;d&amp;#34; org-deadline &amp;#34;Deadline&amp;#34;) (&amp;#34;t&amp;#34; my/org-todo &amp;#34;Change state&amp;#34;) (&amp;#34;c&amp;#34; org-toggle-checkbox &amp;#34;Toggle checkbox&amp;#34;)) &amp;#34;Clock&amp;#34; ((&amp;#34;i&amp;#34; org-clock-in &amp;#34;In&amp;#34;) (&amp;#34;o&amp;#34; org-clock-out &amp;#34;Out&amp;#34;) (&amp;#34;E&amp;#34; org-set-effort &amp;#34;Effort&amp;#34;) (&amp;#34;R&amp;#34; org-clock-report &amp;#34;Report&amp;#34;) (&amp;#34;p&amp;#34; org-pomodoro &amp;#34;Pomodoro&amp;#34;)) &amp;#34;Babel&amp;#34; ((&amp;#34;e&amp;#34; org-babel-confirm-evaluate &amp;#34;Eval&amp;#34;) (&amp;#34;x&amp;#34; org-babel-tangle &amp;#34;Export SRC&amp;#34;)) &amp;#34;Trello&amp;#34; ((&amp;#34;K&amp;#34; org-trello-mode &amp;#34;On/Off&amp;#34; :toggle org-trello-mode) (&amp;#34;k&amp;#34; (if org-trello-mode (org-trello-hydra/body) (message &amp;#34;org-trello-mode is not enabled&amp;#34;)) &amp;#34;Menu&amp;#34;)) &amp;#34;Agenda&amp;#34; ((&amp;#34;,&amp;#34; org-cycle-agenda-files &amp;#34;Cycle&amp;#34;)))) (major-mode-hydra-define org-agenda-mode (:separator &amp;#34;-&amp;#34; :quit-key &amp;#34;q&amp;#34; :title (concat (all-the-icons-octicon &amp;#34;calendar&amp;#34;) &amp;#34; Agenda commands&amp;#34;)) (&amp;#34;Edit&amp;#34; ((&amp;#34;a&amp;#34; org-agenda-archive &amp;#34;Archive&amp;#34;) (&amp;#34;r&amp;#34; org-agenda-refile &amp;#34;Refile&amp;#34;) (&amp;#34;t&amp;#34; org-agenda-todo &amp;#34;TODO&amp;#34;) (&amp;#34;Q&amp;#34; org-agenda-set-tags &amp;#34;Tag&amp;#34;)) &amp;#34;Filter&amp;#34; ((&amp;#34;C&amp;#34; org-agenda-filter-by-category &amp;#34;Category&amp;#34;) (&amp;#34;T&amp;#34; org-agenda-filter-by-tag &amp;#34;Tag&amp;#34;) (&amp;#34;H&amp;#34; org-agenda-filter-by-top-headline &amp;#34;Headline&amp;#34;) (&amp;#34;E&amp;#34; org-agenda-filter-by-effort &amp;#34;Effort&amp;#34;) (&amp;#34;R&amp;#34; org-agenda-filter-by-regex &amp;#34;Regex&amp;#34;) (&amp;#34;z&amp;#34; org-agenda-filter-remove-all &amp;#34;Clear&amp;#34;)) &amp;#34;Priority&amp;#34; ((&amp;#34;&amp;gt;&amp;#34; org-agenda-priority-up &amp;#34;Up&amp;#34;) (&amp;#34;&amp;lt;&amp;#34; org-agenda-priority-down &amp;#34;Down&amp;#34;) (&amp;#34;,&amp;#34; org-agenda-priority &amp;#34;Set&amp;#34;)) &amp;#34;Clock&amp;#34; ((&amp;#34;i&amp;#34; org-agenda-clock-in &amp;#34;In&amp;#34;) (&amp;#34;o&amp;#34; org-agenda-clock-out &amp;#34;Out&amp;#34;) (&amp;#34;p&amp;#34; org-pomodoro &amp;#34;Pomodoro&amp;#34;) (&amp;#34;e&amp;#34; org-agenda-set-effort &amp;#34;Set Effort&amp;#34;) (&amp;#34;g&amp;#34; org-agenda-clock-goto &amp;#34;Go to&amp;#34;) (&amp;#34;x&amp;#34; org-agenda-clock-cancel &amp;#34;Cancel&amp;#34;))))) Key 効果 使用頻度 l リンク挿入 C-c C-l で手が馴染んでるのでたまに使う程度 T TODO ヘッドライン挿入 なんかあまり使わない h ヘッドライン挿入 これも C-RET で慣れてるので使ってない P プロパティ設定 よく使う .</description>
+      <description>概要 ここでは org-mode 関係のキーバインド設定を書いている。キーバインドというか Hydra の設定になっているが。&#xA;Hydra を定義しておくことで様々なキーバインドを忘れることができるし左手小指を酷使しなくて済むので便利ということで Hydra で設定している。&#xA;major-mode-hydra major-mode-hydra で、org-mode のファイルを開いている時によく使いそうなコマンドのキーバインドを定義している&#xA;(with-eval-after-load &amp;#39;major-mode-hydra (major-mode-hydra-define org-mode (:separator &amp;#34;-&amp;#34; :quit-key &amp;#34;q&amp;#34; :title (concat (all-the-icons-fileicon &amp;#34;org&amp;#34;) &amp;#34; Org commands&amp;#34;)) (&amp;#34;Navigation&amp;#34; ((&amp;#34;H&amp;#34; counsel-outline &amp;#34;Outline&amp;#34;)) &amp;#34;Insert&amp;#34; ((&amp;#34;l&amp;#34; org-insert-link &amp;#34;Link&amp;#34;) (&amp;#34;T&amp;#34; org-insert-todo-heading &amp;#34;Todo&amp;#34;) (&amp;#34;h&amp;#34; org-insert-heading-respect-content &amp;#34;Heading&amp;#34;) (&amp;#34;P&amp;#34; org-set-property &amp;#34;Property&amp;#34;) (&amp;#34;.&amp;#34; org-time-stamp &amp;#34;Timestamp&amp;#34;) (&amp;#34;!&amp;#34; org-time-stamp-inactive &amp;#34;Timestamp(inactive)&amp;#34;) (&amp;#34;S&amp;#34; org-insert-structure-template &amp;#34;Snippet&amp;#34;)) &amp;#34;Edit&amp;#34; ((&amp;#34;a&amp;#34; org-archive-subtree &amp;#34;Archive&amp;#34;) (&amp;#34;r&amp;#34; org-refile &amp;#34;Refile&amp;#34;) (&amp;#34;Q&amp;#34; org-set-tags-command &amp;#34;Tag&amp;#34;)) &amp;#34;View&amp;#34; ((&amp;#34;N&amp;#34; org-toggle-narrow-to-subtree &amp;#34;Toggle Subtree&amp;#34;) (&amp;#34;C&amp;#34; org-columns &amp;#34;Columns&amp;#34;) (&amp;#34;O&amp;#34; org-global-cycle &amp;#34;Toggle open&amp;#34;) (&amp;#34;D&amp;#34; my/org-clock-toggle-display &amp;#34;Toggle Display&amp;#34;)) &amp;#34;Task&amp;#34; ((&amp;#34;s&amp;#34; org-schedule &amp;#34;Schedule&amp;#34;) (&amp;#34;d&amp;#34; org-deadline &amp;#34;Deadline&amp;#34;) (&amp;#34;t&amp;#34; my/org-todo &amp;#34;Change state&amp;#34;) (&amp;#34;c&amp;#34; org-toggle-checkbox &amp;#34;Toggle checkbox&amp;#34;)) &amp;#34;Clock&amp;#34; ((&amp;#34;i&amp;#34; org-clock-in &amp;#34;In&amp;#34;) (&amp;#34;o&amp;#34; org-clock-out &amp;#34;Out&amp;#34;) (&amp;#34;E&amp;#34; org-set-effort &amp;#34;Effort&amp;#34;) (&amp;#34;R&amp;#34; org-clock-report &amp;#34;Report&amp;#34;) (&amp;#34;p&amp;#34; org-pomodoro &amp;#34;Pomodoro&amp;#34;)) &amp;#34;Babel&amp;#34; ((&amp;#34;e&amp;#34; org-babel-confirm-evaluate &amp;#34;Eval&amp;#34;) (&amp;#34;x&amp;#34; org-babel-tangle &amp;#34;Export SRC&amp;#34;)) &amp;#34;Trello&amp;#34; ((&amp;#34;K&amp;#34; org-trello-mode &amp;#34;On/Off&amp;#34; :toggle org-trello-mode) (&amp;#34;k&amp;#34; (if org-trello-mode (org-trello-hydra/body) (message &amp;#34;org-trello-mode is not enabled&amp;#34;)) &amp;#34;Menu&amp;#34;)) &amp;#34;Agenda&amp;#34; ((&amp;#34;,&amp;#34; org-cycle-agenda-files &amp;#34;Cycle&amp;#34;)))) (major-mode-hydra-define org-agenda-mode (:separator &amp;#34;-&amp;#34; :quit-key &amp;#34;q&amp;#34; :title (concat (all-the-icons-octicon &amp;#34;calendar&amp;#34;) &amp;#34; Agenda commands&amp;#34;)) (&amp;#34;Edit&amp;#34; ((&amp;#34;a&amp;#34; org-agenda-archive &amp;#34;Archive&amp;#34;) (&amp;#34;r&amp;#34; org-agenda-refile &amp;#34;Refile&amp;#34;) (&amp;#34;t&amp;#34; org-agenda-todo &amp;#34;TODO&amp;#34;) (&amp;#34;Q&amp;#34; org-agenda-set-tags &amp;#34;Tag&amp;#34;)) &amp;#34;Filter&amp;#34; ((&amp;#34;C&amp;#34; org-agenda-filter-by-category &amp;#34;Category&amp;#34;) (&amp;#34;T&amp;#34; org-agenda-filter-by-tag &amp;#34;Tag&amp;#34;) (&amp;#34;H&amp;#34; org-agenda-filter-by-top-headline &amp;#34;Headline&amp;#34;) (&amp;#34;E&amp;#34; org-agenda-filter-by-effort &amp;#34;Effort&amp;#34;) (&amp;#34;R&amp;#34; org-agenda-filter-by-regex &amp;#34;Regex&amp;#34;) (&amp;#34;z&amp;#34; org-agenda-filter-remove-all &amp;#34;Clear&amp;#34;)) &amp;#34;Priority&amp;#34; ((&amp;#34;&amp;gt;&amp;#34; org-agenda-priority-up &amp;#34;Up&amp;#34;) (&amp;#34;&amp;lt;&amp;#34; org-agenda-priority-down &amp;#34;Down&amp;#34;) (&amp;#34;,&amp;#34; org-agenda-priority &amp;#34;Set&amp;#34;)) &amp;#34;Clock&amp;#34; ((&amp;#34;i&amp;#34; org-agenda-clock-in &amp;#34;In&amp;#34;) (&amp;#34;o&amp;#34; org-agenda-clock-out &amp;#34;Out&amp;#34;) (&amp;#34;p&amp;#34; org-pomodoro &amp;#34;Pomodoro&amp;#34;) (&amp;#34;e&amp;#34; org-agenda-set-effort &amp;#34;Set Effort&amp;#34;) (&amp;#34;g&amp;#34; org-agenda-clock-goto &amp;#34;Go to&amp;#34;) (&amp;#34;x&amp;#34; org-agenda-clock-cancel &amp;#34;Cancel&amp;#34;))))) Key 効果 使用頻度 l リンク挿入 C-c C-l で手が馴染んでるのでたまに使う程度 T TODO ヘッドライン挿入 なんかあまり使わない h ヘッドライン挿入 これも C-RET で慣れてるので使ってない P プロパティ設定 よく使う .</description>
     </item>
-    
     <item>
       <title>日報用の設定(旧)</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/nippou/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/org-mode/nippou/</guid>
-      <description>概要 業務で日報を提出する必要があったのでそれっぽいのを作れるようにしていた。
-今では org-super-agenda を使っているのでこれは使ってないが、とりあえず載せておく。
-シークレット設定の読み込み 表に出したくない情報については別ファイルに分離して setq している。が、内容的に本名が露出する程度の情報ではある。
-(my/load-config &amp;#34;my-nippou-config&amp;#34;) これの中で my/org-nippou-additional-files を定義していてそのファイル名に名前が含まれてるだけであった。
-me.org とでもしておけば解決しそう……。
-日報構築の対象となるファイルをリストアップする関数の定義 ~/Documenets/org/tasks に作業記録用ファイルなどを find コマンドを使ってリストアップする関数。
-(defun my/org-nippou-files () (let* ((dir my/org-tasks-directory) (cmd (format &amp;#34;find \&amp;#34;%s\&amp;#34; -name &amp;#39;*.org&amp;#39; -or -name &amp;#39;*.org_archive&amp;#39;&amp;#34; dir)) (result (shell-command-to-string cmd)) (file-names (split-string result &amp;#34;\n&amp;#34;))) (-remove (lambda (file-name) (string= &amp;#34;&amp;#34; file-name)) file-names))) org-agenda-files を使えば要らないっぽいけどね。 agenda 全然使えてなかったらこんなことに。
-日報構築元ファイルを取得する関数の定義 シークレット設定で定義した変数と上で定義した my/org-nippou-files を結合して 1つのリストにするだけの関数を用意している。 1つにまとまってる方が扱いやすいので。
-(defun my/org-nippou-targets () (-concat (my/org-nippou-files) my/org-nippou-additional-files)) 日報を出力する関数 上記の関数群で target になるファイルから日報用に TODO 項目を引っ張り出してくる関数を用意している。</description>
+      <description>概要 業務で日報を提出する必要があったのでそれっぽいのを作れるようにしていた。&#xA;今では org-super-agenda を使っているのでこれは使ってないが、とりあえず載せておく。&#xA;シークレット設定の読み込み 表に出したくない情報については別ファイルに分離して setq している。が、内容的に本名が露出する程度の情報ではある。&#xA;(my/load-config &amp;#34;my-nippou-config&amp;#34;) これの中で my/org-nippou-additional-files を定義していてそのファイル名に名前が含まれてるだけであった。&#xA;me.org とでもしておけば解決しそう……。&#xA;日報構築の対象となるファイルをリストアップする関数の定義 ~/Documenets/org/tasks に作業記録用ファイルなどを find コマンドを使ってリストアップする関数。&#xA;(defun my/org-nippou-files () (let* ((dir my/org-tasks-directory) (cmd (format &amp;#34;find \&amp;#34;%s\&amp;#34; -name &amp;#39;*.org&amp;#39; -or -name &amp;#39;*.org_archive&amp;#39;&amp;#34; dir)) (result (shell-command-to-string cmd)) (file-names (split-string result &amp;#34;\n&amp;#34;))) (-remove (lambda (file-name) (string= &amp;#34;&amp;#34; file-name)) file-names))) org-agenda-files を使えば要らないっぽいけどね。 agenda 全然使えてなかったらこんなことに。&#xA;日報構築元ファイルを取得する関数の定義 シークレット設定で定義した変数と上で定義した my/org-nippou-files を結合して 1つのリストにするだけの関数を用意している。 1つにまとまってる方が扱いやすいので。&#xA;(defun my/org-nippou-targets () (-concat (my/org-nippou-files) my/org-nippou-additional-files)) 日報を出力する関数 上記の関数群で target になるファイルから日報用に TODO 項目を引っ張り出してくる関数を用意している。</description>
     </item>
-    
     <item>
       <title>org-journal</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/org-journal/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-journal/</guid>
-      <description>概要 org-journal は org-mode で日記を書くためのモードっぽい。
-デフォルトに近い設定だと `M-x org-journal-new-entry` でその日の日記ファイルを生成してその時刻を Headline を用意するようになってる。
-一度書いた後にまた同じコマンドを叩くと以前に書いた記事を開いて新しい時刻の Headline を用意するのでなんか書きたくなったら雑に書いておくと、時系列順に並んでいくので便利かもしれない。まだ使ってないから本当に便利かは分からない
-インストール これは el-get にはレシピがないようなので自前で用意している
-(:name org-journal :website &amp;#34;https://github.com/bastibe/org-journal&amp;#34; :description &amp;#34;Functions to maintain a simple personal diary / journal in Emacs.&amp;#34; :type github :pkgname &amp;#34;bastibe/org-journal&amp;#34;) そして el-get-bundle でインストール
-(el-get-bundle org-journal) また refile 先の候補設定 で org-journal--get-entry-path という内部関数を使ってしまっていてそれが読み込まれていないと困るので、ここで require まで行っている
-(require &amp;#39;org-journal) agenda のスコープ設定用関数 org-clock-report では前日分も target に入れてほしいのでそれの :scope に指定するための関数を自前で用意している
-(defun my/org-agenda-scope-with-yesterday-journal () (let* ((agenda-files (org-agenda-files t)) (24-hours-ago (* -60 60 24)) (yesterday (time-add (current-time) 24-hours-ago)) (yesterday-string (format-time-string &amp;#34;%Y%m%d&amp;#34; yesterday)) (yesterday-journal-file-path (concat org-journal-dir yesterday-string &amp;#34;.</description>
+      <description>概要 org-journal は org-mode で日記を書くためのモードっぽい。&#xA;デフォルトに近い設定だと `M-x org-journal-new-entry` でその日の日記ファイルを生成してその時刻を Headline を用意するようになってる。&#xA;一度書いた後にまた同じコマンドを叩くと以前に書いた記事を開いて新しい時刻の Headline を用意するのでなんか書きたくなったら雑に書いておくと、時系列順に並んでいくので便利かもしれない。まだ使ってないから本当に便利かは分からない&#xA;インストール これは el-get にはレシピがないようなので自前で用意している&#xA;(:name org-journal :website &amp;#34;https://github.com/bastibe/org-journal&amp;#34; :description &amp;#34;Functions to maintain a simple personal diary / journal in Emacs.&amp;#34; :type github :pkgname &amp;#34;bastibe/org-journal&amp;#34;) そして el-get-bundle でインストール&#xA;(el-get-bundle org-journal) また refile 先の候補設定 で org-journal--get-entry-path という内部関数を使ってしまっていてそれが読み込まれていないと困るので、ここで require まで行っている&#xA;(require &amp;#39;org-journal) agenda のスコープ設定用関数 org-clock-report では前日分も target に入れてほしいのでそれの :scope に指定するための関数を自前で用意している&#xA;(defun my/org-agenda-scope-with-yesterday-journal () (let* ((agenda-files (org-agenda-files t)) (24-hours-ago (* -60 60 24)) (yesterday (time-add (current-time) 24-hours-ago)) (yesterday-string (format-time-string &amp;#34;%Y%m%d&amp;#34; yesterday)) (yesterday-journal-file-path (concat org-journal-dir yesterday-string &amp;#34;.</description>
     </item>
-    
     <item>
       <title>org-protocol-capture-html</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/org-protocol-capture-html/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-protocol-capture-html/</guid>
-      <description>概要 org-protocol-capture-html は Pandoc やブックマークレットと組み合わせて Web ページを org-capture で保存できるようにするやつ。
-Emacs 25.1 以降なら eww の機能を使って Web ページの表記を丸ごと capture できるので Firefox の拡張機能 org-capture-extension を使って capture するよりも便利。
-インストール org-protocol-capture-html はあまりちゃんとメンテされていないようなのと自分の環境では eval-when-compile の際にコンパイルされて定義されるはずの関数が定義されないので 自分で fork したやつを使っている
-というわけでレシピも自前で用意している。
-(:name org-protocol-capture-html :description &amp;#34;Capture HTML from the browser selection into Emacs as org-mode content.&amp;#34; :type github :pkgname &amp;#34;mugijiru/org-protocol-capture-html&amp;#34; :branch &amp;#34;feat/always-define-eww-readable-functions&amp;#34; :minimum-emacs-version &amp;#34;25.1&amp;#34; :depends (org-mode s)) そしてそれを el-get-bundle でインストールしている
-(el-get-bundle org-protocol-capture-html) このパッケージは audoload も指定されていないのでとりあえず require して全部読み込むようにしている
-(require &amp;#39;org-protocol-capture-html) </description>
+      <description>概要 org-protocol-capture-html は Pandoc やブックマークレットと組み合わせて Web ページを org-capture で保存できるようにするやつ。&#xA;Emacs 25.1 以降なら eww の機能を使って Web ページの表記を丸ごと capture できるので Firefox の拡張機能 org-capture-extension を使って capture するよりも便利。&#xA;インストール org-protocol-capture-html はあまりちゃんとメンテされていないようなのと自分の環境では eval-when-compile の際にコンパイルされて定義されるはずの関数が定義されないので 自分で fork したやつを使っている&#xA;というわけでレシピも自前で用意している。&#xA;(:name org-protocol-capture-html :description &amp;#34;Capture HTML from the browser selection into Emacs as org-mode content.&amp;#34; :type github :pkgname &amp;#34;mugijiru/org-protocol-capture-html&amp;#34; :branch &amp;#34;feat/always-define-eww-readable-functions&amp;#34; :minimum-emacs-version &amp;#34;25.1&amp;#34; :depends (org-mode s)) そしてそれを el-get-bundle でインストールしている&#xA;(el-get-bundle org-protocol-capture-html) このパッケージは audoload も指定されていないのでとりあえず require して全部読み込むようにしている&#xA;(require &amp;#39;org-protocol-capture-html) </description>
     </item>
-    
     <item>
       <title>org-roam</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/org-roam/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-roam/</guid>
-      <description>概要 org-roam は記事同士のリンク周りを強化して、検索機能を提供したり繋がりを可視化したりしてくれるやつ。繋がりを可視化することでアイデア同士の結び付きを見つけたりとかに使えるっぽい
-内部的には SQLite を使ってリンクを cache しているっぽい。
-インストール el-get 本体ではレシピを提供していないのでとりあえず自前で用意している
-(:name org-roam :website &amp;#34;https://www.orgroam.com/&amp;#34; :description &amp;#34;A plain-text knowledge management system.&amp;#34; :type github :branch &amp;#34;main&amp;#34; :pkgname &amp;#34;org-roam/org-roam&amp;#34; :depends (dash emacsql magit org-mode)) そしてそれを el-get-bundle でインストールしている
-(el-get-bundle org-roam) 設定 既存の org ファイル全てを対象にすると最初の DB 構築で無限に時間がかかるので org フォルダの下に roam というフォルダを掘ってその中だけを対象としている
-(custom-set-variables &amp;#39;(org-roam-directory (file-truename (concat org-directory &amp;#34;roam/&amp;#34;)))) そして自動的に SQLite3 と同期するように自動同期の設定を入れている
-(org-roam-db-autosync-mode 1) キーバインド とりあえず忘れても使えるように pretty-hydra で操作できるように設定している
-(with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define org-roam-hydra (:separator &amp;#34;-&amp;#34; :color teal :foreign-key warn :title (concat (all-the-icons-material &amp;#34;graphic_eq&amp;#34;) &amp;#34; Roam&amp;#34;) :quit-key &amp;#34;q&amp;#34;) (&amp;#34;Node&amp;#34; ((&amp;#34;f&amp;#34; org-roam-node-find &amp;#34;Find&amp;#34;) (&amp;#34;r&amp;#34; org-roam-node-random &amp;#34;Random&amp;#34;)) &amp;#34;DB&amp;#34; ((&amp;#34;S&amp;#34; org-roam-db-sync &amp;#34;Sync&amp;#34;) (&amp;#34;C&amp;#34; org-roam-db-clear-all &amp;#34;Clear&amp;#34;))))) </description>
+      <description>概要 org-roam は記事同士のリンク周りを強化して、検索機能を提供したり繋がりを可視化したりしてくれるやつ。繋がりを可視化することでアイデア同士の結び付きを見つけたりとかに使えるっぽい&#xA;内部的には SQLite を使ってリンクを cache しているっぽい。&#xA;インストール el-get 本体ではレシピを提供していないのでとりあえず自前で用意している&#xA;(:name org-roam :website &amp;#34;https://www.orgroam.com/&amp;#34; :description &amp;#34;A plain-text knowledge management system.&amp;#34; :type github :branch &amp;#34;main&amp;#34; :pkgname &amp;#34;org-roam/org-roam&amp;#34; :depends (dash emacsql magit org-mode)) そしてそれを el-get-bundle でインストールしている&#xA;(el-get-bundle org-roam) 設定 既存の org ファイル全てを対象にすると最初の DB 構築で無限に時間がかかるので org フォルダの下に roam というフォルダを掘ってその中だけを対象としている&#xA;(custom-set-variables &amp;#39;(org-roam-directory (file-truename (concat org-directory &amp;#34;roam/&amp;#34;)))) そして自動的に SQLite3 と同期するように自動同期の設定を入れている&#xA;(org-roam-db-autosync-mode 1) キーバインド とりあえず忘れても使えるように pretty-hydra で操作できるように設定している&#xA;(with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define org-roam-hydra (:separator &amp;#34;-&amp;#34; :color teal :foreign-key warn :title (concat (all-the-icons-material &amp;#34;graphic_eq&amp;#34;) &amp;#34; Roam&amp;#34;) :quit-key &amp;#34;q&amp;#34;) (&amp;#34;Node&amp;#34; ((&amp;#34;f&amp;#34; org-roam-node-find &amp;#34;Find&amp;#34;) (&amp;#34;r&amp;#34; org-roam-node-random &amp;#34;Random&amp;#34;)) &amp;#34;DB&amp;#34; ((&amp;#34;S&amp;#34; org-roam-db-sync &amp;#34;Sync&amp;#34;) (&amp;#34;C&amp;#34; org-roam-db-clear-all &amp;#34;Clear&amp;#34;))))) </description>
     </item>
-    
   </channel>
 </rss>

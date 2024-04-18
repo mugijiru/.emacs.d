@@ -5,6 +5,7 @@
     <link>https://mugijiru.github.io/.emacs.d/categories/</link>
     <description>Recent content in Categories on 麦汁&#39;s Emacs Config</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja-JP</language>
+    <atom:link href="https://mugijiru.github.io/.emacs.d/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

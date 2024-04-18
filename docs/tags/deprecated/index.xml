@@ -5,21 +5,14 @@
     <link>https://mugijiru.github.io/.emacs.d/tags/deprecated/</link>
     <description>Recent content in Deprecated on 麦汁&#39;s Emacs Config</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/tags/deprecated/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja-JP</language>
+    <atom:link href="https://mugijiru.github.io/.emacs.d/tags/deprecated/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mocha</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/mocha/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/programming/mocha/</guid>
-      <description>概要 Mocha は JS のテストフレームワークの1つ。 Jest より前はこっちはよく使われてた
-というわけで設定していたのだけど、今はもう使ってない。
-ひょっとしたらまた使うことがあるかもしれないのでドキュメントには残しておいて tangle による出力を停止する。
-mocha.el インストール レシピは自前で用意していた
-(:name mocha :description &amp;#34;Emacs mode for running mocha tests&amp;#34; :website &amp;#34;https://github.com/scottaj/mocha.el&amp;#34; :type github :pkgname &amp;#34;scottaj/mocha.el&amp;#34;) そしていつも通り el-get-bundle でインストールしていた
-(el-get-bundle mocha) テスト実行コマンド mocha のテストファイルかどうかを判定してそうだったら mocha としてテストを実行するコマンドを用意していた
-(defun my/mocha-test-file () (interactive) (if my/mocha-enable-p (mocha-test-file))) </description>
+      <description>概要 Mocha は JS のテストフレームワークの1つ。 Jest より前はこっちはよく使われてた&#xA;というわけで設定していたのだけど、今はもう使ってない。&#xA;ひょっとしたらまた使うことがあるかもしれないのでドキュメントには残しておいて tangle による出力を停止する。&#xA;mocha.el インストール レシピは自前で用意していた&#xA;(:name mocha :description &amp;#34;Emacs mode for running mocha tests&amp;#34; :website &amp;#34;https://github.com/scottaj/mocha.el&amp;#34; :type github :pkgname &amp;#34;scottaj/mocha.el&amp;#34;) そしていつも通り el-get-bundle でインストールしていた&#xA;(el-get-bundle mocha) テスト実行コマンド mocha のテストファイルかどうかを判定してそうだったら mocha としてテストを実行するコマンドを用意していた&#xA;(defun my/mocha-test-file () (interactive) (if my/mocha-enable-p (mocha-test-file))) </description>
     </item>
-    
   </channel>
 </rss>

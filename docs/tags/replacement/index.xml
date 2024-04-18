@@ -1,69 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>replacement on 麦汁&#39;s Emacs Config</title>
+    <title>Replacement on 麦汁&#39;s Emacs Config</title>
     <link>https://mugijiru.github.io/.emacs.d/tags/replacement/</link>
-    <description>Recent content in replacement on 麦汁&#39;s Emacs Config</description>
+    <description>Recent content in Replacement on 麦汁&#39;s Emacs Config</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/tags/replacement/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja-JP</language>
+    <atom:link href="https://mugijiru.github.io/.emacs.d/tags/replacement/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>org-gcal</title>
       <link>https://mugijiru.github.io/.emacs.d/org-mode/org-gcal/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-gcal/</guid>
-      <description>概要 org-gcal は org-mode と Google Calendar を連携させるためのパッケージ。
-オリジナルは https://github.com/myuhe/org-gcal.el なのだけど今は fork されてるやつが MELPA にも登録されていて el-get のレシピもそっちを見ている。
-インストール org-gcal が依存しているので parsist を入れている。
-(el-get-bundle persist) あとは当然 org-gcal 本体を入れないと動かない
-(el-get-bundle org-gcal) その際 el-get のレシピは自前で用意している
-(:name org-gcal :description &amp;#34;Org sync with Google Calendar.&amp;#34; :website &amp;#34;https://github.com/kidd/org-gcal.el&amp;#34; :type github :minimum-emacs-version &amp;#34;26&amp;#34; :depends (request alert cl-lib aio) :pkgname &amp;#34;kidd/org-gcal.el&amp;#34;) emacs-aio も recipe を自前で用意している
-(:name aio :website &amp;#34;https://github.com/skeeto/emacs-aio&amp;#34; :description &amp;#34;aio is to Emacs Lisp as asyncio is to Python.</description>
+      <description>概要 org-gcal は org-mode と Google Calendar を連携させるためのパッケージ。&#xA;オリジナルは https://github.com/myuhe/org-gcal.el なのだけど今は fork されてるやつが MELPA にも登録されていて el-get のレシピもそっちを見ている。&#xA;インストール org-gcal が依存しているので parsist を入れている。&#xA;(el-get-bundle persist) あとは当然 org-gcal 本体を入れないと動かない&#xA;(el-get-bundle org-gcal) その際 el-get のレシピは自前で用意している&#xA;(:name org-gcal :description &amp;#34;Org sync with Google Calendar.&amp;#34; :website &amp;#34;https://github.com/kidd/org-gcal.el&amp;#34; :type github :minimum-emacs-version &amp;#34;26&amp;#34; :depends (request alert cl-lib aio) :pkgname &amp;#34;kidd/org-gcal.el&amp;#34;) emacs-aio も recipe を自前で用意している&#xA;(:name aio :website &amp;#34;https://github.com/skeeto/emacs-aio&amp;#34; :description &amp;#34;aio is to Emacs Lisp as asyncio is to Python.</description>
     </item>
-    
     <item>
       <title>auto-save</title>
       <link>https://mugijiru.github.io/.emacs.d/basics/auto-save/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/basics/auto-save/</guid>
-      <description>概要 編集中状態の自動保存や、編集前や保存直後の状態のバックアップに関する設定をここでは書いている。
-Emacs ではデフォルトでも編集中ファイルの自動保存や、編集前の状態の自動バックアップもしてくれるが開いているファイルとは違う場所に保存したりすることで、より便利になるのでいくつかの設定を入れている。
-設定 自動保存設定 デフォルトだと #hoge.txt# みたいなファイル名で作られる、自動保存に関する設定。
-まあこの自動保存されてやつを活用できてる気がしないのでこの自動保存自体不要な気はしているが、とりあえず場所を移動して邪魔にはならないようにはしている。
-自動保存のタイミング 自動保存のタイミングは
-auto-save-timeout auto-save-interval で制御されている。
-まず auto-save-timeout で設定した秒数が経過すると再度自動保存が実行される。
-これがデフォルトだと 30 秒なのだが、ちょっと長いのでその半分の 15 秒で保存されるように設定を変更している。
-(setq auto-save-timeout 15) また auto-save-interval で設定した回数のキーイベントが発生すると再度自動保存を実行する。
-これもデフォルトだと 300 と結構なキーを叩く必要があるので 60 回としている。
-(setq auto-save-interval 60) 自動保存先を変更する 自動保存はそのままだと弄ってるファイルの場所に作られる。が、これは以下のようにすると ~/.emacs.d/backup/ 一応変更可能。
-(setq auto-save-file-name-transforms &amp;#39;((&amp;#34;.*&amp;#34; &amp;#34;~/.emacs.d/backup/&amp;#34; t))) ただ、デフォルト値が
-((&amp;#34;\\`/[^/]*:\\([^/]*/\\)*\\([^/]*\\)\\&amp;#39;&amp;#34; &amp;#34;/tmp/\\2&amp;#34; t)) なので .* にしているのは乱暴そうな気がしている。
-というわけで https://masutaka.net/chalow/2014-05-11-1.html に書かれているのを真似して
-((&amp;#34;~/\\([^/]*/\\)*\\([^/]*\\)$&amp;#34; &amp;#34;~/.emacs.d/backup/\\2&amp;#34; t)) とでもした方が良いかもしれない。
-バックアップファイル 自動保存とは別に、ファイルを開いた時点のバージョンや保存した時点のバージョンを取っておいてくれる自動バックアップ機能もあるのでその設定も弄っている。
-バックアップ先のフォルダ指定 デフォルトでは編集しているファイルと同じフォルダにバックアップファイルを作成するようになっている。
-だけど、こいつが結構邪魔なのでバックアップファイルは ~/.emacs.d/backup/ に全部保存するようにしている。
-また、普段 tramp は使っていないが何かの拍子で使った時にバックアップが取られると邪魔そうなのでそれは保存しないようにしている。</description>
+      <description>概要 編集中状態の自動保存や、編集前や保存直後の状態のバックアップに関する設定をここでは書いている。&#xA;Emacs ではデフォルトでも編集中ファイルの自動保存や、編集前の状態の自動バックアップもしてくれるが開いているファイルとは違う場所に保存したりすることで、より便利になるのでいくつかの設定を入れている。&#xA;設定 自動保存設定 デフォルトだと #hoge.txt# みたいなファイル名で作られる、自動保存に関する設定。&#xA;まあこの自動保存されてやつを活用できてる気がしないのでこの自動保存自体不要な気はしているが、とりあえず場所を移動して邪魔にはならないようにはしている。&#xA;自動保存のタイミング 自動保存のタイミングは&#xA;auto-save-timeout auto-save-interval で制御されている。&#xA;まず auto-save-timeout で設定した秒数が経過すると再度自動保存が実行される。&#xA;これがデフォルトだと 30 秒なのだが、ちょっと長いのでその半分の 15 秒で保存されるように設定を変更している。&#xA;(setq auto-save-timeout 15) また auto-save-interval で設定した回数のキーイベントが発生すると再度自動保存を実行する。&#xA;これもデフォルトだと 300 と結構なキーを叩く必要があるので 60 回としている。&#xA;(setq auto-save-interval 60) 自動保存先を変更する 自動保存はそのままだと弄ってるファイルの場所に作られる。が、これは以下のようにすると ~/.emacs.d/backup/ 一応変更可能。&#xA;(setq auto-save-file-name-transforms &amp;#39;((&amp;#34;.*&amp;#34; &amp;#34;~/.emacs.d/backup/&amp;#34; t))) ただ、デフォルト値が&#xA;((&amp;#34;\\`/[^/]*:\\([^/]*/\\)*\\([^/]*\\)\\&amp;#39;&amp;#34; &amp;#34;/tmp/\\2&amp;#34; t)) なので .* にしているのは乱暴そうな気がしている。&#xA;というわけで https://masutaka.net/chalow/2014-05-11-1.html に書かれているのを真似して&#xA;((&amp;#34;~/\\([^/]*/\\)*\\([^/]*\\)$&amp;#34; &amp;#34;~/.emacs.d/backup/\\2&amp;#34; t)) とでもした方が良いかもしれない。&#xA;バックアップファイル 自動保存とは別に、ファイルを開いた時点のバージョンや保存した時点のバージョンを取っておいてくれる自動バックアップ機能もあるのでその設定も弄っている。&#xA;バックアップ先のフォルダ指定 デフォルトでは編集しているファイルと同じフォルダにバックアップファイルを作成するようになっている。&#xA;だけど、こいつが結構邪魔なのでバックアップファイルは ~/.emacs.d/backup/ に全部保存するようにしている。&#xA;また、普段 tramp は使っていないが何かの拍子で使った時にバックアップが取られると邪魔そうなのでそれは保存しないようにしている。</description>
     </item>
-    
     <item>
       <title>Neotree</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/neotree/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/ui/neotree/</guid>
-      <description>概要 Neotree は Emacs でフォルダのツリー表示ができるやつ。メンテは活発じゃないようなので、その内乗り換えたい。
-レシピ Neotree でメンテされているのは dev ブランチだけど el-get の公式のレシピでは master ブランチを見ているので自前で recipe を用意してそれを使っている。
-(:name emacs-neotree-dev :website &amp;#34;https://github.com/jaypei/emacs-neotree&amp;#34; :description &amp;#34;An Emacs tree plugin like NerdTree for Vim.&amp;#34; :type github :branch &amp;#34;dev&amp;#34; :pkgname &amp;#34;jaypei/emacs-neotree&amp;#34;) インストール 上に書いたレシピを使ってインストールしている。
-(el-get-bundle emacs-neotree-dev) 使わなくなったコード 元々設定していたが、 counsel-projectile を使ってると projectile-switch-project-action を設定していても反映されず意味がないのに気付いたので使わなくなった
-https://github.com/mugijiru/.emacs.d/pull/183/files#r541843206
-(setq projectile-switch-project-action &amp;#39;neotree-projectile-action) テーマの設定 GUI で起動している時はアイコン表示しそうでない場合は ▾ とかで表示する
-(setq neo-theme (if (display-graphic-p) &amp;#39;icons &amp;#39;arrow)) のだけど、実際に今使ってるやつだともっとグラフィカルな表示なので all-the-icons の設定で上書きしている気がするので要確認
-major-mode-hydra いちいちキーバインドを覚えてられないので major-mode-hydra を使って主要なキーバインドは hydra で使えるようにしている。
-とはいえ、この文書を書く前日ぐらいに設定しているのでまだ使い慣れてないというか、ほとんど使えてない。</description>
+      <description>概要 Neotree は Emacs でフォルダのツリー表示ができるやつ。メンテは活発じゃないようなので、その内乗り換えたい。&#xA;レシピ Neotree でメンテされているのは dev ブランチだけど el-get の公式のレシピでは master ブランチを見ているので自前で recipe を用意してそれを使っている。&#xA;(:name emacs-neotree-dev :website &amp;#34;https://github.com/jaypei/emacs-neotree&amp;#34; :description &amp;#34;An Emacs tree plugin like NerdTree for Vim.&amp;#34; :type github :branch &amp;#34;dev&amp;#34; :pkgname &amp;#34;jaypei/emacs-neotree&amp;#34;) インストール 上に書いたレシピを使ってインストールしている。&#xA;(el-get-bundle emacs-neotree-dev) 使わなくなったコード 元々設定していたが、 counsel-projectile を使ってると projectile-switch-project-action を設定していても反映されず意味がないのに気付いたので使わなくなった&#xA;https://github.com/mugijiru/.emacs.d/pull/183/files#r541843206&#xA;(setq projectile-switch-project-action &amp;#39;neotree-projectile-action) テーマの設定 GUI で起動している時はアイコン表示しそうでない場合は ▾ とかで表示する&#xA;(setq neo-theme (if (display-graphic-p) &amp;#39;icons &amp;#39;arrow)) のだけど、実際に今使ってるやつだともっとグラフィカルな表示なので all-the-icons の設定で上書きしている気がするので要確認&#xA;major-mode-hydra いちいちキーバインドを覚えてられないので major-mode-hydra を使って主要なキーバインドは hydra で使えるようにしている。&#xA;とはいえ、この文書を書く前日ぐらいに設定しているのでまだ使い慣れてないというか、ほとんど使えてない。</description>
     </item>
-    
   </channel>
 </rss>

@@ -5,51 +5,28 @@
     <link>https://mugijiru.github.io/.emacs.d/testing-tool/</link>
     <description>Recent content in テスト用ツール on 麦汁&#39;s Emacs Config</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/testing-tool/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja-JP</language>
+    <atom:link href="https://mugijiru.github.io/.emacs.d/testing-tool/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>with-simulated-input</title>
       <link>https://mugijiru.github.io/.emacs.d/testing-tool/with-simulated-input/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/testing-tool/with-simulated-input/</guid>
-      <description>概要 with-simulated-input は入力処理をシミュレートするためのプラグイン。
-公式のドキュメントにあるように
-(with-simulated-input &amp;#34;hello SPC world RET&amp;#34; (read-string &amp;#34;Say hello to the world: &amp;#34;)) を評価すると read-string に対して「hello world」を入力したことになるので echo エリアに「hello world」と表示される。
-これで何が嬉しいかというと Emacs Lisp でやっていることはインタラクティブな部分が大きいのでそういった要素をテストできるようになる。
-具体的な使用例は test:my/org-todo で示す。
-インストール レシピは自前で用意している
-(:name with-simulated-input :type github :description &amp;#34;A macro to simulate user input non-interactively.&amp;#34; :pkgname &amp;#34;DarwinAwardWinner/with-simulated-input&amp;#34; :minimum-emacs-version (24 4)) そして el-get-bundle で GitHub からインストールしている
-(el-get-bundle DarwinAwardWinner/with-simulated-input) </description>
+      <description>概要 with-simulated-input は入力処理をシミュレートするためのプラグイン。&#xA;公式のドキュメントにあるように&#xA;(with-simulated-input &amp;#34;hello SPC world RET&amp;#34; (read-string &amp;#34;Say hello to the world: &amp;#34;)) を評価すると read-string に対して「hello world」を入力したことになるので echo エリアに「hello world」と表示される。&#xA;これで何が嬉しいかというと Emacs Lisp でやっていることはインタラクティブな部分が大きいのでそういった要素をテストできるようになる。&#xA;具体的な使用例は test:my/org-todo で示す。&#xA;インストール レシピは自前で用意している&#xA;(:name with-simulated-input :type github :description &amp;#34;A macro to simulate user input non-interactively.&amp;#34; :pkgname &amp;#34;DarwinAwardWinner/with-simulated-input&amp;#34; :minimum-emacs-version (24 4)) そして el-get-bundle で GitHub からインストールしている&#xA;(el-get-bundle DarwinAwardWinner/with-simulated-input) </description>
     </item>
-    
     <item>
       <title>mocker.el</title>
       <link>https://mugijiru.github.io/.emacs.d/testing-tool/mocker-el/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/testing-tool/mocker-el/</guid>
-      <description>概要 mocker.el は Emacs Lisp のテストで使う Mock ライブラリ。
-使おうと思って導入したけど、自分のやりたいことはちょっと違ったので死蔵中
-便利そうなのでとりあえず置いといている。
-インストール レシピを自前で用意して
-(:name mocker.el :type github :description &amp;#34;Mocker.el is a mocking framework for Emacs lisp.&amp;#34; :pkgname &amp;#34;sigma/mocker.el&amp;#34; :minimum-emacs-version (25 1)) el-get で GitHub から取得している。
-(el-get-bundle mocker.el) 副作用を伴う関数の扱い 基本的に入出力を置き換えるためのものなので副作用が処理の主体になるような関数には向いてなさそう。
-ただ https://github.com/sigma/mocker.el#examples を見ていると output-generator で副作用と同じ処理を書いてやるなどの逃げ道はありそう</description>
+      <description>概要 mocker.el は Emacs Lisp のテストで使う Mock ライブラリ。&#xA;使おうと思って導入したけど、自分のやりたいことはちょっと違ったので死蔵中&#xA;便利そうなのでとりあえず置いといている。&#xA;インストール レシピを自前で用意して&#xA;(:name mocker.el :type github :description &amp;#34;Mocker.el is a mocking framework for Emacs lisp.&amp;#34; :pkgname &amp;#34;sigma/mocker.el&amp;#34; :minimum-emacs-version (25 1)) el-get で GitHub から取得している。&#xA;(el-get-bundle mocker.el) 副作用を伴う関数の扱い 基本的に入出力を置き換えるためのものなので副作用が処理の主体になるような関数には向いてなさそう。&#xA;ただ https://github.com/sigma/mocker.el#examples を見ていると output-generator で副作用と同じ処理を書いてやるなどの逃げ道はありそう</description>
     </item>
-    
     <item>
       <title>noflet</title>
       <link>https://mugijiru.github.io/.emacs.d/testing-tool/noflet/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/testing-tool/noflet/</guid>
-      <description>概要 ローカル定義の関数を用意するためのパッケージ。
-ref: http://emacs.rubikitch.com/noflet/
-テストする際に副作用を持つ関数を置き換えるのに便利。例えば https://github.com/mugijiru/emacs-kibela/pull/14/commits/da54ad30473d65539efd884f30693e1d4707067b では noflet に差し替えてテストしている。
-mocker.el との使い分け mocker.el は関数を stub/mock するのには悪くないのだけどその関数が副作用を持っていて、その副作用の結果を反映した状態を実現するのには向いてなさそうなので emacs-kibela のテストでは noflet を採用したという経緯がある
-インストール noflet は el-get 本体の recipe として登録されているので el-get-bundle で入れるだけで良い
-(el-get-bundle noflet) </description>
+      <description>概要 ローカル定義の関数を用意するためのパッケージ。&#xA;ref: http://emacs.rubikitch.com/noflet/&#xA;テストする際に副作用を持つ関数を置き換えるのに便利。例えば https://github.com/mugijiru/emacs-kibela/pull/14/commits/da54ad30473d65539efd884f30693e1d4707067b では noflet に差し替えてテストしている。&#xA;mocker.el との使い分け mocker.el は関数を stub/mock するのには悪くないのだけどその関数が副作用を持っていて、その副作用の結果を反映した状態を実現するのには向いてなさそうなので emacs-kibela のテストでは noflet を採用したという経緯がある&#xA;インストール noflet は el-get 本体の recipe として登録されているので el-get-bundle で入れるだけで良い&#xA;(el-get-bundle noflet) </description>
     </item>
-    
   </channel>
 </rss>

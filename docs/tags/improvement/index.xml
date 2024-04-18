@@ -1,25 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>improvement on 麦汁&#39;s Emacs Config</title>
+    <title>Improvement on 麦汁&#39;s Emacs Config</title>
     <link>https://mugijiru.github.io/.emacs.d/tags/improvement/</link>
-    <description>Recent content in improvement on 麦汁&#39;s Emacs Config</description>
+    <description>Recent content in Improvement on 麦汁&#39;s Emacs Config</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/tags/improvement/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja-JP</language>
+    <atom:link href="https://mugijiru.github.io/.emacs.d/tags/improvement/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>git-gutter-fringe</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/git-gutter-fringe/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/ui/git-gutter-fringe/</guid>
-      <description>概要 git-gutter-fringe は git-gutter の派生版。最後のコミットからどの行を弄ったかを fringe 領域に表示してくれる。
-他にも hunk の操作をできる機能とかあるみたいだけどそのあたりは使ったことがない……。
-派生元の git-gutter は linum-mode と同じ領域を使って描画をしているようで併用ができなかったので git-gutter-fringe を利用している。
-が、Emacs 26 から display-line-numbers-mode が搭載されて linum-mode が不要になったので git-gutter に乗り換えても良さそう
-インストール いつも通り el-get でインストールしている
-(el-get-bundle git-gutter-fringe) 有効化 Git 管理しているやつは全部差分情報が表示されて欲しいのでグローバルマイナーモードを有効にしている。
-(global-git-gutter-mode t) その他 git-gutter ほどではないけど多少のカスタマイズはできるはずだがデフォルト設定で特に不満はないので何もしてない</description>
+      <description>概要 git-gutter-fringe は git-gutter の派生版。最後のコミットからどの行を弄ったかを fringe 領域に表示してくれる。&#xA;他にも hunk の操作をできる機能とかあるみたいだけどそのあたりは使ったことがない……。&#xA;派生元の git-gutter は linum-mode と同じ領域を使って描画をしているようで併用ができなかったので git-gutter-fringe を利用している。&#xA;が、Emacs 26 から display-line-numbers-mode が搭載されて linum-mode が不要になったので git-gutter に乗り換えても良さそう&#xA;インストール いつも通り el-get でインストールしている&#xA;(el-get-bundle git-gutter-fringe) 有効化 Git 管理しているやつは全部差分情報が表示されて欲しいのでグローバルマイナーモードを有効にしている。&#xA;(global-git-gutter-mode t) その他 git-gutter ほどではないけど多少のカスタマイズはできるはずだがデフォルト設定で特に不満はないので何もしてない</description>
     </item>
-    
   </channel>
 </rss>

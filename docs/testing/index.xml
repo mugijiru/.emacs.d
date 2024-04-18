@@ -5,45 +5,28 @@
     <link>https://mugijiru.github.io/.emacs.d/testing/</link>
     <description>Recent content in テストコード on 麦汁&#39;s Emacs Config</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/testing/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja-JP</language>
+    <atom:link href="https://mugijiru.github.io/.emacs.d/testing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>実行方法</title>
       <link>https://mugijiru.github.io/.emacs.d/testing/execution/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/testing/execution/</guid>
-      <description>テストする時は以下のように叩いたら動く。
-emacs -Q --batch -l ~/.emacs.d/inits/test/*-test.el -l ~/.emacs.d/inits/test/run-tests.el 今まで .emacs.d にいる状態でしか叩いたことないので他の場所にいる時に実行しても大丈夫かはわからない。
-単体でテストしたい時は
--l ~/.emacs.d/inits/test/*-test.el の部分を書き換えたらいいんじゃないかな。やったことないけど。</description>
+      <description>テストする時は以下のように叩いたら動く。&#xA;emacs -Q --batch -l ~/.emacs.d/inits/test/*-test.el -l ~/.emacs.d/inits/test/run-tests.el 今まで .emacs.d にいる状態でしか叩いたことないので他の場所にいる時に実行しても大丈夫かはわからない。&#xA;単体でテストしたい時は&#xA;-l ~/.emacs.d/inits/test/*-test.el の部分を書き換えたらいいんじゃないかな。やったことないけど。</description>
     </item>
-    
     <item>
       <title>run-tests</title>
       <link>https://mugijiru.github.io/.emacs.d/testing/run-tests/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/testing/run-tests/</guid>
-      <description>読み込んだテストをまるっとテストするためのコードをとりあえず置いている。
-(if noninteractive (let ((ert-quiet t)) (ert-run-tests-batch-and-exit))) 後述の テストライブラリの読み込み などはここで担うべきかとも考えるが今はテストファイルが1つしかないので気にしないことにする。</description>
+      <description>読み込んだテストをまるっとテストするためのコードをとりあえず置いている。&#xA;(if noninteractive (let ((ert-quiet t)) (ert-run-tests-batch-and-exit))) 後述の テストライブラリの読み込み などはここで担うべきかとも考えるが今はテストファイルが1つしかないので気にしないことにする。</description>
     </item>
-    
     <item>
       <title>my-org-commands-test</title>
       <link>https://mugijiru.github.io/.emacs.d/testing/my-org-commands-test/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/testing/my-org-commands-test/</guid>
-      <description>org-mode 用に定義したコマンドや関数のテストコード
-Setup テストライブラリの読み込み 標準でついてくる ert を採用しているのでそれを読み込んでいる。
-(require &amp;#39;ert) el-get の設定の読み込み プラグイン管理には el-get を利用しているのでその設定ファイルを読み込んでいる。
-;; プラグイン読み込みの前準備 (load (expand-file-name (concat user-emacs-directory &amp;#34;/init-el-get.el&amp;#34;))) テスト補助のプラグイン読み込み with-simulated-input 上で説明しているが、入力をシミュレートするためのプラグインをテストで利用しているのでここで読み込んでいる。
-;; 入力シミュレート用のプラグイン (load (expand-file-name (concat user-emacs-directory &amp;#34;/inits/99-with-simulated-input&amp;#34;))) 依存プラグインの読み込み テスト対象が依存しているプラグインを読み込んでいる。本来は init.el などの設定ファイルを全部読み込んだ状態でテストをした方が良さそうだが現状だとその状態で GitHub Actions で動かせる方法がわからないので一旦個別に読み込むようにしている。
-swiper ivy-read を使った機能のテストをするので読み込んでいる。
-(el-get-bundle abo-abo/swiper) テスト対象の読み込み テストしたいファイルをここで読んでる。
-;; テスト対象の読み込み (load (expand-file-name (concat user-emacs-directory &amp;#34;/inits/68-my-org-commands.el&amp;#34;))) ert-deftest test:my/org-todo-keyword-strings org-todo-keywords から &amp;ldquo;|&amp;rdquo; という区切りを除外したり &amp;ldquo;(s)&amp;rdquo; とかのような高速アクセスのためのキーワードは ivy で選択する時には邪魔なので除外したい、ということを表現したテスト。
-(ert-deftest test:my/org-todo-keyword-strings () &amp;#34;Test of `my/org-todo-keyword-strings&amp;#39;.&amp;#34; (let ((org-todo-keywords &amp;#39;((sequence &amp;#34;TODO&amp;#34; &amp;#34;DOING(!</description>
+      <description>org-mode 用に定義したコマンドや関数のテストコード&#xA;Setup テストライブラリの読み込み 標準でついてくる ert を採用しているのでそれを読み込んでいる。&#xA;(require &amp;#39;ert) el-get の設定の読み込み プラグイン管理には el-get を利用しているのでその設定ファイルを読み込んでいる。&#xA;;; プラグイン読み込みの前準備 (load (expand-file-name (concat user-emacs-directory &amp;#34;/init-el-get.el&amp;#34;))) テスト補助のプラグイン読み込み with-simulated-input 上で説明しているが、入力をシミュレートするためのプラグインをテストで利用しているのでここで読み込んでいる。&#xA;;; 入力シミュレート用のプラグイン (load (expand-file-name (concat user-emacs-directory &amp;#34;/inits/99-with-simulated-input&amp;#34;))) 依存プラグインの読み込み テスト対象が依存しているプラグインを読み込んでいる。本来は init.el などの設定ファイルを全部読み込んだ状態でテストをした方が良さそうだが現状だとその状態で GitHub Actions で動かせる方法がわからないので一旦個別に読み込むようにしている。&#xA;swiper ivy-read を使った機能のテストをするので読み込んでいる。&#xA;(el-get-bundle abo-abo/swiper) テスト対象の読み込み テストしたいファイルをここで読んでる。&#xA;;; テスト対象の読み込み (load (expand-file-name (concat user-emacs-directory &amp;#34;/inits/68-my-org-commands.el&amp;#34;))) ert-deftest test:my/org-todo-keyword-strings org-todo-keywords から &amp;ldquo;|&amp;rdquo; という区切りを除外したり &amp;ldquo;(s)&amp;rdquo; とかのような高速アクセスのためのキーワードは ivy で選択する時には邪魔なので除外したい、ということを表現したテスト。&#xA;(ert-deftest test:my/org-todo-keyword-strings () &amp;#34;Test of `my/org-todo-keyword-strings&amp;#39;.&amp;#34; (let ((org-todo-keywords &amp;#39;((sequence &amp;#34;TODO&amp;#34; &amp;#34;DOING(!</description>
     </item>
-    
   </channel>
 </rss>

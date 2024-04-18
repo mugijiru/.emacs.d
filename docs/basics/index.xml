@@ -5,199 +5,98 @@
     <link>https://mugijiru.github.io/.emacs.d/basics/</link>
     <description>Recent content in 基本設定 on 麦汁&#39;s Emacs Config</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/basics/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja-JP</language>
+    <atom:link href="https://mugijiru.github.io/.emacs.d/basics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>auth-source</title>
       <link>https://mugijiru.github.io/.emacs.d/basics/auth-source/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/basics/auth-source/</guid>
-      <description>概要 auth-source は Emacs でパスワードのような秘匿情報を扱うための仕組み。 Emacs の各パッケージが認証情報を要求する時にこいつ経由で取得できるようにしておくと秘匿もできて便利っぽい。
-パスワードの保存先はデフォルトだと (&amp;quot;~/.authinfo&amp;quot; &amp;quot;~/.authinfo.gpg&amp;quot; &amp;quot;~/.netrc&amp;quot;) となっている。
-拡張子が gpg だと EagyPG Assistant で保存時に暗号化されるので便利。
-ファイル指定 自分は Emacs でしか使わないであろう情報ということで /.emacs.d/.authinfo.gpg を指定している。
-(custom-set-variables &amp;#39;(auth-sources (quote (&amp;#34;~/.emacs.d/.authinfo.gpg&amp;#34;)))) </description>
+      <description>概要 auth-source は Emacs でパスワードのような秘匿情報を扱うための仕組み。 Emacs の各パッケージが認証情報を要求する時にこいつ経由で取得できるようにしておくと秘匿もできて便利っぽい。&#xA;パスワードの保存先はデフォルトだと (&amp;quot;~/.authinfo&amp;quot; &amp;quot;~/.authinfo.gpg&amp;quot; &amp;quot;~/.netrc&amp;quot;) となっている。&#xA;拡張子が gpg だと EagyPG Assistant で保存時に暗号化されるので便利。&#xA;ファイル指定 自分は Emacs でしか使わないであろう情報ということで /.emacs.d/.authinfo.gpg を指定している。&#xA;(custom-set-variables &amp;#39;(auth-sources (quote (&amp;#34;~/.emacs.d/.authinfo.gpg&amp;#34;)))) </description>
     </item>
-    
     <item>
       <title>auto-format</title>
       <link>https://mugijiru.github.io/.emacs.d/basics/auto-format/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/basics/auto-format/</guid>
-      <description>概要 保存時に自動で整形してくれるように fork した auto-fix.el を使っている。
-これを入れて各 major-mode で設定をするとファイル保存時に自動で整形してくれて便利だったりする
-インストール fork しているので自前で recipe も用意している
-(:name auto-fix :website &amp;#34;https://github.com/mugijiru/auto-fix.el&amp;#34; :description &amp;#34;Fix current buffer automatically&amp;#34; :type github :branch &amp;#34;accept-multiple-args&amp;#34; :pkgname &amp;#34;mugijiru/auto-fix.el&amp;#34;) これを以下のようにして el-get でインスコしている
-(el-get-bundle auto-fix) </description>
+      <description>概要 保存時に自動で整形してくれるように fork した auto-fix.el を使っている。&#xA;これを入れて各 major-mode で設定をするとファイル保存時に自動で整形してくれて便利だったりする&#xA;インストール fork しているので自前で recipe も用意している&#xA;(:name auto-fix :website &amp;#34;https://github.com/mugijiru/auto-fix.el&amp;#34; :description &amp;#34;Fix current buffer automatically&amp;#34; :type github :branch &amp;#34;accept-multiple-args&amp;#34; :pkgname &amp;#34;mugijiru/auto-fix.el&amp;#34;) これを以下のようにして el-get でインスコしている&#xA;(el-get-bundle auto-fix) </description>
     </item>
-    
     <item>
       <title>auto-save</title>
       <link>https://mugijiru.github.io/.emacs.d/basics/auto-save/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/basics/auto-save/</guid>
-      <description>概要 編集中状態の自動保存や、編集前や保存直後の状態のバックアップに関する設定をここでは書いている。
-Emacs ではデフォルトでも編集中ファイルの自動保存や、編集前の状態の自動バックアップもしてくれるが開いているファイルとは違う場所に保存したりすることで、より便利になるのでいくつかの設定を入れている。
-設定 自動保存設定 デフォルトだと #hoge.txt# みたいなファイル名で作られる、自動保存に関する設定。
-まあこの自動保存されてやつを活用できてる気がしないのでこの自動保存自体不要な気はしているが、とりあえず場所を移動して邪魔にはならないようにはしている。
-自動保存のタイミング 自動保存のタイミングは
-auto-save-timeout auto-save-interval で制御されている。
-まず auto-save-timeout で設定した秒数が経過すると再度自動保存が実行される。
-これがデフォルトだと 30 秒なのだが、ちょっと長いのでその半分の 15 秒で保存されるように設定を変更している。
-(setq auto-save-timeout 15) また auto-save-interval で設定した回数のキーイベントが発生すると再度自動保存を実行する。
-これもデフォルトだと 300 と結構なキーを叩く必要があるので 60 回としている。
-(setq auto-save-interval 60) 自動保存先を変更する 自動保存はそのままだと弄ってるファイルの場所に作られる。が、これは以下のようにすると ~/.emacs.d/backup/ 一応変更可能。
-(setq auto-save-file-name-transforms &amp;#39;((&amp;#34;.*&amp;#34; &amp;#34;~/.emacs.d/backup/&amp;#34; t))) ただ、デフォルト値が
-((&amp;#34;\\`/[^/]*:\\([^/]*/\\)*\\([^/]*\\)\\&amp;#39;&amp;#34; &amp;#34;/tmp/\\2&amp;#34; t)) なので .* にしているのは乱暴そうな気がしている。
-というわけで https://masutaka.net/chalow/2014-05-11-1.html に書かれているのを真似して
-((&amp;#34;~/\\([^/]*/\\)*\\([^/]*\\)$&amp;#34; &amp;#34;~/.emacs.d/backup/\\2&amp;#34; t)) とでもした方が良いかもしれない。
-バックアップファイル 自動保存とは別に、ファイルを開いた時点のバージョンや保存した時点のバージョンを取っておいてくれる自動バックアップ機能もあるのでその設定も弄っている。
-バックアップ先のフォルダ指定 デフォルトでは編集しているファイルと同じフォルダにバックアップファイルを作成するようになっている。
-だけど、こいつが結構邪魔なのでバックアップファイルは ~/.emacs.d/backup/ に全部保存するようにしている。
-また、普段 tramp は使っていないが何かの拍子で使った時にバックアップが取られると邪魔そうなのでそれは保存しないようにしている。</description>
+      <description>概要 編集中状態の自動保存や、編集前や保存直後の状態のバックアップに関する設定をここでは書いている。&#xA;Emacs ではデフォルトでも編集中ファイルの自動保存や、編集前の状態の自動バックアップもしてくれるが開いているファイルとは違う場所に保存したりすることで、より便利になるのでいくつかの設定を入れている。&#xA;設定 自動保存設定 デフォルトだと #hoge.txt# みたいなファイル名で作られる、自動保存に関する設定。&#xA;まあこの自動保存されてやつを活用できてる気がしないのでこの自動保存自体不要な気はしているが、とりあえず場所を移動して邪魔にはならないようにはしている。&#xA;自動保存のタイミング 自動保存のタイミングは&#xA;auto-save-timeout auto-save-interval で制御されている。&#xA;まず auto-save-timeout で設定した秒数が経過すると再度自動保存が実行される。&#xA;これがデフォルトだと 30 秒なのだが、ちょっと長いのでその半分の 15 秒で保存されるように設定を変更している。&#xA;(setq auto-save-timeout 15) また auto-save-interval で設定した回数のキーイベントが発生すると再度自動保存を実行する。&#xA;これもデフォルトだと 300 と結構なキーを叩く必要があるので 60 回としている。&#xA;(setq auto-save-interval 60) 自動保存先を変更する 自動保存はそのままだと弄ってるファイルの場所に作られる。が、これは以下のようにすると ~/.emacs.d/backup/ 一応変更可能。&#xA;(setq auto-save-file-name-transforms &amp;#39;((&amp;#34;.*&amp;#34; &amp;#34;~/.emacs.d/backup/&amp;#34; t))) ただ、デフォルト値が&#xA;((&amp;#34;\\`/[^/]*:\\([^/]*/\\)*\\([^/]*\\)\\&amp;#39;&amp;#34; &amp;#34;/tmp/\\2&amp;#34; t)) なので .* にしているのは乱暴そうな気がしている。&#xA;というわけで https://masutaka.net/chalow/2014-05-11-1.html に書かれているのを真似して&#xA;((&amp;#34;~/\\([^/]*/\\)*\\([^/]*\\)$&amp;#34; &amp;#34;~/.emacs.d/backup/\\2&amp;#34; t)) とでもした方が良いかもしれない。&#xA;バックアップファイル 自動保存とは別に、ファイルを開いた時点のバージョンや保存した時点のバージョンを取っておいてくれる自動バックアップ機能もあるのでその設定も弄っている。&#xA;バックアップ先のフォルダ指定 デフォルトでは編集しているファイルと同じフォルダにバックアップファイルを作成するようになっている。&#xA;だけど、こいつが結構邪魔なのでバックアップファイルは ~/.emacs.d/backup/ に全部保存するようにしている。&#xA;また、普段 tramp は使っていないが何かの拍子で使った時にバックアップが取られると邪魔そうなのでそれは保存しないようにしている。</description>
     </item>
-    
     <item>
       <title>custom-file</title>
       <link>https://mugijiru.github.io/.emacs.d/basics/custom-file/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/basics/custom-file/</guid>
-      <description>概要 Emacs では customize 機能などで設定したファイルを標準だと init.el の末尾に追記したりするが自動吐き出しされるものがあるとバージョン管理が難しくなるので別ファイルに出力するようにするなどの調整をしている。
-出力先の設定 .emacs.d の中に閉じ込めておく方が管理が楽なので出力先として ~/.emacs.d/custom.el を指定している。
-(setq custom-file (expand-file-name &amp;#34;~/.emacs.d/custom.el&amp;#34;)) カスタム設定の読み込み 起動時に、設定が入っているファイルが読み込まれないと保存した設定が有効にならないので load を使って読んでいる。
-(load custom-file) その他 カスタムファイルは終盤で読み込む方がいいかと思って init-loader では 99 という最後の方で読まれる番号を振っている。
-このあたりの設定を個別のパッケージの設定の方に移動したらこのファイルは空にできるんじゃないかなとも思っているが、それはゆっくり対応していくつもり</description>
+      <description>概要 Emacs では customize 機能などで設定したファイルを標準だと init.el の末尾に追記したりするが自動吐き出しされるものがあるとバージョン管理が難しくなるので別ファイルに出力するようにするなどの調整をしている。&#xA;出力先の設定 .emacs.d の中に閉じ込めておく方が管理が楽なので出力先として ~/.emacs.d/custom.el を指定している。&#xA;(setq custom-file (expand-file-name &amp;#34;~/.emacs.d/custom.el&amp;#34;)) カスタム設定の読み込み 起動時に、設定が入っているファイルが読み込まれないと保存した設定が有効にならないので load を使って読んでいる。&#xA;(load custom-file) その他 カスタムファイルは終盤で読み込む方がいいかと思って init-loader では 99 という最後の方で読まれる番号を振っている。&#xA;このあたりの設定を個別のパッケージの設定の方に移動したらこのファイルは空にできるんじゃないかなとも思っているが、それはゆっくり対応していくつもり</description>
     </item>
-    
     <item>
       <title>ddskk</title>
       <link>https://mugijiru.github.io/.emacs.d/basics/ddskk/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/basics/ddskk/</guid>
-      <description>概要 ddskk は Emacs Lisp 版の SKK 実装。
-一般的な日本語変換ソフトだと文法を自動で認識して変換をしてくれるけど SKK ではその自動認識がおかしくておかしな変換になるところを、単語の区切りなんかを一切判定せずに人間がそれを教えてあげることで、そういう自動的に変な挙動をしてしまう煩わしさから開放されるようになっている。
-インストール いつも通り el-get で入れている。最近は最新版が GitHub で更新されているのでそちらから引っ張られてくる。
-(el-get-bundle ddskk) 常時有効化 find-file-hooks で有効化することでファイルを開いた時には常に skk が使える状態にしている。また skk-latin-mode にしておくことで、基本は英語入力ですぐに日本語入力に切り替えられる状態にしている。
-(defun my/always-enable-skk-latin-mode-hook () (skk-latin-mode 1)) (add-hook &amp;#39;find-file-hooks &amp;#39;my/always-enable-skk-latin-mode-hook) hook の設定 ddskk が呼び出された時に色々設定されるようにしている。
-もしかしたら customize-variable とかあるかもしれないので今度見直した方が良さそう。
-(add-hook &amp;#39;skk-load-hook (lambda () ;; コード中では自動的に英字にする。 (require &amp;#39;context-skk) (setq skk-comp-mode t) ;; 動的自動補完 (setq skk-auto-insert-paren t) (setq skk-delete-implies-kakutei nil) (setq skk-sticky-key &amp;#34;;&amp;#34;) (setq skk-henkan-strict-okuri-precedence t) (setq skk-show-annotation t) ;; 単語の意味をアノテーションとして表示。例) いぜん /以前;previous/依然;still/ (setq skk-compare-jisyo-size-when-saving nil) (setq skk-extra-jisyo-file-list `(,(expand-file-name &amp;#34;~/.</description>
+      <description>概要 ddskk は Emacs Lisp 版の SKK 実装。&#xA;一般的な日本語変換ソフトだと文法を自動で認識して変換をしてくれるけど SKK ではその自動認識がおかしくておかしな変換になるところを、単語の区切りなんかを一切判定せずに人間がそれを教えてあげることで、そういう自動的に変な挙動をしてしまう煩わしさから開放されるようになっている。&#xA;インストール いつも通り el-get で入れている。最近は最新版が GitHub で更新されているのでそちらから引っ張られてくる。&#xA;(el-get-bundle ddskk) 常時有効化 find-file-hooks で有効化することでファイルを開いた時には常に skk が使える状態にしている。また skk-latin-mode にしておくことで、基本は英語入力ですぐに日本語入力に切り替えられる状態にしている。&#xA;(defun my/always-enable-skk-latin-mode-hook () (skk-latin-mode 1)) (add-hook &amp;#39;find-file-hooks &amp;#39;my/always-enable-skk-latin-mode-hook) hook の設定 ddskk が呼び出された時に色々設定されるようにしている。&#xA;もしかしたら customize-variable とかあるかもしれないので今度見直した方が良さそう。&#xA;(add-hook &amp;#39;skk-load-hook (lambda () ;; コード中では自動的に英字にする。 (require &amp;#39;context-skk) (setq skk-comp-mode t) ;; 動的自動補完 (setq skk-auto-insert-paren t) (setq skk-delete-implies-kakutei nil) (setq skk-sticky-key &amp;#34;;&amp;#34;) (setq skk-henkan-strict-okuri-precedence t) (setq skk-show-annotation t) ;; 単語の意味をアノテーションとして表示。例) いぜん /以前;previous/依然;still/ (setq skk-compare-jisyo-size-when-saving nil) (setq skk-extra-jisyo-file-list `(,(expand-file-name &amp;#34;~/.</description>
     </item>
-    
     <item>
       <title>exec-path</title>
       <link>https://mugijiru.github.io/.emacs.d/basics/exec-path/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/basics/exec-path/</guid>
-      <description>概要 Emacs は通常最小限の環境変数しか利用しないようになっている。
-が、それだと普段使う上で「ああ、このコマンドが使えなくてもどかしい……!」と感じてしまう。
-そこで exec-path-from-shell というのを使って Emacs が見える PATH 環境変数をシェルが見てる PATH 環境変数と揃うようにしている。
-インストール いつも通り el-get からインストールしている
-(el-get-bundle exec-path-from-shell) 有効化 理由は忘れたが Mac の環境でのみ有効化している。その内 Linux 環境でも有効化を試みた方が良さそう
-(when (memq window-system &amp;#39;(mac ns)) (exec-path-from-shell-initialize)) なお、これでシェルと共通の環境変数が使われるようになるのは デフォルトでは PATH と MANPATH のみである
-その他 なぜか以下のようなコメントを書いていた。普段使っている zsh で持ってる PATH は使わないのだろうか? :thinking_face:
-;; for exec path ;; use .bashrc setted path </description>
+      <description>概要 Emacs は通常最小限の環境変数しか利用しないようになっている。&#xA;が、それだと普段使う上で「ああ、このコマンドが使えなくてもどかしい……!」と感じてしまう。&#xA;そこで exec-path-from-shell というのを使って Emacs が見える PATH 環境変数をシェルが見てる PATH 環境変数と揃うようにしている。&#xA;インストール いつも通り el-get からインストールしている&#xA;(el-get-bundle exec-path-from-shell) 有効化 理由は忘れたが Mac の環境でのみ有効化している。その内 Linux 環境でも有効化を試みた方が良さそう&#xA;(when (memq window-system &amp;#39;(mac ns)) (exec-path-from-shell-initialize)) なお、これでシェルと共通の環境変数が使われるようになるのは デフォルトでは PATH と MANPATH のみである&#xA;その他 なぜか以下のようなコメントを書いていた。普段使っている zsh で持ってる PATH は使わないのだろうか? :thinking_face:&#xA;;; for exec path ;; use .bashrc setted path </description>
     </item>
-    
     <item>
       <title>font-config</title>
       <link>https://mugijiru.github.io/.emacs.d/basics/font-config/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/basics/font-config/</guid>
-      <description>概要 Emacs で利用するフォントの設定。それなりの設定をしないとガタついたりするので通常あまり手を入れないで済ませている。
-設定 Mac では 14, それ以外(Linux) では 18 を基準としている。
-Mac と Linux で基準のサイズを変えているがなぜかこの方がガタガタもしないし大き過ぎもしないしでいい感じになる。
-といいつつ元々 Linux の方は WSL2 環境に合わせて 12 にしていたが Manjaro 環境に合わせて 18 に変更しているのでまたその内 WSL2 でも Manjaro でもどっちいい感じに使えるように調整するかもしれない
-(defun my/set-font-size (size) (let* ((asciifont &amp;#34;Ricty Diminished&amp;#34;) ; ASCII fonts (jpfont &amp;#34;Ricty Diminished&amp;#34;) ; Japanese fonts (h (* size 10)) (fontspec (font-spec :family asciifont)) (jp-fontspec (font-spec :family jpfont))) (set-face-attribute &amp;#39;default nil :family asciifont :height h) (set-fontset-font nil &amp;#39;japanese-jisx0213.2004-1 jp-fontspec) (set-fontset-font nil &amp;#39;japanese-jisx0213-2 jp-fontspec) (set-fontset-font nil &amp;#39;katakana-jisx0201 jp-fontspec) (set-fontset-font nil &amp;#39;(#x0080 .</description>
+      <description>概要 Emacs で利用するフォントの設定。それなりの設定をしないとガタついたりするので通常あまり手を入れないで済ませている。&#xA;設定 Mac では 14, それ以外(Linux) では 18 を基準としている。&#xA;Mac と Linux で基準のサイズを変えているがなぜかこの方がガタガタもしないし大き過ぎもしないしでいい感じになる。&#xA;といいつつ元々 Linux の方は WSL2 環境に合わせて 12 にしていたが Manjaro 環境に合わせて 18 に変更しているのでまたその内 WSL2 でも Manjaro でもどっちいい感じに使えるように調整するかもしれない&#xA;(defun my/set-font-size (size) (let* ((asciifont &amp;#34;Ricty Diminished&amp;#34;) ; ASCII fonts (jpfont &amp;#34;Ricty Diminished&amp;#34;) ; Japanese fonts (h (* size 10)) (fontspec (font-spec :family asciifont)) (jp-fontspec (font-spec :family jpfont))) (set-face-attribute &amp;#39;default nil :family asciifont :height h) (set-fontset-font nil &amp;#39;japanese-jisx0213.2004-1 jp-fontspec) (set-fontset-font nil &amp;#39;japanese-jisx0213-2 jp-fontspec) (set-fontset-font nil &amp;#39;katakana-jisx0201 jp-fontspec) (set-fontset-font nil &amp;#39;(#x0080 .</description>
     </item>
-    
     <item>
       <title>load-path</title>
       <link>https://mugijiru.github.io/.emacs.d/basics/load-path/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/basics/load-path/</guid>
-      <description>概要 load-path は Emacs の設定でも重要な項目でこのリストに追加されている path は load または require する際に走査される path となっている。
-即ち load-path を通しておけば、そこに置いている emacs lisp のファイルは簡単に読み出せるようになる。
-なお package-install や el-get を使っておけば基本的に自分で load-path を通す必要はない。
-秘匿情報を入れてるフォルダを読み込み可能にする パスワードなどの秘匿情報を持っている部分は ~/.emacs.d/secret というフォルダで管理している。そのためここに入ってる emacs lisp のファイルも読み込めるように load-path に追加している。
-(add-to-list &amp;#39;load-path (expand-file-name &amp;#34;~/.emacs.d/secret&amp;#34;)) my/load-config ~/.emacs.d/secret は個人マシンか会社マシンかによって置いてるデータが異なったりするためもしもファイルがなくてもエラーにならないような方法で load する方法が必要だった。
-というわけでファイルがなかったら読み込まずにメッセージを出力して終了するような関数を用意している。
-(defun my/load-config (file) (condition-case nil (load file) (file-missing (message &amp;#34;Load error: %s&amp;#34; file)))) ただ、これって結局
-(load file nil t) で十分な気もするので、置き換えを検討した方が良さそう。</description>
+      <description>概要 load-path は Emacs の設定でも重要な項目でこのリストに追加されている path は load または require する際に走査される path となっている。&#xA;即ち load-path を通しておけば、そこに置いている emacs lisp のファイルは簡単に読み出せるようになる。&#xA;なお package-install や el-get を使っておけば基本的に自分で load-path を通す必要はない。&#xA;秘匿情報を入れてるフォルダを読み込み可能にする パスワードなどの秘匿情報を持っている部分は ~/.emacs.d/secret というフォルダで管理している。そのためここに入ってる emacs lisp のファイルも読み込めるように load-path に追加している。&#xA;(add-to-list &amp;#39;load-path (expand-file-name &amp;#34;~/.emacs.d/secret&amp;#34;)) my/load-config ~/.emacs.d/secret は個人マシンか会社マシンかによって置いてるデータが異なったりするためもしもファイルがなくてもエラーにならないような方法で load する方法が必要だった。&#xA;というわけでファイルがなかったら読み込まずにメッセージを出力して終了するような関数を用意している。&#xA;(defun my/load-config (file) (condition-case nil (load file) (file-missing (message &amp;#34;Load error: %s&amp;#34; file)))) ただ、これって結局&#xA;(load file nil t) で十分な気もするので、置き換えを検討した方が良さそう。</description>
     </item>
-    
     <item>
       <title>migemo</title>
       <link>https://mugijiru.github.io/.emacs.d/basics/migemo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/basics/migemo/</guid>
-      <description>概要 migemo.el は cmigemo などと通信して、日本語入力オフのままローマ字入力をして日本語検索ができるようにするパッケージ。
-これとても便利で抜け出せない。
-インストール いつも通り el-get でインストール。
-(el-get-bundle migemo) (load &amp;#34;migemo&amp;#34;) load はする必要あるのかわからんけど、そういう設定が既に入ってるのでそのままにしている。
-Mac での辞書の位置の指定 Homebrew で cmigemo を入れているのでそれに合わせて辞書の位置を指定している。
-;; Mac (let ((path &amp;#34;/usr/local/share/migemo/utf-8/migemo-dict&amp;#34;)) (if (file-exists-p path) (setq migemo-dictionary path))) Ubuntu での辞書の位置の指定 apt で cmigemo を入れているのでそれに合わせて辞書の位置を指定している。
-;; Ubuntu (let ((path &amp;#34;/usr/share/cmigemo/utf-8/migemo-dict&amp;#34;)) (if (file-exists-p path) (setq migemo-dictionary path))) Manjaro での辞書の位置の指定 yay で cmigemo-git を入れているのでそれに合わせて辞書の位置を指定している。
-;; Manjaro (let ((path &amp;#34;/usr/share/migemo/utf-8/migemo-dict&amp;#34;)) (if (file-exists-p path) (setq migemo-dictionary path))) cmigemo コマンドの PATH 指定 環境で PATH が変わるので which コマンドの結果を migemo-command に設定している。</description>
+      <description>概要 migemo.el は cmigemo などと通信して、日本語入力オフのままローマ字入力をして日本語検索ができるようにするパッケージ。&#xA;これとても便利で抜け出せない。&#xA;インストール いつも通り el-get でインストール。&#xA;(el-get-bundle migemo) (load &amp;#34;migemo&amp;#34;) load はする必要あるのかわからんけど、そういう設定が既に入ってるのでそのままにしている。&#xA;Mac での辞書の位置の指定 Homebrew で cmigemo を入れているのでそれに合わせて辞書の位置を指定している。&#xA;;; Mac (let ((path &amp;#34;/usr/local/share/migemo/utf-8/migemo-dict&amp;#34;)) (if (file-exists-p path) (setq migemo-dictionary path))) Ubuntu での辞書の位置の指定 apt で cmigemo を入れているのでそれに合わせて辞書の位置を指定している。&#xA;;; Ubuntu (let ((path &amp;#34;/usr/share/cmigemo/utf-8/migemo-dict&amp;#34;)) (if (file-exists-p path) (setq migemo-dictionary path))) Manjaro での辞書の位置の指定 yay で cmigemo-git を入れているのでそれに合わせて辞書の位置を指定している。&#xA;;; Manjaro (let ((path &amp;#34;/usr/share/migemo/utf-8/migemo-dict&amp;#34;)) (if (file-exists-p path) (setq migemo-dictionary path))) cmigemo コマンドの PATH 指定 環境で PATH が変わるので which コマンドの結果を migemo-command に設定している。</description>
     </item>
-    
     <item>
       <title>savehist</title>
       <link>https://mugijiru.github.io/.emacs.d/basics/savehist/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/basics/savehist/</guid>
-      <description>概要 Emacs 標準でついている、ミニバッファの履歴などを保存してくれる機能。
-有効化 標準でついているので以下のようにするだけで有効化可能。
-(savehist-mode 1) 設定 標準で保存されるもの以外だと kill-ring だけを保存対象にしている。これで Emacs を終了させても kill-ring は残るようになるはず。だけど最近使えてない気がするな……。検証が必要そう。
-(setq savehist-additional-variables &amp;#39;(kill-ring)) 他にも有効にしたら便利そうなのがあれば追加したい。が、ぱっとは思い付かない。</description>
+      <description>概要 Emacs 標準でついている、ミニバッファの履歴などを保存してくれる機能。&#xA;有効化 標準でついているので以下のようにするだけで有効化可能。&#xA;(savehist-mode 1) 設定 標準で保存されるもの以外だと kill-ring だけを保存対象にしている。これで Emacs を終了させても kill-ring は残るようになるはず。だけど最近使えてない気がするな……。検証が必要そう。&#xA;(setq savehist-additional-variables &amp;#39;(kill-ring)) 他にも有効にしたら便利そうなのがあれば追加したい。が、ぱっとは思い付かない。</description>
     </item>
-    
     <item>
       <title>server</title>
       <link>https://mugijiru.github.io/.emacs.d/basics/server/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/basics/server/</guid>
-      <description>概要 Emacs の起動後にサーバとして動くようにしている。
-これにより emacsclient コマンドで接続するとサーバとして動いている Emacs に別端末から繋げられたりする。
-けど麦汁さんは Firefox から org-capture を動かすためにだけ利用している。
-設定 server.el を require しておいてサーバとして動いていなかったらサーバとして動くようにしている。多重起動の防止ですね。
-(require &amp;#39;server) (unless (server-running-p) (server-start)) 関連ツール org-capture-extension org-capture 連携するための Chrome 及び Firefox の拡張。麦汁さんはこれを Firefox で使ってる。 org-protocol-capture-html HTML コンテンツを org-mode の記述に変換して capture してくれるやつ。Pandoc 利用。 その他 起動処理の最後に動けばいいので init-loader で 99 を割り振っている。
-init-loader をやめるなら多分 after-init-hook を使うことになるのかな。</description>
+      <description>概要 Emacs の起動後にサーバとして動くようにしている。&#xA;これにより emacsclient コマンドで接続するとサーバとして動いている Emacs に別端末から繋げられたりする。&#xA;けど麦汁さんは Firefox から org-capture を動かすためにだけ利用している。&#xA;設定 server.el を require しておいてサーバとして動いていなかったらサーバとして動くようにしている。多重起動の防止ですね。&#xA;(require &amp;#39;server) (unless (server-running-p) (server-start)) 関連ツール org-capture-extension org-capture 連携するための Chrome 及び Firefox の拡張。麦汁さんはこれを Firefox で使ってる。 org-protocol-capture-html HTML コンテンツを org-mode の記述に変換して capture してくれるやつ。Pandoc 利用。 その他 起動処理の最後に動けばいいので init-loader で 99 を割り振っている。&#xA;init-loader をやめるなら多分 after-init-hook を使うことになるのかな。</description>
     </item>
-    
     <item>
       <title>ガベージコレクション</title>
       <link>https://mugijiru.github.io/.emacs.d/basics/gcmh/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/basics/gcmh/</guid>
-      <description>概要 ガベージコレクションには gcmh というのを利用してみている。
-https://github.com/emacsmirror/gcmh
-普段は GC を控えめにしながら操作してない間に GC が走るような作りになっている。便利そう。
-インストール (el-get-bundle gcmh) これだけで有効化もされる。
-その他 以前の設定も折り畳んで残しておく
-使わなくなったコード gcmh を入れる前に設定していたコード。 gcmh を入れたらこれよりもいい感じに対応してくれそうなので入れ替えた。
-;; https://gist.github.com/garaemon/8851900ef27d8cb28200ac8d92ebacdf ;; Increase threshold to fire garbage collection (setq gc-cons-threshold 1073741824) (setq garbage-collection-messages t) ;; Run GC every 60 seconds if emacs is idle. (run-with-idle-timer 60.0 t #&amp;#39;garbage-collect) </description>
+      <description>概要 ガベージコレクションには gcmh というのを利用してみている。&#xA;https://github.com/emacsmirror/gcmh&#xA;普段は GC を控えめにしながら操作してない間に GC が走るような作りになっている。便利そう。&#xA;インストール (el-get-bundle gcmh) これだけで有効化もされる。&#xA;その他 以前の設定も折り畳んで残しておく&#xA;使わなくなったコード gcmh を入れる前に設定していたコード。 gcmh を入れたらこれよりもいい感じに対応してくれそうなので入れ替えた。&#xA;;; https://gist.github.com/garaemon/8851900ef27d8cb28200ac8d92ebacdf ;; Increase threshold to fire garbage collection (setq gc-cons-threshold 1073741824) (setq garbage-collection-messages t) ;; Run GC every 60 seconds if emacs is idle. (run-with-idle-timer 60.0 t #&amp;#39;garbage-collect) </description>
     </item>
-    
     <item>
       <title>ライブラリの読み込み</title>
       <link>https://mugijiru.github.io/.emacs.d/basics/load-libraries/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/basics/load-libraries/</guid>
-      <description>設定ファイル内で文字列操作をするだろうということで s.el を読み込んでいる。
-(el-get-bundle s) (require &amp;#39;s) けど、どういう関数があったか覚えてないぐらいには使ってない……。ま、あると便利なのでそのまま入れておくつもり。</description>
+      <description>設定ファイル内で文字列操作をするだろうということで s.el を読み込んでいる。&#xA;(el-get-bundle s) (require &amp;#39;s) けど、どういう関数があったか覚えてないぐらいには使ってない……。ま、あると便利なのでそのまま入れておくつもり。</description>
     </item>
-    
   </channel>
 </rss>

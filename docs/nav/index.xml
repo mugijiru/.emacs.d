@@ -5,80 +5,42 @@
     <link>https://mugijiru.github.io/.emacs.d/nav/</link>
     <description>Recent content in ナビゲーション on 麦汁&#39;s Emacs Config</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/nav/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja-JP</language>
+    <atom:link href="https://mugijiru.github.io/.emacs.d/nav/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ace-window</title>
       <link>https://mugijiru.github.io/.emacs.d/nav/ace-window/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/nav/ace-window/</guid>
-      <description>概要 Window 間の移動を ace-jump や avy のように表示されてる文字の Window に移動するやつ。
-Window が2分割の時は文字も出ないで別の Window に移動してくれる。
-C-x o にデフォルトで設定されている other-window は別の window に順番に移動するコマンドなので大量に分割していると移動がしんどいのだが ace-window を使うと起動して 1 ストロークで移動できるので C-x o をデフォルトの other-window から ace-window そのまま置き換えても便利に使える。
-インストール いつも通り el-get でインストールしている。
-(el-get-bundle ace-window) 設定 キーバインドは別の箇所で定義しているが C-x o で ace-window が起動するようにしている。
-また Hydra からは ace-swap-window が起動できるようにしている。
-ace-window には色々な機能があるからそれ用の Hydra を別途定義してもいいかもしれない。
-ace-window 起動時に選択可能な数字が各 buffer の中央にいい感じに表示されるようにするため ace-window-posfrme-mode を有効にしている
-(with-eval-after-load &amp;#39;ace-window (ace-window-posframe-mode t)) </description>
+      <description>概要 Window 間の移動を ace-jump や avy のように表示されてる文字の Window に移動するやつ。&#xA;Window が2分割の時は文字も出ないで別の Window に移動してくれる。&#xA;C-x o にデフォルトで設定されている other-window は別の window に順番に移動するコマンドなので大量に分割していると移動がしんどいのだが ace-window を使うと起動して 1 ストロークで移動できるので C-x o をデフォルトの other-window から ace-window そのまま置き換えても便利に使える。&#xA;インストール いつも通り el-get でインストールしている。&#xA;(el-get-bundle ace-window) 設定 キーバインドは別の箇所で定義しているが C-x o で ace-window が起動するようにしている。&#xA;また Hydra からは ace-swap-window が起動できるようにしている。&#xA;ace-window には色々な機能があるからそれ用の Hydra を別途定義してもいいかもしれない。&#xA;ace-window 起動時に選択可能な数字が各 buffer の中央にいい感じに表示されるようにするため ace-window-posfrme-mode を有効にしている&#xA;(with-eval-after-load &amp;#39;ace-window (ace-window-posframe-mode t)) </description>
     </item>
-    
     <item>
       <title>avy</title>
       <link>https://mugijiru.github.io/.emacs.d/nav/avy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/nav/avy/</guid>
-      <description>概要 avy は好きな文字とか単語など、表示されてる場所にさくっとジャンプするためのパッケージ。 Vimium の f とかに似てる。
-インストール el-get で普通にインストールしている
-(el-get-bundle avy) 設定 文字の上に重なると元の文字列がよくわからなくなるので、移動先の文字の前に表示するようにしている
-(setq avy-style &amp;#39;pre) キーバインド グローバルなキーバインドを汚染したくなかったのでひとまず Hydra を定義している。
-(with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define avy-hydra (:separator &amp;#34;-&amp;#34; :title &amp;#34;avy&amp;#34; :foreign-key warn :quit-key &amp;#34;q&amp;#34; :exit t) (&amp;#34;Char&amp;#34; ((&amp;#34;c&amp;#34; avy-goto-char &amp;#34;Char&amp;#34;) (&amp;#34;C&amp;#34; avy-goto-char-2 &amp;#34;Char 2&amp;#34;) (&amp;#34;x&amp;#34; avy-goto-char-timer &amp;#34;Char Timer&amp;#34;)) &amp;#34;Word&amp;#34; ((&amp;#34;w&amp;#34; avy-goto-word-1 &amp;#34;Word&amp;#34;) (&amp;#34;W&amp;#34; avy-goto-word-0 &amp;#34;Word 0&amp;#34;)) &amp;#34;Line&amp;#34; ((&amp;#34;l&amp;#34; avy-goto-line &amp;#34;Line&amp;#34;)) &amp;#34;Other&amp;#34; ((&amp;#34;r&amp;#34; avy-resume &amp;#34;Resume&amp;#34;))))) Key 効果 c 1文字からの絞り込み C 2文字から絞り込み x 任意の文字列からの絞り込み w 1文字絞り込んで単語先頭に移動 W 絞り込みなしの単語移動 l 列移動 r 繰り返し同じコマンドを実行 </description>
+      <description>概要 avy は好きな文字とか単語など、表示されてる場所にさくっとジャンプするためのパッケージ。 Vimium の f とかに似てる。&#xA;インストール el-get で普通にインストールしている&#xA;(el-get-bundle avy) 設定 文字の上に重なると元の文字列がよくわからなくなるので、移動先の文字の前に表示するようにしている&#xA;(setq avy-style &amp;#39;pre) キーバインド グローバルなキーバインドを汚染したくなかったのでひとまず Hydra を定義している。&#xA;(with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define avy-hydra (:separator &amp;#34;-&amp;#34; :title &amp;#34;avy&amp;#34; :foreign-key warn :quit-key &amp;#34;q&amp;#34; :exit t) (&amp;#34;Char&amp;#34; ((&amp;#34;c&amp;#34; avy-goto-char &amp;#34;Char&amp;#34;) (&amp;#34;C&amp;#34; avy-goto-char-2 &amp;#34;Char 2&amp;#34;) (&amp;#34;x&amp;#34; avy-goto-char-timer &amp;#34;Char Timer&amp;#34;)) &amp;#34;Word&amp;#34; ((&amp;#34;w&amp;#34; avy-goto-word-1 &amp;#34;Word&amp;#34;) (&amp;#34;W&amp;#34; avy-goto-word-0 &amp;#34;Word 0&amp;#34;)) &amp;#34;Line&amp;#34; ((&amp;#34;l&amp;#34; avy-goto-line &amp;#34;Line&amp;#34;)) &amp;#34;Other&amp;#34; ((&amp;#34;r&amp;#34; avy-resume &amp;#34;Resume&amp;#34;))))) Key 効果 c 1文字からの絞り込み C 2文字から絞り込み x 任意の文字列からの絞り込み w 1文字絞り込んで単語先頭に移動 W 絞り込みなしの単語移動 l 列移動 r 繰り返し同じコマンドを実行 </description>
     </item>
-    
     <item>
       <title>browse-at-remote</title>
       <link>https://mugijiru.github.io/.emacs.d/nav/browse-at-remote/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/nav/browse-at-remote/</guid>
-      <description>概要 browse-at-remote は Emacs で見ているファイルについて GitHub や GitLab などのサービス上での該当ブランチ、該当ファイル、該当行を開いてくれる便利なやつ。
-業務だとレビュー中に「ここにこういう関数あるよ」みたいに示すことがあるけどその時に Emacs 内で関数を探して browse-at-remote で GitHub 上の位置を開くことでそこへのリンクを拾いやすく便利。
-インストール いつも透り el-get で入れている。
-(el-get-bundle browse-at-remote) 使い方 ブラウザで見たい行の上で M-x browse-at-remote を実行する。
-または Region を選択している状態で実行すると、その範囲を選択している状態で開いてくれる。便利。
-その他 Hydra でいつでも使えるようにキーバインドを割り当てている。</description>
+      <description>概要 browse-at-remote は Emacs で見ているファイルについて GitHub や GitLab などのサービス上での該当ブランチ、該当ファイル、該当行を開いてくれる便利なやつ。&#xA;業務だとレビュー中に「ここにこういう関数あるよ」みたいに示すことがあるけどその時に Emacs 内で関数を探して browse-at-remote で GitHub 上の位置を開くことでそこへのリンクを拾いやすく便利。&#xA;インストール いつも透り el-get で入れている。&#xA;(el-get-bundle browse-at-remote) 使い方 ブラウザで見たい行の上で M-x browse-at-remote を実行する。&#xA;または Region を選択している状態で実行すると、その範囲を選択している状態で開いてくれる。便利。&#xA;その他 Hydra でいつでも使えるようにキーバインドを割り当てている。</description>
     </item>
-    
     <item>
       <title>dumb-jump</title>
       <link>https://mugijiru.github.io/.emacs.d/nav/dumb-jump/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/nav/dumb-jump/</guid>
-      <description>概要 dumb-jump は関数とかの定義されてる場所にお手軽にジャンプできるようにするパッケージ。めっちゃ色々な言語をサポートしている。
-インストール いつも通り el-get でインストールしている。
-(el-get-bundle dumb-jump) 設定 デフォルトプロジェクトの変更 デフォルトだと ~/ がデフォルトプロジェクトらしいがそんなに上の階層から調べられてもしょうがない気がするのでソースコードを置いているフォルダを指定している。
-(setq dumb-jump-default-project &amp;#34;~/projects&amp;#34;) 複数マッチした時に使う絞り込み 最近はできるだけ ivy を使うようにしているので dumb-jump でも ivy を使うように指定している。
-(setq dumb-jump-selector &amp;#39;ivy) キーバインド README に書いている hydra の設定をほぼパクってるけど pretty-hydra を使ってキーを定義している
-(with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define dumb-jump-pretty-hydra (:foreign-keys warn :title &amp;#34;Dumb jump&amp;#34; :quit-key &amp;#34;q&amp;#34; :color blue :separator &amp;#34;-&amp;#34;) (&amp;#34;Go&amp;#34; ((&amp;#34;j&amp;#34; dumb-jump-go &amp;#34;Jump&amp;#34;) (&amp;#34;o&amp;#34; dumb-jump-go-other-window &amp;#34;Other window&amp;#34;)) &amp;#34;External&amp;#34; ((&amp;#34;e&amp;#34; dumb-jump-go-prefer-external &amp;#34;Go external&amp;#34;) (&amp;#34;x&amp;#34; dumb-jump-go-prefer-external-other-window &amp;#34;Go external other window&amp;#34;)) &amp;#34;Lock&amp;#34; ((&amp;#34;l&amp;#34; dumb-jump-quick-look &amp;#34;Quick look&amp;#34;)) &amp;#34;Other&amp;#34; ((&amp;#34;b&amp;#34; dumb-jump-back &amp;#34;Back&amp;#34;))))) Key 効果 j 定義場所にジャンプ o 定義場所を別 window で開く e 定義場所にジャンプ。ただし同じファイルより外部ファイルとのマッチを優先 x 定義場所を別 window で開く。ただし同じファイルより外部ファイルとのマッチを優先 l クイックルック。定義をツールチップ表示する b 最後にジャンプされた場所に戻る。今は既に obsolute 扱い </description>
+      <description>概要 dumb-jump は関数とかの定義されてる場所にお手軽にジャンプできるようにするパッケージ。めっちゃ色々な言語をサポートしている。&#xA;インストール いつも通り el-get でインストールしている。&#xA;(el-get-bundle dumb-jump) 設定 デフォルトプロジェクトの変更 デフォルトだと ~/ がデフォルトプロジェクトらしいがそんなに上の階層から調べられてもしょうがない気がするのでソースコードを置いているフォルダを指定している。&#xA;(setq dumb-jump-default-project &amp;#34;~/projects&amp;#34;) 複数マッチした時に使う絞り込み 最近はできるだけ ivy を使うようにしているので dumb-jump でも ivy を使うように指定している。&#xA;(setq dumb-jump-selector &amp;#39;ivy) キーバインド README に書いている hydra の設定をほぼパクってるけど pretty-hydra を使ってキーを定義している&#xA;(with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define dumb-jump-pretty-hydra (:foreign-keys warn :title &amp;#34;Dumb jump&amp;#34; :quit-key &amp;#34;q&amp;#34; :color blue :separator &amp;#34;-&amp;#34;) (&amp;#34;Go&amp;#34; ((&amp;#34;j&amp;#34; dumb-jump-go &amp;#34;Jump&amp;#34;) (&amp;#34;o&amp;#34; dumb-jump-go-other-window &amp;#34;Other window&amp;#34;)) &amp;#34;External&amp;#34; ((&amp;#34;e&amp;#34; dumb-jump-go-prefer-external &amp;#34;Go external&amp;#34;) (&amp;#34;x&amp;#34; dumb-jump-go-prefer-external-other-window &amp;#34;Go external other window&amp;#34;)) &amp;#34;Lock&amp;#34; ((&amp;#34;l&amp;#34; dumb-jump-quick-look &amp;#34;Quick look&amp;#34;)) &amp;#34;Other&amp;#34; ((&amp;#34;b&amp;#34; dumb-jump-back &amp;#34;Back&amp;#34;))))) Key 効果 j 定義場所にジャンプ o 定義場所を別 window で開く e 定義場所にジャンプ。ただし同じファイルより外部ファイルとのマッチを優先 x 定義場所を別 window で開く。ただし同じファイルより外部ファイルとのマッチを優先 l クイックルック。定義をツールチップ表示する b 最後にジャンプされた場所に戻る。今は既に obsolute 扱い </description>
     </item>
-    
     <item>
       <title>projectile</title>
       <link>https://mugijiru.github.io/.emacs.d/nav/projectile/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/nav/projectile/</guid>
-      <description>概要 projectile はプロジェクト内のファイルを検索したりするのに便利なパッケージ
-インストール いつも通り el-get からインストールする
-(el-get-bundle projectile) 有効化 このあたりで有効化しておいている。この順序に意味があったかは忘れた……。
-(projectile-mode) 無視リスト 普段 Rails ばっかりやってるのでそれ関係のものを無視リストに入れている。けどあんまりメンテしてない。
-無視するディレクトリ (add-to-list &amp;#39;projectile-globally-ignored-directories &amp;#34;tmp&amp;#34;) (add-to-list &amp;#39;projectile-globally-ignored-directories &amp;#34;.tmp&amp;#34;) (add-to-list &amp;#39;projectile-globally-ignored-directories &amp;#34;vendor&amp;#34;) (add-to-list &amp;#39;projectile-globally-ignored-directories &amp;#34;.sass-cache&amp;#34;) (add-to-list &amp;#39;projectile-globally-ignored-directories &amp;#34;coverage&amp;#34;) (add-to-list &amp;#39;projectile-globally-ignored-directories &amp;#34;cache&amp;#34;) (add-to-list &amp;#39;projectile-globally-ignored-directories &amp;#34;log&amp;#34;) node_modules もここに突っ込んでも良いかもしれない。
-無視するファイル (add-to-list &amp;#39;projectile-globally-ignored-files &amp;#34;gems.tags&amp;#34;) (add-to-list &amp;#39;projectile-globally-ignored-files &amp;#34;project.tags&amp;#34;) (add-to-list &amp;#39;projectile-globally-ignored-files &amp;#34;manifest.json&amp;#34;) tags ファイルは昔は使っていたけど、最近は dumb-jump が優秀なのと、面倒で使ってないのでそろそろ gems.tags と project.tags は不要かもしれない。
-ivy/counsel との連携 上の方で helm との連携処理を入れていたが今は大体 ivy に乗り換えているので ivy 連携もしている。
-(setq projectile-completion-system &amp;#39;ivy) (el-get-bundle counsel-projectile) counsel-projectile はいくつかの絞り込み処理を提供してくれて便利。それでも足りなかったら自前で何か作ることになるのかなと思っている。</description>
+      <description>概要 projectile はプロジェクト内のファイルを検索したりするのに便利なパッケージ&#xA;インストール いつも通り el-get からインストールする&#xA;(el-get-bundle projectile) 有効化 このあたりで有効化しておいている。この順序に意味があったかは忘れた……。&#xA;(projectile-mode) 無視リスト 普段 Rails ばっかりやってるのでそれ関係のものを無視リストに入れている。けどあんまりメンテしてない。&#xA;無視するディレクトリ (add-to-list &amp;#39;projectile-globally-ignored-directories &amp;#34;tmp&amp;#34;) (add-to-list &amp;#39;projectile-globally-ignored-directories &amp;#34;.tmp&amp;#34;) (add-to-list &amp;#39;projectile-globally-ignored-directories &amp;#34;vendor&amp;#34;) (add-to-list &amp;#39;projectile-globally-ignored-directories &amp;#34;.sass-cache&amp;#34;) (add-to-list &amp;#39;projectile-globally-ignored-directories &amp;#34;coverage&amp;#34;) (add-to-list &amp;#39;projectile-globally-ignored-directories &amp;#34;cache&amp;#34;) (add-to-list &amp;#39;projectile-globally-ignored-directories &amp;#34;log&amp;#34;) node_modules もここに突っ込んでも良いかもしれない。&#xA;無視するファイル (add-to-list &amp;#39;projectile-globally-ignored-files &amp;#34;gems.tags&amp;#34;) (add-to-list &amp;#39;projectile-globally-ignored-files &amp;#34;project.tags&amp;#34;) (add-to-list &amp;#39;projectile-globally-ignored-files &amp;#34;manifest.json&amp;#34;) tags ファイルは昔は使っていたけど、最近は dumb-jump が優秀なのと、面倒で使ってないのでそろそろ gems.tags と project.tags は不要かもしれない。&#xA;ivy/counsel との連携 上の方で helm との連携処理を入れていたが今は大体 ivy に乗り換えているので ivy 連携もしている。&#xA;(setq projectile-completion-system &amp;#39;ivy) (el-get-bundle counsel-projectile) counsel-projectile はいくつかの絞り込み処理を提供してくれて便利。それでも足りなかったら自前で何か作ることになるのかなと思っている。</description>
     </item>
-    
   </channel>
 </rss>

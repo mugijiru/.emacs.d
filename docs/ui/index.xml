@@ -5,333 +5,168 @@
     <link>https://mugijiru.github.io/.emacs.d/ui/</link>
     <description>Recent content in UI on 麦汁&#39;s Emacs Config</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-JP</language><atom:link href="https://mugijiru.github.io/.emacs.d/ui/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja-JP</language>
+    <atom:link href="https://mugijiru.github.io/.emacs.d/ui/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>alert</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/alert/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/ui/alert/</guid>
-      <description>概要 alert は色々な通知システムに対応した通知を飛ばせるパッケージ。 Mac だと Growl だったり terminal-notifier だったり Win だと toast だったり Linux だと libnotify だったりを使ってその環境での標準的な通知機能を使って通知ができるやつ。
-インストール いつも通りに el-get でインストール。
-(el-get-bundle alert) 設定 業務では Mac を使ってるので terminal-notifier を設定している。他の環境では libnotify にしている。
-(if (or (eq window-system &amp;#39;ns) (eq window-system &amp;#39;mac)) (setq alert-default-style &amp;#39;notifier) ;; use terminal-notifier (setq alert-default-style &amp;#39;libnotify)) 「他の環境」が WSL 上の Emacs と Manjaro 上の Emacs なのだけども、後者は最近使ってないので無視して libnotify で通知するように設定を変えた。
-本当は WSL2 でもいい感じに通知されるようにしたいが WSLで通知を出すメモ - cobodoのブログ とかを見てるとちょっと面倒そう。</description>
+      <description>概要 alert は色々な通知システムに対応した通知を飛ばせるパッケージ。 Mac だと Growl だったり terminal-notifier だったり Win だと toast だったり Linux だと libnotify だったりを使ってその環境での標準的な通知機能を使って通知ができるやつ。&#xA;インストール いつも通りに el-get でインストール。&#xA;(el-get-bundle alert) 設定 業務では Mac を使ってるので terminal-notifier を設定している。他の環境では libnotify にしている。&#xA;(if (or (eq window-system &amp;#39;ns) (eq window-system &amp;#39;mac)) (setq alert-default-style &amp;#39;notifier) ;; use terminal-notifier (setq alert-default-style &amp;#39;libnotify)) 「他の環境」が WSL 上の Emacs と Manjaro 上の Emacs なのだけども、後者は最近使ってないので無視して libnotify で通知するように設定を変えた。&#xA;本当は WSL2 でもいい感じに通知されるようにしたいが WSLで通知を出すメモ - cobodoのブログ とかを見てるとちょっと面倒そう。</description>
     </item>
-    
     <item>
       <title>all-the-icons</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/all-the-icons/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/ui/all-the-icons/</guid>
-      <description>概要 all-the-icons は Emacs で様々なアイコンを表示できるようにして華やかにしてくれるパッケージです。 Neotree などでも対応していてアイコンでファイルの種類が表示されるようになってモダンな雰囲気が出ます。
-インストール improvement いつも通り el-get-bundle で入れている。明示的に require している理由は忘れました。
-(el-get-bundle all-the-icons) (require &amp;#39;all-the-icons) フォントのインストール 以下のコマンドを叩くことでフォントをインストールすることができる。 all-the-icons のインストール直後に叩いておいたら普段は叩かなくて良いはず。
-(all-the-icons-install-fonts) all-the-icons の更新後は叩いた方がいいかもしれない
-キーバインド improvement キーバインドは覚えられないし、使えるキーも大分埋まってるので、 pretty-hydra を使って all-the-icons 用の Hydra を用意している。
-(with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define all-the-icons-hydra (:separator &amp;#34;-&amp;#34; :title &amp;#34;All the icons&amp;#34; :exit t :quit-key &amp;#34;q&amp;#34;) (&amp;#34;Insert&amp;#34; ((&amp;#34;a&amp;#34; all-the-icons-insert-alltheicon &amp;#34;All the icons&amp;#34;) (&amp;#34;f&amp;#34; all-the-icons-insert-fileicon &amp;#34;File icons&amp;#34;) (&amp;#34;F&amp;#34; all-the-icons-insert-faicons &amp;#34;FontAwesome&amp;#34;) (&amp;#34;m&amp;#34; all-the-icons-insert-material &amp;#34;Material&amp;#34;) (&amp;#34;o&amp;#34; all-the-icons-insert-octicon &amp;#34;Octicon&amp;#34;) (&amp;#34;w&amp;#34; all-the-icons-insert-wicon &amp;#34;Weather&amp;#34;) (&amp;#34;*&amp;#34; all-the-icons-insert &amp;#34;All&amp;#34;))))) Key 効果 a all-the-icons で追加されてるアイコンを検索して挿入 f ファイルアイコンを検索して挿入 F FontAwesome アイコンを検索して挿入 m Material アイコンを検索して挿入 o Octicon のアイコンを検索して挿入 w 天気アイコンを検索して挿入 * 全てのアイコンを検索して挿入 フォントのインストールコマンドもここに収めてしまうのが良さそうな気がする</description>
+      <description>概要 all-the-icons は Emacs で様々なアイコンを表示できるようにして華やかにしてくれるパッケージです。 Neotree などでも対応していてアイコンでファイルの種類が表示されるようになってモダンな雰囲気が出ます。&#xA;インストール improvement いつも通り el-get-bundle で入れている。明示的に require している理由は忘れました。&#xA;(el-get-bundle all-the-icons) (require &amp;#39;all-the-icons) フォントのインストール 以下のコマンドを叩くことでフォントをインストールすることができる。 all-the-icons のインストール直後に叩いておいたら普段は叩かなくて良いはず。&#xA;(all-the-icons-install-fonts) all-the-icons の更新後は叩いた方がいいかもしれない&#xA;キーバインド improvement キーバインドは覚えられないし、使えるキーも大分埋まってるので、 pretty-hydra を使って all-the-icons 用の Hydra を用意している。&#xA;(with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define all-the-icons-hydra (:separator &amp;#34;-&amp;#34; :title &amp;#34;All the icons&amp;#34; :exit t :quit-key &amp;#34;q&amp;#34;) (&amp;#34;Insert&amp;#34; ((&amp;#34;a&amp;#34; all-the-icons-insert-alltheicon &amp;#34;All the icons&amp;#34;) (&amp;#34;f&amp;#34; all-the-icons-insert-fileicon &amp;#34;File icons&amp;#34;) (&amp;#34;F&amp;#34; all-the-icons-insert-faicons &amp;#34;FontAwesome&amp;#34;) (&amp;#34;m&amp;#34; all-the-icons-insert-material &amp;#34;Material&amp;#34;) (&amp;#34;o&amp;#34; all-the-icons-insert-octicon &amp;#34;Octicon&amp;#34;) (&amp;#34;w&amp;#34; all-the-icons-insert-wicon &amp;#34;Weather&amp;#34;) (&amp;#34;*&amp;#34; all-the-icons-insert &amp;#34;All&amp;#34;))))) Key 効果 a all-the-icons で追加されてるアイコンを検索して挿入 f ファイルアイコンを検索して挿入 F FontAwesome アイコンを検索して挿入 m Material アイコンを検索して挿入 o Octicon のアイコンを検索して挿入 w 天気アイコンを検索して挿入 * 全てのアイコンを検索して挿入 フォントのインストールコマンドもここに収めてしまうのが良さそうな気がする</description>
     </item>
-    
     <item>
       <title>color-theme-molokai</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/color-theme-molokai/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/ui/color-theme-molokai/</guid>
-      <description>概要 color-theme-molokai は多分 vim の molokai をベースにしたテーマ。更に元はどうも TextMate っぽい。
-ダークグレイ背景をベースにしたテーマでもう何年もこのテーマを使っている。
-インストール el-get のレシピを自前で用意している
-(:name color-theme-molokai :type github :description &amp;#34;A pretty color theme.&amp;#34; :pkgname &amp;#34;alloy-d/color-theme-molokai&amp;#34;) そして el-get で入れている。
-(el-get-bundle color-theme-molokai) テーマへの PATH を通す インストールしただけでは custom-theme-load-path には追加されないので自分で add-to-list を使って PATH を通している。
-(add-to-list &amp;#39;custom-theme-load-path (expand-file-name &amp;#34;~/.emacs.d/el-get/color-theme-molokai&amp;#34;)) テーマの読み込み 最後に load-theme で molokai を読み込んでいる。
-(load-theme &amp;#39;molokai t) その他 もう長年これを使っているが、近年ではもっと良いテーマも出ているかもしれないのでそのうち乗り換えるかも。
-なんだけど、テーマ乗り換えるのちょっとだるいのよね〜。</description>
+      <description>概要 color-theme-molokai は多分 vim の molokai をベースにしたテーマ。更に元はどうも TextMate っぽい。&#xA;ダークグレイ背景をベースにしたテーマでもう何年もこのテーマを使っている。&#xA;インストール el-get のレシピを自前で用意している&#xA;(:name color-theme-molokai :type github :description &amp;#34;A pretty color theme.&amp;#34; :pkgname &amp;#34;alloy-d/color-theme-molokai&amp;#34;) そして el-get で入れている。&#xA;(el-get-bundle color-theme-molokai) テーマへの PATH を通す インストールしただけでは custom-theme-load-path には追加されないので自分で add-to-list を使って PATH を通している。&#xA;(add-to-list &amp;#39;custom-theme-load-path (expand-file-name &amp;#34;~/.emacs.d/el-get/color-theme-molokai&amp;#34;)) テーマの読み込み 最後に load-theme で molokai を読み込んでいる。&#xA;(load-theme &amp;#39;molokai t) その他 もう長年これを使っているが、近年ではもっと良いテーマも出ているかもしれないのでそのうち乗り換えるかも。&#xA;なんだけど、テーマ乗り換えるのちょっとだるいのよね〜。</description>
     </item>
-    
     <item>
       <title>dashboard</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/dashboard/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/ui/dashboard/</guid>
-      <description>概要 emacs-dashboard は Emacs の起動時に色々な情報を表示してくれるパッケージ。
-インストール el-get のレシピは自前で用意している
-(:name dashboard :type github :description &amp;#34;A startup screen extracted from Spacemacs&amp;#34; :pkgname &amp;#34;emacs-dashboard/emacs-dashboard&amp;#34; :depends (page-break-lines) :minimum-emacs-version (25 3)) そして el-get-bundle で入れている
-(el-get-bundle dashboard) 表示するアイコンをロゴに変更 ロゴ、画像にした方がカッコいいよねってことで logo に変更している
-(setq dashboard-startup-banner &amp;#39;logo) なお CUI で起動すると自動でテキストでの表示になる
-表示する情報の設定 dashboard-items を弄ることで表示する情報を設定している
-(setq dashboard-items &amp;#39;((recents . 5) ;; (bookmarks . 5) ;; bookmarks は使ってない (projects . 5) (agenda . 5) ;; (registers . 5) ;; registers は使ってない )) Emacs の bookmarks と register は使ってない(使えてない)のでコメントアウトしている。</description>
+      <description>概要 emacs-dashboard は Emacs の起動時に色々な情報を表示してくれるパッケージ。&#xA;インストール el-get のレシピは自前で用意している&#xA;(:name dashboard :type github :description &amp;#34;A startup screen extracted from Spacemacs&amp;#34; :pkgname &amp;#34;emacs-dashboard/emacs-dashboard&amp;#34; :depends (page-break-lines) :minimum-emacs-version (25 3)) そして el-get-bundle で入れている&#xA;(el-get-bundle dashboard) 表示するアイコンをロゴに変更 ロゴ、画像にした方がカッコいいよねってことで logo に変更している&#xA;(setq dashboard-startup-banner &amp;#39;logo) なお CUI で起動すると自動でテキストでの表示になる&#xA;表示する情報の設定 dashboard-items を弄ることで表示する情報を設定している&#xA;(setq dashboard-items &amp;#39;((recents . 5) ;; (bookmarks . 5) ;; bookmarks は使ってない (projects . 5) (agenda . 5) ;; (registers . 5) ;; registers は使ってない )) Emacs の bookmarks と register は使ってない(使えてない)のでコメントアウトしている。</description>
     </item>
-    
     <item>
       <title>frame-cmds</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/frame-cmds/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/ui/frame-cmds/</guid>
-      <description>概要 frame-cmds は Emacs のフレーム操作に関するコマンド集。上下左右に移動したり広げたりといったことができる。いや、他にもできそうなんだけど、私がそれを把握してない。
-インストール とりあえず自前でレシピを用意している
-(:name frame-cmds :website &amp;#34;https://github.com/emacsmirror/frame-cmds&amp;#34; :description &amp;#34;Frame and window commands (interactive functions).&amp;#34; :type github :depends (frame-fns) :pkgname &amp;#34;emacsmirror/frame-cmds&amp;#34;) また依存している frame-fns もレシピを用意している
-(:name frame-fns :website &amp;#34;https://github.com/emacsmirror/frame-fns&amp;#34; :description &amp;#34;Non-interactive frame and window functions.&amp;#34; :type github :pkgname &amp;#34;emacsmirror/frame-fns&amp;#34;) そして el-get-bundle でインストールしている
-(el-get-bundle frame-cmds) キーバインド 無論キーバインドは覚えられないので以下のように Hydra で定義している
-(pretty-hydra-define window-control-hydra (:separator &amp;#34;-&amp;#34; :title &amp;#34;Window Control&amp;#34; :exit nil :quit-key &amp;#34;q&amp;#34;) (&amp;#34;Move&amp;#34; ((&amp;#34;h&amp;#34; move-frame-left &amp;#34;Left&amp;#34;) (&amp;#34;j&amp;#34; move-frame-down &amp;#34;Down&amp;#34;) (&amp;#34;k&amp;#34; move-frame-up &amp;#34;Up&amp;#34;) (&amp;#34;l&amp;#34; move-frame-right &amp;#34;Right&amp;#34;)) &amp;#34;Resize&amp;#34; ((&amp;#34;H&amp;#34; shrink-frame-horizontally &amp;#34;H-&amp;#34;) (&amp;#34;J&amp;#34; enlarge-frame &amp;#34;V+&amp;#34;) (&amp;#34;K&amp;#34; shrink-frame &amp;#34;V-&amp;#34;) (&amp;#34;L&amp;#34; enlarge-frame-horizontally &amp;#34;H+&amp;#34;)))) Key 効果 h 左に移動 j 下に移動 k 上に移動 l 右いん移動 H 左右方向に縮める J 上下方向に広げる K 上下方向に縮める L 左右方向に広げる </description>
+      <description>概要 frame-cmds は Emacs のフレーム操作に関するコマンド集。上下左右に移動したり広げたりといったことができる。いや、他にもできそうなんだけど、私がそれを把握してない。&#xA;インストール とりあえず自前でレシピを用意している&#xA;(:name frame-cmds :website &amp;#34;https://github.com/emacsmirror/frame-cmds&amp;#34; :description &amp;#34;Frame and window commands (interactive functions).&amp;#34; :type github :depends (frame-fns) :pkgname &amp;#34;emacsmirror/frame-cmds&amp;#34;) また依存している frame-fns もレシピを用意している&#xA;(:name frame-fns :website &amp;#34;https://github.com/emacsmirror/frame-fns&amp;#34; :description &amp;#34;Non-interactive frame and window functions.&amp;#34; :type github :pkgname &amp;#34;emacsmirror/frame-fns&amp;#34;) そして el-get-bundle でインストールしている&#xA;(el-get-bundle frame-cmds) キーバインド 無論キーバインドは覚えられないので以下のように Hydra で定義している&#xA;(pretty-hydra-define window-control-hydra (:separator &amp;#34;-&amp;#34; :title &amp;#34;Window Control&amp;#34; :exit nil :quit-key &amp;#34;q&amp;#34;) (&amp;#34;Move&amp;#34; ((&amp;#34;h&amp;#34; move-frame-left &amp;#34;Left&amp;#34;) (&amp;#34;j&amp;#34; move-frame-down &amp;#34;Down&amp;#34;) (&amp;#34;k&amp;#34; move-frame-up &amp;#34;Up&amp;#34;) (&amp;#34;l&amp;#34; move-frame-right &amp;#34;Right&amp;#34;)) &amp;#34;Resize&amp;#34; ((&amp;#34;H&amp;#34; shrink-frame-horizontally &amp;#34;H-&amp;#34;) (&amp;#34;J&amp;#34; enlarge-frame &amp;#34;V+&amp;#34;) (&amp;#34;K&amp;#34; shrink-frame &amp;#34;V-&amp;#34;) (&amp;#34;L&amp;#34; enlarge-frame-horizontally &amp;#34;H+&amp;#34;)))) Key 効果 h 左に移動 j 下に移動 k 上に移動 l 右いん移動 H 左右方向に縮める J 上下方向に広げる K 上下方向に縮める L 左右方向に広げる </description>
     </item>
-    
     <item>
       <title>fullscreen</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/fullscreen/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/ui/fullscreen/</guid>
-      <description>概要 起動時にフルスクリーンにする設定はここにまとめている
-Mac の設定 Mac の場合にフルスクリーンにする設定を入れていた。けど 2020-01-08 に yabai WM を導入したことにより起動時はフルスクリーンじゃない方がよくなったので以下の処理は今は使ってない。
-(if (or (eq window-system &amp;#39;ns) (eq window-system &amp;#39;mac)) (add-hook &amp;#39;window-setup-hook (lambda () (set-frame-parameter nil &amp;#39;fullscreen &amp;#39;fullboth)))) WSL の設定 X Window system の場合かつ WSLENV という環境変数が設定されている場合にはフルスクリーンにする。新しく Linux マシンを導入したらこれの影響を受けていたので後から WSLENV による判定を追加した次第。
-(if (and (eq window-system &amp;#39;x) (getenv &amp;#34;WSLENV&amp;#34;)) (add-hook &amp;#39;window-setup-hook (lambda () (set-frame-parameter nil &amp;#39;fullscreen &amp;#39;fullboth) (set-frame-position nil 0 0)))) 微妙に画面の下の方がちゃんとフルになってくれてないけどそこは今は我慢して使っている。ちなみにその病はどうやら WSLg になっても残りそう。 https://w.atwiki.jp/ntemacs/pages/69.html</description>
+      <description>概要 起動時にフルスクリーンにする設定はここにまとめている&#xA;Mac の設定 Mac の場合にフルスクリーンにする設定を入れていた。けど 2020-01-08 に yabai WM を導入したことにより起動時はフルスクリーンじゃない方がよくなったので以下の処理は今は使ってない。&#xA;(if (or (eq window-system &amp;#39;ns) (eq window-system &amp;#39;mac)) (add-hook &amp;#39;window-setup-hook (lambda () (set-frame-parameter nil &amp;#39;fullscreen &amp;#39;fullboth)))) WSL の設定 X Window system の場合かつ WSLENV という環境変数が設定されている場合にはフルスクリーンにする。新しく Linux マシンを導入したらこれの影響を受けていたので後から WSLENV による判定を追加した次第。&#xA;(if (and (eq window-system &amp;#39;x) (getenv &amp;#34;WSLENV&amp;#34;)) (add-hook &amp;#39;window-setup-hook (lambda () (set-frame-parameter nil &amp;#39;fullscreen &amp;#39;fullboth) (set-frame-position nil 0 0)))) 微妙に画面の下の方がちゃんとフルになってくれてないけどそこは今は我慢して使っている。ちなみにその病はどうやら WSLg になっても残りそう。 https://w.atwiki.jp/ntemacs/pages/69.html</description>
     </item>
-    
     <item>
       <title>git-gutter-fringe</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/git-gutter-fringe/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/ui/git-gutter-fringe/</guid>
-      <description>概要 git-gutter-fringe は git-gutter の派生版。最後のコミットからどの行を弄ったかを fringe 領域に表示してくれる。
-他にも hunk の操作をできる機能とかあるみたいだけどそのあたりは使ったことがない……。
-派生元の git-gutter は linum-mode と同じ領域を使って描画をしているようで併用ができなかったので git-gutter-fringe を利用している。
-が、Emacs 26 から display-line-numbers-mode が搭載されて linum-mode が不要になったので git-gutter に乗り換えても良さそう
-インストール いつも通り el-get でインストールしている
-(el-get-bundle git-gutter-fringe) 有効化 Git 管理しているやつは全部差分情報が表示されて欲しいのでグローバルマイナーモードを有効にしている。
-(global-git-gutter-mode t) その他 git-gutter ほどではないけど多少のカスタマイズはできるはずだがデフォルト設定で特に不満はないので何もしてない</description>
+      <description>概要 git-gutter-fringe は git-gutter の派生版。最後のコミットからどの行を弄ったかを fringe 領域に表示してくれる。&#xA;他にも hunk の操作をできる機能とかあるみたいだけどそのあたりは使ったことがない……。&#xA;派生元の git-gutter は linum-mode と同じ領域を使って描画をしているようで併用ができなかったので git-gutter-fringe を利用している。&#xA;が、Emacs 26 から display-line-numbers-mode が搭載されて linum-mode が不要になったので git-gutter に乗り換えても良さそう&#xA;インストール いつも通り el-get でインストールしている&#xA;(el-get-bundle git-gutter-fringe) 有効化 Git 管理しているやつは全部差分情報が表示されて欲しいのでグローバルマイナーモードを有効にしている。&#xA;(global-git-gutter-mode t) その他 git-gutter ほどではないけど多少のカスタマイズはできるはずだがデフォルト設定で特に不満はないので何もしてない</description>
     </item>
-    
     <item>
       <title>helm</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/helm/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/ui/helm/</guid>
-      <description>概要 helm は anything.el の後継であり、インクリメンタルに候補の絞り込みをしたりする UI を提供する便利なパッケージ。
-peco とか fzf とかと似ているっちゃ似ているかな? fzf 使ったことないけど。
-一時期開発が止まってるようだったけど最近(2021年)はまた更新が活発になっている。
-ただ、麦汁さんは ivy に乗り換えようとしているので helm の設定は頑張っていない。 helm-for-files が便利なのでまだ捨てられてないけど……。
-インストール helm で使いたい拡張として helm-descbinds と helm-ag というのがあるのでそれらも同時に入れている。
-(el-get-bundle helm) (el-get-bundle helm-descbinds) (el-get-bundle helm-ag) ただ descbinds は counsel-descbinds に置き換えたし helm-ag ももう使ってない気がする
-設定 オススメの設定が helm に同梱されている helm-config に入ってるのでまずはそれを読み込んでいる。
-(require &amp;#39;helm-config) また helm-descbinds を使えるように有効にしている。けど、上にも書いたけどもう counsel-descbinds に置き換えちゃったのよね……。
-(helm-descbinds-mode) あとは helm-migemo-mode というのを有効にしている。これがあると helm で検索する時に migemo れて便利。
-(helm-migemo-mode 1) ivy の方でも migemo 対応したいけどまだできてない……。
-その他 helm 系の設定は他の設定にも色々影響も大きそうなので読み込み順は結構早いタイミングにしている(init-loader で 20 を prefix にしている)</description>
+      <description>概要 helm は anything.el の後継であり、インクリメンタルに候補の絞り込みをしたりする UI を提供する便利なパッケージ。&#xA;peco とか fzf とかと似ているっちゃ似ているかな? fzf 使ったことないけど。&#xA;一時期開発が止まってるようだったけど最近(2021年)はまた更新が活発になっている。&#xA;ただ、麦汁さんは ivy に乗り換えようとしているので helm の設定は頑張っていない。 helm-for-files が便利なのでまだ捨てられてないけど……。&#xA;インストール helm で使いたい拡張として helm-descbinds と helm-ag というのがあるのでそれらも同時に入れている。&#xA;(el-get-bundle helm) (el-get-bundle helm-descbinds) (el-get-bundle helm-ag) ただ descbinds は counsel-descbinds に置き換えたし helm-ag ももう使ってない気がする&#xA;設定 オススメの設定が helm に同梱されている helm-config に入ってるのでまずはそれを読み込んでいる。&#xA;(require &amp;#39;helm-config) また helm-descbinds を使えるように有効にしている。けど、上にも書いたけどもう counsel-descbinds に置き換えちゃったのよね……。&#xA;(helm-descbinds-mode) あとは helm-migemo-mode というのを有効にしている。これがあると helm で検索する時に migemo れて便利。&#xA;(helm-migemo-mode 1) ivy の方でも migemo 対応したいけどまだできてない……。&#xA;その他 helm 系の設定は他の設定にも色々影響も大きそうなので読み込み順は結構早いタイミングにしている(init-loader で 20 を prefix にしている)</description>
     </item>
-    
     <item>
       <title>helm-posframe</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/helm-posframe/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/ui/helm-posframe/</guid>
-      <description>概要 helm-posframe は helm の拡張で Helm のバッファの表示を posframe を使うようにしてくれるやつ。
-実は helm 本体の方でも posframe 対応しているのであまり使う必要もなさそうなのでいずれ外すかもしれない。
-ただ確か本体の方の挙動が気に入らなかったような気はする。
-インストール いつも通り el-get でインストール。 GitHub にあるのでそれを取得するようにしている。
-(el-get-bundle tumashu/helm-posframe) 有効化 (helm-posframe-enable) </description>
+      <description>概要 helm-posframe は helm の拡張で Helm のバッファの表示を posframe を使うようにしてくれるやつ。&#xA;実は helm 本体の方でも posframe 対応しているのであまり使う必要もなさそうなのでいずれ外すかもしれない。&#xA;ただ確か本体の方の挙動が気に入らなかったような気はする。&#xA;インストール いつも通り el-get でインストール。 GitHub にあるのでそれを取得するようにしている。&#xA;(el-get-bundle tumashu/helm-posframe) 有効化 (helm-posframe-enable) </description>
     </item>
-    
     <item>
       <title>highlight-indent-guides</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/highlight-indent-guides/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/ui/highlight-indent-guides/</guid>
-      <description>概要 highlight-indent-guides はインデント毎にラインを引いたりして見易くしてくれるパッケージ。通常のプログラムを書く時にも便利だけど、 YAML などのインデントがそのまま構造になるような言語を弄る時にとても便利。
-インストール これもいつも通り el-get でインストールしている。 GitHub にあるのでそこを直接指定してインストールもできるのだけど el-get.lock からアップデートをチェックする都合上、レシピを用意してそれを使ってインストールしている
-(:name highlight-indent-guides :website &amp;#34;https://github.com/DarthFennec/highlight-indent-guides&amp;#34; :description &amp;#34;This minor mode highlights indentation levels via font-lock&amp;#34; :type github :pkgname &amp;#34;DarthFennec/highlight-indent-guides&amp;#34;) (el-get-bundle highlight-indent-guides) 設定 improvement 今いる行がどのインデントにいるのかをわかりやすくするために responsive モードを有効にしている。
-(setq highlight-indent-guides-responsive &amp;#34;stack&amp;#34;) defcustom で定義されてる変数なので custom-set-variables で設定した方がいいかもしれない。</description>
+      <description>概要 highlight-indent-guides はインデント毎にラインを引いたりして見易くしてくれるパッケージ。通常のプログラムを書く時にも便利だけど、 YAML などのインデントがそのまま構造になるような言語を弄る時にとても便利。&#xA;インストール これもいつも通り el-get でインストールしている。 GitHub にあるのでそこを直接指定してインストールもできるのだけど el-get.lock からアップデートをチェックする都合上、レシピを用意してそれを使ってインストールしている&#xA;(:name highlight-indent-guides :website &amp;#34;https://github.com/DarthFennec/highlight-indent-guides&amp;#34; :description &amp;#34;This minor mode highlights indentation levels via font-lock&amp;#34; :type github :pkgname &amp;#34;DarthFennec/highlight-indent-guides&amp;#34;) (el-get-bundle highlight-indent-guides) 設定 improvement 今いる行がどのインデントにいるのかをわかりやすくするために responsive モードを有効にしている。&#xA;(setq highlight-indent-guides-responsive &amp;#34;stack&amp;#34;) defcustom で定義されてる変数なので custom-set-variables で設定した方がいいかもしれない。</description>
     </item>
-    
     <item>
       <title>hydra</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/hydra/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/ui/hydra/</guid>
-      <description>概要 Hydra は Emacs の貴重なキーバインドを節約できる便利なパッケージ。
-自分で定義した各 Hydra コマンドを実行するとそれに紐付くサブコマンドとそれらのキーバインド一覧を表示させることができるというやつ。
-インストール Hydra 本体と関連パッケージをここでインスコしている
-Hydra 本体のインストール Hydra 本体は el-get で普通に入れている
-(el-get-bundle hydra) hydra-posframe のインストール Hydra は通常だと minibuffer あたりに表示されるけど画面の真ん中に表示される方が視線移動が少なくて便利なので hydra-posframe を使って画面中央に表示されるようにしている。
-インストールは el-get でやっているが recipe がないのでまずそれを用意。
-(:name hydra-posframe :description &amp;#34;a hydra extension which shows hydra hints on posframe.&amp;#34; :type github :pkgname &amp;#34;Ladicle/hydra-posframe&amp;#34;) そして el-get-bundle でインストール
-(el-get-bundle hydra-posframe) そして Emacs の初期化処理が完了したタイミングでそれが使われるように after-init-hook で hydra-posframe を有効化している
-(add-hook &amp;#39;after-init-hook &amp;#39;hydra-posframe-enable) WebDAV Sync download の設定 作業管理用の org-mode のドキュメントは WebDAV サーバにも上げて beorg でも使えるようにしているがそれを拾って来るためのコマンドを用意している。</description>
+      <description>概要 Hydra は Emacs の貴重なキーバインドを節約できる便利なパッケージ。&#xA;自分で定義した各 Hydra コマンドを実行するとそれに紐付くサブコマンドとそれらのキーバインド一覧を表示させることができるというやつ。&#xA;インストール Hydra 本体と関連パッケージをここでインスコしている&#xA;Hydra 本体のインストール Hydra 本体は el-get で普通に入れている&#xA;(el-get-bundle hydra) hydra-posframe のインストール Hydra は通常だと minibuffer あたりに表示されるけど画面の真ん中に表示される方が視線移動が少なくて便利なので hydra-posframe を使って画面中央に表示されるようにしている。&#xA;インストールは el-get でやっているが recipe がないのでまずそれを用意。&#xA;(:name hydra-posframe :description &amp;#34;a hydra extension which shows hydra hints on posframe.&amp;#34; :type github :pkgname &amp;#34;Ladicle/hydra-posframe&amp;#34;) そして el-get-bundle でインストール&#xA;(el-get-bundle hydra-posframe) そして Emacs の初期化処理が完了したタイミングでそれが使われるように after-init-hook で hydra-posframe を有効化している&#xA;(add-hook &amp;#39;after-init-hook &amp;#39;hydra-posframe-enable) WebDAV Sync download の設定 作業管理用の org-mode のドキュメントは WebDAV サーバにも上げて beorg でも使えるようにしているがそれを拾って来るためのコマンドを用意している。</description>
     </item>
-    
     <item>
       <title>ido-mode</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/ido-mode/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/ui/ido-mode/</guid>
-      <description>概要 Emacs に標準添付の補完インターフェース。 ivy 使ってるからこれ有効化している意味がない気はする。
-拡張入れてない段階でもこいつを有効にしていると find-file とかが楽になって良い。
-有効化 とりあえず昔からずっと有効化している
-(ido-mode 1) 設定 ファイル名の補完とかを曖昧一致を有効にするっぽいい。
-(setq ido-enable-flex-matching t) その他 https://qiita.com/tadsan/items/33ebb8db2271897a462b に書いていることだけど
-ido-everywhere を有効にするとファイル名とバッファ切替以外にも使えるようになるらしい smex 入れると M-x が強化される ido-ubiquitous を入れると ido-everywhere よりもさらに色々な他に使えるらしい ido-vertical-mode を入れたら候補が縦並びになって便利っぽい </description>
+      <description>概要 Emacs に標準添付の補完インターフェース。 ivy 使ってるからこれ有効化している意味がない気はする。&#xA;拡張入れてない段階でもこいつを有効にしていると find-file とかが楽になって良い。&#xA;有効化 とりあえず昔からずっと有効化している&#xA;(ido-mode 1) 設定 ファイル名の補完とかを曖昧一致を有効にするっぽいい。&#xA;(setq ido-enable-flex-matching t) その他 https://qiita.com/tadsan/items/33ebb8db2271897a462b に書いていることだけど&#xA;ido-everywhere を有効にするとファイル名とバッファ切替以外にも使えるようになるらしい smex 入れると M-x が強化される ido-ubiquitous を入れると ido-everywhere よりもさらに色々な他に使えるらしい ido-vertical-mode を入れたら候補が縦並びになって便利っぽい </description>
     </item>
-    
     <item>
       <title>ivy</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/ivy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/ui/ivy/</guid>
-      <description>概要 インストール el-get を使って GitHub のリポジトリから直で入れている。
-(el-get-bundle abo-abo/swiper) ;; ivy, swiper, counsel が同時に入って来る MELPA 経由だと org-mode 関係のパッケージ周りでハマったことがあるので GitHub から直で入れる運用にしている。
-が、やっぱり MELPA とかに寄せるべきかなって気になってきているところだったりもする。
-なんか設定 便利に使えるようにするための設定を書いている。が、何を設定しているのかよく覚えてないので今度調べておこう……
-(when (require &amp;#39;ivy nil t) ;; M-o を ivy-dispatching-done-hydra に割り当てる． (require &amp;#39;ivy-hydra) ;; `ivy-switch-buffer&amp;#39; (C-x b) のリストに recent files と bookmark を含める． (setq ivy-use-virtual-buffers t) ;; ミニバッファでコマンド発行を認める (when (setq enable-recursive-minibuffers t) (minibuffer-depth-indicate-mode 1)) ;; 何回層入ったかプロンプトに表示． ;; ESC連打でミニバッファを閉じる (define-key ivy-minibuffer-map (kbd &amp;#34;&amp;lt;escape&amp;gt;&amp;#34;) &amp;#39;minibuffer-keyboard-quit) ;; (index/総数) 表示で何番目の候補かわかりやすくする (setq ivy-count-format &amp;#34;(%d/%d) &amp;#34;) ;; アクティベート (ivy-mode 1)) counsel の有効化 counsel は ivy で提供されているやつで、既存の Emacs のコマンドを置き換えてくれるやつ。</description>
+      <description>概要 インストール el-get を使って GitHub のリポジトリから直で入れている。&#xA;(el-get-bundle abo-abo/swiper) ;; ivy, swiper, counsel が同時に入って来る MELPA 経由だと org-mode 関係のパッケージ周りでハマったことがあるので GitHub から直で入れる運用にしている。&#xA;が、やっぱり MELPA とかに寄せるべきかなって気になってきているところだったりもする。&#xA;なんか設定 便利に使えるようにするための設定を書いている。が、何を設定しているのかよく覚えてないので今度調べておこう……&#xA;(when (require &amp;#39;ivy nil t) ;; M-o を ivy-dispatching-done-hydra に割り当てる． (require &amp;#39;ivy-hydra) ;; `ivy-switch-buffer&amp;#39; (C-x b) のリストに recent files と bookmark を含める． (setq ivy-use-virtual-buffers t) ;; ミニバッファでコマンド発行を認める (when (setq enable-recursive-minibuffers t) (minibuffer-depth-indicate-mode 1)) ;; 何回層入ったかプロンプトに表示． ;; ESC連打でミニバッファを閉じる (define-key ivy-minibuffer-map (kbd &amp;#34;&amp;lt;escape&amp;gt;&amp;#34;) &amp;#39;minibuffer-keyboard-quit) ;; (index/総数) 表示で何番目の候補かわかりやすくする (setq ivy-count-format &amp;#34;(%d/%d) &amp;#34;) ;; アクティベート (ivy-mode 1)) counsel の有効化 counsel は ivy で提供されているやつで、既存の Emacs のコマンドを置き換えてくれるやつ。</description>
     </item>
-    
     <item>
       <title>keypression</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/keypression/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/ui/keypression/</guid>
-      <description>概要 keypression は Emacs 上でのキー操作を可視化してくれるツール。操作したキーを右下とかにダダダッと表示してくれるのでデモ動画を撮る時なんかに使うと便利なやつ
-インストール el-get にはレシピがないので自前で用意している
-(:name keypression :website &amp;#34;https://github.com/chuntaro/emacs-keypression&amp;#34; :description &amp;#34;Keystroke visualizer for GUI version Emacs&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;chuntaro/emacs-keypression&amp;#34;) そしてそれを el-get-bundle でインストールしている
-(el-get-bundle keypression) 設定 あまり設定は弄っていないが、とりあえず child frame を使うようにしている
-(custom-set-variables &amp;#39;(keypression-use-child-frame t)) </description>
+      <description>概要 keypression は Emacs 上でのキー操作を可視化してくれるツール。操作したキーを右下とかにダダダッと表示してくれるのでデモ動画を撮る時なんかに使うと便利なやつ&#xA;インストール el-get にはレシピがないので自前で用意している&#xA;(:name keypression :website &amp;#34;https://github.com/chuntaro/emacs-keypression&amp;#34; :description &amp;#34;Keystroke visualizer for GUI version Emacs&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;chuntaro/emacs-keypression&amp;#34;) そしてそれを el-get-bundle でインストールしている&#xA;(el-get-bundle keypression) 設定 あまり設定は弄っていないが、とりあえず child frame を使うようにしている&#xA;(custom-set-variables &amp;#39;(keypression-use-child-frame t)) </description>
     </item>
-    
     <item>
       <title>mode-line</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/mode-line/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/ui/mode-line/</guid>
-      <description>概要 Emacs のバッファ下部に表示されるモードライン関連の設定をここにまとめている。このメニューの並びとかはどこかで直した方が良さそう。
-hide-mode-line hide-mode-line は mode-line を隠してくれるパッケージ。ここでは neotree-mode-hook で引っ掛けて Neotree では mode-line を隠すように設定している
-(el-get-bundle hlissner/emacs-hide-mode-line) (add-hook &amp;#39;neotree-mode-hook #&amp;#39;hide-mode-line-mode) レシピは自前で用意している
-(:name emacs-hide-mode-line :type github :description &amp;#34;minor mode that hides/masks your modeline.&amp;#34; :pkgname &amp;#34;hlissner/emacs-hide-mode-line&amp;#34; :minimum-emacs-version (24 4)) 他にも mode-line の表示が不要なモードとかってありそうだけど特に思い付かないから今のところ Neotree 専用になっている。
-日時を mode-line では表示しない 今だと i3bar に時計が表示されていていつもそれを見るので mode-line の日時表示は要らないな〜と思ったので非表示にした
-(custom-set-variables &amp;#39;(display-time-24hr-format t)) (display-time-mode -1) 表示していたころの名残りで時計の表示形式は24時間表記の設定。表示する場合、「午前」とか「午後」とかの表示邪魔だしね。
-smart-mode-line 関連の設定 unused smart-mode-line は mode-line をセクシーな感じにしてくれるパッケージ。というわけで昔入れていたけどもう使ってない。一応コードの残骸があったから一旦残しておく。
-多分アイコン表示周りをゴリゴリ設定するのがだるくなって doom-modeline に乗り換えたんだと思う。
-;; (el-get-bundle smart-mode-line) ;; (defvar sml/no-confirm-load-theme t) ;; (defvar sml/theme &amp;#39;dark) ;; (sml/setup) ;; major-mode ;; (add-hook &amp;#39;emacs-lisp-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon &amp;#34;elisp&amp;#34;)))) ;; (add-hook &amp;#39;enh-ruby-mode-hook (lambda () (setq mode-name (concat &amp;#34;e&amp;#34; (all-the-icons-alltheicon &amp;#34;ruby-alt&amp;#34;))))) ;; (add-hook &amp;#39;ruby-mode-hook (lambda () (setq mode-name (all-the-icons-alltheicon &amp;#34;ruby-alt&amp;#34;)))) ;; (add-hook &amp;#39;vue-mode-hook (lambda () ;; (make-local-variable &amp;#39;mmm-submode-mode-line-format) ;; (setq mmm-submode-mode-line-format &amp;#34;~M:~m&amp;#34;) ;; (make-local-variable &amp;#39;mmm-buffer-mode-display-name) ;; (setq mmm-buffer-mode-display-name &amp;#34;V&amp;#34;))) ;; (add-hook &amp;#39;js-mode-hook (lambda () (setq mode-name &amp;#34;&amp;#34;))) ;; (add-hook &amp;#39;pug-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon &amp;#34;pug&amp;#34;)))) ;; (add-hook &amp;#39;css-mode-hook (lambda () (setq mode-name (all-the-icons-faicon &amp;#34;css3&amp;#34;)))) ;; (add-hook &amp;#39;twittering-mode-hook (lambda () (setq mode-name (all-the-icons-faicon &amp;#34;twitter-square&amp;#34;)))) ;; (add-hook &amp;#39;org-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon &amp;#34;org&amp;#34;)))) diminish diminish は minor-mode の表示をカスタマイズするためのモード。</description>
+      <description>概要 Emacs のバッファ下部に表示されるモードライン関連の設定をここにまとめている。このメニューの並びとかはどこかで直した方が良さそう。&#xA;hide-mode-line hide-mode-line は mode-line を隠してくれるパッケージ。ここでは neotree-mode-hook で引っ掛けて Neotree では mode-line を隠すように設定している&#xA;(el-get-bundle hlissner/emacs-hide-mode-line) (add-hook &amp;#39;neotree-mode-hook #&amp;#39;hide-mode-line-mode) レシピは自前で用意している&#xA;(:name emacs-hide-mode-line :type github :description &amp;#34;minor mode that hides/masks your modeline.&amp;#34; :pkgname &amp;#34;hlissner/emacs-hide-mode-line&amp;#34; :minimum-emacs-version (24 4)) 他にも mode-line の表示が不要なモードとかってありそうだけど特に思い付かないから今のところ Neotree 専用になっている。&#xA;日時を mode-line では表示しない 今だと i3bar に時計が表示されていていつもそれを見るので mode-line の日時表示は要らないな〜と思ったので非表示にした&#xA;(custom-set-variables &amp;#39;(display-time-24hr-format t)) (display-time-mode -1) 表示していたころの名残りで時計の表示形式は24時間表記の設定。表示する場合、「午前」とか「午後」とかの表示邪魔だしね。&#xA;smart-mode-line 関連の設定 unused smart-mode-line は mode-line をセクシーな感じにしてくれるパッケージ。というわけで昔入れていたけどもう使ってない。一応コードの残骸があったから一旦残しておく。&#xA;多分アイコン表示周りをゴリゴリ設定するのがだるくなって doom-modeline に乗り換えたんだと思う。&#xA;;; (el-get-bundle smart-mode-line) ;; (defvar sml/no-confirm-load-theme t) ;; (defvar sml/theme &amp;#39;dark) ;; (sml/setup) ;; major-mode ;; (add-hook &amp;#39;emacs-lisp-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon &amp;#34;elisp&amp;#34;)))) ;; (add-hook &amp;#39;enh-ruby-mode-hook (lambda () (setq mode-name (concat &amp;#34;e&amp;#34; (all-the-icons-alltheicon &amp;#34;ruby-alt&amp;#34;))))) ;; (add-hook &amp;#39;ruby-mode-hook (lambda () (setq mode-name (all-the-icons-alltheicon &amp;#34;ruby-alt&amp;#34;)))) ;; (add-hook &amp;#39;vue-mode-hook (lambda () ;; (make-local-variable &amp;#39;mmm-submode-mode-line-format) ;; (setq mmm-submode-mode-line-format &amp;#34;~M:~m&amp;#34;) ;; (make-local-variable &amp;#39;mmm-buffer-mode-display-name) ;; (setq mmm-buffer-mode-display-name &amp;#34;V&amp;#34;))) ;; (add-hook &amp;#39;js-mode-hook (lambda () (setq mode-name &amp;#34;&amp;#34;))) ;; (add-hook &amp;#39;pug-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon &amp;#34;pug&amp;#34;)))) ;; (add-hook &amp;#39;css-mode-hook (lambda () (setq mode-name (all-the-icons-faicon &amp;#34;css3&amp;#34;)))) ;; (add-hook &amp;#39;twittering-mode-hook (lambda () (setq mode-name (all-the-icons-faicon &amp;#34;twitter-square&amp;#34;)))) ;; (add-hook &amp;#39;org-mode-hook (lambda () (setq mode-name (all-the-icons-fileicon &amp;#34;org&amp;#34;)))) diminish diminish は minor-mode の表示をカスタマイズするためのモード。</description>
     </item>
-    
     <item>
       <title>Neotree</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/neotree/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/ui/neotree/</guid>
-      <description>概要 Neotree は Emacs でフォルダのツリー表示ができるやつ。メンテは活発じゃないようなので、その内乗り換えたい。
-レシピ Neotree でメンテされているのは dev ブランチだけど el-get の公式のレシピでは master ブランチを見ているので自前で recipe を用意してそれを使っている。
-(:name emacs-neotree-dev :website &amp;#34;https://github.com/jaypei/emacs-neotree&amp;#34; :description &amp;#34;An Emacs tree plugin like NerdTree for Vim.&amp;#34; :type github :branch &amp;#34;dev&amp;#34; :pkgname &amp;#34;jaypei/emacs-neotree&amp;#34;) インストール 上に書いたレシピを使ってインストールしている。
-(el-get-bundle emacs-neotree-dev) 使わなくなったコード 元々設定していたが、 counsel-projectile を使ってると projectile-switch-project-action を設定していても反映されず意味がないのに気付いたので使わなくなった
-https://github.com/mugijiru/.emacs.d/pull/183/files#r541843206
-(setq projectile-switch-project-action &amp;#39;neotree-projectile-action) テーマの設定 GUI で起動している時はアイコン表示しそうでない場合は ▾ とかで表示する
-(setq neo-theme (if (display-graphic-p) &amp;#39;icons &amp;#39;arrow)) のだけど、実際に今使ってるやつだともっとグラフィカルな表示なので all-the-icons の設定で上書きしている気がするので要確認
-major-mode-hydra いちいちキーバインドを覚えてられないので major-mode-hydra を使って主要なキーバインドは hydra で使えるようにしている。
-とはいえ、この文書を書く前日ぐらいに設定しているのでまだ使い慣れてないというか、ほとんど使えてない。</description>
+      <description>概要 Neotree は Emacs でフォルダのツリー表示ができるやつ。メンテは活発じゃないようなので、その内乗り換えたい。&#xA;レシピ Neotree でメンテされているのは dev ブランチだけど el-get の公式のレシピでは master ブランチを見ているので自前で recipe を用意してそれを使っている。&#xA;(:name emacs-neotree-dev :website &amp;#34;https://github.com/jaypei/emacs-neotree&amp;#34; :description &amp;#34;An Emacs tree plugin like NerdTree for Vim.&amp;#34; :type github :branch &amp;#34;dev&amp;#34; :pkgname &amp;#34;jaypei/emacs-neotree&amp;#34;) インストール 上に書いたレシピを使ってインストールしている。&#xA;(el-get-bundle emacs-neotree-dev) 使わなくなったコード 元々設定していたが、 counsel-projectile を使ってると projectile-switch-project-action を設定していても反映されず意味がないのに気付いたので使わなくなった&#xA;https://github.com/mugijiru/.emacs.d/pull/183/files#r541843206&#xA;(setq projectile-switch-project-action &amp;#39;neotree-projectile-action) テーマの設定 GUI で起動している時はアイコン表示しそうでない場合は ▾ とかで表示する&#xA;(setq neo-theme (if (display-graphic-p) &amp;#39;icons &amp;#39;arrow)) のだけど、実際に今使ってるやつだともっとグラフィカルな表示なので all-the-icons の設定で上書きしている気がするので要確認&#xA;major-mode-hydra いちいちキーバインドを覚えてられないので major-mode-hydra を使って主要なキーバインドは hydra で使えるようにしている。&#xA;とはいえ、この文書を書く前日ぐらいに設定しているのでまだ使い慣れてないというか、ほとんど使えてない。</description>
     </item>
-    
     <item>
       <title>posframe</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/posframe/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/ui/posframe/</guid>
-      <description>概要 posframe は child frame を表示させるためのパッケージ。 Emacs のど真ん中に表示したり、今あるカーソル位置のすぐそばに出したりできる。
-ivy なんかを使う時に ivy-posframe をど真ん中に出すと、いつもそこに表示されるし真ん中なの視線移動が少なくて済むし ddskk-posframe なんかで変換候補をカーソル位置のそばに出て来るので一般的な日本語変換ソフトと同様にこれまた視線移動が少なくて便利。
-という感じで色々なものの拡張として使わているやつ。
-インストール いつも通り el-get で入れているだけ。
-(el-get-bundle posframe) こいつ自体には特に設定を入れてない。というか設定項目自体2個しか存在していない。
-ま、こいつ単体で使うものでもないしね。</description>
+      <description>概要 posframe は child frame を表示させるためのパッケージ。 Emacs のど真ん中に表示したり、今あるカーソル位置のすぐそばに出したりできる。&#xA;ivy なんかを使う時に ivy-posframe をど真ん中に出すと、いつもそこに表示されるし真ん中なの視線移動が少なくて済むし ddskk-posframe なんかで変換候補をカーソル位置のそばに出て来るので一般的な日本語変換ソフトと同様にこれまた視線移動が少なくて便利。&#xA;という感じで色々なものの拡張として使わているやつ。&#xA;インストール いつも通り el-get で入れているだけ。&#xA;(el-get-bundle posframe) こいつ自体には特に設定を入れてない。というか設定項目自体2個しか存在していない。&#xA;ま、こいつ単体で使うものでもないしね。</description>
     </item>
-    
     <item>
       <title>show-paren-mode</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/show-paren-mode/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/ui/show-paren-mode/</guid>
-      <description>概要 show-paren-mode は Emacs に標準で入っているやつで開き括弧と閉じ括弧の対応を示してくれたり括弧の中身を強調表示したりする機能を提供してくれるやつ。
-有効化 デフォで入ってるので以下のようにするだけで有効化される。
-(show-paren-mode 1) デフォ設定だと対応する括弧を強調表示するだけだけどまあそれで悪くないと思ってるので今のところデフォルト設定のままである。
-その他 http://syohex.hatenablog.com/entry/20110331/1301584188
-の記事へのリンクを設定ファイルの中に残していたけど設定は特に弄ってないのでまたその記事読んだりで設定弄ってみてもいいかもしれない。
-また smartparens.el にも似た機能はあるようだけど Emacs 標準機能の方が軽そうなのでとりあえずこのままにするつもり。</description>
+      <description>概要 show-paren-mode は Emacs に標準で入っているやつで開き括弧と閉じ括弧の対応を示してくれたり括弧の中身を強調表示したりする機能を提供してくれるやつ。&#xA;有効化 デフォで入ってるので以下のようにするだけで有効化される。&#xA;(show-paren-mode 1) デフォ設定だと対応する括弧を強調表示するだけだけどまあそれで悪くないと思ってるので今のところデフォルト設定のままである。&#xA;その他 http://syohex.hatenablog.com/entry/20110331/1301584188&#xA;の記事へのリンクを設定ファイルの中に残していたけど設定は特に弄ってないのでまたその記事読んだりで設定弄ってみてもいいかもしれない。&#xA;また smartparens.el にも似た機能はあるようだけど Emacs 標準機能の方が軽そうなのでとりあえずこのままにするつもり。</description>
     </item>
-    
     <item>
       <title>toolbar</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/toolbar/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/ui/toolbar/</guid>
-      <description>概要 Emacs 標準の toolbar の設定。麦汁さんは使わないし幅を取るので隠す派。
-設定 単に無効にして隠している
-(tool-bar-mode -1) </description>
+      <description>概要 Emacs 標準の toolbar の設定。麦汁さんは使わないし幅を取るので隠す派。&#xA;設定 単に無効にして隠している&#xA;(tool-bar-mode -1) </description>
     </item>
-    
     <item>
       <title>uniquify</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/uniquify/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/ui/uniquify/</guid>
-      <description>概要 同じ名前のファイルを開いている時に祖先のディレクトリ名を表示してくれてどこのファイルかわかりやすくしてくれるやつ。
-すぐ親とかも同名でも、名前が違うところまで遡って表示してくれる。
-有効化 Emacs に標準で入ってるので require するだけで有効にできる
-(require &amp;#39;uniquify) 設定 自分は ファイル名&amp;lt;フォルダ名&amp;gt; みたいな表示になる形式にしている。その方がファイル名が主という感じになって使いやすそうだなって。
-そういう意味では post-foward の方が幅を使わない分良いかもしれない。いつか検討しても良いかもしれない。
-(setq uniquify-buffer-name-style &amp;#39;post-forward-angle-brackets) </description>
+      <description>概要 同じ名前のファイルを開いている時に祖先のディレクトリ名を表示してくれてどこのファイルかわかりやすくしてくれるやつ。&#xA;すぐ親とかも同名でも、名前が違うところまで遡って表示してくれる。&#xA;有効化 Emacs に標準で入ってるので require するだけで有効にできる&#xA;(require &amp;#39;uniquify) 設定 自分は ファイル名&amp;lt;フォルダ名&amp;gt; みたいな表示になる形式にしている。その方がファイル名が主という感じになって使いやすそうだなって。&#xA;そういう意味では post-foward の方が幅を使わない分良いかもしれない。いつか検討しても良いかもしれない。&#xA;(setq uniquify-buffer-name-style &amp;#39;post-forward-angle-brackets) </description>
     </item>
-    
     <item>
       <title>yascroll</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/yascroll/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/ui/yascroll/</guid>
-      <description>概要 yascroll は標準のスクロールバーとは異なるスクロールバーを表示するやつ。
-デフォルトだと右側の fringe 領域に表示するのであまり邪魔にならないし表示領域を必要以上に狭めないので気に入っている。
-最初に作られたっぽい記事は 主張しないスクロールバーモード、yascroll.elをリリースしました - Functional Emacser にある。タイトル通り、あまり主張しない感じで良い。
-インストール いつも通り el-get でインストールしている
-(el-get-bundle yascroll) これだけで大体いい感じに表示されるので便利。たまに表示されなくなることもあるが、まあそこまで重要なやつでもないのであまり気にしていない</description>
+      <description>概要 yascroll は標準のスクロールバーとは異なるスクロールバーを表示するやつ。&#xA;デフォルトだと右側の fringe 領域に表示するのであまり邪魔にならないし表示領域を必要以上に狭めないので気に入っている。&#xA;最初に作られたっぽい記事は 主張しないスクロールバーモード、yascroll.elをリリースしました - Functional Emacser にある。タイトル通り、あまり主張しない感じで良い。&#xA;インストール いつも通り el-get でインストールしている&#xA;(el-get-bundle yascroll) これだけで大体いい感じに表示されるので便利。たまに表示されなくなることもあるが、まあそこまで重要なやつでもないのであまり気にしていない</description>
     </item>
-    
     <item>
       <title>zoom</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/zoom/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/ui/zoom/</guid>
-      <description>概要 zoom はフォーカスが当たっている Window が大きく表示されるようにするやつ。最近流行りのビデオチャットツールではない。
-どこにフォーカスが当たっているかわかりやすくなるし、狭い画面でも見たい部分を広げて表示できるので便利。
-インストール el-get のレシピは自前で用意している
-(:name zoom :type github :description &amp;#34;Fixed and automatic balanced window layout.&amp;#34; :pkgname &amp;#34;cyrus-and/zoom&amp;#34; :minimum-emacs-version (24 4)) そして el-get で入れる。 GitHub から直接取得するように設定している。
-(el-get-bundle cyrus-and/zoom) 設定 起動時に有効化 1画面しか使えない時は必須なので 比率を黄金比に変更 この方が使いやすいっぽい。 という設定をしている。
-(custom-set-variables &amp;#39;(zoom-mode t) &amp;#39;(zoom-size &amp;#39;(0.618 . 0.618))) </description>
+      <description>概要 zoom はフォーカスが当たっている Window が大きく表示されるようにするやつ。最近流行りのビデオチャットツールではない。&#xA;どこにフォーカスが当たっているかわかりやすくなるし、狭い画面でも見たい部分を広げて表示できるので便利。&#xA;インストール el-get のレシピは自前で用意している&#xA;(:name zoom :type github :description &amp;#34;Fixed and automatic balanced window layout.&amp;#34; :pkgname &amp;#34;cyrus-and/zoom&amp;#34; :minimum-emacs-version (24 4)) そして el-get で入れる。 GitHub から直接取得するように設定している。&#xA;(el-get-bundle cyrus-and/zoom) 設定 起動時に有効化 1画面しか使えない時は必須なので 比率を黄金比に変更 この方が使いやすいっぽい。 という設定をしている。&#xA;(custom-set-variables &amp;#39;(zoom-mode t) &amp;#39;(zoom-size &amp;#39;(0.618 . 0.618))) </description>
     </item>
-    
     <item>
       <title>zoom-window</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/zoom-window/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://mugijiru.github.io/.emacs.d/ui/zoom-window/</guid>
-      <description>概要 zoom-window は tmux の prefix z のような動きをするやつ。表示している window をフレーム全体に広げたり戻したりすることができる。
-インストール いつも通り el-get から入れている
-(el-get-bundle zoom-window) その他 キーバインドは 80-global-keybinds に書いたけど C-x 1 に割り当てている。
-ただそれだと tmux と使い勝手が違うなって感じているのでそのうち hydra の中の z にでもアサインしようかと思う。
-あと、その window を最大化して戻すことよりも単に他の window が邪魔なことの方が多い気もしている。。。</description>
+      <description>概要 zoom-window は tmux の prefix z のような動きをするやつ。表示している window をフレーム全体に広げたり戻したりすることができる。&#xA;インストール いつも通り el-get から入れている&#xA;(el-get-bundle zoom-window) その他 キーバインドは 80-global-keybinds に書いたけど C-x 1 に割り当てている。&#xA;ただそれだと tmux と使い勝手が違うなって感じているのでそのうち hydra の中の z にでもアサインしようかと思う。&#xA;あと、その window を最大化して戻すことよりも単に他の window が邪魔なことの方が多い気もしている。。。</description>
     </item>
-    
   </channel>
 </rss>
