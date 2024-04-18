@@ -15,6 +15,7 @@
   (company-mode 1)
   (subword-mode 1)
   (which-function-mode 1)
+  (copilot-mode 1)
   (lsp)
   (lsp-ui-mode 1)
   (add-hook 'before-save-hook #'lsp-format-buffer nil 'local)
