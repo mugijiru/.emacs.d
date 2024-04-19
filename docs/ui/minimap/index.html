@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>yascroll :: 麦汁&#39;s Emacs Config</title>
+    <title>minimap :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1713515434" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/ui/yascroll/">
+  <body class="" data-url="/.emacs.d/ui/minimap/">
     <nav id="sidebar" class="">
 
 
@@ -1333,7 +1333,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/minimap/" title="minimap" class="dd-item ">
+      <li data-nav-id="/.emacs.d/ui/minimap/" title="minimap" class="dd-item active">
         <a href="/.emacs.d/ui/minimap/">
         minimap
         
@@ -1480,7 +1480,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/yascroll/" title="yascroll" class="dd-item active">
+      <li data-nav-id="/.emacs.d/ui/yascroll/" title="yascroll" class="dd-item ">
         <a href="/.emacs.d/ui/yascroll/">
         yascroll
         
@@ -3287,7 +3287,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > yascroll
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > minimap
           
         
           
@@ -3304,6 +3304,12 @@
   <ul>
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
+    <li><a href="#設定">設定</a>
+      <ul>
+        <li><a href="#表示位置">表示位置</a></li>
+        <li><a href="#有効にするメジャーモードの指定">有効にするメジャーモードの指定</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -3321,7 +3327,7 @@
           
             <h1>
               
-              yascroll
+              minimap
             </h1>
           
 
@@ -3329,16 +3335,24 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/emacsorphanage/yascroll">yascroll</a> は標準のスクロールバーとは異なるスクロールバーを表示するやつ。</p>
-<p>デフォルトだと右側の fringe 領域に表示するのであまり邪魔にならないし表示領域を必要以上に狭めないので気に入っている。</p>
-<p>最初に作られたっぽい記事は
-<a href="https://m2ym.hatenadiary.org/entry/20110401/1301617991">主張しないスクロールバーモード、yascroll.elをリリースしました - Functional Emacser</a>
-にある。タイトル通り、あまり主張しない感じで良い。</p>
+<p><a href="https://github.com/dengste/minimap">minimap</a> はソースコード全体を縮小表示してくれるので全体を俯瞰するのに便利なやつです</p>
 <h2 id="インストール">インストール</h2>
-<p>いつも通り el-get でインストールしている</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle yascroll)
-</span></span></code></pre></div><p>これだけで大体いい感じに表示されるので便利。たまに表示されなくなることもあるが、まあそこまで重要なやつでもないのであまり気にしていない</p>
-
+<p>el-get 本体にレシピが存在するのでそのまま <code>el-get-bundle</code> で入れています</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle minimap)
+</span></span></code></pre></div><h2 id="設定">設定</h2>
+<h3 id="表示位置">表示位置</h3>
+<p>デフォルト設定は左側への表示ですが右側に表示したいので表示位置を指定しています</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setopt minimap-window-location <span style="color:#e6db74">&#39;right</span>)
+</span></span></code></pre></div><h3 id="有効にするメジャーモードの指定">有効にするメジャーモードの指定</h3>
+<p>どうも使えるようにするメジャーモードを指定した方が良さそうなので普段よく使うものを指定している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setopt minimap-major-modes <span style="color:#f92672">&#39;</span>(emacs-lisp-mode
+</span></span><span style="display:flex;"><span>                              enh-ruby-mode
+</span></span><span style="display:flex;"><span>                              haml-mode
+</span></span><span style="display:flex;"><span>                              org-mode
+</span></span><span style="display:flex;"><span>                              tsx-ts-mode
+</span></span><span style="display:flex;"><span>                              typescript-ts-mode
+</span></span><span style="display:flex;"><span>                              scss-mode))
+</span></span></code></pre></div>
 
 <footer class="footline">
 	
@@ -4275,6 +4289,26 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
                 
                 
 
@@ -4386,26 +4420,6 @@
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -5662,10 +5676,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/ui/uniquify/" title="uniquify"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/ui/keypression/" title="keypression"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/ui/zoom/" title="zoom" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/ui/mode-line/" title="mode-line" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

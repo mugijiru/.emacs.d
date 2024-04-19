@@ -106,6 +106,13 @@
       <description>概要 keypression は Emacs 上でのキー操作を可視化してくれるツール。操作したキーを右下とかにダダダッと表示してくれるのでデモ動画を撮る時なんかに使うと便利なやつ&#xA;インストール el-get にはレシピがないので自前で用意している&#xA;(:name keypression :website &amp;#34;https://github.com/chuntaro/emacs-keypression&amp;#34; :description &amp;#34;Keystroke visualizer for GUI version Emacs&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;chuntaro/emacs-keypression&amp;#34;) そしてそれを el-get-bundle でインストールしている&#xA;(el-get-bundle keypression) 設定 あまり設定は弄っていないが、とりあえず child frame を使うようにしている&#xA;(custom-set-variables &amp;#39;(keypression-use-child-frame t)) </description>
     </item>
     <item>
+      <title>minimap</title>
+      <link>https://mugijiru.github.io/.emacs.d/ui/minimap/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mugijiru.github.io/.emacs.d/ui/minimap/</guid>
+      <description>概要 minimap はソースコード全体を縮小表示してくれるので全体を俯瞰するのに便利なやつです&#xA;インストール el-get 本体にレシピが存在するのでそのまま el-get-bundle で入れています&#xA;(el-get-bundle minimap) 設定 表示位置 デフォルト設定は左側への表示ですが右側に表示したいので表示位置を指定しています&#xA;(setopt minimap-window-location &amp;#39;right) 有効にするメジャーモードの指定 どうも使えるようにするメジャーモードを指定した方が良さそうなので普段よく使うものを指定している&#xA;(setopt minimap-major-modes &amp;#39;(emacs-lisp-mode enh-ruby-mode haml-mode org-mode tsx-ts-mode typescript-ts-mode scss-mode)) </description>
+    </item>
+    <item>
       <title>mode-line</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/mode-line/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

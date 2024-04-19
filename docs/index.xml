@@ -547,6 +547,13 @@
       <description>概要 migemo.el は cmigemo などと通信して、日本語入力オフのままローマ字入力をして日本語検索ができるようにするパッケージ。&#xA;これとても便利で抜け出せない。&#xA;インストール いつも通り el-get でインストール。&#xA;(el-get-bundle migemo) (load &amp;#34;migemo&amp;#34;) load はする必要あるのかわからんけど、そういう設定が既に入ってるのでそのままにしている。&#xA;Mac での辞書の位置の指定 Homebrew で cmigemo を入れているのでそれに合わせて辞書の位置を指定している。&#xA;;; Mac (let ((path &amp;#34;/usr/local/share/migemo/utf-8/migemo-dict&amp;#34;)) (if (file-exists-p path) (setq migemo-dictionary path))) Ubuntu での辞書の位置の指定 apt で cmigemo を入れているのでそれに合わせて辞書の位置を指定している。&#xA;;; Ubuntu (let ((path &amp;#34;/usr/share/cmigemo/utf-8/migemo-dict&amp;#34;)) (if (file-exists-p path) (setq migemo-dictionary path))) Manjaro での辞書の位置の指定 yay で cmigemo-git を入れているのでそれに合わせて辞書の位置を指定している。&#xA;;; Manjaro (let ((path &amp;#34;/usr/share/migemo/utf-8/migemo-dict&amp;#34;)) (if (file-exists-p path) (setq migemo-dictionary path))) cmigemo コマンドの PATH 指定 環境で PATH が変わるので which コマンドの結果を migemo-command に設定している。</description>
     </item>
     <item>
+      <title>minimap</title>
+      <link>https://mugijiru.github.io/.emacs.d/ui/minimap/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mugijiru.github.io/.emacs.d/ui/minimap/</guid>
+      <description>概要 minimap はソースコード全体を縮小表示してくれるので全体を俯瞰するのに便利なやつです&#xA;インストール el-get 本体にレシピが存在するのでそのまま el-get-bundle で入れています&#xA;(el-get-bundle minimap) 設定 表示位置 デフォルト設定は左側への表示ですが右側に表示したいので表示位置を指定しています&#xA;(setopt minimap-window-location &amp;#39;right) 有効にするメジャーモードの指定 どうも使えるようにするメジャーモードを指定した方が良さそうなので普段よく使うものを指定している&#xA;(setopt minimap-major-modes &amp;#39;(emacs-lisp-mode enh-ruby-mode haml-mode org-mode tsx-ts-mode typescript-ts-mode scss-mode)) </description>
+    </item>
+    <item>
       <title>moccur-edit</title>
       <link>https://mugijiru.github.io/.emacs.d/editing/moccur-edit/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
