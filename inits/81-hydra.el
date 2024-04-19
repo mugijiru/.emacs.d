@@ -46,6 +46,7 @@
     ("e" emojify-mode              "Emojify"        :toggle emojify-mode)
     ("B" blamer-mode               "Blamer"         :toggle blamer-mode)
     ("L" display-line-numbers-mode "Line Number"    :toggle display-line-numbers-mode)
+    ("M" minimap-mode              "Minimap"        :toggle minimap-mode)
     ("N" neotree-toggle            "Neotree"        :toggle (if (fboundp 'neo-global--window-exists-p) (neo-global--window-exists-p) nil)))
 
    "Mode Line"

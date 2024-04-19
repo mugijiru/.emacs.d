@@ -41,6 +41,9 @@ disableToc = true
 [ivy]({{< relref "ivy" >}})
 : 絞り込みインターフェーズを提供してくれるやつ。
 
+[minimap]({{< relref "#minimap" >}})
+: ソースコード全体を俯瞰するためのやつ
+
 [mode-line]({{< relref "mode-line" >}})
 : モードラインに関する設定をここにまとめている
 
@@ -65,5 +68,5 @@ disableToc = true
 [zoom]({{< relref "zoom" >}})
 : フォーカスが当たってるウインドウを大きく表示してくれるやつ
 
-[zoom-window]({{< relref "global-keybinds#zoom-window" >}})
+[zoom-window]({{< relref "zoom-window" >}})
 : 見ている window を最大化したり戻したりしてくれるやつ
