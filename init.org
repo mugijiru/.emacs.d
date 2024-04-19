@@ -2476,6 +2476,7 @@ See URL `https://textlint.github.io/'."
 - [[*hydra][hydra]] :: サブコマンドをビジュアル的に表示してくれるメニューを提供してくれるやつ
 - [[*ido-mode][ido-mode]] :: Emacs 標準添付の補完インターフェース
 - [[*ivy][ivy]] :: 絞り込みインターフェーズを提供してくれるやつ。
+- [[id:909f18fe-b48d-41cd-b328-3675fbf66f7c][minimap]] :: ソースコード全体を俯瞰するためのやつ
 - [[*mode-line][mode-line]] :: モードラインに関する設定をここにまとめている
 - [[*Neotree][Neotree]] :: フォルダ構造を IDE みたいにツリー表示するやつ
 - [[*posframe][posframe]] :: いい感じの位置に child frame を表示する機能を提供するやつ
@@ -2485,7 +2486,6 @@ See URL `https://textlint.github.io/'."
 - [[*yascroll][yascroll]] :: 主張の大人しいスクロールバーを表示してくれるやつ
 - [[*zoom][zoom]] :: フォーカスが当たってるウインドウを大きく表示してくれるやつ
 - [[*zoom-window][zoom-window]] :: 見ている window を最大化したり戻したりしてくれるやつ
-
 ** alert
 :PROPERTIES:
 :EXPORT_FILE_NAME: alert
@@ -3828,6 +3828,19 @@ ivy などの絞り込み系ツールと組み合わせて使う。
 どうやら company-mode でも使えるらしいので
 設定は別のところに分離した方がいいかもしれない。
 
+** minimap
+:PROPERTIES:
+:ID:       909f18fe-b48d-41cd-b328-3675fbf66f7c
+:EXPORT_FILE_NAME: minimap
+:END:
+*** 概要
+[[https://github.com/dengste/minimap][minimap]] はソースコード全体を縮小表示してくれるので全体を俯瞰するのに便利なやつです
+*** インストール
+el-get 本体にレシピが存在するのでそのまま ~el-get-bundle~ で入れています
+
+#+begin_src emacs-lisp :tangle inits/50-minimap.el
+(el-get-bundle minimap)
+#+end_src
 ** mode-line
 :PROPERTIES:
 :EXPORT_FILE_NAME: mode-line
