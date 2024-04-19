@@ -3841,6 +3841,14 @@ el-get 本体にレシピが存在するのでそのまま ~el-get-bundle~ で�
 #+begin_src emacs-lisp :tangle inits/50-minimap.el
 (el-get-bundle minimap)
 #+end_src
+*** 設定
+**** 表示位置
+デフォルト設定は左側への表示ですが
+右側に表示したいので表示位置を指定しています
+
+#+begin_src emacs-lisp :tangle inits/50-minimap.el
+(setopt minimap-window-location 'right)
+#+end_src
 ** mode-line
 :PROPERTIES:
 :EXPORT_FILE_NAME: mode-line
