@@ -27,3 +27,18 @@ el-get 本体にレシピが存在するのでそのまま `el-get-bundle` で�
 ```emacs-lisp
 (setopt minimap-window-location 'right)
 ```
+
+
+### 有効にするメジャーモードの指定 {#有効にするメジャーモードの指定}
+
+どうも使えるようにするメジャーモードを指定した方が良さそうなので普段よく使うものを指定している
+
+```emacs-lisp
+(setopt minimap-major-modes '(emacs-lisp-mode
+                              enh-ruby-mode
+                              haml-mode
+                              org-mode
+                              tsx-ts-mode
+                              typescript-ts-mode
+                              scss-mode))
+```
