@@ -54,7 +54,9 @@
      (("a" org-agenda-archive  "Archive")
       ("r" org-agenda-refile   "Refile")
       ("t" org-agenda-todo     "TODO")
-      ("Q" org-agenda-set-tags "Tag"))
+      ("Q" org-agenda-set-tags "Tag")
+      ("s" org-agenda-schedule "Schedule")
+      ("d" org-agenda-deadline "Deadline"))
 
      "Filter"
      (("C" org-agenda-filter-by-category     "Category")
