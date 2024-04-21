@@ -24,7 +24,7 @@ org-protocol-capture-html はあまりちゃんとメンテされていないよ
        :description "Capture HTML from the browser selection into Emacs as org-mode content."
        :type github
        :pkgname "mugijiru/org-protocol-capture-html"
-       :branch "feat/always-define-eww-readable-functions"
+       :branch "master"
        :minimum-emacs-version "25.1"
        :depends (org-mode s))
 ```
