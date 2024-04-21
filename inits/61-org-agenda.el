@@ -101,6 +101,7 @@
                    (org-agenda-overriding-header "予定なし")
                    (org-super-agenda-groups '((:and (:property ("agenda-group" "1. Work") :scheduled nil :deadline nil))
                                               (:discard (:anything t))))))))
+
      ("D" "Holiday"
       ((tags-todo "-Weekday-Daily-Holiday-Weekly-Weekend&LEVEL=3"
                   ((org-agenda-prefix-format " ")
