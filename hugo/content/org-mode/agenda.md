@@ -178,18 +178,37 @@ nil にして表示しないようにしている。
                                              (:discard (:anything t))))))))
     ```
 
+<!--list-separator-->
 
-#### その他 {#その他}
+-  休日の定例用 agenda
 
-以下はまだ分割対応ができてない
+    休日にやるルーチンワークってあるよね。それ用。
+
+    ```emacs-lisp
+         ("hh" "Holiday"
+          ((tags "Weekend|Holiday|Daily"
+                 ((org-agenda-prefix-format "  ")
+                  (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+                                             (:name "今日の作業" :scheduled today)
+                                             (:discard (:anything t))))))))
+    ```
+
+
+#### 平日用 agenda {#平日用-agenda}
+
+平日仕事する時に眺めるために用意した agenda なんだけど実際そんなに見てないので見直しが必要かも。
+
+とりあえず Google Calendar に登録されている予定を一番上に表示している。
+
+2番目には、その日の journal ファイルやレビュー対象の PR を載せているファイルのタスクを抽出している。今のところ TODO をネストさせているとそれも全部表示されるのが気に入らないけどそれはまだ直していない。あと良く見ると意味もなく habits.org を参照しているのでそれは後で消しておきたいですね。
+
+3番目には、とりあえずタスクを放り込んでおく projects.org から予定や締切を設定している仕事用のタスクを抽出している。仕事用のタスクというのは agenda-group で指定している。締切とか予定が過ぎているのを上の方に出したり、その日予定のものをだけをまとめていたり、今後1週間の予定に入っているものを並べたりとちょっと工夫している。
+
+4番目には毎日やってるルーチンワークを並べている。出勤打刻とかね。ほら TODO リストにないと結構忘れちゃうので……。
+
+最後に、特に予定や締切を設定していない仕事用のタスクを並べている。いつかやりたいね〜系のものがここに並ぶ感じ。大体ローカルの環境設定をより良い感じにしたいとかが入って来る
 
 ```emacs-lisp
-     ("hh" "Holiday"
-      ((tags "Weekend|Holiday|Daily"
-             ((org-agenda-prefix-format "  ")
-              (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
-                                         (:name "今日の作業" :scheduled today)
-                                         (:discard (:anything t))))))))
      ("d" "Today"
       ((agenda "会議など"
                ((org-agenda-span 'day)
@@ -239,6 +258,29 @@ nil にして表示しないようにしている。
                    (org-agenda-overriding-header "予定なし")
                    (org-super-agenda-groups '((:and (:property ("agenda-group" "1. Work") :scheduled nil :deadline nil))
                                               (:discard (:anything t))))))))
+```
+
+
+#### 休日用 agenda {#休日用-agenda}
+
+休日にやることは平日とは異なるので別の agenda custom command を用意している。
+
+まず最初に表示するのは journal ファイルに登録されている仕事以外のタスクの抽出。まあここで制御しなくても、仕事のタスクは休日の journal ファイルから projects.org に追い出すんだけどね。見たくないし。
+
+2番目に projects.org から仕事以外の予定タスクをバーッと並べる。まあこれは平日のやつと同じだね。ただ、休日にやりたいことは仕事のやつよりも滅茶苦茶溜まりやすい上にスケジュールぶっちするのでちょっと困ってたりはする。
+
+3番目はルーチンワーク。掃除とかが入って来るやつ。実はこれも数が多い割に気力は足りてないので消化し切れていない。生きるのつらい。
+
+4番目はプライベートタスク。何か誰かと約束しているやつはここに突っ込まれたりするし、とりあえずプライベートでやりたいけど他の分類に仕分けられないやつはここに突っ込む。ここは優先度 C は非表示にしている。優先度が低いのは見えない方が精神衛生に良い。
+
+5番目は Emacs 関係のタスク。ほら休日にやることと言えば Emacs の設定を良い感じにしていくことじゃないですか。大事じゃないですか。これも優先度 C 以下は非表示にしている。けど B とかにしたまま放置しているのが沢山あるのもここだったり
+
+6番目はその他の環境設定用タスク。
+Emacs 以外も設定を弄りたいのはいっぱいあるからね。i3wm とか tmux とか。
+
+本当は他にも載せたいんだけど、今あるこれらも全然消化できてないので、それ以外はちょっとこの agenda への掲載を見送っているのが現状。
+
+```emacs-lisp
      ("D" "Holiday"
       ((tags-todo "-Weekday-Daily-Holiday-Weekly-Weekend&LEVEL=3"
                   ((org-agenda-prefix-format " ")
@@ -292,7 +334,14 @@ nil にして表示しないようにしている。
                    (org-super-agenda-groups '((:priority>= "B")
                                               (:name "no priority" :not (:priority>= "C"))
                                               (:discard (:anything t))))))))
+```
 
+
+#### その他 {#その他}
+
+以下はまだ分割対応ができてない
+
+```emacs-lisp
      ("p" . "Projects")
      ("pA" "Projects Priority A"
       ((tags-todo "LEVEL=2&PRIORITY=\"A\"" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))

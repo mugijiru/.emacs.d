@@ -51,6 +51,7 @@
               (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                          (:name "今日の作業" :scheduled today)
                                          (:discard (:anything t))))))))
+
      ("d" "Today"
       ((agenda "会議など"
                ((org-agenda-span 'day)
@@ -100,6 +101,7 @@
                    (org-agenda-overriding-header "予定なし")
                    (org-super-agenda-groups '((:and (:property ("agenda-group" "1. Work") :scheduled nil :deadline nil))
                                               (:discard (:anything t))))))))
+
      ("D" "Holiday"
       ((tags-todo "-Weekday-Daily-Holiday-Weekly-Weekend&LEVEL=3"
                   ((org-agenda-prefix-format " ")
