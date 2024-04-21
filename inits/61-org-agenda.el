@@ -51,6 +51,7 @@
               (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                          (:name "今日の作業" :scheduled today)
                                          (:discard (:anything t))))))))
+
      ("d" "Today"
       ((agenda "会議など"
                ((org-agenda-span 'day)

@@ -8456,8 +8456,8 @@ nil にして表示しないようにしている。
                                          (:name "今週の作業" :scheduled today)
                                          (:discard (:anything t))))))))
 #+end_src
-***** その他
-以下はまだ分割対応ができてない
+****** 休日の定例用 agenda
+休日にやるルーチンワークってあるよね。それ用。
 
 #+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("hh" "Holiday"
@@ -8466,6 +8466,11 @@ nil にして表示しないようにしている。
               (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                          (:name "今日の作業" :scheduled today)
                                          (:discard (:anything t))))))))
+#+end_src
+***** その他
+以下はまだ分割対応ができてない
+
+#+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("d" "Today"
       ((agenda "会議など"
                ((org-agenda-span 'day)

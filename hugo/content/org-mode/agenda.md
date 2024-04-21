@@ -178,18 +178,27 @@ nil にして表示しないようにしている。
                                              (:discard (:anything t))))))))
     ```
 
+<!--list-separator-->
+
+-  休日の定例用 agenda
+
+    休日にやるルーチンワークってあるよね。それ用。
+
+    ```emacs-lisp
+         ("hh" "Holiday"
+          ((tags "Weekend|Holiday|Daily"
+                 ((org-agenda-prefix-format "  ")
+                  (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+                                             (:name "今日の作業" :scheduled today)
+                                             (:discard (:anything t))))))))
+    ```
+
 
 #### その他 {#その他}
 
 以下はまだ分割対応ができてない
 
 ```emacs-lisp
-     ("hh" "Holiday"
-      ((tags "Weekend|Holiday|Daily"
-             ((org-agenda-prefix-format "  ")
-              (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
-                                         (:name "今日の作業" :scheduled today)
-                                         (:discard (:anything t))))))))
      ("d" "Today"
       ((agenda "会議など"
                ((org-agenda-span 'day)
