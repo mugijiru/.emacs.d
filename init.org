@@ -1262,16 +1262,15 @@
     |-----+-----------------------------------------------------------------------|
 
 ** グローバルキーバインド
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: global-keybinds
-   :END:
+:PROPERTIES:
+:EXPORT_FILE_NAME: global-keybinds
+:END:
 *** 概要
-    Emacs では様々なグローバルマイナーモードが存在したりしていて
-    いつでも使えるようなコマンドが多数存在するので
-    ここでまとめて定義している。
+Emacs では様々なグローバルマイナーモードが存在したりしていて
+いつでも使えるようなコマンドが多数存在するので
+ここでまとめて定義している。
 
-    が、Hydra 関係もここに書くと項目が大きくなりすぎるので、それはまた別途定義している。
-
+が、Hydra 関係もここに書くと項目が大きくなりすぎるので、それはまた別途定義している。
 *** Mac での修飾キー変更
 :PROPERTIES:
 :ID:       c7b6e782-af93-4875-ae2a-9dac865793f4
@@ -1283,219 +1282,209 @@
       (setq ns-command-modifier (quote meta))))  ;; command => meta
 #+end_src
 *** C-h を backspace に変更
-    :PROPERTIES:
-    :ID:       e9b47644-3c73-4816-8ed8-608d224c23d7
-    :END:
-    C-h で文字を消せないと不便なのでずっと昔からこの設定は入れている。
+:PROPERTIES:
+:ID:       e9b47644-3c73-4816-8ed8-608d224c23d7
+:END:
+C-h で文字を消せないと不便なのでずっと昔からこの設定は入れている。
 
-    #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
+#+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
 (keyboard-translate ?\C-h ?\C-?)
 (global-set-key "\C-h" nil)
-    #+end_src
+#+end_src
 *** M-g rをstring-replaceに割り当て
-    :PROPERTIES:
-    :ID:       b8267487-fb05-4d11-a1ab-9192b84ee8fe
-    :END:
-    string-replace はよく使うのでそれなりに使いやすいキーにアサインしている
+:PROPERTIES:
+:ID:       b8267487-fb05-4d11-a1ab-9192b84ee8fe
+:END:
+string-replace はよく使うのでそれなりに使いやすいキーにアサインしている
 
-    #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
+#+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
 (global-set-key (kbd "M-g r") 'replace-string)
-    #+end_src
+#+end_src
 
-    replace-regexp もまあまあ使うけどそれはキーを当ててないので
-    どこかでなんとかしたい。
-    Hydra 使う?
+replace-regexp もまあまあ使うけどそれはキーを当ててないので
+どこかでなんとかしたい。
+Hydra 使う?
 *** C-\ で SKK が有効になるようにする
-    :PROPERTIES:
-    :ID:       77bc3c39-ad62-48cd-ac3a-320495ffed11
-    :END:
-    C-\ で skk-mode を起動できるようにしている。
-    C-x C-j の方も設定は生きているが使ってない。っていうか忘れてた。
+:PROPERTIES:
+:ID:       77bc3c39-ad62-48cd-ac3a-320495ffed11
+:END:
+C-\ で skk-mode を起動できるようにしている。
+C-x C-j の方も設定は生きているが使ってない。っていうか忘れてた。
 
-    #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
+#+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
 (global-set-key (kbd "C-\\") 'skk-mode)
-    #+end_src
+#+end_src
 
-    余談だけど org-mode とか commit message 書く時とかは
-    自動で有効になるようにしたい気はする。
+余談だけど org-mode とか commit message 書く時とかは
+自動で有効になるようにしたい気はする。
 *** C-s を swiper に置き換え
-    :PROPERTIES:
-    :ID:       cb8be291-0c4b-41f8-9779-17d91b071b75
-    :END:
-    デフォルトだと C-s でインクリメンタルサーチが起動するが
-    swiper の方が絞り込みができて便利だしカッチョいいのでそっちを使うようにしている
-    #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
+:PROPERTIES:
+:ID:       cb8be291-0c4b-41f8-9779-17d91b071b75
+:END:
+デフォルトだと C-s でインクリメンタルサーチが起動するが
+swiper の方が絞り込みができて便利だしカッチョいいのでそっちを使うようにしている
+#+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
 (global-set-key (kbd "C-s") 'swiper)
-    #+end_src
+#+end_src
 *** window 間の移動
 **** C-x o を ace-window に置き換え
-     :PROPERTIES:
-     :ID:       6e4557f8-4c27-4014-b1d6-7cc16fc855ac
-     :END:
-     C-x o はデフォルトだと順番に window を移動するコマンドだが
-     ace-window を使えばたくさん画面分割している時の移動が楽だし
-     2分割の時は元の挙動と同様に2つの window を行き来する感じになので
-     完全に置き換えても大丈夫と判断して、置き換えている。
+:PROPERTIES:
+:ID:       6e4557f8-4c27-4014-b1d6-7cc16fc855ac
+:END:
+C-x o はデフォルトだと順番に window を移動するコマンドだが
+ace-window を使えばたくさん画面分割している時の移動が楽だし
+2分割の時は元の挙動と同様に2つの window を行き来する感じになので
+完全に置き換えても大丈夫と判断して、置き換えている。
 
-     #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
+#+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
 (global-set-key (kbd "C-x o") 'ace-window)
-     #+end_src
+#+end_src
 
-     ace-window は他にもコマンドがあって
-     Hydra の方で ace-swap-window は使えるようにしている
+ace-window は他にもコマンドがあって
+Hydra の方で ace-swap-window は使えるようにしている
 **** Shift+カーソルキーで window 移動
-     :PROPERTIES:
-     :ID:       3b921278-f3c1-441f-9aee-bba382d6a4b6
-     :END:
-     シフトキーを押しながらカーソルキーを押すことでも
-     window を移動できるようにしている
+:PROPERTIES:
+:ID:       3b921278-f3c1-441f-9aee-bba382d6a4b6
+:END:
+シフトキーを押しながらカーソルキーを押すことでも
+window を移動できるようにしている
 
-     #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
+#+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
 (windmove-default-keybindings)
-     #+end_src
+#+end_src
 
-     ただし org-mode のキーバインドとぶつかるので実はあまり使ってないし
-     そろそろ無効にしてもいいんじゃないかなという気もしている
-
+ただし org-mode のキーバインドとぶつかるので実はあまり使ってないし
+そろそろ無効にしてもいいんじゃないかなという気もしている
 *** undo/redo
-    :PROPERTIES:
-    :ID:       6238d423-1a21-4351-9121-ecca45e1e71c
-    :END:
-    undo  と redo には undo-fu を使っている
-    #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
+:PROPERTIES:
+:ID:       6238d423-1a21-4351-9121-ecca45e1e71c
+:END:
+undo  と redo には undo-fu を使っている
+#+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
 (global-set-key (kbd "C-/") 'undo-fu-only-undo)
 (global-set-key (kbd "C-M-/") 'undo-fu-only-redo)
-    #+end_src
-
+#+end_src
 *** \ を入力した時に円マークにならないようにする設定
-    :PROPERTIES:
-    :ID:       9eebf56d-4cbe-461c-9366-0df004199b95
-    :END:
-    Mac だとデフォルト状態だと \ を入れると円マークになるのだが
-    プログラムを書く上ではバックスラッシュであってほしいので
-    円マークが入力された時はバックスラッシュが入力されたように扱われるようにしている。
+:PROPERTIES:
+:ID:       9eebf56d-4cbe-461c-9366-0df004199b95
+:END:
+Mac だとデフォルト状態だと \ を入れると円マークになるのだが
+プログラムを書く上ではバックスラッシュであってほしいので
+円マークが入力された時はバックスラッシュが入力されたように扱われるようにしている。
 
-    #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
+#+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
 (define-key global-map [?¥] [?\\])
 (define-key global-map [?\C-¥] [?\C-\\])
 (define-key global-map [?\M-¥] [?\M-\\])
 (define-key global-map [?\C-\M-¥] [?\C-\M-\\])
-    #+end_src
+#+end_src
 
-    ただ、たまに円マークを出したくなる時があるので
-    その時はどうすべきかという課題がある。
-
+ただ、たまに円マークを出したくなる時があるので
+その時はどうすべきかという課題がある。
 *** multiple-cursors
-    :PROPERTIES:
-    :ID:       fbe31c14-b4cc-42f1-9754-6fbe93ab73c0
-    :END:
-    カーソルを複数表示できる [[https://github.com/magnars/multiple-cursors.el][multiple-cursors]] 用のキーバインド。
-    基本的には公式 README に従って設定している。
+:PROPERTIES:
+:ID:       fbe31c14-b4cc-42f1-9754-6fbe93ab73c0
+:END:
+カーソルを複数表示できる [[https://github.com/magnars/multiple-cursors.el][multiple-cursors]] 用のキーバインド。
+基本的には公式 README に従って設定している。
 
-    #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
+#+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
 ;; multiple-cursors
 (global-set-key (kbd "C-:") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-    #+end_src
+#+end_src
 
-    Ladicle さんの https://ladicle.com/post/config/#multiple-cursor の設定が便利そうだなって思って気になってるけどまだ試してない。
-
+Ladicle さんの https://ladicle.com/post/config/#multiple-cursor の設定が便利そうだなって思って気になってるけどまだ試してない。
 *** Ivy
-    :PROPERTIES:
-    :ID:       56e06084-5464-4aa9-be75-279787f9e0d0
-    :END:
-    Helm から乗り換えて今はこちらをメインで使っている。
-    基本的には既存のキーバインドの持っていた機能が強化されるようなコマンドを代わりに割り当てている。
-    デフォルトより良い感じで良い。
+:PROPERTIES:
+:ID:       56e06084-5464-4aa9-be75-279787f9e0d0
+:END:
+Helm から乗り換えて今はこちらをメインで使っている。
+基本的には既存のキーバインドの持っていた機能が強化されるようなコマンドを代わりに割り当てている。
+デフォルトより良い感じで良い。
 
-    #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
+#+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "M-y") 'counsel-yank-pop)
 (global-set-key (kbd "C-x b") 'counsel-switch-buffer)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-    #+end_src
+#+end_src
 
-    | Key     | 効果                                                                                                    |
-    | M-x     | コマンド実行。絞り込みができるのでコマンド名がうろ覚えでも実行できて便利                                |
-    | M-y     | kill-ring の候補表示。適当に複数 kill-ring に入れておいてこれを起動して絞り込んで貼り付けとかできて便利 |
-    | C-x b   | バッファ切替。これも適当にバッファを絞り込めて便利                                                      |
-    | C-x C-f | find-file の置き換え。ido より便利な感じの絞り込み選択ができる。                                        |
-
+| Key     | 効果                                                                                                    |
+| M-x     | コマンド実行。絞り込みができるのでコマンド名がうろ覚えでも実行できて便利                                |
+| M-y     | kill-ring の候補表示。適当に複数 kill-ring に入れておいてこれを起動して絞り込んで貼り付けとかできて便利 |
+| C-x b   | バッファ切替。これも適当にバッファを絞り込めて便利                                                      |
+| C-x C-f | find-file の置き換え。ido より便利な感じの絞り込み選択ができる。                                        |
 *** zoom-window                                                      :unused:
-    :PROPERTIES:
-    :ID:       8e81ab68-cdca-4376-8fa4-e5bb08fd8dd7
-    :END:
-    [[https://github.com/emacsorphanage/zoom-window][zoom-window]] は tmux の zoom 機能のように
-    選択している window だけを表示したり戻したりができるパッケージ。
+:PROPERTIES:
+:ID:       8e81ab68-cdca-4376-8fa4-e5bb08fd8dd7
+:END:
+[[https://github.com/emacsorphanage/zoom-window][zoom-window]] は tmux の zoom 機能のように
+選択している window だけを表示したり戻したりができるパッケージ。
 
-    #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
+#+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
 (global-set-key (kbd "C-x 1") 'zoom-window-zoom)
-    #+end_src
+#+end_src
 
-    実は戻すことがあんまりないので、
-    このキーバインドは戻してもいいかもしれないなと思っていたりする。
-
+実は戻すことがあんまりないので、
+このキーバインドは戻してもいいかもしれないなと思っていたりする。
 *** neotree                                                          :unused:
-    :PROPERTIES:
-    :ID:       6e2189a7-8dad-4d50-b609-d6a1c29c2d10
-    :END:
-    [[https://github.com/jaypei/emacs-neotree][Neotree]] は IDE みたいにファイルツリーを表示を表示するパッケージ。
-    有効にしているとちょっぴりモダンな雰囲気になるぞい。
+:PROPERTIES:
+:ID:       6e2189a7-8dad-4d50-b609-d6a1c29c2d10
+:END:
+Neotree]] は IDE みたいにファイルツリーを表示を表示するパッケージ。
+有効にしているとちょっぴりモダンな雰囲気になるぞい。
 
-    #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
+#+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
 (global-set-key [f8] 'neotree-toggle)
-    #+end_src
+#+end_src
 
-    f8 にバインドしているけど
-    Helm でも起動できるようにしているので、こっちの設定は外してもいいかもなとか思っている。
-
+f8 にバインドしているけど
+Helm でも起動できるようにしているので、こっちの設定は外してもいいかもなとか思っている。
 *** org-mode                                                         :unused:
-    :PROPERTIES:
-    :ID:       b01cfab2-09ed-48c0-80c6-303e8bca0458
-    :END:
-    みんな大好き org-mode 用にもキーバインドを設定している。
+:PROPERTIES:
+:ID:       b01cfab2-09ed-48c0-80c6-303e8bca0458
+:END:
+みんな大好き org-mode 用にもキーバインドを設定している。
 
-    #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
+#+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
 (setq my/org-mode-prefix-key "C-c o ")
 (global-set-key (kbd (concat my/org-mode-prefix-key "a")) 'org-agenda)
 (global-set-key (kbd (concat my/org-mode-prefix-key "c")) 'org-capture)
 (global-set-key (kbd (concat my/org-mode-prefix-key "l")) 'org-store-link)
-    #+end_src
+#+end_src
 
-    けど org-mode 用の Hydra も用意しているので
-    これもそろそろ削除かな……
-
+けど org-mode 用の Hydra も用意しているので
+これもそろそろ削除かな……
 *** keychord
-    :PROPERTIES:
-    :ID:       1ec019db-13a3-46bc-a029-0cd6002ed209
-    :END:
-    keycohrd は2つのキーを同時押しというキーバインドを実現するパッケージ。
-    麦汁は https://github.com/zk-phi/key-chord/ のバージョンを利用している。
+:PROPERTIES:
+:ID:       1ec019db-13a3-46bc-a029-0cd6002ed209
+:END:
+keycohrd は2つのキーを同時押しというキーバインドを実現するパッケージ。
 
-    とりあえず jk を入力すると
-    グローバルに使いたいコマンドを載せた Hydra が起動するようにしている。
-    めっちゃ使ってる。便利。
+とりあえず jk を入力すると
+グローバルに使いたいコマンドを載せた Hydra が起動するようにしている。
+めっちゃ使ってる。便利。
 
-    #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
+#+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
 (key-chord-define-global "jk" 'pretty-hydra-usefull-commands/body)
-    #+end_src
-
+#+end_src
 *** yes or no ではなく y or n で質問する
-    :PROPERTIES:
-    :ID:       32fa9132-5975-42d5-b36f-5429e384081b
-    :END:
-    何か質問された時に yes とか入力するのがだるいので
-    y だけで済ませられるようにしている。
+:PROPERTIES:
+:ID:       32fa9132-5975-42d5-b36f-5429e384081b
+:END:
+何か質問された時に yes とか入力するのがだるいので
+y だけで済ませられるようにしている。
 
-    #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
+#+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
 ;; Don't ask yes or no.
 (defalias 'yes-or-no-p 'y-or-n-p)
-    #+end_src
+#+end_src
 
-    一応 Emacs 的には重要なのは yes/no で回答するようになっていたはずなので
-    より安全に使いたい人はこの設定は入れない方が良いはず。
+一応 Emacs 的には重要なのは yes/no で回答するようになっていたはずなので
+より安全に使いたい人はこの設定は入れない方が良いはず。
 
 * ファイル編集/入力補助
   :PROPERTIES:

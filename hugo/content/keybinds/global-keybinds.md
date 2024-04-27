@@ -15,8 +15,8 @@ Emacs では様々なグローバルマイナーモードが存在したりし�
 ```emacs-lisp
 (if (eq window-system 'ns)
     (progn
-          (setq ns-alternate-modifier (quote super)) ;; option  => super
-          (setq ns-command-modifier (quote meta))))  ;; command => meta
+      (setq ns-alternate-modifier (quote super)) ;; option  => super
+      (setq ns-command-modifier (quote meta))))  ;; command => meta
 ```
 
 
@@ -132,20 +132,6 @@ Mac だとデフォルト状態だと \\ を入れると円マークになるの
 Ladicle さんの <https://ladicle.com/post/config/#multiple-cursor> の設定が便利そうだなって思って気になってるけどまだ試してない。
 
 
-## Helm {#helm}
-
-最近はほぼ Ivy に乗り換えてるのでほとんど出番はないのだけど
-helm-find-file が便利でそこだけ乗り換えできてないのでそれだけ定義がコメントアウトされずに残っている。
-
-```emacs-lisp
-;; (global-set-key (kbd "M-y") 'helm-show-kill-ring)
-(global-set-key (kbd "C-;") 'helm-for-files)
-;; (global-set-key (kbd "M-x") 'helm-M-x)
-;; (global-set-key (kbd "C-x b") 'helm-mini)
-;; (global-set-key (kbd "C-x C-f") 'helm-find-files)
-```
-
-
 ## Ivy {#ivy}
 
 Helm から乗り換えて今はこちらをメインで使っている。基本的には既存のキーバインドの持っていた機能が強化されるようなコマンドを代わりに割り当てている。デフォルトより良い感じで良い。
@@ -165,7 +151,7 @@ Helm から乗り換えて今はこちらをメインで使っている。基本
 | C-x C-f | find-file の置き換え。ido より便利な感じの絞り込み選択ができる。 |
 
 
-## zoom-window {#zoom-window}
+## zoom-window <span class="tag"><span class="unused">unused</span></span> {#zoom-window}
 
 [zoom-window](https://github.com/emacsorphanage/zoom-window) は tmux の zoom 機能のように選択している window だけを表示したり戻したりができるパッケージ。
 
@@ -176,9 +162,9 @@ Helm から乗り換えて今はこちらをメインで使っている。基本
 実は戻すことがあんまりないので、このキーバインドは戻してもいいかもしれないなと思っていたりする。
 
 
-## neotree {#neotree}
+## neotree <span class="tag"><span class="unused">unused</span></span> {#neotree}
 
-[Neotree](https://github.com/jaypei/emacs-neotree) は IDE みたいにファイルツリーを表示を表示するパッケージ。有効にしているとちょっぴりモダンな雰囲気になるぞい。
+Neotree]] は IDE みたいにファイルツリーを表示を表示するパッケージ。有効にしているとちょっぴりモダンな雰囲気になるぞい。
 
 ```emacs-lisp
 (global-set-key [f8] 'neotree-toggle)
@@ -188,7 +174,7 @@ f8 にバインドしているけど
 Helm でも起動できるようにしているので、こっちの設定は外してもいいかもなとか思っている。
 
 
-## org-mode {#org-mode}
+## org-mode <span class="tag"><span class="unused">unused</span></span> {#org-mode}
 
 みんな大好き org-mode 用にもキーバインドを設定している。
 
@@ -204,7 +190,7 @@ Helm でも起動できるようにしているので、こっちの設定は外
 
 ## keychord {#keychord}
 
-keycohrd は2つのキーを同時押しというキーバインドを実現するパッケージ。麦汁は <https://github.com/zk-phi/key-chord/> のバージョンを利用している。
+keycohrd は2つのキーを同時押しというキーバインドを実現するパッケージ。
 
 とりあえず jk を入力するとグローバルに使いたいコマンドを載せた Hydra が起動するようにしている。めっちゃ使ってる。便利。
 
