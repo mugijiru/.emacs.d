@@ -7,23 +7,12 @@ draft = false
 
 [key-chord](https://github.com/emacsorphanage/key-chord) はキーを同時に押した時にコマンドを発動させるということができるようにしてくれるパッケージ。
 
-なのですが[本家の方だと誤爆が多い](https://qiita.com/zk_phi/items/e70bc4c69b5a4755edd6)ということなのでそれを改善した [zk-phi/key-chord](https://github.com/zk-phi/key-chord/) の方を利用している。
-
-まあほとんど使えてないので改良版の恩恵をまだ受けてないけど……。
-
 
 ## インストール {#インストール}
 
-el-get のレシピは自前で用意している。なおインストールしているのは本家版ではない。
+el-get 本体にレシピが用意あれているのでそれを使っている
 
-```emacs-lisp
-(:name key-chord
-       :description "bind commands to combinations of key-strokes"
-       :type github
-       :pkgname "zk-phi/key-chord")
-```
-
-そして el-get でインストールしている。
+そして `el-get-bundle` でインストールしている。
 
 ```emacs-lisp
 (el-get-bundle key-chord)
@@ -35,14 +24,10 @@ el-get のレシピは自前で用意している。なおインストールし�
 同時押し時の許容時間、その前後で別のキーが押されていたら発動しない判断をする、みたいな設定を入れている。
 
 ```emacs-lisp
-(setq key-chord-two-keys-delay           0.25
-      key-chord-safety-interval-backward 0.1
-      key-chord-safety-interval-forward  0.15)
+(setopt key-chord-two-keys-delay 0.25)
 ```
 
-キーの同時押し判定は 0.15 秒で、それらのキーが押される直前の 0.1 秒以内、または直後の 0.15 秒に押されていたら発動しない、という設定にしている。
-
-改良版の作者の記事だと、直後判定は 0.25 秒で設定されていたが自分は Hydra の起動に使っている上に Hydra で叩けるやつでよく使うやつは覚えているので表示を待たずに次のキーを押すので 0.25 秒も待っていられないという事情があった。
+キーの同時押し判定は 0.25 秒という設定にしている。
 
 
 ## 有効化 {#有効化}

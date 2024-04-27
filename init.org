@@ -973,115 +973,86 @@
    - [[*グローバルキーバインド][グローバルキーバインド]] :: いつでもどこでも使えるキーバインド周りの設定をここにまとめている
 
 ** key-chord
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: key-chord
-   :END:
-
+:PROPERTIES:
+:EXPORT_FILE_NAME: key-chord
+:END:
 *** 概要
-
-    [[https://github.com/emacsorphanage/key-chord][key-chord]] はキーを同時に押した時にコマンドを発動させるということができるようにしてくれるパッケージ。
-
-    なのですが[[https://qiita.com/zk_phi/items/e70bc4c69b5a4755edd6][本家の方だと誤爆が多い]]ということなので
-    それを改善した [[https://github.com/zk-phi/key-chord/][zk-phi/key-chord]] の方を利用している。
-
-    まあほとんど使えてないので改良版の恩恵をまだ受けてないけど……。
+[[https://github.com/emacsorphanage/key-chord][key-chord]] はキーを同時に押した時にコマンドを発動させるということができるようにしてくれるパッケージ。
 
 *** インストール
-    :PROPERTIES:
-    :ID:       5b08b398-607f-4a9a-b5ab-772220abc8b6
-    :END:
+:PROPERTIES:
+:ID:       5b08b398-607f-4a9a-b5ab-772220abc8b6
+:END:
 
-    el-get のレシピは自前で用意している。
-    なおインストールしているのは本家版ではない。
+el-get 本体にレシピが用意あれているのでそれを使っている
 
-    #+begin_src emacs-lisp :tangle recipes/key-chord.rcp
-(:name key-chord
-       :description "bind commands to combinations of key-strokes"
-       :type github
-       :pkgname "zk-phi/key-chord")
-    #+end_src
+そして ~el-get-bundle~ でインストールしている。
 
-    そして el-get でインストールしている。
-
-    #+begin_src emacs-lisp :tangle inits/70-key-chord.el
+#+begin_src emacs-lisp :tangle inits/70-key-chord.el
 (el-get-bundle key-chord)
-    #+end_src
-
+#+end_src
 *** 設定
-    :PROPERTIES:
-    :ID:       74eb2ce4-03c8-444e-828f-882319d8fdc3
-    :END:
+:PROPERTIES:
+:ID:       74eb2ce4-03c8-444e-828f-882319d8fdc3
+:END:
 
-    同時押し時の許容時間、その前後で別のキーが押されていたら発動しない判断をする、みたいな設定を入れている。
+同時押し時の許容時間、その前後で別のキーが押されていたら発動しない判断をする、みたいな設定を入れている。
 
-    #+begin_src emacs-lisp :tangle inits/70-key-chord.el
-(setq key-chord-two-keys-delay           0.25
-      key-chord-safety-interval-backward 0.1
-      key-chord-safety-interval-forward  0.15)
-    #+end_src
+#+begin_src emacs-lisp :tangle inits/70-key-chord.el
+(setopt key-chord-two-keys-delay 0.25)
+#+end_src
 
-    キーの同時押し判定は 0.15 秒で、
-    それらのキーが押される直前の 0.1 秒以内、または直後の 0.15 秒に押されていたら発動しない、
-    という設定にしている。
-
-    改良版の作者の記事だと、直後判定は 0.25 秒で設定されていたが
-    自分は Hydra の起動に使っている上に Hydra で叩けるやつでよく使うやつは覚えているので
-    表示を待たずに次のキーを押すので 0.25 秒も待っていられないという事情があった。
-
+キーの同時押し判定は 0.25 秒という設定にしている。
 *** 有効化
-    :PROPERTIES:
-    :ID:       31beae4a-3927-457d-8fd7-fe026aa1195a
-    :END:
+:PROPERTIES:
+:ID:       31beae4a-3927-457d-8fd7-fe026aa1195a
+:END:
 
-    設定を入れた後は有効にするだけである。
+設定を入れた後は有効にするだけである。
 
-    #+begin_src emacs-lisp :tangle inits/70-key-chord.el
+#+begin_src emacs-lisp :tangle inits/70-key-chord.el
 (key-chord-mode 1)
-    #+end_src
+#+end_src
 
-    実際のキーバインド設定は各モードだったり
-    グローバルキーバインドを設定しているファイルだったりで書く感じ。
+実際のキーバインド設定は各モードだったり
+グローバルキーバインドを設定しているファイルだったりで書く感じ。
 
-    といいつつ現状では Hydra 起動のやつしか使ってないので、
-    グローバルキーバインド設定でしか書いてない。
-
+といいつつ現状では Hydra 起動のやつしか使ってないので、
+グローバルキーバインド設定でしか書いてない。
 *** sticky-shift
 **** セミコロン2つでシフトを押した状態にする
-     :PROPERTIES:
-     :ID:       e36764d8-6903-4629-86a5-46dd621795a8
-     :END:
-     セミコロンを2回叩くことで shift が押されてるという状態を実現する。
+:PROPERTIES:
+:ID:       e36764d8-6903-4629-86a5-46dd621795a8
+:END:
+セミコロンを2回叩くことで shift が押されてるという状態を実現する。
 
-     これにより magit で P などを入力したい時にも ~;;p~ で入力できるし
-     通常の英字入力時にも大文字にできるので
-     左手小指が痛い時には Shift を使わずに操作ができるようになる。
+これにより magit で P などを入力したい時にも ~;;p~ で入力できるし
+通常の英字入力時にも大文字にできるので
+左手小指が痛い時には Shift を使わずに操作ができるようになる。
 
-     #+begin_src emacs-lisp :tangle inits/70-key-chord.el
+#+begin_src emacs-lisp :tangle inits/70-key-chord.el
 (key-chord-define-global ";;"
                          'event-apply-shift-modifier)
 
 (key-chord-define key-translation-map
                   ";;"
                   'event-apply-shift-modifier)
-     #+end_src
+#+end_src
 
-     ~global-key-map~ と ~key-translation-map~ の両方に定義しないと動かないが
-     その原因はよく分かってない。一旦動くから良しとしている。
+~global-key-map~ と ~key-translation-map~ の両方に定義しないと動かないが
+その原因はよく分かってない。一旦動くから良しとしている。
 
-     ここで使っている ~event-apply-shift-modifier~ はデフォルトでは ~C-x @ S~ にバインドされているやつ。
-     お仲間に ~event-apply-control-modifier~ などの各 modifier キーがいるので
-     sticky 的なことをやる上で便利な子達。
-     [[*sticky-control][sticky-control]] の中でも ~event-apply-control-modifier~ が使われているぞい。
-
+ここで使っている ~event-apply-shift-modifier~ はデフォルトでは ~C-x @ S~ にバインドされているやつ。
+お仲間に ~event-apply-control-modifier~ などの各 modifier キーがいるので
+sticky 的なことをやる上で便利な子達。
+[[*sticky-control][sticky-control]] の中でも ~event-apply-control-modifier~ が使われているぞい。
 **** やりたかったけど実現できてないこと
 ***** セミコロン*2+数字キー、セミコロン*2+記号キーの対応
-      [[https://www.emacswiki.org/emacs/sticky.el][sticky.el]] では実現されてそうなことなので、
-      同じことをできるようにしたい
+[[https://www.emacswiki.org/emacs/sticky.el][sticky.el]] では実現されてそうなことなので、
+同じことをできるようにしたい
 *** その他
-
-    [[*sticky-control][sticky-control]] も control 限定で似たようなことをしているので
-    key-chord に全部置き換えできるかもしれない。
-
+[[*sticky-control][sticky-control]] も control 限定で似たようなことをしているので
+key-chord に全部置き換えできるかもしれない。
 ** sticky-control
    :PROPERTIES:
    :EXPORT_FILE_NAME: sticky-control
