@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((minimap :checksum "8bc9a65825925a7c58b83ad389f07a93f22d60f3")
+      '((key-chord :checksum "dbf91fefdad58b1c2f07c92e658ce81490837c60")
+        (minimap :checksum "8bc9a65825925a7c58b83ad389f07a93f22d60f3")
         (org-protocol-capture-html :checksum "08a2aed1bbeb935ef62b2ebc06037202fd8ddcb1")
         (blamer :checksum "ab7d19c2ee54424d3ffc853982fe875ad47b6e7f")
         (rg :checksum "4885473a6d248a6ee508b7b7ef3705762af631d9")
@@ -137,7 +138,6 @@
         (japanese-holidays :checksum "324b6bf2f55ec050bef49e001caedaabaf4fa35d")
         (js2-mode :checksum "9b90d31ed968e5c51bd3e279d4003248ea896807")
         (jump :checksum "55caa66a7cc6e0b1a76143fd40eff38416928941")
-        (key-chord :checksum "e222bafe89c4ce33c77e5aed4f0f0b37828656e6")
         (lsp-mode :checksum "f2b9ab5e2b64a996ca093206a2adf54c578febc2")
         (lsp-ui :checksum "a59fb5d02eaa97908a06cfc07156de73458c8ae8")
         (major-mode-hydra.el :checksum "d0a5dadee97c3752fcdef113cf2ba1923972a480")
