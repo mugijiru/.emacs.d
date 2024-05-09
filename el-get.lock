@@ -125,7 +125,7 @@
         (forge :checksum "90ee70aab44625bbff1179435d23b9a01e100691")
         (fringe-helper :checksum "ef4a9c023bae18ec1ddd7265f1f2d6d2e775efdd")
         (ghub :checksum "1df5298c3c4d26ec3720dc6c31f8bfd07858f8a9")
-        (git-gutter :checksum "9afe45b41a82a332606d3e70ef85d323d27b9e4f")
+        (git-gutter :checksum "a41a601160818241d69414007e7679d6bf16fd8a")
         (git-gutter-fringe :checksum "648cb5b57faec55711803cdc9434e55a733c3eba")
         (google-this :checksum "8a2e3ca5da6a8c89bfe99a21486c6c7db125dc84")
         (haml-mode :checksum "a64d58df8f098f858c6c11fa1629a90969f9c7e8")
