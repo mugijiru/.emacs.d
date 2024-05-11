@@ -13,7 +13,7 @@
         (git-modes :checksum "52ea2a1281ea9df9b8732fe2add0e6a0c9c2cd11")
         (ob-graphql :checksum "7c35419f9eec5dc44967cbcfa13c7135b9a96bfc")
         (corfu :checksum "b779552341354d59365a981fd208ae07b7a2950a")
-        (treesit-auto :checksum "ecd898c4879614bf36d84a77c08a10aca25c3841")
+        (treesit-auto :checksum "016bd286a1ba4628f833a626f8b9d497882ecdf3")
         (org-mode :checksum "17608670a4f4e8edb91efe04d86fe80ff9d01b69")
         (org-journal :checksum "17b34ce8df9649a73b715c13698220bde1628668")
         (company-terraform :checksum "8d5a16d1bbeeb18ca49a8fd57b5d8cd30c8b8dc7")
