@@ -23,7 +23,7 @@
         (dockerfile-mode :checksum "39a012a27fcf6fb629c447d13b6974baf906714c")
         (origami :checksum "fb1c04f4f7528933c41c8b7819a933222d5b3153")
         (company-posframe :checksum "18d6641bba72cba3c00018cee737ea8b454f64a8")
-        (nerd-icons :checksum "fb395120e9de33b276d16caaccaefd98d4340b92")
+        (nerd-icons :checksum "66658b89287c3599c7b9b6babea7bcb3dff9a9e4")
         (copilot :checksum "733bff26450255e092c10873580e9abfed8a81b8")
         (editorconfig :checksum "6ac848e380322bb52d6f70a032e12f70d60daab1")
         (emacs-sqlite3-api :checksum "a601c9965e4d0178705a64b7d4f88709ca9aea66")
