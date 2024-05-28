@@ -2,7 +2,7 @@
       '((key-chord :checksum "dbf91fefdad58b1c2f07c92e658ce81490837c60")
         (minimap :checksum "8bc9a65825925a7c58b83ad389f07a93f22d60f3")
         (org-protocol-capture-html :checksum "08a2aed1bbeb935ef62b2ebc06037202fd8ddcb1")
-        (blamer :checksum "4cc2e6daaecf84c8dd00792f86724413423293a6")
+        (blamer :checksum "281963da789fe9e47ce9efc4f7a9c4d19bf3a405")
         (rg :checksum "5420dc6ca05c6ab0954113772d784c4c968ca219")
         (wgrep :checksum "208b9d01cfffa71037527e3a324684b3ce45ddc4")
         (moccur-edit :checksum "026f5dd4159bd1b68c430ab385757157ba01a361")
