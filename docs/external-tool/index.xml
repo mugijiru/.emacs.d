@@ -78,6 +78,13 @@
       <description>概要 magit は Emacs の上で Git の色々な操作ができるやつ。結構使いやすいのでオススメなやつ。&#xA;forge を使うと GitHub や GitLab とも連携できてさらに便利、なはず。&#xA;インストール レシピは el-get 本体付属のものをコピーして使ってる。 magit の依存関係に変更があったのでそれに追従するため&#xA;ref: https://github.com/mugijiru/.emacs.d/pull/2992&#xA;(:name magit :website &amp;#34;https://github.com/magit/magit#readme&amp;#34; :description &amp;#34;It&amp;#39;s Magit! An Emacs mode for Git.&amp;#34; :type github :pkgname &amp;#34;magit/magit&amp;#34; :branch &amp;#34;main&amp;#34; :minimum-emacs-version &amp;#34;25.1&amp;#34; ;; Note: `git-commit&amp;#39; is shipped with `magit&amp;#39; code itself. ;; Note: `magit-section&amp;#39; is shipped with `magit&amp;#39; code itself. :depends (dash transient with-editor compat seq) :info &amp;#34;docs&amp;#34; :load-path &amp;#34;lisp/&amp;#34; :compile &amp;#34;lisp/&amp;#34; ;; Use the Makefile to produce the info manual, el-get can ;; handle compilation and autoloads on its own.</description>
     </item>
     <item>
+      <title>mistty</title>
+      <link>https://mugijiru.github.io/.emacs.d/external-tool/mistty/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mugijiru.github.io/.emacs.d/external-tool/mistty/</guid>
+      <description>概要 mistty は Emacs 上で動く terminal の一種。表示されるやつが全部編集可能らしい。便利げ。&#xA;ちょっと fzf とは相性が悪いっぽい。&#xA;インストール el-get 本体にレシピはないので自前で用意。&#xA;(:name mistty :website &amp;#34;https://github.com/szermatt/mistty&amp;#34; :description &amp;#34;shell/comint alternative with a fully functional terminal&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;szermatt/mistty&amp;#34;) そして el-get-bundle でインストールしている&#xA;(el-get-bundle mistty) 設定 とりあえず普段 zsh を使っているのでそれで起動するように調整している。&#xA;(setopt explicit-shell-file-name &amp;#34;/usr/bin/zsh&amp;#34;) なお mistty そのものは fish との相性が一番良いっぽい</description>
+    </item>
+    <item>
       <title>notify-slack</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/notify-slack/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

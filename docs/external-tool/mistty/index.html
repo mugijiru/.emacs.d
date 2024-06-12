@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>Deprecated :: 麦汁&#39;s Emacs Config</title>
+    <title>mistty :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1718156030" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/tags/deprecated/">
+  <body class="" data-url="/.emacs.d/external-tool/mistty/">
     <nav id="sidebar" class="">
 
 
@@ -2207,7 +2207,7 @@
   
     
     <li data-nav-id="/.emacs.d/external-tool/" title="外部連携ツール設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -2443,7 +2443,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/external-tool/mistty/" title="mistty" class="dd-item ">
+      <li data-nav-id="/.emacs.d/external-tool/mistty/" title="mistty" class="dd-item active">
         <a href="/.emacs.d/external-tool/mistty/">
         mistty
         
@@ -3308,7 +3308,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/tags/'>Tags</a> > Deprecated
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/external-tool/'>外部連携ツール設定</a> > mistty
           
         
           
@@ -3321,7 +3321,13 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#インストール">インストール</a></li>
+    <li><a href="#設定">設定</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -3337,26 +3343,33 @@
           
             <h1>
               
-                tag ::
-              
-              Deprecated
+              mistty
             </h1>
           
 
         
 
 
+<h2 id="概要">概要</h2>
+<p><a href="https://github.com/szermatt/mistty">mistty</a> は Emacs 上で動く terminal の一種。表示されるやつが全部編集可能らしい。便利げ。</p>
+<p>ちょっと fzf とは相性が悪いっぽい。</p>
+<h2 id="インストール">インストール</h2>
+<p>el-get 本体にレシピはないので自前で用意。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name mistty
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/szermatt/mistty&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;shell/comint alternative with a fully functional terminal&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :branch <span style="color:#e6db74">&#34;master&#34;</span>
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;szermatt/mistty&#34;</span>)
+</span></span></code></pre></div><p>そして <code>el-get-bundle</code> でインストールしている</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle mistty)
+</span></span></code></pre></div><h2 id="設定">設定</h2>
+<p>とりあえず普段 zsh を使っているのでそれで起動するように調整している。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setopt explicit-shell-file-name <span style="color:#e6db74">&#34;/usr/bin/zsh&#34;</span>)
+</span></span></code></pre></div><p>なお mistty そのものは fish との相性が一番良いっぽい</p>
 
 
-
-<ul>
-	
-		<li><a href="/.emacs.d/programming/mocha/">Mocha</a></li>
-	
-</ul>
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -4930,6 +4943,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -4942,6 +4956,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -5103,6 +5120,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -5118,6 +5136,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -5686,8 +5707,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/.emacs.d/external-tool/magit/" title="magit"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/.emacs.d/basics/" title="基本設定" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/.emacs.d/external-tool/notify-slack/" title="notify-slack" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -5719,3 +5742,4 @@
 
   </body>
 </html>
+

@@ -554,6 +554,13 @@
       <description>概要 minimap はソースコード全体を縮小表示してくれるので全体を俯瞰するのに便利なやつです&#xA;インストール el-get 本体にレシピが存在するのでそのまま el-get-bundle で入れています&#xA;(el-get-bundle minimap) 設定 表示位置 デフォルト設定は左側への表示ですが右側に表示したいので表示位置を指定しています&#xA;(setopt minimap-window-location &amp;#39;right) 有効にするメジャーモードの指定 どうも使えるようにするメジャーモードを指定した方が良さそうなので普段よく使うものを指定している&#xA;(setopt minimap-major-modes &amp;#39;(emacs-lisp-mode enh-ruby-mode haml-mode org-mode tsx-ts-mode typescript-ts-mode scss-mode)) </description>
     </item>
     <item>
+      <title>mistty</title>
+      <link>https://mugijiru.github.io/.emacs.d/external-tool/mistty/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mugijiru.github.io/.emacs.d/external-tool/mistty/</guid>
+      <description>概要 mistty は Emacs 上で動く terminal の一種。表示されるやつが全部編集可能らしい。便利げ。&#xA;ちょっと fzf とは相性が悪いっぽい。&#xA;インストール el-get 本体にレシピはないので自前で用意。&#xA;(:name mistty :website &amp;#34;https://github.com/szermatt/mistty&amp;#34; :description &amp;#34;shell/comint alternative with a fully functional terminal&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;szermatt/mistty&amp;#34;) そして el-get-bundle でインストールしている&#xA;(el-get-bundle mistty) 設定 とりあえず普段 zsh を使っているのでそれで起動するように調整している。&#xA;(setopt explicit-shell-file-name &amp;#34;/usr/bin/zsh&amp;#34;) なお mistty そのものは fish との相性が一番良いっぽい</description>
+    </item>
+    <item>
       <title>moccur-edit</title>
       <link>https://mugijiru.github.io/.emacs.d/editing/moccur-edit/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
