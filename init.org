@@ -6740,6 +6740,7 @@ hook で動作する中身が変更できて便利。
 - [[*google-this][google-this]] :: Google 検索機能を提供してくれるパッケージ
 - [[*google-translate][google-translate]] :: Emacs から Google 翻訳するためのパッケージ
 - [[*magit][magit]] :: Emacs 上で Git の操作をするのにとても便利なパッケージ
+- [[id:4ae25e08-de4a-42c0-90e6-f39cc7cd0cb2][mistty]] :: Emacs 上で動く terminal の一種
 - [[*notify-slack][notify-slack]] :: Emacs から外部コマンドを通じて Slack に通知するための関数周りの事を書いている
 - [[id:b2277ecd-038a-4dfd-a510-6e2382f2350f][openai]] :: Emacs から [[https://openai.com/blog/openai-api][OpenAI API]] を利用するためのライブラリ
 - [[id:db428e03-5074-4b94-b775-8a49c4f65350][pdf-tools]] :: PDF を見るのに便利なやつ
@@ -7396,6 +7397,41 @@ orgit を入れていたり
 Git 管理されてるファイルを開いている時に
 ~M-x magit~ とかすると Git 管理用のバッファが出て来るし
 そこで ~?~ を叩いたらどういうコマンドが使えるのか教えてくれるよ(雑)
+** mistty
+:PROPERTIES:
+:EXPORT_FILE_NAME: mistty
+:ID:       4ae25e08-de4a-42c0-90e6-f39cc7cd0cb2
+:END:
+*** 概要
+[[https://github.com/szermatt/mistty][mistty]] は Emacs 上で動く terminal の一種。
+表示されるやつが全部編集可能らしい。便利げ。
+
+ちょっと fzf とは相性が悪いっぽい。
+*** インストール
+el-get 本体にレシピはないので自前で用意。
+
+#+begin_src emacs-lisp :tangle recipes/mistty.rcp
+(:name mistty
+       :website "https://github.com/szermatt/mistty"
+       :description "shell/comint alternative with a fully functional terminal"
+       :type github
+       :branch "master"
+       :pkgname "szermatt/mistty")
+#+end_src
+
+そして ~el-get-bundle~ でインストールしている
+
+#+begin_src emacs-lisp :tangle inits/50-mistty.el
+(el-get-bundle mistty)
+#+end_src
+*** 設定
+とりあえず普段 zsh を使っているのでそれで起動するように調整している。
+
+#+begin_src emacs-lisp :tangle inits/50-mistty.el
+(setopt explicit-shell-file-name "/usr/bin/zsh")
+#+end_src
+
+なお mistty そのものは fish との相性が一番良いっぽい
 ** notify-slack
 :PROPERTIES:
 :EXPORT_FILE_NAME: notify-slack
