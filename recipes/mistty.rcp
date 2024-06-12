@@ -1,0 +1,6 @@
+(:name mistty
+       :website "https://github.com/szermatt/mistty"
+       :description "shell/comint alternative with a fully functional terminal"
+       :type github
+       :branch "master"
+       :pkgname "szermatt/mistty")
