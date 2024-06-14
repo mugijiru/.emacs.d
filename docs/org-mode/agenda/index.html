@@ -12,20 +12,20 @@
     <title>Agenda 関係の設定 :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1718156030" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1718156030" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1718156030" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1718156030" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1718156030" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1718156030" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1718156030" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1718156030" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1718156030" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1718156030" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1718348381" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1718348381" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1718348381" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1718348381" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1718348381" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1718348381" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1718348381" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1718348381" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1718348381" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1718348381" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1718156030"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1718348381"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1718156030"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1718156030"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1718348381"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1718348381"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1718156030"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1718348381"></script>
 
     
   </div>
@@ -3586,12 +3586,25 @@ Emacs 以外も設定を弄りたいのはいっぱいあるからね。i3wm と
 </span></span><span style="display:flex;"><span>                   (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:priority&gt;= <span style="color:#e6db74">&#34;B&#34;</span>)
 </span></span><span style="display:flex;"><span>                                              (:name <span style="color:#e6db74">&#34;no priority&#34;</span> :not (:priority&gt;= <span style="color:#e6db74">&#34;C&#34;</span>))
 </span></span><span style="display:flex;"><span>                                              (:discard (:anything <span style="color:#66d9ef">t</span>))))))))
-</span></span></code></pre></div><h4 id="その他">その他</h4>
-<p>以下はまだ分割対応ができてない</p>
+</span></span></code></pre></div><h4 id="projects">Projects</h4>
+<p>projects.org に登録している TODO を抽出するための custom views です。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;p&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;Projects&#34;</span>)
-</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;pA&#34;</span> <span style="color:#e6db74">&#34;Projects Priority A&#34;</span>
+</span></span></code></pre></div><!--list-separator-->
+<ul>
+<li>
+<p>Priority A</p>
+<p>優先度 A つまり最優先とされているタスク群。まあ最優先がたくさんあるのが現状なのですが、まあまあ。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;pA&#34;</span> <span style="color:#e6db74">&#34;Projects Priority A&#34;</span>
 </span></span><span style="display:flex;"><span>      ((tags-todo <span style="color:#e6db74">&#34;LEVEL=2&amp;PRIORITY=\&#34;A\&#34;&#34;</span> ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))))))
-</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;pc&#34;</span> <span style="color:#e6db74">&#34;Category&#34;</span>
+</span></span></code></pre></div></li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>Category</p>
+<p>カテゴリ毎に分類したタスク群</p>
+<p>なのだけどこれ使ってないな。最近カテゴリを別用途にも使ってるから要らないかもしれない</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;pc&#34;</span> <span style="color:#e6db74">&#34;Category&#34;</span>
 </span></span><span style="display:flex;"><span>      ((tags-todo <span style="color:#e6db74">&#34;LEVEL=2&amp;CATEGORY=\&#34;Work\&#34;&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;お仕事タスク&#34;</span>)
 </span></span><span style="display:flex;"><span>                                               (org-agenda-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
 </span></span><span style="display:flex;"><span>                                               (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))))
@@ -3613,16 +3626,37 @@ Emacs 以外も設定を弄りたいのはいっぱいあるからね。i3wm と
 </span></span><span style="display:flex;"><span>       (tags-todo <span style="color:#e6db74">&#34;LEVEL=2&amp;CATEGORY=\&#34;Private\&#34;&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;Private タスク&#34;</span>)
 </span></span><span style="display:flex;"><span>                                                  (org-agenda-overriding-columns-format <span style="color:#e6db74">&#34;%25ITEM %TODO&#34;</span>)
 </span></span><span style="display:flex;"><span>                                                  (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))))))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;pC&#34;</span> <span style="color:#e6db74">&#34;Category auto&#34;</span>
+</span></span></code></pre></div></li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>Category auto</p>
+<p>自動分類させてみたやつ。特に使ってないな……</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;pC&#34;</span> <span style="color:#e6db74">&#34;Category auto&#34;</span>
 </span></span><span style="display:flex;"><span>      ((tags-todo <span style="color:#e6db74">&#34;LEVEL=2&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;Categories&#34;</span>)
 </span></span><span style="display:flex;"><span>                             (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))
 </span></span><span style="display:flex;"><span>                             (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:auto-category <span style="color:#66d9ef">t</span>)))))))
-</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;pg&#34;</span> <span style="color:#e6db74">&#34;Agenda groups&#34;</span>
+</span></span></code></pre></div></li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>Agenda groups</p>
+<p>agenda-group を設定しているのでそれに基いて分類させているやつ。処理が重いのが難点だけど、時々使ってる。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;pg&#34;</span> <span style="color:#e6db74">&#34;Agenda groups&#34;</span>
 </span></span><span style="display:flex;"><span>      ((tags-todo <span style="color:#e6db74">&#34;LEVEL=2&#34;</span> ((org-agenda-overriding-header <span style="color:#e6db74">&#34;Categories&#34;</span>)
 </span></span><span style="display:flex;"><span>                             (org-agenda-files <span style="color:#f92672">`</span>(<span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> org-directory <span style="color:#e6db74">&#34;tasks/projects.org&#34;</span>)))
 </span></span><span style="display:flex;"><span>                             (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:auto-group <span style="color:#66d9ef">t</span>)))))))
-</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;pp&#34;</span> <span style="color:#e6db74">&#34;Projects&#34;</span>
+</span></span></code></pre></div></li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>Projects</p>
+<p>予定を立てている作業を優先的に表示している agenda
+なんだけど daily agenda の方を活用しているのでこっちはあまり使ってない</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;pp&#34;</span> <span style="color:#e6db74">&#34;Projects&#34;</span>
 </span></span><span style="display:flex;"><span>      ((tags-todo <span style="color:#e6db74">&#34;LEVEL=2&#34;</span> ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
 </span></span><span style="display:flex;"><span>                             (org-agenda-overriding-header <span style="color:#e6db74">&#34;今日のタスク&#34;</span>)
 </span></span><span style="display:flex;"><span>                             (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
@@ -3649,7 +3683,15 @@ Emacs 以外も設定を弄りたいのはいっぱいあるからね。i3wm と
 </span></span><span style="display:flex;"><span>                                                        (:name <span style="color:#e6db74">&#34;仕掛かり中&#34;</span> :todo <span style="color:#e6db74">&#34;DOING&#34;</span>)
 </span></span><span style="display:flex;"><span>                                                        (:name <span style="color:#e6db74">&#34;TODO&#34;</span> :todo <span style="color:#e6db74">&#34;TODO&#34;</span>)
 </span></span><span style="display:flex;"><span>                                                        (:discard (:anything <span style="color:#66d9ef">t</span>))))))))
-</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;pP&#34;</span> <span style="color:#e6db74">&#34;Projects without Env&#34;</span>
+</span></span></code></pre></div></li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>Projects without Env</p>
+<p>ほぼ上記のやつと同じだけど、なんだかんだで Emacs とかの設定タスクがどんどん増えていくのでそれ以外のタスクを表示するように調整しているやつ。</p>
+<p>これもあまり使ってないかな</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;pP&#34;</span> <span style="color:#e6db74">&#34;Projects without Env&#34;</span>
 </span></span><span style="display:flex;"><span>      ((alltodo <span style="color:#e6db74">&#34;&#34;</span> ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
 </span></span><span style="display:flex;"><span>                    (org-agenda-overriding-header <span style="color:#e6db74">&#34;今日のタスク&#34;</span>)
 </span></span><span style="display:flex;"><span>                    (org-habit-show-habits <span style="color:#66d9ef">nil</span>)
@@ -3672,9 +3714,21 @@ Emacs 以外も設定を弄りたいのはいっぱいあるからね。i3wm と
 </span></span><span style="display:flex;"><span>                                               (:name <span style="color:#e6db74">&#34;今日予定の作業&#34;</span> :scheduled today)
 </span></span><span style="display:flex;"><span>                                               (:discard (:anything <span style="color:#66d9ef">t</span>))))))
 </span></span><span style="display:flex;"><span>       (tags-todo <span style="color:#e6db74">&#34;-Emacs-org-Env-Hugo&amp;LEVEL=2&#34;</span> ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))))))
-</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;pN&#34;</span> <span style="color:#e6db74">&#34;No major tags&#34;</span>
+</span></span></code></pre></div></li>
+</ul>
+<!--list-separator-->
+<ul>
+<li>
+<p>No major tags</p>
+<p>よく使うタグが付与されてないタスクを抽出するための custom view.
+ろくに管理されてなさそうなタスクを整理する際に使う</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;pN&#34;</span> <span style="color:#e6db74">&#34;No major tags&#34;</span>
 </span></span><span style="display:flex;"><span>      ((tags-todo <span style="color:#e6db74">&#34;-Emacs-org-Env-Hugo-Kibela-Develop-ReviewLister-HouseWork-Private&amp;LEVEL=2&#34;</span> ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))))))
-</span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;P&#34;</span> <span style="color:#e6db74">&#34;Pointers&#34;</span>
+</span></span></code></pre></div></li>
+</ul>
+<h4 id="その他">その他</h4>
+<p>以下はまだ分割対応ができてない</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;P&#34;</span> <span style="color:#e6db74">&#34;Pointers&#34;</span>
 </span></span><span style="display:flex;"><span>      ((todo <span style="color:#e6db74">&#34;DOING&#34;</span> ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/pointers.org&#34;</span>))))
 </span></span><span style="display:flex;"><span>       (todo <span style="color:#e6db74">&#34;TODO&#34;</span>  ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/pointers.org&#34;</span>))))))
 </span></span><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;X&#34;</span> <span style="color:#e6db74">&#34;Finished&#34;</span>
@@ -6084,19 +6138,19 @@ Emacs 以外も設定を弄りたいのはいっぱいあるからね。i3wm と
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1718156030"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1718156030"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1718156030"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1718156030"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1718156030"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1718156030"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1718348381"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1718348381"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1718348381"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1718348381"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1718348381"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1718348381"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1718156030"></script>
-    <script src="/.emacs.d/js/learn.js?1718156030"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1718156030"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1718348381"></script>
+    <script src="/.emacs.d/js/learn.js?1718348381"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1718348381"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1718156030"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1718348381"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
