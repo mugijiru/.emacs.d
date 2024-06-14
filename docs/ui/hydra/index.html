@@ -12,20 +12,20 @@
     <title>hydra :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1718348382" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1718348382" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1718348382" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1718348382" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1718348382" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1718348382" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1718348382" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1718348382" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1718348382" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1718348382" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1718349289" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1718349289" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1718349289" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1718349289" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1718349289" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1718349289" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1718349289" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1718349289" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1718349289" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1718349289" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1718348382"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1718349289"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1718348382"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1718348382"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1718349289"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1718349289"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1718348382"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1718349289"></script>
 
     
   </div>
@@ -3511,6 +3511,7 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
 </span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;v&#34;</span> my/toggle-view-mode       <span style="color:#e6db74">&#34;Readonly&#34;</span>       :toggle view-mode)
 </span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;f&#34;</span> flycheck-mode             <span style="color:#e6db74">&#34;Flycheck&#34;</span>       :toggle flycheck-mode)
 </span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;A&#34;</span> auto-fix-mode             <span style="color:#e6db74">&#34;Auto fix&#34;</span>       :toggle auto-fix-mode)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;C&#34;</span> copilot-mode              <span style="color:#e6db74">&#34;Copilot&#34;</span>        :toggle copilot-mode)
 </span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;^&#34;</span> subword-mode              <span style="color:#e6db74">&#34;Subword&#34;</span>        :toggle subword-mode)
 </span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;(&#34;</span> smartparens-strict-mode   <span style="color:#e6db74">&#34;strict parens&#34;</span>  :toggle smartparens-strict-mode)
 </span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;E&#34;</span> toggle-debug-on-error     <span style="color:#e6db74">&#34;Debug on error&#34;</span> :toggle debug-on-error))))
@@ -3535,8 +3536,16 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
 <td>常に絵文字に変換されると厳しい時があるので toggle できるようにしている</td>
 </tr>
 <tr>
+<td>B</td>
+<td>コード横にそのコードのコミットメッセージを表示するやつを toggle できるようにしている</td>
+</tr>
+<tr>
 <td>L</td>
 <td>行番号表示の切替。邪魔になる時もあるので ON/OFF 切り替えている</td>
+</tr>
+<tr>
+<td>M</td>
+<td>minimap の表示切替。普段使ってないから存在忘れるな〜</td>
 </tr>
 <tr>
 <td>N</td>
@@ -3557,6 +3566,26 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
 <tr>
 <td>v</td>
 <td>view-mode にしたり戻したり。コードを眺めたい時などに ON にする</td>
+</tr>
+<tr>
+<td>f</td>
+<td>flycheck-mode の切替。たまに何かの原因でとても重くなる時があるので切れるようにしている</td>
+</tr>
+<tr>
+<td>A</td>
+<td>保存時の自動補正するモードの切替。なんだけどこれ使ってないから消すかその内に。</td>
+</tr>
+<tr>
+<td>C</td>
+<td>copilot-mode の切替。基本は ON だけど邪魔になる時があるので</td>
+</tr>
+<tr>
+<td>^</td>
+<td>単語区切の切替。特に切り替えたことはない気がする</td>
+</tr>
+<tr>
+<td>(</td>
+<td>smartparens-strict-mode の切替。strict-mode だと面倒な時があるので。特に JS/TS で。</td>
 </tr>
 <tr>
 <td>E</td>
@@ -6156,19 +6185,19 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1718348382"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1718348382"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1718348382"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1718348382"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1718348382"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1718348382"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1718349289"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1718349289"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1718349289"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1718349289"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1718349289"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1718349289"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1718348382"></script>
-    <script src="/.emacs.d/js/learn.js?1718348382"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1718348382"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1718349289"></script>
+    <script src="/.emacs.d/js/learn.js?1718349289"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1718349289"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1718348382"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1718349289"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
