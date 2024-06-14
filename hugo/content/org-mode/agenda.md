@@ -499,14 +499,23 @@ projects.org に登録している TODO を抽出するための custom views �
     ```
 
 
-#### その他 {#その他}
+#### Pointers {#pointers}
 
-以下はまだ分割対応ができてない
+溜め込んだ資料を漁るための custom view.
+なのだけどいい感じの設定にしてなくてうまく読むこともできないので溜め込まなくなってる悪循環なのでなんとかしたい。
 
 ```emacs-lisp
      ("P" "Pointers"
       ((todo "DOING" ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))
        (todo "TODO"  ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))))
+```
+
+
+#### その他 {#その他}
+
+以下はまだ分割対応ができてない
+
+```emacs-lisp
      ("X" "Finished"
       ((tags "LEVEL=2" ((org-agenda-files `("~/Documents/org/tasks/projects.org"
                                             "~/Documents/org/tasks/inbox.org"

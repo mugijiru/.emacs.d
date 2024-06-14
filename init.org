@@ -8761,13 +8761,19 @@ agenda-group を設定しているのでそれに基いて分類させている�
      ("pN" "No major tags"
       ((tags-todo "-Emacs-org-Env-Hugo-Kibela-Develop-ReviewLister-HouseWork-Private&LEVEL=2" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
 #+end_src
-***** その他
-以下はまだ分割対応ができてない
+***** Pointers
+溜め込んだ資料を漁るための custom view.
+なのだけどいい感じの設定にしてなくてうまく読むこともできないので溜め込まなくなってる悪循環なのでなんとかしたい。
 
 #+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("P" "Pointers"
       ((todo "DOING" ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))
        (todo "TODO"  ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))))
+#+end_src
+***** その他
+以下はまだ分割対応ができてない
+
+#+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("X" "Finished"
       ((tags "LEVEL=2" ((org-agenda-files `("~/Documents/org/tasks/projects.org"
                                             "~/Documents/org/tasks/inbox.org"
