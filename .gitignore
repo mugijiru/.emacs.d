@@ -12,10 +12,12 @@ transient
 backup
 persist
 request
+tree-sitter
 
 # auto generated files
 .authinfo.gpg
 .lsp-session-v1
+.lsp-eslint-choices
 .mc-lists.el
 .org-generic-id-locations
 .org-id-locations
