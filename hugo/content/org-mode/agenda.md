@@ -499,14 +499,23 @@ projects.org に登録している TODO を抽出するための custom views �
     ```
 
 
-#### その他 {#その他}
+#### Pointers {#pointers}
 
-以下はまだ分割対応ができてない
+溜め込んだ資料を漁るための custom view.
+なのだけどいい感じの設定にしてなくてうまく読むこともできないので溜め込まなくなってる悪循環なのでなんとかしたい。
 
 ```emacs-lisp
      ("P" "Pointers"
       ((todo "DOING" ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))
        (todo "TODO"  ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))))
+```
+
+
+#### Finished {#finished}
+
+完了済のタスクを抽出するやつ。完了したやつがいつまでも残ってると邪魔なのでアーカイブする時に使っている
+
+```emacs-lisp
      ("X" "Finished"
       ((tags "LEVEL=2" ((org-agenda-files `("~/Documents/org/tasks/projects.org"
                                             "~/Documents/org/tasks/inbox.org"
@@ -516,7 +525,14 @@ projects.org に登録している TODO を抽出するための custom views �
                         (org-super-agenda-groups '((:name "Finished" :todo "DONE")
                                                    (:name "Someday" :todo "SOMEDAY")
                                                    (:discard (:anything t))))))))
+```
 
+
+#### 日報 {#日報}
+
+日報出力用。なのだけど今使ってないのよね〜
+
+```emacs-lisp
      ("z" "日報"
       ((agenda "" ((org-agenda-span 'day)
                    (org-agenda-overriding-header "")
@@ -546,19 +562,61 @@ projects.org に登録している TODO を抽出するための custom views �
                     (org-super-agenda-groups (append
                                               (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
                                               '((:discard (:anything t :name "discard")))))))))
-
-     ("H" "HouseWork" ((tags "HouseWork")))
-     ("E" . "Env")
-     ("EO" "org"
-      ((tags-todo "+org"
-                  ((org-agenda-files '("~/Documents/org/tasks/projects.org"
-                                       "~/Documents/org/tasks/inbox.org"))))))
-     ("EE" "Emacs without org"
-      ((tags-todo "+Emacs-org"
-                  ((org-agenda-files '("~/Documents/org/tasks/projects.org"
-                                       "~/Documents/org/tasks/inbox.org"))))))
-     ("Ee" "without Emacs"
-      ((tags-todo "+Env-Emacs-org"
-                  ((org-agenda-files '("~/Documents/org/tasks/projects.org"
-                                       "~/Documents/org/tasks/inbox.org")))))))))
 ```
+
+
+#### Housework {#housework}
+
+家事用。なんか家事以外も混ぜちゃってるけど、まあ似たようなものなのでヨシ
+
+```emacs-lisp
+     ("H" "HouseWork" ((tags "HouseWork")))
+```
+
+
+#### Env {#env}
+
+環境調整用。Emacs の設定とか org-mode の設定とかそれ以外の設定とか物理環境とかそういうものの調整タスクを入れている。
+
+```emacs-lisp
+     ("E" . "Env")
+```
+
+<!--list-separator-->
+
+-  org
+
+    org-mode 関係の設定用。org-mode はそれだけで色々あるので Emacs の設定とは別に管理したく。
+
+    ```emacs-lisp
+         ("EO" "org"
+          ((tags-todo "+org"
+                      ((org-agenda-files '("~/Documents/org/tasks/projects.org"
+                                           "~/Documents/org/tasks/inbox.org"))))))
+    ```
+
+<!--list-separator-->
+
+-  Emacs without org
+
+    org-mode 以外の Emacs の設定タスク。開発環境の調整とかね。
+
+    ```emacs-lisp
+         ("EE" "Emacs without org"
+          ((tags-todo "+Emacs-org"
+                      ((org-agenda-files '("~/Documents/org/tasks/projects.org"
+                                           "~/Documents/org/tasks/inbox.org"))))))
+    ```
+
+<!--list-separator-->
+
+-  without Emacs
+
+    それ以外の環境調整用。tmux とか shell とかも含むし、作業机とかの物理環境も含む。
+
+    ```emacs-lisp
+         ("Ee" "without Emacs"
+          ((tags-todo "+Env-Emacs-org"
+                      ((org-agenda-files '("~/Documents/org/tasks/projects.org"
+                                           "~/Documents/org/tasks/inbox.org")))))))))
+    ```

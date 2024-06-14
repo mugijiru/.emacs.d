@@ -8761,13 +8761,20 @@ agenda-group を設定しているのでそれに基いて分類させている�
      ("pN" "No major tags"
       ((tags-todo "-Emacs-org-Env-Hugo-Kibela-Develop-ReviewLister-HouseWork-Private&LEVEL=2" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
 #+end_src
-***** その他
-以下はまだ分割対応ができてない
+***** Pointers
+溜め込んだ資料を漁るための custom view.
+なのだけどいい感じの設定にしてなくてうまく読むこともできないので溜め込まなくなってる悪循環なのでなんとかしたい。
 
 #+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("P" "Pointers"
       ((todo "DOING" ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))
        (todo "TODO"  ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))))
+#+end_src
+***** Finished
+完了済のタスクを抽出するやつ。
+完了したやつがいつまでも残ってると邪魔なのでアーカイブする時に使っている
+
+#+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("X" "Finished"
       ((tags "LEVEL=2" ((org-agenda-files `("~/Documents/org/tasks/projects.org"
                                             "~/Documents/org/tasks/inbox.org"
@@ -8777,7 +8784,11 @@ agenda-group を設定しているのでそれに基いて分類させている�
                         (org-super-agenda-groups '((:name "Finished" :todo "DONE")
                                                    (:name "Someday" :todo "SOMEDAY")
                                                    (:discard (:anything t))))))))
+#+end_src
+***** 日報
+日報出力用。なのだけど今使ってないのよね〜
 
+#+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("z" "日報"
       ((agenda "" ((org-agenda-span 'day)
                    (org-agenda-overriding-header "")
@@ -8807,17 +8818,41 @@ agenda-group を設定しているのでそれに基いて分類させている�
                     (org-super-agenda-groups (append
                                               (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
                                               '((:discard (:anything t :name "discard")))))))))
+#+end_src
+***** Housework
+家事用。なんか家事以外も混ぜちゃってるけど、まあ似たようなものなのでヨシ
 
+#+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("H" "HouseWork" ((tags "HouseWork")))
+#+end_src
+***** Env
+環境調整用。Emacs の設定とか org-mode の設定とかそれ以外の設定とか物理環境とかそういうものの調整タスクを入れている。
+
+#+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("E" . "Env")
+#+end_src
+****** org
+org-mode 関係の設定用。org-mode はそれだけで色々あるので Emacs の設定とは別に管理したく。
+
+#+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("EO" "org"
       ((tags-todo "+org"
                   ((org-agenda-files '("~/Documents/org/tasks/projects.org"
                                        "~/Documents/org/tasks/inbox.org"))))))
+#+end_src
+****** Emacs without org
+org-mode 以外の Emacs の設定タスク。開発環境の調整とかね。
+
+#+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("EE" "Emacs without org"
       ((tags-todo "+Emacs-org"
                   ((org-agenda-files '("~/Documents/org/tasks/projects.org"
                                        "~/Documents/org/tasks/inbox.org"))))))
+#+end_src
+****** without Emacs
+それ以外の環境調整用。tmux とか shell とかも含むし、作業机とかの物理環境も含む。
+
+#+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("Ee" "without Emacs"
       ((tags-todo "+Env-Emacs-org"
                   ((org-agenda-files '("~/Documents/org/tasks/projects.org"
