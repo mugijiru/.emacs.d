@@ -8619,13 +8619,27 @@ Emacs 以外も設定を弄りたいのはいっぱいあるからね。i3wm と
                                               (:name "no priority" :not (:priority>= "C"))
                                               (:discard (:anything t))))))))
 #+end_src
-***** その他
-以下はまだ分割対応ができてない
+***** Projects
+projects.org に登録している TODO を抽出するための custom views です。
 
 #+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("p" . "Projects")
+#+end_src
+****** Priority A
+優先度 A つまり最優先とされているタスク群。
+まあ最優先がたくさんあるのが現状なのですが、まあまあ。
+
+#+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("pA" "Projects Priority A"
       ((tags-todo "LEVEL=2&PRIORITY=\"A\"" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
+#+end_src
+****** Category
+カテゴリ毎に分類したタスク群
+
+なのだけどこれ使ってないな。
+最近カテゴリを別用途にも使ってるから要らないかもしれない
+
+#+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("pc" "Category"
       ((tags-todo "LEVEL=2&CATEGORY=\"Work\"" ((org-agenda-overriding-header "お仕事タスク")
                                                (org-agenda-overriding-columns-format "%25ITEM %TODO")
@@ -8648,15 +8662,31 @@ Emacs 以外も設定を弄りたいのはいっぱいあるからね。i3wm と
        (tags-todo "LEVEL=2&CATEGORY=\"Private\"" ((org-agenda-overriding-header "Private タスク")
                                                   (org-agenda-overriding-columns-format "%25ITEM %TODO")
                                                   (org-agenda-files `(,(concat org-directory "tasks/projects.org")))))))
+#+end_src
+****** Category auto
+自動分類させてみたやつ。特に使ってないな……
 
+#+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("pC" "Category auto"
       ((tags-todo "LEVEL=2" ((org-agenda-overriding-header "Categories")
                              (org-agenda-files `(,(concat org-directory "tasks/projects.org")))
                              (org-super-agenda-groups '((:auto-category t)))))))
+#+end_src
+****** Agenda groups
+agenda-group を設定しているのでそれに基いて分類させているやつ。
+処理が重いのが難点だけど、時々使ってる。
+
+#+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("pg" "Agenda groups"
       ((tags-todo "LEVEL=2" ((org-agenda-overriding-header "Categories")
                              (org-agenda-files `(,(concat org-directory "tasks/projects.org")))
                              (org-super-agenda-groups '((:auto-group t)))))))
+#+end_src
+****** Projects
+予定を立てている作業を優先的に表示している agenda
+なんだけど daily agenda の方を活用しているのでこっちはあまり使ってない
+
+#+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("pp" "Projects"
       ((tags-todo "LEVEL=2" ((org-agenda-prefix-format " ")
                              (org-agenda-overriding-header "今日のタスク")
@@ -8684,6 +8714,13 @@ Emacs 以外も設定を弄りたいのはいっぱいあるからね。i3wm と
                                                         (:name "仕掛かり中" :todo "DOING")
                                                         (:name "TODO" :todo "TODO")
                                                         (:discard (:anything t))))))))
+#+end_src
+****** Projects without Env
+ほぼ上記のやつと同じだけど、なんだかんだで Emacs とかの設定タスクがどんどん増えていくので
+それ以外のタスクを表示するように調整しているやつ。
+
+これもあまり使ってないかな
+#+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("pP" "Projects without Env"
       ((alltodo "" ((org-agenda-prefix-format " ")
                     (org-agenda-overriding-header "今日のタスク")
@@ -8707,8 +8744,19 @@ Emacs 以外も設定を弄りたいのはいっぱいあるからね。i3wm と
                                                (:name "今日予定の作業" :scheduled today)
                                                (:discard (:anything t))))))
        (tags-todo "-Emacs-org-Env-Hugo&LEVEL=2" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
+#+end_src
+****** No major tags
+よく使うタグが付与されてないタスクを抽出するための custom view.
+ろくに管理されてなさそうなタスクを整理する際に使う
+
+#+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("pN" "No major tags"
       ((tags-todo "-Emacs-org-Env-Hugo-Kibela-Develop-ReviewLister-HouseWork-Private&LEVEL=2" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
+#+end_src
+***** その他
+以下はまだ分割対応ができてない
+
+#+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("P" "Pointers"
       ((todo "DOING" ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))
        (todo "TODO"  ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))))

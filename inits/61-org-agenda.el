@@ -157,8 +157,10 @@
                                               (:discard (:anything t))))))))
 
      ("p" . "Projects")
+
      ("pA" "Projects Priority A"
       ((tags-todo "LEVEL=2&PRIORITY=\"A\"" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
+
      ("pc" "Category"
       ((tags-todo "LEVEL=2&CATEGORY=\"Work\"" ((org-agenda-overriding-header "お仕事タスク")
                                                (org-agenda-overriding-columns-format "%25ITEM %TODO")
@@ -186,10 +188,12 @@
       ((tags-todo "LEVEL=2" ((org-agenda-overriding-header "Categories")
                              (org-agenda-files `(,(concat org-directory "tasks/projects.org")))
                              (org-super-agenda-groups '((:auto-category t)))))))
+
      ("pg" "Agenda groups"
       ((tags-todo "LEVEL=2" ((org-agenda-overriding-header "Categories")
                              (org-agenda-files `(,(concat org-directory "tasks/projects.org")))
                              (org-super-agenda-groups '((:auto-group t)))))))
+
      ("pp" "Projects"
       ((tags-todo "LEVEL=2" ((org-agenda-prefix-format " ")
                              (org-agenda-overriding-header "今日のタスク")
@@ -217,6 +221,7 @@
                                                         (:name "仕掛かり中" :todo "DOING")
                                                         (:name "TODO" :todo "TODO")
                                                         (:discard (:anything t))))))))
+
      ("pP" "Projects without Env"
       ((alltodo "" ((org-agenda-prefix-format " ")
                     (org-agenda-overriding-header "今日のタスク")
@@ -240,8 +245,10 @@
                                                (:name "今日予定の作業" :scheduled today)
                                                (:discard (:anything t))))))
        (tags-todo "-Emacs-org-Env-Hugo&LEVEL=2" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
+
      ("pN" "No major tags"
       ((tags-todo "-Emacs-org-Env-Hugo-Kibela-Develop-ReviewLister-HouseWork-Private&LEVEL=2" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
+
      ("P" "Pointers"
       ((todo "DOING" ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))
        (todo "TODO"  ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))))

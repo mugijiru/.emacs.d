@@ -337,97 +337,173 @@ Emacs 以外も設定を弄りたいのはいっぱいあるからね。i3wm と
 ```
 
 
+#### Projects {#projects}
+
+projects.org に登録している TODO を抽出するための custom views です。
+
+```emacs-lisp
+     ("p" . "Projects")
+```
+
+<!--list-separator-->
+
+-  Priority A
+
+    優先度 A つまり最優先とされているタスク群。まあ最優先がたくさんあるのが現状なのですが、まあまあ。
+
+    ```emacs-lisp
+         ("pA" "Projects Priority A"
+          ((tags-todo "LEVEL=2&PRIORITY=\"A\"" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
+    ```
+
+<!--list-separator-->
+
+-  Category
+
+    カテゴリ毎に分類したタスク群
+
+    なのだけどこれ使ってないな。最近カテゴリを別用途にも使ってるから要らないかもしれない
+
+    ```emacs-lisp
+         ("pc" "Category"
+          ((tags-todo "LEVEL=2&CATEGORY=\"Work\"" ((org-agenda-overriding-header "お仕事タスク")
+                                                   (org-agenda-overriding-columns-format "%25ITEM %TODO")
+                                                   (org-agenda-files `(,(concat org-directory "tasks/projects.org")))))
+           (tags-todo "LEVEL=2&CATEGORY=\"Housework\"" ((org-agenda-overriding-header "家事")
+                                                        (org-agenda-overriding-columns-format "%25ITEM %TODO")
+                                                        (org-agenda-files `(,(concat org-directory "tasks/projects.org")))))
+           (tags-todo "LEVEL=2&CATEGORY=\"Config\"" ((org-agenda-overriding-header "設定弄り")
+                                                     (org-agenda-overriding-columns-format "%25ITEM %TODO")
+                                                     (org-agenda-files `(,(concat org-directory "tasks/projects.org")))))
+           (tags-todo "LEVEL=2&CATEGORY=\"Research\"" ((org-agenda-overriding-header "調査")
+                                                       (org-agenda-overriding-columns-format "%25ITEM %TODO")
+                                                       (org-agenda-files `(,(concat org-directory "tasks/projects.org")))))
+           (tags-todo "LEVEL=2&CATEGORY=\"Indie hack\"" ((org-agenda-overriding-header "個人開発")
+                                                         (org-agenda-overriding-columns-format "%25ITEM %TODO")
+                                                         (org-agenda-files `(,(concat org-directory "tasks/projects.org")))))
+           (tags-todo "LEVEL=2&CATEGORY=\"Hoby\"" ((org-agenda-overriding-header "趣味関係")
+                                                   (org-agenda-overriding-columns-format "%25ITEM %TODO")
+                                                   (org-agenda-files `(,(concat org-directory "tasks/projects.org")))))
+           (tags-todo "LEVEL=2&CATEGORY=\"Private\"" ((org-agenda-overriding-header "Private タスク")
+                                                      (org-agenda-overriding-columns-format "%25ITEM %TODO")
+                                                      (org-agenda-files `(,(concat org-directory "tasks/projects.org")))))))
+    ```
+
+<!--list-separator-->
+
+-  Category auto
+
+    自動分類させてみたやつ。特に使ってないな……
+
+    ```emacs-lisp
+         ("pC" "Category auto"
+          ((tags-todo "LEVEL=2" ((org-agenda-overriding-header "Categories")
+                                 (org-agenda-files `(,(concat org-directory "tasks/projects.org")))
+                                 (org-super-agenda-groups '((:auto-category t)))))))
+    ```
+
+<!--list-separator-->
+
+-  Agenda groups
+
+    agenda-group を設定しているのでそれに基いて分類させているやつ。処理が重いのが難点だけど、時々使ってる。
+
+    ```emacs-lisp
+         ("pg" "Agenda groups"
+          ((tags-todo "LEVEL=2" ((org-agenda-overriding-header "Categories")
+                                 (org-agenda-files `(,(concat org-directory "tasks/projects.org")))
+                                 (org-super-agenda-groups '((:auto-group t)))))))
+    ```
+
+<!--list-separator-->
+
+-  Projects
+
+    予定を立てている作業を優先的に表示している agenda
+    なんだけど daily agenda の方を活用しているのでこっちはあまり使ってない
+
+    ```emacs-lisp
+         ("pp" "Projects"
+          ((tags-todo "LEVEL=2" ((org-agenda-prefix-format " ")
+                                 (org-agenda-overriding-header "今日のタスク")
+                                 (org-habit-show-habits nil)
+                                 (org-agenda-span 'day)
+                                 (org-agenda-todo-keyword-format "-")
+                                 (org-agenda-files `("~/Documents/org/tasks/habits.org" ,(org-journal--get-entry-path)))
+                                 (org-super-agenda-groups (append
+                                                           (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
+                                                           '((:name "その他" :scheduled nil)
+                                                             (:discard (:anything t)))))))
+           (tags-todo "LEVEL=2" ((org-agenda-prefix-format " ")
+                                 (org-agenda-overriding-header "予定に入ってる作業")
+                                 (org-habit-show-habits nil)
+                                 (org-agenda-span 'day)
+                                 (org-agenda-todo-keyword-format "-")
+                                 (org-agenda-files '("~/Documents/org/tasks/projects.org"))
+                                 (org-super-agenda-groups '((:name "〆切が過ぎてる作業" :deadline past)
+                                                            (:name "予定が過ぎてる作業" :scheduled past)
+                                                            (:name "今日〆切の作業" :deadline today)
+                                                            (:name "今日予定の作業" :scheduled today)
+                                                            (:discard (:anything t))))))
+           (tags-todo "LEVEL=2" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))
+                                 (org-super-agenda-groups '((:name "待ち" :todo "WAIT")
+                                                            (:name "仕掛かり中" :todo "DOING")
+                                                            (:name "TODO" :todo "TODO")
+                                                            (:discard (:anything t))))))))
+    ```
+
+<!--list-separator-->
+
+-  Projects without Env
+
+    ほぼ上記のやつと同じだけど、なんだかんだで Emacs とかの設定タスクがどんどん増えていくのでそれ以外のタスクを表示するように調整しているやつ。
+
+    これもあまり使ってないかな
+
+    ```emacs-lisp
+         ("pP" "Projects without Env"
+          ((alltodo "" ((org-agenda-prefix-format " ")
+                        (org-agenda-overriding-header "今日のタスク")
+                        (org-habit-show-habits nil)
+                        (org-agenda-span 'day)
+                        (org-agenda-todo-keyword-format "-")
+                        (org-agenda-files `("~/Documents/org/tasks/habits.org" ,(org-journal--get-entry-path)))
+                        (org-super-agenda-groups (append
+                                                  (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
+                                                  '((:name "その他" :scheduled nil)
+                                                    (:discard (:anything t)))))))
+           (alltodo "" ((org-agenda-prefix-format " ")
+                        (org-agenda-overriding-header "予定に入ってる作業")
+                        (org-habit-show-habits nil)
+                        (org-agenda-span 'day)
+                        (org-agenda-todo-keyword-format "-")
+                        (org-agenda-files '("~/Documents/org/tasks/projects.org"))
+                        (org-super-agenda-groups '((:name "〆切が過ぎてる作業" :deadline past)
+                                                   (:name "予定が過ぎてる作業" :scheduled past)
+                                                   (:name "今日〆切の作業" :deadline today)
+                                                   (:name "今日予定の作業" :scheduled today)
+                                                   (:discard (:anything t))))))
+           (tags-todo "-Emacs-org-Env-Hugo&LEVEL=2" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
+    ```
+
+<!--list-separator-->
+
+-  No major tags
+
+    よく使うタグが付与されてないタスクを抽出するための custom view.
+    ろくに管理されてなさそうなタスクを整理する際に使う
+
+    ```emacs-lisp
+         ("pN" "No major tags"
+          ((tags-todo "-Emacs-org-Env-Hugo-Kibela-Develop-ReviewLister-HouseWork-Private&LEVEL=2" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
+    ```
+
+
 #### その他 {#その他}
 
 以下はまだ分割対応ができてない
 
 ```emacs-lisp
-     ("p" . "Projects")
-     ("pA" "Projects Priority A"
-      ((tags-todo "LEVEL=2&PRIORITY=\"A\"" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
-     ("pc" "Category"
-      ((tags-todo "LEVEL=2&CATEGORY=\"Work\"" ((org-agenda-overriding-header "お仕事タスク")
-                                               (org-agenda-overriding-columns-format "%25ITEM %TODO")
-                                               (org-agenda-files `(,(concat org-directory "tasks/projects.org")))))
-       (tags-todo "LEVEL=2&CATEGORY=\"Housework\"" ((org-agenda-overriding-header "家事")
-                                                    (org-agenda-overriding-columns-format "%25ITEM %TODO")
-                                                    (org-agenda-files `(,(concat org-directory "tasks/projects.org")))))
-       (tags-todo "LEVEL=2&CATEGORY=\"Config\"" ((org-agenda-overriding-header "設定弄り")
-                                                 (org-agenda-overriding-columns-format "%25ITEM %TODO")
-                                                 (org-agenda-files `(,(concat org-directory "tasks/projects.org")))))
-       (tags-todo "LEVEL=2&CATEGORY=\"Research\"" ((org-agenda-overriding-header "調査")
-                                                   (org-agenda-overriding-columns-format "%25ITEM %TODO")
-                                                   (org-agenda-files `(,(concat org-directory "tasks/projects.org")))))
-       (tags-todo "LEVEL=2&CATEGORY=\"Indie hack\"" ((org-agenda-overriding-header "個人開発")
-                                                     (org-agenda-overriding-columns-format "%25ITEM %TODO")
-                                                     (org-agenda-files `(,(concat org-directory "tasks/projects.org")))))
-       (tags-todo "LEVEL=2&CATEGORY=\"Hoby\"" ((org-agenda-overriding-header "趣味関係")
-                                               (org-agenda-overriding-columns-format "%25ITEM %TODO")
-                                               (org-agenda-files `(,(concat org-directory "tasks/projects.org")))))
-       (tags-todo "LEVEL=2&CATEGORY=\"Private\"" ((org-agenda-overriding-header "Private タスク")
-                                                  (org-agenda-overriding-columns-format "%25ITEM %TODO")
-                                                  (org-agenda-files `(,(concat org-directory "tasks/projects.org")))))))
-
-     ("pC" "Category auto"
-      ((tags-todo "LEVEL=2" ((org-agenda-overriding-header "Categories")
-                             (org-agenda-files `(,(concat org-directory "tasks/projects.org")))
-                             (org-super-agenda-groups '((:auto-category t)))))))
-     ("pg" "Agenda groups"
-      ((tags-todo "LEVEL=2" ((org-agenda-overriding-header "Categories")
-                             (org-agenda-files `(,(concat org-directory "tasks/projects.org")))
-                             (org-super-agenda-groups '((:auto-group t)))))))
-     ("pp" "Projects"
-      ((tags-todo "LEVEL=2" ((org-agenda-prefix-format " ")
-                             (org-agenda-overriding-header "今日のタスク")
-                             (org-habit-show-habits nil)
-                             (org-agenda-span 'day)
-                             (org-agenda-todo-keyword-format "-")
-                             (org-agenda-files `("~/Documents/org/tasks/habits.org" ,(org-journal--get-entry-path)))
-                             (org-super-agenda-groups (append
-                                                       (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
-                                                       '((:name "その他" :scheduled nil)
-                                                         (:discard (:anything t)))))))
-       (tags-todo "LEVEL=2" ((org-agenda-prefix-format " ")
-                             (org-agenda-overriding-header "予定に入ってる作業")
-                             (org-habit-show-habits nil)
-                             (org-agenda-span 'day)
-                             (org-agenda-todo-keyword-format "-")
-                             (org-agenda-files '("~/Documents/org/tasks/projects.org"))
-                             (org-super-agenda-groups '((:name "〆切が過ぎてる作業" :deadline past)
-                                                        (:name "予定が過ぎてる作業" :scheduled past)
-                                                        (:name "今日〆切の作業" :deadline today)
-                                                        (:name "今日予定の作業" :scheduled today)
-                                                        (:discard (:anything t))))))
-       (tags-todo "LEVEL=2" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))
-                             (org-super-agenda-groups '((:name "待ち" :todo "WAIT")
-                                                        (:name "仕掛かり中" :todo "DOING")
-                                                        (:name "TODO" :todo "TODO")
-                                                        (:discard (:anything t))))))))
-     ("pP" "Projects without Env"
-      ((alltodo "" ((org-agenda-prefix-format " ")
-                    (org-agenda-overriding-header "今日のタスク")
-                    (org-habit-show-habits nil)
-                    (org-agenda-span 'day)
-                    (org-agenda-todo-keyword-format "-")
-                    (org-agenda-files `("~/Documents/org/tasks/habits.org" ,(org-journal--get-entry-path)))
-                    (org-super-agenda-groups (append
-                                              (mapcar (lambda (key) `(:name ,key :and (:category ,key :todo ("DOING" "WAIT")))) (if (boundp 'my/nippou-categories) my/nippou-categories nil))
-                                              '((:name "その他" :scheduled nil)
-                                                (:discard (:anything t)))))))
-       (alltodo "" ((org-agenda-prefix-format " ")
-                    (org-agenda-overriding-header "予定に入ってる作業")
-                    (org-habit-show-habits nil)
-                    (org-agenda-span 'day)
-                    (org-agenda-todo-keyword-format "-")
-                    (org-agenda-files '("~/Documents/org/tasks/projects.org"))
-                    (org-super-agenda-groups '((:name "〆切が過ぎてる作業" :deadline past)
-                                               (:name "予定が過ぎてる作業" :scheduled past)
-                                               (:name "今日〆切の作業" :deadline today)
-                                               (:name "今日予定の作業" :scheduled today)
-                                               (:discard (:anything t))))))
-       (tags-todo "-Emacs-org-Env-Hugo&LEVEL=2" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
-     ("pN" "No major tags"
-      ((tags-todo "-Emacs-org-Env-Hugo-Kibela-Develop-ReviewLister-HouseWork-Private&LEVEL=2" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
      ("P" "Pointers"
       ((todo "DOING" ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))
        (todo "TODO"  ((org-agenda-files '("~/Documents/org/tasks/pointers.org"))))))
