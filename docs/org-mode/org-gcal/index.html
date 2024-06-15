@@ -12,20 +12,20 @@
     <title>org-gcal :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1718371349" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1718371349" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1718371349" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1718371349" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1718371349" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1718371349" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1718371349" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1718371349" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1718371349" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1718371349" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1718457218" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1718457218" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1718457218" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1718457218" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1718457218" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1718457218" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1718457218" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1718457218" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1718457218" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1718457218" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1718371349"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1718457218"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1718371349"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1718371349"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1718457218"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1718457218"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1718371349"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1718457218"></script>
 
     
   </div>
@@ -3394,8 +3394,9 @@ el-get のレシピもそっちを見ている。</p>
 </span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(org-gcal-client-secret (<span style="color:#a6e22e">funcall</span> (<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;googleusercontent.com&#34;</span> :max <span style="color:#ae81ff">1</span>)) :secret))))
 </span></span></code></pre></div><p>そして org-gcal 本体を require する。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(require <span style="color:#e6db74">&#39;org-gcal</span>)
-</span></span></code></pre></div><p>あとは passphrase を保存できるようにした方が良いみたいなのが確か README に比較的最近追加されたのでそれを入れている</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq plstore-cache-passphrase-for-symmetric-encryption <span style="color:#66d9ef">t</span>)
+</span></span></code></pre></div><p>OAuth token の保存には GPG で暗号化するようにするため
+plstore-encrypt-to にその鍵 ID を設定している。こうするとパスフレーズを何度も入力する必要がないので便利。鍵 ID 自体もリポジトリには登録したくなかったので authinfo から取り出すようにしている。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;plstore-encrypt-to</span> (<span style="color:#a6e22e">funcall</span> (<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;org-gcal-plstore&#34;</span> :max <span style="color:#ae81ff">1</span>)) :secret)))
 </span></span></code></pre></div><p>あとは設定ファイルは公開したくないので別ファイルに分けてる。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(my/load-config <span style="color:#e6db74">&#34;my-org-gcal-config&#34;</span>)
 </span></span></code></pre></div><p>隠したい部分だけ .authinfo.gpg にでも分離したら公開できるようになるかもしれない。</p>
@@ -5773,19 +5774,19 @@ alert.el は別のところで設定していてそこで dunst を使って通�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1718371349"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1718371349"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1718371349"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1718371349"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1718371349"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1718371349"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1718457218"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1718457218"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1718457218"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1718457218"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1718457218"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1718457218"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1718371349"></script>
-    <script src="/.emacs.d/js/learn.js?1718371349"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1718371349"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1718457218"></script>
+    <script src="/.emacs.d/js/learn.js?1718457218"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1718457218"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1718371349"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1718457218"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
