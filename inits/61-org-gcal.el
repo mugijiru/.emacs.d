@@ -8,7 +8,7 @@
 
 (require 'org-gcal)
 
-(setq plstore-cache-passphrase-for-symmetric-encryption t)
+(add-to-list 'plstore-encrypt-to (funcall (plist-get (nth 0 (auth-source-search :host "org-gcal-plstore" :max 1)) :secret)))
 
 (my/load-config "my-org-gcal-config")
 
