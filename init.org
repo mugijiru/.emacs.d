@@ -9234,7 +9234,6 @@ HTML 4.01 Strict 信者だったこともあって抑制している。
 :EXPORT_FILE_NAME: org-gcal
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :weight 8
 :END:
-
 *** 概要
 [[https://github.com/kidd/org-gcal.el][org-gcal]] は org-mode と Google Calendar を連携させるためのパッケージ。
 
@@ -9286,7 +9285,6 @@ org-gcal が依存しているので [[https://elpa.gnu.org/packages/persist.htm
 :PROPERTIES:
 :ID:       247a2cfe-1bee-4293-82fb-b9e68130f258
 :END:
-
 まずは org-gcal の設定が authinfo から読み込まれるようにする
 
 #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
@@ -9301,10 +9299,13 @@ org-gcal が依存しているので [[https://elpa.gnu.org/packages/persist.htm
 (require 'org-gcal)
 #+end_src
 
-あとは passphrase を保存できるようにした方が良いみたいなのが確か README に比較的最近追加されたのでそれを入れている
+OAuth token の保存には GPG で暗号化するようにするため
+plstore-encrypt-to にその鍵 ID を設定している。
+こうするとパスフレーズを何度も入力する必要がないので便利。
+鍵 ID 自体もリポジトリには登録したくなかったので authinfo から取り出すようにしている。
 
 #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
-(setq plstore-cache-passphrase-for-symmetric-encryption t)
+(add-to-list 'plstore-encrypt-to (funcall (plist-get (nth 0 (auth-source-search :host "org-gcal-plstore" :max 1)) :secret)))
 #+end_src
 
 あとは設定ファイルは公開したくないので別ファイルに分けてる。

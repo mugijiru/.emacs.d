@@ -68,10 +68,11 @@ org-gcal が依存しているので [parsist](https://elpa.gnu.org/packages/per
 (require 'org-gcal)
 ```
 
-あとは passphrase を保存できるようにした方が良いみたいなのが確か README に比較的最近追加されたのでそれを入れている
+OAuth token の保存には GPG で暗号化するようにするため
+plstore-encrypt-to にその鍵 ID を設定している。こうするとパスフレーズを何度も入力する必要がないので便利。鍵 ID 自体もリポジトリには登録したくなかったので authinfo から取り出すようにしている。
 
 ```emacs-lisp
-(setq plstore-cache-passphrase-for-symmetric-encryption t)
+(add-to-list 'plstore-encrypt-to (funcall (plist-get (nth 0 (auth-source-search :host "org-gcal-plstore" :max 1)) :secret)))
 ```
 
 あとは設定ファイルは公開したくないので別ファイルに分けてる。
