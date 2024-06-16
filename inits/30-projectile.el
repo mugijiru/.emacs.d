@@ -54,7 +54,7 @@
      ((file-exists-p path)
       (find-file path))
      (t
-      (message "%s is not found." file-path)))))
+      (user-error "%s is not found." file-path)))))
 
 (defun my/projectile-find-file-in-dir (dir-path)
   "Find the file path"
