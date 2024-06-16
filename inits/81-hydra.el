@@ -120,6 +120,7 @@
 
    "Tool"
    (("SPC" major-mode-hydra         "Hydra(Major)")
+    ("h"   my/project-hydra         "Hydra(Project)")
     ("s"   toggle-hydra/body        "Toggle switches")
     ("c"   counsel-org-capture      "Capture")
     ("o"   global-org-hydra/body    "Org")
