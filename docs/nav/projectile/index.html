@@ -12,20 +12,20 @@
     <title>projectile :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1718457218" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1718457218" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1718457218" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1718457218" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1718457218" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1718457218" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1718457218" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1718457218" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1718457218" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1718457218" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1718503955" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1718503955" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1718503955" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1718503955" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1718503955" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1718503955" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1718503955" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1718503955" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1718503955" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1718503955" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1718457218"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1718503955"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1718457218"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1718457218"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1718503955"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1718503955"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1718457218"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1718503955"></script>
 
     
   </div>
@@ -3334,7 +3334,17 @@
     </li>
     <li><a href="#ivy-counsel-との連携">ivy/counsel との連携</a></li>
     <li><a href="#キーバインド">キーバインド</a></li>
-    <li><a href="#その他">その他</a></li>
+    <li><a href="#projectile-用のコマンド-ヘルパー関数">projectile 用のコマンド/ヘルパー関数</a>
+      <ul>
+        <li><a href="#プロジェクト固有の-hydra-呼び出し">プロジェクト固有の Hydra 呼び出し</a></li>
+        <li><a href="#プロジェクト内のファイルを開く">プロジェクト内のファイルを開く</a></li>
+        <li><a href="#プロジェクト内の指定フォルダのファイルを検索">プロジェクト内の指定フォルダのファイルを検索</a></li>
+        <li><a href="#dockerfile-を開く">Dockerfile を開く</a></li>
+        <li><a href="#dot-circleci-config-dot-yml-を開く">.circleci/config.yml を開く</a></li>
+        <li><a href="#gemfile-を開く">Gemfile を開く</a></li>
+        <li><a href="#dot-rubocop-dot-yml-を開く">.rubocop.yml を開く</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -3393,16 +3403,20 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
 </span></span><span style="display:flex;"><span>  (pretty-hydra-define
 </span></span><span style="display:flex;"><span>    projectile-hydra (:separator <span style="color:#e6db74">&#34;-&#34;</span> :title <span style="color:#e6db74">&#34;Projectile&#34;</span> :foreign-key <span style="color:#a6e22e">warn</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :exit <span style="color:#66d9ef">t</span>)
-</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;File&#34;</span>
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;Find&#34;</span>
 </span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;f&#34;</span> counsel-projectile-find-file <span style="color:#e6db74">&#34;Find File&#34;</span>)
 </span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;d&#34;</span> counsel-projectile-find-dir <span style="color:#e6db74">&#34;Find Dir&#34;</span>)
 </span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;r&#34;</span> projectile-recentf <span style="color:#e6db74">&#34;Recentf&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Jump&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;l&#34;</span> projectile-edit-dir-locals <span style="color:#e6db74">&#34;dir-locals&#34;</span>))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Edit&#34;</span>
 </span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;R&#34;</span> projectile-replace <span style="color:#e6db74">&#34;Replace&#34;</span>))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Other&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;p&#34;</span> (counsel-projectile-switch-project <span style="color:#e6db74">&#39;counsel-projectile-switch-project-action-vc</span>) <span style="color:#e6db74">&#34;Switch Project&#34;</span>)))))
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;p&#34;</span> (counsel-projectile-switch-project <span style="color:#e6db74">&#39;counsel-projectile-switch-project-action-vc</span>) <span style="color:#e6db74">&#34;Switch Project&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;SPC&#34;</span> my/project-hydra <span style="color:#e6db74">&#34;Hydra&#34;</span>)))))
 </span></span></code></pre></div><table>
 <thead>
 <tr>
@@ -3424,21 +3438,90 @@
 <td>プロジェクト内で最近触ったファイルのリスト表示</td>
 </tr>
 <tr>
+<td>l</td>
+<td>.dir-locals.el を開く</td>
+</tr>
+<tr>
+<td>E</td>
+<td>一括置換する</td>
+</tr>
+<tr>
 <td>p</td>
 <td>別のプロジェクトに切り替え</td>
+</tr>
+<tr>
+<td>SPC</td>
+<td>プロジェクト固有の Hydra を起動する</td>
 </tr>
 </tbody>
 </table>
 <ul>
 <li><code>projectile-find-implementation-or-test</code></li>
-<li><code>projectile-replace</code></li>
 <li><code>projectile-replace-regexp</code></li>
 </ul>
 <p>あたりも使えるようにするともしかしたら便利かもしれない。あとは <code>counsel-projectile-grep</code> とかの類かな〜</p>
-<h2 id="その他">その他</h2>
-<p>基本的に Rails のプロジェクトをやっているので
-projectile-rails をベースにいつも触ってるので projectile そのものはあまり弄ってないのであった</p>
-
+<h2 id="projectile-用のコマンド-ヘルパー関数">projectile 用のコマンド/ヘルパー関数</h2>
+<h3 id="プロジェクト固有の-hydra-呼び出し">プロジェクト固有の Hydra 呼び出し</h3>
+<p>プロジェクト固有の Hydra を <code>{project-dir-name}-hydra</code> のように定義しておけばプロジェクトのディレクトリ名を用いてそれ用の Hydra を呼び出す関数。</p>
+<p>プロジェクト固有の Hydra は .dir-locals で定義することを念頭に置いているが、
+Emacs の設定ファイルに直接埋め込んでいても特に問題はないはず。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/project-hydra ()
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Call the project specific hydra.&#34;</span>
+</span></span><span style="display:flex;"><span>  (interactive)
+</span></span><span style="display:flex;"><span>  (let* ((project-path (<span style="color:#a6e22e">directory-file-name</span> (projectile-acquire-root)))
+</span></span><span style="display:flex;"><span>         (project-dir-name (file-name-base project-path))
+</span></span><span style="display:flex;"><span>         (hydra-body (<span style="color:#a6e22e">intern</span> (<span style="color:#a6e22e">concat</span> project-dir-name <span style="color:#e6db74">&#34;-hydra/body&#34;</span>))))
+</span></span><span style="display:flex;"><span>    (cond
+</span></span><span style="display:flex;"><span>     ((<span style="color:#a6e22e">fboundp</span> hydra-body)
+</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">funcall</span> hydra-body))
+</span></span><span style="display:flex;"><span>     (<span style="color:#66d9ef">t</span>
+</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">user-error</span> <span style="color:#e6db74">&#34;project hydra is not defined on %s.&#34;</span> project-dir-name)))))
+</span></span></code></pre></div><h3 id="プロジェクト内のファイルを開く">プロジェクト内のファイルを開く</h3>
+<p>プロジェクト内に1つしかないようなファイルは completing-read で絞り込む必要がないのでぱぱっと開けるようにするためのコマンドを用意した。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/projectile-goto-file (file-path)
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Go to the file path&#34;</span>
+</span></span><span style="display:flex;"><span>  (let ((path (<span style="color:#a6e22e">concat</span> (projectile-acquire-root) file-path)))
+</span></span><span style="display:flex;"><span>    (cond
+</span></span><span style="display:flex;"><span>     ((<span style="color:#a6e22e">file-exists-p</span> path)
+</span></span><span style="display:flex;"><span>      (find-file path))
+</span></span><span style="display:flex;"><span>     (<span style="color:#66d9ef">t</span>
+</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">user-error</span> <span style="color:#e6db74">&#34;%s is not found.&#34;</span> file-path)))))
+</span></span></code></pre></div><h3 id="プロジェクト内の指定フォルダのファイルを検索">プロジェクト内の指定フォルダのファイルを検索</h3>
+<p>実装ファイルなどは特定のフォルダ以下に複数存在するのが一般形なので指定したフォルダ以下のファイルを completing-read で絞り込めるようにしている。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/projectile-find-file-in-dir (dir-path)
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Find the file path&#34;</span>
+</span></span><span style="display:flex;"><span>  (interactive)
+</span></span><span style="display:flex;"><span>  (let ((path (<span style="color:#a6e22e">concat</span> (projectile-acquire-root) dir-path)))
+</span></span><span style="display:flex;"><span>    (cond
+</span></span><span style="display:flex;"><span>     ((and (<span style="color:#a6e22e">file-exists-p</span> path) (<span style="color:#a6e22e">file-directory-p</span> path))
+</span></span><span style="display:flex;"><span>      (projectile-find-file-in-directory path))
+</span></span><span style="display:flex;"><span>     (<span style="color:#66d9ef">t</span>
+</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">user-error</span> <span style="color:#e6db74">&#34;%s is not directory.&#34;</span> dir-path)))))
+</span></span></code></pre></div><h3 id="dockerfile-を開く">Dockerfile を開く</h3>
+<p>今時は Docker がよく使われているので Dockerfile を開くコマンドを用意した。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/projectile-goto-dockerfile ()
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Find the Dockerfile&#34;</span>
+</span></span><span style="display:flex;"><span>  (interactive)
+</span></span><span style="display:flex;"><span>  (my/projectile-goto-file <span style="color:#e6db74">&#34;Dockerfile&#34;</span>))
+</span></span></code></pre></div><h3 id="dot-circleci-config-dot-yml-を開く">.circleci/config.yml を開く</h3>
+<p><code>.circleci/config.yml</code> も時々開くよねってことで追加した</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/projectile-goto-circleci-config ()
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Find the CircleCI config.yml&#34;</span>
+</span></span><span style="display:flex;"><span>  (interactive)
+</span></span><span style="display:flex;"><span>  (my/projectile-goto-file <span style="color:#e6db74">&#34;.circleci/config.yml&#34;</span>))
+</span></span></code></pre></div><h3 id="gemfile-を開く">Gemfile を開く</h3>
+<p>Ruby 書いているとお馴染の Gemfile もぱぱっと開きたいので追加</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/projectile-goto-gemfile ()
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Find the Gemfile&#34;</span>
+</span></span><span style="display:flex;"><span>  (interactive)
+</span></span><span style="display:flex;"><span>  (my/projectile-goto-file <span style="color:#e6db74">&#34;Gemfile&#34;</span>))
+</span></span></code></pre></div><h3 id="dot-rubocop-dot-yml-を開く">.rubocop.yml を開く</h3>
+<p>Ruby 書いていたら大体 rubocop も使うので追加</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/projectile-goto-rubocop-config ()
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Find the .rubocop.yml&#34;</span>
+</span></span><span style="display:flex;"><span>  (interactive)
+</span></span><span style="display:flex;"><span>  (my/projectile-goto-file <span style="color:#e6db74">&#34;.rubocop.yml&#34;</span>))
+</span></span></code></pre></div>
 
 <footer class="footline">
 	
@@ -5791,19 +5874,19 @@ projectile-rails をベースにいつも触ってるので projectile そのも
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1718457218"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1718457218"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1718457218"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1718457218"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1718457218"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1718457218"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1718503955"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1718503955"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1718503955"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1718503955"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1718503955"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1718503955"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1718457218"></script>
-    <script src="/.emacs.d/js/learn.js?1718457218"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1718457218"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1718503955"></script>
+    <script src="/.emacs.d/js/learn.js?1718503955"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1718503955"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1718457218"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1718503955"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
