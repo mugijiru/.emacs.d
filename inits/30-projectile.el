@@ -49,3 +49,8 @@
       (projectile-find-file-in-directory path))
      (t
       (user-error "%s is not directory." dir-path)))))
+
+(defun my/projectile-goto-dockerfile ()
+  "Find the Gemfile"
+  (interactive)
+  (my/projectile-goto-file "Dockerfile"))
