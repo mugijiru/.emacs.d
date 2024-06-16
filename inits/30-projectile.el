@@ -32,7 +32,8 @@
      (("R" projectile-replace "Replace"))
 
      "Other"
-     (("p" (counsel-projectile-switch-project 'counsel-projectile-switch-project-action-vc) "Switch Project")))))
+     (("p" (counsel-projectile-switch-project 'counsel-projectile-switch-project-action-vc) "Switch Project")
+      ("SPC" my/project-hydra "Hydra")))))
 
 (defun my/project-hydra ()
   "Call the project specific hydra."
