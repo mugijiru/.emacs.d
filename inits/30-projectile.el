@@ -67,7 +67,7 @@
       (user-error "%s is not directory." dir-path)))))
 
 (defun my/projectile-goto-dockerfile ()
-  "Find the Gemfile"
+  "Find the Dockerfile"
   (interactive)
   (my/projectile-goto-file "Dockerfile"))
 
@@ -82,6 +82,6 @@
   (my/projectile-goto-file "Gemfile"))
 
 (defun my/projectile-goto-rubocop-config ()
-  "Find the Gemfile"
+  "Find the .rubocop.yml"
   (interactive)
   (my/projectile-goto-file ".rubocop.yml"))
