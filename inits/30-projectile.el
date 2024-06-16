@@ -64,3 +64,8 @@
   "Find the Gemfile"
   (interactive)
   (my/projectile-goto-file "Gemfile"))
+
+(defun my/projectile-goto-rubocop-config ()
+  "Find the Gemfile"
+  (interactive)
+  (my/projectile-goto-file ".rubocop.yml"))
