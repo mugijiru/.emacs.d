@@ -39,3 +39,13 @@
       (find-file path))
      (t
       (message "%s is not found." file-path)))))
+
+(defun my/projectile-find-file-in-dir (dir-path)
+  "Find the file path"
+  (interactive)
+  (let ((path (concat (projectile-acquire-root) dir-path)))
+    (cond
+     ((and (file-exists-p path) (file-directory-p path))
+      (projectile-find-file-in-directory path))
+     (t
+      (user-error "%s is not directory." dir-path)))))
