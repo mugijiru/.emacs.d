@@ -59,3 +59,8 @@
   "Find the CircleCI config.yml"
   (interactive)
   (my/projectile-goto-file ".circleci/config.yml"))
+
+(defun my/projectile-goto-gemfile ()
+  "Find the Gemfile"
+  (interactive)
+  (my/projectile-goto-file "Gemfile"))
