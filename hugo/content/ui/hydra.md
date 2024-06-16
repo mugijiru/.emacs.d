@@ -297,6 +297,7 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
 
    "Tool"
    (("SPC" major-mode-hydra         "Hydra(Major)")
+    ("h"   my/project-hydra         "Hydra(Project)")
     ("s"   toggle-hydra/body        "Toggle switches")
     ("c"   counsel-org-capture      "Capture")
     ("o"   global-org-hydra/body    "Org")
@@ -328,6 +329,7 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
 | +   | [文字サイズ変更用 Hydra](#text-scale) の起動                               |
 | w   | Window の入替                                                              |
 | SPC | [major-mode-hydra](https://github.com/jerrypnz/major-mode-hydra.el) の起動 |
+| h   | プロジェクト固有の Hydra があればそれを起動する                            |
 | s   | [ON/OFF 切替系の Hydra](#toggle-switches) を起動する                       |
 | c   | counsel-org-capture を呼び出す                                             |
 | o   | org-mode 用の Hydra を起動する                                             |
