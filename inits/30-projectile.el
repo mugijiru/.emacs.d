@@ -31,6 +31,18 @@
      "Other"
      (("p" (counsel-projectile-switch-project 'counsel-projectile-switch-project-action-vc) "Switch Project")))))
 
+(defun my/project-hydra ()
+  "Call the project specific hydra."
+  (interactive)
+  (let* ((project-path (directory-file-name (projectile-acquire-root)))
+         (project-dir-name (file-name-base project-path))
+         (hydra-body (intern (concat project-dir-name "-hydra/body"))))
+    (cond
+     ((fboundp hydra-body)
+      (funcall hydra-body))
+     (t
+      (user-error "project hydra is not defined on %s." project-dir-name)))))
+
 (defun my/projectile-goto-file (file-path)
   "Go to the file path"
   (let ((path (concat (projectile-acquire-root) file-path)))
