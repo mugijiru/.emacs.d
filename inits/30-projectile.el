@@ -25,6 +25,9 @@
       ("d" counsel-projectile-find-dir "Find Dir")
       ("r" projectile-recentf "Recentf"))
 
+     "Jump"
+     (("l" projectile-edit-dir-locals "dir-locals"))
+
      "Edit"
      (("R" projectile-replace "Replace"))
 
