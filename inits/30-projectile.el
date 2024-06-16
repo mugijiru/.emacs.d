@@ -30,3 +30,12 @@
 
      "Other"
      (("p" (counsel-projectile-switch-project 'counsel-projectile-switch-project-action-vc) "Switch Project")))))
+
+(defun my/projectile-goto-file (file-path)
+  "Go to the file path"
+  (let ((path (concat (projectile-acquire-root) file-path)))
+    (cond
+     ((file-exists-p path)
+      (find-file path))
+     (t
+      (message "%s is not found." file-path)))))
