@@ -4,7 +4,7 @@
        :type github
        :pkgname "magit/magit"
        :branch "main"
-       :minimum-emacs-version "25.1"
+       :minimum-emacs-version "26.1"
        ;; Note: `git-commit' is shipped with `magit' code itself.
        ;; Note: `magit-section' is shipped with `magit' code itself.
        :depends (dash transient with-editor compat seq)
