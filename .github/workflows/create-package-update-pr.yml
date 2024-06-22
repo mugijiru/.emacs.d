@@ -52,6 +52,13 @@ jobs:
         echo "body=${body}" >> $GITHUB_OUTPUT
 
     - if: env.found_update == 1
+      id: remove-old-branches
+      name: Remove old branches
+      run: |
+        git fetch
+        git branch --no-merged | awk '{print $1}' | grep '^update-${{ env.PACKAGE }}' | xargs git push origin --delete $1
+
+    - if: env.found_update == 1
       name: Create PR
       uses: peter-evans/create-pull-request@v6
       env:
