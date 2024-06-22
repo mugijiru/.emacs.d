@@ -25,9 +25,17 @@
       (unless (string= old-checksum new-checksum)
         (let* ((compare (concat old-checksum "..." new-checksum))
                (recipe (ignore-errors (el-get-package-def package)))
+               (type (plist-get recipe :type))
                (pkgname (plist-get recipe :pkgname))
+               (url (plist-get recipe :url))
                (title (concat "Update " package))
-               (body (concat "https://github.com/" pkgname "/compare/" compare))
+               (body (cond
+                      ((eq type 'github)
+                       (concat "https://github.com/" pkgname "/compare/" compare))
+                      ((string-match (concat "^" "https://codeberg.org/") url)
+                       (concat (substring url 0 (- (length url) 4)) "/compare/" compare))
+                      (t
+                       (concat "compare: " compare))))
                (commit-message (concat title "\n\n" body)))
           (write-region commit-message nil "/tmp/commit-message.txt"))))))
 
