@@ -57,8 +57,11 @@ jobs:
       run: |
         git fetch
         branches=$(git branch --no-merged | awk '{print $1}' | grep '^update-${{ env.PACKAGE }}')
+        echo $branches
+        echo "--------"
         if (( ${#branches[@]} )); then;
           for branch in "${branches[@]}"; do
+            echo "process ${branch}"
             git push origin --delete $branch
           done
         fi
