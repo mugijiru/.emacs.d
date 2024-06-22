@@ -56,7 +56,12 @@ jobs:
       name: Remove old branches
       run: |
         git fetch
-        git branch --no-merged | awk '{print $1}' | grep '^update-${{ env.PACKAGE }}' | xargs git push origin --delete $1
+        branches=$(git branch --no-merged | awk '{print $1}' | grep '^update-${{ env.PACKAGE }}')
+        if (( ${#branches[@]} )); then;
+          for branch in "${branches[@]}"; do
+            git push origin --delete $branch
+          done
+        fi
 
     - if: env.found_update == 1
       name: Create PR
