@@ -62,8 +62,8 @@ jobs:
         branches_with_whitespace=$(echo ${no_merged_branches} |awk '{print $1}')
         echo "with_whitespace"
         echo ${branches_with_whitespace}
-        branches=$(echo ${branches_with_whitespace} | grep '^update-${{ env.PACKAGE }}')
-        # branches=$(git branch --no-merged | awk '{print $1}' | grep '^update-${{ env.PACKAGE }}')
+        branches=$(echo ${branches_with_whitespace} | grep '^update-${PACKAGE}')
+        # branches=$(git branch --no-merged | awk '{print $1}' | grep '^update-${PACKAGE}')
         echo "branches"
         echo $branches
         echo "--------"
