@@ -56,10 +56,10 @@ jobs:
       name: Remove old branches
       run: |
         git fetch
-        all_branches=$(git branch --format='%(refname:short)')
-        echo "all_branches"
-        echo ${all_branches}
-        branches=($(echo ${all_branches} | grep "^update-${PACKAGE}" || true))
+        remote_branches=$(git branch -r --format='%(refname:short)')
+        echo "remote_branches"
+        echo ${remote_branches}
+        branches=($(echo ${remote_branches} | sed 's|^origin/||' grep "^update-${PACKAGE}" || true))
         # branches=($(git branch | awk '{print $1}' | grep "^update-${PACKAGE}" || true))
         echo "branches"
         echo $branches
