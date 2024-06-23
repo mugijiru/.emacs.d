@@ -54,16 +54,15 @@ jobs:
     - if: env.found_update == 1
       id: remove-old-branches
       name: Remove old branches
-      shell: zsh {0}
       run: |
         git fetch
         remote_branches=$(git branch -r --format='%(refname:short)')
         echo "remote_branches"
         echo ${remote_branches}
-        after_sed=$(echo ${remote_branches} | sed 's|^origin/||')
+        after_sed=$(echo ${remote_branches} | tr ' ' '\n' | sed 's|^origin/||')
         echo "after sed"
         echo ${after_sed}
-        branches=($(echo ${after_sed} | grep "^update-${PACKAGE}" || true))
+        branches=($(echo ${after_sed} | tr ' ' '\n' | | grep "^update-${PACKAGE}" || true))
         # branches=($(git branch | awk '{print $1}' | grep "^update-${PACKAGE}" || true))
         echo "branches"
         echo $branches
