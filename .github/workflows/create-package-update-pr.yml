@@ -56,7 +56,7 @@ jobs:
       name: Remove old branches
       run: |
         git fetch
-        no_merged_branches=$(git branch --no-merged)
+        no_merged_branches=$(git branch)
         echo "no_merged_branches"
         echo ${no_merged_branches}
         branches_with_whitespace=$(echo ${no_merged_branches} |awk '{print $1}')
@@ -65,7 +65,7 @@ jobs:
         echo "--------------"
         echo "grep ^update-${PACKAGE}"
         branches=($(echo ${branches_with_whitespace} | grep "^update-${PACKAGE}" || true))
-        # branches=($(git branch --no-merged | awk '{print $1}' | grep "^update-${PACKAGE}" || true))
+        # branches=($(git branch | awk '{print $1}' | grep "^update-${PACKAGE}" || true))
         echo "branches"
         echo $branches
         echo "--------"
