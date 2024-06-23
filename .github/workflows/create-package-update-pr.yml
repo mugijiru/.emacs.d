@@ -54,6 +54,7 @@ jobs:
     - if: env.found_update == 1
       id: remove-old-branches
       name: Remove old branches
+      shell: zsh {0}
       run: |
         git fetch
         remote_branches=$(git branch -r --format='%(refname:short)')
