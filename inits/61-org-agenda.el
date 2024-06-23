@@ -19,6 +19,18 @@
 
 (setq my/org-agenda-calendar-files '())
 
+(defun my/org-schedule-or-deadline ()
+  (let* ((deadline (org-get-deadline-time (point)))
+         (schedule (org-get-scheduled-time (point)))
+         (format "%m/%d"))
+    (cond
+     (deadline
+      (concat "[〆: " (format-time-string format deadline) "]"))
+     (schedule
+      (concat "[予: " (format-time-string format schedule) "]"))
+     (t
+      ""))))
+
 (custom-set-variables
  '(org-agenda-custom-commands
 
