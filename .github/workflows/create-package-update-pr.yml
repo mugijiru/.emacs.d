@@ -62,7 +62,7 @@ jobs:
         after_sed=$(echo ${remote_branches} | tr ' ' '\n' | sed 's|^origin/||')
         echo "after sed"
         echo ${after_sed}
-        branches=($(echo ${after_sed} | tr ' ' '\n' | | grep "^update-${PACKAGE}" || true))
+        branches=($(echo ${after_sed} | tr ' ' '\n' | grep "^update-${PACKAGE}" || true))
         # branches=($(git branch | awk '{print $1}' | grep "^update-${PACKAGE}" || true))
         echo "branches"
         echo $branches
