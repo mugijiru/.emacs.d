@@ -59,7 +59,10 @@ jobs:
         remote_branches=$(git branch -r --format='%(refname:short)')
         echo "remote_branches"
         echo ${remote_branches}
-        branches=($(echo ${remote_branches} | sed 's|^origin/||' | grep "^update-${PACKAGE}" || true))
+        after_sed=$(echo ${remote_branches} | sed 's|^origin/||')
+        echo "after sed"
+        echo ${after_sed}
+        branches=($(echo ${after_sed} | grep "^update-${PACKAGE}" || true))
         # branches=($(git branch | awk '{print $1}' | grep "^update-${PACKAGE}" || true))
         echo "branches"
         echo $branches
