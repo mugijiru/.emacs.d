@@ -69,7 +69,7 @@ jobs:
         echo "branches"
         echo $branches
         echo "--------"
-        if (( ${#branches[@]} )); then;
+        if (( ${#branches[@]} )); then
           for branch in "${branches[@]}"; do
             echo "process ${branch}"
             git push origin --delete $branch
