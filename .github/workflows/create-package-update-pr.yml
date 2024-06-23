@@ -65,7 +65,7 @@ jobs:
         echo "--------------"
         echo "grep ^update-${PACKAGE}"
         branches=($(echo ${branches_with_whitespace} | grep "^update-${PACKAGE}" || true))
-        # branches=($(git branch --no-merged | awk "{print $1}" | grep "^update-${PACKAGE}" || true))
+        # branches=($(git branch --no-merged | awk '{print $1}' | grep "^update-${PACKAGE}" || true))
         echo "branches"
         echo $branches
         echo "--------"
