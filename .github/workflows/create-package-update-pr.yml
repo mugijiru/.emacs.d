@@ -56,17 +56,8 @@ jobs:
       name: Remove old branches
       run: |
         git fetch
-        remote_branches=$(git branch -r --format='%(refname:short)')
-        echo "remote_branches"
-        echo ${remote_branches}
-        after_sed=$(echo ${remote_branches} | tr ' ' '\n' | sed 's|^origin/||')
-        echo "after sed"
-        echo ${after_sed}
-        branches=($(echo ${after_sed} | tr ' ' '\n' | grep "^update-${PACKAGE}" || true))
-        # branches=($(git branch | awk '{print $1}' | grep "^update-${PACKAGE}" || true))
-        echo "branches"
-        echo $branches
-        echo "--------"
+
+        branches=($(git branch -r --format='%(refname:short)' | sed 's|^origin/||' | grep "^update-${PACKAGE}" || true))
         for branch in "${branches[@]}"; do
           echo "Remove remote branch: ${branch}"
           git push origin --delete $branch
