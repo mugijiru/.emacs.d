@@ -108,6 +108,35 @@ nil にして表示しないようにしている。
 ```
 
 
+### agenda に予定日や締切を表示するための関数 {#agenda-に予定日や締切を表示するための関数}
+
+org-agenda では `org-agenda-prefix-format` に `%s` を指定することで予定日や締切がある場合にそれを簡易表示してくれる機能がある。
+
+のだけどキーワードとして agenda を指定しておく必要があるようで
+`todo` などを使う場合にはそれが表示されない。
+
+また、その表示もあまり私の好みではないので、それを良い感じに表示する関数を実装した。
+
+```emacs-lisp
+(defun my/org-schedule-or-deadline ()
+  (let* ((deadline (org-get-deadline-time (point)))
+         (schedule (org-get-scheduled-time (point)))
+         (format "%m/%d"))
+    (cond
+     (deadline
+      (concat "[〆: " (format-time-string format deadline) "]"))
+     (schedule
+      (concat "[予: " (format-time-string format schedule) "]"))
+     (t
+      ""))))
+```
+
+締切が設定されていればそれを、そうではなくスケジュールが設定されていればそれを
+`MM/DD` 形式で出力するようにしている。
+
+あと目立つように `[]` で囲ったりどっちの値なのか分かるようにするため 〆 とか 予 とか入れたりしている。
+
+
 ### カスタムビュー {#カスタムビュー}
 
 色々なカスタムビューを定義している。かといって全部使ってるわけではないし、つまり使いこなせているかというと微妙。
@@ -233,7 +262,7 @@ nil にして表示しないようにしている。
                  (org-agenda-overriding-header "予定業務")
                  (org-habit-show-habits nil)
                  (org-agenda-span 'day)
-                 (org-agenda-prefix-format "  %c: ")
+                 (org-agenda-prefix-format "  %(my/org-schedule-or-deadline) %c: ")
                  (org-agenda-files '("~/Documents/org/tasks/projects.org"))
                  (org-super-agenda-groups `((:name "〆切が過ぎてる作業" :and (:deadline past   :property ("agenda-group" "1. Work")))
                                             (:name "予定が過ぎてる作業" :and (:scheduled past  :property ("agenda-group" "1. Work")))
@@ -297,7 +326,7 @@ Emacs 以外も設定を弄りたいのはいっぱいあるからね。i3wm と
                 ((org-agenda-prefix-format " ")
                  (org-agenda-overriding-header "予定作業")
                  (org-habit-show-habits nil)
-                 (org-agenda-prefix-format "  %c: ")
+                 (org-agenda-prefix-format "  %(my/org-schedule-or-deadline) %c: ")
                  (org-agenda-span 'day)
                  (org-agenda-files '("~/Documents/org/tasks/projects.org" "~/Documents/org/tasks/inbox.org"))
                  (org-super-agenda-groups `((:name "〆切が過ぎてる作業" :and (:deadline past   :not (:property ("agenda-group" "1. Work"))))

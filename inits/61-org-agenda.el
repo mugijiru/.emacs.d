@@ -19,6 +19,18 @@
 
 (setq my/org-agenda-calendar-files '())
 
+(defun my/org-schedule-or-deadline ()
+  (let* ((deadline (org-get-deadline-time (point)))
+         (schedule (org-get-scheduled-time (point)))
+         (format "%m/%d"))
+    (cond
+     (deadline
+      (concat "[〆: " (format-time-string format deadline) "]"))
+     (schedule
+      (concat "[予: " (format-time-string format schedule) "]"))
+     (t
+      ""))))
+
 (custom-set-variables
  '(org-agenda-custom-commands
 
@@ -76,7 +88,7 @@
                  (org-agenda-overriding-header "予定業務")
                  (org-habit-show-habits nil)
                  (org-agenda-span 'day)
-                 (org-agenda-prefix-format "  %c: ")
+                 (org-agenda-prefix-format "  %(my/org-schedule-or-deadline) %c: ")
                  (org-agenda-files '("~/Documents/org/tasks/projects.org"))
                  (org-super-agenda-groups `((:name "〆切が過ぎてる作業" :and (:deadline past   :property ("agenda-group" "1. Work")))
                                             (:name "予定が過ぎてる作業" :and (:scheduled past  :property ("agenda-group" "1. Work")))
@@ -118,7 +130,7 @@
                 ((org-agenda-prefix-format " ")
                  (org-agenda-overriding-header "予定作業")
                  (org-habit-show-habits nil)
-                 (org-agenda-prefix-format "  %c: ")
+                 (org-agenda-prefix-format "  %(my/org-schedule-or-deadline) %c: ")
                  (org-agenda-span 'day)
                  (org-agenda-files '("~/Documents/org/tasks/projects.org" "~/Documents/org/tasks/inbox.org"))
                  (org-super-agenda-groups `((:name "〆切が過ぎてる作業" :and (:deadline past   :not (:property ("agenda-group" "1. Work"))))
