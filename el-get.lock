@@ -180,6 +180,6 @@
         (page-break-lines :checksum "e33426ae7f10c60253afe4850450902919fc87fd")
         (org-trello :checksum "fc63ed580101e6160edfb6f43215fb3200ce1ea7")
         (undo-fu :checksum "ea902716f39c725db1b90dbb285b44404b3bd6df")
-        (emacs-todoist :checksum "e756a345d213d93fbb965d1314c4dec62566c653")))
+        (emacs-todoist :checksum "205c730a4615dec20ea71ccd0a09479a420cb974")))
 (setq el-get-lock-locked-packages 'nil)
 (setq el-get-lock-unlocked-packages 'nil)
