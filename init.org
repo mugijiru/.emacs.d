@@ -6197,6 +6197,53 @@ Ruby を使ってる時にコメント部分はクォートの外以外では
 | l   | 最後に失敗したテストの再実行                                                |
 | I   | REPL バッファで Ruby を実行する                                             |
 | j   | dumb-jump で関数定義にジャンプ。dumb-jump 用の hydra があるから要らなさそう |
+**** snippets
+enh-ruby-mode 用に自前でスニペットも用意している
+***** YARD
+YARD の文法をなかなか覚えられないのでとりあえず snippet を用意している
+
+****** @param
+YARD で一番使うけど params なのか param なのか分からなくなるやつ。
+というわけで真っ先に登録
+
+#+begin_src text :tangle snippets/enh-ruby-mode/@param
+# key: #@p
+# name: @param
+# --
+# @param [${1:type}] ${2:name} $0
+#+end_src
+****** @deprecated
+こっちもまあまあ使いたくなるし
+deprecation なのか deprecated なのか分からなくなるやつ。
+
+#+begin_src text :tangle snippets/enh-ruby-mode/@deprecated
+# -*- mode: snippet -*-
+# name: @deprecated
+# key: #@d
+# --
+# @deprecated $0
+#+end_src
+****** @return
+戻り値は関数には必須なのでこれも入れておく
+
+#+begin_src text :tangle snippets/enh-ruby-mode/@return
+# key: #@r
+# name: @return
+# --
+# @return [${1:type}] $0
+#+end_src
+***** その他
+****** frozen_string_literal
+frozen_string_literal のマジックコメントも使うことがあるけど
+よくスペルミスをするので入れておいている
+
+#+begin_src text :tangle snippets/enh-ruby-mode/frozen_string_literal
+# -*- mode: snippet -*-
+# name: frozen_string_literal
+# key: frozen
+# --
+# frozen_string_literal: true
+#+end_src
 ** scss
 :PROPERTIES:
 :EXPORT_FILE_NAME: scss
