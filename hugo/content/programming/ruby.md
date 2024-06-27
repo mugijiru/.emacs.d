@@ -186,3 +186,71 @@ Ruby を使ってる時にコメント部分はクォートの外以外では自
 | l   | 最後に失敗したテストの再実行                        |
 | I   | REPL バッファで Ruby を実行する                     |
 | j   | dumb-jump で関数定義にジャンプ。dumb-jump 用の hydra があるから要らなさそう |
+
+
+### snippets {#snippets}
+
+enh-ruby-mode 用に自前でスニペットも用意している
+
+
+#### YARD {#yard}
+
+YARD の文法をなかなか覚えられないのでとりあえず snippet を用意している
+
+<!--list-separator-->
+
+-  @param
+
+    YARD で一番使うけど params なのか param なのか分からなくなるやつ。というわけで真っ先に登録
+
+    ```text
+    # key: #@p
+    # name: @param
+    # --
+    # @param [${1:type}] ${2:name} $0
+    ```
+
+<!--list-separator-->
+
+-  @deprecated
+
+    こっちもまあまあ使いたくなるし
+    deprecation なのか deprecated なのか分からなくなるやつ。
+
+    ```text
+    # -*- mode: snippet -*-
+    # name: @deprecated
+    # key: #@d
+    # --
+    # @deprecated $0
+    ```
+
+<!--list-separator-->
+
+-  @return
+
+    戻り値は関数には必須なのでこれも入れておく
+
+    ```text
+    # key: #@r
+    # name: @return
+    # --
+    # @return [${1:type}] $0
+    ```
+
+
+#### その他 {#その他}
+
+<!--list-separator-->
+
+-  frozen_string_literal
+
+    frozen_string_literal のマジックコメントも使うことがあるけどよくスペルミスをするので入れておいている
+
+    ```text
+    # -*- mode: snippet -*-
+    # name: frozen_string_literal
+    # key: frozen
+    # --
+    # frozen_string_literal: true
+    ```

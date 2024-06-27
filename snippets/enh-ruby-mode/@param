@@ -1,0 +1,4 @@
+# key: #@p
+# name: @param
+# --
+# @param [${1:type}] ${2:name} $0
