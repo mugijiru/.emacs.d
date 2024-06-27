@@ -1,0 +1,4 @@
+# key: #@r
+# name: @return
+# --
+# @return [${1:type}] $0
