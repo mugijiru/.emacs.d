@@ -67,7 +67,7 @@
         (treemacs :checksum "54ef590b7621032a76f8f3e307032fc13c802371")
         (pfuture :checksum "19b53aebbc0f2da31de6326c495038901bffb73c")
         (bui :checksum "f3a137628e112a91910fd33c0cff0948fa58d470")
-        (smartparens :checksum "f7cf316715e5018186c226aab8242c9e5ce131c8")
+        (smartparens :checksum "36f2e80c79a11aaede58232f43df765748454a03")
         (mocker.el :checksum "e455599f48bad7d73fd445e70a3acf4b44c2f5c1")
         (with-simulated-input :checksum "0f43fe46d4ab098c18a90b9df18cb96bab8e4a35")
         (flycheck-pos-tip :checksum "dc57beac0e59669926ad720c7af38b27c3a30467")
