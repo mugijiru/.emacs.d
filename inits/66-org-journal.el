@@ -11,7 +11,7 @@
          (files (append `(,yesterday-journal-file-path) agenda-files)))
     (org-add-archive-files files)))
 
-(setopt org-journal-dir (concat org-directory "journal/"))
+(setopt org-journal-dir (concat org-roam-directory "journal/"))
 (setopt org-journal-file-format "%Y%m%d.org")
 (setopt org-journal-date-format "%d日(%a)")
 (setopt org-journal-enable-agenda-integration nil)
