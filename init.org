@@ -9711,7 +9711,7 @@ https://github.com/gizmomogwai/org-kanban
 
 そして ~el-get-bundle~ でインストール
 
-#+begin_src emacs-lisp :tangle inits/61-org-journal.el
+#+begin_src emacs-lisp :tangle inits/66-org-journal.el
 (el-get-bundle org-journal)
 #+end_src
 
@@ -9719,7 +9719,7 @@ https://github.com/gizmomogwai/org-kanban
 それが読み込まれていないと困るので、
 ここで require まで行っている
 
-#+begin_src emacs-lisp :tangle inits/61-org-journal.el
+#+begin_src emacs-lisp :tangle inits/66-org-journal.el
 (require 'org-journal)
 #+end_src
 
@@ -9727,7 +9727,7 @@ https://github.com/gizmomogwai/org-kanban
 org-clock-report では前日分も target に入れてほしいので
 それの ~:scope~ に指定するための関数を自前で用意している
 
-#+begin_src emacs-lisp :tangle inits/61-org-journal.el
+#+begin_src emacs-lisp :tangle inits/66-org-journal.el
 (defun my/org-agenda-scope-with-yesterday-journal ()
   (let* ((agenda-files (org-agenda-files t))
          (24-hours-ago (* -60 60 24))
@@ -9739,8 +9739,8 @@ org-clock-report では前日分も target に入れてほしいので
 #+end_src
 *** 設定
 
-#+begin_src emacs-lisp :tangle inits/61-org-journal.el
-(setopt org-journal-dir (concat org-directory "journal/"))
+#+begin_src emacs-lisp :tangle inits/66-org-journal.el
+(setopt org-journal-dir (concat org-roam-directory "journal/"))
 (setopt org-journal-file-format "%Y%m%d.org")
 (setopt org-journal-date-format "%d日(%a)")
 (setopt org-journal-enable-agenda-integration nil)
@@ -9752,7 +9752,7 @@ org-clock-report では前日分も target に入れてほしいので
 org-journal ファイルを新しく作る度にそのファイルを refile target で扱って欲しいので
 hook で org-refile-targets を設定し直すようにしている
 
-#+begin_src emacs-lisp :tangle inits/61-org-journal.el
+#+begin_src emacs-lisp :tangle inits/66-org-journal.el
 (with-eval-after-load 'org-journal
   (add-to-list 'org-journal-after-header-create-hook 'my/reset-org-refile-targets))
 #+end_src
