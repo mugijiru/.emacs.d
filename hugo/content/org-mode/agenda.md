@@ -273,19 +273,13 @@ org-agenda では `org-agenda-prefix-format` に `%s` を指定することで�
                                                                                           :scheduled (after ,(format-time-string "%Y-%m-%d" (current-time))))
                                                                               :property ("agenda-group" "1. Work")))
                                             (:discard (:anything t))))))
-       (tags-todo "Weekday-Finish|Daily"
+       (tags-todo "Weekday-Start-Finish|Daily"
                   ((org-agenda-overriding-header "習慣")
                    (org-agenda-prefix-format "  ")
                    (org-habit-show-habits t)
                    (org-agenda-files '("~/Documents/org/tasks/habits.org"))
                    (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                               (:name "今日予定" :scheduled today)
-                                              (:discard (:anything t))))))
-
-       (tags-todo "LEVEL=2"
-                  ((org-agenda-files '("~/Documents/org/tasks/projects.org"))
-                   (org-agenda-overriding-header "予定なし")
-                   (org-super-agenda-groups '((:and (:property ("agenda-group" "1. Work") :scheduled nil :deadline nil))
                                               (:discard (:anything t))))))))
 ```
 
