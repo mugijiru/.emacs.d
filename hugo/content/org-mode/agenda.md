@@ -273,7 +273,7 @@ org-agenda では `org-agenda-prefix-format` に `%s` を指定することで�
                                                                                           :scheduled (after ,(format-time-string "%Y-%m-%d" (current-time))))
                                                                               :property ("agenda-group" "1. Work")))
                                             (:discard (:anything t))))))
-       (tags-todo "Weekday-Finish|Daily"
+       (tags-todo "Weekday-Start-Finish|Daily"
                   ((org-agenda-overriding-header "習慣")
                    (org-agenda-prefix-format "  ")
                    (org-habit-show-habits t)
