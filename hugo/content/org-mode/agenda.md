@@ -280,12 +280,6 @@ org-agenda では `org-agenda-prefix-format` に `%s` を指定することで�
                    (org-agenda-files '("~/Documents/org/tasks/habits.org"))
                    (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                               (:name "今日予定" :scheduled today)
-                                              (:discard (:anything t))))))
-
-       (tags-todo "LEVEL=2"
-                  ((org-agenda-files '("~/Documents/org/tasks/projects.org"))
-                   (org-agenda-overriding-header "予定なし")
-                   (org-super-agenda-groups '((:and (:property ("agenda-group" "1. Work") :scheduled nil :deadline nil))
                                               (:discard (:anything t))))))))
 ```
 
