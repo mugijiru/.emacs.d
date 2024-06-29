@@ -9568,7 +9568,7 @@ org-mode のエントリを別のファイルなどに移動するための機�
 これを nil に設定することで
 ファイルの選択だけでなく、
 その中の PATH まで選択できるようになる
-#+begin_src emacs-lisp :tangle inits/61-org-refile.el
+#+begin_src emacs-lisp :tangle inits/67-org-refile.el
 (setq org-outline-path-complete-in-steps nil)
 #+end_src
 
@@ -9579,7 +9579,7 @@ org-mode のエントリを別のファイルなどに移動するための機�
 以下のように設定すると
 refile のターゲット候補としてファイル名とその中の PATH が表示されるようになる。
 
-#+begin_src emacs-lisp :tangle inits/61-org-refile.el
+#+begin_src emacs-lisp :tangle inits/67-org-refile.el
 (setq org-refile-use-outline-path 'file)
 #+end_src
 
@@ -9595,7 +9595,7 @@ nil だと移動先候補PATHの最後の部分しか表示されないので
 
 なお関数化することで hook で呼び出せるようにしている
 
-#+begin_src emacs-lisp :tangle inits/61-org-refile.el
+#+begin_src emacs-lisp :tangle inits/67-org-refile.el
 (defun my/reset-org-refile-targets ()
   (setq org-refile-targets `((,(org-journal--get-entry-path) :regexp . "Tasks")
                              (,(concat org-directory "tasks/projects.org") :level . 1)
@@ -9605,10 +9605,11 @@ nil だと移動先候補PATHの最後の部分しか表示されないので
 (my/reset-org-refile-targets)
 #+end_src
 
-| ターゲット         | 目的                                                                                                   |
-| projects.org       | とりあえずその内やるタスクを放り込むところ。Work, Private の階層を設けているので ~:level 2~ としている |
-| pointers.org       | 読物を突っ込むところとしている。                                                                       |
-| someday.org        | 遠い将来やるかもしれないリスト。放り込んで忘れるためにあるところ                                       |
+| ターゲット                  | 目的                                                                                                   |
+| org-journal--get-entry-path | その日の journal ファイルに、その日やるつもりのタスクを放り込むため。                                  |
+| projects.org                | とりあえずその内やるタスクを放り込むところ。Work, Private の階層を設けているので ~:level 2~ としている |
+| pointers.org                | 読物を突っ込むところとしている。                                                                       |
+| someday.org                 | 遠い将来やるかもしれないリスト。放り込んで忘れるためにあるところ                                       |
 
 ** org-trello
 :PROPERTIES:
