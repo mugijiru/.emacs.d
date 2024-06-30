@@ -511,6 +511,46 @@ projects.org に登録している TODO を抽出するための custom views �
 
 <!--list-separator-->
 
+-  for Work
+
+    仕事のためのタスクで projects.org に溜め込んでいるものを引っ張り出すための agenda。その日やるタスクを決めるために使っている。なので、予定とか締切を設定しているタスクが最初に目につくようにしている。
+
+    また、そういうスケジュールは組んでないけどその内やっておきたいタスクも並べている。手元の環境改善も少しはやって良いと考えているのでそれらも表示するようにしているが、仕事系タスクを優先的に表示している。
+
+    ```emacs-lisp
+         ("pw" "for Work"
+          ((alltodo "" ((org-agenda-prefix-format " ")
+                        (org-agenda-overriding-header "予定/締切のある作業")
+                        (org-habit-show-habits nil)
+                        (org-agenda-span 'day)
+                        (org-agenda-todo-keyword-format "-")
+                        (org-agenda-files `(,(concat org-directory "tasks/projects.org")))
+                        (org-super-agenda-groups `((:name "〆切が過ぎてる作業" :and (:deadline past :property ("agenda-group" "1. Work")))
+                                                   (:name "予定が過ぎてる作業" :and (:scheduled past :property ("agenda-group" "1. Work")))
+                                                   (:name "今日〆切の作業" :and (:deadline today :property ("agenda-group" "1. Work")))
+                                                   (:name "今日予定の作業" :and (:scheduled today :property ("agenda-group" "1. Work")))
+                                                   (:name "今後1週間の作業" :and (:and
+                                                                                  (:scheduled (before ,(format-time-string "%Y-%m-%d" (time-add (current-time) (days-to-time 7))))
+                                                                                              :scheduled (after ,(format-time-string "%Y-%m-%d" (current-time))))
+                                                                                  :property ("agenda-group" "1. Work")))
+                                                   (:discard (:anything t))))))
+
+           (tags-todo "LEVEL=2"
+                      ((org-agenda-overriding-header "予定/締切のない作業")
+                       (org-agenda-prefix-format " ")
+                       (org-agenda-todo-keyword-format "-")
+                       (org-agenda-files `(,(concat org-directory "tasks/projects.org")))
+                       (org-super-agenda-groups '((:name "仕事 優先度B以上" :and (:deadline nil :scheduled nil :property ("agenda-group" "1. Work") :priority>= "B"))
+                                                  (:name "仕事 優先度なし" :and (:deadline nil :scheduled nil :property ("agenda-group" "1. Work") :not (:priority>= "C")))
+                                                  (:name "仕事 優先度C" :and (:deadline nil :scheduled nil :property ("agenda-group" "1. Work") :priority "C"))
+                                                  (:name "設定 優先度B以上" :and (:deadline nil :scheduled nil :property ("agenda-group" "3. Config") :priority>= "B"))
+                                                  (:name "設定 優先度なし" :and (:deadline nil :scheduled nil :property ("agenda-group" "3. Config") :not (:priority>= "C")))
+                                                  (:name "設定 優先度C" :and (:deadline nil :scheduled nil :property ("agenda-group" "3. Config") :priority "C"))
+                                                  (:discard (:anything t))))))))
+    ```
+
+<!--list-separator-->
+
 -  No major tags
 
     よく使うタグが付与されてないタスクを抽出するための custom view.

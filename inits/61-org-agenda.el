@@ -252,6 +252,36 @@
                                                (:discard (:anything t))))))
        (tags-todo "-Emacs-org-Env-Hugo&LEVEL=2" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
 
+     ("pw" "for Work"
+      ((alltodo "" ((org-agenda-prefix-format " ")
+                    (org-agenda-overriding-header "予定/締切のある作業")
+                    (org-habit-show-habits nil)
+                    (org-agenda-span 'day)
+                    (org-agenda-todo-keyword-format "-")
+                    (org-agenda-files `(,(concat org-directory "tasks/projects.org")))
+                    (org-super-agenda-groups `((:name "〆切が過ぎてる作業" :and (:deadline past :property ("agenda-group" "1. Work")))
+                                               (:name "予定が過ぎてる作業" :and (:scheduled past :property ("agenda-group" "1. Work")))
+                                               (:name "今日〆切の作業" :and (:deadline today :property ("agenda-group" "1. Work")))
+                                               (:name "今日予定の作業" :and (:scheduled today :property ("agenda-group" "1. Work")))
+                                               (:name "今後1週間の作業" :and (:and
+                                                                              (:scheduled (before ,(format-time-string "%Y-%m-%d" (time-add (current-time) (days-to-time 7))))
+                                                                                          :scheduled (after ,(format-time-string "%Y-%m-%d" (current-time))))
+                                                                              :property ("agenda-group" "1. Work")))
+                                               (:discard (:anything t))))))
+
+       (tags-todo "LEVEL=2"
+                  ((org-agenda-overriding-header "予定/締切のない作業")
+                   (org-agenda-prefix-format " ")
+                   (org-agenda-todo-keyword-format "-")
+                   (org-agenda-files `(,(concat org-directory "tasks/projects.org")))
+                   (org-super-agenda-groups '((:name "仕事 優先度B以上" :and (:deadline nil :scheduled nil :property ("agenda-group" "1. Work") :priority>= "B"))
+                                              (:name "仕事 優先度なし" :and (:deadline nil :scheduled nil :property ("agenda-group" "1. Work") :not (:priority>= "C")))
+                                              (:name "仕事 優先度C" :and (:deadline nil :scheduled nil :property ("agenda-group" "1. Work") :priority "C"))
+                                              (:name "設定 優先度B以上" :and (:deadline nil :scheduled nil :property ("agenda-group" "3. Config") :priority>= "B"))
+                                              (:name "設定 優先度なし" :and (:deadline nil :scheduled nil :property ("agenda-group" "3. Config") :not (:priority>= "C")))
+                                              (:name "設定 優先度C" :and (:deadline nil :scheduled nil :property ("agenda-group" "3. Config") :priority "C"))
+                                              (:discard (:anything t))))))))
+
      ("pN" "No major tags"
       ((tags-todo "-Emacs-org-Env-Hugo-Kibela-Develop-ReviewLister-HouseWork-Private&LEVEL=2" ((org-agenda-files '("~/Documents/org/tasks/projects.org"))))))
 
