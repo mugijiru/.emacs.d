@@ -13,7 +13,7 @@
         (calibredb :checksum "a12746cdd2605eba0ff88706473a04492dec84a2")
         (git-modes :checksum "7901415b39bef1b789d161ca2c10dfb910d13780")
         (ob-graphql :checksum "7c35419f9eec5dc44967cbcfa13c7135b9a96bfc")
-        (corfu :checksum "977ba4b89a68924d6f4137859a8ce6dd0c6884dc")
+        (corfu :checksum "c1d75d3cd18d770f869b5e3317c437a1557711ce")
         (treesit-auto :checksum "016bd286a1ba4628f833a626f8b9d497882ecdf3")
         (org-mode :checksum "17608670a4f4e8edb91efe04d86fe80ff9d01b69")
         (org-journal :checksum "17b34ce8df9649a73b715c13698220bde1628668")
