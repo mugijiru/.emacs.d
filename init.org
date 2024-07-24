@@ -9880,6 +9880,27 @@ el-get 本体ではレシピを提供していないのでとりあえず自前�
        :depends (dash emacsql magit org-mode))
 #+end_src
 
+依存関係として emacsql と pg が必要だがそれらのレシピは古かったりするので
+自前で用意している
+
+#+begin_src emacs-lisp :tangle recipes/emacsql.rcp
+(:name emacsql
+       :description "High-level SQL database front-end."
+       :type github
+       :branch "main"
+       :pkgname "magit/emacsql"
+       :depends (pg)
+       :minimum-emacs-version "26.1")
+#+end_src
+
+#+begin_src emacs-lisp :tangle recipes/pg.rcp
+(:name pg
+       :description "Emacs Lisp socket-level interface to the PostgreSQL RDBMS"
+       :type github
+       :pkgname "emarsden/pg-el"
+       :features pg)
+#+end_src
+
 そしてそれを ~el-get-bundle~ でインストールしている
 
 #+begin_src emacs-lisp :tangle inits/65-org-roam.el
