@@ -1,0 +1,7 @@
+(:name emacsql
+       :description "High-level SQL database front-end."
+       :type github
+       :branch "main"
+       :pkgname "magit/emacsql"
+       :depends (pg)
+       :minimum-emacs-version "26.1")
