@@ -1,0 +1,5 @@
+(:name pg
+       :description "Emacs Lisp socket-level interface to the PostgreSQL RDBMS"
+       :type github
+       :pkgname "emarsden/pg-el"
+       :features pg)
