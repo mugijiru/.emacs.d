@@ -143,7 +143,7 @@
         (lsp-mode :checksum "52987755175042b9569e32d72ae29eba119020d6")
         (lsp-ui :checksum "072bb29152038518c2478813b82c8d04d07df84c")
         (major-mode-hydra.el :checksum "d0a5dadee97c3752fcdef113cf2ba1923972a480")
-        (magit :checksum "9d1f8db507e080e032943a3ed1445bd8d9aaa9fc")
+        (magit :checksum "c575c2e09a1cf0cc245400c208dc0ce4ae424d47")
         (markdown-mode :checksum "8a7773f87733866a961ea4c518a4a2f283f21970")
         (memoize :checksum "51b075935ca7070f62fae1d69fe0ff7d8fa56fdd")
         (migemo :checksum "7d78901773da3b503e5c0d5fa14a53ad6060c97f")
