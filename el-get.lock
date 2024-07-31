@@ -123,7 +123,7 @@
         (esqlite :checksum "08a779a821f8d32c1a1985d8d9eb6cf21646ce2e")
         (exec-path-from-shell :checksum "72ede29a0e0467b3b433e8edbee3c79bab005884")
         (f :checksum "1e7020dc0d4c52d3da9bd610d431cab13aa02d8c")
-        (flycheck :checksum "e8d1472aeab6ac4e19c8339e6be93e91e878f819")
+        (flycheck :checksum "7a6398ea3538a898eba0276f0f89b2f878325a89")
         (forge :checksum "9edfcb2c1528dc7e607daa2d8fa655fc80e0d8b7")
         (fringe-helper :checksum "ef4a9c023bae18ec1ddd7265f1f2d6d2e775efdd")
         (ghub :checksum "772c3352307a86f40fc1519fe868a4a14ceb8d39")
