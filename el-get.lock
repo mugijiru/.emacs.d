@@ -12,7 +12,7 @@
         (esxml :checksum "225693096a587492d76bf696d1f0c25c61f7d531")
         (kv :checksum "721148475bce38a70e0b678ba8aa923652e8900e")
         (calibredb :checksum "bb9cfb5e5f9c2bb45386c1a9d1273a7832f8c28b")
-        (git-modes :checksum "d96fa7a3c7d754812675b37247c6a77e459eec53")
+        (git-modes :checksum "f99010bbeb8b6d8a0819fac0195a2ef0159d08f0")
         (ob-graphql :checksum "7c35419f9eec5dc44967cbcfa13c7135b9a96bfc")
         (corfu :checksum "5e3a959766d2313651c5db3beedd937bfc27b57a")
         (treesit-auto :checksum "016bd286a1ba4628f833a626f8b9d497882ecdf3")
