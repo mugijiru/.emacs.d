@@ -12,20 +12,20 @@
     <title>基本設定 :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1721862225" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1721862225" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1721862225" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1721862225" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1721862225" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1721862225" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1721862225" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1721862225" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1721862225" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1721862225" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1724375350" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1724375350" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1724375350" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1724375350" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1724375350" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1724375350" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1724375350" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1724375350" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1724375350" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1724375350" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1721862225"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1724375350"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1721862225"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1721862225"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1724375350"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1724375350"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1721862225"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1724375350"></script>
 
     
   </div>
@@ -3361,13 +3361,13 @@
 <h2 id="org-mode-のインストール">org-mode のインストール</h2>
 <p>Emacs に標準で入っている org-mode は古かったりするのでとりあえずデフォルトで入ってるやつは削除しちゃって el-get でインストールしている。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle org-mode)
-</span></span></code></pre></div><p>とりあえず今は Emacs 29.1 に標準で bundle されているバージョンを入れておいている。バージョンを固定するために el-get についているレシピをコピーして書き換えて使っている。</p>
+</span></span></code></pre></div><p>とりあえず今は 9.6 系を入れておいている。バージョンを固定するために el-get についているレシピをコピーして書き換えて使っている。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name org-mode
 </span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;http://orgmode.org/&#34;</span>
 </span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Org-mode is for keeping notes, maintaining ToDo lists, doing project planning, and authoring with a fast and effective plain-text system.&#34;</span>
 </span></span><span style="display:flex;"><span>       :type git
 </span></span><span style="display:flex;"><span>       :url <span style="color:#e6db74">&#34;https://git.savannah.gnu.org/git/emacs/org-mode.git&#34;</span>
-</span></span><span style="display:flex;"><span>       :checkout <span style="color:#e6db74">&#34;release_9.6.6&#34;</span>
+</span></span><span style="display:flex;"><span>       :checkout <span style="color:#e6db74">&#34;release_9.6.30&#34;</span>
 </span></span><span style="display:flex;"><span>       :info <span style="color:#e6db74">&#34;doc&#34;</span>
 </span></span><span style="display:flex;"><span>       :build/berkeley-unix <span style="color:#f92672">`,</span>(<span style="color:#a6e22e">mapcar</span>
 </span></span><span style="display:flex;"><span>                               (lambda (target)
@@ -3379,8 +3379,8 @@
 </span></span><span style="display:flex;"><span>                 <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;oldorg&#34;</span>))
 </span></span><span style="display:flex;"><span>       :load-path (<span style="color:#e6db74">&#34;.&#34;</span> <span style="color:#e6db74">&#34;lisp&#34;</span>)
 </span></span><span style="display:flex;"><span>       :load (<span style="color:#e6db74">&#34;lisp/org-loaddefs.el&#34;</span>))
-</span></span></code></pre></div><p>その内もっと新しいのにするけど
-<span class="timestamp-wrapper"><span class="timestamp">[2023-10-30 月] </span></span> に main ブランチのものを入れたら agenda が動かなくなって焦ったのでまた落ち着いた時にトライする</p>
+</span></span></code></pre></div><p><span class="timestamp-wrapper"><span class="timestamp">[2023-10-30 月] </span></span> に main ブランチのものを入れたら agenda が動かなくなって焦ったし
+<span class="timestamp-wrapper"><span class="timestamp">[2024-08-22 木] </span></span> に 9.7 系を入れたら ox-hugo や org-gcal が動かなくなったのでとりあえず 9.6 系を使う運用にしている</p>
 <h2 id="org-用ディレクトリの指定">org 用ディレクトリの指定</h2>
 <p>org-mode のファイルを保存するデフォルトのディレクトリを指定している。</p>
 <p>デフォルトだと <code>~/org</code> なのだけどホームディレクトリを汚したくないのと基本的に Mac を使ってるので <code>~/Documents/org</code> というディレクトリを用意してそこにファイルを置いている。</p>
@@ -3393,16 +3393,20 @@
 <p>org-mode といえば TODO 管理で使ってる人も多いと思う。自分も最初はそういう使い方から始めたし、今でもそれをメインにして使っている。</p>
 <p>そして TODO の状態がデフォルトでは</p>
 <ul>
-<li>TODO</li>
-<li>DONE</li>
-</ul>
+<li>
+<p>TODO</p>
+</li>
+<li>
+<p>DONE</p>
 <p>の2つしかないけど、それでは足りないので昔見たインターネットのどこかの記事を参考に以下のように設定している。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq org-todo-keywords
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#39;</span>((sequence <span style="color:#e6db74">&#34;TODO&#34;</span> <span style="color:#e6db74">&#34;EXAMINATION(e)&#34;</span> <span style="color:#e6db74">&#34;READY(r)&#34;</span> <span style="color:#e6db74">&#34;DOING(!)&#34;</span> <span style="color:#e6db74">&#34;WAIT&#34;</span> <span style="color:#e6db74">&#34;|&#34;</span> <span style="color:#e6db74">&#34;DONE(!)&#34;</span> <span style="color:#e6db74">&#34;SOMEDAY(s)&#34;</span>)))
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>  (setq org-todo-keywords
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#39;</span>((sequence <span style="color:#e6db74">&#34;TODO&#34;</span> <span style="color:#e6db74">&#34;EXAMINATION(e)&#34;</span> <span style="color:#e6db74">&#34;READY(r)&#34;</span> <span style="color:#e6db74">&#34;DOING(!)&#34;</span> <span style="color:#e6db74">&#34;WAIT&#34;</span> <span style="color:#e6db74">&#34;|&#34;</span> <span style="color:#e6db74">&#34;DONE(!)&#34;</span> <span style="color:#e6db74">&#34;SOMEDAY(s)&#34;</span>)))
 </span></span></code></pre></div><p>初期状態は TODO で、作業開始時点で DOING にして待ちが発生したら WAIT にして完了したら DONE にしている。</p>
 <p>SOMEDAY は「いつかやる」に付与しているけど最近ほとんど使ってない。</p>
 <p>org-todo-keywords は複数の sequence を指定したり
 type を指定したりもできるがそこまでの活用ができていないので、どこかで見直したいですね。</p>
+</li>
+</ul>
 <h2 id="完了時間の記録">完了時間の記録</h2>
 <p>org-clock を使うようにしているしあんまり要らない気がする。もしかしたら habits で必要かもしれないけど。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq org-log-done <span style="color:#e6db74">&#39;time</span>)
@@ -5774,19 +5778,19 @@ journal のテンプレートか何かを弄っておくのも良さそう</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1721862225"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1721862225"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1721862225"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1721862225"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1721862225"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1721862225"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1724375350"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1724375350"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1724375350"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1724375350"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1724375350"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1724375350"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1721862225"></script>
-    <script src="/.emacs.d/js/learn.js?1721862225"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1721862225"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1724375350"></script>
+    <script src="/.emacs.d/js/learn.js?1724375350"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1724375350"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1721862225"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1724375350"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
