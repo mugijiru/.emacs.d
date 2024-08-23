@@ -17,7 +17,7 @@ Emacs に標準で入っている org-mode は古かったりするのでとり�
 (el-get-bundle org-mode)
 ```
 
-とりあえず今は Emacs 29.1 に標準で bundle されているバージョンを入れておいている。バージョンを固定するために el-get についているレシピをコピーして書き換えて使っている。
+とりあえず今は 9.6 系を入れておいている。バージョンを固定するために el-get についているレシピをコピーして書き換えて使っている。
 
 ```emacs-lisp
 (:name org-mode
@@ -25,7 +25,7 @@ Emacs に標準で入っている org-mode は古かったりするのでとり�
        :description "Org-mode is for keeping notes, maintaining ToDo lists, doing project planning, and authoring with a fast and effective plain-text system."
        :type git
        :url "https://git.savannah.gnu.org/git/emacs/org-mode.git"
-       :checkout "release_9.6.6"
+       :checkout "release_9.6.30"
        :info "doc"
        :build/berkeley-unix `,(mapcar
                                (lambda (target)
@@ -39,8 +39,8 @@ Emacs に標準で入っている org-mode は古かったりするのでとり�
        :load ("lisp/org-loaddefs.el"))
 ```
 
-その内もっと新しいのにするけど
-<span class="timestamp-wrapper"><span class="timestamp">[2023-10-30 月] </span></span> に main ブランチのものを入れたら agenda が動かなくなって焦ったのでまた落ち着いた時にトライする
+<span class="timestamp-wrapper"><span class="timestamp">[2023-10-30 月] </span></span> に main ブランチのものを入れたら agenda が動かなくなって焦ったし
+<span class="timestamp-wrapper"><span class="timestamp">[2024-08-22 木] </span></span> に 9.7 系を入れたら ox-hugo や org-gcal が動かなくなったのでとりあえず 9.6 系を使う運用にしている
 
 
 ## org 用ディレクトリの指定 {#org-用ディレクトリの指定}
@@ -74,19 +74,17 @@ org-mode といえば TODO 管理で使ってる人も多いと思う。自分�
 -   TODO
 -   DONE
 
-の2つしかないけど、それでは足りないので昔見たインターネットのどこかの記事を参考に以下のように設定している。
+    の2つしかないけど、それでは足りないので昔見たインターネットのどこかの記事を参考に以下のように設定している。
+    ```emacs-lisp
+      (setq org-todo-keywords
+            '((sequence "TODO" "EXAMINATION(e)" "READY(r)" "DOING(!)" "WAIT" "|" "DONE(!)" "SOMEDAY(s)")))
+    ```
+    初期状態は TODO で、作業開始時点で DOING にして待ちが発生したら WAIT にして完了したら DONE にしている。
 
-```emacs-lisp
-(setq org-todo-keywords
-      '((sequence "TODO" "EXAMINATION(e)" "READY(r)" "DOING(!)" "WAIT" "|" "DONE(!)" "SOMEDAY(s)")))
-```
+    SOMEDAY は「いつかやる」に付与しているけど最近ほとんど使ってない。
 
-初期状態は TODO で、作業開始時点で DOING にして待ちが発生したら WAIT にして完了したら DONE にしている。
-
-SOMEDAY は「いつかやる」に付与しているけど最近ほとんど使ってない。
-
-org-todo-keywords は複数の sequence を指定したり
-type を指定したりもできるがそこまでの活用ができていないので、どこかで見直したいですね。
+    org-todo-keywords は複数の sequence を指定したり
+    type を指定したりもできるがそこまでの活用ができていないので、どこかで見直したいですね。
 
 
 ## 完了時間の記録 {#完了時間の記録}

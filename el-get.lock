@@ -16,7 +16,7 @@
         (ob-graphql :checksum "7c35419f9eec5dc44967cbcfa13c7135b9a96bfc")
         (corfu :checksum "921dd7c97ec41fe8ef81dd5f5a08b0f717586c86")
         (treesit-auto :checksum "016bd286a1ba4628f833a626f8b9d497882ecdf3")
-        (org-mode :checksum "5ebd973e09d7a46d056f1cd9b5efc44e878cce9c")
+        (org-mode :checksum "071c6e986c424d2e496be7d0815d6e9cd83ae4e6")
         (org-journal :checksum "17b34ce8df9649a73b715c13698220bde1628668")
         (company-terraform :checksum "8d5a16d1bbeeb18ca49a8fd57b5d8cd30c8b8dc7")
         (terraform-mode :checksum "abfc10f5e313c4bb99de136a14636e9bc6df74f6")

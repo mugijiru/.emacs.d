@@ -8051,7 +8051,7 @@ Emacs に標準で入っている org-mode は古かったりするので
 (el-get-bundle org-mode)
 #+end_src
 
-とりあえず今は [2024-08-22 木] の最新版を入れておいている。
+とりあえず今は 9.6 系を入れておいている。
 バージョンを固定するために el-get についているレシピをコピーして書き換えて使っている。
 
 #+begin_src emacs-lisp :tangle recipes/org-mode.rcp
@@ -8060,7 +8060,7 @@ Emacs に標準で入っている org-mode は古かったりするので
        :description "Org-mode is for keeping notes, maintaining ToDo lists, doing project planning, and authoring with a fast and effective plain-text system."
        :type git
        :url "https://git.savannah.gnu.org/git/emacs/org-mode.git"
-       :checkout "release_9.7.10"
+       :checkout "release_9.6.30"
        :info "doc"
        :build/berkeley-unix `,(mapcar
                                (lambda (target)
@@ -8074,8 +8074,9 @@ Emacs に標準で入っている org-mode は古かったりするので
        :load ("lisp/org-loaddefs.el"))
 #+end_src
 
-[2023-10-30 月] に main ブランチのものを入れたら agenda が動かなくなって焦ったので
-とりあえずリリース版を使う運用にしている
+[2023-10-30 月] に main ブランチのものを入れたら agenda が動かなくなって焦ったし
+[2024-08-22 木] に 9.7 系を入れたら ox-hugo や org-gcal が動かなくなったので
+とりあえず 9.6 系を使う運用にしている
 
 *** org 用ディレクトリの指定
 :PROPERTIES:
