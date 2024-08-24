@@ -9883,6 +9883,7 @@ el-get 本体ではレシピを提供していないのでとりあえず自前�
        :description "Emacs Lisp socket-level interface to the PostgreSQL RDBMS"
        :type github
        :pkgname "emarsden/pg-el"
+       :depends (peg)
        :features pg)
 #+end_src
 

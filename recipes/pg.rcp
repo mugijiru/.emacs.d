@@ -2,4 +2,5 @@
        :description "Emacs Lisp socket-level interface to the PostgreSQL RDBMS"
        :type github
        :pkgname "emarsden/pg-el"
+       :depends (peg)
        :features pg)
