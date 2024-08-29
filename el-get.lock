@@ -88,7 +88,7 @@
         (ivy-posframe :checksum "533a8e368fcabfd534761a5c685ce713376fa594")
         (dumb-jump :checksum "cd65a743370ac7b1a12e9ef0a7371b285a2597fb")
         (ember-mode :checksum "2fd5da9e360db134232d373edf09373fa762e092")
-        (emacs-hide-mode-line :checksum "bc5d293576c5e08c29e694078b96a5ed85631942")
+        (emacs-hide-mode-line :checksum "ddd154f1e04d666cd004bf8212ead8684429350d")
         (highlight-indent-guides :checksum "cf352c85cd15dd18aa096ba9d9ab9b7ab493e8f6")
         (scratch-log :checksum "1168f7f16d36ca0f4ddf2bb98881f8db62cc5dc0")
         (vue-mode :checksum "4853d97ea8d7b2fab7d331d3a8aad18d02b792ad")
