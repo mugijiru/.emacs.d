@@ -1,6 +1,6 @@
 (setq el-get-lock-package-versions
       '((pg :checksum "2c32085cee56afb751599941221d52c5e7df3908")
-        (mistty :checksum "b729113a470a7fe0a2207f0e73d9456e0d41572a")
+        (mistty :checksum "30250a1c4c0d731b8d8fde3a30f7e7b5fb21f08a")
         (key-chord :checksum "dbf91fefdad58b1c2f07c92e658ce81490837c60")
         (minimap :checksum "8bc9a65825925a7c58b83ad389f07a93f22d60f3")
         (org-protocol-capture-html :checksum "08a2aed1bbeb935ef62b2ebc06037202fd8ddcb1")
