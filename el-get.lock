@@ -104,7 +104,7 @@
         (alert :checksum "7774b5fd2feb98d4910ff06435d08c19fba93e26")
         (calfw :checksum "03abce97620a4a7f7ec5f911e669da9031ab9088")
         (closql :checksum "c1a346d56ecee16d1f0d7707f0d62c72604a8802")
-        (company-mode :checksum "a90beffc8b8961154a265a05ba18de6598c5503a")
+        (company-mode :checksum "35a5c405916502135b2badee513984bde7f85fc7")
         (counsel-projectile :checksum "40d1e1d4bb70acb00fddd6f4df9778bf2c52734b")
         (dash :checksum "1de9dcb83eacfb162b6d9a118a4770b1281bcd84")
         (ddskk :checksum "8c47f46e38a29a0f3eabcd524268d20573102467")
