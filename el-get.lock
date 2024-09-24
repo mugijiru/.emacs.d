@@ -4,7 +4,7 @@
         (key-chord :checksum "fc75b1451759121601110da8ddfadcf5156318af")
         (minimap :checksum "8bc9a65825925a7c58b83ad389f07a93f22d60f3")
         (org-protocol-capture-html :checksum "08a2aed1bbeb935ef62b2ebc06037202fd8ddcb1")
-        (blamer :checksum "671d05a7f41ee0ea73b61f8e1f6434a5253b6f3a")
+        (blamer :checksum "8a79c1f370f7c5f041c980e0b727960462c192ba")
         (rg :checksum "8c7bdcea395cec58266b03540b2a5639152d4203")
         (wgrep :checksum "208b9d01cfffa71037527e3a324684b3ce45ddc4")
         (moccur-edit :checksum "026f5dd4159bd1b68c430ab385757157ba01a361")
