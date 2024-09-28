@@ -116,7 +116,7 @@
         (emacs-async :checksum "43f97d7e689eea65043ded1464747a2f3ce7661c")
         (emacsql :checksum "fb05d0f72729a4b4452a3b1168a9b7b35a851a53")
         (emojify :checksum "1b726412f19896abf5e4857d4c32220e33400b55")
-        (enh-ruby-mode :checksum "69484d6cf0cb2d8bb1f873319bd7c448cb7add33")
+        (enh-ruby-mode :checksum "b9cea578ef6738ce675243296c3abf91b9323e11")
         (epl :checksum "78ab7a85c08222cd15582a298a364774e3282ce6")
         (esa :checksum "417e0ac55abe9b17e0b7165d0df26bc018aff42e")
         (esqlite :checksum "08a779a821f8d32c1a1985d8d9eb6cf21646ce2e")
