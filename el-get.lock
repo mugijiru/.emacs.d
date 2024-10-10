@@ -29,7 +29,7 @@
         (copilot :checksum "b5878d6a8c741138b5efbf4fe1c594f3fd69dbdd")
         (editorconfig :checksum "648f0cf9aeb72db77b252832a58367332b7bc055")
         (emacs-sqlite3-api :checksum "a601c9965e4d0178705a64b7d4f88709ca9aea66")
-        (org-roam :checksum "9fd7c87b5b9037ec0d450c58ca7f69e8d25eeb24")
+        (org-roam :checksum "2a630476b3d49d7106f582e7f62b515c62430714")
         (emacs-openai :checksum "04296c91c1517fb3d8a6297a1073684039773dae")
         (tblui :checksum "62ab5f62982c061a902fd3e54d94a68a4706572c")
         (magit-popup :checksum "d8585fa39f88956963d877b921322530257ba9f5")
