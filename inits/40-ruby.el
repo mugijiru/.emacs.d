@@ -10,7 +10,7 @@
   (setq enh-ruby-deep-indent-construct nil)
   (setq enh-ruby-bounce-deep-indent nil))
 
-(defun my/enh-ruby-mode-hook ()
+(defun my/ruby-modes-hook ()
   (origami-mode 1)
   (company-mode 1)
   (subword-mode 1)
@@ -22,29 +22,36 @@
   (turn-on-smartparens-strict-mode)
   (display-line-numbers-mode 1))
 
-(add-hook 'enh-ruby-mode-hook 'my/enh-ruby-mode-hook)
+(add-hook 'enh-ruby-mode-hook 'my/ruby-modes-hook)
+
+(add-hook 'ruby-ts-mode-hook 'my/ruby-modes-hook)
 
 (add-to-list 'context-skk-programming-mode 'enh-ruby-mode)
 
+(add-to-list 'context-skk-programming-mode 'ruby-ts-mode)
+
 (with-eval-after-load 'major-mode-hydra
-  (major-mode-hydra-define enh-ruby-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-alltheicon "ruby-alt") " Ruby commands"))
-    ("Enh Ruby"
-     (("{" enh-ruby-toggle-block "Toggle block")
-      ("e" enh-ruby-insert-end "Insert end"))
+  (let ((heads '("Ruby"
+               (("{" enh-ruby-toggle-block "Toggle block")
+                ("e" enh-ruby-insert-end "Insert end"))
 
-     "LSP"
-     (("i" lsp-ui-imenu "Imenu")
-      ("f" lsp-ui-flycheck-list "Flycheck list"))
+               "LSP"
+               (("i" lsp-ui-imenu "Imenu")
+                ("f" lsp-ui-flycheck-list "Flycheck list"))
 
-     "RSpec"
-     (("s" rspec-verify "Run associated spec")
-      ("m" rspec-verify-method "Run method spec")
-      ("r" rspec-rerun "Rerun")
-      ("l" rspec-run-last-failed "Run last failed"))
+               "RSpec"
+               (("s" rspec-verify "Run associated spec")
+                ("m" rspec-verify-method "Run method spec")
+                ("r" rspec-rerun "Rerun")
+                ("l" rspec-run-last-failed "Run last failed"))
 
-     "REPL"
-     (("I" inf-ruby "inf-ruby"))
+               "REPL"
+               (("I" inf-ruby "inf-ruby"))
 
-     "Other"
-     (("j" dumb-jump-go "Dumb Jump")
-      ("o" origami-hydra/body "Origami")))))
+               "Other"
+               (("j" dumb-jump-go "Dumb Jump")
+                ("o" origami-hydra/body "Origami")))))
+    (eval `(major-mode-hydra-define enh-ruby-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-alltheicon "ruby-alt") " Ruby commands"))
+             (,@heads)))
+    (eval `(major-mode-hydra-define ruby-ts-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-alltheicon "ruby-alt") " Ruby commands"))
+             (,@heads)))))

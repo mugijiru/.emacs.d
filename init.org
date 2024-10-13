@@ -6042,9 +6042,11 @@ Emacs 上でもそれが使えるように [[https://github.com/senny/rbenv.el][
 #+end_src
 *** enh-ruby-mode
 メジャーモードは [[https://github.com/zenspider/enhanced-ruby-mode][enhanced-ruby-mode]] を利用している。
-が、最近は ruby-mode の方がやっぱり良いみたいな話もどこかで見た気がするので
+が、最近は ~ruby-mode~ の方がやっぱり良いみたいな話もどこかで見た気がするので
 戻ってみるのも手かもしれないと思っている。
 
+といいながら今は ~ruby-ts-mode~ も検証しているので、
+~enh-ruby-mode~ 向けの設定に ~ruby-ts-mode~ の設定も混ぜている
 **** インストール
 :PROPERTIES:
 :ID:       d792f49a-7bf6-4433-8d07-db01d02ffcd5
@@ -6115,7 +6117,7 @@ hoge = {
 hook 用の関数で補完などの機能を有効にしている
 
 #+begin_src emacs-lisp :tangle inits/40-ruby.el
-(defun my/enh-ruby-mode-hook ()
+(defun my/ruby-modes-hook ()
   (origami-mode 1)
   (company-mode 1)
   (subword-mode 1)
@@ -6141,7 +6143,13 @@ hook 用の関数で補完などの機能を有効にしている
 それらを設定する関数を enh-ruby-mode-hook に突っ込んでいる
 
 #+begin_src emacs-lisp :tangle inits/40-ruby.el
-(add-hook 'enh-ruby-mode-hook 'my/enh-ruby-mode-hook)
+(add-hook 'enh-ruby-mode-hook 'my/ruby-modes-hook)
+#+end_src
+
+そして同じ hook を ruby-ts-mode にも設定してる
+
+#+begin_src emacs-lisp :tangle inits/40-ruby.el
+(add-hook 'ruby-ts-mode-hook 'my/ruby-modes-hook)
 #+end_src
 
 **** SKK の調整
@@ -6155,6 +6163,12 @@ Ruby を使ってる時にコメント部分はクォートの外以外では
 #+begin_src emacs-lisp :tangle inits/40-ruby.el
 (add-to-list 'context-skk-programming-mode 'enh-ruby-mode)
 #+end_src
+
+同じ設定を ruby-ts-mode にも突っ込んでいる
+
+#+begin_src emacs-lisp :tangle inits/40-ruby.el
+(add-to-list 'context-skk-programming-mode 'ruby-ts-mode)
+#+end_src
 **** キーバインド
 :PROPERTIES:
 :ID:       edd06a6f-6845-475a-83f5-df8d934fd241
@@ -6163,27 +6177,30 @@ Ruby を使ってる時にコメント部分はクォートの外以外では
 
 #+begin_src emacs-lisp :tangle inits/40-ruby.el
 (with-eval-after-load 'major-mode-hydra
-  (major-mode-hydra-define enh-ruby-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-alltheicon "ruby-alt") " Ruby commands"))
-    ("Enh Ruby"
-     (("{" enh-ruby-toggle-block "Toggle block")
-      ("e" enh-ruby-insert-end "Insert end"))
+  (let ((heads '("Ruby"
+               (("{" enh-ruby-toggle-block "Toggle block")
+                ("e" enh-ruby-insert-end "Insert end"))
 
-     "LSP"
-     (("i" lsp-ui-imenu "Imenu")
-      ("f" lsp-ui-flycheck-list "Flycheck list"))
+               "LSP"
+               (("i" lsp-ui-imenu "Imenu")
+                ("f" lsp-ui-flycheck-list "Flycheck list"))
 
-     "RSpec"
-     (("s" rspec-verify "Run associated spec")
-      ("m" rspec-verify-method "Run method spec")
-      ("r" rspec-rerun "Rerun")
-      ("l" rspec-run-last-failed "Run last failed"))
+               "RSpec"
+               (("s" rspec-verify "Run associated spec")
+                ("m" rspec-verify-method "Run method spec")
+                ("r" rspec-rerun "Rerun")
+                ("l" rspec-run-last-failed "Run last failed"))
 
-     "REPL"
-     (("I" inf-ruby "inf-ruby"))
+               "REPL"
+               (("I" inf-ruby "inf-ruby"))
 
-     "Other"
-     (("j" dumb-jump-go "Dumb Jump")
-      ("o" origami-hydra/body "Origami")))))
+               "Other"
+               (("j" dumb-jump-go "Dumb Jump")
+                ("o" origami-hydra/body "Origami")))))
+    (eval `(major-mode-hydra-define enh-ruby-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-alltheicon "ruby-alt") " Ruby commands"))
+             (,@heads)))
+    (eval `(major-mode-hydra-define ruby-ts-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-alltheicon "ruby-alt") " Ruby commands"))
+             (,@heads)))))
 #+end_src
 
 | Key | 効果                                                                        |
