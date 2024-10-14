@@ -8580,7 +8580,7 @@ org-agenda では ~org-agenda-prefix-format~ に ~%s~ を指定することで
 
 #+begin_src emacs-lisp :tangle inits/61-org-agenda.el
      ("hs" "Weekday Start"
-      ((tags "Weekday&Start"
+      ((tags "Weekday&Start|Daily&Start"
              ((org-agenda-prefix-format "  ")
               (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                          (:name "今日の作業" :scheduled today)

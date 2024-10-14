@@ -170,7 +170,7 @@ org-agenda では `org-agenda-prefix-format` に `%s` を指定することで�
 
     ```emacs-lisp
          ("hs" "Weekday Start"
-          ((tags "Weekday&Start"
+          ((tags "Weekday&Start|Daily&Start"
                  ((org-agenda-prefix-format "  ")
                   (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                              (:name "今日の作業" :scheduled today)
