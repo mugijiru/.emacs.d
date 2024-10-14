@@ -34,7 +34,10 @@ Emacs 上でもそれが使えるように [rbenv.el](https://github.com/senny/r
 
 ## enh-ruby-mode {#enh-ruby-mode}
 
-メジャーモードは [enhanced-ruby-mode](https://github.com/zenspider/enhanced-ruby-mode) を利用している。が、最近は ruby-mode の方がやっぱり良いみたいな話もどこかで見た気がするので戻ってみるのも手かもしれないと思っている。
+メジャーモードは [enhanced-ruby-mode](https://github.com/zenspider/enhanced-ruby-mode) を利用している。が、最近は `ruby-mode` の方がやっぱり良いみたいな話もどこかで見た気がするので戻ってみるのも手かもしれないと思っている。
+
+といいながら今は `ruby-ts-mode` も検証しているので、
+`enh-ruby-mode` 向けの設定に `ruby-ts-mode` の設定も混ぜている
 
 
 ### インストール {#インストール}
@@ -105,7 +108,7 @@ hoge = {
 hook 用の関数で補完などの機能を有効にしている
 
 ```emacs-lisp
-(defun my/enh-ruby-mode-hook ()
+(defun my/ruby-modes-hook ()
   (origami-mode 1)
   (company-mode 1)
   (subword-mode 1)
@@ -131,7 +134,13 @@ hook 用の関数で補完などの機能を有効にしている
 それらを設定する関数を enh-ruby-mode-hook に突っ込んでいる
 
 ```emacs-lisp
-(add-hook 'enh-ruby-mode-hook 'my/enh-ruby-mode-hook)
+(add-hook 'enh-ruby-mode-hook 'my/ruby-modes-hook)
+```
+
+そして同じ hook を ruby-ts-mode にも設定してる
+
+```emacs-lisp
+(add-hook 'ruby-ts-mode-hook 'my/ruby-modes-hook)
 ```
 
 
@@ -144,6 +153,12 @@ Ruby を使ってる時にコメント部分はクォートの外以外では自
 (add-to-list 'context-skk-programming-mode 'enh-ruby-mode)
 ```
 
+同じ設定を ruby-ts-mode にも突っ込んでいる
+
+```emacs-lisp
+(add-to-list 'context-skk-programming-mode 'ruby-ts-mode)
+```
+
 
 ### キーバインド {#キーバインド}
 
@@ -151,27 +166,30 @@ Ruby を使ってる時にコメント部分はクォートの外以外では自
 
 ```emacs-lisp
 (with-eval-after-load 'major-mode-hydra
-  (major-mode-hydra-define enh-ruby-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-alltheicon "ruby-alt") " Ruby commands"))
-    ("Enh Ruby"
-     (("{" enh-ruby-toggle-block "Toggle block")
-      ("e" enh-ruby-insert-end "Insert end"))
+  (let ((heads '("Ruby"
+               (("{" enh-ruby-toggle-block "Toggle block")
+                ("e" enh-ruby-insert-end "Insert end"))
 
-     "LSP"
-     (("i" lsp-ui-imenu "Imenu")
-      ("f" lsp-ui-flycheck-list "Flycheck list"))
+               "LSP"
+               (("i" lsp-ui-imenu "Imenu")
+                ("f" lsp-ui-flycheck-list "Flycheck list"))
 
-     "RSpec"
-     (("s" rspec-verify "Run associated spec")
-      ("m" rspec-verify-method "Run method spec")
-      ("r" rspec-rerun "Rerun")
-      ("l" rspec-run-last-failed "Run last failed"))
+               "RSpec"
+               (("s" rspec-verify "Run associated spec")
+                ("m" rspec-verify-method "Run method spec")
+                ("r" rspec-rerun "Rerun")
+                ("l" rspec-run-last-failed "Run last failed"))
 
-     "REPL"
-     (("I" inf-ruby "inf-ruby"))
+               "REPL"
+               (("I" inf-ruby "inf-ruby"))
 
-     "Other"
-     (("j" dumb-jump-go "Dumb Jump")
-      ("o" origami-hydra/body "Origami")))))
+               "Other"
+               (("j" dumb-jump-go "Dumb Jump")
+                ("o" origami-hydra/body "Origami")))))
+    (eval `(major-mode-hydra-define enh-ruby-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-alltheicon "ruby-alt") " Ruby commands"))
+             (,@heads)))
+    (eval `(major-mode-hydra-define ruby-ts-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-alltheicon "ruby-alt") " Ruby commands"))
+             (,@heads)))))
 ```
 
 | Key | 効果                                                |
