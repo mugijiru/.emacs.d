@@ -101,14 +101,20 @@ projectile-rails の実装を参考にコマンドを追加している
      "Single Files"
      (("R" projectile-rails-goto-routes   "routes.rb")
       ("G" projectile-rails-goto-gemfile  "Gemfile")
-      ("D" projectile-rails-goto-schema   "schema.rb"))))
+      ("D" projectile-rails-goto-schema   "schema.rb"))
+
+     "Commands"
+     (("1" projectile-rails-console   "Console")
+      ("2" projectile-rails-dbconsole "DB")
+      ("3" projectile-rails-generate  "Generate")
+      ("4" projectile-rails-rake      "Rake"))))
   (define-key projectile-rails-mode-map (kbd "C-c r") 'pretty-hydra-projectile-rails-find/body))
 ```
 
 | Key | 効果                             | 備考                                                                                          |
 |-----|--------------------------------|---------------------------------------------------------------------------------------------|
 | M   | 現在のファイルに関連する Model を開く |                                                                                               |
-| V   | 現在のファイルに関連する View を開く | キーが Vue ファイル検索とかぶってしまっていて現在使えない                                     |
+| V   | 現在のファイルに関連する View を開く |                                                                                               |
 | C   | 現在のファイルに関連する Controller を開く |                                                                                               |
 | H   | 現在のファイルに関連する Helper を開く |                                                                                               |
 | P   | 現在のファイルに関連する Spec を開く |                                                                                               |
@@ -136,3 +142,7 @@ projectile-rails の実装を参考にコマンドを追加している
 | R   | routes.rb を開く                 |                                                                                               |
 | G   | Gemfile を開く                   |                                                                                               |
 | D   | Schema.rb を開く                 |                                                                                               |
+| 1   | rails console を開く             |                                                                                               |
+| 2   | rails dbconsole を開く           |                                                                                               |
+| 3   | rails generate を実行する        |                                                                                               |
+| 4   | rake を実行する                  |                                                                                               |

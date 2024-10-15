@@ -56,5 +56,11 @@
      "Single Files"
      (("R" projectile-rails-goto-routes   "routes.rb")
       ("G" projectile-rails-goto-gemfile  "Gemfile")
-      ("D" projectile-rails-goto-schema   "schema.rb"))))
+      ("D" projectile-rails-goto-schema   "schema.rb"))
+
+     "Commands"
+     (("1" projectile-rails-console   "Console")
+      ("2" projectile-rails-dbconsole "DB")
+      ("3" projectile-rails-generate  "Generate")
+      ("4" projectile-rails-rake      "Rake"))))
   (define-key projectile-rails-mode-map (kbd "C-c r") 'pretty-hydra-projectile-rails-find/body))
