@@ -72,7 +72,10 @@ window 基準で表示するように設定を変更している
      "UI"
      (("I" lsp-ui-imenu "imenu")
       ("X" lsp-ui-peek-find-definitions "def")
-      ("R" lsp-ui-peek-find-references "refs")))))
+      ("R" lsp-ui-peek-find-references "refs"))
+
+     "Other"
+     (("W" lsp-workspace-restart "Restart")))))
 ```
 
 
