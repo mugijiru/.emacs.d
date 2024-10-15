@@ -32,7 +32,10 @@
      "UI"
      (("I" lsp-ui-imenu "imenu")
       ("X" lsp-ui-peek-find-definitions "def")
-      ("R" lsp-ui-peek-find-references "refs")))))
+      ("R" lsp-ui-peek-find-references "refs"))
+
+     "Other"
+     (("W" lsp-workspace-restart "Restart")))))
 
 (with-eval-after-load 'lsp-mode
   (add-to-list 'lsp--formatting-indent-alist `(web-mode . web-mode-code-indent-offset))
