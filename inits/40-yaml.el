@@ -1,7 +1,7 @@
 (el-get-bundle yaml-mode)
 
 (defun my/yaml-mode-hook ()
-  (lsp 1)
+  (lsp)
   (flycheck-mode 1)
   (highlight-indent-guides-mode 1))
 
