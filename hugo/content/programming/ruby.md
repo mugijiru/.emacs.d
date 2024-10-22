@@ -32,6 +32,18 @@ Emacs 上でもそれが使えるように [rbenv.el](https://github.com/senny/r
 ```
 
 
+## yard-mode {#yard-mode}
+
+メソッドコメントなんかは Yard 形式で書くのでこれも入れている
+
+
+### インストール {#インストール}
+
+```emacs-lisp
+(el-get-bundle yard-mode)
+```
+
+
 ## enh-ruby-mode {#enh-ruby-mode}
 
 メジャーモードは [enhanced-ruby-mode](https://github.com/zenspider/enhanced-ruby-mode) を利用している。が、最近は `ruby-mode` の方がやっぱり良いみたいな話もどこかで見た気がするので戻ってみるのも手かもしれないと思っている。
@@ -80,8 +92,8 @@ encoding 設定のマジックコメントが入らないようにしている�
 
 ```ruby
 hoge = {
-  foo: 1
-}
+         foo: 1
+       }
 ```
 
 みたいな深いインデントになるけど
@@ -114,8 +126,8 @@ hook 用の関数で補完などの機能を有効にしている
   (subword-mode 1)
   (which-function-mode 1)
   (copilot-mode 1)
-  (lsp)
-  (lsp-ui-mode 1)
+  (yard-mode 1)
+  (eldoc-mode 1)
   (add-hook 'before-save-hook #'lsp-format-buffer nil 'local)
   (turn-on-smartparens-strict-mode)
   (display-line-numbers-mode 1))
@@ -125,11 +137,14 @@ hook 用の関数で補完などの機能を有効にしている
 -   補完用に company-mode を有効化
 -   CamelCase の単語区切りを有効にするため subword-mode を有効化
 -   今いる関数名が mode-line に出てると便利げなので which-function-mode を有効化
--   [solargraph](https://github.com/castwide/solargraph) を使ってるので lsp-mode を有効にしている
-    -   lsp-ui-mode も有効にして色々な情報を表示している
--   また lsp-mode の自動フォーマットを保存時に実行するようにしている
+-   Copilot もあると便利なので有効化
+-   yard 形式のコメントも良い感じにハイライトされると便利なので yard-mode を有効化
+    -   更に eldoc-mode を有効にしていると yard コメントを書く時に文法を minibuffer に表示してくれるのでこちらも有効化
+-   lsp-mode の自動フォーマットを保存時に実行するようにしている
 -   開きカッコと閉じカッコの組み合わせがズレないように smartparens-strict-mode を有効にしている
 -   行番号も表示されている方が便利なので display-line-numbers-mode を有効にしている
+-   lsp-mode に関してはプロジェクト毎にごにゃごにゃしたいので `.dir-locals.el` に任せる方針にしている
+    -   BUNDLE_GEMFILE を設定したりとかね
 
 それらを設定する関数を enh-ruby-mode-hook に突っ込んでいる
 
