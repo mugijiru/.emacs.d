@@ -12,20 +12,20 @@
     <title>ruby :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1728976335" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1728976335" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1728976335" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1728976335" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1728976335" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1728976335" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1728976335" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1728976335" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1728976335" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1728976335" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1729571666" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1729571666" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1729571666" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1729571666" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1729571666" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1729571666" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1729571666" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1729571666" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1729571666" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1729571666" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1728976335"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1729571666"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1728976335"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1728976335"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1729571666"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1729571666"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1728976335"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1729571666"></script>
 
     
   </div>
@@ -3330,6 +3330,11 @@
         <li><a href="#有効化">有効化</a></li>
       </ul>
     </li>
+    <li><a href="#yard-mode">yard-mode</a>
+      <ul>
+        <li><a href="#インストール">インストール</a></li>
+      </ul>
+    </li>
     <li><a href="#enh-ruby-mode">enh-ruby-mode</a>
       <ul>
         <li><a href="#インストール">インストール</a></li>
@@ -3375,6 +3380,10 @@ Emacs 上でもそれが使えるように <a href="https://github.com/senny/rbe
 </span></span></code></pre></div><h3 id="有効化">有効化</h3>
 <p>そして global に有効化している。というか global じゃない有効化ってあるのかなってのと、あるとしても意味があるのかな的な。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(global-rbenv-mode)
+</span></span></code></pre></div><h2 id="yard-mode">yard-mode</h2>
+<p>メソッドコメントなんかは Yard 形式で書くのでこれも入れている</p>
+<h3 id="インストール">インストール</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle yard-mode)
 </span></span></code></pre></div><h2 id="enh-ruby-mode">enh-ruby-mode</h2>
 <p>メジャーモードは <a href="https://github.com/zenspider/enhanced-ruby-mode">enhanced-ruby-mode</a> を利用している。が、最近は <code>ruby-mode</code> の方がやっぱり良いみたいな話もどこかで見た気がするので戻ってみるのも手かもしれないと思っている。</p>
 <p>といいながら今は <code>ruby-ts-mode</code> も検証しているので、
@@ -3398,8 +3407,8 @@ encoding 設定のマジックコメントが入らないようにしている�
 <h4 id="インデントの調整">インデントの調整</h4>
 <p><code>enh-ruby-deep-indent-paren</code> が t の場合</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>hoge <span style="color:#f92672">=</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">foo</span>: <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">foo</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>       }
 </span></span></code></pre></div><p>みたいな深いインデントになるけど</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>hoge <span style="color:#f92672">=</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">foo</span>: <span style="color:#ae81ff">1</span>
@@ -3417,8 +3426,8 @@ encoding 設定のマジックコメントが入らないようにしている�
 </span></span><span style="display:flex;"><span>  (subword-mode <span style="color:#ae81ff">1</span>)
 </span></span><span style="display:flex;"><span>  (which-function-mode <span style="color:#ae81ff">1</span>)
 </span></span><span style="display:flex;"><span>  (copilot-mode <span style="color:#ae81ff">1</span>)
-</span></span><span style="display:flex;"><span>  (lsp)
-</span></span><span style="display:flex;"><span>  (lsp-ui-mode <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>  (yard-mode <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>  (eldoc-mode <span style="color:#ae81ff">1</span>)
 </span></span><span style="display:flex;"><span>  (add-hook <span style="color:#e6db74">&#39;before-save-hook</span> <span style="color:#a6e22e">#&#39;</span>lsp-format-buffer <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;local</span>)
 </span></span><span style="display:flex;"><span>  (turn-on-smartparens-strict-mode)
 </span></span><span style="display:flex;"><span>  (display-line-numbers-mode <span style="color:#ae81ff">1</span>))
@@ -3427,14 +3436,20 @@ encoding 設定のマジックコメントが入らないようにしている�
 <li>補完用に company-mode を有効化</li>
 <li>CamelCase の単語区切りを有効にするため subword-mode を有効化</li>
 <li>今いる関数名が mode-line に出てると便利げなので which-function-mode を有効化</li>
-<li><a href="https://github.com/castwide/solargraph">solargraph</a> を使ってるので lsp-mode を有効にしている
+<li>Copilot もあると便利なので有効化</li>
+<li>yard 形式のコメントも良い感じにハイライトされると便利なので yard-mode を有効化
 <ul>
-<li>lsp-ui-mode も有効にして色々な情報を表示している</li>
+<li>更に eldoc-mode を有効にしていると yard コメントを書く時に文法を minibuffer に表示してくれるのでこちらも有効化</li>
 </ul>
 </li>
-<li>また lsp-mode の自動フォーマットを保存時に実行するようにしている</li>
+<li>lsp-mode の自動フォーマットを保存時に実行するようにしている</li>
 <li>開きカッコと閉じカッコの組み合わせがズレないように smartparens-strict-mode を有効にしている</li>
 <li>行番号も表示されている方が便利なので display-line-numbers-mode を有効にしている</li>
+<li>lsp-mode に関してはプロジェクト毎にごにゃごにゃしたいので <code>.dir-locals.el</code> に任せる方針にしている
+<ul>
+<li>BUNDLE_GEMFILE を設定したりとかね</li>
+</ul>
+</li>
 </ul>
 <p>それらを設定する関数を enh-ruby-mode-hook に突っ込んでいる</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;enh-ruby-mode-hook</span> <span style="color:#e6db74">&#39;my/ruby-modes-hook</span>)
@@ -5928,19 +5943,19 @@ deprecation なのか deprecated なのか分からなくなるやつ。</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1728976335"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1728976335"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1728976335"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1728976335"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1728976335"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1728976335"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1729571666"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1729571666"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1729571666"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1729571666"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1729571666"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1729571666"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1728976335"></script>
-    <script src="/.emacs.d/js/learn.js?1728976335"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1728976335"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1729571666"></script>
+    <script src="/.emacs.d/js/learn.js?1729571666"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1729571666"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1728976335"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1729571666"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
