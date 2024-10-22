@@ -2,6 +2,8 @@
 
 (global-rbenv-mode)
 
+(el-get-bundle yard-mode)
+
 (el-get-bundle enh-ruby-mode)
 
 (with-eval-after-load 'enh-ruby-mode
@@ -16,8 +18,8 @@
   (subword-mode 1)
   (which-function-mode 1)
   (copilot-mode 1)
-  (lsp)
-  (lsp-ui-mode 1)
+  (yard-mode 1)
+  (eldoc-mode 1)
   (add-hook 'before-save-hook #'lsp-format-buffer nil 'local)
   (turn-on-smartparens-strict-mode)
   (display-line-numbers-mode 1))
