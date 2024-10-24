@@ -124,7 +124,6 @@ hook 用の関数で補完などの機能を有効にしている
   (origami-mode 1)
   (company-mode 1)
   (subword-mode 1)
-  (which-function-mode 1)
   (copilot-mode 1)
   (yard-mode 1)
   (eldoc-mode 1)
@@ -136,7 +135,6 @@ hook 用の関数で補完などの機能を有効にしている
 -   コード折り畳み用に origami を有効化
 -   補完用に company-mode を有効化
 -   CamelCase の単語区切りを有効にするため subword-mode を有効化
--   今いる関数名が mode-line に出てると便利げなので which-function-mode を有効化
 -   Copilot もあると便利なので有効化
 -   yard 形式のコメントも良い感じにハイライトされると便利なので yard-mode を有効化
     -   更に eldoc-mode を有効にしていると yard コメントを書く時に文法を minibuffer に表示してくれるのでこちらも有効化

@@ -18,7 +18,6 @@
   (origami-mode 1)
   (company-mode 1)
   (subword-mode 1)
-  (which-function-mode 1)
   (copilot-mode 1)
   (turn-on-smartparens-strict-mode)
   (display-line-numbers-mode t)
