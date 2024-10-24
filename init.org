@@ -6129,6 +6129,16 @@ Emacs 上でもそれが使えるように [[https://github.com/senny/rbenv.el][
 #+begin_src emacs-lisp :tangle inits/40-ruby.el
 (global-rbenv-mode)
 #+end_src
+*** bundler.el
+[[https://github.com/endofunky/bundler.el][bundler.el]] は Emacs から Ruby の bundler を操作するためのパッケージ。
+~bundler-open~ が便利っぽいので入れている
+**** インストール
+#+begin_src emacs-lisp :tangle inits/40-ruby.el
+(el-get-bundle bundler)
+#+end_src
+
+これ以外は特に設定していない。
+いずれ Ruby 用の Hydra に設定を突っ込む。
 *** yard-mode
 メソッドコメントなんかは Yard 形式で書くのでこれも入れている
 **** インストール
