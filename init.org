@@ -8524,6 +8524,13 @@ windmove にそれを奪われてしまうので、カーソルキー単体で�
  '(org-src-preserve-indentation t)
  '(org-edit-src-content-indentation 0))
 #+end_src
+*** org-download
+画像をさくっと貼り付けるのに便利なので [[https://github.com/abo-abo/org-download][org-download]] も導入している
+
+#+begin_src emacs-lisp :tangle inits/60-org.el
+(el-get-bundle org-download)
+(require 'org-download)
+#+end_src
 
 ** 予定のカレンダー表示
 :PROPERTIES:

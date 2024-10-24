@@ -87,3 +87,6 @@
 (custom-set-variables
  '(org-src-preserve-indentation t)
  '(org-edit-src-content-indentation 0))
+
+(el-get-bundle org-download)
+(require 'org-download)
