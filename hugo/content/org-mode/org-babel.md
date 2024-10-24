@@ -193,3 +193,13 @@ windmove にそれを奪われてしまうので、カーソルキー単体で�
  '(org-src-preserve-indentation t)
  '(org-edit-src-content-indentation 0))
 ```
+
+
+## org-download {#org-download}
+
+画像をさくっと貼り付けるのに便利なので [org-download](https://github.com/abo-abo/org-download) も導入している
+
+```emacs-lisp
+(el-get-bundle org-download)
+(require 'org-download)
+```
