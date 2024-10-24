@@ -12,20 +12,20 @@
     <title>projectile :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1729744876" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1729744876" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1729744876" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1729744876" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1729744876" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1729744876" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1729744876" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1729744876" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1729744876" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1729744876" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1729745156" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1729745156" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1729745156" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1729745156" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1729745156" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1729745156" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1729745156" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1729745156" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1729745156" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1729745156" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1729744876"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1729745156"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1729744876"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1729744876"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1729745156"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1729745156"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1729744876"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1729745156"></script>
 
     
   </div>
@@ -3366,6 +3366,7 @@
         <li><a href="#dot-rubocop-dot-yml-を開く">.rubocop.yml を開く</a></li>
       </ul>
     </li>
+    <li><a href="#counsel-projectile-org-capture-の設定">counsel-projectile-org-capture の設定</a></li>
   </ul>
 </nav>
     </div>
@@ -3429,14 +3430,19 @@
 </span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;d&#34;</span> counsel-projectile-find-dir <span style="color:#e6db74">&#34;Find Dir&#34;</span>)
 </span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;r&#34;</span> projectile-recentf <span style="color:#e6db74">&#34;Recentf&#34;</span>))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Jump&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;l&#34;</span> projectile-edit-dir-locals <span style="color:#e6db74">&#34;dir-locals&#34;</span>))
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Edit&#34;</span>
 </span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;R&#34;</span> projectile-replace <span style="color:#e6db74">&#34;Replace&#34;</span>))
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Jump&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;l&#34;</span> projectile-edit-dir-locals <span style="color:#e6db74">&#34;dir-locals&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Search&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;g&#34;</span> counsel-projectile-rg <span style="color:#e6db74">&#34;RipGrep(Counsel)&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;G&#34;</span> projectile-ripgrep    <span style="color:#e6db74">&#34;RipGrep&#34;</span>))
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Other&#34;</span>
 </span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;p&#34;</span> (counsel-projectile-switch-project <span style="color:#e6db74">&#39;counsel-projectile-switch-project-action-vc</span>) <span style="color:#e6db74">&#34;Switch Project&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;c&#34;</span> counsel-projectile-org-capture <span style="color:#e6db74">&#34;Capture&#34;</span>)
 </span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;SPC&#34;</span> my/project-hydra <span style="color:#e6db74">&#34;Hydra&#34;</span>)))))
 </span></span></code></pre></div><table>
 <thead>
@@ -3459,16 +3465,28 @@
 <td>プロジェクト内で最近触ったファイルのリスト表示</td>
 </tr>
 <tr>
+<td>R</td>
+<td>一括置換する</td>
+</tr>
+<tr>
 <td>l</td>
 <td>.dir-locals.el を開く</td>
 </tr>
 <tr>
-<td>E</td>
-<td>一括置換する</td>
+<td>g</td>
+<td>RipGrep で検索し counsel で結果を表示</td>
+</tr>
+<tr>
+<td>G</td>
+<td>RipGrep で検索し rg.el のバッファで結果を表示</td>
 </tr>
 <tr>
 <td>p</td>
 <td>別のプロジェクトに切り替え</td>
+</tr>
+<tr>
+<td>c</td>
+<td>プロジェクト用に org-capture でメモを取る</td>
 </tr>
 <tr>
 <td>SPC</td>
@@ -3480,7 +3498,7 @@
 <li><code>projectile-find-implementation-or-test</code></li>
 <li><code>projectile-replace-regexp</code></li>
 </ul>
-<p>あたりも使えるようにするともしかしたら便利かもしれない。あとは <code>counsel-projectile-grep</code> とかの類かな〜</p>
+<p>あたりも使えるようにするともしかしたら便利かもしれない。</p>
 <h2 id="projectile-用のコマンド-ヘルパー関数">projectile 用のコマンド/ヘルパー関数</h2>
 <h3 id="プロジェクト固有の-hydra-呼び出し">プロジェクト固有の Hydra 呼び出し</h3>
 <p>プロジェクト固有の Hydra を <code>{project-dir-name}-hydra</code> のように定義しておけばプロジェクトのディレクトリ名を用いてそれ用の Hydra を呼び出す関数。</p>
@@ -3542,6 +3560,10 @@ Emacs の設定ファイルに直接埋め込んでいても特に問題はな�
 </span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Find the .rubocop.yml&#34;</span>
 </span></span><span style="display:flex;"><span>  (interactive)
 </span></span><span style="display:flex;"><span>  (my/projectile-goto-file <span style="color:#e6db74">&#34;.rubocop.yml&#34;</span>))
+</span></span></code></pre></div><h2 id="counsel-projectile-org-capture-の設定">counsel-projectile-org-capture の設定</h2>
+<p>デフォルト設定は妙なインデントが入って来るのでそれを取り除いているだけ</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setopt counsel-projectile-org-capture-templates
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;t&#34;</span> <span style="color:#e6db74">&#34;[${name}] Task&#34;</span> entry (file+headline <span style="color:#e6db74">&#34;${root}/notes.org&#34;</span> <span style="color:#e6db74">&#34;Tasks&#34;</span>) <span style="color:#e6db74">&#34;* TODO %?\n%u\n%a&#34;</span>)))
 </span></span></code></pre></div>
 
 <footer class="footline">
@@ -5911,19 +5933,19 @@ Emacs の設定ファイルに直接埋め込んでいても特に問題はな�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1729744877"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1729744877"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1729744877"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1729744877"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1729744877"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1729744877"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1729745156"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1729745156"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1729745156"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1729745156"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1729745156"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1729745156"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1729744877"></script>
-    <script src="/.emacs.d/js/learn.js?1729744877"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1729744877"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1729745156"></script>
+    <script src="/.emacs.d/js/learn.js?1729745156"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1729745156"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1729744877"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1729745156"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
