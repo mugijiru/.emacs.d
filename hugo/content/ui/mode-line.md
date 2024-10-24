@@ -21,10 +21,10 @@ Emacs のバッファ下部に表示されるモードライン関連の設定�
 
 ```emacs-lisp
 (:name emacs-hide-mode-line
-  :type github
-  :description "minor mode that hides/masks your modeline."
-  :pkgname "hlissner/emacs-hide-mode-line"
-  :minimum-emacs-version (24 4))
+       :type github
+       :description "minor mode that hides/masks your modeline."
+       :pkgname "hlissner/emacs-hide-mode-line"
+       :minimum-emacs-version (24 4))
 ```
 
 他にも mode-line の表示が不要なモードとかってありそうだけど特に思い付かないから今のところ Neotree 専用になっている。
@@ -223,6 +223,22 @@ doom-modeline で見た目をカッコよくしているのでこっちに設定
 
 `if nerd-icons are not installed, run M-x nerd-icons-install-fonts` と書いているように
 nerd-icons をインストールしていない場合は `nerd-icons-install-fonts` を叩いてインストールしてあげないといけない
+
+また dired でもアイコン表示をしたいので `nerd-icons-dired` を導入している。
+
+```emacs-lisp
+(:name nerd-icons-dired
+       :website "https://github.com/rainstormstudio/nerd-icons-dired"
+       :description "Use nerd-icons for Dired"
+       :type github
+       :pkgname "rainstormstudio/nerd-icons-dired"
+       :depends (nerd-icons))
+```
+
+```emacs-lisp
+(el-get-bundle nerd-icons-dired)
+(add-hook 'dired-mode-hook #'nerd-icons-dired-mode)
+```
 
 
 ### その他 {#その他}

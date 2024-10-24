@@ -4086,6 +4086,21 @@ doom-modeline で見た目をカッコよくしているのでこっちに設定
 ~if nerd-icons are not installed, run M-x nerd-icons-install-fonts~ と書いているように
 nerd-icons をインストールしていない場合は ~nerd-icons-install-fonts~ を叩いてインストールしてあげないといけない
 
+また dired でもアイコン表示をしたいので ~nerd-icons-dired~ を導入している。
+
+#+begin_src emacs-lisp :tangle recipes/nerd-icons-dired.rcp
+(:name nerd-icons-dired
+       :website "https://github.com/rainstormstudio/nerd-icons-dired"
+       :description "Use nerd-icons for Dired"
+       :type github
+       :pkgname "rainstormstudio/nerd-icons-dired"
+       :depends (nerd-icons))
+#+end_src
+
+#+begin_src emacs-lisp :tangle inits/20-nerd-icons.el
+(el-get-bundle nerd-icons-dired)
+(add-hook 'dired-mode-hook #'nerd-icons-dired-mode)
+#+end_src
 **** その他
 ~doom-modeline-github~ を t にしたら GitHub の通知数も表示されるらしいが
 ちょっと試しに t にしているけどどうも表示されない。

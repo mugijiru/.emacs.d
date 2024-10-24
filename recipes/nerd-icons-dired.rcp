@@ -1,0 +1,6 @@
+(:name nerd-icons-dired
+       :website "https://github.com/rainstormstudio/nerd-icons-dired"
+       :description "Use nerd-icons for Dired"
+       :type github
+       :pkgname "rainstormstudio/nerd-icons-dired"
+       :depends (nerd-icons))
