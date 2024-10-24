@@ -32,6 +32,21 @@ Emacs 上でもそれが使えるように [rbenv.el](https://github.com/senny/r
 ```
 
 
+## bundler.el {#bundler-dot-el}
+
+[bundler.el](https://github.com/endofunky/bundler.el) は Emacs から Ruby の bundler を操作するためのパッケージ。
+`bundler-open` が便利っぽいので入れている
+
+
+### インストール {#インストール}
+
+```emacs-lisp
+(el-get-bundle bundler)
+```
+
+これ以外は特に設定していない。いずれ Ruby 用の Hydra に設定を突っ込む。
+
+
 ## yard-mode {#yard-mode}
 
 メソッドコメントなんかは Yard 形式で書くのでこれも入れている

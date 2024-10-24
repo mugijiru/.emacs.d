@@ -2,6 +2,8 @@
 
 (global-rbenv-mode)
 
+(el-get-bundle bundler)
+
 (el-get-bundle yard-mode)
 
 (el-get-bundle enh-ruby-mode)
