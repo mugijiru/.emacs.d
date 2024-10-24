@@ -12,20 +12,20 @@
     <title>lsp-mode :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1729744549" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1729744549" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1729744549" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1729744549" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1729744549" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1729744549" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1729744549" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1729744549" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1729744549" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1729744549" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1729744877" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1729744877" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1729744877" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1729744877" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1729744877" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1729744877" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1729744877" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1729744877" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1729744877" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1729744877" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1729744549"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1729744877"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1729744549"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1729744549"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1729744877"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1729744877"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1729744549"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1729744877"></script>
 
     
   </div>
@@ -3406,22 +3406,30 @@ window 基準で表示するように設定を変更している</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
 </span></span><span style="display:flex;"><span>  (pretty-hydra-define pretty-hydra-lsp (:separator <span style="color:#e6db74">&#34;-&#34;</span> :color blue :foreign-keys <span style="color:#a6e22e">warn</span> :title <span style="color:#e6db74">&#34;LSP&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span>)
 </span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;Find&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;x&#34;</span> lsp-find-definition <span style="color:#e6db74">&#34;definition&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;r&#34;</span> lsp-find-references <span style="color:#e6db74">&#34;references&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;t&#34;</span> lsp-find-type-definition <span style="color:#e6db74">&#34;type&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;i&#34;</span> lsp-find-implementation <span style="color:#e6db74">&#34;implementation&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;D&#34;</span> lsp-find-declaration <span style="color:#e6db74">&#34;declaration&#34;</span>))
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;t&#34;</span> lsp-find-type-definition <span style="color:#e6db74">&#34;type&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;x&#34;</span> lsp-find-definition      <span style="color:#e6db74">&#34;definition&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;r&#34;</span> lsp-find-references      <span style="color:#e6db74">&#34;references&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;i&#34;</span> lsp-find-implementation  <span style="color:#e6db74">&#34;implementation&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;d&#34;</span> lsp-find-declaration     <span style="color:#e6db74">&#34;declaration&#34;</span>))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Code&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;m&#34;</span> lsp-rename <span style="color:#e6db74">&#34;Rename&#34;</span>))
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;m&#34;</span> lsp-rename        <span style="color:#e6db74">&#34;rename&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;f&#34;</span> lsp-format-buffer <span style="color:#e6db74">&#34;format buffer&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;F&#34;</span> lsp-format-region <span style="color:#e6db74">&#34;format region&#34;</span>))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;UI&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;I&#34;</span> lsp-ui-imenu <span style="color:#e6db74">&#34;imenu&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;X&#34;</span> lsp-ui-peek-find-definitions <span style="color:#e6db74">&#34;def&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;R&#34;</span> lsp-ui-peek-find-references <span style="color:#e6db74">&#34;refs&#34;</span>))
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;M&#34;</span> lsp-ui-imenu                      <span style="color:#e6db74">&#34;imenu&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;V&#34;</span> lsp-ui-flycheck-list              <span style="color:#e6db74">&#34;flycheck list&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;X&#34;</span> lsp-ui-peek-find-definitions      <span style="color:#e6db74">&#34;def&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;R&#34;</span> lsp-ui-peek-find-references       <span style="color:#e6db74">&#34;refs&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;I&#34;</span> lsp-ui-peek-find-implementations  <span style="color:#e6db74">&#34;implementation&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;S&#34;</span> lsp-ui-peek-find-workspace-symbol <span style="color:#e6db74">&#34;symbol&#34;</span>))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Other&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;W&#34;</span> lsp-workspace-restart <span style="color:#e6db74">&#34;Restart&#34;</span>)))))
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Server&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;W&#34;</span> lsp-workspace-restart  <span style="color:#e6db74">&#34;Restart&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;Q&#34;</span> lsp-workspace-shutdown <span style="color:#e6db74">&#34;Shutdown&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;d&#34;</span> lsp-describe-session   <span style="color:#e6db74">&#34;Session&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;D&#34;</span> lsp-disconnect         <span style="color:#e6db74">&#34;Disconnect&#34;</span>)))))
 </span></span></code></pre></div><h2 id="tsx-のインデント調整">TSX のインデント調整</h2>
 <p>tab 押下時は web-mode-code-indent-offset 等の設定で動いていたが
 indent-region ではそれと違う値(4)でインデントされていて
@@ -5805,19 +5813,19 @@ lsp&ndash;formatting-indent-aliat に web-mode と tsx-ts-mode の設定を追�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1729744549"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1729744549"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1729744549"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1729744549"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1729744549"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1729744549"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1729744877"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1729744877"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1729744877"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1729744877"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1729744877"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1729744877"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1729744549"></script>
-    <script src="/.emacs.d/js/learn.js?1729744549"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1729744549"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1729744877"></script>
+    <script src="/.emacs.d/js/learn.js?1729744877"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1729744877"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1729744549"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1729744877"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
