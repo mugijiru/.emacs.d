@@ -12,20 +12,20 @@
     <title>ruby :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1729743595" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1729743595" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1729743595" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1729743595" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1729743595" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1729743595" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1729743595" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1729743595" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1729743595" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1729743595" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1729743962" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1729743962" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1729743962" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1729743962" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1729743962" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1729743962" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1729743962" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1729743962" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1729743962" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1729743962" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1729743595"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1729743962"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1729743595"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1729743595"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1729743962"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1729743962"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1729743595"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1729743962"></script>
 
     
   </div>
@@ -3486,25 +3486,21 @@ Ruby を使ってる時にコメント部分はクォートの外以外では自
 <p>キーバインドは覚えられないので <a href="/.emacs.d/ui/hydra/#major-mode-hydra-のインストール">major-mode-hydra</a> でキーを定義している</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;major-mode-hydra</span>
 </span></span><span style="display:flex;"><span>  (let ((heads <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;Ruby&#34;</span>
-</span></span><span style="display:flex;"><span>               ((<span style="color:#e6db74">&#34;{&#34;</span> enh-ruby-toggle-block <span style="color:#e6db74">&#34;Toggle block&#34;</span>)
-</span></span><span style="display:flex;"><span>                (<span style="color:#e6db74">&#34;e&#34;</span> enh-ruby-insert-end <span style="color:#e6db74">&#34;Insert end&#34;</span>))
+</span></span><span style="display:flex;"><span>                 ((<span style="color:#e6db74">&#34;{&#34;</span> enh-ruby-toggle-block <span style="color:#e6db74">&#34;Toggle block&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (<span style="color:#e6db74">&#34;e&#34;</span> enh-ruby-insert-end   <span style="color:#e6db74">&#34;Insert end&#34;</span>))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>               <span style="color:#e6db74">&#34;LSP&#34;</span>
-</span></span><span style="display:flex;"><span>               ((<span style="color:#e6db74">&#34;i&#34;</span> lsp-ui-imenu <span style="color:#e6db74">&#34;Imenu&#34;</span>)
-</span></span><span style="display:flex;"><span>                (<span style="color:#e6db74">&#34;f&#34;</span> lsp-ui-flycheck-list <span style="color:#e6db74">&#34;Flycheck list&#34;</span>))
+</span></span><span style="display:flex;"><span>                 <span style="color:#e6db74">&#34;RSpec&#34;</span>
+</span></span><span style="display:flex;"><span>                 ((<span style="color:#e6db74">&#34;s&#34;</span> rspec-verify          <span style="color:#e6db74">&#34;Run associated spec&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (<span style="color:#e6db74">&#34;m&#34;</span> rspec-verify-method   <span style="color:#e6db74">&#34;Run method spec&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (<span style="color:#e6db74">&#34;r&#34;</span> rspec-rerun           <span style="color:#e6db74">&#34;Rerun&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (<span style="color:#e6db74">&#34;l&#34;</span> rspec-run-last-failed <span style="color:#e6db74">&#34;Run last failed&#34;</span>))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>               <span style="color:#e6db74">&#34;RSpec&#34;</span>
-</span></span><span style="display:flex;"><span>               ((<span style="color:#e6db74">&#34;s&#34;</span> rspec-verify <span style="color:#e6db74">&#34;Run associated spec&#34;</span>)
-</span></span><span style="display:flex;"><span>                (<span style="color:#e6db74">&#34;m&#34;</span> rspec-verify-method <span style="color:#e6db74">&#34;Run method spec&#34;</span>)
-</span></span><span style="display:flex;"><span>                (<span style="color:#e6db74">&#34;r&#34;</span> rspec-rerun <span style="color:#e6db74">&#34;Rerun&#34;</span>)
-</span></span><span style="display:flex;"><span>                (<span style="color:#e6db74">&#34;l&#34;</span> rspec-run-last-failed <span style="color:#e6db74">&#34;Run last failed&#34;</span>))
+</span></span><span style="display:flex;"><span>                 <span style="color:#e6db74">&#34;REPL&#34;</span>
+</span></span><span style="display:flex;"><span>                 ((<span style="color:#e6db74">&#34;I&#34;</span> inf-ruby <span style="color:#e6db74">&#34;inf-ruby&#34;</span>))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>               <span style="color:#e6db74">&#34;REPL&#34;</span>
-</span></span><span style="display:flex;"><span>               ((<span style="color:#e6db74">&#34;I&#34;</span> inf-ruby <span style="color:#e6db74">&#34;inf-ruby&#34;</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>               <span style="color:#e6db74">&#34;Other&#34;</span>
-</span></span><span style="display:flex;"><span>               ((<span style="color:#e6db74">&#34;j&#34;</span> dumb-jump-go <span style="color:#e6db74">&#34;Dumb Jump&#34;</span>)
-</span></span><span style="display:flex;"><span>                (<span style="color:#e6db74">&#34;o&#34;</span> origami-hydra/body <span style="color:#e6db74">&#34;Origami&#34;</span>)))))
+</span></span><span style="display:flex;"><span>                 <span style="color:#e6db74">&#34;Other&#34;</span>
+</span></span><span style="display:flex;"><span>                 ((<span style="color:#e6db74">&#34;j&#34;</span> dumb-jump-go       <span style="color:#e6db74">&#34;Dumb Jump&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (<span style="color:#e6db74">&#34;o&#34;</span> origami-hydra/body <span style="color:#e6db74">&#34;Origami&#34;</span>)))))
 </span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">eval</span> <span style="color:#f92672">`</span>(major-mode-hydra-define enh-ruby-mode (:separator <span style="color:#e6db74">&#34;-&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :title (<span style="color:#a6e22e">concat</span> (all-the-icons-alltheicon <span style="color:#e6db74">&#34;ruby-alt&#34;</span>) <span style="color:#e6db74">&#34; Ruby commands&#34;</span>))
 </span></span><span style="display:flex;"><span>             (<span style="color:#f92672">,@</span>heads)))
 </span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">eval</span> <span style="color:#f92672">`</span>(major-mode-hydra-define ruby-ts-mode (:separator <span style="color:#e6db74">&#34;-&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :title (<span style="color:#a6e22e">concat</span> (all-the-icons-alltheicon <span style="color:#e6db74">&#34;ruby-alt&#34;</span>) <span style="color:#e6db74">&#34; Ruby commands&#34;</span>))
@@ -3524,14 +3520,6 @@ Ruby を使ってる時にコメント部分はクォートの外以外では自
 <tr>
 <td>e</td>
 <td>end を挿入する。使ったことない気がする</td>
-</tr>
-<tr>
-<td>i</td>
-<td>lsp-ui-imenu の表示</td>
-</tr>
-<tr>
-<td>f</td>
-<td>Flycheck の通知されるエラーのリスト表示</td>
 </tr>
 <tr>
 <td>s</td>
@@ -3556,6 +3544,10 @@ Ruby を使ってる時にコメント部分はクォートの外以外では自
 <tr>
 <td>j</td>
 <td>dumb-jump で関数定義にジャンプ。dumb-jump 用の hydra があるから要らなさそう</td>
+</tr>
+<tr>
+<td>o</td>
+<td>Origami 用の Hydra を起動する</td>
 </tr>
 </tbody>
 </table>
@@ -5980,19 +5972,19 @@ deprecation なのか deprecated なのか分からなくなるやつ。</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1729743595"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1729743595"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1729743595"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1729743595"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1729743595"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1729743595"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1729743962"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1729743962"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1729743962"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1729743962"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1729743962"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1729743962"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1729743595"></script>
-    <script src="/.emacs.d/js/learn.js?1729743595"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1729743595"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1729743962"></script>
+    <script src="/.emacs.d/js/learn.js?1729743962"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1729743962"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1729743595"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1729743962"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
