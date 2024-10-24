@@ -25,14 +25,19 @@
       ("d" counsel-projectile-find-dir "Find Dir")
       ("r" projectile-recentf "Recentf"))
 
-     "Jump"
-     (("l" projectile-edit-dir-locals "dir-locals"))
-
      "Edit"
      (("R" projectile-replace "Replace"))
 
+     "Jump"
+     (("l" projectile-edit-dir-locals "dir-locals"))
+
+     "Search"
+     (("g" counsel-projectile-rg "RipGrep(Counsel)")
+      ("G" projectile-ripgrep    "RipGrep"))
+
      "Other"
      (("p" (counsel-projectile-switch-project 'counsel-projectile-switch-project-action-vc) "Switch Project")
+      ("c" counsel-projectile-org-capture "Capture")
       ("SPC" my/project-hydra "Hydra")))))
 
 (defun my/project-hydra ()
@@ -85,3 +90,6 @@
   "Find the .rubocop.yml"
   (interactive)
   (my/projectile-goto-file ".rubocop.yml"))
+
+(setopt counsel-projectile-org-capture-templates
+        '(("t" "[${name}] Task" entry (file+headline "${root}/notes.org" "Tasks") "* TODO %?\n%u\n%a")))

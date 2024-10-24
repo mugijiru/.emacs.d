@@ -82,31 +82,39 @@ counsel-projectile はいくつかの絞り込み処理を提供してくれて�
       ("d" counsel-projectile-find-dir "Find Dir")
       ("r" projectile-recentf "Recentf"))
 
-     "Jump"
-     (("l" projectile-edit-dir-locals "dir-locals"))
-
      "Edit"
      (("R" projectile-replace "Replace"))
 
+     "Jump"
+     (("l" projectile-edit-dir-locals "dir-locals"))
+
+     "Search"
+     (("g" counsel-projectile-rg "RipGrep(Counsel)")
+      ("G" projectile-ripgrep    "RipGrep"))
+
      "Other"
      (("p" (counsel-projectile-switch-project 'counsel-projectile-switch-project-action-vc) "Switch Project")
+      ("c" counsel-projectile-org-capture "Capture")
       ("SPC" my/project-hydra "Hydra")))))
 ```
 
-| Key | 効果                    |
-|-----|-----------------------|
+| Key | 効果                           |
+|-----|------------------------------|
 | f   | プロジェクト内のファイルを検索 |
 | d   | プロジェクト内のフォルダを検索 |
 | r   | プロジェクト内で最近触ったファイルのリスト表示 |
-| l   | .dir-locals.el を開く   |
-| E   | 一括置換する            |
-| p   | 別のプロジェクトに切り替え |
+| R   | 一括置換する                   |
+| l   | .dir-locals.el を開く          |
+| g   | RipGrep で検索し counsel で結果を表示 |
+| G   | RipGrep で検索し rg.el のバッファで結果を表示 |
+| p   | 別のプロジェクトに切り替え     |
+| c   | プロジェクト用に org-capture でメモを取る |
 | SPC | プロジェクト固有の Hydra を起動する |
 
 -   `projectile-find-implementation-or-test`
 -   `projectile-replace-regexp`
 
-あたりも使えるようにするともしかしたら便利かもしれない。あとは `counsel-projectile-grep` とかの類かな〜
+あたりも使えるようにするともしかしたら便利かもしれない。
 
 
 ## projectile 用のコマンド/ヘルパー関数 {#projectile-用のコマンド-ヘルパー関数}
@@ -212,4 +220,14 @@ Ruby 書いていたら大体 rubocop も使うので追加
   "Find the .rubocop.yml"
   (interactive)
   (my/projectile-goto-file ".rubocop.yml"))
+```
+
+
+## counsel-projectile-org-capture の設定 {#counsel-projectile-org-capture-の設定}
+
+デフォルト設定は妙なインデントが入って来るのでそれを取り除いているだけ
+
+```emacs-lisp
+(setopt counsel-projectile-org-capture-templates
+        '(("t" "[${name}] Task" entry (file+headline "${root}/notes.org" "Tasks") "* TODO %?\n%u\n%a")))
 ```
