@@ -1,6 +1,7 @@
 (setq el-get-lock-package-versions
       '((pg :checksum "2c32085cee56afb751599941221d52c5e7df3908")
         (yard-mode :checksum "de1701753a64544c3376b015805f3661136d8038")
+        (engine-mode :checksum "e7f317f1b284853b6df4dfd37ab7715b248e0ebd")
         (mistty :checksum "ad05710b565105b4024edbce1aadfb820f9df91e")
         (key-chord :checksum "fc75b1451759121601110da8ddfadcf5156318af")
         (minimap :checksum "8bc9a65825925a7c58b83ad389f07a93f22d60f3")

@@ -5,8 +5,9 @@ draft = false
 
 ## 概要 {#概要}
 
-Google と連携するパッケージとして
-[google-this]({{< relref "google-this" >}}) と [google-translate]({{< relref "google-translate" >}}) を入れているが、どっちも Google を使うので1つの Hydra にまとめていた方が扱いやすいと思って統合している
+Google と連携するパッケージとして [google-this]({{< relref "google-this" >}}) と [google-translate]({{< relref "google-translate" >}}) を入れているが、どっちも Google を使うので1つの Hydra にまとめていた方が扱いやすいと思って統合している。
+
+それと本来 Google とは関係ないけど [engine-mode]({{< relref "engine-mode" >}}) の検索もとりあえずここに放り込んでいる。どこに置くか考えるのが面倒だったので。
 
 
 ## キーバインド {#キーバインド}
@@ -32,6 +33,13 @@ Google と連携するパッケージとして
      (("t" google-translate-at-point         "EN => JP")
       ("T" google-translate-at-point-reverse "JP => EN"))
 
+     "Other"
+     (("1" engine/search-rurema-3.1 "Rurema 3.1")
+      ("2" engine/search-rurema-3.2 "Rurema 3.2")
+      ("3" engine/search-rurema-3.3 "Rurema 3.3")
+      ("0" engine/search-rails      "Rails")
+      ("S" engine/search-rspec      "RSpec"))
+
      "Tool"
      (("W" google-this-forecast "Weather")))))
 ```
@@ -47,6 +55,11 @@ Google と連携するパッケージとして
 | e   | コンパイルバッファのエラーで検索するっぽい |
 | L   | 1件目を開く                           |
 | i   | 1件目の URL を挿入する                |
-| t   | 英語→日本語翻訳                       |
-| T   | 日本語→英語翻訳                       |
+| t   | 英語→日本語翻訳                      |
+| T   | 日本語→英語翻訳                      |
+| 1   | るりまサーチ(Ruby 3.1)                |
+| 2   | るりまサーチ(Ruby 3.2)                |
+| 3   | るりまサーチ(Ruby 3.3)                |
+| 0   | APIDock(Rails)                        |
+| S   | APIDock(RSpec)                        |
 | w   | 天気を調べる                          |
