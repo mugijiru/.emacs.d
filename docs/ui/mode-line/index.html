@@ -12,20 +12,20 @@
     <title>mode-line :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1729743024" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1729743024" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1729743024" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1729743024" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1729743024" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1729743024" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1729743024" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1729743024" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1729743024" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1729743024" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1729743322" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1729743322" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1729743322" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1729743322" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1729743322" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1729743322" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1729743322" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1729743322" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1729743322" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1729743322" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1729743024"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1729743322"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1729743024"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1729743024"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1729743322"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1729743322"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1729743024"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1729743322"></script>
 
     
   </div>
@@ -3398,10 +3398,10 @@
 </span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;neotree-mode-hook</span> <span style="color:#a6e22e">#&#39;</span>hide-mode-line-mode)
 </span></span></code></pre></div><p>レシピは自前で用意している</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name emacs-hide-mode-line
-</span></span><span style="display:flex;"><span>  :type github
-</span></span><span style="display:flex;"><span>  :description <span style="color:#e6db74">&#34;minor mode that hides/masks your modeline.&#34;</span>
-</span></span><span style="display:flex;"><span>  :pkgname <span style="color:#e6db74">&#34;hlissner/emacs-hide-mode-line&#34;</span>
-</span></span><span style="display:flex;"><span>  :minimum-emacs-version (<span style="color:#ae81ff">24</span> <span style="color:#ae81ff">4</span>))
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;minor mode that hides/masks your modeline.&#34;</span>
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;hlissner/emacs-hide-mode-line&#34;</span>
+</span></span><span style="display:flex;"><span>       :minimum-emacs-version (<span style="color:#ae81ff">24</span> <span style="color:#ae81ff">4</span>))
 </span></span></code></pre></div><p>他にも mode-line の表示が不要なモードとかってありそうだけど特に思い付かないから今のところ Neotree 専用になっている。</p>
 <h2 id="日時を-mode-line-では表示しない">日時を mode-line では表示しない</h2>
 <p>今だと i3bar に時計が表示されていていつもそれを見るので
@@ -3511,7 +3511,16 @@ doom-modeline で見た目をカッコよくしているのでこっちに設定
 </span></span><span style="display:flex;"><span><span style="color:#75715e">;; if nerd-icons are not installed, run M-x nerd-icons-install-fonts</span>
 </span></span></code></pre></div><p><code>if nerd-icons are not installed, run M-x nerd-icons-install-fonts</code> と書いているように
 nerd-icons をインストールしていない場合は <code>nerd-icons-install-fonts</code> を叩いてインストールしてあげないといけない</p>
-<h3 id="その他">その他</h3>
+<p>また dired でもアイコン表示をしたいので <code>nerd-icons-dired</code> を導入している。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name nerd-icons-dired
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/rainstormstudio/nerd-icons-dired&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Use nerd-icons for Dired&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;rainstormstudio/nerd-icons-dired&#34;</span>
+</span></span><span style="display:flex;"><span>       :depends (nerd-icons))
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle nerd-icons-dired)
+</span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;dired-mode-hook</span> <span style="color:#a6e22e">#&#39;</span>nerd-icons-dired-mode)
+</span></span></code></pre></div><h3 id="その他">その他</h3>
 <p><code>doom-modeline-github</code> を t にしたら GitHub の通知数も表示されるらしいがちょっと試しに t にしているけどどうも表示されない。</p>
 <p>あとはメジャーモード名はアイコンの方があるから消したいな。
 <code>doom-modeline-def-modeline</code> で自分用に作れば良さそうな雰囲気はある</p>
@@ -5886,19 +5895,19 @@ nerd-icons をインストールしていない場合は <code>nerd-icons-instal
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1729743024"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1729743024"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1729743024"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1729743024"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1729743024"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1729743024"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1729743322"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1729743322"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1729743322"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1729743322"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1729743322"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1729743322"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1729743024"></script>
-    <script src="/.emacs.d/js/learn.js?1729743024"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1729743024"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1729743322"></script>
+    <script src="/.emacs.d/js/learn.js?1729743322"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1729743322"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1729743024"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1729743322"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
