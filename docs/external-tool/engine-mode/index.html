@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>todoist :: 麦汁&#39;s Emacs Config</title>
+    <title>engine-mode :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1729743023" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/external-tool/todoist/">
+  <body class="" data-url="/.emacs.d/external-tool/engine-mode/">
     <nav id="sidebar" class="">
 
 
@@ -2317,7 +2317,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/external-tool/engine-mode/" title="engine-mode" class="dd-item ">
+      <li data-nav-id="/.emacs.d/external-tool/engine-mode/" title="engine-mode" class="dd-item active">
         <a href="/.emacs.d/external-tool/engine-mode/">
         engine-mode
         
@@ -2569,7 +2569,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/external-tool/todoist/" title="todoist" class="dd-item active">
+      <li data-nav-id="/.emacs.d/external-tool/todoist/" title="todoist" class="dd-item ">
         <a href="/.emacs.d/external-tool/todoist/">
         todoist
         
@@ -3329,7 +3329,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/external-tool/'>外部連携ツール設定</a> > todoist
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/external-tool/'>外部連携ツール設定</a> > engine-mode
           
         
           
@@ -3344,9 +3344,13 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#概要">概要</a></li>
-    <li><a href="#インストール">インストール</a></li>
-    <li><a href="#設定">設定</a></li>
+    <li><a href="#概要">概要</a>
+      <ul>
+        <li><a href="#インストール">インストール</a></li>
+        <li><a href="#エンジン定義">エンジン定義</a></li>
+        <li><a href="#その他の設定">その他の設定</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -3364,7 +3368,7 @@
           
             <h1>
               
-              todoist
+              engine-mode
             </h1>
           
 
@@ -3372,22 +3376,42 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/abrochard/emacs-todoist">emacs-todoist</a> は Todo 管理サービスである Todoist と連携するためのパッケージ。
-org-mode に依存している。</p>
-<h2 id="インストール">インストール</h2>
-<p>まず以下のレシピを用意している</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name emacs-todoist
-</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/abrochard/emacs-todoist&#34;</span>
-</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Emacs interface to Todoist&#34;</span>
+<p><a href="https://github.com/hrs/engine-mode">engine-mode</a> は Emacs から様々な検索エンジンで検索するためのパッケージ
+<code>defengine</code> というマクロを使ってエンジンを定義することで対応する検索エンジンを簡単に増やすことができる。デフォルトでは特に何も定義されていないので自分で定義していく必要がある</p>
+<h3 id="インストール">インストール</h3>
+<p>engine-mode は el-get でレシピを提供されていないので自前で用意している。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name engine-mode
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/hrs/engine-mode&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Define and query search engines&#34;</span>
 </span></span><span style="display:flex;"><span>       :type github
-</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;abrochard/emacs-todoist&#34;</span>)
-</span></span></code></pre></div><p>その上で以下のようにしてインストールしている</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle emacs-todoist)
-</span></span></code></pre></div><h2 id="設定">設定</h2>
-<p>API キーを設定するので別ファイルに分離している。いつか .authinfo.gpg に移動しようかなと思っているけどそもそも最近 TODOIST 使ってない……</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;todoist</span>
-</span></span><span style="display:flex;"><span>  (setq todoist-token (<span style="color:#a6e22e">funcall</span> (<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;todoist.com&#34;</span> :max <span style="color:#ae81ff">1</span>)) :secret))))
-</span></span></code></pre></div>
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;hrs/engine-mode&#34;</span>)
+</span></span></code></pre></div><p>そしてこれを <code>el-get-bundle</code> でインストールして有効化している。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle engine-mode)
+</span></span><span style="display:flex;"><span>(engine-mode <span style="color:#ae81ff">1</span>)
+</span></span></code></pre></div><h3 id="エンジン定義">エンジン定義</h3>
+<p>前述したように自分で定義しないと何も検索ができない。とりあえず今は Ruby/Rails 系を少しだけ定義している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defengine rurema-3.1
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;https://rurema.clear-code.com/version:3.1/query:%s/&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(defengine rurema-3.2
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;https://rurema.clear-code.com/version:3.2/query:%s/&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(defengine rurema-3.3
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;https://rurema.clear-code.com/version:3.3/query:%s/&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(defengine rails
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;https://apidock.com/rails/search?query=%s&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(defengine rspec
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;https://apidock.com/rspec/search?query=%s&#34;</span>)
+</span></span></code></pre></div><h3 id="その他の設定">その他の設定</h3>
+<p>engine-mode はデフォルトだと <code>browse-url-browser-function</code> で結果を開くが
+Emacs 内で完結する方が便利かもと思って今は <a href="/.emacs.d/external-tool/emacs-w3m/">emacs-w3m</a> で検索結果ページを開くようにしている</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setopt engine/browser-function <span style="color:#e6db74">&#39;w3m-browse-url</span>)
+</span></span></code></pre></div><p>なお検索結果は大体 emacs-w3m だとそのままではコンテンツ本体の前にメニューなどが表示されて邪魔くさいので
+w3m-filter の機能を使ってそれらの表示を抑制している。</p>
+<p>そのあたりは <a href="/.emacs.d/external-tool/emacs-w3m/">emacs-w3m の設定ページ</a> に記述している</p>
+
 
 <footer class="footline">
 	
@@ -5044,6 +5068,26 @@ org-mode に依存している。</p>
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
                 
                 
 
@@ -5235,26 +5279,6 @@ org-mode に依存している。</p>
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -5743,10 +5767,10 @@ org-mode に依存している。</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/external-tool/rg/" title="rg"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/external-tool/emacs-w3m/" title="emacs-w3m"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/external-tool/twmode/" title="twmode" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/external-tool/esa/" title="esa.el" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

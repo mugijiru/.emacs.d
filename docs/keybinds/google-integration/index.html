@@ -12,20 +12,20 @@
     <title>Google 連携 :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1729571666" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1729571666" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1729571666" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1729571666" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1729571666" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1729571666" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1729571666" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1729571666" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1729571666" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1729571666" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1729743023" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1729743023" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1729743023" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1729743023" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1729743023" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1729743023" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1729743023" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1729743023" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1729743023" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1729743023" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1729571666"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1729743023"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1729571666"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1729571666"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1729743023"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1729743023"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1729571666"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1729743023"></script>
 
     
   </div>
@@ -2317,6 +2317,27 @@
  
   
     
+      <li data-nav-id="/.emacs.d/external-tool/engine-mode/" title="engine-mode" class="dd-item ">
+        <a href="/.emacs.d/external-tool/engine-mode/">
+        engine-mode
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
       <li data-nav-id="/.emacs.d/external-tool/esa/" title="esa.el" class="dd-item ">
         <a href="/.emacs.d/external-tool/esa/">
         esa.el
@@ -3350,8 +3371,8 @@
 
 
 <h2 id="概要">概要</h2>
-<p>Google と連携するパッケージとして
-<a href="/.emacs.d/external-tool/google-this/">google-this</a> と <a href="/.emacs.d/external-tool/google-translate/">google-translate</a> を入れているが、どっちも Google を使うので1つの Hydra にまとめていた方が扱いやすいと思って統合している</p>
+<p>Google と連携するパッケージとして <a href="/.emacs.d/external-tool/google-this/">google-this</a> と <a href="/.emacs.d/external-tool/google-translate/">google-translate</a> を入れているが、どっちも Google を使うので1つの Hydra にまとめていた方が扱いやすいと思って統合している。</p>
+<p>それと本来 Google とは関係ないけど <a href="/.emacs.d/external-tool/engine-mode/">engine-mode</a> の検索もとりあえずここに放り込んでいる。どこに置くか考えるのが面倒だったので。</p>
 <h2 id="キーバインド">キーバインド</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
 </span></span><span style="display:flex;"><span>  (pretty-hydra-define google-pretty-hydra
@@ -3372,6 +3393,13 @@
 </span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Translate&#34;</span>
 </span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;t&#34;</span> google-translate-at-point         <span style="color:#e6db74">&#34;EN =&gt; JP&#34;</span>)
 </span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;T&#34;</span> google-translate-at-point-reverse <span style="color:#e6db74">&#34;JP =&gt; EN&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Other&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;1&#34;</span> engine/search-rurema-3.1 <span style="color:#e6db74">&#34;Rurema 3.1&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;2&#34;</span> engine/search-rurema-3.2 <span style="color:#e6db74">&#34;Rurema 3.2&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;3&#34;</span> engine/search-rurema-3.3 <span style="color:#e6db74">&#34;Rurema 3.3&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;0&#34;</span> engine/search-rails      <span style="color:#e6db74">&#34;Rails&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;S&#34;</span> engine/search-rspec      <span style="color:#e6db74">&#34;RSpec&#34;</span>))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Tool&#34;</span>
 </span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;W&#34;</span> google-this-forecast <span style="color:#e6db74">&#34;Weather&#34;</span>)))))
@@ -3426,6 +3454,26 @@
 <tr>
 <td>T</td>
 <td>日本語→英語翻訳</td>
+</tr>
+<tr>
+<td>1</td>
+<td>るりまサーチ(Ruby 3.1)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>るりまサーチ(Ruby 3.2)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>るりまサーチ(Ruby 3.3)</td>
+</tr>
+<tr>
+<td>0</td>
+<td>APIDock(Rails)</td>
+</tr>
+<tr>
+<td>S</td>
+<td>APIDock(RSpec)</td>
 </tr>
 <tr>
 <td>w</td>
@@ -5326,6 +5374,22 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -5783,19 +5847,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1729571666"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1729571666"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1729571666"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1729571666"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1729571666"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1729571666"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1729743023"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1729743023"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1729743023"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1729743023"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1729743023"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1729743023"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1729571666"></script>
-    <script src="/.emacs.d/js/learn.js?1729571666"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1729571666"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1729743023"></script>
+    <script src="/.emacs.d/js/learn.js?1729743023"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1729743023"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1729571666"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1729743023"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
