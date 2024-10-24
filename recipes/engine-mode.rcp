@@ -1,0 +1,5 @@
+(:name engine-mode
+       :website "https://github.com/hrs/engine-mode"
+       :description "Define and query search engines"
+       :type github
+       :pkgname "hrs/engine-mode")

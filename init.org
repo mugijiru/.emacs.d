@@ -1175,19 +1175,21 @@ key-chord に全部置き換えできるかもしれない。
 (which-key-mode 1)
     #+end_src
 ** Google 連携
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: google-integration
-   :END:
+:PROPERTIES:
+:EXPORT_FILE_NAME: google-integration
+:END:
 *** 概要
-    Google と連携するパッケージとして
-    [[*google-this][google-this]] と [[*google-translate][google-translate]] を入れているが、
-    どっちも Google を使うので1つの Hydra にまとめていた方が扱いやすいと思って統合している
-*** キーバインド
-    :PROPERTIES:
-    :ID:       9bc2fbe8-ba67-4865-ad8a-eb08e9418614
-    :END:
+Google と連携するパッケージとして [[*google-this][google-this]] と [[*google-translate][google-translate]] を入れているが、
+どっちも Google を使うので1つの Hydra にまとめていた方が扱いやすいと思って統合している。
 
-    #+begin_src emacs-lisp :tangle inits/21-google-hydra.el
+それと本来 Google とは関係ないけど [[id:6cdbff91-2870-4630-962c-6a35906a9db7][engine-mode]] の検索もとりあえずここに放り込んでいる。
+どこに置くか考えるのが面倒だったので。
+*** キーバインド
+:PROPERTIES:
+:ID:       9bc2fbe8-ba67-4865-ad8a-eb08e9418614
+:END:
+
+#+begin_src emacs-lisp :tangle inits/21-google-hydra.el
 (with-eval-after-load 'pretty-hydra
   (pretty-hydra-define google-pretty-hydra
     (:foreign-keys warn :title "Google" :quit-key "q" :color blue :separator "-")
@@ -1208,29 +1210,42 @@ key-chord に全部置き換えできるかもしれない。
      (("t" google-translate-at-point         "EN => JP")
       ("T" google-translate-at-point-reverse "JP => EN"))
 
+     "Other"
+     (("1" engine/search-rurema-3.1 "Rurema 3.1")
+      ("2" engine/search-rurema-3.2 "Rurema 3.2")
+      ("3" engine/search-rurema-3.3 "Rurema 3.3")
+      ("0" engine/search-rails      "Rails")
+      ("S" engine/search-rspec      "RSpec"))
+
      "Tool"
      (("W" google-this-forecast "Weather")))))
-    #+end_src
+#+end_src
 
-    |-----+-----------------------------------------------------------------------|
-    | Key | 効果                                                                  |
-    |-----+-----------------------------------------------------------------------|
-    | SPC | 確認なしで検索                                                        |
-    | RET | どの範囲の情報で検索するか自動判定して検索                            |
-    | w   | 近くの単語で検索                                                      |
-    | l   | その行の内容で検索。エラーの検索とかに良いかも                        |
-    | s   | シンボルで検索。使うのは Emacs Lisp の関数調べる時ぐらいか?           |
-    | r   | リージョンで検索。まあリージョン選択してたら RET とかでいいんだけども |
-    | e   | コンパイルバッファのエラーで検索するっぽい                            |
-    |-----+-----------------------------------------------------------------------|
-    | L   | 1件目を開く                                                           |
-    | i   | 1件目の URL を挿入する                                                |
-    |-----+-----------------------------------------------------------------------|
-    | t   | 英語→日本語翻訳                                                       |
-    | T   | 日本語→英語翻訳                                                       |
-    |-----+-----------------------------------------------------------------------|
-    | w   | 天気を調べる                                                          |
-    |-----+-----------------------------------------------------------------------|
+|-----+-----------------------------------------------------------------------|
+| Key | 効果                                                                  |
+|-----+-----------------------------------------------------------------------|
+| SPC | 確認なしで検索                                                        |
+| RET | どの範囲の情報で検索するか自動判定して検索                            |
+| w   | 近くの単語で検索                                                      |
+| l   | その行の内容で検索。エラーの検索とかに良いかも                        |
+| s   | シンボルで検索。使うのは Emacs Lisp の関数調べる時ぐらいか?           |
+| r   | リージョンで検索。まあリージョン選択してたら RET とかでいいんだけども |
+| e   | コンパイルバッファのエラーで検索するっぽい                            |
+|-----+-----------------------------------------------------------------------|
+| L   | 1件目を開く                                                           |
+| i   | 1件目の URL を挿入する                                                |
+|-----+-----------------------------------------------------------------------|
+| t   | 英語→日本語翻訳                                                      |
+| T   | 日本語→英語翻訳                                                      |
+|-----+-----------------------------------------------------------------------|
+| 1   | るりまサーチ(Ruby 3.1)                                                |
+| 2   | るりまサーチ(Ruby 3.2)                                                |
+| 3   | るりまサーチ(Ruby 3.3)                                                |
+| 0   | APIDock(Rails)                                                        |
+| S   | APIDock(RSpec)                                                        |
+|-----+-----------------------------------------------------------------------|
+| w   | 天気を調べる                                                          |
+|-----+-----------------------------------------------------------------------|
 
 ** グローバルキーバインド
 :PROPERTIES:
@@ -6915,7 +6930,9 @@ hook で動作する中身が変更できて便利。
 
 - [[id:448067b2-3791-4cf7-b3bc-016efb494569][blamer.el]] :: 最後のコミット情報を表示してくれる便利なやつ
 - [[id:3bede284-b3db-45ad-9f49-ce31ec47ce6f][calibredb]] :: 電子書籍管理ツール [[https://calibre-ebook.com/][Calibre]] のデータを Emacs から操作するためのパッケージ
+- [[id:69f9c15d-05f9-4efc-8ff8-5cacccce75a8][emacs-kibela]] :: Emacs から Kibela に記事を書いたりするためのパッケージ
 - [[*emacs-w3m][emacs-w3m]] :: 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ
+- [[id:6cdbff91-2870-4630-962c-6a35906a9db7][engine-mode]] :: Emacs からささっと色々な検索エンジンで検索できるようにするパッケージ
 - [[*esa.el][esa.el]] :: [[https://esa.io/][esa.io]] と連携するためのパッケージ
 - [[*forge][forge]] :: [[*magit][magit]] と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ
 - [[id:ce83e9b8-ef96-4a27-bcfb-a2b437ca5a28][git-messenger]] :: 現在の行の最終コミットの情報を表示してくれるパッケージ
@@ -7087,28 +7104,10 @@ el-get 本体にはレシピがないので自前で用意。
      "Other"
      (("M" calibredb-metadata-hydra/body "Metadata")))))
 #+end_src
-** emacs-w3m
-:PROPERTIES:
-:EXPORT_FILE_NAME: emacs-w3m
-:END:
-*** 概要
-w3m という和製のテキストブラウザを Emacs 上で使うためのパッケージ。
-つまり w3m 自体もインストールしておく必要がある。
-*** インストール
-:PROPERTIES:
-:ID:       7d4a6c89-00a9-42db-8745-a1654014b230
-:END:
-emacs-w3m は el-get で入れられるので以下のようにして入れている
-
-#+begin_src emacs-lisp :tangle inits/70-w3m.el
-(el-get-bundle emacs-w3m)
-#+end_src
-
-今はこれだけしか入れてない。
-昔の設定はどこかにいっちゃった……。
 ** emacs-kibela
 :PROPERTIES:
 :EXPORT_FILE_NAME: emacs-kibela
+:ID:       69f9c15d-05f9-4efc-8ff8-5cacccce75a8
 :END:
 *** 概要
 [[https://github.com/mugijiru/emacs-kibela/][emacs-kibela]] は Emacs で Kibela を操作するための自作のパッケージ。
@@ -7196,6 +7195,120 @@ kibela-note-show でバッファを開く"
    (("x" kibela-switch-team "Swtich"))))
 #+end_src
 
+** emacs-w3m
+:PROPERTIES:
+:EXPORT_FILE_NAME: emacs-w3m
+:ID:       e141c62d-fbdc-4129-ac55-043366632213
+:END:
+*** 概要
+w3m という和製のテキストブラウザを Emacs 上で使うためのパッケージ。
+つまり w3m 自体もインストールしておく必要がある。
+*** インストール
+:PROPERTIES:
+:ID:       7d4a6c89-00a9-42db-8745-a1654014b230
+:END:
+emacs-w3m は el-get で入れられるので以下のようにして入れている
+
+#+begin_src emacs-lisp :tangle inits/70-w3m.el
+(el-get-bundle emacs-w3m)
+#+end_src
+*** フィルタ
+emacs-w3m には w3m-filter という機能がある。
+これは表示するページの HTML を加工してくれるフィルタで
+つまり余計な要素を削除したり、別の HTML 要素に置き換えたりできる機能。
+
+一般的なウェブページはテキストブラウザで見ると画面上部の方にメニュー類が大量に表示されて
+コンテンツ本体に辿り着くまでにたくさんスクロールするハメになるので
+そういう部分をさくっと消したりするのに使うと便利。
+
+といいつつ、私が今のところ自前で設定しているのは [[https://rurema.clear-code.com/][るりまサーチ]] の検索結果ページぐらいですが。
+
+まず、るりまサーチの検索結果ページのフィルタを関数として定義している
+その際 ~w3m-filter-delete-regions~ や ~w3m-filter-replace-regex~ といった便利なマクロが用意されているので
+それを活用している
+
+以下はいくつかのメニュー項目を非表示にするフィルタである
+
+#+begin_src emacs-lisp :tangle inits/70-w3m.el
+(defun w3m-filter-rurema (url)
+  (goto-char (point-min))
+  (let ((deletions '(("<div class=\"description\">" . "</div>")
+                     ("<div class=\"version-select\">" . "</div>")
+                     ("<div class=\"topic-path\">" . "</div>")
+                     ("<div class=\"drilldown list-box\">" . "</div>"))))
+    (dolist (deletion deletions)
+      (let ((begin-regex (car deletion))
+            (end-regex (cdr deletion)))
+        (w3m-filter-delete-regions url begin-regex end-regex)))))
+#+end_src
+
+そしてそれを以下のように ~w3m-filter-configuration~ に追加している
+
+#+begin_src emacs-lisp :tangle inits/70-w3m.el
+(add-to-list 'w3m-filter-configuration
+             '(t
+               ("Strip Rurema menus" "Rurema のメニュー等を取り除きます")
+               "\\`https://rurema\\.clear-code\\.com/"
+               w3m-filter-rurema))
+#+end_src
+** engine-mode
+:PROPERTIES:
+:EXPORT_FILE_NAME: engine-mode
+:ID:       6cdbff91-2870-4630-962c-6a35906a9db7
+:END:
+*** 概要
+[[https://github.com/hrs/engine-mode][engine-mode]] は Emacs から様々な検索エンジンで検索するためのパッケージ
+~defengine~ というマクロを使ってエンジンを定義することで対応する検索エンジンを簡単に増やすことができる。
+デフォルトでは特に何も定義されていないので自分で定義していく必要がある
+**** インストール
+engine-mode は el-get でレシピを提供されていないので自前で用意している。
+
+#+begin_src emacs-lisp :tangle recipes/engine-mode.rcp
+(:name engine-mode
+       :website "https://github.com/hrs/engine-mode"
+       :description "Define and query search engines"
+       :type github
+       :pkgname "hrs/engine-mode")
+#+end_src
+
+そしてこれを ~el-get-bundle~ でインストールして有効化している。
+
+#+begin_src emacs-lisp :tangle inits/20-engine.el
+(el-get-bundle engine-mode)
+(engine-mode 1)
+#+end_src
+**** エンジン定義
+前述したように自分で定義しないと何も検索ができない。
+とりあえず今は Ruby/Rails 系を少しだけ定義している
+
+#+begin_src emacs-lisp :tangle inits/20-engine.el
+(defengine rurema-3.1
+  "https://rurema.clear-code.com/version:3.1/query:%s/")
+
+(defengine rurema-3.2
+  "https://rurema.clear-code.com/version:3.2/query:%s/")
+
+(defengine rurema-3.3
+  "https://rurema.clear-code.com/version:3.3/query:%s/")
+
+(defengine rails
+  "https://apidock.com/rails/search?query=%s")
+
+(defengine rspec
+  "https://apidock.com/rspec/search?query=%s")
+#+end_src
+**** その他の設定
+engine-mode はデフォルトだと ~browse-url-browser-function~ で結果を開くが
+Emacs 内で完結する方が便利かもと思って今は [[id:e141c62d-fbdc-4129-ac55-043366632213][emacs-w3m]] で検索結果ページを開くようにしている
+
+#+begin_src emacs-lisp :tangle inits/20-engine.el
+(setopt engine/browser-function 'w3m-browse-url)
+#+end_src
+
+なお検索結果は大体 emacs-w3m だとそのままではコンテンツ本体の前にメニューなどが表示されて邪魔くさいので
+w3m-filter の機能を使ってそれらの表示を抑制している。
+
+そのあたりは [[id:e141c62d-fbdc-4129-ac55-043366632213][emacs-w3m の設定ページ]] に記述している
 ** esa.el
 :PROPERTIES:
 :EXPORT_FILE_NAME: esa.el
@@ -7409,23 +7522,23 @@ default だと
 - ~google-translate-default-source-language~
 - ~google-translate-default-target-language~
 
-  を設定しておいて
+を設定しておいて
 
-  - ~M-x google-translate-at-point~ :: source → target の翻訳
-  - ~M-x google-translate-at-point-reverse~ :: target → source の翻訳
+- ~M-x google-translate-at-point~ :: source → target の翻訳
+- ~M-x google-translate-at-point-reverse~ :: target → source の翻訳
 
-    という使い方をする。
+という使い方をする。
 
-    smooth だと翻訳の source, target を複数設定して多言語対応ができるが、
-    英語以外を翻訳することがないので smooth でなくていいかという感じで default を採用している。
+smooth だと翻訳の source, target を複数設定して多言語対応ができるが、
+英語以外を翻訳することがないので smooth でなくていいかという感じで default を採用している。
 
-    #+begin_src emacs-lisp :tangle inits/20-google-translate.el
+#+begin_src emacs-lisp :tangle inits/20-google-translate.el
 (with-eval-after-load 'popup
   (require 'google-translate-default-ui))
-    #+end_src
+#+end_src
 
-    popup.el に依存しているのでそれが読まれた後に require しないといけなかった。
-    というわけで with-eval-after-load で対応している。
+popup.el に依存しているのでそれが読まれた後に require しないといけなかった。
+というわけで with-eval-after-load で対応している。
 *** カスタム変数の設定
 :PROPERTIES:
 :ID:       d6e4b548-00d6-4fc6-99eb-dacabe9b158c
@@ -7446,12 +7559,12 @@ default だと
 - google-translate-translation-to-kill-ring :: 翻訳後に RET などで翻訳結果を kill-ring にコピー
 - google-translate-output-destination :: 翻訳結果の表示
 
-  日本語を母国語としていて英語はからきしという人間なので当然英日変換されるように設定していて
-  あとは変換結果の表示方法は popup でツールチップ表示するようにしている。
+日本語を母国語としていて英語はからきしという人間なので当然英日変換されるように設定していて
+あとは変換結果の表示方法は popup でツールチップ表示するようにしている。
 
-  ツールチップの表示だけでなくそれを文書に入れたい時は
-  ツールチップが出ている時に Enter でも叩けば kill-ring に入るので
-  そこから yank している
+ツールチップの表示だけでなくそれを文書に入れたい時は
+ツールチップが出ている時に Enter でも叩けば kill-ring に入るので
+そこから yank している
 *** キーバインド
 [[*google-this][google-this]] と同じく Google 連係機能なので
 [[*Google 連携][キーバインド > Google 連携]] でまとめて Hydra を定義している
