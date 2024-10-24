@@ -12,7 +12,7 @@
       <link>https://mugijiru.github.io/.emacs.d/editing/editing-base/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://mugijiru.github.io/.emacs.d/editing/editing-base/</guid>
-      <description>概要 なんか編集周りの基本的な設定としてまとめられていたのでここに置いとく&#xA;インデントにタブを使わないようにする 最近の開発スタイルではインデントにタブを混ぜないスタイルなのでそのように設定している。&#xA;(setq indent-tabs-mode nil) 以前に開いていた位置を保存/復元する save-place-mode を有効にしていると以前に開いたことのあるファイルの、開いていた場所を覚えておいてくれる。&#xA;一度閉じてまた開いた時なんかに再度移動しないで済んで地味に便利なやつ&#xA;(save-place-mode 1) </description>
+      <description>概要 なんか編集周りの基本的な設定としてまとめられていたのでここに置いとく&#xA;インデントにタブを使わないようにする 最近の開発スタイルではインデントにタブを混ぜないスタイルなのでそのように設定している。&#xA;(setq indent-tabs-mode nil) 以前に開いていた位置を保存/復元する save-place-mode を有効にしていると以前に開いたことのあるファイルの、開いていた場所を覚えておいてくれる。&#xA;一度閉じてまた開いた時なんかに再度移動しないで済んで地味に便利なやつ&#xA;(save-place-mode 1) 今いる関数名を表示 今どこの関数にいるかわかりやすくするため which-function-mode を利用している&#xA;(which-function-mode 1) </description>
     </item>
     <item>
       <title>auto-insert</title>
