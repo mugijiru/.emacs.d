@@ -182,25 +182,21 @@ Ruby を使ってる時にコメント部分はクォートの外以外では自
 ```emacs-lisp
 (with-eval-after-load 'major-mode-hydra
   (let ((heads '("Ruby"
-               (("{" enh-ruby-toggle-block "Toggle block")
-                ("e" enh-ruby-insert-end "Insert end"))
+                 (("{" enh-ruby-toggle-block "Toggle block")
+                  ("e" enh-ruby-insert-end   "Insert end"))
 
-               "LSP"
-               (("i" lsp-ui-imenu "Imenu")
-                ("f" lsp-ui-flycheck-list "Flycheck list"))
+                 "RSpec"
+                 (("s" rspec-verify          "Run associated spec")
+                  ("m" rspec-verify-method   "Run method spec")
+                  ("r" rspec-rerun           "Rerun")
+                  ("l" rspec-run-last-failed "Run last failed"))
 
-               "RSpec"
-               (("s" rspec-verify "Run associated spec")
-                ("m" rspec-verify-method "Run method spec")
-                ("r" rspec-rerun "Rerun")
-                ("l" rspec-run-last-failed "Run last failed"))
+                 "REPL"
+                 (("I" inf-ruby "inf-ruby"))
 
-               "REPL"
-               (("I" inf-ruby "inf-ruby"))
-
-               "Other"
-               (("j" dumb-jump-go "Dumb Jump")
-                ("o" origami-hydra/body "Origami")))))
+                 "Other"
+                 (("j" dumb-jump-go       "Dumb Jump")
+                  ("o" origami-hydra/body "Origami")))))
     (eval `(major-mode-hydra-define enh-ruby-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-alltheicon "ruby-alt") " Ruby commands"))
              (,@heads)))
     (eval `(major-mode-hydra-define ruby-ts-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-alltheicon "ruby-alt") " Ruby commands"))
@@ -211,14 +207,13 @@ Ruby を使ってる時にコメント部分はクォートの外以外では自
 |-----|---------------------------------------------------|
 | {   | do 〜 end と { 〜 } を切り替える                    |
 | e   | end を挿入する。使ったことない気がする              |
-| i   | lsp-ui-imenu の表示                                 |
-| f   | Flycheck の通知されるエラーのリスト表示             |
 | s   | 関連するテストまたは特定のテストの実行              |
 | m   | カーソル位置のコードのテストを探して実行する        |
 | r   | 最後に実行したテストを再実行                        |
 | l   | 最後に失敗したテストの再実行                        |
 | I   | REPL バッファで Ruby を実行する                     |
 | j   | dumb-jump で関数定義にジャンプ。dumb-jump 用の hydra があるから要らなさそう |
+| o   | Origami 用の Hydra を起動する                       |
 
 
 ### snippets {#snippets}

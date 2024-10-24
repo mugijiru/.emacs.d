@@ -34,25 +34,21 @@
 
 (with-eval-after-load 'major-mode-hydra
   (let ((heads '("Ruby"
-               (("{" enh-ruby-toggle-block "Toggle block")
-                ("e" enh-ruby-insert-end "Insert end"))
+                 (("{" enh-ruby-toggle-block "Toggle block")
+                  ("e" enh-ruby-insert-end   "Insert end"))
 
-               "LSP"
-               (("i" lsp-ui-imenu "Imenu")
-                ("f" lsp-ui-flycheck-list "Flycheck list"))
+                 "RSpec"
+                 (("s" rspec-verify          "Run associated spec")
+                  ("m" rspec-verify-method   "Run method spec")
+                  ("r" rspec-rerun           "Rerun")
+                  ("l" rspec-run-last-failed "Run last failed"))
 
-               "RSpec"
-               (("s" rspec-verify "Run associated spec")
-                ("m" rspec-verify-method "Run method spec")
-                ("r" rspec-rerun "Rerun")
-                ("l" rspec-run-last-failed "Run last failed"))
+                 "REPL"
+                 (("I" inf-ruby "inf-ruby"))
 
-               "REPL"
-               (("I" inf-ruby "inf-ruby"))
-
-               "Other"
-               (("j" dumb-jump-go "Dumb Jump")
-                ("o" origami-hydra/body "Origami")))))
+                 "Other"
+                 (("j" dumb-jump-go       "Dumb Jump")
+                  ("o" origami-hydra/body "Origami")))))
     (eval `(major-mode-hydra-define enh-ruby-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-alltheicon "ruby-alt") " Ruby commands"))
              (,@heads)))
     (eval `(major-mode-hydra-define ruby-ts-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-alltheicon "ruby-alt") " Ruby commands"))
