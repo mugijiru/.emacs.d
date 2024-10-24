@@ -1,0 +1,5 @@
+(:name rails-i18n
+       :website "https://github.com/otavioschwanck/rails-i18n.el"
+       :description "Search rails i18n using emacs and insert in your code."
+       :type github
+       :pkgname "otavioschwanck/rails-i18n.el")
