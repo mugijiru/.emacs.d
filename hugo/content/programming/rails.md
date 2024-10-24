@@ -13,9 +13,20 @@ Rails 開発関係だけど Ruby 開発とはちょっと違う設定をここ�
 テンプレートエンジンには haml を使っているので [haml-mode](https://github.com/nex3/haml-mode) を入れていてファイルナビゲーションには [projectile]({{< relref "projectile" >}}) の拡張である [projectile-rails](https://github.com/asok/projectile-rails) を利用している。
 
 ```emacs-lisp
+(el-get-bundle rails-i18n)
 (el-get-bundle haml-mode)
 (el-get-bundle projectile-rails)
 (projectile-rails-global-mode 1)
+```
+
+`rails-i18n` はレシピは自前で用意している。
+
+```emacs-lisp
+(:name rails-i18n
+       :website "https://github.com/otavioschwanck/rails-i18n.el"
+       :description "Search rails i18n using emacs and insert in your code."
+       :type github
+       :pkgname "otavioschwanck/rails-i18n.el")
 ```
 
 

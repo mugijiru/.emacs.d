@@ -5739,9 +5739,20 @@ Rails 開発関係だけど Ruby 開発とはちょっと違う設定をここ�
 ファイルナビゲーションには [[*projectile][projectile]] の拡張である [[https://github.com/asok/projectile-rails][projectile-rails]] を利用している。
 
 #+begin_src emacs-lisp :tangle inits/41-rails.el
+(el-get-bundle rails-i18n)
 (el-get-bundle haml-mode)
 (el-get-bundle projectile-rails)
 (projectile-rails-global-mode 1)
+#+end_src
+
+~rails-i18n~ はレシピは自前で用意している。
+
+#+begin_src emacs-lisp :tangle recipes/rails-i18n.rcp
+(:name rails-i18n
+       :website "https://github.com/otavioschwanck/rails-i18n.el"
+       :description "Search rails i18n using emacs and insert in your code."
+       :type github
+       :pkgname "otavioschwanck/rails-i18n.el")
 #+end_src
 
 *** projectile-rails 用のコマンド追加
