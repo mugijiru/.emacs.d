@@ -1514,25 +1514,29 @@ y だけで済ませられるようにしている。
     :PROPERTIES:
     :ID:       1a290daf-689f-492d-817e-a72f15910bcb
     :END:
-    最近の開発スタイルではインデントにタブを混ぜないスタイルなので
-    そのように設定している。
+最近の開発スタイルではインデントにタブを混ぜないスタイルなので
+そのように設定している。
 
-    #+begin_src emacs-lisp :tangle inits/80-edit.el
+#+begin_src emacs-lisp :tangle inits/80-edit.el
 (setq indent-tabs-mode nil)
-    #+end_src
-
+#+end_src
 *** 以前に開いていた位置を保存/復元する
     :PROPERTIES:
     :ID:       1cfc66ed-98a7-4483-8b99-921c2c6a33f7
     :END:
-    save-place-mode を有効にしていると
-    以前に開いたことのあるファイルの、開いていた場所を覚えておいてくれる。
+save-place-mode を有効にしていると
+以前に開いたことのあるファイルの、開いていた場所を覚えておいてくれる。
 
-    一度閉じてまた開いた時なんかに再度移動しないで済んで地味に便利なやつ
+一度閉じてまた開いた時なんかに再度移動しないで済んで地味に便利なやつ
 
-    #+begin_src emacs-lisp :tangle inits/80-edit.el
+#+begin_src emacs-lisp :tangle inits/80-edit.el
 (save-place-mode 1)
-    #+end_src
+#+end_src
+*** 今いる関数名を表示
+今どこの関数にいるかわかりやすくするため ~which-function-mode~ を利用している
+#+begin_src emacs-lisp :tangle inits/80-edit.el
+(which-function-mode 1)
+#+end_src
 ** auto-insert
    :PROPERTIES:
    :EXPORT_FILE_NAME: auto-insert
@@ -6181,7 +6185,6 @@ hook 用の関数で補完などの機能を有効にしている
   (origami-mode 1)
   (company-mode 1)
   (subword-mode 1)
-  (which-function-mode 1)
   (copilot-mode 1)
   (yard-mode 1)
   (eldoc-mode 1)
@@ -6193,7 +6196,6 @@ hook 用の関数で補完などの機能を有効にしている
 - コード折り畳み用に origami を有効化
 - 補完用に company-mode を有効化
 - CamelCase の単語区切りを有効にするため subword-mode を有効化
-- 今いる関数名が mode-line に出てると便利げなので which-function-mode を有効化
 - Copilot もあると便利なので有効化
 - yard 形式のコメントも良い感じにハイライトされると便利なので yard-mode を有効化
   - 更に eldoc-mode を有効にしていると yard コメントを書く時に文法を minibuffer に表示してくれるのでこちらも有効化
@@ -6407,7 +6409,6 @@ scss を使う上で hook を使って色々有効化したりしている。
   (origami-mode 1)
   (company-mode 1)
   (subword-mode 1)
-  (which-function-mode 1)
   (copilot-mode 1)
   (display-line-numbers-mode 1)
 
@@ -6426,7 +6427,6 @@ scss を使う上で hook を使って色々有効化したりしている。
   - lsp-ui とかより後に設定しないと上書きされるので、それらより後に設定している
   - 設定の書き方の悪さのせいな気もする
 - company-mode の有効化。これがないと補完できなくて厳しいよね
-- which-function-mode が有効だと今編集している css が分かりやすくて便利
 - display-line-numbers-mode の有効化。行数表示も欲しいよね。巨大ファイルだと邪魔だけど巨大にしなきゃいい
 - [[*rainbow-mode][rainbow-mode]] の有効化
 *** カラーコード→ CSS Variable の置き換え
@@ -6679,7 +6679,6 @@ hook を使って有効化している
   (origami-mode 1)
   (company-mode 1)
   (subword-mode 1)
-  (which-function-mode 1)
   (copilot-mode 1)
   (turn-on-smartparens-strict-mode)
   (display-line-numbers-mode t)

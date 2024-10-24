@@ -27,3 +27,12 @@ save-place-mode を有効にしていると以前に開いたことのあるフ�
 ```emacs-lisp
 (save-place-mode 1)
 ```
+
+
+## 今いる関数名を表示 {#今いる関数名を表示}
+
+今どこの関数にいるかわかりやすくするため `which-function-mode` を利用している
+
+```emacs-lisp
+(which-function-mode 1)
+```
