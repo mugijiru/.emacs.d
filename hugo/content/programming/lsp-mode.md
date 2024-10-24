@@ -60,22 +60,30 @@ window 基準で表示するように設定を変更している
 (with-eval-after-load 'pretty-hydra
   (pretty-hydra-define pretty-hydra-lsp (:separator "-" :color blue :foreign-keys warn :title "LSP" :quit-key "q")
     ("Find"
-     (("x" lsp-find-definition "definition")
-      ("r" lsp-find-references "references")
-      ("t" lsp-find-type-definition "type")
-      ("i" lsp-find-implementation "implementation")
-      ("D" lsp-find-declaration "declaration"))
+     (("t" lsp-find-type-definition "type")
+      ("x" lsp-find-definition      "definition")
+      ("r" lsp-find-references      "references")
+      ("i" lsp-find-implementation  "implementation")
+      ("d" lsp-find-declaration     "declaration"))
 
      "Code"
-     (("m" lsp-rename "Rename"))
+     (("m" lsp-rename        "rename")
+      ("f" lsp-format-buffer "format buffer")
+      ("F" lsp-format-region "format region"))
 
      "UI"
-     (("I" lsp-ui-imenu "imenu")
-      ("X" lsp-ui-peek-find-definitions "def")
-      ("R" lsp-ui-peek-find-references "refs"))
+     (("M" lsp-ui-imenu                      "imenu")
+      ("V" lsp-ui-flycheck-list              "flycheck list")
+      ("X" lsp-ui-peek-find-definitions      "def")
+      ("R" lsp-ui-peek-find-references       "refs")
+      ("I" lsp-ui-peek-find-implementations  "implementation")
+      ("S" lsp-ui-peek-find-workspace-symbol "symbol"))
 
-     "Other"
-     (("W" lsp-workspace-restart "Restart")))))
+     "Server"
+     (("W" lsp-workspace-restart  "Restart")
+      ("Q" lsp-workspace-shutdown "Shutdown")
+      ("d" lsp-describe-session   "Session")
+      ("D" lsp-disconnect         "Disconnect")))))
 ```
 
 
