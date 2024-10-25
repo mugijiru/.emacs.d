@@ -33,7 +33,7 @@
         (company-posframe :checksum "18d6641bba72cba3c00018cee737ea8b454f64a8")
         (nerd-icons :checksum "c3d641d8e14bd11b5f98372da34ee5313636e363")
         (copilot :checksum "b5878d6a8c741138b5efbf4fe1c594f3fd69dbdd")
-        (editorconfig :checksum "648f0cf9aeb72db77b252832a58367332b7bc055")
+        (editorconfig :checksum "c707d8d0f19d61fdb20acba3f27674c3d4e470d6")
         (emacs-sqlite3-api :checksum "a601c9965e4d0178705a64b7d4f88709ca9aea66")
         (org-roam :checksum "2a630476b3d49d7106f582e7f62b515c62430714")
         (emacs-openai :checksum "04296c91c1517fb3d8a6297a1073684039773dae")
