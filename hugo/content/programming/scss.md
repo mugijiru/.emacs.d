@@ -86,6 +86,9 @@ scss を使う上で hook を使って色々有効化したりしている。
 
   (origami-mode 1)
   (company-mode 1)
+  (setq-local company-backends
+              '((company-capf company-keywords company-dabbrev-code) company-yasnippet company-files company-dabbrev))
+
   (subword-mode 1)
   (copilot-mode 1)
   (display-line-numbers-mode 1)
@@ -105,6 +108,7 @@ scss を使う上で hook を使って色々有効化したりしている。
     -   lsp-ui とかより後に設定しないと上書きされるので、それらより後に設定している
     -   設定の書き方の悪さのせいな気もする
 -   company-mode の有効化。これがないと補完できなくて厳しいよね
+    -   それと backends の指定もしている
 -   display-line-numbers-mode の有効化。行数表示も欲しいよね。巨大ファイルだと邪魔だけど巨大にしなきゃいい
 -   [rainbow-mode](#rainbow-mode) の有効化
 

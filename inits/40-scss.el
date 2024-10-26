@@ -32,6 +32,9 @@ See URL `http://stylelint.io/'."
 
   (origami-mode 1)
   (company-mode 1)
+  (setq-local company-backends
+              '((company-capf company-keywords company-dabbrev-code) company-yasnippet company-files company-dabbrev))
+
   (subword-mode 1)
   (copilot-mode 1)
   (display-line-numbers-mode 1)
