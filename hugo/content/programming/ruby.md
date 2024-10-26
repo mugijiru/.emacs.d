@@ -138,22 +138,24 @@ hook 用の関数で補完などの機能を有効にしている
 (defun my/ruby-modes-hook ()
   (origami-mode 1)
   (company-mode 1)
+  (setq-local company-backends
+              '(company-capf (company-keywords company-dabbrev-code) company-yasnippet company-files company-dabbrev))
+
   (subword-mode 1)
   (copilot-mode 1)
   (yard-mode 1)
   (eldoc-mode 1)
-  (add-hook 'before-save-hook #'lsp-format-buffer nil 'local)
   (turn-on-smartparens-strict-mode)
   (display-line-numbers-mode 1))
 ```
 
 -   コード折り畳み用に origami を有効化
 -   補完用に company-mode を有効化
+    -   backend も余計なものが入らないようにカスタマイズしている
 -   CamelCase の単語区切りを有効にするため subword-mode を有効化
 -   Copilot もあると便利なので有効化
 -   yard 形式のコメントも良い感じにハイライトされると便利なので yard-mode を有効化
     -   更に eldoc-mode を有効にしていると yard コメントを書く時に文法を minibuffer に表示してくれるのでこちらも有効化
--   lsp-mode の自動フォーマットを保存時に実行するようにしている
 -   開きカッコと閉じカッコの組み合わせがズレないように smartparens-strict-mode を有効にしている
 -   行番号も表示されている方が便利なので display-line-numbers-mode を有効にしている
 -   lsp-mode に関してはプロジェクト毎にごにゃごにゃしたいので `.dir-locals.el` に任せる方針にしている
@@ -210,9 +212,9 @@ Ruby を使ってる時にコメント部分はクォートの外以外では自
                  "Other"
                  (("j" dumb-jump-go       "Dumb Jump")
                   ("o" origami-hydra/body "Origami")))))
-    (eval `(major-mode-hydra-define enh-ruby-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-alltheicon "ruby-alt") " Ruby commands"))
+    (eval `(major-mode-hydra-define enh-ruby-mode (:separator "-" :quit-key "q" :title (concat (nerd-icons-mdicon "nf-md-language_ruby") " Ruby commands"))
              (,@heads)))
-    (eval `(major-mode-hydra-define ruby-ts-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-alltheicon "ruby-alt") " Ruby commands"))
+    (eval `(major-mode-hydra-define ruby-ts-mode  (:separator "-" :quit-key "q" :title (concat (nerd-icons-mdicon "nf-md-language_ruby") " Ruby commands"))
              (,@heads)))))
 ```
 
