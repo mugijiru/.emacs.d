@@ -1722,16 +1722,9 @@ save-place-mode を有効にしていると
 ;; (add-hook 'prog-mode-hook 'copilot-mode)
 #+end_src
 
-また、そのままだと enh-ruby-mode では有効にならないので
-~copilot-major-mode-alist~ に突っ込んでいる。
-なおこの設定は [[https://github.com/zerolfx/copilot.el#programming-language-detection][公式の README にも書かれている]]
-
-#+begin_src emacs-lisp :tangle inits/30-copilot.el
-(with-eval-after-load 'copilot
-  (add-to-list 'copilot-major-mode-alist '("enh-ruby" . "ruby")))
-#+end_src
-
-あと何故か忘れたけど inline preview を無効にするような設定を入れている
+あとは company-mode と組み合わせてもそれなりに動くようにするため
+inline preview を無効にするような設定を入れている。
+なおこの設定は[[https://github.com/copilot-emacs/copilot.el#example-for-spacemacs][公式の README の中のコード]]を使っている
 
 #+begin_src emacs-lisp :tangle inits/30-copilot.el
 (with-eval-after-load 'company
@@ -1744,7 +1737,10 @@ save-place-mode を有効にしていると
 #+begin_src emacs-lisp :tangle inits/30-copilot.el
 (with-eval-after-load 'copilot
   (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
-  (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion))
+  (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion)
+  (define-key copilot-completion-map (kbd "M-f") 'copilot-accept-completion-by-word)
+  (define-key copilot-completion-map (kbd "M-n") 'copilot-next-completion)
+  (define-key copilot-completion-map (kbd "M-p") 'copilot-previous-completion))
 #+end_src
 *** warning 非表示
 大きいファイルが開かれると
