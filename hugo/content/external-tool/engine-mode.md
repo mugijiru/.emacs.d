@@ -31,7 +31,8 @@ engine-mode は el-get でレシピを提供されていないので自前で用
 
 ### エンジン定義 {#エンジン定義}
 
-前述したように自分で定義しないと何も検索ができない。とりあえず今は Ruby/Rails 系を少しだけ定義している
+前述したように自分で定義しないと何も検索ができない。とりあえず今は Ruby/Rails 系を少しだけ定義した上で
+GitHub のコード検索もできるようにしている
 
 ```emacs-lisp
 (defengine rurema-3.1
@@ -48,6 +49,10 @@ engine-mode は el-get でレシピを提供されていないので自前で用
 
 (defengine rspec
   "https://apidock.com/rspec/search?query=%s")
+
+(defengine github-code
+  "https://github.com/search?type=code&q=%s"
+  :browser 'browse-url-default-browser)
 ```
 
 

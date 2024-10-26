@@ -19,11 +19,12 @@
       ("T" google-translate-at-point-reverse "JP => EN"))
 
      "Other"
-     (("1" engine/search-rurema-3.1 "Rurema 3.1")
-      ("2" engine/search-rurema-3.2 "Rurema 3.2")
-      ("3" engine/search-rurema-3.3 "Rurema 3.3")
-      ("0" engine/search-rails      "Rails")
-      ("S" engine/search-rspec      "RSpec"))
+     (("1" engine/search-rurema-3.1  "Rurema 3.1")
+      ("2" engine/search-rurema-3.2  "Rurema 3.2")
+      ("3" engine/search-rurema-3.3  "Rurema 3.3")
+      ("0" engine/search-rails       "Rails")
+      ("S" engine/search-rspec       "RSpec")
+      ("g" engine/search-github-code "GitHub code"))
 
      "Tool"
      (("W" google-this-forecast "Weather")))))
