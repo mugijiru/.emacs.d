@@ -795,7 +795,7 @@
 	"title": "rg",
 	"tags": [],
 	"description": "",
-	"content": "概要 rg.el は ripgrep を使って高速に検索するためのパッケージ。\nインストール el-get 本体にはレシピがないので自前で用意している。\n(:name rg :website \u0026#34;https://github.com/dajva/rg.el\u0026#34; :description \u0026#34;Use ripgrep in Emacs.\u0026#34; :type github :depends (transient wgrep) :pkgname \u0026#34;dajva/rg.el\u0026#34;) そしてそれを el-get-bundle でインストール\n(el-get-bundle rg) "
+	"content": "概要 rg.el は ripgrep を使って高速に検索するためのパッケージ。\nインストール el-get 本体にはレシピがないので自前で用意している。\n(:name rg :website \u0026#34;https://github.com/dajva/rg.el\u0026#34; :description \u0026#34;Use ripgrep in Emacs.\u0026#34; :type github :depends (transient wgrep) :pkgname \u0026#34;dajva/rg.el\u0026#34;) そしてそれを el-get-bundle でインストール\n(el-get-bundle rg) キーバインド transient があるのでほぼ用意する必要はないけど最初の起動メニューのキーが覚えられないのでそれだけ定義している\n(with-eval-after-load \u0026#39;major-mode-hydra (major-mode-hydra-define rg-mode (:separator \u0026#34;-\u0026#34; :quit-key \u0026#34;q\u0026#34; :title \u0026#34;rg-mode\u0026#34;) (\u0026#34;General\u0026#34; ((\u0026#34;m\u0026#34; rg-menu \u0026#34;Transient menu\u0026#34;))))) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/programming/rspec-mode/",

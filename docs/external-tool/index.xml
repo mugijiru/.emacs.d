@@ -117,7 +117,7 @@
       <link>https://mugijiru.github.io/.emacs.d/external-tool/rg/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://mugijiru.github.io/.emacs.d/external-tool/rg/</guid>
-      <description>概要 rg.el は ripgrep を使って高速に検索するためのパッケージ。&#xA;インストール el-get 本体にはレシピがないので自前で用意している。&#xA;(:name rg :website &amp;#34;https://github.com/dajva/rg.el&amp;#34; :description &amp;#34;Use ripgrep in Emacs.&amp;#34; :type github :depends (transient wgrep) :pkgname &amp;#34;dajva/rg.el&amp;#34;) そしてそれを el-get-bundle でインストール&#xA;(el-get-bundle rg) </description>
+      <description>概要 rg.el は ripgrep を使って高速に検索するためのパッケージ。&#xA;インストール el-get 本体にはレシピがないので自前で用意している。&#xA;(:name rg :website &amp;#34;https://github.com/dajva/rg.el&amp;#34; :description &amp;#34;Use ripgrep in Emacs.&amp;#34; :type github :depends (transient wgrep) :pkgname &amp;#34;dajva/rg.el&amp;#34;) そしてそれを el-get-bundle でインストール&#xA;(el-get-bundle rg) キーバインド transient があるのでほぼ用意する必要はないけど最初の起動メニューのキーが覚えられないのでそれだけ定義している&#xA;(with-eval-after-load &amp;#39;major-mode-hydra (major-mode-hydra-define rg-mode (:separator &amp;#34;-&amp;#34; :quit-key &amp;#34;q&amp;#34; :title &amp;#34;rg-mode&amp;#34;) (&amp;#34;General&amp;#34; ((&amp;#34;m&amp;#34; rg-menu &amp;#34;Transient menu&amp;#34;))))) </description>
     </item>
     <item>
       <title>todoist</title>
