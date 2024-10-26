@@ -26,3 +26,15 @@ el-get 本体にはレシピがないので自前で用意している。
 ```emacs-lisp
 (el-get-bundle rg)
 ```
+
+
+## キーバインド {#キーバインド}
+
+transient があるのでほぼ用意する必要はないけど最初の起動メニューのキーが覚えられないのでそれだけ定義している
+
+```emacs-lisp
+(with-eval-after-load 'major-mode-hydra
+  (major-mode-hydra-define rg-mode (:separator "-" :quit-key "q" :title "rg-mode")
+    ("General"
+     (("m" rg-menu "Transient menu")))))
+```
