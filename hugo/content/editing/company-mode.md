@@ -34,7 +34,7 @@ draft = false
 それと最近追加された company-show-quick-access を有効にしている。
 
 ```emacs-lisp
-(custom-set-variables '(company-show-quick-access t))
+(setopt company-show-quick-access t)
 ```
 
 これを有効にしていると補完候補の末尾に quick access key が表示されて例えば4行目なら 4 とか表示されるのでそこで M-4 とか入力すると4行目が選択されて便利
@@ -47,8 +47,7 @@ draft = false
 ```emacs-lisp
 (el-get-bundle company-quickhelp)
 
-(custom-set-variables
- '(company-quickhelp-color-background "#323445"))
+(setopt company-quickhelp-color-background "#323445")
 
 (with-eval-after-load 'pos-tip
   (company-quickhelp-mode 1))

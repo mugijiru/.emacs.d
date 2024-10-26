@@ -1540,141 +1540,134 @@ save-place-mode を有効にしていると
 (which-function-mode 1)
 #+end_src
 ** auto-insert
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: auto-insert
-   :END:
-
+:PROPERTIES:
+:EXPORT_FILE_NAME: auto-insert
+:END:
 *** 概要
-    auto-insert はファイルを新規作成した時に
-    ファイル名に応じたテンプレートを挿入する機能。
+auto-insert はファイルを新規作成した時に
+ファイル名に応じたテンプレートを挿入する機能。
 
-    Emacs が標準で持ってるライブラリなのでインストールは不要
+Emacs が標準で持ってるライブラリなのでインストールは不要
 
 *** 設定
-    :PROPERTIES:
-    :ID:       29c98f44-e98c-4ea4-8b73-49e0f5de85af
-    :END:
+:PROPERTIES:
+:ID:       29c98f44-e98c-4ea4-8b73-49e0f5de85af
+:END:
 
-    Emacs の設定は .emacs.d の中に閉じ込めたいので
-    auto-insert のテンプレートも ~~/.emacs.d/insert~ に閉じ込める設定にしている。
+Emacs の設定は .emacs.d の中に閉じ込めたいので
+auto-insert のテンプレートも ~~/.emacs.d/insert~ に閉じ込める設定にしている。
 
-    #+begin_src emacs-lisp :tangle inits/20-auto-insert.el
+#+begin_src emacs-lisp :tangle inits/20-auto-insert.el
 (custom-set-variables '(auto-insert-directory "~/.emacs.d/insert/"))
-    #+end_src
+#+end_src
 
 *** 有効化
-    :PROPERTIES:
-    :ID:       f13b855d-d661-45a7-ba08-26e68bd73b46
-    :END:
+:PROPERTIES:
+:ID:       f13b855d-d661-45a7-ba08-26e68bd73b46
+:END:
 
-    あとは単に有効化している。
+あとは単に有効化している。
 
-    #+begin_src emacs-lisp :tangle inits/20-auto-insert.el
+#+begin_src emacs-lisp :tangle inits/20-auto-insert.el
 (auto-insert-mode 1)
-    #+end_src
+#+end_src
 
 *** 他の設定
+ファイル名を正規表現でマッチさせてテンプレートが選択されるので
+各言語やフレームワーク毎に設定を入れることにしている。
 
-    ファイル名を正規表現でマッチさせてテンプレートが選択されるので
-    各言語やフレームワーク毎に設定を入れることにしている。
-
-    実際は今のところ inits/41-vue.el でのみ追加設定を入れている。
+実際は今のところ inits/41-vue.el でのみ追加設定を入れている。
 
 ** company-mode
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: company-mode
-   :ID:       37d1ec70-38b5-451f-8873-d59aa1103c9a
-   :END:
+:PROPERTIES:
+:EXPORT_FILE_NAME: company-mode
+:ID:       37d1ec70-38b5-451f-8873-d59aa1103c9a
+:END:
 *** 概要
-    [[https://github.com/company-mode/company-mode][company-mode]] は Emacs での補完機能を提供してくれるパッケージです。
-    プラグイン式に拡張しやすいのが特徴っぽい。
+[[https://github.com/company-mode/company-mode][company-mode]] は Emacs での補完機能を提供してくれるパッケージです。
+プラグイン式に拡張しやすいのが特徴っぽい。
 *** インストール
-    :PROPERTIES:
-    :ID:       c212e7d9-f4ad-4295-83a5-8f422fea865c
-    :END:
+:PROPERTIES:
+:ID:       c212e7d9-f4ad-4295-83a5-8f422fea865c
+:END:
 
-    いつも透り el-get から入れている
+いつも透り el-get から入れている
 
-    #+begin_src emacs-lisp :tangle inits/30-company.el
+#+begin_src emacs-lisp :tangle inits/30-company.el
 (el-get-bundle company-mode)
-    #+end_src
-
+#+end_src
 *** 設定
-    :PROPERTIES:
-    :ID:       1579dd35-33e3-4103-8f4c-3b2fb4a13a7a
-    :END:
+:PROPERTIES:
+:ID:       1579dd35-33e3-4103-8f4c-3b2fb4a13a7a
+:END:
 
-    ほとんど設定は入れていない。
-    有効な時に ~C-s~ を入力すると検索ができる程度。
+ほとんど設定は入れていない。
+有効な時に ~C-s~ を入力すると検索ができる程度。
 
-    というのも最近の更新で、デフォルトが結構好みのキーバインドになったので
-    キーバインドはこだわる必要がなくなったのと、
-    ついでに色もそこで好みな感じになってくれた。
+というのも最近の更新で、デフォルトが結構好みのキーバインドになったので
+キーバインドはこだわる必要がなくなったのと、
+ついでに色もそこで好みな感じになってくれた。
 
-    というわけで設定は以下のようにとてもシンプル。
+というわけで設定は以下のようにとてもシンプル。
 
-    #+begin_src emacs-lisp :tangle inits/30-company.el
+#+begin_src emacs-lisp :tangle inits/30-company.el
 (with-eval-after-load 'company
   ;; active
   (define-key company-active-map (kbd "C-s") 'company-search-candidates))
-    #+end_src
+#+end_src
 
-    それと最近追加された company-show-quick-access を有効にしている。
+それと最近追加された company-show-quick-access を有効にしている。
 
-    #+begin_src emacs-lisp :tangle inits/30-company.el
-(custom-set-variables '(company-show-quick-access t))
-    #+end_src
+#+begin_src emacs-lisp :tangle inits/30-company.el
+(setopt company-show-quick-access t)
+#+end_src
 
-    これを有効にしていると補完候補の末尾に quick access key が表示されて
-    例えば4行目なら 4 とか表示されるので
-    そこで M-4 とか入力すると4行目が選択されて便利
-
+これを有効にしていると補完候補の末尾に quick access key が表示されて
+例えば4行目なら 4 とか表示されるので
+そこで M-4 とか入力すると4行目が選択されて便利
 *** company-quickhelp
-    :PROPERTIES:
-    :ID:       ceee0f04-adbc-4eec-afae-75d9e0e3e3ae
-    :END:
-    [[https://github.com/company-mode/company-quickhelp][company-quickhelp]] は候補の補足情報が見れるようにするパッケージ。
-    それを入れて、文字色とかぶらないように背景色を設定している。
+:PROPERTIES:
+:ID:       ceee0f04-adbc-4eec-afae-75d9e0e3e3ae
+:END:
+[[https://github.com/company-mode/company-quickhelp][company-quickhelp]] は候補の補足情報が見れるようにするパッケージ。
+それを入れて、文字色とかぶらないように背景色を設定している。
 
-    #+begin_src emacs-lisp :tangle inits/30-company.el
+#+begin_src emacs-lisp :tangle inits/30-company.el
 (el-get-bundle company-quickhelp)
 
-(custom-set-variables
- '(company-quickhelp-color-background "#323445"))
+(setopt company-quickhelp-color-background "#323445")
 
 (with-eval-after-load 'pos-tip
   (company-quickhelp-mode 1))
-    #+end_src
+#+end_src
 
-    なおレシピは公式ではなかったので自前で用意している
+なおレシピは公式ではなかったので自前で用意している
 
-    #+begin_src emacs-lisp :tangle recipes/company-quickhelp.rcp
+#+begin_src emacs-lisp :tangle recipes/company-quickhelp.rcp
 (:name company-quickhelp
        :description "Adds documentation popup to completion candidates"
        :type github
        :pkgname "company-mode/company-quickhelp")
-    #+end_src
+#+end_src
 *** company-posframe
-    :PROPERTIES:
-    :ID:       7e68717f-16cf-4f81-bb53-ad277551de4c
-    :END:
-    [[https://github.com/tumashu/company-posframe][company-posframe]] は company-mode の表示に posframe を使うやつ。
+:PROPERTIES:
+:ID:       7e68717f-16cf-4f81-bb53-ad277551de4c
+:END:
+[[https://github.com/tumashu/company-posframe][company-posframe]] は company-mode の表示に posframe を使うやつ。
 
-    公式 README によると速度的にはまあ十分って感じなので速くはないのかなと。
-    ただ CJK languages と相性は良いっぽい。
-    ってことでとりあえず入れてみている
+公式 README によると速度的にはまあ十分って感じなので速くはないのかなと。
+ただ CJK languages と相性は良いっぽい。
+ってことでとりあえず入れてみている
 
-    #+begin_src emacs-lisp :tangle inits/30-company.el
+#+begin_src emacs-lisp :tangle inits/30-company.el
 (el-get-bundle company-posframe)
 (company-posframe-mode 1)
-    #+end_src
-
+#+end_src
 *** その他
-    グローバルでは有効にしていなくて
-    各モードで有効にするような hook を入れている。
+グローバルでは有効にしていなくて
+各モードで有効にするような hook を入れている。
 
-    グローバルで有効でもいい気がしている。
-
+グローバルで有効でもいい気がしている。
 ** copilot
 :PROPERTIES:
 :ID:       549f0212-8e33-4ab8-bc84-418dd45bf92d
