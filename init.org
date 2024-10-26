@@ -1211,11 +1211,12 @@ Google と連携するパッケージとして [[*google-this][google-this]] と
       ("T" google-translate-at-point-reverse "JP => EN"))
 
      "Other"
-     (("1" engine/search-rurema-3.1 "Rurema 3.1")
-      ("2" engine/search-rurema-3.2 "Rurema 3.2")
-      ("3" engine/search-rurema-3.3 "Rurema 3.3")
-      ("0" engine/search-rails      "Rails")
-      ("S" engine/search-rspec      "RSpec"))
+     (("1" engine/search-rurema-3.1  "Rurema 3.1")
+      ("2" engine/search-rurema-3.2  "Rurema 3.2")
+      ("3" engine/search-rurema-3.3  "Rurema 3.3")
+      ("0" engine/search-rails       "Rails")
+      ("S" engine/search-rspec       "RSpec")
+      ("g" engine/search-github-code "GitHub code"))
 
      "Tool"
      (("W" google-this-forecast "Weather")))))
@@ -1243,6 +1244,7 @@ Google と連携するパッケージとして [[*google-this][google-this]] と
 | 3   | るりまサーチ(Ruby 3.3)                                                |
 | 0   | APIDock(Rails)                                                        |
 | S   | APIDock(RSpec)                                                        |
+| g   | GitHub code search                                                    |
 |-----+-----------------------------------------------------------------------|
 | w   | 天気を調べる                                                          |
 |-----+-----------------------------------------------------------------------|
@@ -7340,7 +7342,8 @@ engine-mode は el-get でレシピを提供されていないので自前で用
 #+end_src
 **** エンジン定義
 前述したように自分で定義しないと何も検索ができない。
-とりあえず今は Ruby/Rails 系を少しだけ定義している
+とりあえず今は Ruby/Rails 系を少しだけ定義した上で
+GitHub のコード検索もできるようにしている
 
 #+begin_src emacs-lisp :tangle inits/20-engine.el
 (defengine rurema-3.1
@@ -7357,6 +7360,10 @@ engine-mode は el-get でレシピを提供されていないので自前で用
 
 (defengine rspec
   "https://apidock.com/rspec/search?query=%s")
+
+(defengine github-code
+  "https://github.com/search?type=code&q=%s"
+  :browser 'browse-url-default-browser)
 #+end_src
 **** その他の設定
 engine-mode はデフォルトだと ~browse-url-browser-function~ で結果を開くが

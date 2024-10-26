@@ -16,4 +16,8 @@
 (defengine rspec
   "https://apidock.com/rspec/search?query=%s")
 
+(defengine github-code
+  "https://github.com/search?type=code&q=%s"
+  :browser 'browse-url-default-browser)
+
 (setopt engine/browser-function 'w3m-browse-url)
