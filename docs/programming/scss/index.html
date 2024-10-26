@@ -12,20 +12,20 @@
     <title>scss :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1729927798" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1729927798" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1729927798" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1729927798" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1729927798" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1729927798" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1729927798" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1729927798" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1729927798" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1729927798" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1729928791" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1729928791" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1729928791" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1729928791" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1729928791" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1729928791" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1729928791" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1729928791" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1729928791" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1729928791" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1729927798"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1729928791"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1729927798"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1729927798"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1729928791"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1729928791"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1729927798"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1729928791"></script>
 
     
   </div>
@@ -3434,6 +3434,9 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  (origami-mode <span style="color:#ae81ff">1</span>)
 </span></span><span style="display:flex;"><span>  (company-mode <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>  (setq-local company-backends
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">&#39;</span>((company-capf company-keywords company-dabbrev-code) company-yasnippet company-files company-dabbrev))
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  (subword-mode <span style="color:#ae81ff">1</span>)
 </span></span><span style="display:flex;"><span>  (copilot-mode <span style="color:#ae81ff">1</span>)
 </span></span><span style="display:flex;"><span>  (display-line-numbers-mode <span style="color:#ae81ff">1</span>)
@@ -3463,7 +3466,11 @@
 <li>設定の書き方の悪さのせいな気もする</li>
 </ul>
 </li>
-<li>company-mode の有効化。これがないと補完できなくて厳しいよね</li>
+<li>company-mode の有効化。これがないと補完できなくて厳しいよね
+<ul>
+<li>それと backends の指定もしている</li>
+</ul>
+</li>
 <li>display-line-numbers-mode の有効化。行数表示も欲しいよね。巨大ファイルだと邪魔だけど巨大にしなきゃいい</li>
 <li><a href="#rainbow-mode">rainbow-mode</a> の有効化</li>
 </ul>
@@ -5866,19 +5873,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1729927798"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1729927798"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1729927798"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1729927798"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1729927798"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1729927798"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1729928791"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1729928791"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1729928791"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1729928791"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1729928791"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1729928791"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1729927798"></script>
-    <script src="/.emacs.d/js/learn.js?1729927798"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1729927798"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1729928791"></script>
+    <script src="/.emacs.d/js/learn.js?1729928791"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1729928791"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1729927798"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1729928791"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
