@@ -19,7 +19,7 @@
 
 (with-eval-after-load 'pretty-hydra
   (pretty-hydra-define
-    projectile-hydra (:separator "-" :title "Projectile" :foreign-key warn :quit-key "q" :exit t)
+    projectile-hydra (:separator "-" :title (concat (nerd-icons-mdicon "nf-md-rocket_launch") " Projectile") :foreign-key warn :quit-key "q" :exit t)
     ("Find"
      (("f" counsel-projectile-find-file "Find File")
       ("d" counsel-projectile-find-dir "Find Dir")
@@ -29,7 +29,10 @@
      (("R" projectile-replace "Replace"))
 
      "Jump"
-     (("l" projectile-edit-dir-locals "dir-locals"))
+     (("l" projectile-edit-dir-locals "dir-locals")
+      ("d" my/projectile-goto-docker-file "Dockerfile")
+      ("c" my/projectile-goto-circleci-config "CircleCI Config")
+      ("r" my/projectile-goto-rubocop-config ".rubocop.yml"))
 
      "Search"
      (("g" counsel-projectile-rg "RipGrep(Counsel)")
