@@ -48,15 +48,8 @@ draft = false
 ;; (add-hook 'prog-mode-hook 'copilot-mode)
 ```
 
-また、そのままだと enh-ruby-mode では有効にならないので
-`copilot-major-mode-alist` に突っ込んでいる。なおこの設定は [公式の README にも書かれている](https://github.com/zerolfx/copilot.el#programming-language-detection)
-
-```emacs-lisp
-(with-eval-after-load 'copilot
-  (add-to-list 'copilot-major-mode-alist '("enh-ruby" . "ruby")))
-```
-
-あと何故か忘れたけど inline preview を無効にするような設定を入れている
+あとは company-mode と組み合わせてもそれなりに動くようにするため
+inline preview を無効にするような設定を入れている。なおこの設定は[公式の README の中のコード](https://github.com/copilot-emacs/copilot.el#example-for-spacemacs)を使っている
 
 ```emacs-lisp
 (with-eval-after-load 'company
@@ -72,7 +65,10 @@ draft = false
 ```emacs-lisp
 (with-eval-after-load 'copilot
   (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
-  (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion))
+  (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion)
+  (define-key copilot-completion-map (kbd "M-f") 'copilot-accept-completion-by-word)
+  (define-key copilot-completion-map (kbd "M-n") 'copilot-next-completion)
+  (define-key copilot-completion-map (kbd "M-p") 'copilot-previous-completion))
 ```
 
 
