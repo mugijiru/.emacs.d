@@ -4821,7 +4821,7 @@ counsel-projectile はいくつかの絞り込み処理を提供してくれて�
 #+begin_src emacs-lisp :tangle inits/30-projectile.el
 (with-eval-after-load 'pretty-hydra
   (pretty-hydra-define
-    projectile-hydra (:separator "-" :title "Projectile" :foreign-key warn :quit-key "q" :exit t)
+    projectile-hydra (:separator "-" :title (concat (nerd-icons-mdicon "nf-md-rocket_launch") " Projectile") :foreign-key warn :quit-key "q" :exit t)
     ("Find"
      (("f" counsel-projectile-find-file "Find File")
       ("d" counsel-projectile-find-dir "Find Dir")
@@ -4831,7 +4831,10 @@ counsel-projectile はいくつかの絞り込み処理を提供してくれて�
      (("R" projectile-replace "Replace"))
 
      "Jump"
-     (("l" projectile-edit-dir-locals "dir-locals"))
+     (("l" projectile-edit-dir-locals "dir-locals")
+      ("d" my/projectile-goto-docker-file "Dockerfile")
+      ("c" my/projectile-goto-circleci-config "CircleCI Config")
+      ("r" my/projectile-goto-rubocop-config ".rubocop.yml"))
 
      "Search"
      (("g" counsel-projectile-rg "RipGrep(Counsel)")
@@ -4849,6 +4852,10 @@ counsel-projectile はいくつかの絞り込み処理を提供してくれて�
 | r   | プロジェクト内で最近触ったファイルのリスト表示 |
 | R   | 一括置換する                                   |
 | l   | .dir-locals.el を開く                          |
+| d   | Dockerfile を開く                              |
+| c   | .circieci/config.yml を開く                    |
+| r   | .rubocop.yml を開く                            |
+| d   | Dockerfile を開く                              |
 | g   | RipGrep で検索し counsel で結果を表示          |
 | G   | RipGrep で検索し rg.el のバッファで結果を表示  |
 | p   | 別のプロジェクトに切り替え                     |
