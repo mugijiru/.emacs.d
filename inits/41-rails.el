@@ -22,7 +22,8 @@
 (my/load-config "projectile-finders")
 
 (with-eval-after-load 'pretty-hydra
-  (pretty-hydra-define pretty-hydra-projectile-rails (:separator "-" :color blue :foreign-keys warn :title "Projectile Rails" :quit-key "q")
+  (pretty-hydra-define pretty-hydra-projectile-rails
+    (:separator "-" :color blue :foreign-keys warn :title (concat (nerd-icons-devicon "nf-dev-ruby_on_rails") "Projectile Rails") :quit-key "q")
     ("Current"
      (("M" projectile-rails-find-current-model      "Current model")
       ("V" projectile-rails-find-current-view       "Current view")
@@ -60,13 +61,14 @@
       ("t" projectile-rails-find-locale      "Translation"))
 
      "Single Files"
-     (("R" projectile-rails-goto-routes  "routes.rb")
-      ("G" projectile-rails-goto-gemfile "Gemfile")
-      ("T" projectile-rails-goto-schema  "schema.rb"))
+     (("R" projectile-rails-goto-routes      "Routes")
+      ("G" projectile-rails-goto-gemfile     "Gemfile")
+      ("T" projectile-rails-goto-schema      "Schema")
+      ("f" my/projectile-goto-rubocop-config "rubocop.yml"))
 
      "Commands"
      (("1" projectile-rails-console   "Console")
       ("2" projectile-rails-dbconsole "DB")
       ("3" projectile-rails-generate  "Generate")
       ("4" projectile-rails-rake      "Rake"))))
-  (define-key projectile-rails-mode-map (kbd "C-c r") 'pretty-hydra-projectile-rails-find/body))
+  (define-key projectile-rails-mode-map (kbd "C-c r") 'pretty-hydra-projectile-rails/body))
