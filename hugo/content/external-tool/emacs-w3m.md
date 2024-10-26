@@ -45,9 +45,10 @@ emacs-w3m には w3m-filter という機能がある。これは表示するペ�
 そしてそれを以下のように `w3m-filter-configuration` に追加している
 
 ```emacs-lisp
-(add-to-list 'w3m-filter-configuration
-             '(t
-               ("Strip Rurema menus" "Rurema のメニュー等を取り除きます")
-               "\\`https://rurema\\.clear-code\\.com/"
-               w3m-filter-rurema))
+(with-eval-after-load 'w3m-filter
+  (add-to-list 'w3m-filter-configuration
+               '(t
+                 ("Strip Rurema menus" "Rurema のメニュー等を取り除きます")
+                 "\\`https://rurema\\.clear-code\\.com/"
+                 w3m-filter-rurema)))
 ```

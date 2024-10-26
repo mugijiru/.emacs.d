@@ -11,8 +11,9 @@
             (end-regex (cdr deletion)))
         (w3m-filter-delete-regions url begin-regex end-regex)))))
 
-(add-to-list 'w3m-filter-configuration
-             '(t
-               ("Strip Rurema menus" "Rurema のメニュー等を取り除きます")
-               "\\`https://rurema\\.clear-code\\.com/"
-               w3m-filter-rurema))
+(with-eval-after-load 'w3m-filter
+  (add-to-list 'w3m-filter-configuration
+               '(t
+                 ("Strip Rurema menus" "Rurema のメニュー等を取り除きます")
+                 "\\`https://rurema\\.clear-code\\.com/"
+                 w3m-filter-rurema)))
