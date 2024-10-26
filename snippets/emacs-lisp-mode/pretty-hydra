@@ -5,6 +5,6 @@
 
 (with-eval-after-load 'pretty-hydra
   (pretty-hydra-define
-    $1 (:separator "-" :title "$2" :foreign-key warn :quit-key "q" :exit t)
-    ("$3"
-     (("$0" [command] "[Description]")
+    $1-hydra (:separator "-" :title "$2" :foreign-key warn :quit-key "q" :exit t)
+    ("${3:type}"
+     (("$0" ${4:command} "${5:name}")))))
