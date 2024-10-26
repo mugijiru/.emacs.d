@@ -7303,11 +7303,12 @@ emacs-w3m には w3m-filter という機能がある。
 そしてそれを以下のように ~w3m-filter-configuration~ に追加している
 
 #+begin_src emacs-lisp :tangle inits/70-w3m.el
-(add-to-list 'w3m-filter-configuration
-             '(t
-               ("Strip Rurema menus" "Rurema のメニュー等を取り除きます")
-               "\\`https://rurema\\.clear-code\\.com/"
-               w3m-filter-rurema))
+(with-eval-after-load 'w3m-filter
+  (add-to-list 'w3m-filter-configuration
+               '(t
+                 ("Strip Rurema menus" "Rurema のメニュー等を取り除きます")
+                 "\\`https://rurema\\.clear-code\\.com/"
+                 w3m-filter-rurema)))
 #+end_src
 ** engine-mode
 :PROPERTIES:
