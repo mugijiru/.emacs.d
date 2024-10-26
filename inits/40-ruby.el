@@ -17,11 +17,13 @@
 (defun my/ruby-modes-hook ()
   (origami-mode 1)
   (company-mode 1)
+  (setq-local company-backends
+              '(company-capf (company-keywords company-dabbrev-code) company-yasnippet company-files company-dabbrev))
+
   (subword-mode 1)
   (copilot-mode 1)
   (yard-mode 1)
   (eldoc-mode 1)
-  (add-hook 'before-save-hook #'lsp-format-buffer nil 'local)
   (turn-on-smartparens-strict-mode)
   (display-line-numbers-mode 1))
 
@@ -50,7 +52,7 @@
                  "Other"
                  (("j" dumb-jump-go       "Dumb Jump")
                   ("o" origami-hydra/body "Origami")))))
-    (eval `(major-mode-hydra-define enh-ruby-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-alltheicon "ruby-alt") " Ruby commands"))
+    (eval `(major-mode-hydra-define enh-ruby-mode (:separator "-" :quit-key "q" :title (concat (nerd-icons-mdicon "nf-md-language_ruby") " Ruby commands"))
              (,@heads)))
-    (eval `(major-mode-hydra-define ruby-ts-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-alltheicon "ruby-alt") " Ruby commands"))
+    (eval `(major-mode-hydra-define ruby-ts-mode  (:separator "-" :quit-key "q" :title (concat (nerd-icons-mdicon "nf-md-language_ruby") " Ruby commands"))
              (,@heads)))))
