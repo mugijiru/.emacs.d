@@ -59,6 +59,33 @@ Emacs 上でもそれが使えるように [rbenv.el](https://github.com/senny/r
 ```
 
 
+## ruby-refactor {#ruby-refactor}
+
+メソッド切り出しとかの機能を提供してくれるパッケージ。まだちゃんと試してないけど便利かもということでとりあえず入れてみている。
+
+
+### インストール {#インストール}
+
+`el-get` 本体にレシピは登録済なのでそのまま `el-get-bunlde` でインストールしている
+
+```emacs-lisp
+(el-get-bundle ruby-refactor)
+```
+
+
+### 設定 {#設定}
+
+-   メソッドのパラメータを出力する際にカッコを付与するように設定
+-   RSpec で同階層の context/describe に let を切り出す
+
+という設定にしている。
+
+```emacs-lisp
+(setopt ruby-refactor-add-parens t)
+(setopt ruby-refactor-let-position 'closest)
+```
+
+
 ## enh-ruby-mode {#enh-ruby-mode}
 
 メジャーモードは [enhanced-ruby-mode](https://github.com/zenspider/enhanced-ruby-mode) を利用している。が、最近は `ruby-mode` の方がやっぱり良いみたいな話もどこかで見た気がするので戻ってみるのも手かもしれないと思っている。
@@ -143,6 +170,7 @@ hook 用の関数で補完などの機能を有効にしている
 
   (subword-mode 1)
   (copilot-mode 1)
+  (ruby-refactor-mode 1)
   (yard-mode 1)
   (eldoc-mode 1)
   (turn-on-smartparens-strict-mode)
@@ -154,6 +182,7 @@ hook 用の関数で補完などの機能を有効にしている
     -   backend も余計なものが入らないようにカスタマイズしている
 -   CamelCase の単語区切りを有効にするため subword-mode を有効化
 -   Copilot もあると便利なので有効化
+-   リファクタリング用に ruby-refactor-mode の有効化
 -   yard 形式のコメントも良い感じにハイライトされると便利なので yard-mode を有効化
     -   更に eldoc-mode を有効にしていると yard コメントを書く時に文法を minibuffer に表示してくれるのでこちらも有効化
 -   開きカッコと閉じカッコの組み合わせがズレないように smartparens-strict-mode を有効にしている
@@ -197,14 +226,22 @@ Ruby を使ってる時にコメント部分はクォートの外以外では自
 ```emacs-lisp
 (with-eval-after-load 'major-mode-hydra
   (let ((heads '("Ruby"
-                 (("{" enh-ruby-toggle-block "Toggle block")
-                  ("e" enh-ruby-insert-end   "Insert end"))
+                 (("{" enh-ruby-toggle-block               "Toggle block")
+                  ("e" enh-ruby-insert-end                 "Insert end")
+                  ("p" ruby-refactor-add-parameter         "Add param")
+                  ("i" ruby-refactor-convert-post-condition "if/unless block"))
+
+                 "Extract to"
+                 (("M" ruby-refactor-extract-to-method      "method")
+                  ("V" ruby-refactor-extract-local-variable "local variable")
+                  ("C" ruby-refactor-extract-constant       "constant"))
 
                  "RSpec"
-                 (("s" rspec-verify          "Run associated spec")
-                  ("m" rspec-verify-method   "Run method spec")
-                  ("r" rspec-rerun           "Rerun")
-                  ("l" rspec-run-last-failed "Run last failed"))
+                 (("l" ruby-refactor-extract-to-let "let")
+                  ("s" rspec-verify                 "Run associated spec")
+                  ("m" rspec-verify-method          "Run method spec")
+                  ("r" rspec-rerun                  "Rerun")
+                  ("f" rspec-run-last-failed        "Run last failed"))
 
                  "REPL"
                  (("I" inf-ruby "inf-ruby"))
@@ -222,6 +259,12 @@ Ruby を使ってる時にコメント部分はクォートの外以外では自
 |-----|---------------------------------------------------|
 | {   | do 〜 end と { 〜 } を切り替える                    |
 | e   | end を挿入する。使ったことない気がする              |
+| p   | メソッドにパラメータを追加                          |
+| i   | 後置 if/unless をブロック形式に変更                 |
+| M   | メソッド切り出し                                    |
+| V   | ローカル変数に切り出し                              |
+| C   | 定数に切り出し                                      |
+| l   | let に切り出し                                      |
 | s   | 関連するテストまたは特定のテストの実行              |
 | m   | カーソル位置のコードのテストを探して実行する        |
 | r   | 最後に実行したテストを再実行                        |

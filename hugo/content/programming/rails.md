@@ -85,7 +85,7 @@ projectile-rails の実装を参考にコマンドを追加している
 ```emacs-lisp
 (with-eval-after-load 'pretty-hydra
   (pretty-hydra-define pretty-hydra-projectile-rails
-    (:separator "-" :color blue :foreign-keys warn :title (concat (nerd-icons-devicon "nf-dev-ruby_on_rails") "Projectile Rails") :quit-key "q")
+    (:separator "-" :color blue :foreign-keys warn :title (concat (nerd-icons-devicon "nf-dev-ruby_on_rails") " Projectile Rails") :quit-key "q")
     ("Current"
      (("M" projectile-rails-find-current-model      "Current model")
       ("V" projectile-rails-find-current-view       "Current view")
