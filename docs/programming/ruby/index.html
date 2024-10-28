@@ -12,20 +12,20 @@
     <title>ruby :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1729928791" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1729928791" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1729928791" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1729928791" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1729928791" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1729928791" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1729928791" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1729928791" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1729928791" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1729928791" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1730092779" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1730092779" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1730092779" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1730092779" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1730092779" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1730092779" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1730092779" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1730092779" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1730092779" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1730092779" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1729928791"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1730092779"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1729928791"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1729928791"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1730092779"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1730092779"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1729928791"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1730092779"></script>
 
     
   </div>
@@ -3361,6 +3361,12 @@
         <li><a href="#インストール">インストール</a></li>
       </ul>
     </li>
+    <li><a href="#ruby-refactor">ruby-refactor</a>
+      <ul>
+        <li><a href="#インストール">インストール</a></li>
+        <li><a href="#設定">設定</a></li>
+      </ul>
+    </li>
     <li><a href="#enh-ruby-mode">enh-ruby-mode</a>
       <ul>
         <li><a href="#インストール">インストール</a></li>
@@ -3416,6 +3422,19 @@ Emacs 上でもそれが使えるように <a href="https://github.com/senny/rbe
 <p>メソッドコメントなんかは Yard 形式で書くのでこれも入れている</p>
 <h3 id="インストール">インストール</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle yard-mode)
+</span></span></code></pre></div><h2 id="ruby-refactor">ruby-refactor</h2>
+<p>メソッド切り出しとかの機能を提供してくれるパッケージ。まだちゃんと試してないけど便利かもということでとりあえず入れてみている。</p>
+<h3 id="インストール">インストール</h3>
+<p><code>el-get</code> 本体にレシピは登録済なのでそのまま <code>el-get-bunlde</code> でインストールしている</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle ruby-refactor)
+</span></span></code></pre></div><h3 id="設定">設定</h3>
+<ul>
+<li>メソッドのパラメータを出力する際にカッコを付与するように設定</li>
+<li>RSpec で同階層の context/describe に let を切り出す</li>
+</ul>
+<p>という設定にしている。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setopt ruby-refactor-add-parens <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>(setopt ruby-refactor-let-position <span style="color:#e6db74">&#39;closest</span>)
 </span></span></code></pre></div><h2 id="enh-ruby-mode">enh-ruby-mode</h2>
 <p>メジャーモードは <a href="https://github.com/zenspider/enhanced-ruby-mode">enhanced-ruby-mode</a> を利用している。が、最近は <code>ruby-mode</code> の方がやっぱり良いみたいな話もどこかで見た気がするので戻ってみるのも手かもしれないと思っている。</p>
 <p>といいながら今は <code>ruby-ts-mode</code> も検証しているので、
@@ -3460,6 +3479,7 @@ encoding 設定のマジックコメントが入らないようにしている�
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  (subword-mode <span style="color:#ae81ff">1</span>)
 </span></span><span style="display:flex;"><span>  (copilot-mode <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>  (ruby-refactor-mode <span style="color:#ae81ff">1</span>)
 </span></span><span style="display:flex;"><span>  (yard-mode <span style="color:#ae81ff">1</span>)
 </span></span><span style="display:flex;"><span>  (eldoc-mode <span style="color:#ae81ff">1</span>)
 </span></span><span style="display:flex;"><span>  (turn-on-smartparens-strict-mode)
@@ -3473,6 +3493,7 @@ encoding 設定のマジックコメントが入らないようにしている�
 </li>
 <li>CamelCase の単語区切りを有効にするため subword-mode を有効化</li>
 <li>Copilot もあると便利なので有効化</li>
+<li>リファクタリング用に ruby-refactor-mode の有効化</li>
 <li>yard 形式のコメントも良い感じにハイライトされると便利なので yard-mode を有効化
 <ul>
 <li>更に eldoc-mode を有効にしていると yard コメントを書く時に文法を minibuffer に表示してくれるのでこちらも有効化</li>
@@ -3500,14 +3521,22 @@ Ruby を使ってる時にコメント部分はクォートの外以外では自
 <p>キーバインドは覚えられないので <a href="/.emacs.d/ui/hydra/#major-mode-hydra-のインストール">major-mode-hydra</a> でキーを定義している</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;major-mode-hydra</span>
 </span></span><span style="display:flex;"><span>  (let ((heads <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;Ruby&#34;</span>
-</span></span><span style="display:flex;"><span>                 ((<span style="color:#e6db74">&#34;{&#34;</span> enh-ruby-toggle-block <span style="color:#e6db74">&#34;Toggle block&#34;</span>)
-</span></span><span style="display:flex;"><span>                  (<span style="color:#e6db74">&#34;e&#34;</span> enh-ruby-insert-end   <span style="color:#e6db74">&#34;Insert end&#34;</span>))
+</span></span><span style="display:flex;"><span>                 ((<span style="color:#e6db74">&#34;{&#34;</span> enh-ruby-toggle-block               <span style="color:#e6db74">&#34;Toggle block&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (<span style="color:#e6db74">&#34;e&#34;</span> enh-ruby-insert-end                 <span style="color:#e6db74">&#34;Insert end&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (<span style="color:#e6db74">&#34;p&#34;</span> ruby-refactor-add-parameter         <span style="color:#e6db74">&#34;Add param&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (<span style="color:#e6db74">&#34;i&#34;</span> ruby-refactor-convert-post-condition <span style="color:#e6db74">&#34;if/unless block&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                 <span style="color:#e6db74">&#34;Extract to&#34;</span>
+</span></span><span style="display:flex;"><span>                 ((<span style="color:#e6db74">&#34;M&#34;</span> ruby-refactor-extract-to-method      <span style="color:#e6db74">&#34;method&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (<span style="color:#e6db74">&#34;V&#34;</span> ruby-refactor-extract-local-variable <span style="color:#e6db74">&#34;local variable&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (<span style="color:#e6db74">&#34;C&#34;</span> ruby-refactor-extract-constant       <span style="color:#e6db74">&#34;constant&#34;</span>))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>                 <span style="color:#e6db74">&#34;RSpec&#34;</span>
-</span></span><span style="display:flex;"><span>                 ((<span style="color:#e6db74">&#34;s&#34;</span> rspec-verify          <span style="color:#e6db74">&#34;Run associated spec&#34;</span>)
-</span></span><span style="display:flex;"><span>                  (<span style="color:#e6db74">&#34;m&#34;</span> rspec-verify-method   <span style="color:#e6db74">&#34;Run method spec&#34;</span>)
-</span></span><span style="display:flex;"><span>                  (<span style="color:#e6db74">&#34;r&#34;</span> rspec-rerun           <span style="color:#e6db74">&#34;Rerun&#34;</span>)
-</span></span><span style="display:flex;"><span>                  (<span style="color:#e6db74">&#34;l&#34;</span> rspec-run-last-failed <span style="color:#e6db74">&#34;Run last failed&#34;</span>))
+</span></span><span style="display:flex;"><span>                 ((<span style="color:#e6db74">&#34;l&#34;</span> ruby-refactor-extract-to-let <span style="color:#e6db74">&#34;let&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (<span style="color:#e6db74">&#34;s&#34;</span> rspec-verify                 <span style="color:#e6db74">&#34;Run associated spec&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (<span style="color:#e6db74">&#34;m&#34;</span> rspec-verify-method          <span style="color:#e6db74">&#34;Run method spec&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (<span style="color:#e6db74">&#34;r&#34;</span> rspec-rerun                  <span style="color:#e6db74">&#34;Rerun&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (<span style="color:#e6db74">&#34;f&#34;</span> rspec-run-last-failed        <span style="color:#e6db74">&#34;Run last failed&#34;</span>))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>                 <span style="color:#e6db74">&#34;REPL&#34;</span>
 </span></span><span style="display:flex;"><span>                 ((<span style="color:#e6db74">&#34;I&#34;</span> inf-ruby <span style="color:#e6db74">&#34;inf-ruby&#34;</span>))
@@ -3534,6 +3563,30 @@ Ruby を使ってる時にコメント部分はクォートの外以外では自
 <tr>
 <td>e</td>
 <td>end を挿入する。使ったことない気がする</td>
+</tr>
+<tr>
+<td>p</td>
+<td>メソッドにパラメータを追加</td>
+</tr>
+<tr>
+<td>i</td>
+<td>後置 if/unless をブロック形式に変更</td>
+</tr>
+<tr>
+<td>M</td>
+<td>メソッド切り出し</td>
+</tr>
+<tr>
+<td>V</td>
+<td>ローカル変数に切り出し</td>
+</tr>
+<tr>
+<td>C</td>
+<td>定数に切り出し</td>
+</tr>
+<tr>
+<td>l</td>
+<td>let に切り出し</td>
 </tr>
 <tr>
 <td>s</td>
@@ -5986,19 +6039,19 @@ deprecation なのか deprecated なのか分からなくなるやつ。</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1729928791"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1729928791"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1729928791"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1729928791"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1729928791"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1729928791"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1730092779"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1730092779"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1730092779"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1730092779"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1730092779"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1730092779"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1729928791"></script>
-    <script src="/.emacs.d/js/learn.js?1729928791"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1729928791"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1730092779"></script>
+    <script src="/.emacs.d/js/learn.js?1730092779"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1730092779"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1729928791"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1730092779"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
