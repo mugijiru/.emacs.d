@@ -1,0 +1,6 @@
+(:name dmacro
+ :website "https://github.com/emacs-jp/dmacro"
+ :description "Repeated detection and execution of key operation."
+ :type github
+ :pkgname "emacs-jp/dmacro"
+ :depends (cl-lib))

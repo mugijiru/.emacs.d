@@ -20,6 +20,9 @@ disableToc = true
 [copilot]({{< relref "copilot" >}})
 : GitHub Copilot を使えるようにするパッケージ
 
+[dmacro]({{< relref "dmacro" >}})
+: 繰り返し作業を自動的にマクロとして記録してくれるパッケージ
+
 [emojify]({{< relref "emojify" >}})
 : Slack や GitHub みたいに `:smile:` とか入れると笑顔の絵文字を表示する、みたいなやつ
 
