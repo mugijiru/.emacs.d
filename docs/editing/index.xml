@@ -36,6 +36,13 @@
       <description>概要 Copilot.el は GitHub Copilot を Emacs で使えるようにするパッケージ。これ自体は非公式なプラグインで、動かすために Vim で動く公式プラグインのバイナリを利用して動いている&#xA;インストール 最近出て来たパッケージなので el-get には登録されていない。というわけでとりあえず自前でレシピを用意している&#xA;(:name copilot :website &amp;#34;https://github.com/copilot-emacs/copilot.el&amp;#34; :description &amp;#34;An Emacs plugin for GitHub Copilot.&amp;#34; :type github :branch &amp;#34;main&amp;#34; :pkgname &amp;#34;copilot-emacs/copilot.el&amp;#34; :depends (s dash editorconfig jsonrpc)) 依存している editorconig も自前でレシピを用意している&#xA;(:name editorconfig :website &amp;#34;https://github.com/editorconfig/editorconfig-emacs&amp;#34; :description &amp;#34;An EditorConfig plugin for Emacs.&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;editorconfig/editorconfig-emacs&amp;#34;) そして el-get-bundle でインストール&#xA;(el-get-bundle copilot) 設定 とりあえずプログラミング系の mode で有効になるようにしていた。けど今はちょっと無効にしている&#xA;;; (add-hook &amp;#39;prog-mode-hook &amp;#39;copilot-mode) あとは company-mode と組み合わせてもそれなりに動くようにするため inline preview を無効にするような設定を入れている。なおこの設定は公式の README の中のコードを使っている</description>
     </item>
     <item>
+      <title>dmacro</title>
+      <link>https://mugijiru.github.io/.emacs.d/editing/dmacro/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mugijiru.github.io/.emacs.d/editing/dmacro/</guid>
+      <description>dmacro は繰り返した処理を自動的にマクロとして記録してくれるパッケージ。繰り返し同じような操作をする時に便利そうなので入れてみている。&#xA;インストール el-get 本体に登録されているレシピが古そうだったのでとりあえず GitHub から取得するレシピを定義している。&#xA;(:name dmacro :website &amp;#34;https://github.com/emacs-jp/dmacro&amp;#34; :description &amp;#34;Repeated detection and execution of key operation.&amp;#34; :type github :pkgname &amp;#34;emacs-jp/dmacro&amp;#34; :depends (cl-lib)) そしていつも通り el-get-bundle でインストール&#xA;(el-get-bundle dmacro) 設定 super key は使ってないのでデフォルトのキーバインドから変更している&#xA;(setopt dmacro-key (kbd &amp;#34;C-M-y&amp;#34;)) 有効化 とりあえずどこで動いても問題なさそうなので global に有効化している&#xA;(global-dmacro-mode 1) </description>
+    </item>
+    <item>
       <title>emojify</title>
       <link>https://mugijiru.github.io/.emacs.d/editing/emojify/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

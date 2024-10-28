@@ -274,6 +274,13 @@
       <description>概要 ddskk は Emacs Lisp 版の SKK 実装。&#xA;一般的な日本語変換ソフトだと文法を自動で認識して変換をしてくれるけど SKK ではその自動認識がおかしくておかしな変換になるところを、単語の区切りなんかを一切判定せずに人間がそれを教えてあげることで、そういう自動的に変な挙動をしてしまう煩わしさから開放されるようになっている。&#xA;インストール いつも通り el-get で入れている。最近は最新版が GitHub で更新されているのでそちらから引っ張られてくる。&#xA;(el-get-bundle ddskk) 常時有効化 find-file-hooks で有効化することでファイルを開いた時には常に skk が使える状態にしている。また skk-latin-mode にしておくことで、基本は英語入力ですぐに日本語入力に切り替えられる状態にしている。&#xA;(defun my/always-enable-skk-latin-mode-hook () (skk-latin-mode 1)) (add-hook &amp;#39;find-file-hooks &amp;#39;my/always-enable-skk-latin-mode-hook) hook の設定 ddskk が呼び出された時に色々設定されるようにしている。&#xA;もしかしたら customize-variable とかあるかもしれないので今度見直した方が良さそう。&#xA;(add-hook &amp;#39;skk-load-hook (lambda () ;; コード中では自動的に英字にする。 (require &amp;#39;context-skk) (setq skk-comp-mode t) ;; 動的自動補完 (setq skk-auto-insert-paren t) (setq skk-delete-implies-kakutei nil) (setq skk-sticky-key &amp;#34;;&amp;#34;) (setq skk-henkan-strict-okuri-precedence t) (setq skk-show-annotation t) ;; 単語の意味をアノテーションとして表示。例) いぜん /以前;previous/依然;still/ (setq skk-compare-jisyo-size-when-saving nil) (setq skk-extra-jisyo-file-list `(,(expand-file-name &amp;#34;~/.</description>
     </item>
     <item>
+      <title>dmacro</title>
+      <link>https://mugijiru.github.io/.emacs.d/editing/dmacro/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mugijiru.github.io/.emacs.d/editing/dmacro/</guid>
+      <description>dmacro は繰り返した処理を自動的にマクロとして記録してくれるパッケージ。繰り返し同じような操作をする時に便利そうなので入れてみている。&#xA;インストール el-get 本体に登録されているレシピが古そうだったのでとりあえず GitHub から取得するレシピを定義している。&#xA;(:name dmacro :website &amp;#34;https://github.com/emacs-jp/dmacro&amp;#34; :description &amp;#34;Repeated detection and execution of key operation.&amp;#34; :type github :pkgname &amp;#34;emacs-jp/dmacro&amp;#34; :depends (cl-lib)) そしていつも通り el-get-bundle でインストール&#xA;(el-get-bundle dmacro) 設定 super key は使ってないのでデフォルトのキーバインドから変更している&#xA;(setopt dmacro-key (kbd &amp;#34;C-M-y&amp;#34;)) 有効化 とりあえずどこで動いても問題なさそうなので global に有効化している&#xA;(global-dmacro-mode 1) </description>
+    </item>
+    <item>
       <title>Docker</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/docker/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

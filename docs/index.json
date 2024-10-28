@@ -95,7 +95,7 @@
 	"title": "ファイル編集/入力補助",
 	"tags": [],
 	"description": "",
-	"content": "ここにはファイル編集や入力補助の設定をまとめている\n基本設定 編集周りの基本的な設定 auto-insert ファイル新規作成時にテンプレートを挿入する機能 company-mode プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ copilot GitHub Copilot を使えるようにするパッケージ emojify Slack や GitHub みたいに :smile: とか入れると笑顔の絵文字を表示する、みたいなやつ flyspell スペルチェックをしてくれるパッケージ moccur-edit color-moccur でディレクトリごと検索した後にそのバッファでそのまま編集できるようにするやつ multiple-cursors カーソルを増やして複数箇所を同時に編集できるようになるやつ origami コードの折り畳みができるようになるやつ smartparens カッコや引用符などのペアになるやつの入力補助をしてくれるやつ textlint 文章校正に便利なやつ undo-fu シンプルな undo/redo の機能を提供してくれるやつ view-mode Emacs に組込まれてる閲覧専用のモード。コードリーディングの時に有効にすると便利 whitespace 空白文字を可視化したり自動的に消したりする便利なやつ wgrep grep などで検索した結果バッファで直接編集できるようにするやつ yasnippet テンプレート挿入機能を提供してくれるやつ "
+	"content": "ここにはファイル編集や入力補助の設定をまとめている\n基本設定 編集周りの基本的な設定 auto-insert ファイル新規作成時にテンプレートを挿入する機能 company-mode プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ copilot GitHub Copilot を使えるようにするパッケージ dmacro 繰り返し作業を自動的にマクロとして記録してくれるパッケージ emojify Slack や GitHub みたいに :smile: とか入れると笑顔の絵文字を表示する、みたいなやつ flyspell スペルチェックをしてくれるパッケージ moccur-edit color-moccur でディレクトリごと検索した後にそのバッファでそのまま編集できるようにするやつ multiple-cursors カーソルを増やして複数箇所を同時に編集できるようになるやつ origami コードの折り畳みができるようになるやつ smartparens カッコや引用符などのペアになるやつの入力補助をしてくれるやつ textlint 文章校正に便利なやつ undo-fu シンプルな undo/redo の機能を提供してくれるやつ view-mode Emacs に組込まれてる閲覧専用のモード。コードリーディングの時に有効にすると便利 whitespace 空白文字を可視化したり自動的に消したりする便利なやつ wgrep grep などで検索した結果バッファで直接編集できるようにするやつ yasnippet テンプレート挿入機能を提供してくれるやつ "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/org-capture/",
@@ -355,6 +355,13 @@
 	"tags": [],
 	"description": "",
 	"content": ""
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/editing/dmacro/",
+	"title": "dmacro",
+	"tags": [],
+	"description": "",
+	"content": "dmacro は繰り返した処理を自動的にマクロとして記録してくれるパッケージ。繰り返し同じような操作をする時に便利そうなので入れてみている。\nインストール el-get 本体に登録されているレシピが古そうだったのでとりあえず GitHub から取得するレシピを定義している。\n(:name dmacro :website \u0026#34;https://github.com/emacs-jp/dmacro\u0026#34; :description \u0026#34;Repeated detection and execution of key operation.\u0026#34; :type github :pkgname \u0026#34;emacs-jp/dmacro\u0026#34; :depends (cl-lib)) そしていつも通り el-get-bundle でインストール\n(el-get-bundle dmacro) 設定 super key は使ってないのでデフォルトのキーバインドから変更している\n(setopt dmacro-key (kbd \u0026#34;C-M-y\u0026#34;)) 有効化 とりあえずどこで動いても問題なさそうなので global に有効化している\n(global-dmacro-mode 1) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/programming/docker/",

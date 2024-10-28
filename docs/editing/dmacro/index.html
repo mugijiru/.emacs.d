@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>moccur-edit :: 麦汁&#39;s Emacs Config</title>
+    <title>dmacro :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1730096026" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/editing/moccur-edit/">
+  <body class="" data-url="/.emacs.d/editing/dmacro/">
     <nav id="sidebar" class="">
 
 
@@ -732,7 +732,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/editing/dmacro/" title="dmacro" class="dd-item ">
+      <li data-nav-id="/.emacs.d/editing/dmacro/" title="dmacro" class="dd-item active">
         <a href="/.emacs.d/editing/dmacro/">
         dmacro
         
@@ -816,7 +816,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/editing/moccur-edit/" title="moccur-edit" class="dd-item active">
+      <li data-nav-id="/.emacs.d/editing/moccur-edit/" title="moccur-edit" class="dd-item ">
         <a href="/.emacs.d/editing/moccur-edit/">
         moccur-edit
         
@@ -3350,7 +3350,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/editing/'>ファイル編集/入力補助</a> > moccur-edit
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/editing/'>ファイル編集/入力補助</a> > dmacro
           
         
           
@@ -3365,9 +3365,9 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
     <li><a href="#設定">設定</a></li>
+    <li><a href="#有効化">有効化</a></li>
   </ul>
 </nav>
     </div>
@@ -3385,27 +3385,30 @@
           
             <h1>
               
-              moccur-edit
+              dmacro
             </h1>
           
 
         
 
 
-<h2 id="概要">概要</h2>
-<p><a href="https://github.com/myuhe/moccur-edit.el">moccur-edit</a> は <a href="https://github.com/myuhe/color-moccur.el">color-moccur</a> で検索した結果を編集するためのツール。</p>
+<p><a href="https://github.com/emacs-jp/dmacro">dmacro</a> は繰り返した処理を自動的にマクロとして記録してくれるパッケージ。繰り返し同じような操作をする時に便利そうなので入れてみている。</p>
 <h2 id="インストール">インストール</h2>
-<p>el-get 本体にレシピがあるのでそちらからインストールしている。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle moccur-edit)
-</span></span></code></pre></div><p>なお EmacsWiki に moccur-edit も color-moccur もあるのだけど
-color-moccur の方がソースコードが古めなので
-GitHub から入れるのを推奨する。</p>
-<p>el-get のレシピは GitHub を見ているので安心</p>
-<h2 id="設定">設定</h2>
-<p>とりあえず color-moccur で migemo が使えると検索する時に便利なのでその機能を有効にしている。また、編集したところがわかりやすい方がいいかなと思ったので、そこをハイライトする設定も入れておいた</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-variables
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(moccur-use-migemo <span style="color:#66d9ef">t</span>)
-</span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(moccur-edit-highlight-edited-text <span style="color:#66d9ef">t</span>))
+<p>el-get 本体に登録されているレシピが古そうだったのでとりあえず GitHub から取得するレシピを定義している。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name dmacro
+</span></span><span style="display:flex;"><span> :website <span style="color:#e6db74">&#34;https://github.com/emacs-jp/dmacro&#34;</span>
+</span></span><span style="display:flex;"><span> :description <span style="color:#e6db74">&#34;Repeated detection and execution of key operation.&#34;</span>
+</span></span><span style="display:flex;"><span> :type github
+</span></span><span style="display:flex;"><span> :pkgname <span style="color:#e6db74">&#34;emacs-jp/dmacro&#34;</span>
+</span></span><span style="display:flex;"><span> :depends (cl-lib))
+</span></span></code></pre></div><p>そしていつも通り <code>el-get-bundle</code> でインストール</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle dmacro)
+</span></span></code></pre></div><h2 id="設定">設定</h2>
+<p>super key は使ってないのでデフォルトのキーバインドから変更している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setopt dmacro-key (kbd <span style="color:#e6db74">&#34;C-M-y&#34;</span>))
+</span></span></code></pre></div><h2 id="有効化">有効化</h2>
+<p>とりあえずどこで動いても問題なさそうなので global に有効化している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(global-dmacro-mode <span style="color:#ae81ff">1</span>)
 </span></span></code></pre></div>
 
 <footer class="footline">
@@ -3895,6 +3898,26 @@ GitHub から入れるのを推奨する。</p>
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
                 
                 
 
@@ -3958,26 +3981,6 @@ GitHub から入れるのを推奨する。</p>
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -5778,10 +5781,10 @@ GitHub から入れるのを推奨する。</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/editing/git-modes/" title="git-modes"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/editing/copilot/" title="copilot"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/editing/multiple-cursors/" title="multiple-cursors" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/editing/emojify/" title="emojify" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
