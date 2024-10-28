@@ -1475,62 +1475,59 @@ y だけで済ませられるようにしている。
 より安全に使いたい人はこの設定は入れない方が良いはず。
 
 * ファイル編集/入力補助
-  :PROPERTIES:
-  :EXPORT_HUGO_SECTION: editing
-  :END:
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: editing
+:END:
 ** ファイル編集/入力補助
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: _index
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>4. </b>" :weight 4 :disableToc true
-   :END:
+:PROPERTIES:
+:EXPORT_FILE_NAME: _index
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :pre "<b>4. </b>" :weight 4 :disableToc true
+:END:
 
-   ここにはファイル編集や入力補助の設定をまとめている
+ここにはファイル編集や入力補助の設定をまとめている
 
-   - [[#editing-base-config][基本設定]] :: 編集周りの基本的な設定
-   - [[*auto-insert][auto-insert]] :: ファイル新規作成時にテンプレートを挿入する機能
-   - [[*company-mode][company-mode]] :: プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ
-   - [[id:549f0212-8e33-4ab8-bc84-418dd45bf92d][copilot]] :: GitHub Copilot を使えるようにするパッケージ
-   - [[*emojify][emojify]] :: Slack や GitHub みたいに ~:smile:~ とか入れると笑顔の絵文字を表示する、みたいなやつ
-   - [[id:3140f1e1-c1ee-4098-adc5-ddc695d5ea9d][flyspell]] :: スペルチェックをしてくれるパッケージ
-   - [[id:1e135071-8d60-4435-8819-3572c031f787][moccur-edit]] :: color-moccur でディレクトリごと検索した後にそのバッファでそのまま編集できるようにするやつ
-   - [[*multiple-cursors][multiple-cursors]] :: カーソルを増やして複数箇所を同時に編集できるようになるやつ
-   - [[id:f309e8bd-8e1d-4a91-ae4d-9a960373969b][origami]] :: コードの折り畳みができるようになるやつ
-   - [[*smartparens][smartparens]] :: カッコや引用符などのペアになるやつの入力補助をしてくれるやつ
-   - [[id:6cb0b825-528c-49a1-ab97-9ac79b3a9019][textlint]] :: 文章校正に便利なやつ
-   - [[*undo-fu][undo-fu]] :: シンプルな undo/redo の機能を提供してくれるやつ
-   - [[*view-mode][view-mode]] :: Emacs に組込まれてる閲覧専用のモード。コードリーディングの時に有効にすると便利
-   - [[*whitespace][whitespace]] :: 空白文字を可視化したり自動的に消したりする便利なやつ
-   - [[id:acdfb708-1ada-430c-a500-715f0cc978aa][wgrep]] :: grep などで検索した結果バッファで直接編集できるようにするやつ
-   - [[*yasnippet][yasnippet]] :: テンプレート挿入機能を提供してくれるやつ
+- [[#editing-base-config][基本設定]] :: 編集周りの基本的な設定
+- [[*auto-insert][auto-insert]] :: ファイル新規作成時にテンプレートを挿入する機能
+- [[*company-mode][company-mode]] :: プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ
+- [[id:549f0212-8e33-4ab8-bc84-418dd45bf92d][copilot]] :: GitHub Copilot を使えるようにするパッケージ
+- [[id:2949a866-839d-4b83-acda-70c4a8309e99][dmacro]] :: 繰り返し作業を自動的にマクロとして記録してくれるパッケージ
+- [[*emojify][emojify]] :: Slack や GitHub みたいに ~:smile:~ とか入れると笑顔の絵文字を表示する、みたいなやつ
+- [[id:3140f1e1-c1ee-4098-adc5-ddc695d5ea9d][flyspell]] :: スペルチェックをしてくれるパッケージ
+- [[id:1e135071-8d60-4435-8819-3572c031f787][moccur-edit]] :: color-moccur でディレクトリごと検索した後にそのバッファでそのまま編集できるようにするやつ
+- [[*multiple-cursors][multiple-cursors]] :: カーソルを増やして複数箇所を同時に編集できるようになるやつ
+- [[id:f309e8bd-8e1d-4a91-ae4d-9a960373969b][origami]] :: コードの折り畳みができるようになるやつ
+- [[*smartparens][smartparens]] :: カッコや引用符などのペアになるやつの入力補助をしてくれるやつ
+- [[id:6cb0b825-528c-49a1-ab97-9ac79b3a9019][textlint]] :: 文章校正に便利なやつ
+- [[*undo-fu][undo-fu]] :: シンプルな undo/redo の機能を提供してくれるやつ
+- [[*view-mode][view-mode]] :: Emacs に組込まれてる閲覧専用のモード。コードリーディングの時に有効にすると便利
+- [[*whitespace][whitespace]] :: 空白文字を可視化したり自動的に消したりする便利なやつ
+- [[id:acdfb708-1ada-430c-a500-715f0cc978aa][wgrep]] :: grep などで検索した結果バッファで直接編集できるようにするやつ
+- [[*yasnippet][yasnippet]] :: テンプレート挿入機能を提供してくれるやつ
 ** 基本設定
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: editing-base
-   :CUSTOM_ID: editing-base-config
-   :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :weight 1
-   :END:
-
+:PROPERTIES:
+:EXPORT_FILE_NAME: editing-base
+:CUSTOM_ID: editing-base-config
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :weight 1
+:END:
 *** 概要
-    なんか編集周りの基本的な設定としてまとめられていたのでここに置いとく
-
+なんか編集周りの基本的な設定としてまとめられていたのでここに置いとく
 *** インデントにタブを使わないようにする
-    :PROPERTIES:
-    :ID:       1a290daf-689f-492d-817e-a72f15910bcb
-    :END:
+:PROPERTIES:
+:ID:       1a290daf-689f-492d-817e-a72f15910bcb
+:END:
 最近の開発スタイルではインデントにタブを混ぜないスタイルなので
 そのように設定している。
-
 #+begin_src emacs-lisp :tangle inits/80-edit.el
 (setq indent-tabs-mode nil)
 #+end_src
 *** 以前に開いていた位置を保存/復元する
-    :PROPERTIES:
-    :ID:       1cfc66ed-98a7-4483-8b99-921c2c6a33f7
-    :END:
+:PROPERTIES:
+:ID:       1cfc66ed-98a7-4483-8b99-921c2c6a33f7
+:END:
 save-place-mode を有効にしていると
 以前に開いたことのあるファイルの、開いていた場所を覚えておいてくれる。
 
 一度閉じてまた開いた時なんかに再度移動しないで済んで地味に便利なやつ
-
 #+begin_src emacs-lisp :tangle inits/80-edit.el
 (save-place-mode 1)
 #+end_src
@@ -1548,7 +1545,6 @@ auto-insert はファイルを新規作成した時に
 ファイル名に応じたテンプレートを挿入する機能。
 
 Emacs が標準で持ってるライブラリなのでインストールは不要
-
 *** 設定
 :PROPERTIES:
 :ID:       29c98f44-e98c-4ea4-8b73-49e0f5de85af
@@ -1560,7 +1556,6 @@ auto-insert のテンプレートも ~~/.emacs.d/insert~ に閉じ込める設�
 #+begin_src emacs-lisp :tangle inits/20-auto-insert.el
 (custom-set-variables '(auto-insert-directory "~/.emacs.d/insert/"))
 #+end_src
-
 *** 有効化
 :PROPERTIES:
 :ID:       f13b855d-d661-45a7-ba08-26e68bd73b46
@@ -1746,6 +1741,42 @@ Warning (copilot): .loaddefs.el size exceeds 'copilot-max-char' (100000), copilo
 
 #+begin_src emacs-lisp :tangle inits/30-copilot.el
 (setq warning-suppress-log-types '((copilot copilot-exceeds-max-char)))
+#+end_src
+** dmacro
+:PROPERTIES:
+:EXPORT_FILE_NAME: dmacro
+:ID:       2949a866-839d-4b83-acda-70c4a8309e99
+:END:
+[[https://github.com/emacs-jp/dmacro][dmacro]] は繰り返した処理を自動的にマクロとして記録してくれるパッケージ。
+繰り返し同じような操作をする時に便利そうなので入れてみている。
+*** インストール
+el-get 本体に登録されているレシピが古そうだったのでとりあえず GitHub から取得するレシピを定義している。
+
+#+begin_src emacs-lisp :tangle recipes/dmacro.rcp
+(:name dmacro
+ :website "https://github.com/emacs-jp/dmacro"
+ :description "Repeated detection and execution of key operation."
+ :type github
+ :pkgname "emacs-jp/dmacro"
+ :depends (cl-lib))
+#+end_src
+
+そしていつも通り ~el-get-bundle~ でインストール
+
+#+begin_src emacs-lisp :tangle inits/80-dmacro.el
+(el-get-bundle dmacro)
+#+end_src
+*** 設定
+super key は使ってないのでデフォルトのキーバインドから変更している
+
+#+begin_src emacs-lisp :tangle inits/80-dmacro.el
+(setopt dmacro-key (kbd "C-M-y"))
+#+end_src
+*** 有効化
+とりあえずどこで動いても問題なさそうなので global に有効化している
+
+#+begin_src emacs-lisp :tangle inits/80-dmacro.el
+(global-dmacro-mode 1)
 #+end_src
 ** emojify
 :PROPERTIES:

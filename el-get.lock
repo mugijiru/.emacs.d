@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
       '((bundler :checksum "43efb6be4ed118b06d787ce7fbcffd68a31732a7")
+        (dmacro :checksum "3480b97aaad9e65fa03c6a9d1a0a8111be1179f8")
         (ruby-refactor :checksum "e6b7125878a08518bffec6942df0c606f748e9ee")
         (pg :checksum "2c32085cee56afb751599941221d52c5e7df3908")
         (nerd-icons-dired :checksum "c0b0cda2b92f831d0f764a7e8c0c6728d6a27774")
