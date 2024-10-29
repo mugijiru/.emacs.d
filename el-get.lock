@@ -50,7 +50,7 @@
         (json-mode :checksum "77125b01c0ddce537085201098bea9b4b8ba6be3")
         (json-snatcher :checksum "b28d1c0670636da6db508d03872d96ffddbc10f2")
         (json-reformat :checksum "9120ab67c5379c44bc7a7a07ca858670cea4f32f")
-        (org-contrib :checksum "0e65be83e4b41c17a5b9096c9055c1601b26a23d")
+        (org-contrib :checksum "5e809267bcac62cba3b0e91832bebcccf4f48666")
         (mocha :checksum "6a72fa20e7be6e55c09b1bc9887ee09c5df28e45")
         (pdf-tools :checksum "30b50544e55b8dbf683c2d932d5c33ac73323a16")
         (tablist :checksum "faab7a035ef2258cc4ea2182f67e3aedab7e2af9")
