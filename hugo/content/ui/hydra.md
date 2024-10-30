@@ -221,11 +221,11 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
    (("b" counsel-descbinds "Keybind")
     ("f" counsel-describe-function "Function")
     ("v" counsel-describe-variable "Variable")
-    ;; ("P"   my/open-review-requested-pr "Open Requested PR")
     ("m" describe-minor-mode "Minor mode"))
    "Other"
    (("@" all-the-icons-hydra/body "List icons")
     ("w" which-key-show-top-level "Which key")
+    ("d" docker                   "Docker")
     ("D" my/download-from-beorg))))
 ```
 
@@ -237,6 +237,7 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
 | m   | minor-mode を調べる                                   |
 | @   | All the icons の Hydra を起動                         |
 | w   | トップレベルのキーバインドを表示する                  |
+| d   | docker.el の起動                                      |
 | D   | beorg 連携に使ってる WebDAV サーバからダウンロード(Dropbox に移行して不要になった) |
 
 
