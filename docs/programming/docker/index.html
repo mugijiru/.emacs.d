@@ -12,20 +12,20 @@
     <title>Docker :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1730096026" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1730096026" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1730096026" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1730096026" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1730096026" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1730096026" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1730096026" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1730096026" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1730096026" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1730096026" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1730265134" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1730265134" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1730265134" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1730265134" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1730265134" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1730265134" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1730265134" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1730265134" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1730265134" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1730265134" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1730096026"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1730265134"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1730096026"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1730096026"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1730265134"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1730265134"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1730096026"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1730265134"></script>
 
     
   </div>
@@ -3366,6 +3366,12 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
+    <li><a href="#docker-dot-el">docker.el</a>
+      <ul>
+        <li><a href="#概要">概要</a></li>
+        <li><a href="#インストール">インストール</a></li>
+      </ul>
+    </li>
     <li><a href="#dockerfile-mode">dockerfile-mode</a>
       <ul>
         <li><a href="#インストール">インストール</a></li>
@@ -3398,8 +3404,17 @@
 
 
 <h2 id="概要">概要</h2>
-<p>Dockerfile を書いたりするための設定。ちゃんと設定したら Emacs から Docker の操作もできるようだけどそこまでは対応してない</p>
+<p>Docker の管理をしたり Dockerfile を書いたりするための設定を書いている</p>
+<h2 id="docker-dot-el">docker.el</h2>
+<h3 id="概要">概要</h3>
+<p><a href="https://github.com/Silex/docker.el">docker.el</a> は Docker のコンテナやらイメージやらを Emacs 上で管理するためのパッケージです。</p>
+<h3 id="インストール">インストール</h3>
+<p>el-get 本体にレシピがあるので <code>el-get-bundle</code> でインストール</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle docker)
+</span></span></code></pre></div><p>設定は今のところ特に弄っていません。
+transient が動くのでキーバインドも特に設定していません。</p>
 <h2 id="dockerfile-mode">dockerfile-mode</h2>
+<p><a href="https://github.com/spotify/dockerfile-mode">dockerfile-mode</a> は Dockerfile を編集するためのメジャーモード</p>
 <h3 id="インストール">インストール</h3>
 <p>こちらは el-get にレシピが登録されているので単純に <code>el-get-bundle</code> でインストールしている。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle dockerfile-mode)
@@ -5802,19 +5817,19 @@ dockerfile-mode-hook で lsp を起動させるようにしている。</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1730096026"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1730096026"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1730096026"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1730096026"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1730096026"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1730096026"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1730265134"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1730265134"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1730265134"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1730265134"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1730265134"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1730265134"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1730096026"></script>
-    <script src="/.emacs.d/js/learn.js?1730096026"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1730096026"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1730265134"></script>
+    <script src="/.emacs.d/js/learn.js?1730265134"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1730265134"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1730096026"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1730265134"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
