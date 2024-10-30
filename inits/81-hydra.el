@@ -75,11 +75,11 @@
    (("b" counsel-descbinds "Keybind")
     ("f" counsel-describe-function "Function")
     ("v" counsel-describe-variable "Variable")
-    ;; ("P"   my/open-review-requested-pr "Open Requested PR")
     ("m" describe-minor-mode "Minor mode"))
    "Other"
    (("@" all-the-icons-hydra/body "List icons")
     ("w" which-key-show-top-level "Which key")
+    ("d" docker                   "Docker")
     ("D" my/download-from-beorg))))
 
 (pretty-hydra-define text-scale-hydra (:separator "-" :title (concat (all-the-icons-material "text_fields") " Text Scale") :exit nil :quit-key "q")

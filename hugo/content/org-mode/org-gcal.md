@@ -27,30 +27,6 @@ org-gcal が依存しているので [parsist](https://elpa.gnu.org/packages/per
 (el-get-bundle org-gcal)
 ```
 
-その際 el-get のレシピは自前で用意している
-
-```emacs-lisp
-(:name org-gcal
-       :description "Org sync with Google Calendar."
-       :website "https://github.com/kidd/org-gcal.el"
-       :type github
-       :minimum-emacs-version "26"
-       :depends (request alert cl-lib aio)
-       :pkgname "kidd/org-gcal.el")
-```
-
-`emacs-aio` も recipe を自前で用意している
-
-```emacs-lisp
-(:name aio
-       :website "https://github.com/skeeto/emacs-aio"
-       :description "aio is to Emacs Lisp as asyncio is to Python."
-       :type github
-       :pkgname "skeeto/emacs-aio")
-```
-
-のだけど確か org-gcal のレシピは修正されているし emacs-aio も recipe 追加されてたはずなので多分これは el-get 本体のものに切り替えても良いはず……
-
 
 ## 設定 {#設定}
 
