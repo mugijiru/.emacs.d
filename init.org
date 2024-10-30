@@ -9749,31 +9749,6 @@ org-gcal が依存しているので [[https://elpa.gnu.org/packages/persist.htm
 #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
 (el-get-bundle org-gcal)
 #+end_src
-
-その際 el-get のレシピは自前で用意している
-
-#+begin_src emacs-lisp :tangle recipes/org-gcal.rcp
-(:name org-gcal
-       :description "Org sync with Google Calendar."
-       :website "https://github.com/kidd/org-gcal.el"
-       :type github
-       :minimum-emacs-version "26"
-       :depends (request alert cl-lib aio)
-       :pkgname "kidd/org-gcal.el")
-#+end_src
-
-~emacs-aio~ も recipe を自前で用意している
-
-#+begin_src emacs-lisp :tangle recipes/aio.rcp
-(:name aio
-       :website "https://github.com/skeeto/emacs-aio"
-       :description "aio is to Emacs Lisp as asyncio is to Python."
-       :type github
-       :pkgname "skeeto/emacs-aio")
-#+end_src
-
-のだけど確か org-gcal のレシピは修正されているし emacs-aio も recipe 追加されてたはずなので
-多分これは el-get 本体のものに切り替えても良いはず……
 *** 設定
 :PROPERTIES:
 :ID:       247a2cfe-1bee-4293-82fb-b9e68130f258

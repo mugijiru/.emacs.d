@@ -56,7 +56,6 @@
         (mocha :checksum "6a72fa20e7be6e55c09b1bc9887ee09c5df28e45")
         (pdf-tools :checksum "30b50544e55b8dbf683c2d932d5c33ac73323a16")
         (tablist :checksum "faab7a035ef2258cc4ea2182f67e3aedab7e2af9")
-        (aio :checksum "da93523e235529fa97d6f251319d9e1d6fc24a41")
         (git-messenger :checksum "eade986ef529aa2dac6944ad61b18de55cee0b76")
         (lsp-docker :checksum "ce291d0f80533f8eaca120eb745d55669e062636")
         (ivy-kibela :checksum "bd48bfa2ba2e655b435cf9acd6f09d835afe9b14")
