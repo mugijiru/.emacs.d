@@ -5,10 +5,32 @@ draft = false
 
 ## 概要 {#概要}
 
-Dockerfile を書いたりするための設定。ちゃんと設定したら Emacs から Docker の操作もできるようだけどそこまでは対応してない
+Docker の管理をしたり Dockerfile を書いたりするための設定を書いている
+
+
+## docker.el {#docker-dot-el}
+
+
+### 概要 {#概要}
+
+[docker.el](https://github.com/Silex/docker.el) は Docker のコンテナやらイメージやらを Emacs 上で管理するためのパッケージです。
+
+
+### インストール {#インストール}
+
+el-get 本体にレシピがあるので `el-get-bundle` でインストール
+
+```emacs-lisp
+(el-get-bundle docker)
+```
+
+設定は今のところ特に弄っていません。
+transient が動くのでキーバインドも特に設定していません。
 
 
 ## dockerfile-mode {#dockerfile-mode}
+
+[dockerfile-mode](https://github.com/spotify/dockerfile-mode) は Dockerfile を編集するためのメジャーモード
 
 
 ### インストール {#インストール}

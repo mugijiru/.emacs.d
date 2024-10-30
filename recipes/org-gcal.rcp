@@ -3,5 +3,5 @@
        :website "https://github.com/kidd/org-gcal.el"
        :type github
        :minimum-emacs-version "26"
-       :depends (request alert cl-lib aio)
+       :depends (request alert cl-lib emacs-aio)
        :pkgname "kidd/org-gcal.el")

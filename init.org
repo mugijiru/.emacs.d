@@ -4991,7 +4991,7 @@ Ruby 書いていたら大体 rubocop も使うので追加
 ここでは各言語やフレームワーク毎の設定をまとめている。
 markdown-mode とか yaml-mode なんかはプログラム言語ではないけど面倒なので一旦ここにまとめている。
 
-- [[id:d8faf854-ed24-464d-b670-b76346fed6b4][Docker]] :: Dockerfile を書くための設定
+- [[id:d8faf854-ed24-464d-b670-b76346fed6b4][Docker]] :: Docker の管理や Dockerfile を書くための設定
 - [[*emacs-lisp][emacs-lisp]] :: Emacs Lisp を書くための設定
 - [[*Ember.js][Ember.js]] :: Web フロントエンド MVC フレームワークである Ember.js 用の設定を書いている
 - [[*es6][es6]] :: ES2015 以降の JS に関する設定。es6 としているのは過去の経緯のため。
@@ -5019,10 +5019,21 @@ markdown-mode とか yaml-mode なんかはプログラム言語ではないけ�
 :ID:       d8faf854-ed24-464d-b670-b76346fed6b4
 :END:
 *** 概要
-Dockerfile を書いたりするための設定。
-ちゃんと設定したら Emacs から Docker の操作もできるようだけど
-そこまでは対応してない
+Docker の管理をしたり Dockerfile を書いたりするための設定を書いている
+*** docker.el
+**** 概要
+[[https://github.com/Silex/docker.el][docker.el]] は Docker のコンテナやらイメージやらを Emacs 上で管理するためのパッケージです。
+**** インストール
+el-get 本体にレシピがあるので ~el-get-bundle~ でインストール
+
+#+begin_src emacs-lisp :tangle inits/50-docker.el
+(el-get-bundle docker)
+#+end_src
+
+設定は今のところ特に弄っていません。
+transient が動くのでキーバインドも特に設定していません。
 *** dockerfile-mode
+[[https://github.com/spotify/dockerfile-mode][dockerfile-mode]] は Dockerfile を編集するためのメジャーモード
 **** インストール
 :PROPERTIES:
 :ID:       88f3745f-2c1a-4df1-ab75-6ee3270933b3

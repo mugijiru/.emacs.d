@@ -1,5 +1,7 @@
 (setq el-get-lock-package-versions
-      '((bundler :checksum "43efb6be4ed118b06d787ce7fbcffd68a31732a7")
+      '((docker :checksum "6f8bba0d11a5143872dfc25afdabe16cae410d11")
+        (emacs-aio :checksum "da93523e235529fa97d6f251319d9e1d6fc24a41")
+        (bundler :checksum "43efb6be4ed118b06d787ce7fbcffd68a31732a7")
         (dmacro :checksum "c714fcdbac3ae57fcc8ff3db94b0e5aededc7468")
         (ruby-refactor :checksum "e6b7125878a08518bffec6942df0c606f748e9ee")
         (pg :checksum "2c32085cee56afb751599941221d52c5e7df3908")
