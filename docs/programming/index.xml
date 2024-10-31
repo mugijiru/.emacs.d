@@ -134,6 +134,13 @@
       <description>概要 scss を使う上での設定をここではまとめている。長いこと手を入れてないので今はより良い設定がありそうな気がする。&#xA;rainbow-mode rainbow-mode はカラーコードを入力した際に、そのカラーコード部分の背景色をカラーコードの色に変化させるパッケージ。ぱっと見で大体どんな色かわかって便利なやつ&#xA;インストール 自分はel-get で入れている。&#xA;(el-get-bundle rainbow-mode) ELPA に登録されているので package-install でもいける&#xA;scss-mode scss-mode は Emacs 組込みの css-mode の中で定義されているメジャーモード。なのでインストール不要で使えるし .scss という拡張子なら自動的に scss-mode で開いてくれるようになっている。&#xA;設定 improvement インデントはデフォルトだと半角空白 4 つとなっているが麦汁さん的には 2 の方が良いのでそのように変更している。&#xA;(with-eval-after-load &amp;#39;scss-mode (setq css-indent-offset 2)) with-eval-after-load を使っているが css-indent-offset は defcustom で定義されているので custom-set-variables を使うように修正した方が良さそう&#xA;flycheck の scss-stylelint を上書き stylelint v14 以降は &amp;ndash;style オプションが使えないので上書き https://github.com/flycheck/flycheck/pull/1944 が取り込まれたらこれも要らなさそうだけど。&#xA;(with-eval-after-load &amp;#39;flycheck (flycheck-define-checker scss-stylelint &amp;#34;A SCSS syntax and style checker using stylelint. See URL `http://stylelint.</description>
     </item>
     <item>
+      <title>sql</title>
+      <link>https://mugijiru.github.io/.emacs.d/programming/sql/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mugijiru.github.io/.emacs.d/programming/sql/</guid>
+      <description>概要 たまには SQL を書くこともあるのでそのための設定を書いておく。とはいえ大体 org-mode の中で書くのだけれども。&#xA;sqlformat sqlformat は SQL コードのフォーマットをしてくれるパッケージです。フォーマットの方法は外部ツールに任せる感じなので、各自お気に入りの formatter を利用できます&#xA;インストール el-get 本体にレシピがないので自前で用意しています。&#xA;(:name sqlformat :website &amp;#34;https://github.com/purcell/sqlformat&amp;#34; :description &amp;#34;Easily reformatting SQL using any one of several popular SQL formatters&amp;#34; :type github :pkgname &amp;#34;purcell/sqlformat&amp;#34; :depends (reformatter)) そして el-get-bundle でインストールしています&#xA;(el-get-bundle sqlformat) 設定 普段 PostgreSQL を使うことが多いことと manjaro の extra リポジトリにあったからという理由で pgformatter を利用しています。&#xA;というわけで Emacs からもそれを使って format するように設定しています&#xA;(setopt sqlformat-command &amp;#39;pgformatter) </description>
+    </item>
+    <item>
       <title>Terraform</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/terraform/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

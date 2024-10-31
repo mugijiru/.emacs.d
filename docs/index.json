@@ -137,7 +137,7 @@
 	"title": "プログラミング関係の設定",
 	"tags": [],
 	"description": "",
-	"content": "ここでは各言語やフレームワーク毎の設定をまとめている。 markdown-mode とか yaml-mode なんかはプログラム言語ではないけど面倒なので一旦ここにまとめている。\nDocker Dockerfile を書くための設定 emacs-lisp Emacs Lisp を書くための設定 Ember.js Web フロントエンド MVC フレームワークである Ember.js 用の設定を書いている es6 ES2015 以降の JS に関する設定。es6 としているのは過去の経緯のため。 flycheck Flycheck の設定について書いている gnuplot-mode グラフ作成ソフト gnuplot を使うための設定 GraphQL GraphQL ファイルを編集するための設定 Jest JS のテストツール Jest 関係の設定 JSON JSON ファイルを編集するための設定 lsp-mode Emacs の LSP クライアントの一種である lsp-mode に関する設定 markdown Markdown を書く時の設定 Mocha Mocha を使ったテストを動かすための設定 plantuml-mode PlantUML を書く時のメジャーモードの設定 rails Rails 開発をする上での設定 React.js React.js アプリを開発するための設定 rspec-mode Ruby のテストフレームワーク RSpec を書いたりするのに便利なモード ruby Ruby を書く上での設定 scss SCSS を書く上での設定 tree-sitter 軽量な文法解析ツールである tree-sitter を利用するための設定を書いている TypeScript TypeScript を書く上での設定 Vue.js Vue.js を書く上での設定 yaml-mode YAML を書く時のメジャーモードの設定 "
+	"content": "ここでは各言語やフレームワーク毎の設定をまとめている。 markdown-mode とか yaml-mode なんかはプログラム言語ではないけど面倒なので一旦ここにまとめている。\nDocker Docker の管理や Dockerfile を書くための設定 emacs-lisp Emacs Lisp を書くための設定 Ember.js Web フロントエンド MVC フレームワークである Ember.js 用の設定を書いている es6 ES2015 以降の JS に関する設定。es6 としているのは過去の経緯のため。 flycheck Flycheck の設定について書いている gnuplot-mode グラフ作成ソフト gnuplot を使うための設定 GraphQL GraphQL ファイルを編集するための設定 Jest JS のテストツール Jest 関係の設定 JSON JSON ファイルを編集するための設定 lsp-mode Emacs の LSP クライアントの一種である lsp-mode に関する設定 markdown Markdown を書く時の設定 Mocha Mocha を使ったテストを動かすための設定 plantuml-mode PlantUML を書く時のメジャーモードの設定 rails Rails 開発をする上での設定 React.js React.js アプリを開発するための設定 rspec-mode Ruby のテストフレームワーク RSpec を書いたりするのに便利なモード ruby Ruby を書く上での設定 scss SCSS を書く上での設定 sql SQL を書く上での設定 tree-sitter 軽量な文法解析ツールである tree-sitter を利用するための設定を書いている TypeScript TypeScript を書く上での設定 Vue.js Vue.js を書く上での設定 yaml-mode YAML を書く時のメジャーモードの設定 "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/org-gcal/",
@@ -859,6 +859,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 smartparens はカッコとかクォートとかのペアになるようなものの入力補助をしてくれるやつ。\nstrict モードだとペアが崩れないように強制するので雑に C-k で行削除しててもペアが維持されて便利。\nインストール いつも透り el-get で導入している\n(el-get-bundle smartparens) 設定 実は導入して間もないので、提供されてるオススメ設定のみ突っ込んでいる。オススメ設定は別途 reqiure したら良いという作りなので、以下のようにして突っ込んでいる。\n(require \u0026#39;smartparens-config) その他 各言語の hook で smartparens-strict-mode を有効にしている。なんか常に有効だと困りそうな気がしたので。\n"
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/programming/sql/",
+	"title": "sql",
+	"tags": [],
+	"description": "",
+	"content": "概要 たまには SQL を書くこともあるのでそのための設定を書いておく。とはいえ大体 org-mode の中で書くのだけれども。\nsqlformat sqlformat は SQL コードのフォーマットをしてくれるパッケージです。フォーマットの方法は外部ツールに任せる感じなので、各自お気に入りの formatter を利用できます\nインストール el-get 本体にレシピがないので自前で用意しています。\n(:name sqlformat :website \u0026#34;https://github.com/purcell/sqlformat\u0026#34; :description \u0026#34;Easily reformatting SQL using any one of several popular SQL formatters\u0026#34; :type github :pkgname \u0026#34;purcell/sqlformat\u0026#34; :depends (reformatter)) そして el-get-bundle でインストールしています\n(el-get-bundle sqlformat) 設定 普段 PostgreSQL を使うことが多いことと manjaro の extra リポジトリにあったからという理由で pgformatter を利用しています。\nというわけで Emacs からもそれを使って format するように設定しています\n(setopt sqlformat-command \u0026#39;pgformatter) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/keybinds/sticky-control/",

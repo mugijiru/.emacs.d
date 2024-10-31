@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>my-org-commands-test :: 麦汁&#39;s Emacs Config</title>
+    <title>sql :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1730362092" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/testing/my-org-commands-test/">
+  <body class="" data-url="/.emacs.d/programming/sql/">
     <nav id="sidebar" class="">
 
 
@@ -1711,7 +1711,7 @@
   
     
     <li data-nav-id="/.emacs.d/programming/" title="プログラミング関係の設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -2115,7 +2115,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/programming/sql/" title="sql" class="dd-item ">
+      <li data-nav-id="/.emacs.d/programming/sql/" title="sql" class="dd-item active">
         <a href="/.emacs.d/programming/sql/">
         sql
         
@@ -3212,7 +3212,7 @@
   
     
     <li data-nav-id="/.emacs.d/testing/" title="テストコード" class="dd-item
-        parent
+        
         
         
         ">
@@ -3280,7 +3280,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/testing/my-org-commands-test/" title="my-org-commands-test" class="dd-item active">
+      <li data-nav-id="/.emacs.d/testing/my-org-commands-test/" title="my-org-commands-test" class="dd-item ">
         <a href="/.emacs.d/testing/my-org-commands-test/">
         my-org-commands-test
         
@@ -3371,7 +3371,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/testing/'>テストコード</a> > my-org-commands-test
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/programming/'>プログラミング関係の設定</a> > sql
           
         
           
@@ -3386,21 +3386,10 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#setup">Setup</a>
-      <ul>
-        <li><a href="#テストライブラリの読み込み">テストライブラリの読み込み</a></li>
-        <li><a href="#el-get-の設定の読み込み">el-get の設定の読み込み</a></li>
-        <li><a href="#テスト補助のプラグイン読み込み">テスト補助のプラグイン読み込み</a></li>
-        <li><a href="#依存プラグインの読み込み">依存プラグインの読み込み</a></li>
-        <li><a href="#テスト対象の読み込み">テスト対象の読み込み</a></li>
-      </ul>
-    </li>
-    <li><a href="#ert-deftest">ert-deftest</a>
-      <ul>
-        <li><a href="#test-my-org-todo-keyword-strings">test:my/org-todo-keyword-strings</a></li>
-        <li><a href="#test-my-org-todo">test:my/org-todo</a></li>
-      </ul>
-    </li>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#sqlformat">sqlformat</a></li>
+    <li><a href="#インストール">インストール</a></li>
+    <li><a href="#設定">設定</a></li>
   </ul>
 </nav>
     </div>
@@ -3418,68 +3407,34 @@
           
             <h1>
               
-              my-org-commands-test
+              sql
             </h1>
           
 
         
 
 
-<p>org-mode 用に定義したコマンドや関数のテストコード</p>
-<h2 id="setup">Setup</h2>
-<h3 id="テストライブラリの読み込み">テストライブラリの読み込み</h3>
-<p>標準でついてくる ert を採用しているのでそれを読み込んでいる。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(require <span style="color:#e6db74">&#39;ert</span>)
-</span></span></code></pre></div><h3 id="el-get-の設定の読み込み">el-get の設定の読み込み</h3>
-<p>プラグイン管理には el-get を利用しているのでその設定ファイルを読み込んでいる。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; プラグイン読み込みの前準備</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">load</span> (<span style="color:#a6e22e">expand-file-name</span> (<span style="color:#a6e22e">concat</span> user-emacs-directory <span style="color:#e6db74">&#34;/init-el-get.el&#34;</span>)))
-</span></span></code></pre></div><h3 id="テスト補助のプラグイン読み込み">テスト補助のプラグイン読み込み</h3>
-<h4 id="with-simulated-input">with-simulated-input</h4>
-<p>上で説明しているが、入力をシミュレートするためのプラグインをテストで利用しているのでここで読み込んでいる。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; 入力シミュレート用のプラグイン</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">load</span> (<span style="color:#a6e22e">expand-file-name</span> (<span style="color:#a6e22e">concat</span> user-emacs-directory <span style="color:#e6db74">&#34;/inits/99-with-simulated-input&#34;</span>)))
-</span></span></code></pre></div><h3 id="依存プラグインの読み込み">依存プラグインの読み込み</h3>
-<p>テスト対象が依存しているプラグインを読み込んでいる。本来は init.el などの設定ファイルを全部読み込んだ状態でテストをした方が良さそうだが現状だとその状態で GitHub Actions で動かせる方法がわからないので一旦個別に読み込むようにしている。</p>
-<h4 id="swiper">swiper</h4>
-<p>ivy-read を使った機能のテストをするので読み込んでいる。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle abo-abo/swiper)
-</span></span></code></pre></div><h3 id="テスト対象の読み込み">テスト対象の読み込み</h3>
-<p>テストしたいファイルをここで読んでる。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; テスト対象の読み込み</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">load</span> (<span style="color:#a6e22e">expand-file-name</span> (<span style="color:#a6e22e">concat</span> user-emacs-directory <span style="color:#e6db74">&#34;/inits/68-my-org-commands.el&#34;</span>)))
-</span></span></code></pre></div><h2 id="ert-deftest">ert-deftest</h2>
-<h3 id="test-my-org-todo-keyword-strings">test:my/org-todo-keyword-strings</h3>
-<p><code>org-todo-keywords</code> から &ldquo;|&rdquo; という区切りを除外したり
-&ldquo;(s)&rdquo; とかのような高速アクセスのためのキーワードは
-ivy で選択する時には邪魔なので除外したい、ということを表現したテスト。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(ert-deftest test:my/org-todo-keyword-strings ()
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Test of </span><span style="color:#e6db74">`my/org-todo-keyword-strings&#39;</span><span style="color:#e6db74">.&#34;</span>
-</span></span><span style="display:flex;"><span>  (let ((org-todo-keywords <span style="color:#f92672">&#39;</span>((sequence <span style="color:#e6db74">&#34;TODO&#34;</span> <span style="color:#e6db74">&#34;DOING(!)&#34;</span> <span style="color:#e6db74">&#34;WAIT&#34;</span> <span style="color:#e6db74">&#34;|&#34;</span> <span style="color:#e6db74">&#34;DONE(!)&#34;</span> <span style="color:#e6db74">&#34;SOMEDAY(s)&#34;</span>))))
-</span></span><span style="display:flex;"><span>    (should (<span style="color:#a6e22e">equal</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;TODO&#34;</span> <span style="color:#e6db74">&#34;DOING&#34;</span> <span style="color:#e6db74">&#34;WAIT&#34;</span> <span style="color:#e6db74">&#34;DONE&#34;</span> <span style="color:#e6db74">&#34;SOMEDAY&#34;</span>)
-</span></span><span style="display:flex;"><span>                   (my/org-todo-keyword-strings)))))
-</span></span></code></pre></div><p>なお、ここでテストしている関数では
-TODO キーワードを ivy で扱いやすいように整えているだけで実際の選択は別の関数が担っている</p>
-<h3 id="test-my-org-todo">test:my/org-todo</h3>
-<p>org-todo を ivy で選択する関数のテストを書いている。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(ert-deftest test:my/org-todo ()
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Test of </span><span style="color:#e6db74">`my/org-todo&#39;</span><span style="color:#e6db74">.&#34;</span>
-</span></span><span style="display:flex;"><span>  (let ((org-todo-keywords <span style="color:#f92672">&#39;</span>((sequence <span style="color:#e6db74">&#34;TODO&#34;</span> <span style="color:#e6db74">&#34;DOING(!)&#34;</span> <span style="color:#e6db74">&#34;WAIT&#34;</span> <span style="color:#e6db74">&#34;|&#34;</span> <span style="color:#e6db74">&#34;DONE(!)&#34;</span> <span style="color:#e6db74">&#34;SOMEDAY(s)&#34;</span>)))
-</span></span><span style="display:flex;"><span>        (result))
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">;; org-mode を読まずに済むように org-todo を差し替えてテストしている</span>
-</span></span><span style="display:flex;"><span>    (cl-letf (((<span style="color:#a6e22e">symbol-function</span> <span style="color:#e6db74">&#39;org-todo</span>)
-</span></span><span style="display:flex;"><span>               (lambda (keyword)
-</span></span><span style="display:flex;"><span>                 (setq result keyword))))
-</span></span><span style="display:flex;"><span>      (with-simulated-input <span style="color:#e6db74">&#34;DOI RET&#34;</span> (my/org-todo))
-</span></span><span style="display:flex;"><span>      (should (<span style="color:#a6e22e">equal</span> <span style="color:#e6db74">&#34;DOING&#34;</span> result)))))
-</span></span></code></pre></div><p>ポイントは cl-letf を使って、内部で叩いている関数 <code>org-todo</code> を一時的に</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(lambda (keyword)
-</span></span><span style="display:flex;"><span>  (setq result keyword))
-</span></span></code></pre></div><p>に差し替えているところ。</p>
-<p>org-mode を呼び出さずに代わりの関数に差し替えているのでテストがしやすくなっている。Stub 的なやつかな。</p>
-<p>何度も使うならこの差し替え処理自体をテストヘルパーにしても良いかもしれない。</p>
-<p>また ivy で選択するので with-simulated-input を使って入力操作を代替している。便利。</p>
-
+<h2 id="概要">概要</h2>
+<p>たまには SQL を書くこともあるのでそのための設定を書いておく。とはいえ大体 org-mode の中で書くのだけれども。</p>
+<h2 id="sqlformat">sqlformat</h2>
+<p><a href="https://github.com/purcell/sqlformat">sqlformat</a> は SQL コードのフォーマットをしてくれるパッケージです。フォーマットの方法は外部ツールに任せる感じなので、各自お気に入りの formatter を利用できます</p>
+<h2 id="インストール">インストール</h2>
+<p>el-get 本体にレシピがないので自前で用意しています。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name sqlformat
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/purcell/sqlformat&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Easily reformatting SQL using any one of several popular SQL formatters&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;purcell/sqlformat&#34;</span>
+</span></span><span style="display:flex;"><span>       :depends (reformatter))
+</span></span></code></pre></div><p>そして <code>el-get-bundle</code> でインストールしています</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle sqlformat)
+</span></span></code></pre></div><h2 id="設定">設定</h2>
+<p>普段 PostgreSQL を使うことが多いことと
+manjaro の extra リポジトリにあったからという理由で
+<a href="https://github.com/darold/pgFormatter">pgformatter</a> を利用しています。</p>
+<p>というわけで Emacs からもそれを使って format するように設定しています</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setopt sqlformat-command <span style="color:#e6db74">&#39;pgformatter</span>)
+</span></span></code></pre></div>
 
 <footer class="footline">
 	
@@ -4687,6 +4642,7 @@ TODO キーワードを ivy で扱いやすいように整えているだけで�
             
                 
                     
+                    
                 
                 
 
@@ -4699,6 +4655,9 @@ TODO キーワードを ivy で扱いやすいように整えているだけで�
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -4988,6 +4947,7 @@ TODO キーワードを ivy で扱いやすいように整えているだけで�
             
                 
                     
+                    
                 
                 
 
@@ -5003,6 +4963,9 @@ TODO キーワードを ivy で扱いやすいように整えているだけで�
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -5790,7 +5753,6 @@ TODO キーワードを ivy で扱いやすいように整えているだけで�
             
             
                 
-                    
                     
                 
                 
@@ -5805,9 +5767,6 @@ TODO キーワードを ivy で扱いやすいように整えているだけで�
             
                 
                     
-                        
-                        
-                    
                 
                 
 
@@ -5839,7 +5798,6 @@ TODO キーワードを ivy で扱いやすいように整えているだけで�
             
             
                 
-                    
                     
                 
                 
@@ -5864,10 +5822,10 @@ TODO キーワードを ivy で扱いやすいように整えているだけで�
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/testing/run-tests/" title="run-tests"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/programming/scss/" title="scss"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/testing/execution/" title="実行方法" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/programming/terraform/" title="Terraform" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
