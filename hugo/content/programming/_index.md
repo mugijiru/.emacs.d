@@ -10,7 +10,7 @@ disableToc = true
 markdown-mode とか yaml-mode なんかはプログラム言語ではないけど面倒なので一旦ここにまとめている。
 
 [Docker]({{< relref "docker" >}})
-: Dockerfile を書くための設定
+: Docker の管理や Dockerfile を書くための設定
 
 [emacs-lisp]({{< relref "emacs-lisp" >}})
 : Emacs Lisp を書くための設定
@@ -62,6 +62,9 @@ markdown-mode とか yaml-mode なんかはプログラム言語ではないけ�
 
 [scss]({{< relref "scss" >}})
 : SCSS を書く上での設定
+
+[sql]({{< relref "sql" >}})
+: SQL を書く上での設定
 
 [tree-sitter]({{< relref "tree-sitter" >}})
 : 軽量な文法解析ツールである [tree-sitter](https://tree-sitter.github.io/tree-sitter/) を利用するための設定を書いている
