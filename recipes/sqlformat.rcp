@@ -1,0 +1,6 @@
+(:name sqlformat
+       :website "https://github.com/purcell/sqlformat"
+       :description "Easily reformatting SQL using any one of several popular SQL formatters"
+       :type github
+       :pkgname "purcell/sqlformat"
+       :depends (reformatter))
