@@ -5781,6 +5781,13 @@ el-get のレシピは自前で用意。
 :PROPERTIES:
 :ID:       60b0ad6f-398b-4419-9ade-55186bce0662
 :END:
+インデントは空白2文字となるように設定している。
+インデントに8文字も使いたくないでござる。
+
+#+begin_src emacs-lisp :tangle inits/50-plantuml.el
+(setopt plantuml-indent-level 2)
+#+end_src
+
 実行モードは ~'jar~ を指定している。
 デフォルトは ~'server~ なんだけどオフラインの時も使いたいししね。
 
