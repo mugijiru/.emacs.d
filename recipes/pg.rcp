@@ -1,6 +1,7 @@
 (:name pg
        :description "Emacs Lisp socket-level interface to the PostgreSQL RDBMS"
        :type github
+       :branch "main"
        :pkgname "emarsden/pg-el"
        :depends (peg)
        :features pg)
