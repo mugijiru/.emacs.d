@@ -51,20 +51,6 @@ hydra-posframe を使って画面中央に表示されるようにしている�
 ```
 
 
-### WebDAV Sync download の設定 {#webdav-sync-download-の設定}
-
-作業管理用の org-mode のドキュメントは WebDAV サーバにも上げて
-beorg でも使えるようにしているがそれを拾って来るためのコマンドを用意している。
-
-```emacs-lisp
-(defun my/download-from-beorg ()
-  (interactive)
-  (async-shell-command "java -jar ~/bin/webdav_sync1_1_9.jar -c ~/.config/webdav-sync/download.xml && notify-send 'WebDAV Sync' 'Downloaded from WebDAV'"))
-```
-
-簡単に `async-shell-command` を使って済ませている
-
-
 ### major-mode-hydra のインストール {#major-mode-hydra-のインストール}
 
 自分以外で使っている人を見たことはないけど麦汁さんは [major-mode-hydra](https://github.com/jerrypnz/major-mode-hydra.el) というものを利用している。
@@ -225,20 +211,18 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
    "Other"
    (("@" all-the-icons-hydra/body "List icons")
     ("w" which-key-show-top-level "Which key")
-    ("d" docker                   "Docker")
-    ("D" my/download-from-beorg))))
+    ("d" docker                   "Docker"))))
 ```
 
-| Key | 効果                                                  |
-|-----|-----------------------------------------------------|
-| b   | キーバインドを調べる                                  |
-| f   | Emacs Lisp の関数を調べる                             |
-| v   | Emacs Lisp の変数を調べる                             |
-| m   | minor-mode を調べる                                   |
-| @   | All the icons の Hydra を起動                         |
-| w   | トップレベルのキーバインドを表示する                  |
-| d   | docker.el の起動                                      |
-| D   | beorg 連携に使ってる WebDAV サーバからダウンロード(Dropbox に移行して不要になった) |
+| Key | 効果                      |
+|-----|-------------------------|
+| b   | キーバインドを調べる      |
+| f   | Emacs Lisp の関数を調べる |
+| v   | Emacs Lisp の変数を調べる |
+| m   | minor-mode を調べる       |
+| @   | All the icons の Hydra を起動 |
+| w   | トップレベルのキーバインドを表示する |
+| d   | docker.el の起動          |
 
 
 ### Text Scale {#text-scale}

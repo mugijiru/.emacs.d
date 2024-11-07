@@ -4,10 +4,6 @@
 
 (add-hook 'after-init-hook 'hydra-posframe-enable)
 
-(defun my/download-from-beorg ()
-  (interactive)
-  (async-shell-command "java -jar ~/bin/webdav_sync1_1_9.jar -c ~/.config/webdav-sync/download.xml && notify-send 'WebDAV Sync' 'Downloaded from WebDAV'"))
-
 (el-get-bundle major-mode-hydra.el)
 
 (custom-set-variables '(pretty-hydra-default-title-body-format-spec "%s\n%s"))
@@ -79,8 +75,7 @@
    "Other"
    (("@" all-the-icons-hydra/body "List icons")
     ("w" which-key-show-top-level "Which key")
-    ("d" docker                   "Docker")
-    ("D" my/download-from-beorg))))
+    ("d" docker                   "Docker"))))
 
 (pretty-hydra-define text-scale-hydra (:separator "-" :title (concat (all-the-icons-material "text_fields") " Text Scale") :exit nil :quit-key "q")
   ("Scale"
