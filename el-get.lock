@@ -1,6 +1,6 @@
 (setq el-get-lock-package-versions
       '((sqlformat :checksum "ba4534ade5d9010d1119b7334cf1b2aa87b6c4c7")
-        (reformatter :checksum "f13f5b4ce51db95ea317d57a83be0358bbf3ec30")
+        (reformatter :checksum "8962e1dd0c949997413380ea1f8d8a25ada5f624")
         (emacs-oauth2-auto :checksum "ff9a45e27621aad5b1a2e12a09b01f3e4eaecf96")
         (docker :checksum "6f8bba0d11a5143872dfc25afdabe16cae410d11")
         (emacs-aio :checksum "da93523e235529fa97d6f251319d9e1d6fc24a41")
