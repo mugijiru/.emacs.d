@@ -1,0 +1,20 @@
+(:name forge
+       :website "https://github.com/magit/forge#readme"
+       :description "Work with Git forges from the comfort of Magit."
+       :type github
+       :pkgname "magit/forge"
+       :branch "main"
+       :minimum-emacs-version "25.1"
+       ;; The package.el dependency is on `emacsql-sqlite', but el-get
+       ;; provides that via `emacsql'.
+       :depends (compat closql dash emacsql ghub let-alist magit markdown-mode
+                        seq transient yaml)
+       :info "docs"
+       :load-path "lisp/"
+       :compile "lisp/"
+       ;; Use the Makefile to produce the info manual, el-get can
+       ;; handle compilation and autoloads on its own.
+       :build `(("make" ,(format "EMACSBIN=%s" el-get-emacs) "info")
+                ("git" "checkout" "docs/forge.texi")) ;; fix: Revert docs/forge.texi changes
+       :build/berkeley-unix `(("gmake" ,(format "EMACSBIN=%s" el-get-emacs)
+                               "info")))

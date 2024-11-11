@@ -68,6 +68,53 @@ ref: <https://github.com/mugijiru/.emacs.d/pull/2992>
        :website "https://elpa.gnu.org/packages/seq.html")
 ```
 
+transient や forge は el-get にあるレシピでは info を build するようになっているが
+build されるとリポジトリに差分が発生して update ができなくなるのでその差分はなかったことにするようにしている
+
+```emacs-lisp
+(:name transient
+       :website "https://github.com/magit/transient#readme"
+       :description "Transient commands used by magit."
+       :type github
+       :pkgname "magit/transient"
+       :branch "main"
+       :minimum-emacs-version "25.1"
+       :info "docs"
+       :load-path "lisp/"
+       :compile "lisp/"
+       ;; Use the Makefile to produce the info manual, el-get can
+       ;; handle compilation and autoloads on its own.
+       :build `(("make" ,(format "EMACSBIN=%s" el-get-emacs) "info")
+                ("git" "checkout" "docs/transient.texi")) ;; fix: Revert docs/transient.texi changes
+       :build/berkeley-unix `(("gmake" ,(format "EMACSBIN=%s" el-get-emacs)
+                               "info"))
+       ;; Assume windows lacks a build environment.
+       :build/windows-nt (with-temp-file "lisp/transient-autoloads.el" nil))
+```
+
+```emacs-lisp
+(:name forge
+       :website "https://github.com/magit/forge#readme"
+       :description "Work with Git forges from the comfort of Magit."
+       :type github
+       :pkgname "magit/forge"
+       :branch "main"
+       :minimum-emacs-version "25.1"
+       ;; The package.el dependency is on `emacsql-sqlite', but el-get
+       ;; provides that via `emacsql'.
+       :depends (compat closql dash emacsql ghub let-alist magit markdown-mode
+                        seq transient yaml)
+       :info "docs"
+       :load-path "lisp/"
+       :compile "lisp/"
+       ;; Use the Makefile to produce the info manual, el-get can
+       ;; handle compilation and autoloads on its own.
+       :build `(("make" ,(format "EMACSBIN=%s" el-get-emacs) "info")
+                ("git" "checkout" "docs/forge.texi")) ;; fix: Revert docs/forge.texi changes
+       :build/berkeley-unix `(("gmake" ,(format "EMACSBIN=%s" el-get-emacs)
+                               "info")))
+```
+
 そして `el-get-bundle` でインストールしている
 
 ```emacs-lisp
