@@ -151,7 +151,7 @@
         (japanese-holidays :checksum "324b6bf2f55ec050bef49e001caedaabaf4fa35d")
         (js2-mode :checksum "62d6cb169ed4cb6d7ae3ddbd8da9c995fed0ab32")
         (jump :checksum "55caa66a7cc6e0b1a76143fd40eff38416928941")
-        (lsp-mode :checksum "a49b38678cafe6c06859d5c56b6f1666a9d9fba9")
+        (lsp-mode :checksum "e178115078a8ec70552118400b8110c46f0c0eea")
         (lsp-ui :checksum "072bb29152038518c2478813b82c8d04d07df84c")
         (major-mode-hydra.el :checksum "d0a5dadee97c3752fcdef113cf2ba1923972a480")
         (magit :checksum "1c30bb1f9fb0668ec385fc3fb899b30d5507fad8")
