@@ -71,7 +71,7 @@
         (frame-fns :checksum "b675ee568c0133709c2c39a125395486cdf1c610")
         (tempbuf-mode :checksum "17a005da886436090d3812899d553deb7bdbebb2")
         (auto-fix :checksum "783e78f601d0ca42792aff40d6a72434be167900")
-        (typescript-mode :checksum "fc3a4f3b275e8cf6cf41aa0c9ef42e25ef908feb")
+        (typescript-mode :checksum "dd10f702d4946ddb2e1c2863bf02bf241bce5fc8")
         (yaml :checksum "70c4fcead97e9bd6594e418c922ae769818f4245")
         (web-mode :checksum "0c83581d1e93d1d802c730a1d5e90cd1c740e1b2")
         (dap-mode :checksum "605448b4fd90ca25924bf029acf2bdd047045133")
