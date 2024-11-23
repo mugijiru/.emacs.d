@@ -1,7 +1,3 @@
-;; org-capture
-(defvar org-capture-ical-file (concat org-directory "ical.org"))
-(setq org-capture-ical-file (concat org-directory "ical.org"))
-
 (setq my/org-capture-interrupted-file  (concat my/org-tasks-directory "interrupted.org"))
 (setq my/org-capture-inbox-file        (concat my/org-tasks-directory "inbox.org"))
 (setq my/org-capture-pointers-file     (concat my/org-tasks-directory "pointers.org"))
@@ -24,9 +20,6 @@
 ** How?
 ** Result
 \t")
-        ("m" "Memoにエントリー" entry
-         (file+headline ,my/org-capture-memo-file "未分類")
-         "*** %?\n\t")
         ("p" "Pointersにエントリー" entry
          (file+headline ,my/org-capture-pointers-file "Pointers")
          "** %?\n\t")
@@ -61,9 +54,6 @@
         ("I" "障害リストにエントリー" entry
          (file+headline ,my/org-capture-impediments-file "Impediments")
          "** TODO %?\n\t")
-        ("z" "一言・雑談ネタ" entry
-         (file+headline ,my/org-small-topic-file "Topic")
-         "** %?\n\t")
         ("s" "SQL にエントリー" entry
          (file+headline ,my/org-capture-sql-file "SQL")
          "** %?\n\t")
@@ -81,7 +71,4 @@
          "* %a %^G
 %U
 %:initial
-")
-        ("c" "同期カレンダーにエントリー" entry
-         (file+headline ,org-capture-ical-file "Schedule")
-         "** TODO %?\n\t")))
+")))
