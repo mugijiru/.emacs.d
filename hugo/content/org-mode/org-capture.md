@@ -9,19 +9,6 @@ weight = 5
 org-capture は org-mode 用にさくっとメモを取るための機能。
 
 
-## org-capture-ical-file <span class="tag"><span class="unused">unused</span></span> {#org-capture-ical-file}
-
-<https://qiita.com/takaxp/items/0b717ad1d0488b74429d> を参考に設定したやつ。
-
-今は別で Google Calendar 連携しているので使ってない……。
-
-```emacs-lisp
-;; org-capture
-(defvar org-capture-ical-file (concat org-directory "ical.org"))
-(setq org-capture-ical-file (concat org-directory "ical.org"))
-```
-
-
 ## capture 用ファイルを変数定義 <span class="tag"><span class="improvement">improvement</span></span> {#capture-用ファイルを変数定義}
 
 変数定義しなくてもいい気がしないでもないけどとりあえず変数定義している。バラバラの変数にするよりも alist とか plist とかにする方が適切な気がする
@@ -44,7 +31,6 @@ org-capture は org-mode 用にさくっとメモを取るための機能。
 | Key | 効果                                 | 備考                                                                                                    |
 |-----|------------------------------------|-------------------------------------------------------------------------------------------------------|
 | g   | GTD でとりあえず最初に放り込む Inbox に相当するファイルに登録 | Why?, Goal, How? 等の欄を設けることでそのタスクの諸々をハッキリさせようとしている                       |
-| m   | とりあえずメモっておきたいやつを放り込む | 最近使ってない。使いにくいのかも                                                                        |
 | p   | 資料を放り込むやつ                   | あとで読むリストになってる。読み終わっても、便利そうなのは DONE のまま置いている                        |
 | lr  | 読書メモ用                           |                                                                                                         |
 | lb  | ブログ記事感想とかに使う             |                                                                                                         |
@@ -55,7 +41,6 @@ org-capture は org-mode 用にさくっとメモを取るための機能。
 | b   | Blogネタにエントリー                 | 最近使ってない……。ブログ止まってるしな。                                                              |
 | P   | Firefox からページの一部を資料として放り込む用 | <https://github.com/sprig/org-capture-extension> 関係。Win では設定できてない                           |
 | L   | Firefox からページURLを資料として放り込む用 | <https://github.com/sprig/org-capture-extension> 関係。Win では設定できてない                           |
-| c   | スケジュール管理用ファイルに登録     | 使ってない。対象ファイルを変えて使ってみてもいいかも                                                    |
 
 ```emacs-lisp
 (setq org-capture-templates
@@ -72,9 +57,6 @@ org-capture は org-mode 用にさくっとメモを取るための機能。
 ** How?
 ** Result
 \t")
-        ("m" "Memoにエントリー" entry
-         (file+headline ,my/org-capture-memo-file "未分類")
-         "*** %?\n\t")
         ("p" "Pointersにエントリー" entry
          (file+headline ,my/org-capture-pointers-file "Pointers")
          "** %?\n\t")
@@ -109,9 +91,6 @@ org-capture は org-mode 用にさくっとメモを取るための機能。
         ("I" "障害リストにエントリー" entry
          (file+headline ,my/org-capture-impediments-file "Impediments")
          "** TODO %?\n\t")
-        ("z" "一言・雑談ネタ" entry
-         (file+headline ,my/org-small-topic-file "Topic")
-         "** %?\n\t")
         ("s" "SQL にエントリー" entry
          (file+headline ,my/org-capture-sql-file "SQL")
          "** %?\n\t")
@@ -129,8 +108,5 @@ org-capture は org-mode 用にさくっとメモを取るための機能。
          "* %a %^G
 %U
 %:initial
-")
-        ("c" "同期カレンダーにエントリー" entry
-         (file+headline ,org-capture-ical-file "Schedule")
-         "** TODO %?\n\t")))
+")))
 ```
