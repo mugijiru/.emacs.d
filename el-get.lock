@@ -126,7 +126,7 @@
         (el-get-lock :checksum "df8cfe55441695865a64b97946750b6413a40425")
         (eldoc-eval :checksum "e91800503c90cb75dc70abe42f1d6ae499346cc1")
         (emacs-async :checksum "863b3366a0077279646bf9eec1f97dba6c052440")
-        (emacsql :checksum "081625a3d13c544cd77c2b8965c973442d6d0b86")
+        (emacsql :checksum "6018005f3c690bd6c179d05ee2470a39fd57d491")
         (emojify :checksum "1b726412f19896abf5e4857d4c32220e33400b55")
         (enh-ruby-mode :checksum "b9cea578ef6738ce675243296c3abf91b9323e11")
         (epl :checksum "78ab7a85c08222cd15582a298a364774e3282ce6")
