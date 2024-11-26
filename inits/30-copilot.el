@@ -14,3 +14,5 @@
   (define-key copilot-completion-map (kbd "M-p") 'copilot-previous-completion))
 
 (setq warning-suppress-log-types '((copilot copilot-exceeds-max-char)))
+
+(setopt copilot-indent-offset-warning-disable t)

@@ -85,3 +85,9 @@ Warning (copilot): .loaddefs.el size exceeds 'copilot-max-char' (100000), copilo
 ```emacs-lisp
 (setq warning-suppress-log-types '((copilot copilot-exceeds-max-char)))
 ```
+
+またデフォルトだと indent offset は設定が見つからない時に warning を出すようになっているが結構邪魔なのでとりあえずオフにしている
+
+```emacs-lisp
+(setopt copilot-indent-offset-warning-disable t)
+```

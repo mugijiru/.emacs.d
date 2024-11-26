@@ -1742,6 +1742,13 @@ Warning (copilot): .loaddefs.el size exceeds 'copilot-max-char' (100000), copilo
 #+begin_src emacs-lisp :tangle inits/30-copilot.el
 (setq warning-suppress-log-types '((copilot copilot-exceeds-max-char)))
 #+end_src
+
+またデフォルトだと indent offset は設定が見つからない時に warning を出すようになっているが
+結構邪魔なのでとりあえずオフにしている
+
+#+begin_src emacs-lisp :tangle inits/30-copilot.el
+(setopt copilot-indent-offset-warning-disable t)
+#+end_src
 ** dmacro
 :PROPERTIES:
 :EXPORT_FILE_NAME: dmacro
