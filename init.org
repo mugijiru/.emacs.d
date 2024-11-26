@@ -1490,6 +1490,7 @@ y だけで済ませられるようにしている。
 - [[*auto-insert][auto-insert]] :: ファイル新規作成時にテンプレートを挿入する機能
 - [[*company-mode][company-mode]] :: プラグイン拡張方式を採用した、入力補完インターフェースを提供してくれるやつ
 - [[id:549f0212-8e33-4ab8-bc84-418dd45bf92d][copilot]] :: GitHub Copilot を使えるようにするパッケージ
+- [[id:4890ce37-7e02-46c2-a6b0-4dd1fb559f99][copilot-chat]] :: GitHub Copilot Chat を使えるようにするパッケージ
 - [[id:2949a866-839d-4b83-acda-70c4a8309e99][dmacro]] :: 繰り返し作業を自動的にマクロとして記録してくれるパッケージ
 - [[*emojify][emojify]] :: Slack や GitHub みたいに ~:smile:~ とか入れると笑顔の絵文字を表示する、みたいなやつ
 - [[id:3140f1e1-c1ee-4098-adc5-ddc695d5ea9d][flyspell]] :: スペルチェックをしてくれるパッケージ
@@ -1749,6 +1750,61 @@ Warning (copilot): .loaddefs.el size exceeds 'copilot-max-char' (100000), copilo
 #+begin_src emacs-lisp :tangle inits/30-copilot.el
 (setopt copilot-indent-offset-warning-disable t)
 #+end_src
+** copilot-chat
+:PROPERTIES:
+:EXPORT_FILE_NAME: copilot-chat
+:ID:       4890ce37-7e02-46c2-a6b0-4dd1fb559f99
+:END:
+*** 概要
+[[https://github.com/chep/copilot-chat.el][copilot-chat.el]] は Emacs から GitHub Copilot Chat を使えるようにするパッケージ。
+**** インストール
+el-get 本体にはレシピがないのと
+依存している各パッケージもレシピが古かったりするのでそれぞれ自前で用意している
+
+#+begin_src emacs-lisp :tangle recipes/shell-maker.rcp
+(:name shell-maker
+       :website "https://github.com/xenodium/shell-maker"
+       :description "shell-maker is a convenience wrapper around comint mode."
+       :type github
+       :pkgname "xenodium/shell-maker"
+       :minimum-emacs-version "27.1")
+#+end_src
+
+#+begin_src emacs-lisp :tangle recipes/chatgpt-shell.rcp
+(:name chatgpt-shell
+       :description "Interaction mode for ChatGPT"
+       :type github
+       :pkgname "xenodium/chatgpt-shell"
+       :minimum-emacs-version "28.1"
+       :depends (shell-maker))
+#+end_src
+
+#+begin_src emacs-lisp :tangle recipes/copilot-chat.rcp
+(:name copilot-chat
+       :website "https://github.com/chep/copilot-chat.el"
+       :description "This plugin allows you to chat with github copilot."
+       :type github
+       :pkgname "chep/copilot-chat.el"
+       :depends (request markdown-mode chatgpt-shell magit))
+#+end_src
+
+そして ~el-get-bundle~ でインストールしている
+
+#+begin_src emacs-lisp :tangle inits/30-copilot.el
+(el-get-bundle copilot-chat)
+#+end_src
+**** 最初の起動
+とりあえず ~M-x copilot-chat-display~ で起動する。
+
+最初の起動の時は適当なメッセージを ~C-c C-c~ で送信すると
+GitHub Copilot Chat を有効にするための認証コードとメッセージが minibuffer に表示されるので
+その認証コードをコピーして Enter を叩いたら Web ブラウザに認証コードを入れる画面が表示されるので
+あとは画面に従って動かしましょう
+**** その他
+今のところ特に設定もキーバインドも弄っていない。
+とりあえずしばらく触りつつそのあたりは考えていく。
+
+とはいえ defcustom できる変数は多くないけどね。
 ** dmacro
 :PROPERTIES:
 :EXPORT_FILE_NAME: dmacro

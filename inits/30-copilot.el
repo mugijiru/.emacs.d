@@ -16,3 +16,5 @@
 (setq warning-suppress-log-types '((copilot copilot-exceeds-max-char)))
 
 (setopt copilot-indent-offset-warning-disable t)
+
+(el-get-bundle copilot-chat)
