@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>ライブラリの読み込み :: 麦汁&#39;s Emacs Config</title>
+    <title>copilot-chat :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1732608278" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/basics/load-libraries/">
+  <body class="" data-url="/.emacs.d/editing/copilot-chat/">
     <nav id="sidebar" class="">
 
 
@@ -100,7 +100,7 @@
   
     
     <li data-nav-id="/.emacs.d/basics/" title="基本設定" class="dd-item
-        parent
+        
         
         
         ">
@@ -378,7 +378,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/basics/load-libraries/" title="ライブラリの読み込み" class="dd-item active">
+      <li data-nav-id="/.emacs.d/basics/load-libraries/" title="ライブラリの読み込み" class="dd-item ">
         <a href="/.emacs.d/basics/load-libraries/">
         ライブラリの読み込み
         
@@ -622,7 +622,7 @@
   
     
     <li data-nav-id="/.emacs.d/editing/" title="ファイル編集/入力補助" class="dd-item
-        
+        parent
         
         
         ">
@@ -732,7 +732,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/editing/copilot-chat/" title="copilot-chat" class="dd-item ">
+      <li data-nav-id="/.emacs.d/editing/copilot-chat/" title="copilot-chat" class="dd-item active">
         <a href="/.emacs.d/editing/copilot-chat/">
         copilot-chat
         
@@ -3392,7 +3392,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/basics/'>基本設定</a> > ライブラリの読み込み
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/editing/'>ファイル編集/入力補助</a> > copilot-chat
           
         
           
@@ -3405,7 +3405,17 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a>
+      <ul>
+        <li><a href="#インストール">インストール</a></li>
+        <li><a href="#最初の起動">最初の起動</a></li>
+        <li><a href="#その他">その他</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -3421,18 +3431,44 @@
           
             <h1>
               
-              ライブラリの読み込み
+              copilot-chat
             </h1>
           
 
         
 
 
-<p>設定ファイル内で文字列操作をするだろうということで
-<a href="https://github.com/magnars/s.el">s.el</a> を読み込んでいる。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle s)
-</span></span><span style="display:flex;"><span>(require <span style="color:#e6db74">&#39;s</span>)
-</span></span></code></pre></div><p>けど、どういう関数があったか覚えてないぐらいには使ってない……。ま、あると便利なのでそのまま入れておくつもり。</p>
+<h2 id="概要">概要</h2>
+<p><a href="https://github.com/chep/copilot-chat.el">copilot-chat.el</a> は Emacs から GitHub Copilot Chat を使えるようにするパッケージ。</p>
+<h3 id="インストール">インストール</h3>
+<p>el-get 本体にはレシピがないのと依存している各パッケージもレシピが古かったりするのでそれぞれ自前で用意している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name shell-maker
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/xenodium/shell-maker&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;shell-maker is a convenience wrapper around comint mode.&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;xenodium/shell-maker&#34;</span>
+</span></span><span style="display:flex;"><span>       :minimum-emacs-version <span style="color:#e6db74">&#34;27.1&#34;</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name chatgpt-shell
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Interaction mode for ChatGPT&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;xenodium/chatgpt-shell&#34;</span>
+</span></span><span style="display:flex;"><span>       :minimum-emacs-version <span style="color:#e6db74">&#34;28.1&#34;</span>
+</span></span><span style="display:flex;"><span>       :depends (shell-maker))
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name copilot-chat
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/chep/copilot-chat.el&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;This plugin allows you to chat with github copilot.&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;chep/copilot-chat.el&#34;</span>
+</span></span><span style="display:flex;"><span>       :depends (request markdown-mode chatgpt-shell magit))
+</span></span></code></pre></div><p>そして <code>el-get-bundle</code> でインストールしている</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle copilot-chat)
+</span></span></code></pre></div><h3 id="最初の起動">最初の起動</h3>
+<p>とりあえず <code>M-x copilot-chat-display</code> で起動する。</p>
+<p>最初の起動の時は適当なメッセージを <code>C-c C-c</code> で送信すると
+GitHub Copilot Chat を有効にするための認証コードとメッセージが minibuffer に表示されるのでその認証コードをコピーして Enter を叩いたら Web ブラウザに認証コードを入れる画面が表示されるのであとは画面に従って動かしましょう</p>
+<h3 id="その他">その他</h3>
+<p>今のところ特に設定もキーバインドも弄っていない。とりあえずしばらく触りつつそのあたりは考えていく。</p>
+<p>とはいえ defcustom できる変数は多くないけどね。</p>
 
 
 <footer class="footline">
@@ -3470,6 +3506,8 @@
             
                 
                     
+                        
+                        
                     
                 
                 
@@ -3484,8 +3522,37 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
                     
                 
                 
@@ -3658,19 +3725,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
             
         
                     
@@ -3678,29 +3732,6 @@
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -3846,6 +3877,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -3858,6 +3890,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3923,6 +3958,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -3938,6 +3974,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -5834,10 +5873,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/basics/gcmh/" title="ガベージコレクション"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/editing/copilot/" title="copilot"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/buffer-management/" title="バッファ管理" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/editing/dmacro/" title="dmacro" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

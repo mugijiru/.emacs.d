@@ -36,6 +36,13 @@
       <description>概要 Copilot.el は GitHub Copilot を Emacs で使えるようにするパッケージ。これ自体は非公式なプラグインで、動かすために Vim で動く公式プラグインのバイナリを利用して動いている&#xA;インストール 最近出て来たパッケージなので el-get には登録されていない。というわけでとりあえず自前でレシピを用意している&#xA;(:name copilot :website &amp;#34;https://github.com/copilot-emacs/copilot.el&amp;#34; :description &amp;#34;An Emacs plugin for GitHub Copilot.&amp;#34; :type github :branch &amp;#34;main&amp;#34; :pkgname &amp;#34;copilot-emacs/copilot.el&amp;#34; :depends (s dash editorconfig jsonrpc)) 依存している editorconig も自前でレシピを用意している&#xA;(:name editorconfig :website &amp;#34;https://github.com/editorconfig/editorconfig-emacs&amp;#34; :description &amp;#34;An EditorConfig plugin for Emacs.&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;editorconfig/editorconfig-emacs&amp;#34;) そして el-get-bundle でインストール&#xA;(el-get-bundle copilot) 設定 とりあえずプログラミング系の mode で有効になるようにしていた。けど今はちょっと無効にしている&#xA;;; (add-hook &amp;#39;prog-mode-hook &amp;#39;copilot-mode) あとは company-mode と組み合わせてもそれなりに動くようにするため inline preview を無効にするような設定を入れている。なおこの設定は公式の README の中のコードを使っている</description>
     </item>
     <item>
+      <title>copilot-chat</title>
+      <link>https://mugijiru.github.io/.emacs.d/editing/copilot-chat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mugijiru.github.io/.emacs.d/editing/copilot-chat/</guid>
+      <description>概要 copilot-chat.el は Emacs から GitHub Copilot Chat を使えるようにするパッケージ。&#xA;インストール el-get 本体にはレシピがないのと依存している各パッケージもレシピが古かったりするのでそれぞれ自前で用意している&#xA;(:name shell-maker :website &amp;#34;https://github.com/xenodium/shell-maker&amp;#34; :description &amp;#34;shell-maker is a convenience wrapper around comint mode.&amp;#34; :type github :pkgname &amp;#34;xenodium/shell-maker&amp;#34; :minimum-emacs-version &amp;#34;27.1&amp;#34;) (:name chatgpt-shell :description &amp;#34;Interaction mode for ChatGPT&amp;#34; :type github :pkgname &amp;#34;xenodium/chatgpt-shell&amp;#34; :minimum-emacs-version &amp;#34;28.1&amp;#34; :depends (shell-maker)) (:name copilot-chat :website &amp;#34;https://github.com/chep/copilot-chat.el&amp;#34; :description &amp;#34;This plugin allows you to chat with github copilot.&amp;#34; :type github :pkgname &amp;#34;chep/copilot-chat.el&amp;#34; :depends (request markdown-mode chatgpt-shell magit)) そして el-get-bundle でインストールしている</description>
+    </item>
+    <item>
       <title>dmacro</title>
       <link>https://mugijiru.github.io/.emacs.d/editing/dmacro/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
