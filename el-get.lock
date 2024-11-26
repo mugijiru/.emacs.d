@@ -2,7 +2,7 @@
       '((shell-maker :checksum "f0f6409d1151e77e13962acc151c65fb13f54dd2")
         (copilot-chat :checksum "74c078e1c9a3a455ba8c7c1ab8d1e2a6f8a3b9b6")
         (chatgpt-shell :checksum "b802eb89391840377216d1eb10eb8b62658d2eee")
-        (sqlformat :checksum "ba4534ade5d9010d1119b7334cf1b2aa87b6c4c7")
+        (sqlformat :checksum "69ef8bec3ac8c9ce4a60f20a9721e4d7a592a84d")
         (reformatter :checksum "8962e1dd0c949997413380ea1f8d8a25ada5f624")
         (emacs-oauth2-auto :checksum "ff9a45e27621aad5b1a2e12a09b01f3e4eaecf96")
         (docker :checksum "ec2391a8e3404958cefee3dda23b2c89dcf807a2")
