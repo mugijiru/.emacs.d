@@ -20,6 +20,9 @@ disableToc = true
 [copilot]({{< relref "copilot" >}})
 : GitHub Copilot を使えるようにするパッケージ
 
+[copilot-chat]({{< relref "copilot-chat" >}})
+: GitHub Copilot Chat を使えるようにするパッケージ
+
 [dmacro]({{< relref "dmacro" >}})
 : 繰り返し作業を自動的にマクロとして記録してくれるパッケージ
 
