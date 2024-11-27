@@ -29,3 +29,9 @@
       ("@m" (my/insert-all-the-icons-code 'material)   "Material")
       ("@o" (my/insert-all-the-icons-code 'octicon)    "Octicon")
       ("@w" (my/insert-all-the-icons-code 'wicon)      "Weather")))))
+
+(el-get-bundle eask-mode)
+(el-get-bundle flycheck-eask)
+
+(with-eval-after-load 'flycheck
+  (add-hook 'flycheck-mode-hook 'flycheck-eask-setup))
