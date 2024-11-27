@@ -12,20 +12,20 @@
     <title>emacs-lisp :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1732608278" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1732608278" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1732608278" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1732608278" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1732608278" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1732608278" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1732608278" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1732608278" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1732608278" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1732608278" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1732695196" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1732695196" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1732695196" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1732695196" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1732695196" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1732695196" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1732695196" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1732695196" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1732695196" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1732695196" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1732608278"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1732695196"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1732608278"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1732608278"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1732695196"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1732695196"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1732608278"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1732695196"></script>
 
     
   </div>
@@ -3411,6 +3411,12 @@
     <li><a href="#hook">Hook</a></li>
     <li><a href="#アイコン挿入コマンドの用意">アイコン挿入コマンドの用意</a></li>
     <li><a href="#キーバインド">キーバインド</a></li>
+    <li><a href="#eask">Eask</a>
+      <ul>
+        <li><a href="#インストール">インストール</a></li>
+        <li><a href="#設定">設定</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -3520,6 +3526,36 @@
 </tr>
 </tbody>
 </table>
+<h2 id="eask">Eask</h2>
+<p><a href="https://emacs-eask.github.io/">Eask</a> は Emacs Lisp のパッケージ作成の際に便利なツール。</p>
+<p>その時に Eask という名前のファイルを編集するのでそのメジャーモードなどを利用している。</p>
+<h3 id="インストール">インストール</h3>
+<p>Eask 関係のパッケージは el-get には登録されていないので自前でレシピを用意している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name eask
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/emacs-eask/eask&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Core Eask APIs, for Eask CLI development&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;emacs-eask/eask&#34;</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name eask-mode
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/emacs-eask/eask-mode&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Major mode for editing Eask files&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;emacs-eask/eask-mode&#34;</span>
+</span></span><span style="display:flex;"><span>       :depends (eask))
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name flycheck-eask
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/flycheck/flycheck-eask&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Eask support in Flycheck&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;flycheck/flycheck-eask&#34;</span>
+</span></span><span style="display:flex;"><span>       :depends (flycheck))
+</span></span></code></pre></div><p>で <code>el-get-bundle</code> でインストールしている</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle eask-mode)
+</span></span><span style="display:flex;"><span>(el-get-bundle flycheck-eask)
+</span></span></code></pre></div><h3 id="設定">設定</h3>
+<p>とりあえず flychek 起動時に <code>flycheck-eask</code> も起動するようにしている。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;flycheck</span>
+</span></span><span style="display:flex;"><span>  (add-hook <span style="color:#e6db74">&#39;flycheck-mode-hook</span> <span style="color:#e6db74">&#39;flycheck-eask-setup</span>))
+</span></span></code></pre></div><p>けどうまく動いてないんだよなあ。まあどこかで調整する。</p>
 
 
 <footer class="footline">
@@ -5937,19 +5973,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1732608278"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1732608278"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1732608278"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1732608278"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1732608278"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1732608278"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1732695196"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1732695196"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1732695196"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1732695196"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1732695196"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1732695196"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1732608278"></script>
-    <script src="/.emacs.d/js/learn.js?1732608278"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1732608278"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1732695196"></script>
+    <script src="/.emacs.d/js/learn.js?1732695196"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1732695196"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1732608278"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1732695196"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
