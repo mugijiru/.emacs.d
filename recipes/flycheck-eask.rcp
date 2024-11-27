@@ -1,0 +1,6 @@
+(:name flycheck-eask
+       :website "https://github.com/flycheck/flycheck-eask"
+       :description "Eask support in Flycheck"
+       :type github
+       :pkgname "flycheck/flycheck-eask"
+       :depends (flycheck))

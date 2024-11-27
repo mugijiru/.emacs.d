@@ -1,5 +1,8 @@
 (setq el-get-lock-package-versions
-      '((shell-maker :checksum "f0f6409d1151e77e13962acc151c65fb13f54dd2")
+      '((flycheck-eask :checksum "eb184a8a2230085c287e55d800ae7aa6b30f4dac")
+        (eask-mode :checksum "b4d429d391b9a1699a68217cfc4a5e723beea5e0")
+        (eask :checksum "382f3b4ddc4b48b187d684ba21d2a1f176b53c71")
+        (shell-maker :checksum "f0f6409d1151e77e13962acc151c65fb13f54dd2")
         (copilot-chat :checksum "74c078e1c9a3a455ba8c7c1ab8d1e2a6f8a3b9b6")
         (chatgpt-shell :checksum "b802eb89391840377216d1eb10eb8b62658d2eee")
         (sqlformat :checksum "ba4534ade5d9010d1119b7334cf1b2aa87b6c4c7")

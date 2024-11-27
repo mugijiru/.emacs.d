@@ -1,0 +1,5 @@
+(:name eask
+       :website "https://github.com/emacs-eask/eask"
+       :description "Core Eask APIs, for Eask CLI development"
+       :type github
+       :pkgname "emacs-eask/eask")

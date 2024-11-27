@@ -1,0 +1,6 @@
+(:name eask-mode
+       :website "https://github.com/emacs-eask/eask-mode"
+       :description "Major mode for editing Eask files"
+       :type github
+       :pkgname "emacs-eask/eask-mode"
+       :depends (eask))
