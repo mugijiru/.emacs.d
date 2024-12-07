@@ -57,7 +57,7 @@
         (emacs-kibela :checksum "ba4414d129ec5d660c1a883057aaf4d102934da4")
         (which-key :checksum "38d4308d1143b61e4004b6e7a940686784e51500")
         (company-quickhelp :checksum "5bda859577582cc42d16fc0eaf5f7c8bedfd9e69")
-        (graphql-mode :checksum "c3baca92809e6f6c8dd2596a413b277f3b0160ea")
+        (graphql-mode :checksum "ee49531935ede7a2c9597713e13a4c9d33ef2220")
         (json-mode :checksum "77125b01c0ddce537085201098bea9b4b8ba6be3")
         (json-snatcher :checksum "b28d1c0670636da6db508d03872d96ffddbc10f2")
         (json-reformat :checksum "9120ab67c5379c44bc7a7a07ca858670cea4f32f")
