@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((flycheck-eask :checksum "eb184a8a2230085c287e55d800ae7aa6b30f4dac")
+      '((lsp-tailwindcss :checksum "ca5e611d2a38fea8802a365bcdd6fdc73e3d79af")
+        (flycheck-eask :checksum "eb184a8a2230085c287e55d800ae7aa6b30f4dac")
         (eask-mode :checksum "b4d429d391b9a1699a68217cfc4a5e723beea5e0")
         (eask :checksum "e570b7f3cc6f532a0e989002edac4d7d08cd9a9f")
         (shell-maker :checksum "f0f6409d1151e77e13962acc151c65fb13f54dd2")

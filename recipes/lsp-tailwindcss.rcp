@@ -1,0 +1,6 @@
+(:name lsp-tailwindcss
+       :website "https://github.com/merrickluo/lsp-tailwindcss"
+       :description "The lsp-mode client for tailwindcss"
+       :type github
+       :pkgname "merrickluo/lsp-tailwindcss"
+       :depends '(f lsp-mode))

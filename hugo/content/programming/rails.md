@@ -171,3 +171,21 @@ projectile-rails の実装を参考にコマンドを追加している
 | 2   | rails dbconsole を開く           |                                                                                               |
 | 3   | rails generate を実行する        |                                                                                               |
 | 4   | rake を実行する                  |                                                                                               |
+
+
+## erb の設定 {#erb-の設定}
+
+erb を使うこともあるのでそれに向けての設定も入れている
+
+まず lsp-mode で html-ls が動くようにするために lsp-language-id-confuguration の設定を変更している。
+
+```emacs-lisp
+(with-eval-after-load 'lsp-mode
+  (add-to-list 'lsp-language-id-configuration '(".*\\.html\\.erb$" . "html")))
+```
+
+そしてファイルを開いた時には web-mode が起動するように調整している。
+
+```emacs-lisp
+(add-to-list 'auto-mode-alist '(".*\\.html\\.erb$" . web-mode))
+```
