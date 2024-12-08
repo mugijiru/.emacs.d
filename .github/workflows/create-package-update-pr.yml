@@ -26,8 +26,7 @@ jobs:
 
     - name: Ignore compiled files
       run: |
-        mkdir -p ~/.config/git/
-        echo "*.elc" >> ~/.config/git/ignore
+        echo "*.elc" >> ~/.gitignore
     - name: Update package
       run: |
         emacs -Q --batch --eval "(setq user-emacs-directory \"$(pwd)/\")" \
