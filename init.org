@@ -5055,6 +5055,8 @@ markdown-mode とか yaml-mode なんかはプログラム言語ではないけ�
 - [[*ruby][ruby]] :: Ruby を書く上での設定
 - [[*scss][scss]] :: SCSS を書く上での設定
 - [[id:b01bb1d0-10cb-414c-8d08-e03cbb4a5af1][sql]] :: SQL を書く上での設定
+- [[id:e4d88a9f-2bfc-4e3e-b5fc-3ccd477f3566][Tailwind]] :: TailwindCSS を書く上での設定
+- [[id:b98331be-5618-4616-b79c-08854c4c6d78][Terraform]] :: Terraform のコードを書く上での設定
 - [[id:42db24e0-aa7c-43d6-9cb5-31bc1e95df40][tree-sitter]] :: 軽量な文法解析ツールである [[https://tree-sitter.github.io/tree-sitter/][tree-sitter]] を利用するための設定を書いている
 - [[TypeScript][TypeScript]] :: TypeScript を書く上での設定
 - [[*Vue.js][Vue.js]] :: Vue.js を書く上での設定
@@ -6713,9 +6715,45 @@ manjaro の extra リポジトリにあったからという理由で
 #+begin_src emacs-lisp :tangle inits/40-sql.el
 (setopt sqlformat-command 'pgformatter)
 #+end_src
+** TailwindCSS
+:PROPERTIES:
+:ID:       e4d88a9f-2bfc-4e3e-b5fc-3ccd477f3566
+:EXPORT_FILE_NAME: tailwind
+:END:
+*** 概要
+[[https://tailwindcss.com/][TailwindCSS]] は Utility First な CSS フレームワーク。
+正直あんまり好みじゃないけど使ってみることになったので設定を入れる。
+*** lsp-tailwindcss
+**** 概要
+[[https://github.com/merrickluo/lsp-tailwindcss][lsp-tailwindcss]] は tailwind の補完をしやすくしてくれたり
+その実装がどうなっているのか表示してくれたりする便利なやつ
+**** インストール
+el-get 公式に recipe はないので適当に作っている。
+
+#+begin_src emacs-lisp :tangle recipes/lsp-tailwindcss.rcp
+(:name lsp-tailwindcss
+       :website "https://github.com/merrickluo/lsp-tailwindcss"
+       :description "The lsp-mode client for tailwindcss"
+       :type github
+       :pkgname "merrickluo/lsp-tailwindcss"
+       :depends '(f lsp-mode))
+#+end_src
+
+で ~el-get-bundle~ でインストール
+
+#+begin_src emacs-lisp :tangle inits/50-tailwind.el
+(el-get-bundle lsp-tailwindcss)
+#+end_src
+**** 設定
+メインの lsp client として動いてもしょうがないので
+addon mode として動くようにしている。
+#+begin_src emacs-lisp :tangle inits/50-tailwind.el
+(setopt lsp-tailwindcss-add-on-mode t)
+#+end_src
 ** Terraform
 :PROPERTIES:
 :EXPORT_FILE_NAME: terraform
+:ID:       b98331be-5618-4616-b79c-08854c4c6d78
 :END:
 *** 概要
 [[https://www.terraform.io/][Terraform]] はオープンソースの IaC ツール。結構よく使われている。

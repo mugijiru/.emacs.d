@@ -66,6 +66,12 @@ markdown-mode とか yaml-mode なんかはプログラム言語ではないけ�
 [sql]({{< relref "sql" >}})
 : SQL を書く上での設定
 
+[Tailwind]({{< relref "tailwind" >}})
+: TailwindCSS を書く上での設定
+
+[Terraform]({{< relref "terraform" >}})
+: Terraform のコードを書く上での設定
+
 [tree-sitter]({{< relref "tree-sitter" >}})
 : 軽量な文法解析ツールである [tree-sitter](https://tree-sitter.github.io/tree-sitter/) を利用するための設定を書いている
 
