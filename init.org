@@ -5924,7 +5924,6 @@ Rails 開発関係だけど Ruby 開発とはちょっと違う設定をここ�
        :type github
        :pkgname "otavioschwanck/rails-i18n.el")
 #+end_src
-
 *** projectile-rails 用のコマンド追加
 自身のプロジェクトだと少しナビゲーション用のコマンドが不足していたので
 projectile-rails の実装を参考にコマンドを追加している
@@ -6064,7 +6063,21 @@ https://github.com/asok/projectile-rails#keymap-prefix
 | 2   | rails dbconsole を開く                             |                                                    |
 | 3   | rails generate を実行する                          |                                                    |
 | 4   | rake を実行する                                    |                                                    |
+*** erb の設定
+erb を使うこともあるのでそれに向けての設定も入れている
 
+まず lsp-mode で html-ls が動くようにするために lsp-language-id-confuguration の設定を変更している。
+
+#+begin_src emacs-lisp :tangle inits/41-rails.el
+(with-eval-after-load 'lsp-mode
+  (add-to-list 'lsp-language-id-configuration '(".*\\.html\\.erb$" . "html")))
+#+end_src
+
+そしてファイルを開いた時には web-mode が起動するように調整している。
+
+#+begin_src emacs-lisp :tangle inits/41-rails.el
+(add-to-list 'auto-mode-alist '(".*\\.html\\.erb$" . web-mode))
+#+end_src
 ** React.js
 :PROPERTIES:
 :EXPORT_FILE_NAME: react-js

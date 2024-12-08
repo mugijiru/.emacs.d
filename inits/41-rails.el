@@ -72,3 +72,8 @@
       ("3" projectile-rails-generate  "Generate")
       ("4" projectile-rails-rake      "Rake"))))
   (define-key projectile-rails-mode-map (kbd "C-c r") 'pretty-hydra-projectile-rails/body))
+
+(with-eval-after-load 'lsp-mode
+  (add-to-list 'lsp-language-id-configuration '(".*\\.html\\.erb$" . "html")))
+
+(add-to-list 'auto-mode-alist '(".*\\.html\\.erb$" . web-mode))
