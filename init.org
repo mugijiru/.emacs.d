@@ -1767,7 +1767,7 @@ el-get 本体にはレシピがないのと
        :description "shell-maker is a convenience wrapper around comint mode."
        :type github
        :pkgname "xenodium/shell-maker"
-       :build `(("sh" "-c" "echo **/*.elc > .gitignore")) ; ignore compiled files
+       :branch "main"
        :minimum-emacs-version "27.1")
 #+end_src
 
@@ -1776,8 +1776,8 @@ el-get 本体にはレシピがないのと
        :description "Interaction mode for ChatGPT"
        :type github
        :pkgname "xenodium/chatgpt-shell"
+       :branch "main"
        :minimum-emacs-version "28.1"
-       :build `(("sh" "-c" "echo **/*.elc > .gitignore")) ; ignore compiled files
        :depends (shell-maker))
 #+end_src
 
