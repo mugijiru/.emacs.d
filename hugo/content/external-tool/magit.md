@@ -56,7 +56,8 @@ ref: <https://github.com/mugijiru/.emacs.d/pull/2992>
        :compile "lisp/"
        ;; Use the Makefile to produce the info manual, el-get can
        ;; handle compilation and autoloads on its own.
-       :build `(("make" ,(format "EMACSBIN=%s" el-get-emacs) "info"))
+       :build `(("make" ,(format "EMACSBIN=%s" el-get-emacs) "info")
+                ("git" "checkout" "**/*.texi")) ;; Avoid the need for a clean checkout
        :build/berkeley-unix `(("gmake" ,(format "EMACSBIN=%s" el-get-emacs)
                                "info")))
 ```

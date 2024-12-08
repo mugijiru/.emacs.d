@@ -1767,6 +1767,7 @@ el-get 本体にはレシピがないのと
        :description "shell-maker is a convenience wrapper around comint mode."
        :type github
        :pkgname "xenodium/shell-maker"
+       :build `(("sh" "-c" "echo **/*.elc > .gitignore")) ; ignore compiled files
        :minimum-emacs-version "27.1")
 #+end_src
 
@@ -1776,6 +1777,7 @@ el-get 本体にはレシピがないのと
        :type github
        :pkgname "xenodium/chatgpt-shell"
        :minimum-emacs-version "28.1"
+       :build `(("sh" "-c" "echo **/*.elc > .gitignore")) ; ignore compiled files
        :depends (shell-maker))
 #+end_src
 
@@ -7953,7 +7955,8 @@ ref: https://github.com/mugijiru/.emacs.d/pull/2992
        :compile "lisp/"
        ;; Use the Makefile to produce the info manual, el-get can
        ;; handle compilation and autoloads on its own.
-       :build `(("make" ,(format "EMACSBIN=%s" el-get-emacs) "info"))
+       :build `(("make" ,(format "EMACSBIN=%s" el-get-emacs) "info")
+                ("git" "checkout" "**/*.texi")) ;; Avoid the need for a clean checkout
        :build/berkeley-unix `(("gmake" ,(format "EMACSBIN=%s" el-get-emacs)
                                "info")))
 #+end_src
