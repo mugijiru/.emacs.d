@@ -2,6 +2,6 @@
        :description "Interaction mode for ChatGPT"
        :type github
        :pkgname "xenodium/chatgpt-shell"
+       :branch "main"
        :minimum-emacs-version "28.1"
-       :build `(("sh" "-c" "echo **/*.elc > .gitignore")) ; ignore compiled files
        :depends (shell-maker))
