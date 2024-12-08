@@ -27,10 +27,6 @@ jobs:
     - name: Ignore compiled files
       run: |
         echo "*.elc" >> ~/.gitignore
-
-    - name: Debug show git status
-      run: (cd ~/.emacs.d/el-get/$PACKAGE && git status)
-
     - name: Update package
       run: |
         emacs -Q --batch --eval "(setq user-emacs-directory \"$(pwd)/\")" \
