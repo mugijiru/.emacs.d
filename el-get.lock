@@ -5,7 +5,7 @@
         (eask :checksum "e570b7f3cc6f532a0e989002edac4d7d08cd9a9f")
         (shell-maker :checksum "f0f6409d1151e77e13962acc151c65fb13f54dd2")
         (copilot-chat :checksum "e3613cc55b64e73d915d4c9a7b1211f94471ee48")
-        (chatgpt-shell :checksum "b802eb89391840377216d1eb10eb8b62658d2eee")
+        (chatgpt-shell :checksum "e1d042ebb6cc593b35857f9ca4484efac95e7818")
         (sqlformat :checksum "69ef8bec3ac8c9ce4a60f20a9721e4d7a592a84d")
         (reformatter :checksum "f2cb59466b1c3f85a8c960f7d4b7b7ead015bedc")
         (emacs-oauth2-auto :checksum "ff9a45e27621aad5b1a2e12a09b01f3e4eaecf96")
