@@ -12,20 +12,20 @@
     <title>rails :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1732695196" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1732695196" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1732695196" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1732695196" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1732695196" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1732695196" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1732695196" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1732695196" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1732695196" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1732695196" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1733641040" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1733641040" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1733641040" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1733641040" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1733641040" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1733641040" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1733641040" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1733641040" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1733641040" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1733641040" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1732695196"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1733641040"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1732695196"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1732695196"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1733641040"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1733641040"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1732695196"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1733641040"></script>
 
     
   </div>
@@ -2157,6 +2157,27 @@
  
   
     
+      <li data-nav-id="/.emacs.d/programming/tailwind/" title="TailwindCSS" class="dd-item ">
+        <a href="/.emacs.d/programming/tailwind/">
+        TailwindCSS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
       <li data-nav-id="/.emacs.d/programming/terraform/" title="Terraform" class="dd-item ">
         <a href="/.emacs.d/programming/terraform/">
         Terraform
@@ -3417,6 +3438,7 @@
       </ul>
     </li>
     <li><a href="#キーバインド">キーバインド</a></li>
+    <li><a href="#erb-の設定">erb の設定</a></li>
   </ul>
 </nav>
     </div>
@@ -3710,7 +3732,14 @@ projectile-rails の実装を参考にコマンドを追加している</p>
 </tr>
 </tbody>
 </table>
-
+<h2 id="erb-の設定">erb の設定</h2>
+<p>erb を使うこともあるのでそれに向けての設定も入れている</p>
+<p>まず lsp-mode で html-ls が動くようにするために lsp-language-id-confuguration の設定を変更している。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;lsp-mode</span>
+</span></span><span style="display:flex;"><span>  (add-to-list <span style="color:#e6db74">&#39;lsp-language-id-configuration</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;.*\\.html\\.erb$&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;html&#34;</span>)))
+</span></span></code></pre></div><p>そしてファイルを開いた時には web-mode が起動するように調整している。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;auto-mode-alist</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;.*\\.html\\.erb$&#34;</span> <span style="color:#f92672">.</span> web-mode))
+</span></span></code></pre></div>
 
 <footer class="footline">
 	
@@ -5334,6 +5363,22 @@ projectile-rails の実装を参考にコマンドを追加している</p>
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -6127,19 +6172,19 @@ projectile-rails の実装を参考にコマンドを追加している</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1732695196"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1732695196"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1732695196"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1732695196"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1732695196"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1732695196"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1733641041"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1733641041"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1733641041"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1733641041"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1733641041"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1733641041"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1732695196"></script>
-    <script src="/.emacs.d/js/learn.js?1732695196"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1732695196"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1733641041"></script>
+    <script src="/.emacs.d/js/learn.js?1733641041"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1733641041"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1732695196"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1733641041"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

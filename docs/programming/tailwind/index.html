@@ -9,23 +9,23 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>sticky-control :: 麦汁&#39;s Emacs Config</title>
+    <title>TailwindCSS :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1733641040" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1733641040" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1733641040" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1733641040" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1733641040" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1733641040" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1733641040" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1733641040" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1733641040" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1733641040" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1733641041" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1733641041" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1733641041" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1733641041" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1733641041" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1733641041" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1733641041" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1733641041" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1733641041" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1733641041" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1733641040"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1733641041"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/keybinds/sticky-control/">
+  <body class="" data-url="/.emacs.d/programming/tailwind/">
     <nav id="sidebar" class="">
 
 
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1733641040"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1733641040"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1733641041"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1733641041"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1733641040"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1733641041"></script>
 
     
   </div>
@@ -483,7 +483,7 @@
   
     
     <li data-nav-id="/.emacs.d/keybinds/" title="キーバインド" class="dd-item
-        parent
+        
         
         
         ">
@@ -551,7 +551,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/keybinds/sticky-control/" title="sticky-control" class="dd-item active">
+      <li data-nav-id="/.emacs.d/keybinds/sticky-control/" title="sticky-control" class="dd-item ">
         <a href="/.emacs.d/keybinds/sticky-control/">
         sticky-control
         
@@ -1732,7 +1732,7 @@
   
     
     <li data-nav-id="/.emacs.d/programming/" title="プログラミング関係の設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -2157,7 +2157,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/programming/tailwind/" title="TailwindCSS" class="dd-item ">
+      <li data-nav-id="/.emacs.d/programming/tailwind/" title="TailwindCSS" class="dd-item active">
         <a href="/.emacs.d/programming/tailwind/">
         TailwindCSS
         
@@ -3413,7 +3413,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/keybinds/'>キーバインド</a> > sticky-control
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/programming/'>プログラミング関係の設定</a> > TailwindCSS
           
         
           
@@ -3429,9 +3429,13 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#インストール">インストール</a></li>
-    <li><a href="#設定">設定</a></li>
-    <li><a href="#有効化">有効化</a></li>
+    <li><a href="#lsp-tailwindcss">lsp-tailwindcss</a>
+      <ul>
+        <li><a href="#概要">概要</a></li>
+        <li><a href="#インストール">インストール</a></li>
+        <li><a href="#設定">設定</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -3449,7 +3453,7 @@
           
             <h1>
               
-              sticky-control
+              TailwindCSS
             </h1>
           
 
@@ -3457,51 +3461,24 @@
 
 
 <h2 id="概要">概要</h2>
-<p>指定したキーを2回叩いたら
-Control が押されてるような状態にしてくれるプラグイン。</p>
-<p>その2回の間隔はデフォルトだと 0.5 秒以内となっている。そのため、そのキーを押して 0.5 秒が経過したら、普通にそのキーが押されたことになる</p>
-<p>さらに <code>sticky-control-shortcuts</code> に指定されてる一部のキーについては
-sticky 用のキーを押した直後に shortcuts のキーを押すと
-Control を押している状態でそのキーを押したことになる。</p>
-<p>例えば私は <code>,</code> を sticky 用のキーにしていて
-shortcuts に <code>c</code> を入れているので
-<code>,c</code> と素早くタイプをすればそれだけで <code>C-c</code> が押された状態になる。</p>
-<h2 id="インストール">インストール</h2>
-<p>まずは el-get-bundle でインストール。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle sticky-control)
-</span></span></code></pre></div><p>ちなみにレシピは公式ではなかったのでとりあえず自分の環境で使えるように自作レシピを置いている。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name sticky-control
-</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;save your left little finger&#34;</span>
-</span></span><span style="display:flex;"><span>       :type http
-</span></span><span style="display:flex;"><span>       :url <span style="color:#e6db74">&#34;https://raw.githubusercontent.com/martialboniou/emacs-revival/master/sticky-control.el&#34;</span>
-</span></span><span style="display:flex;"><span>       :features <span style="color:#e6db74">&#34;sticky-control&#34;</span>)
-</span></span></code></pre></div><p>元々は <a href="http://www.cs.toronto.edu/~ryanjohn/sticky-control.el">http://www.cs.toronto.edu/~ryanjohn/sticky-control.el</a> にあったのだけど最近そこからは取得できなくなったので
-<a href="https://github.com/martialboniou/emacs-revival/blob/master/sticky-control.el">https://github.com/martialboniou/emacs-revival/blob/master/sticky-control.el</a>
-から取得して利用している</p>
-<h2 id="設定">設定</h2>
-<p>まずは「2回叩いたら Control を押している状態になる」キーを指定する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(sticky-control-set-key <span style="color:#e6db74">&#39;sticky-control-key</span> <span style="color:#e6db74">?,</span>)
-</span></span></code></pre></div><p>私は <code>,</code> を sticky-control のキーにしているのでこの指定。</p>
-<p>そして次に <code>sticky-control-shortuts</code> の指定。ここに指定しておくと、例えば <code>,c</code> と素早くタイプすることで <code>C-c</code> が入力された状態とすることができる。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq sticky-control-shortcuts
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">?c</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\C-c&#34;</span>)
-</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">?g</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\C-g&#34;</span>)
-</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">?k</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\C-k&#34;</span>)
-</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">?a</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\C-a&#34;</span>)
-</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">?e</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\C-e&#34;</span>)
-</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">?n</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\C-n&#34;</span>)
-</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">?o</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\C-o&#34;</span>)
-</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">?p</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\C-p&#34;</span>)
-</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">?j</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\C-j&#34;</span>)
-</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">?f</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\C-f&#34;</span>)
-</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">?b</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\C-b&#34;</span>)
-</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">?x</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\C-x&#34;</span>)
-</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">?r</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\C-r&#34;</span>)
-</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">?s</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\C-s&#34;</span>)))
-</span></span></code></pre></div><p>結構な数を指定しているけど、普段そんなに使えているわけでもない。まあ、大体 Control を押しながら使いそうなところは押さえてあるので何も考えずとも使えるようにしてある。</p>
-<h2 id="有効化">有効化</h2>
-<p>最後に有効化</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(sticky-control-mode)
+<p><a href="https://tailwindcss.com/">TailwindCSS</a> は Utility First な CSS フレームワーク。正直あんまり好みじゃないけど使ってみることになったので設定を入れる。</p>
+<h2 id="lsp-tailwindcss">lsp-tailwindcss</h2>
+<h3 id="概要">概要</h3>
+<p><a href="https://github.com/merrickluo/lsp-tailwindcss">lsp-tailwindcss</a> は tailwind の補完をしやすくしてくれたりその実装がどうなっているのか表示してくれたりする便利なやつ</p>
+<h3 id="インストール">インストール</h3>
+<p>el-get 公式に recipe はないので適当に作っている。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name lsp-tailwindcss
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/merrickluo/lsp-tailwindcss&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;The lsp-mode client for tailwindcss&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;merrickluo/lsp-tailwindcss&#34;</span>
+</span></span><span style="display:flex;"><span>       :depends <span style="color:#f92672">&#39;</span>(f lsp-mode))
+</span></span></code></pre></div><p>で <code>el-get-bundle</code> でインストール</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle lsp-tailwindcss)
+</span></span></code></pre></div><h3 id="設定">設定</h3>
+<p>メインの lsp client として動いてもしょうがないので
+addon mode として動くようにしている。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setopt lsp-tailwindcss-add-on-mode <span style="color:#66d9ef">t</span>)
 </span></span></code></pre></div>
 
 <footer class="footline">
@@ -3814,7 +3791,6 @@ shortcuts に <code>c</code> を入れているので
             
                 
                     
-                    
                 
                 
 
@@ -3827,9 +3803,6 @@ shortcuts に <code>c</code> を入れているので
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -3863,7 +3836,6 @@ shortcuts に <code>c</code> を入れているので
             
                 
                     
-                    
                 
                 
 
@@ -3879,9 +3851,6 @@ shortcuts に <code>c</code> を入れているので
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -4734,6 +4703,7 @@ shortcuts に <code>c</code> を入れているので
             
                 
                     
+                    
                 
                 
 
@@ -4746,6 +4716,9 @@ shortcuts に <code>c</code> を入れているので
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -5051,6 +5024,7 @@ shortcuts に <code>c</code> を入れているので
             
                 
                     
+                    
                 
                 
 
@@ -5066,6 +5040,9 @@ shortcuts に <code>c</code> を入れているので
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -5922,10 +5899,10 @@ shortcuts に <code>c</code> を入れているので
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/keybinds/key-chord/" title="key-chord"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/programming/sql/" title="sql"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/keybinds/which-key/" title="which-key" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/programming/terraform/" title="Terraform" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -5935,19 +5912,19 @@ shortcuts に <code>c</code> を入れているので
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1733641040"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1733641040"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1733641040"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1733641040"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1733641040"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1733641040"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1733641041"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1733641041"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1733641041"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1733641041"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1733641041"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1733641041"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1733641040"></script>
-    <script src="/.emacs.d/js/learn.js?1733641040"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1733641040"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1733641041"></script>
+    <script src="/.emacs.d/js/learn.js?1733641041"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1733641041"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1733641040"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1733641041"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
