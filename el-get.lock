@@ -156,7 +156,7 @@
         (inf-ruby :checksum "6399a3668224aa48423c54e81383f73e5e39439a")
         (init-loader :checksum "c4842b1f6695ce77daf94fd085456aeb37ed37e1")
         (japanese-holidays :checksum "324b6bf2f55ec050bef49e001caedaabaf4fa35d")
-        (js2-mode :checksum "62d6cb169ed4cb6d7ae3ddbd8da9c995fed0ab32")
+        (js2-mode :checksum "e0c302872de4d26a9c1614fac8d6b94112b96307")
         (jump :checksum "55caa66a7cc6e0b1a76143fd40eff38416928941")
         (lsp-mode :checksum "c3be413f8545a26ad0334e1dd2b7e65c448d9f22")
         (lsp-ui :checksum "f0edfac7b3736fcab617cbeb07e465c9153ae68b")
