@@ -1802,11 +1802,44 @@ el-get 本体にはレシピがないのと
 GitHub Copilot Chat を有効にするための認証コードとメッセージが minibuffer に表示されるので
 その認証コードをコピーして Enter を叩いたら Web ブラウザに認証コードを入れる画面が表示されるので
 あとは画面に従って動かしましょう
-**** その他
-今のところ特に設定もキーバインドも弄っていない。
-とりあえずしばらく触りつつそのあたりは考えていく。
+**** 設定
+色々使っていると frontend は ~shell-maker~ の方が使いやすいっぽいのでそれを指定している
 
-とはいえ defcustom できる変数は多くないけどね。
+#+begin_src emacs-lisp :tangle inits/30-copilot.el
+(setopt copilot-chat-frontend 'shell-maker)
+#+end_src
+
+また出力は日本語の方が日本人には嬉しいので
+ひとまず ~copilot-chat-prompt~ の末尾に日本語を出力するように指定している
+
+#+begin_src emacs-lisp :tangle inits/30-copilot.el
+(setq my/copilot-chat-prompt-original copilot-chat-prompt)
+(setopt copilot-chat-prompt (concat my/copilot-chat-prompt-original "\n出力には日本語を用います"))
+#+end_src
+**** キーバインド
+色々な起動コマンドがあるので ~pretty-hydra~ を使って Hydra の定義をしてる。
+使うのは偏るかもしれないけど、とりあえずこれで行ってみる
+
+#+begin_src emacs-lisp :tangle inits/30-copilot.el
+(with-eval-after-load 'pretty-hydra
+  (pretty-hydra-define copilot-chat-hydra
+    (:separator "-" :color teal :foreign-key warn :title (concat (nerd-icons-mdicon "nf-md-robot") " Copilot Chat") :quit-key "q")
+    ("Launch"
+     (("c" copilot-chat-display             "Chat")
+      ("S" copilot-chat-switch-to-buffer    "Switch")
+      ("d" copilot-chat-doc                 "Doc")
+      ("r" copilot-chat-review-whole-buffer "Review")
+      ("f" copilot-chat-fix                 "Fix")
+      ("C" copilot-chat-ask-and-insert      "Insert")
+      ("o" copilot-chat-optimize            "Optimize")
+      ("t" copilot-chat-test                "Write test"))
+     "Explain"
+     (("e" copilot-chat-explain                "Selected")
+      ("s" copilot-chat-explain-symbol-at-line "Symbol at line")
+      ("f" copilot-chat-explain-defun          "Function"))
+     "Commit message"
+     (("I" copilot-chat-insert-commit-message "Insert")))))
+#+end_src
 ** dmacro
 :PROPERTIES:
 :EXPORT_FILE_NAME: dmacro
@@ -3341,6 +3374,7 @@ el-get の Hydra はここで定義してしまっている。
     ("h"   my/project-hydra         "Hydra(Project)")
     ("s"   toggle-hydra/body        "Toggle switches")
     ("c"   counsel-org-capture      "Capture")
+    ("A"   copilot-chat-hydra/body  "Copilot Chat")
     ("o"   global-org-hydra/body    "Org")
     ("e"   el-get-hydra/body        "el-get")
     ("k"   kibela-hydra/body        "Kibela")
@@ -3354,7 +3388,6 @@ el-get の Hydra はここで定義してしまっている。
 | d   | counsel でフォルダ開く                                                    |
 | r   | counsel で最近使ったファイルを開く                                        |
 | l   | counsel で locate する。Mac だと mdfind だけど                            |
-| A   | counsel で macOS の Application を開く                                    |
 | a   | 正規表現に基いて整形                                                      |
 | ;   | コメント挿入。 M-; を使ってるから要らないかも                             |
 | G   | projectile 内の検索。関係ないのがかかる時もあるので調整必要               |
@@ -3372,6 +3405,7 @@ el-get の Hydra はここで定義してしまっている。
 | h   | プロジェクト固有の Hydra があればそれを起動する                           |
 | s   | [[*Toggle Switches][ON/OFF 切替系の Hydra]] を起動する                                          |
 | c   | counsel-org-capture を呼び出す                                            |
+| A   | Copilot Chat 用の Hydra を起動する                                        |
 | o   | org-mode 用の Hydra を起動する                                            |
 | e   | el-get 用の Hydra を起動する                                              |
 | /   | [[*Google 連携][Google 連携用 Hydra]] を起動する                                            |
