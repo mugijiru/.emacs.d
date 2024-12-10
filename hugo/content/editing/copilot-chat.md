@@ -56,8 +56,43 @@ el-get 本体にはレシピがないのと依存している各パッケージ�
 GitHub Copilot Chat を有効にするための認証コードとメッセージが minibuffer に表示されるのでその認証コードをコピーして Enter を叩いたら Web ブラウザに認証コードを入れる画面が表示されるのであとは画面に従って動かしましょう
 
 
-### その他 {#その他}
+### 設定 {#設定}
 
-今のところ特に設定もキーバインドも弄っていない。とりあえずしばらく触りつつそのあたりは考えていく。
+色々使っていると frontend は `shell-maker` の方が使いやすいっぽいのでそれを指定している
 
-とはいえ defcustom できる変数は多くないけどね。
+```emacs-lisp
+(setopt copilot-chat-frontend 'shell-maker)
+```
+
+また出力は日本語の方が日本人には嬉しいのでひとまず `copilot-chat-prompt` の末尾に日本語を出力するように指定している
+
+```emacs-lisp
+(setq my/copilot-chat-prompt-original copilot-chat-prompt)
+(setopt copilot-chat-prompt (concat my/copilot-chat-prompt-original "\n出力には日本語を用います"))
+```
+
+
+### キーバインド {#キーバインド}
+
+色々な起動コマンドがあるので `pretty-hydra` を使って Hydra の定義をしてる。使うのは偏るかもしれないけど、とりあえずこれで行ってみる
+
+```emacs-lisp
+(with-eval-after-load 'pretty-hydra
+  (pretty-hydra-define copilot-chat-hydra
+    (:separator "-" :color teal :foreign-key warn :title (concat (nerd-icons-mdicon "nf-md-robot") " Copilot Chat") :quit-key "q")
+    ("Launch"
+     (("c" copilot-chat-display             "Chat")
+      ("S" copilot-chat-switch-to-buffer    "Switch")
+      ("d" copilot-chat-doc                 "Doc")
+      ("r" copilot-chat-review-whole-buffer "Review")
+      ("f" copilot-chat-fix                 "Fix")
+      ("C" copilot-chat-ask-and-insert      "Insert")
+      ("o" copilot-chat-optimize            "Optimize")
+      ("t" copilot-chat-test                "Write test"))
+     "Explain"
+     (("e" copilot-chat-explain                "Selected")
+      ("s" copilot-chat-explain-symbol-at-line "Symbol at line")
+      ("f" copilot-chat-explain-defun          "Function"))
+     "Commit message"
+     (("I" copilot-chat-insert-commit-message "Insert")))))
+```

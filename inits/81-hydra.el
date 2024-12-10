@@ -118,6 +118,7 @@
     ("h"   my/project-hydra         "Hydra(Project)")
     ("s"   toggle-hydra/body        "Toggle switches")
     ("c"   counsel-org-capture      "Capture")
+    ("A"   copilot-chat-hydra/body  "Copilot Chat")
     ("o"   global-org-hydra/body    "Org")
     ("e"   el-get-hydra/body        "el-get")
     ("k"   kibela-hydra/body        "Kibela")

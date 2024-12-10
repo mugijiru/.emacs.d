@@ -285,6 +285,7 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
     ("h"   my/project-hydra         "Hydra(Project)")
     ("s"   toggle-hydra/body        "Toggle switches")
     ("c"   counsel-org-capture      "Capture")
+    ("A"   copilot-chat-hydra/body  "Copilot Chat")
     ("o"   global-org-hydra/body    "Org")
     ("e"   el-get-hydra/body        "el-get")
     ("k"   kibela-hydra/body        "Kibela")
@@ -299,7 +300,6 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
 | d   | counsel でフォルダ開く                                                     |
 | r   | counsel で最近使ったファイルを開く                                         |
 | l   | counsel で locate する。Mac だと mdfind だけど                             |
-| A   | counsel で macOS の Application を開く                                     |
 | a   | 正規表現に基いて整形                                                       |
 | ;   | コメント挿入。 M-; を使ってるから要らないかも                              |
 | G   | projectile 内の検索。関係ないのがかかる時もあるので調整必要                |
@@ -317,6 +317,7 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
 | h   | プロジェクト固有の Hydra があればそれを起動する                            |
 | s   | [ON/OFF 切替系の Hydra](#toggle-switches) を起動する                       |
 | c   | counsel-org-capture を呼び出す                                             |
+| A   | Copilot Chat 用の Hydra を起動する                                         |
 | o   | org-mode 用の Hydra を起動する                                             |
 | e   | el-get 用の Hydra を起動する                                               |
 | t   | [第一階層には入れてないけどまあまあ便利なコマンドを詰めた Hydra](#sub-tools) を起動する |
