@@ -3,4 +3,4 @@
        :description "The lsp-mode client for tailwindcss"
        :type github
        :pkgname "merrickluo/lsp-tailwindcss"
-       :depends '(f lsp-mode))
+       :depends (f lsp-mode))

@@ -26,7 +26,7 @@ el-get 公式に recipe はないので適当に作っている。
        :description "The lsp-mode client for tailwindcss"
        :type github
        :pkgname "merrickluo/lsp-tailwindcss"
-       :depends '(f lsp-mode))
+       :depends (f lsp-mode))
 ```
 
 で `el-get-bundle` でインストール
