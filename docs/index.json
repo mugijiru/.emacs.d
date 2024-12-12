@@ -893,7 +893,7 @@
 	"title": "TailwindCSS",
 	"tags": [],
 	"description": "",
-	"content": "概要 TailwindCSS は Utility First な CSS フレームワーク。正直あんまり好みじゃないけど使ってみることになったので設定を入れる。\nlsp-tailwindcss 概要 lsp-tailwindcss は tailwind の補完をしやすくしてくれたりその実装がどうなっているのか表示してくれたりする便利なやつ\nインストール el-get 公式に recipe はないので適当に作っている。\n(:name lsp-tailwindcss :website \u0026#34;https://github.com/merrickluo/lsp-tailwindcss\u0026#34; :description \u0026#34;The lsp-mode client for tailwindcss\u0026#34; :type github :pkgname \u0026#34;merrickluo/lsp-tailwindcss\u0026#34; :depends \u0026#39;(f lsp-mode)) で el-get-bundle でインストール\n(el-get-bundle lsp-tailwindcss) 設定 メインの lsp client として動いてもしょうがないので addon mode として動くようにしている。\n(setopt lsp-tailwindcss-add-on-mode t) "
+	"content": "概要 TailwindCSS は Utility First な CSS フレームワーク。正直あんまり好みじゃないけど使ってみることになったので設定を入れる。\nlsp-tailwindcss 概要 lsp-tailwindcss は tailwind の補完をしやすくしてくれたりその実装がどうなっているのか表示してくれたりする便利なやつ\nインストール el-get 公式に recipe はないので適当に作っている。\n(:name lsp-tailwindcss :website \u0026#34;https://github.com/merrickluo/lsp-tailwindcss\u0026#34; :description \u0026#34;The lsp-mode client for tailwindcss\u0026#34; :type github :pkgname \u0026#34;merrickluo/lsp-tailwindcss\u0026#34; :depends (f lsp-mode)) で el-get-bundle でインストール\n(el-get-bundle lsp-tailwindcss) 設定 メインの lsp client として動いてもしょうがないので addon mode として動くようにしている。\n(setopt lsp-tailwindcss-add-on-mode t) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/buffer-management/tempbuf/",

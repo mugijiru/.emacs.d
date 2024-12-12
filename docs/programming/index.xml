@@ -145,7 +145,7 @@
       <link>https://mugijiru.github.io/.emacs.d/programming/tailwind/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://mugijiru.github.io/.emacs.d/programming/tailwind/</guid>
-      <description>概要 TailwindCSS は Utility First な CSS フレームワーク。正直あんまり好みじゃないけど使ってみることになったので設定を入れる。&#xA;lsp-tailwindcss 概要 lsp-tailwindcss は tailwind の補完をしやすくしてくれたりその実装がどうなっているのか表示してくれたりする便利なやつ&#xA;インストール el-get 公式に recipe はないので適当に作っている。&#xA;(:name lsp-tailwindcss :website &amp;#34;https://github.com/merrickluo/lsp-tailwindcss&amp;#34; :description &amp;#34;The lsp-mode client for tailwindcss&amp;#34; :type github :pkgname &amp;#34;merrickluo/lsp-tailwindcss&amp;#34; :depends &amp;#39;(f lsp-mode)) で el-get-bundle でインストール&#xA;(el-get-bundle lsp-tailwindcss) 設定 メインの lsp client として動いてもしょうがないので addon mode として動くようにしている。&#xA;(setopt lsp-tailwindcss-add-on-mode t) </description>
+      <description>概要 TailwindCSS は Utility First な CSS フレームワーク。正直あんまり好みじゃないけど使ってみることになったので設定を入れる。&#xA;lsp-tailwindcss 概要 lsp-tailwindcss は tailwind の補完をしやすくしてくれたりその実装がどうなっているのか表示してくれたりする便利なやつ&#xA;インストール el-get 公式に recipe はないので適当に作っている。&#xA;(:name lsp-tailwindcss :website &amp;#34;https://github.com/merrickluo/lsp-tailwindcss&amp;#34; :description &amp;#34;The lsp-mode client for tailwindcss&amp;#34; :type github :pkgname &amp;#34;merrickluo/lsp-tailwindcss&amp;#34; :depends (f lsp-mode)) で el-get-bundle でインストール&#xA;(el-get-bundle lsp-tailwindcss) 設定 メインの lsp client として動いてもしょうがないので addon mode として動くようにしている。&#xA;(setopt lsp-tailwindcss-add-on-mode t) </description>
     </item>
     <item>
       <title>Terraform</title>
