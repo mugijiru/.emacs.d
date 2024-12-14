@@ -7252,6 +7252,24 @@ https://github.com/AdamNiederer/vue-mode/blob/031edd1f97db6e7d8d6c295c0e6d58dd12
 #+begin_src emacs-lisp :tangle inits/40-yaml.el
 (el-get-bundle yaml-mode)
 #+end_src
+
+合わせて [[https://github.com/zkry/yaml-pro][yaml-pro]] も導入している。
+こちらはレシピが el-get 本体にはないので自前で用意している
+
+#+begin_src emacs-lisp :tangle recipes/yaml-pro.rcp
+(:name yaml-pro
+ :website "https://github.com/zkry/yaml-pro"
+ :description "provides conveniences for editing yaml"
+ :type github
+ :pkgname "zkry/yaml-pro"
+ :depends (yaml))
+#+end_src
+
+そんで ~el-get-bundle~ でインストール
+
+#+begin_src emacs-lisp :tangle inits/40-yaml.el
+(el-get-bundle yaml-pro)
+#+end_src
 *** hook
 :PROPERTIES:
 :ID:       98a879f7-1359-4b24-a6fa-0391a41f8936
@@ -7264,22 +7282,32 @@ lambda で書いてしまうと hook を弄りたい時に結構面倒なのだ�
 hook で動作する中身が変更できて便利。
 
 とりあえず yaml-mode では以下のようにして
-[[id:efae3643-0001-4313-a621-83517950652f][lsp-mode]] と [[id:c001bbc2-e937-4296-9791-cedb1b3b16fe][flycheck]], [[https://github.com/DarthFennec/highlight-indent-guides][highlight-indent-guides]] を有効にしている。
+[[id:efae3643-0001-4313-a621-83517950652f][lsp-mode]] と yaml-pro, [[id:c001bbc2-e937-4296-9791-cedb1b3b16fe][flycheck]], [[https://github.com/DarthFennec/highlight-indent-guides][highlight-indent-guides]] を有効にしている。
 
 #+begin_src emacs-lisp :tangle inits/40-yaml.el
 (defun my/yaml-mode-hook ()
   (lsp)
+  (yaml-pro-mode 1)
   (flycheck-mode 1)
   (highlight-indent-guides-mode 1))
 #+end_src
 
-で、その hook を最後に yaml-mode-hook と yaml-ts-mode-hook に追加している。
+で、その hook を最後に yaml-mode-hook に追加している。
 
 #+begin_src emacs-lisp :tangle inits/40-yaml.el
 (add-hook 'yaml-mode-hook 'my/yaml-mode-hook)
-(add-hook 'yaml-ts-mode-hook 'my/yaml-mode-hook)
 #+end_src
+*** treesit-auto で yaml-ts-mode を有効化させない
+yaml-ts-mode はインデント周りの挙動が気に入らないので
+昔ながらの yaml-mode.el を使い続けている。
 
+で treesit-auto を入れていると自動で yaml-ts-mode にしてくれやがるので
+それをさせない設定を入れている
+
+#+begin_src emacs-lisp :tangle inits/40-yaml.el
+(with-eval-after-load 'treesit-auto
+  (delete 'yaml treesit-auto-langs))
+#+end_src
 * 外部連携ツール設定
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: external-tool
