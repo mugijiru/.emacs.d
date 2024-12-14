@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((lsp-tailwindcss :checksum "ca5e611d2a38fea8802a365bcdd6fdc73e3d79af")
+      '((yaml-pro :checksum "5f06949e92dc19dcc48dc31662b2aa958fe33726")
+        (lsp-tailwindcss :checksum "ca5e611d2a38fea8802a365bcdd6fdc73e3d79af")
         (flycheck-eask :checksum "eb184a8a2230085c287e55d800ae7aa6b30f4dac")
         (eask-mode :checksum "b4d429d391b9a1699a68217cfc4a5e723beea5e0")
         (eask :checksum "6d4255e7b8de545e7098e8fff4f4e3e6e0a8c5e5")

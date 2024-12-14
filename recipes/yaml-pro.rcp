@@ -1,0 +1,6 @@
+(:name yaml-pro
+ :website "https://github.com/zkry/yaml-pro"
+ :description "provides conveniences for editing yaml"
+ :type github
+ :pkgname "zkry/yaml-pro"
+ :depends (yaml))
