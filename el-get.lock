@@ -2,7 +2,7 @@
       '((lsp-tailwindcss :checksum "ca5e611d2a38fea8802a365bcdd6fdc73e3d79af")
         (flycheck-eask :checksum "eb184a8a2230085c287e55d800ae7aa6b30f4dac")
         (eask-mode :checksum "b4d429d391b9a1699a68217cfc4a5e723beea5e0")
-        (eask :checksum "e570b7f3cc6f532a0e989002edac4d7d08cd9a9f")
+        (eask :checksum "6d4255e7b8de545e7098e8fff4f4e3e6e0a8c5e5")
         (shell-maker :checksum "4b859e220b98b368baf74457b302c074635c7aa5")
         (copilot-chat :checksum "8f0dcb8d21ff42b680bdc94aff89e9c3a6cbb8d8")
         (chatgpt-shell :checksum "e1d042ebb6cc593b35857f9ca4484efac95e7818")
