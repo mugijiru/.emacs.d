@@ -12,20 +12,20 @@
     <title>org-capture :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1734187976" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1734187976" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1734187976" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1734187976" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1734187976" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1734187976" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1734187976" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1734187976" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1734187976" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1734187976" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1734267379" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1734267379" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1734267379" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1734267379" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1734267379" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1734267379" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1734267379" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1734267379" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1734267379" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1734267379" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1734187976"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1734267379"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1734187976"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1734187976"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1734267379"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1734267379"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1734187976"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1734267379"></script>
 
     
   </div>
@@ -3534,10 +3534,10 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq org-capture-templates
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">`</span>((<span style="color:#e6db74">&#34;g&#34;</span> <span style="color:#e6db74">&#34;Inbox にエントリー&#34;</span> entry
-</span></span><span style="display:flex;"><span>         (file <span style="color:#f92672">,</span>my/org-capture-inbox-file)
-</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;* TODO %? %^G
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setopt org-capture-templates
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">`</span>((<span style="color:#e6db74">&#34;g&#34;</span> <span style="color:#e6db74">&#34;Inbox にエントリー&#34;</span> entry
+</span></span><span style="display:flex;"><span>           (file <span style="color:#f92672">,</span>my/org-capture-inbox-file)
+</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">&#34;* TODO %? %^G
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">%t
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">** Ready の定義
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- Why?, Goal, How? が埋められていること
@@ -3548,58 +3548,67 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">** How?
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">** Result
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">\t&#34;</span>)
-</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;p&#34;</span> <span style="color:#e6db74">&#34;Pointersにエントリー&#34;</span> entry
-</span></span><span style="display:flex;"><span>         (file+headline <span style="color:#f92672">,</span>my/org-capture-pointers-file <span style="color:#e6db74">&#34;Pointers&#34;</span>)
-</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;** %?\n\t&#34;</span>)
-</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;l&#34;</span> <span style="color:#e6db74">&#34;鑑賞ログ&#34;</span>)
-</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;lr&#34;</span> <span style="color:#e6db74">&#34;読書メモ&#34;</span> entry
-</span></span><span style="display:flex;"><span>         (id <span style="color:#e6db74">&#34;a0e30a2f-d4ee-426d-9f19-a1bbab2b2563&#34;</span>)
-</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;** %?
+</span></span><span style="display:flex;"><span>          (<span style="color:#e6db74">&#34;p&#34;</span> <span style="color:#e6db74">&#34;Pointersにエントリー&#34;</span> entry
+</span></span><span style="display:flex;"><span>           (file+headline <span style="color:#f92672">,</span>my/org-capture-pointers-file <span style="color:#e6db74">&#34;Pointers&#34;</span>)
+</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">&#34;** %?\n\t&#34;</span>)
+</span></span><span style="display:flex;"><span>          (<span style="color:#e6db74">&#34;l&#34;</span> <span style="color:#e6db74">&#34;鑑賞ログ&#34;</span>)
+</span></span><span style="display:flex;"><span>          (<span style="color:#e6db74">&#34;lr&#34;</span> <span style="color:#e6db74">&#34;読書メモ&#34;</span> entry
+</span></span><span style="display:flex;"><span>           (id <span style="color:#e6db74">&#34;a0e30a2f-d4ee-426d-9f19-a1bbab2b2563&#34;</span>)
+</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">&#34;** %?
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">%t
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">*** Reference
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">*** 感想など
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;</span>)
-</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;lb&#34;</span> <span style="color:#e6db74">&#34;ブログ記事メモ&#34;</span> entry
-</span></span><span style="display:flex;"><span>         (id <span style="color:#e6db74">&#34;e4eed87b-0852-4691-9cd6-4b1596f2b09b&#34;</span>)
-</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;** %?
+</span></span><span style="display:flex;"><span>          (<span style="color:#e6db74">&#34;lb&#34;</span> <span style="color:#e6db74">&#34;ブログ記事メモ&#34;</span> entry
+</span></span><span style="display:flex;"><span>           (id <span style="color:#e6db74">&#34;e4eed87b-0852-4691-9cd6-4b1596f2b09b&#34;</span>)
+</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">&#34;** %?
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">%t
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">*** Reference
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">*** 感想など
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;</span>)
-</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;lm&#34;</span> <span style="color:#e6db74">&#34;映画&#34;</span> entry
-</span></span><span style="display:flex;"><span>         (id <span style="color:#e6db74">&#34;56af8238-c9e8-497c-9695-46849cc8e091&#34;</span>)
-</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;** %?
+</span></span><span style="display:flex;"><span>          (<span style="color:#e6db74">&#34;lm&#34;</span> <span style="color:#e6db74">&#34;映画&#34;</span> entry
+</span></span><span style="display:flex;"><span>           (id <span style="color:#e6db74">&#34;56af8238-c9e8-497c-9695-46849cc8e091&#34;</span>)
+</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">&#34;** %?
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">%t
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">*** Reference
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">*** 感想など
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;</span>)
-</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;i&#34;</span> <span style="color:#e6db74">&#34;割り込みタスクにエントリー&#34;</span> entry <span style="color:#75715e">;; 参考: http://grugrut.hatenablog.jp/entry/2016/03/13/085417</span>
-</span></span><span style="display:flex;"><span>         (file+headline <span style="color:#f92672">,</span>my/org-capture-interrupted-file <span style="color:#e6db74">&#34;Interrupted&#34;</span>)
-</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;** %?\n\t&#34;</span> :clock-in <span style="color:#66d9ef">t</span> :clock-resume <span style="color:#66d9ef">t</span>)
-</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;I&#34;</span> <span style="color:#e6db74">&#34;障害リストにエントリー&#34;</span> entry
-</span></span><span style="display:flex;"><span>         (file+headline <span style="color:#f92672">,</span>my/org-capture-impediments-file <span style="color:#e6db74">&#34;Impediments&#34;</span>)
-</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;** TODO %?\n\t&#34;</span>)
-</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;s&#34;</span> <span style="color:#e6db74">&#34;SQL にエントリー&#34;</span> entry
-</span></span><span style="display:flex;"><span>         (file+headline <span style="color:#f92672">,</span>my/org-capture-sql-file <span style="color:#e6db74">&#34;SQL&#34;</span>)
-</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;** %?\n\t&#34;</span>)
-</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;b&#34;</span> <span style="color:#e6db74">&#34;Blogネタにエントリー&#34;</span> entry
-</span></span><span style="display:flex;"><span>         (file+headline <span style="color:#f92672">,</span>my/org-capture-memo-file <span style="color:#e6db74">&#34;Blogネタ&#34;</span>)
-</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;** %?\n\t&#34;</span>)
-</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;P&#34;</span> <span style="color:#e6db74">&#34;Protocol&#34;</span> entry
-</span></span><span style="display:flex;"><span>         (file+headline <span style="color:#f92672">,</span>my/org-capture-pointers-file <span style="color:#e6db74">&#34;Pointers&#34;</span>)
-</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;** %?\n   #+BEGIN_QUOTE\n   %i\n   #+END_QUOTE\n\n   Source: %u, [[%:link][%:description]]\n&#34;</span>)
-</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;L&#34;</span> <span style="color:#e6db74">&#34;Protocol Link&#34;</span> entry
-</span></span><span style="display:flex;"><span>         (file+headline <span style="color:#f92672">,</span>my/org-capture-pointers-file <span style="color:#e6db74">&#34;Pointers&#34;</span>)
-</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;** %:description\n   %:link\n   %?\n   Captured On: %U&#34;</span>)
-</span></span><span style="display:flex;"><span>        (<span style="color:#e6db74">&#34;w&#34;</span> <span style="color:#e6db74">&#34;Web site&#34;</span> entry
-</span></span><span style="display:flex;"><span>         (file+headline <span style="color:#f92672">,</span>my/org-capture-pointers-file <span style="color:#e6db74">&#34;Pointers&#34;</span>)
-</span></span><span style="display:flex;"><span>         <span style="color:#e6db74">&#34;* %a %^G
+</span></span><span style="display:flex;"><span>          (<span style="color:#e6db74">&#34;i&#34;</span> <span style="color:#e6db74">&#34;割り込みタスクにエントリー&#34;</span> entry <span style="color:#75715e">;; 参考: http://grugrut.hatenablog.jp/entry/2016/03/13/085417</span>
+</span></span><span style="display:flex;"><span>           (file+headline <span style="color:#f92672">,</span>my/org-capture-interrupted-file <span style="color:#e6db74">&#34;Interrupted&#34;</span>)
+</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">&#34;** %?\n\t&#34;</span> :clock-in <span style="color:#66d9ef">t</span> :clock-resume <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>          (<span style="color:#e6db74">&#34;I&#34;</span> <span style="color:#e6db74">&#34;障害リストにエントリー&#34;</span> entry
+</span></span><span style="display:flex;"><span>           (file+headline <span style="color:#f92672">,</span>my/org-capture-impediments-file <span style="color:#e6db74">&#34;Impediments&#34;</span>)
+</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">&#34;** TODO %?\n\t&#34;</span>)
+</span></span><span style="display:flex;"><span>          (<span style="color:#e6db74">&#34;s&#34;</span> <span style="color:#e6db74">&#34;SQL にエントリー&#34;</span> entry
+</span></span><span style="display:flex;"><span>           (file+headline <span style="color:#f92672">,</span>my/org-capture-sql-file <span style="color:#e6db74">&#34;SQL&#34;</span>)
+</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">&#34;** %?\n\t&#34;</span>)
+</span></span><span style="display:flex;"><span>          (<span style="color:#e6db74">&#34;b&#34;</span> <span style="color:#e6db74">&#34;Blogネタにエントリー&#34;</span> entry
+</span></span><span style="display:flex;"><span>           (file+headline <span style="color:#f92672">,</span>my/org-capture-memo-file <span style="color:#e6db74">&#34;Blogネタ&#34;</span>)
+</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">&#34;** %?\n\t&#34;</span>)
+</span></span><span style="display:flex;"><span>          (<span style="color:#e6db74">&#34;P&#34;</span> <span style="color:#e6db74">&#34;Protocol&#34;</span> entry
+</span></span><span style="display:flex;"><span>           (file+headline <span style="color:#f92672">,</span>my/org-capture-pointers-file <span style="color:#e6db74">&#34;Pointers&#34;</span>)
+</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">&#34;** %?\n   #+BEGIN_QUOTE\n   %i\n   #+END_QUOTE\n\n   Source: %u, [[%:link][%:description]]\n&#34;</span>)
+</span></span><span style="display:flex;"><span>          (<span style="color:#e6db74">&#34;L&#34;</span> <span style="color:#e6db74">&#34;Protocol Link&#34;</span> entry
+</span></span><span style="display:flex;"><span>           (file+headline <span style="color:#f92672">,</span>my/org-capture-pointers-file <span style="color:#e6db74">&#34;Pointers&#34;</span>)
+</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">&#34;** %:description\n   %:link\n   %?\n   Captured On: %U&#34;</span>)
+</span></span><span style="display:flex;"><span>          (<span style="color:#e6db74">&#34;w&#34;</span> <span style="color:#e6db74">&#34;Web site&#34;</span> entry
+</span></span><span style="display:flex;"><span>           (file+headline <span style="color:#f92672">,</span>my/org-capture-pointers-file <span style="color:#e6db74">&#34;Pointers&#34;</span>)
+</span></span><span style="display:flex;"><span>           <span style="color:#e6db74">&#34;* %a %^G
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">%U
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">%:initial
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;</span>)))
+</span></span></code></pre></div><p>更に counsel-projectile を使っているので
+<code>counsel-projectile-org-capture-templates</code> も設定してタスク以外にもアイデアやバグをさくっと登録できるようにしている。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setopt counsel-projectile-org-capture-templates
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;t&#34;</span> <span style="color:#e6db74">&#34;[${name}] Task&#34;</span> entry
+</span></span><span style="display:flex;"><span>           (file+headline <span style="color:#e6db74">&#34;${root}/notes.org&#34;</span> <span style="color:#e6db74">&#34;Tasks&#34;</span>))
+</span></span><span style="display:flex;"><span>          (<span style="color:#e6db74">&#34;!&#34;</span> <span style="color:#e6db74">&#34;[${name}] Idea&#34;</span> entry
+</span></span><span style="display:flex;"><span>           (file+headline <span style="color:#e6db74">&#34;${root}/notes.org&#34;</span> <span style="color:#e6db74">&#34;Ideas&#34;</span>))
+</span></span><span style="display:flex;"><span>          (<span style="color:#e6db74">&#34;B&#34;</span> <span style="color:#e6db74">&#34;[${name}] Bug&#34;</span> entry
+</span></span><span style="display:flex;"><span>           (file-headline <span style="color:#e6db74">&#34;${root}/notes.org&#34;</span> <span style="color:#e6db74">&#34;Bugs&#34;</span>))))
 </span></span></code></pre></div>
 
 <footer class="footline">
@@ -6033,19 +6042,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1734187976"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1734187976"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1734187976"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1734187976"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1734187976"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1734187976"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1734267379"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1734267379"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1734267379"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1734267379"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1734267379"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1734267379"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1734187976"></script>
-    <script src="/.emacs.d/js/learn.js?1734187976"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1734187976"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1734267379"></script>
+    <script src="/.emacs.d/js/learn.js?1734267379"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1734267379"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1734187976"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1734267379"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
