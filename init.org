@@ -9793,6 +9793,20 @@ org-capture は org-mode 用にさくっとメモを取るための機能。
 ")))
 #+end_src
 
+更に counsel-projectile を使っているので
+~counsel-projectile-org-capture-templates~ も設定して
+タスク以外にもアイデアやバグをさくっと登録できるようにしている。
+
+#+begin_src emacs-lisp :tangle inits/61-org-capture.el
+(setopt counsel-projectile-org-capture-templates
+        '(("t" "[${name}] Task" entry
+           (file+headline "${root}/notes.org" "Tasks"))
+          ("!" "[${name}] Idea" entry
+           (file+headline "${root}/notes.org" "Ideas"))
+          ("B" "[${name}] Bug" entry
+           (file-headline "${root}/notes.org" "Bugs"))))
+#+end_src
+
 ** org-protocol-capture-html
 :PROPERTIES:
 :EXPORT_FILE_NAME: org-protocol-capture-html

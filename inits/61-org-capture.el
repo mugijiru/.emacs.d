@@ -72,3 +72,11 @@
 %U
 %:initial
 ")))
+
+(setopt counsel-projectile-org-capture-templates
+        '(("t" "[${name}] Task" entry
+           (file+headline "${root}/notes.org" "Tasks"))
+          ("!" "[${name}] Idea" entry
+           (file+headline "${root}/notes.org" "Ideas"))
+          ("B" "[${name}] Bug" entry
+           (file-headline "${root}/notes.org" "Bugs"))))
