@@ -69,6 +69,8 @@
     (add-hook 'org-shiftright-final-hook 'windmove-right)))
 
 (defun my/org-mode-hook ()
+  (subword-mode 1)
+
   (my/org-mode-map-override-windmove-mode-map)
 
   (define-key org-mode-map [remap org-set-tags-command] #'counsel-org-tag)

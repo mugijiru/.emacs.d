@@ -8972,6 +8972,8 @@ windmove-mode とキーバインドがかぶってるので
 また org-read-date はデフォルトでシフト+カーソルキーで日付を選択できるが、
 windmove にそれを奪われてしまうので、カーソルキー単体でカレンダー選択ができるようにしている。
 
+あとここで org-mode 用の hook があるついでに subword-mode も合わせて有効にしている
+
 #+begin_src emacs-lisp :tangle inits/60-org.el
 (defun my/org-mode-map-override-windmove-mode-map ()
   (let ((oldmap windmove-mode-map)
@@ -8985,6 +8987,8 @@ windmove にそれを奪われてしまうので、カーソルキー単体で�
     (add-hook 'org-shiftright-final-hook 'windmove-right)))
 
 (defun my/org-mode-hook ()
+  (subword-mode 1)
+
   (my/org-mode-map-override-windmove-mode-map)
 
   (define-key org-mode-map [remap org-set-tags-command] #'counsel-org-tag)
