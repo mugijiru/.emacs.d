@@ -10,27 +10,7 @@ draft = false
 
 ### インストール {#インストール}
 
-el-get 本体にはレシピがないのと依存している各パッケージもレシピが古かったりするのでそれぞれ自前で用意している
-
-```emacs-lisp
-(:name shell-maker
-       :website "https://github.com/xenodium/shell-maker"
-       :description "shell-maker is a convenience wrapper around comint mode."
-       :type github
-       :pkgname "xenodium/shell-maker"
-       :branch "main"
-       :minimum-emacs-version "27.1")
-```
-
-```emacs-lisp
-(:name chatgpt-shell
-       :description "Interaction mode for ChatGPT"
-       :type github
-       :pkgname "xenodium/chatgpt-shell"
-       :branch "main"
-       :minimum-emacs-version "28.1"
-       :depends (shell-maker))
-```
+el-get 本体にはレシピがないので自前で用意している。なお依存している [chatgpt-shell](https://github.com/xenodium/chatgpt-shell) などのレシピは [chatgpt-shell の設定ページ]({{< relref "chatgpt-shell" >}}) に置いてある
 
 ```emacs-lisp
 (:name copilot-chat

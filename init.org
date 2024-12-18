@@ -1758,28 +1758,8 @@ Warning (copilot): .loaddefs.el size exceeds 'copilot-max-char' (100000), copilo
 *** 概要
 [[https://github.com/chep/copilot-chat.el][copilot-chat.el]] は Emacs から GitHub Copilot Chat を使えるようにするパッケージ。
 **** インストール
-el-get 本体にはレシピがないのと
-依存している各パッケージもレシピが古かったりするのでそれぞれ自前で用意している
-
-#+begin_src emacs-lisp :tangle recipes/shell-maker.rcp
-(:name shell-maker
-       :website "https://github.com/xenodium/shell-maker"
-       :description "shell-maker is a convenience wrapper around comint mode."
-       :type github
-       :pkgname "xenodium/shell-maker"
-       :branch "main"
-       :minimum-emacs-version "27.1")
-#+end_src
-
-#+begin_src emacs-lisp :tangle recipes/chatgpt-shell.rcp
-(:name chatgpt-shell
-       :description "Interaction mode for ChatGPT"
-       :type github
-       :pkgname "xenodium/chatgpt-shell"
-       :branch "main"
-       :minimum-emacs-version "28.1"
-       :depends (shell-maker))
-#+end_src
+el-get 本体にはレシピがないので自前で用意している。
+なお依存している [[https://github.com/xenodium/chatgpt-shell][chatgpt-shell]] などのレシピは [[id:93c58f71-7db1-40d7-b706-dd5868c29da0][chatgpt-shell の設定ページ]] に置いてある
 
 #+begin_src emacs-lisp :tangle recipes/copilot-chat.rcp
 (:name copilot-chat
@@ -7319,6 +7299,7 @@ yaml-ts-mode はインデント周りの挙動が気に入らないので
 
 - [[id:448067b2-3791-4cf7-b3bc-016efb494569][blamer.el]] :: 最後のコミット情報を表示してくれる便利なやつ
 - [[id:3bede284-b3db-45ad-9f49-ce31ec47ce6f][calibredb]] :: 電子書籍管理ツール [[https://calibre-ebook.com/][Calibre]] のデータを Emacs から操作するためのパッケージ
+- [[id:93c58f71-7db1-40d7-b706-dd5868c29da0][chatgpt-shell]] :: OpenAI の ChatGPT とか Google の Gemini とかとやりとりするためのパッケージ
 - [[id:69f9c15d-05f9-4efc-8ff8-5cacccce75a8][emacs-kibela]] :: Emacs から Kibela に記事を書いたりするためのパッケージ
 - [[*emacs-w3m][emacs-w3m]] :: 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ
 - [[id:6cdbff91-2870-4630-962c-6a35906a9db7][engine-mode]] :: Emacs からささっと色々な検索エンジンで検索できるようにするパッケージ
@@ -7492,6 +7473,51 @@ el-get 本体にはレシピがないので自前で用意。
 
      "Other"
      (("M" calibredb-metadata-hydra/body "Metadata")))))
+#+end_src
+** chatgpt-shell
+:PROPERTIES:
+:ID:       93c58f71-7db1-40d7-b706-dd5868c29da0
+:EXPORT_FILE_NAME: chatgpt-shell
+:END:
+*** 概要
+[[https://github.com/xenodium/chatgpt-shell][chatgpt-shell]] は OpenAI の ChatGPT とか Google の Gemini とかとチャットできるようにするパッケージ
+*** インストール
+el-get 本体にはレシピがないので自前で用意している。
+依存パッケージである [[https://github.com/xenodium/shell-maker][shell-maker]] のレシピも自前で用意している。
+
+#+begin_src emacs-lisp :tangle recipes/shell-maker.rcp
+(:name shell-maker
+       :website "https://github.com/xenodium/shell-maker"
+       :description "shell-maker is a convenience wrapper around comint mode."
+       :type github
+       :pkgname "xenodium/shell-maker"
+       :branch "main"
+       :minimum-emacs-version "27.1")
+#+end_src
+
+#+begin_src emacs-lisp :tangle recipes/chatgpt-shell.rcp
+(:name chatgpt-shell
+       :description "Interaction mode for ChatGPT"
+       :type github
+       :pkgname "xenodium/chatgpt-shell"
+       :branch "main"
+       :minimum-emacs-version "28.1"
+       :depends (shell-maker))
+#+end_src
+
+そして ~el-get-bundle~ でインストールしている。
+
+#+begin_src emacs-lisp :tangle inits/20-chatgpt-shell.el
+(el-get-bundle chatgpt-shell)
+#+end_src
+*** 設定
+とりあえず Gemini を指定した上で
+authinfo に登録した API キーを引っ張り出して使っている
+
+#+begin_src emacs-lisp :tangle inits/20-chatgpt-shell.el
+(setopt chatgpt-shell-model-version "gemini-1.5-flash")
+(setopt chatgpt-shell-google-key
+        (funcall (plist-get (nth 0 (auth-source-search :host "gemini" :max 1)) :secret)))
 #+end_src
 ** emacs-kibela
 :PROPERTIES:
