@@ -154,7 +154,7 @@
         (ht :checksum "1c49aad1c820c86f7ee35bf9fff8429502f60fef")
         (hydra :checksum "317e1de33086637579a7aeb60f77ed0405bf359b")
         (hydra-posframe :checksum "142a04dd588af6c725e331863c3ca7bd5dda13ec")
-        (inf-ruby :checksum "6399a3668224aa48423c54e81383f73e5e39439a")
+        (inf-ruby :checksum "d4cff9a3237c8b9462c81fe0d2770a0f8748f77a")
         (init-loader :checksum "c4842b1f6695ce77daf94fd085456aeb37ed37e1")
         (japanese-holidays :checksum "324b6bf2f55ec050bef49e001caedaabaf4fa35d")
         (js2-mode :checksum "e0c302872de4d26a9c1614fac8d6b94112b96307")
