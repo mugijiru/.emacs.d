@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>Mocha :: 麦汁&#39;s Emacs Config</title>
+    <title>chatgpt-shell :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1734527057" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/programming/mocha/">
+  <body class="" data-url="/.emacs.d/external-tool/chatgpt-shell/">
     <nav id="sidebar" class="">
 
 
@@ -1732,7 +1732,7 @@
   
     
     <li data-nav-id="/.emacs.d/programming/" title="プログラミング関係の設定" class="dd-item
-        parent
+        
         
         
         ">
@@ -1989,7 +1989,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/programming/mocha/" title="Mocha" class="dd-item active">
+      <li data-nav-id="/.emacs.d/programming/mocha/" title="Mocha" class="dd-item ">
         <a href="/.emacs.d/programming/mocha/">
         Mocha
         
@@ -2291,7 +2291,7 @@
   
     
     <li data-nav-id="/.emacs.d/external-tool/" title="外部連携ツール設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -2359,7 +2359,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/external-tool/chatgpt-shell/" title="chatgpt-shell" class="dd-item ">
+      <li data-nav-id="/.emacs.d/external-tool/chatgpt-shell/" title="chatgpt-shell" class="dd-item active">
         <a href="/.emacs.d/external-tool/chatgpt-shell/">
         chatgpt-shell
         
@@ -3434,7 +3434,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/programming/'>プログラミング関係の設定</a> > Mocha
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/external-tool/'>外部連携ツール設定</a> > chatgpt-shell
           
         
           
@@ -3450,12 +3450,8 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#mocha-dot-el">mocha.el</a>
-      <ul>
-        <li><a href="#インストール">インストール</a></li>
-      </ul>
-    </li>
-    <li><a href="#テスト実行コマンド">テスト実行コマンド</a></li>
+    <li><a href="#インストール">インストール</a></li>
+    <li><a href="#設定">設定</a></li>
   </ul>
 </nav>
     </div>
@@ -3467,19 +3463,13 @@
             
         <div id="head-tags">
         
-<div class="tags">
-
-  <a class="tag-link" href="/tags/deprecated">Deprecated</a>
-
-</div>
-
         </div>
         
         <div id="body-inner">
           
             <h1>
               
-              Mocha
+              chatgpt-shell
             </h1>
           
 
@@ -3487,28 +3477,31 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://mochajs.org/">Mocha</a> は JS のテストフレームワークの1つ。
-Jest より前はこっちはよく使われてた</p>
-<p>というわけで設定していたのだけど、今はもう使ってない。</p>
-<p>ひょっとしたらまた使うことがあるかもしれないのでドキュメントには残しておいて
-tangle による出力を停止する。</p>
-<h2 id="mocha-dot-el">mocha.el</h2>
-<h3 id="インストール">インストール</h3>
-<p>レシピは自前で用意していた</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name mocha
-</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Emacs mode for running mocha tests&#34;</span>
-</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/scottaj/mocha.el&#34;</span>
+<p><a href="https://github.com/xenodium/chatgpt-shell">chatgpt-shell</a> は OpenAI の ChatGPT とか Google の Gemini とかとチャットできるようにするパッケージ</p>
+<h2 id="インストール">インストール</h2>
+<p>el-get 本体にはレシピがないので自前で用意している。依存パッケージである <a href="https://github.com/xenodium/shell-maker">shell-maker</a> のレシピも自前で用意している。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name shell-maker
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/xenodium/shell-maker&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;shell-maker is a convenience wrapper around comint mode.&#34;</span>
 </span></span><span style="display:flex;"><span>       :type github
-</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;scottaj/mocha.el&#34;</span>)
-</span></span></code></pre></div><p>そしていつも通り <code>el-get-bundle</code> でインストールしていた</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle mocha)
-</span></span></code></pre></div><h2 id="テスト実行コマンド">テスト実行コマンド</h2>
-<p>mocha のテストファイルかどうかを判定してそうだったら
-mocha としてテストを実行するコマンドを用意していた</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/mocha-test-file ()
-</span></span><span style="display:flex;"><span>  (interactive)
-</span></span><span style="display:flex;"><span>  (if my/mocha-enable-p
-</span></span><span style="display:flex;"><span>      (mocha-test-file)))
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;xenodium/shell-maker&#34;</span>
+</span></span><span style="display:flex;"><span>       :branch <span style="color:#e6db74">&#34;main&#34;</span>
+</span></span><span style="display:flex;"><span>       :minimum-emacs-version <span style="color:#e6db74">&#34;27.1&#34;</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name chatgpt-shell
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Interaction mode for ChatGPT&#34;</span>
+</span></span><span style="display:flex;"><span>       :type github
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;xenodium/chatgpt-shell&#34;</span>
+</span></span><span style="display:flex;"><span>       :branch <span style="color:#e6db74">&#34;main&#34;</span>
+</span></span><span style="display:flex;"><span>       :minimum-emacs-version <span style="color:#e6db74">&#34;28.1&#34;</span>
+</span></span><span style="display:flex;"><span>       :depends (shell-maker))
+</span></span></code></pre></div><p>そして <code>el-get-bundle</code> でインストールしている。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle chatgpt-shell)
+</span></span></code></pre></div><h2 id="設定">設定</h2>
+<p>とりあえず Gemini を指定した上で
+authinfo に登録した API キーを引っ張り出して使っている</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setopt chatgpt-shell-model-version <span style="color:#e6db74">&#34;gemini-1.5-flash&#34;</span>)
+</span></span><span style="display:flex;"><span>(setopt chatgpt-shell-google-key
+</span></span><span style="display:flex;"><span>        (<span style="color:#a6e22e">funcall</span> (<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;gemini&#34;</span> :max <span style="color:#ae81ff">1</span>)) :secret)))
 </span></span></code></pre></div>
 
 <footer class="footline">
@@ -4733,7 +4726,6 @@ mocha としてテストを実行するコマンドを用意していた</p>
             
                 
                     
-                    
                 
                 
 
@@ -4746,9 +4738,6 @@ mocha としてテストを実行するコマンドを用意していた</p>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -4926,7 +4915,6 @@ mocha としてテストを実行するコマンドを用意していた</p>
             
                 
                     
-                    
                 
                 
 
@@ -4942,9 +4930,6 @@ mocha としてテストを実行するコマンドを用意していた</p>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -5157,6 +5142,7 @@ mocha としてテストを実行するコマンドを用意していた</p>
             
                 
                     
+                    
                 
                 
 
@@ -5169,6 +5155,9 @@ mocha としてテストを実行するコマンドを用意していた</p>
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -5202,6 +5191,7 @@ mocha としてテストを実行するコマンドを用意していた</p>
             
                 
                     
+                    
                 
                 
 
@@ -5217,6 +5207,9 @@ mocha としてテストを実行するコマンドを用意していた</p>
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -5945,10 +5938,10 @@ mocha としてテストを実行するコマンドを用意していた</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/programming/markdown/" title="markdown"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/external-tool/calibredb/" title="calibredb"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/programming/plantuml-mode/" title="plantuml-mode" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/external-tool/emacs-kibela/" title="emacs-kibela" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
