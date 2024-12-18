@@ -12,20 +12,20 @@
     <title>org-mode 用の独自コマンド :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1734267379" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1734267379" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1734267379" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1734267379" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1734267379" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1734267379" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1734267379" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1734267379" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1734267379" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1734267379" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1734524706" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1734524706" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1734524706" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1734524706" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1734524706" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1734524706" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1734524706" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1734524706" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1734524706" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1734524706" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1734267379"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1734524706"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1734267379"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1734267379"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1734524706"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1734524706"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1734267379"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1734524706"></script>
 
     
   </div>
@@ -3437,6 +3437,7 @@
     <li><a href="#org-gcal-で取得した情報を-appt-に登録">org-gcal で取得した情報を appt に登録</a></li>
     <li><a href="#calfw-で選択したカレンダーを表示">calfw で選択したカレンダーを表示</a></li>
     <li><a href="#レビュー依頼がされてる-pr-を取得してバッファに挿入">レビュー依頼がされてる PR を取得してバッファに挿入</a></li>
+    <li><a href="#org-agenda-files-にその日の-journal-ファイルを加えて-reset-する">org-agenda-files にその日の journal ファイルを加えて reset する</a></li>
   </ul>
 </nav>
     </div>
@@ -3537,7 +3538,18 @@ ivy で選択できるようにしている。</p>
 </span></span></code></pre></div><p>実際のところこの Emacs のコマンドは使わず
 Terminal で review-requested-prs というコマンドを直で叩いているから何かしら工夫が必要そうである。</p>
 <p>あと、そもそも既にバッファにあるやつとマージしたいとか色々やりたいことはあるのでそれをなんとかしたいですね。</p>
-
+<h2 id="org-agenda-files-にその日の-journal-ファイルを加えて-reset-する">org-agenda-files にその日の journal ファイルを加えて reset する</h2>
+<p>org-journal で作られたその日のファイルを
+org-clock-report の対象にしたくて org-agenda-files をいい感じにするコマンドを用意した。まだ Hydra には組み込んでないけど、とりあえず M-x で呼び出して使うつもり</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;org-mode</span>
+</span></span><span style="display:flex;"><span>  (setq my/org-agenda-files--original (<span style="color:#a6e22e">copy-sequence</span> org-agenda-files))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  (defun my/reset-org-agenda-files ()
+</span></span><span style="display:flex;"><span>  (interactive)
+</span></span><span style="display:flex;"><span>  (let ((tmp my/org-agenda-files--original))
+</span></span><span style="display:flex;"><span>    (setq org-agenda-files
+</span></span><span style="display:flex;"><span>          (cl-pushnew (org-journal--get-entry-path) tmp)))))
+</span></span></code></pre></div>
 
 <footer class="footline">
 	
@@ -5970,19 +5982,19 @@ Terminal で review-requested-prs というコマンドを直で叩いている�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1734267379"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1734267379"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1734267379"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1734267379"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1734267379"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1734267379"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1734524706"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1734524706"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1734524706"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1734524706"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1734524706"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1734524706"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1734267379"></script>
-    <script src="/.emacs.d/js/learn.js?1734267379"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1734267379"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1734524706"></script>
+    <script src="/.emacs.d/js/learn.js?1734524706"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1734524706"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1734267379"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1734524706"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
