@@ -189,3 +189,17 @@ erb を使うこともあるのでそれに向けての設定も入れている
 ```emacs-lisp
 (add-to-list 'auto-mode-alist '(".*\\.html\\.erb$" . web-mode))
 ```
+
+また origami とか copilot とかも動くと便利そうなので有効化している
+
+```emacs-lisp
+(defun my/web-mode-hook ()
+  (origami-mode 1)
+  (subword-mode 1)
+  (copilot-mode 1)
+  (display-line-numbers-mode 1)
+  (turn-on-smartparens-strict-mode)
+  (lsp))
+
+(add-hook 'web-mode-hook 'my/web-mode-hook)
+```
