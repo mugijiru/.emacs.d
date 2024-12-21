@@ -77,3 +77,13 @@
   (add-to-list 'lsp-language-id-configuration '(".*\\.html\\.erb$" . "html")))
 
 (add-to-list 'auto-mode-alist '(".*\\.html\\.erb$" . web-mode))
+
+(defun my/web-mode-hook ()
+  (origami-mode 1)
+  (subword-mode 1)
+  (copilot-mode 1)
+  (display-line-numbers-mode 1)
+  (turn-on-smartparens-strict-mode)
+  (lsp))
+
+(add-hook 'web-mode-hook 'my/web-mode-hook)
