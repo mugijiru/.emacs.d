@@ -141,12 +141,12 @@ org-journal で作られたその日のファイルを
 org-clock-report の対象にしたくて org-agenda-files をいい感じにするコマンドを用意した。まだ Hydra には組み込んでないけど、とりあえず M-x で呼び出して使うつもり
 
 ```emacs-lisp
-(with-eval-after-load 'org-mode
+(with-eval-after-load 'org-agenda
   (setq my/org-agenda-files--original (copy-sequence org-agenda-files))
 
   (defun my/reset-org-agenda-files ()
-  (interactive)
-  (let ((tmp my/org-agenda-files--original))
-    (setq org-agenda-files
-          (cl-pushnew (org-journal--get-entry-path) tmp)))))
+    (interactive)
+    (let ((tmp my/org-agenda-files--original))
+      (setq org-agenda-files
+            (cl-pushnew (org-journal--get-entry-path) tmp)))))
 ```
