@@ -26,7 +26,7 @@ C-h で文字を消せないと不便なのでずっと昔からこの設定は�
 
 ```emacs-lisp
 (keyboard-translate ?\C-h ?\C-?)
-(global-set-key "\C-h" nil)
+(keymap-global-set "C-h" nil)
 ```
 
 
@@ -35,7 +35,7 @@ C-h で文字を消せないと不便なのでずっと昔からこの設定は�
 string-replace はよく使うのでそれなりに使いやすいキーにアサインしている
 
 ```emacs-lisp
-(global-set-key (kbd "M-g r") 'replace-string)
+(keymap-global-set "M-g r" 'replace-string)
 ```
 
 replace-regexp もまあまあ使うけどそれはキーを当ててないのでどこかでなんとかしたい。
@@ -48,7 +48,7 @@ C-\\ で skk-mode を起動できるようにしている。
 C-x C-j の方も設定は生きているが使ってない。っていうか忘れてた。
 
 ```emacs-lisp
-(global-set-key (kbd "C-\\") 'skk-mode)
+(keymap-global-set "C-\\" 'skk-mode)
 ```
 
 余談だけど org-mode とか commit message 書く時とかは自動で有効になるようにしたい気はする。
@@ -60,7 +60,7 @@ C-x C-j の方も設定は生きているが使ってない。っていうか忘
 swiper の方が絞り込みができて便利だしカッチョいいのでそっちを使うようにしている
 
 ```emacs-lisp
-(global-set-key (kbd "C-s") 'swiper)
+(keymap-global-set "C-s" 'swiper)
 ```
 
 
@@ -74,7 +74,7 @@ ace-window を使えばたくさん画面分割している時の移動が楽だ
 2分割の時は元の挙動と同様に2つの window を行き来する感じになので完全に置き換えても大丈夫と判断して、置き換えている。
 
 ```emacs-lisp
-(global-set-key (kbd "C-x o") 'ace-window)
+(keymap-global-set "C-x o" 'ace-window)
 ```
 
 ace-window は他にもコマンドがあって
@@ -98,8 +98,8 @@ window を移動できるようにしている
 undo  と redo には undo-fu を使っている
 
 ```emacs-lisp
-(global-set-key (kbd "C-/") 'undo-fu-only-undo)
-(global-set-key (kbd "C-M-/") 'undo-fu-only-redo)
+(keymap-global-set "C-/" 'undo-fu-only-undo)
+(keymap-global-set "C-M-/" 'undo-fu-only-redo)
 ```
 
 
@@ -123,10 +123,10 @@ Mac だとデフォルト状態だと \\ を入れると円マークになるの
 
 ```emacs-lisp
 ;; multiple-cursors
-(global-set-key (kbd "C-:") 'mc/edit-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+(keymap-global-set "C-:" 'mc/edit-lines)
+(keymap-global-set "C->" 'mc/mark-next-like-this)
+(keymap-global-set "C-<" 'mc/mark-previous-like-this)
+(keymap-global-set "C-c C-<" 'mc/mark-all-like-this)
 ```
 
 Ladicle さんの <https://ladicle.com/post/config/#multiple-cursor> の設定が便利そうだなって思って気になってるけどまだ試してない。
@@ -137,10 +137,10 @@ Ladicle さんの <https://ladicle.com/post/config/#multiple-cursor> の設定�
 Helm から乗り換えて今はこちらをメインで使っている。基本的には既存のキーバインドの持っていた機能が強化されるようなコマンドを代わりに割り当てている。デフォルトより良い感じで良い。
 
 ```emacs-lisp
-(global-set-key (kbd "M-x") 'counsel-M-x)
-(global-set-key (kbd "M-y") 'counsel-yank-pop)
-(global-set-key (kbd "C-x b") 'counsel-switch-buffer)
-(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(keymap-global-set "M-x" 'counsel-M-x)
+(keymap-global-set "M-y" 'counsel-yank-pop)
+(keymap-global-set "C-x b" 'counsel-switch-buffer)
+(keymap-global-set "C-x C-f" 'counsel-find-file)
 ```
 
 | Key     | 効果                                                           |
@@ -156,7 +156,7 @@ Helm から乗り換えて今はこちらをメインで使っている。基本
 [zoom-window](https://github.com/emacsorphanage/zoom-window) は tmux の zoom 機能のように選択している window だけを表示したり戻したりができるパッケージ。
 
 ```emacs-lisp
-(global-set-key (kbd "C-x 1") 'zoom-window-zoom)
+(keymap-global-set "C-x 1" 'zoom-window-zoom)
 ```
 
 実は戻すことがあんまりないので、このキーバインドは戻してもいいかもしれないなと思っていたりする。
@@ -167,7 +167,7 @@ Helm から乗り換えて今はこちらをメインで使っている。基本
 Neotree]] は IDE みたいにファイルツリーを表示を表示するパッケージ。有効にしているとちょっぴりモダンな雰囲気になるぞい。
 
 ```emacs-lisp
-(global-set-key [f8] 'neotree-toggle)
+(keymap-global-set "<f8>" 'neotree-toggle[f8])
 ```
 
 f8 にバインドしているけど
@@ -180,9 +180,9 @@ Helm でも起動できるようにしているので、こっちの設定は外
 
 ```emacs-lisp
 (setq my/org-mode-prefix-key "C-c o ")
-(global-set-key (kbd (concat my/org-mode-prefix-key "a")) 'org-agenda)
-(global-set-key (kbd (concat my/org-mode-prefix-key "c")) 'org-capture)
-(global-set-key (kbd (concat my/org-mode-prefix-key "l")) 'org-store-link)
+(keymap-global-set (concat my/org-mode-prefix-key "a") 'org-agenda)
+(keymap-global-set (concat my/org-mode-prefix-key "c") 'org-capture)
+(keymap-global-set (concat my/org-mode-prefix-key "l") 'org-store-link)
 ```
 
 けど org-mode 用の Hydra も用意しているのでこれもそろそろ削除かな……
