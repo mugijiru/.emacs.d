@@ -56,11 +56,11 @@ Hydra から利用するために定義している。"
          (response (shell-command-to-string cmd)))
     (insert response)))
 
-(with-eval-after-load 'org-mode
+(with-eval-after-load 'org-agenda
   (setq my/org-agenda-files--original (copy-sequence org-agenda-files))
 
   (defun my/reset-org-agenda-files ()
-  (interactive)
-  (let ((tmp my/org-agenda-files--original))
-    (setq org-agenda-files
-          (cl-pushnew (org-journal--get-entry-path) tmp)))))
+    (interactive)
+    (let ((tmp my/org-agenda-files--original))
+      (setq org-agenda-files
+            (cl-pushnew (org-journal--get-entry-path) tmp)))))
