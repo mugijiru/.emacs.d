@@ -5576,11 +5576,11 @@ graphql ファイルを弄る時に合わせて使いたい minor-mode がある
 - [[id:2f778f3d-4bdc-4966-8180-5002d23ba36c][highlight-indent-guides-mode]] :: インデントを見易くしてくれる
 - display-line-numbers-mode :: 左側に行数表示を出してくれる
 
-  そしてこの hook を ~graphql-mode-hook~ に突っ込んでいる
+そしてこの hook を ~graphql-mode-hook~ に突っ込んでいる
 
-  #+begin_src emacs-lisp :tangle inits/40-graphql.el
+#+begin_src emacs-lisp :tangle inits/40-graphql.el
 (add-hook 'graphql-mode-hook 'my/graphql-mode-hook)
-  #+end_src
+#+end_src
 *** graphql
 こちらは GraphQL API を Emacs Lisp から叩くためのライブラリ。
 命名的にややこしいけど。
@@ -5592,6 +5592,14 @@ graphql ファイルを弄る時に合わせて使いたい minor-mode がある
 
 #+begin_src emacs-lisp :tangle inits/40-graphql.el
 (el-get-bundle graphql)
+#+end_src
+**** 設定
+今のところ GraphQL を書くファイルは限られていることと
+tsx などで動くと重くてつらいので
+動く拡張子を限定している
+
+#+begin_src emacs-lisp :tangle inits/40-graphql.el
+(setopt lsp-graphql-target-file-extensions '("graphql" "gql"))
 #+end_src
 ** Jest
 :PROPERTIES:

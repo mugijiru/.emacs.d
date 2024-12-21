@@ -9,3 +9,5 @@
 (add-hook 'graphql-mode-hook 'my/graphql-mode-hook)
 
 (el-get-bundle graphql)
+
+(setopt lsp-graphql-target-file-extensions '("graphql" "gql"))

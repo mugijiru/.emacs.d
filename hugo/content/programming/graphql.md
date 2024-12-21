@@ -76,3 +76,13 @@ display-line-numbers-mode
 ```emacs-lisp
 (el-get-bundle graphql)
 ```
+
+
+### 設定 {#設定}
+
+今のところ GraphQL を書くファイルは限られていることと
+tsx などで動くと重くてつらいので動く拡張子を限定している
+
+```emacs-lisp
+(setopt lsp-graphql-target-file-extensions '("graphql" "gql"))
+```
