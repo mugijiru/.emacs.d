@@ -37,7 +37,7 @@
 
 (keymap-global-set "C-x 1" 'zoom-window-zoom)
 
-(keymap-global-set "<f8>" 'neotree-toggle[f8])
+(keymap-global-set "<f8>" 'neotree-toggle)
 
 (setq my/org-mode-prefix-key "C-c o ")
 (keymap-global-set (concat my/org-mode-prefix-key "a") 'org-agenda)

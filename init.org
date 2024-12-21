@@ -1426,7 +1426,7 @@ Neotree]] は IDE みたいにファイルツリーを表示を表示するパ�
 有効にしているとちょっぴりモダンな雰囲気になるぞい。
 
 #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
-(keymap-global-set "<f8>" 'neotree-toggle[f8])
+(keymap-global-set "<f8>" 'neotree-toggle)
 #+end_src
 
 f8 にバインドしているけど
