@@ -1277,7 +1277,7 @@ C-h で文字を消せないと不便なのでずっと昔からこの設定は�
 
 #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
 (keyboard-translate ?\C-h ?\C-?)
-(global-set-key "\C-h" nil)
+(keymap-global-set "C-h" nil)
 #+end_src
 *** M-g rをstring-replaceに割り当て
 :PROPERTIES:
@@ -1286,7 +1286,7 @@ C-h で文字を消せないと不便なのでずっと昔からこの設定は�
 string-replace はよく使うのでそれなりに使いやすいキーにアサインしている
 
 #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
-(global-set-key (kbd "M-g r") 'replace-string)
+(keymap-global-set "M-g r" 'replace-string)
 #+end_src
 
 replace-regexp もまあまあ使うけどそれはキーを当ててないので
@@ -1300,7 +1300,7 @@ C-\ で skk-mode を起動できるようにしている。
 C-x C-j の方も設定は生きているが使ってない。っていうか忘れてた。
 
 #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
-(global-set-key (kbd "C-\\") 'skk-mode)
+(keymap-global-set "C-\\" 'skk-mode)
 #+end_src
 
 余談だけど org-mode とか commit message 書く時とかは
@@ -1312,7 +1312,7 @@ C-x C-j の方も設定は生きているが使ってない。っていうか忘
 デフォルトだと C-s でインクリメンタルサーチが起動するが
 swiper の方が絞り込みができて便利だしカッチョいいのでそっちを使うようにしている
 #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
-(global-set-key (kbd "C-s") 'swiper)
+(keymap-global-set "C-s" 'swiper)
 #+end_src
 *** window 間の移動
 **** C-x o を ace-window に置き換え
@@ -1325,7 +1325,7 @@ ace-window を使えばたくさん画面分割している時の移動が楽だ
 完全に置き換えても大丈夫と判断して、置き換えている。
 
 #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
-(global-set-key (kbd "C-x o") 'ace-window)
+(keymap-global-set "C-x o" 'ace-window)
 #+end_src
 
 ace-window は他にもコマンドがあって
@@ -1349,8 +1349,8 @@ window を移動できるようにしている
 :END:
 undo  と redo には undo-fu を使っている
 #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
-(global-set-key (kbd "C-/") 'undo-fu-only-undo)
-(global-set-key (kbd "C-M-/") 'undo-fu-only-redo)
+(keymap-global-set "C-/" 'undo-fu-only-undo)
+(keymap-global-set "C-M-/" 'undo-fu-only-redo)
 #+end_src
 *** \ を入力した時に円マークにならないようにする設定
 :PROPERTIES:
@@ -1378,10 +1378,10 @@ Mac だとデフォルト状態だと \ を入れると円マークになるの�
 
 #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
 ;; multiple-cursors
-(global-set-key (kbd "C-:") 'mc/edit-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+(keymap-global-set "C-:" 'mc/edit-lines)
+(keymap-global-set "C->" 'mc/mark-next-like-this)
+(keymap-global-set "C-<" 'mc/mark-previous-like-this)
+(keymap-global-set "C-c C-<" 'mc/mark-all-like-this)
 #+end_src
 
 Ladicle さんの https://ladicle.com/post/config/#multiple-cursor の設定が便利そうだなって思って気になってるけどまだ試してない。
@@ -1394,10 +1394,10 @@ Helm から乗り換えて今はこちらをメインで使っている。
 デフォルトより良い感じで良い。
 
 #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
-(global-set-key (kbd "M-x") 'counsel-M-x)
-(global-set-key (kbd "M-y") 'counsel-yank-pop)
-(global-set-key (kbd "C-x b") 'counsel-switch-buffer)
-(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(keymap-global-set "M-x" 'counsel-M-x)
+(keymap-global-set "M-y" 'counsel-yank-pop)
+(keymap-global-set "C-x b" 'counsel-switch-buffer)
+(keymap-global-set "C-x C-f" 'counsel-find-file)
 #+end_src
 
 | Key     | 効果                                                                                                    |
@@ -1413,7 +1413,7 @@ Helm から乗り換えて今はこちらをメインで使っている。
 選択している window だけを表示したり戻したりができるパッケージ。
 
 #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
-(global-set-key (kbd "C-x 1") 'zoom-window-zoom)
+(keymap-global-set "C-x 1" 'zoom-window-zoom)
 #+end_src
 
 実は戻すことがあんまりないので、
@@ -1426,7 +1426,7 @@ Neotree]] は IDE みたいにファイルツリーを表示を表示するパ�
 有効にしているとちょっぴりモダンな雰囲気になるぞい。
 
 #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
-(global-set-key [f8] 'neotree-toggle)
+(keymap-global-set "<f8>" 'neotree-toggle[f8])
 #+end_src
 
 f8 にバインドしているけど
@@ -1439,9 +1439,9 @@ Helm でも起動できるようにしているので、こっちの設定は外
 
 #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
 (setq my/org-mode-prefix-key "C-c o ")
-(global-set-key (kbd (concat my/org-mode-prefix-key "a")) 'org-agenda)
-(global-set-key (kbd (concat my/org-mode-prefix-key "c")) 'org-capture)
-(global-set-key (kbd (concat my/org-mode-prefix-key "l")) 'org-store-link)
+(keymap-global-set (concat my/org-mode-prefix-key "a") 'org-agenda)
+(keymap-global-set (concat my/org-mode-prefix-key "c") 'org-capture)
+(keymap-global-set (concat my/org-mode-prefix-key "l") 'org-store-link)
 #+end_src
 
 けど org-mode 用の Hydra も用意しているので
