@@ -109,7 +109,7 @@
         (dumb-jump :checksum "cd65a743370ac7b1a12e9ef0a7371b285a2597fb")
         (ember-mode :checksum "38145ad189000c58860594c05523e42bacb3d246")
         (emacs-hide-mode-line :checksum "ddd154f1e04d666cd004bf8212ead8684429350d")
-        (highlight-indent-guides :checksum "cf352c85cd15dd18aa096ba9d9ab9b7ab493e8f6")
+        (highlight-indent-guides :checksum "48f4af02cbaa2548daf0530aaecc5ac83eae6674")
         (scratch-log :checksum "1168f7f16d36ca0f4ddf2bb98881f8db62cc5dc0")
         (vue-mode :checksum "4853d97ea8d7b2fab7d331d3a8aad18d02b792ad")
         (mmm-mode :checksum "b1f5c7dbdc405e6e10d9ddd99a43a6b2ad61b176")
