@@ -10,9 +10,9 @@
        :compile "lisp/"
        ;; Use the Makefile to produce the info manual, el-get can
        ;; handle compilation and autoloads on its own.
-       :build `(("make" ,(format "EMACSBIN=%s" el-get-emacs) "info")
+       :build `(("make" ,(format "EMACS=%s" el-get-emacs) "info")
                 ("git" "checkout" "docs/transient.texi")) ;; fix: Revert docs/transient.texi changes
-       :build/berkeley-unix `(("gmake" ,(format "EMACSBIN=%s" el-get-emacs)
+       :build/berkeley-unix `(("gmake" ,(format "EMACS=%s" el-get-emacs)
                                "info"))
        ;; Assume windows lacks a build environment.
        :build/windows-nt (with-temp-file "lisp/transient-autoloads.el" nil))
