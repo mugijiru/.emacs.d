@@ -35,9 +35,9 @@ ref: <https://github.com/mugijiru/.emacs.d/pull/2992>
        ;; handle compilation and autoloads on its own.  Create an
        ;; empty autoloads file because magit.el explicitly checks for
        ;; a file of that name.
-       :build `(;; ("make" ,(format "EMACSBIN=%s" el-get-emacs) "docs") do not build manual
+       :build `(;; ("make" ,(format "EMACS=%s" el-get-emacs) "docs") do not build manual
                 ("touch" "lisp/magit-autoloads.el"))
-       :build/berkeley-unix `(;; ("gmake" ,(format "EMACSBIN=%s" el-get-emacs) "docs")
+       :build/berkeley-unix `(;; ("gmake" ,(format "EMACS=%s" el-get-emacs) "docs")
                               ("touch" "lisp/magit-autoloads.el"))
        ;; assume windows lacks make and makeinfo
        :build/windows-nt (with-temp-file "lisp/magit-autoloads.el" nil))
@@ -56,9 +56,9 @@ ref: <https://github.com/mugijiru/.emacs.d/pull/2992>
        :compile "lisp/"
        ;; Use the Makefile to produce the info manual, el-get can
        ;; handle compilation and autoloads on its own.
-       :build `(("make" ,(format "EMACSBIN=%s" el-get-emacs) "info")
+       :build `(("make" ,(format "EMACS=%s" el-get-emacs) "info")
                 ("git" "checkout" "**/*.texi")) ;; Avoid the need for a clean checkout
-       :build/berkeley-unix `(("gmake" ,(format "EMACSBIN=%s" el-get-emacs)
+       :build/berkeley-unix `(("gmake" ,(format "EMACS=%s" el-get-emacs)
                                "info")))
 ```
 
@@ -85,9 +85,9 @@ build されるとリポジトリに差分が発生して update ができなく
        :compile "lisp/"
        ;; Use the Makefile to produce the info manual, el-get can
        ;; handle compilation and autoloads on its own.
-       :build `(("make" ,(format "EMACSBIN=%s" el-get-emacs) "info")
+       :build `(("make" ,(format "EMACS=%s" el-get-emacs) "info")
                 ("git" "checkout" "docs/transient.texi")) ;; fix: Revert docs/transient.texi changes
-       :build/berkeley-unix `(("gmake" ,(format "EMACSBIN=%s" el-get-emacs)
+       :build/berkeley-unix `(("gmake" ,(format "EMACS=%s" el-get-emacs)
                                "info"))
        ;; Assume windows lacks a build environment.
        :build/windows-nt (with-temp-file "lisp/transient-autoloads.el" nil))
@@ -110,9 +110,9 @@ build されるとリポジトリに差分が発生して update ができなく
        :compile "lisp/"
        ;; Use the Makefile to produce the info manual, el-get can
        ;; handle compilation and autoloads on its own.
-       :build `(("make" ,(format "EMACSBIN=%s" el-get-emacs) "info")
+       :build `(("make" ,(format "EMACS=%s" el-get-emacs) "info")
                 ("git" "checkout" "docs/forge.texi")) ;; fix: Revert docs/forge.texi changes
-       :build/berkeley-unix `(("gmake" ,(format "EMACSBIN=%s" el-get-emacs)
+       :build/berkeley-unix `(("gmake" ,(format "EMACS=%s" el-get-emacs)
                                "info")))
 ```
 
@@ -146,8 +146,8 @@ ghub は compat に依存するようになったのでとりあえず自前で 
        :compile "lisp/"
        ;; Use the Makefile to produce the info manual, el-get can
        ;; handle compilation and autoloads on its own.
-       :build `(("make" ,(format "EMACSBIN=%s" el-get-emacs) "info"))
-       :build/berkeley-unix `(("gmake" ,(format "EMACSBIN=%s" el-get-emacs)
+       :build `(("make" ,(format "EMACS=%s" el-get-emacs) "info"))
+       :build/berkeley-unix `(("gmake" ,(format "EMACS=%s" el-get-emacs)
                                "info")))
 ```
 
