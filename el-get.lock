@@ -196,7 +196,7 @@
         (pcsv :checksum "6631284125156ef7411638cbb241acec5808b109")
         (google-translate :checksum "e60dd6eeb9cdb931d9d8bfbefc29a48ef9a21bd9")
         (el-get :checksum "c5ab1b334e6d0e1afcfc203fe460faed10c3e1ae")
-        (dashboard :checksum "da658d5fb4a430462dcc711a2368d20072ddc512")
+        (dashboard :checksum "c9f8230f6b7992b7b40c3bb9abc36cc03b6a423d")
         (page-break-lines :checksum "247854f6a82b5c7ab5ae493eb5390c5079cd032d")
         (org-trello :checksum "fc63ed580101e6160edfb6f43215fb3200ce1ea7")
         (undo-fu :checksum "399cc12f907f81a709f9014b6fad0205700d5772")
