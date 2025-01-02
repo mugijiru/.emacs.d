@@ -211,18 +211,20 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
    "Other"
    (("@" all-the-icons-hydra/body "List icons")
     ("w" which-key-show-top-level "Which key")
+    ("P" my/copy-file-path        "Get path")
     ("d" docker                   "Docker"))))
 ```
 
-| Key | 効果                      |
-|-----|-------------------------|
-| b   | キーバインドを調べる      |
-| f   | Emacs Lisp の関数を調べる |
-| v   | Emacs Lisp の変数を調べる |
-| m   | minor-mode を調べる       |
+| Key | 効果                         |
+|-----|----------------------------|
+| b   | キーバインドを調べる         |
+| f   | Emacs Lisp の関数を調べる    |
+| v   | Emacs Lisp の変数を調べる    |
+| m   | minor-mode を調べる          |
 | @   | All the icons の Hydra を起動 |
 | w   | トップレベルのキーバインドを表示する |
-| d   | docker.el の起動          |
+| P   | 現在のバッファの path をクリップボードにコピーする |
+| d   | docker.el の起動             |
 
 
 ### Text Scale {#text-scale}
