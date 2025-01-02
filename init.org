@@ -11301,7 +11301,7 @@ org-ql は使いこなすと色々なことができそうではあるが
 単にファイルパスをコピーしたい時があるので
 適当にそういうコマンドを用意している
 
-#+begin_src emacs-lisp :tangle inits/80-my-commands.org
+#+begin_src emacs-lisp :tangle inits/80-my-commands.el
 (defun my/copy-file-path ()
   "Copy the current buffer file path to the clipboard."
   (interactive)
