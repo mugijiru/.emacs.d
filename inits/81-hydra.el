@@ -75,6 +75,7 @@
    "Other"
    (("@" all-the-icons-hydra/body "List icons")
     ("w" which-key-show-top-level "Which key")
+    ("P" my/copy-file-path        "Get path")
     ("d" docker                   "Docker"))))
 
 (pretty-hydra-define text-scale-hydra (:separator "-" :title (concat (all-the-icons-material "text_fields") " Text Scale") :exit nil :quit-key "q")

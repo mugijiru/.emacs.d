@@ -3284,17 +3284,19 @@ el-get の Hydra はここで定義してしまっている。
    "Other"
    (("@" all-the-icons-hydra/body "List icons")
     ("w" which-key-show-top-level "Which key")
+    ("P" my/copy-file-path        "Get path")
     ("d" docker                   "Docker"))))
 #+end_src
 
-| Key | 効果                                                                               |
-| b   | キーバインドを調べる                                                               |
-| f   | Emacs Lisp の関数を調べる                                                          |
-| v   | Emacs Lisp の変数を調べる                                                          |
-| m   | minor-mode を調べる                                                                |
-| @   | All the icons の Hydra を起動                                                      |
-| w   | トップレベルのキーバインドを表示する                                               |
-| d   | docker.el の起動                                                                   |
+| Key | 効果                                               |
+| b   | キーバインドを調べる                               |
+| f   | Emacs Lisp の関数を調べる                          |
+| v   | Emacs Lisp の変数を調べる                          |
+| m   | minor-mode を調べる                                |
+| @   | All the icons の Hydra を起動                      |
+| w   | トップレベルのキーバインドを表示する               |
+| P   | 現在のバッファの path をクリップボードにコピーする |
+| d   | docker.el の起動                                   |
 
 **** Text Scale
 :PROPERTIES:
@@ -11291,7 +11293,22 @@ agenda 全然使えてなかったらこんなことに。
 その中では [[https://github.com/alphapapa/org-ql][org-ql]] の org-ql-search という関数を叩いている。
 org-ql は使いこなすと色々なことができそうではあるが
 それを内部で使ってる [[https://github.com/alphapapa/org-super-agenda][org-super-agenda]] を使えば十分な感じではある。
+* その他
+:PROPERTIES:
+:EXPORT_FILE_NAME: others
+:END:
+** ファイルパスをコピーするコマンド
+単にファイルパスをコピーしたい時があるので
+適当にそういうコマンドを用意している
 
+#+begin_src emacs-lisp :tangle inits/80-my-commands.el
+(defun my/copy-file-path ()
+  "Copy the current buffer file path to the clipboard."
+  (interactive)
+    (when buffer-file-name
+      (kill-new buffer-file-name)
+      (message "Copied buffer file path '%s' to the clipboard." buffer-file-name)))
+#+end_src
 * テスト用ツール
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: testing-tool
