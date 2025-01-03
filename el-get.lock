@@ -26,7 +26,7 @@
         (minimap :checksum "8bc9a65825925a7c58b83ad389f07a93f22d60f3")
         (org-protocol-capture-html :checksum "08a2aed1bbeb935ef62b2ebc06037202fd8ddcb1")
         (blamer :checksum "8a79c1f370f7c5f041c980e0b727960462c192ba")
-        (rg :checksum "50d42b1395d6381fef66ff8aae4b0d171f7e5b36")
+        (rg :checksum "94813ba3a7ccf3af68beb23a2c39154a99e8c9ec")
         (wgrep :checksum "49f09ab9b706d2312cab1199e1eeb1bcd3f27f6f")
         (moccur-edit :checksum "026f5dd4159bd1b68c430ab385757157ba01a361")
         (color-moccur :checksum "4f1c59ffd1ccc2ab1a171cd6b721e8cb9e002fb7")
