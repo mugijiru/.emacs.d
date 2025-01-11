@@ -25,7 +25,7 @@ Emacs に標準で入っている org-mode は古かったりするのでとり�
        :description "Org-mode is for keeping notes, maintaining ToDo lists, doing project planning, and authoring with a fast and effective plain-text system."
        :type git
        :url "https://git.savannah.gnu.org/git/emacs/org-mode.git"
-       :checkout "release_9.6.30"
+       :checkout "release_9.7.19"
        :info "doc"
        :build/berkeley-unix `,(mapcar
                                (lambda (target)
