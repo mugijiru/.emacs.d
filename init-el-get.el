@@ -14,6 +14,10 @@
 (require 'cl)
 (el-get-lock)
 
+(el-get-bundle leaf)
+(el-get-bundle leaf-keywords)
+(leaf-keywords-init)
+
 (defun my/el-get-auto-update (package)
   (let ((el-get-default-process-sync t)
         (old-checksum (my/el-get-lock-checksum package)))
