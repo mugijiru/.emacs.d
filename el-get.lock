@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((leaf :checksum "69c9b057cdeee560450c1d04a9a058235ecff0f7")
+      '((leaf-keywords :checksum "82ec27e3441900daedeaaebca509181f964da81f")
+        (leaf :checksum "69c9b057cdeee560450c1d04a9a058235ecff0f7")
         (yaml-pro :checksum "5f06949e92dc19dcc48dc31662b2aa958fe33726")
         (lsp-tailwindcss :checksum "ca5e611d2a38fea8802a365bcdd6fdc73e3d79af")
         (flycheck-eask :checksum "f93e5dd30aa9f7c612823760867c2f361fde6631")
@@ -36,7 +37,7 @@
         (calibredb :checksum "bb9cfb5e5f9c2bb45386c1a9d1273a7832f8c28b")
         (git-modes :checksum "f99010bbeb8b6d8a0819fac0195a2ef0159d08f0")
         (ob-graphql :checksum "7c35419f9eec5dc44967cbcfa13c7135b9a96bfc")
-        (corfu :checksum "c7626a699b55c53a389916ef1816c59e1b853b9b")
+        (corfu :checksum "9dc2f900ef58fdd75b4804039848da732f56465c")
         (treesit-auto :checksum "016bd286a1ba4628f833a626f8b9d497882ecdf3")
         (org-mode :checksum "5a4686915e568ace469f490c0606d2a016c1101c")
         (org-journal :checksum "17b34ce8df9649a73b715c13698220bde1628668")
