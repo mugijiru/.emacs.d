@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((leaf :checksum "69c9b057cdeee560450c1d04a9a058235ecff0f7")
+      '((leaf-keywords :checksum "82ec27e3441900daedeaaebca509181f964da81f")
+        (leaf :checksum "69c9b057cdeee560450c1d04a9a058235ecff0f7")
         (yaml-pro :checksum "5f06949e92dc19dcc48dc31662b2aa958fe33726")
         (lsp-tailwindcss :checksum "ca5e611d2a38fea8802a365bcdd6fdc73e3d79af")
         (flycheck-eask :checksum "f93e5dd30aa9f7c612823760867c2f361fde6631")
@@ -191,7 +192,7 @@
         (with-editor :checksum "ca902ae02972bdd6919a902be2593d8cb6bd991b")
         (yaml-mode :checksum "d91f878729312a6beed77e6637c60497c5786efa")
         (yascroll :checksum "9e02ac558eccb2a911640762f5df81c89230e81d")
-        (yasnippet :checksum "fe1f4e0e96ce42d8668920335eb22c3c009dab3e")
+        (yasnippet :checksum "5b315f1753480ebe669b157b8242448b5eafcfea")
         (zoom-window :checksum "fca88b971aea55e3d3944050213c3a1243178c8b")
         (ace-window :checksum "77115afc1b0b9f633084cf7479c767988106c196")
         (pcsv :checksum "6631284125156ef7411638cbb241acec5808b109")
