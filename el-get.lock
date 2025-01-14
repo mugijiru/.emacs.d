@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((leaf :checksum "69c9b057cdeee560450c1d04a9a058235ecff0f7")
+      '((leaf-keywords :checksum "82ec27e3441900daedeaaebca509181f964da81f")
+        (leaf :checksum "69c9b057cdeee560450c1d04a9a058235ecff0f7")
         (yaml-pro :checksum "5f06949e92dc19dcc48dc31662b2aa958fe33726")
         (lsp-tailwindcss :checksum "ca5e611d2a38fea8802a365bcdd6fdc73e3d79af")
         (flycheck-eask :checksum "f93e5dd30aa9f7c612823760867c2f361fde6631")
@@ -51,7 +52,7 @@
         (copilot :checksum "be6c274562e150e4acf5253968d1b434c40d368b")
         (editorconfig :checksum "24f5b2b1cd4e37adc245fb59f7edeb6872a707a4")
         (emacs-sqlite3-api :checksum "a601c9965e4d0178705a64b7d4f88709ca9aea66")
-        (org-roam :checksum "cad3518788991623aa5621341471aef67108937d")
+        (org-roam :checksum "425d53d56d0d338c781741df87824b1bfe7f88bc")
         (emacs-openai :checksum "b4c5e5e925ec6155f89e008698e512a0e8899348")
         (tblui :checksum "62ab5f62982c061a902fd3e54d94a68a4706572c")
         (magit-popup :checksum "d8585fa39f88956963d877b921322530257ba9f5")
