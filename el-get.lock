@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((leaf :checksum "69c9b057cdeee560450c1d04a9a058235ecff0f7")
+      '((leaf-keywords :checksum "82ec27e3441900daedeaaebca509181f964da81f")
+        (leaf :checksum "69c9b057cdeee560450c1d04a9a058235ecff0f7")
         (yaml-pro :checksum "5f06949e92dc19dcc48dc31662b2aa958fe33726")
         (lsp-tailwindcss :checksum "ca5e611d2a38fea8802a365bcdd6fdc73e3d79af")
         (flycheck-eask :checksum "f93e5dd30aa9f7c612823760867c2f361fde6631")
@@ -197,7 +198,7 @@
         (pcsv :checksum "6631284125156ef7411638cbb241acec5808b109")
         (google-translate :checksum "e60dd6eeb9cdb931d9d8bfbefc29a48ef9a21bd9")
         (el-get :checksum "c5ab1b334e6d0e1afcfc203fe460faed10c3e1ae")
-        (dashboard :checksum "c9f8230f6b7992b7b40c3bb9abc36cc03b6a423d")
+        (dashboard :checksum "7b7846689845078cb5604508c5075e28e2160efe")
         (page-break-lines :checksum "247854f6a82b5c7ab5ae493eb5390c5079cd032d")
         (org-trello :checksum "fc63ed580101e6160edfb6f43215fb3200ce1ea7")
         (undo-fu :checksum "399cc12f907f81a709f9014b6fad0205700d5772")
