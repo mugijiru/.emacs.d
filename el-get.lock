@@ -1,6 +1,7 @@
 (setq el-get-lock-package-versions
-      '((leaf :checksum "69c9b057cdeee560450c1d04a9a058235ecff0f7")
-        (yaml-pro :checksum "5f06949e92dc19dcc48dc31662b2aa958fe33726")
+      '((leaf-keywords :checksum "82ec27e3441900daedeaaebca509181f964da81f")
+        (leaf :checksum "69c9b057cdeee560450c1d04a9a058235ecff0f7")
+        (yaml-pro :checksum "f7706ea170de98d29b7cdd5a4f189bd038b1e27b")
         (lsp-tailwindcss :checksum "ca5e611d2a38fea8802a365bcdd6fdc73e3d79af")
         (flycheck-eask :checksum "f93e5dd30aa9f7c612823760867c2f361fde6631")
         (eask-mode :checksum "9bab3ad0d9a7df6284daed9ecd2cbd89298b958f")
