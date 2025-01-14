@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((leaf :checksum "69c9b057cdeee560450c1d04a9a058235ecff0f7")
+      '((leaf-keywords :checksum "82ec27e3441900daedeaaebca509181f964da81f")
+        (leaf :checksum "69c9b057cdeee560450c1d04a9a058235ecff0f7")
         (yaml-pro :checksum "5f06949e92dc19dcc48dc31662b2aa958fe33726")
         (lsp-tailwindcss :checksum "ca5e611d2a38fea8802a365bcdd6fdc73e3d79af")
         (flycheck-eask :checksum "f93e5dd30aa9f7c612823760867c2f361fde6631")
@@ -144,7 +145,7 @@
         (exec-path-from-shell :checksum "4896a797252fbfdac32fb77508500ac7d220f717")
         (f :checksum "931b6d0667fe03e7bf1c6c282d6d8d7006143c52")
         (flycheck :checksum "87ad201889b2055d0c4b0839d2f8b80eeccae59e")
-        (forge :checksum "7cdf978e32fa1166d11c2e0cadf1a012e0e925b6")
+        (forge :checksum "90f46e4ec360c9d38c0591d37ddde93632607c6c")
         (fringe-helper :checksum "ef4a9c023bae18ec1ddd7265f1f2d6d2e775efdd")
         (ghub :checksum "97edaf450ef74f40e6c0bd6a35ebd3fcb710ca4d")
         (git-gutter :checksum "3bdead17db7b84270c00e5a6b5ad02fa87ddd52e")
