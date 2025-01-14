@@ -1,0 +1,6 @@
+(:name leaf-keywords
+       :website "https://github.com/conao3/leaf-keywords.el"
+       :description "Add additional keywords for leaf.el"
+       :type github
+       :branch "master"
+       :pkgname "conao3/leaf-keywords.el")
