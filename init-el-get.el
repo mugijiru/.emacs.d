@@ -7,12 +7,17 @@
     (goto-char (point-max))
     (eval-print-last-sexp)))
 
-(add-to-list 'el-get-recipe-path (concat user-emacs-directory "recipes") )
+(add-to-list 'el-get-recipe-path (concat user-emacs-directory "recipes"))
 
 ;; el-get のバージョンロック機構の導入
 (el-get-bundle tarao/el-get-lock)
+
 (require 'cl)
 (el-get-lock)
+
+(el-get-bundle leaf)
+(el-get-bundle leaf-keywords)
+(leaf-keywords-init)
 
 (defun my/el-get-auto-update (package)
   (let ((el-get-default-process-sync t)

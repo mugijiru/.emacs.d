@@ -1,0 +1,6 @@
+(:name leaf
+       :website "https://github.com/conao3/leaf.el"
+       :description "Yet another package manager for Emacs"
+       :type github
+       :branch "master"
+       :pkgname "conao3/leaf.el")
