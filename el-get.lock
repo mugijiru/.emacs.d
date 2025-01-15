@@ -202,6 +202,6 @@
         (page-break-lines :checksum "247854f6a82b5c7ab5ae493eb5390c5079cd032d")
         (org-trello :checksum "fc63ed580101e6160edfb6f43215fb3200ce1ea7")
         (undo-fu :checksum "399cc12f907f81a709f9014b6fad0205700d5772")
-        (emacs-todoist :checksum "205c730a4615dec20ea71ccd0a09479a420cb974")))
+        (emacs-todoist :checksum "8b66f0cd6661898beb6ea92e795d7eada39fe771")))
 (setq el-get-lock-locked-packages 'nil)
 (setq el-get-lock-unlocked-packages 'nil)
