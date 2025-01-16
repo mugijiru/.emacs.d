@@ -196,7 +196,7 @@
         (zoom-window :checksum "fca88b971aea55e3d3944050213c3a1243178c8b")
         (ace-window :checksum "77115afc1b0b9f633084cf7479c767988106c196")
         (pcsv :checksum "6631284125156ef7411638cbb241acec5808b109")
-        (google-translate :checksum "e60dd6eeb9cdb931d9d8bfbefc29a48ef9a21bd9")
+        (google-translate :checksum "e84599df7c70870b33dd6c902b527d7f78310815")
         (el-get :checksum "c5ab1b334e6d0e1afcfc203fe460faed10c3e1ae")
         (dashboard :checksum "7b7846689845078cb5604508c5075e28e2160efe")
         (page-break-lines :checksum "247854f6a82b5c7ab5ae493eb5390c5079cd032d")
