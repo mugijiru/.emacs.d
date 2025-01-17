@@ -4641,7 +4641,7 @@ Emacs に標準で入ってるので require するだけで有効にできる
 どこにフォーカスが当たっているかわかりやすくなるし、
 狭い画面でも見たい部分を広げて表示できるので便利。
 
-*** インストール
+*** インストール/設定
 :PROPERTIES:
 :ID:       4112538c-7a54-4ce4-abbb-edfa7698b9ef
 :END:
@@ -4656,28 +4656,24 @@ el-get のレシピは自前で用意している
        :minimum-emacs-version (24 4))
 #+end_src
 
-そして el-get で入れる。
+そして leaf を使って el-get で入れている
 GitHub から直接取得するように設定している。
 
+設定は最低限で
+
+- 起動時に有効化 :: 1画面しか使えない時は必須なので
+- 比率を黄金比に変更 :: この方が使いやすいっぽい。
+
+という設定をしている。
+
 #+begin_src emacs-lisp :tangle inits/90-zoom.el
-(el-get-bundle cyrus-and/zoom)
+(leaf zoom
+  :url "https://github.com/cyrus-and/zoom"
+  :el-get cyrus-and/zoom
+  :custom
+  (zoom-mode . t)
+  (zoom-size . '(0.618 . 0.618)))
 #+end_src
-
-*** 設定
-:PROPERTIES:
-:ID:       ad1c6c6c-dfef-4ffc-8be5-fda302a5cf81
-:END:
-
-  - 起動時に有効化 :: 1画面しか使えない時は必須なので
-  - 比率を黄金比に変更 :: この方が使いやすいっぽい。
-
-    という設定をしている。
-
-    #+begin_src emacs-lisp :tangle inits/90-zoom.el
-(custom-set-variables
- '(zoom-mode t)
- '(zoom-size '(0.618 . 0.618)))
-    #+end_src
 
 ** zoom-window
 :PROPERTIES:
