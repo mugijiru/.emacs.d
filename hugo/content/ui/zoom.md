@@ -10,27 +10,22 @@ draft = false
 どこにフォーカスが当たっているかわかりやすくなるし、狭い画面でも見たい部分を広げて表示できるので便利。
 
 
-## インストール {#インストール}
+## インストール/設定 {#インストール-設定}
 
 el-get のレシピは自前で用意している
 
 ```emacs-lisp
 (:name zoom
-:type github
-:description "Fixed and automatic balanced window layout."
-:pkgname "cyrus-and/zoom"
-:minimum-emacs-version (24 4))
+       :type github
+       :description "Fixed and automatic balanced window layout."
+       :pkgname "cyrus-and/zoom"
+       :minimum-emacs-version (24 4))
 ```
 
-そして el-get で入れる。
+そして leaf を使って el-get で入れている
 GitHub から直接取得するように設定している。
 
-```emacs-lisp
-(el-get-bundle cyrus-and/zoom)
-```
-
-
-## 設定 {#設定}
+設定は最低限で
 
 起動時に有効化
 : 1画面しか使えない時は必須なので
@@ -41,7 +36,10 @@ GitHub から直接取得するように設定している。
 という設定をしている。
 
 ```emacs-lisp
-(custom-set-variables
- '(zoom-mode t)
- '(zoom-size '(0.618 . 0.618)))
+(leaf zoom
+  :url "https://github.com/cyrus-and/zoom"
+  :el-get cyrus-and/zoom
+  :custom
+  (zoom-mode . t)
+  (zoom-size . '(0.618 . 0.618)))
 ```
