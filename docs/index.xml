@@ -309,6 +309,27 @@
       <description>概要 dumb-jump は関数とかの定義されてる場所にお手軽にジャンプできるようにするパッケージ。めっちゃ色々な言語をサポートしている。&#xA;インストール いつも通り el-get でインストールしている。&#xA;(el-get-bundle dumb-jump) 設定 デフォルトプロジェクトの変更 デフォルトだと ~/ がデフォルトプロジェクトらしいがそんなに上の階層から調べられてもしょうがない気がするのでソースコードを置いているフォルダを指定している。&#xA;(setq dumb-jump-default-project &amp;#34;~/projects&amp;#34;) 複数マッチした時に使う絞り込み 最近はできるだけ ivy を使うようにしているので dumb-jump でも ivy を使うように指定している。&#xA;(setq dumb-jump-selector &amp;#39;ivy) キーバインド README に書いている hydra の設定をほぼパクってるけど pretty-hydra を使ってキーを定義している&#xA;(with-eval-after-load &amp;#39;pretty-hydra (pretty-hydra-define dumb-jump-pretty-hydra (:foreign-keys warn :title &amp;#34;Dumb jump&amp;#34; :quit-key &amp;#34;q&amp;#34; :color blue :separator &amp;#34;-&amp;#34;) (&amp;#34;Go&amp;#34; ((&amp;#34;j&amp;#34; dumb-jump-go &amp;#34;Jump&amp;#34;) (&amp;#34;o&amp;#34; dumb-jump-go-other-window &amp;#34;Other window&amp;#34;)) &amp;#34;External&amp;#34; ((&amp;#34;e&amp;#34; dumb-jump-go-prefer-external &amp;#34;Go external&amp;#34;) (&amp;#34;x&amp;#34; dumb-jump-go-prefer-external-other-window &amp;#34;Go external other window&amp;#34;)) &amp;#34;Lock&amp;#34; ((&amp;#34;l&amp;#34; dumb-jump-quick-look &amp;#34;Quick look&amp;#34;)) &amp;#34;Other&amp;#34; ((&amp;#34;b&amp;#34; dumb-jump-back &amp;#34;Back&amp;#34;))))) Key 効果 j 定義場所にジャンプ o 定義場所を別 window で開く e 定義場所にジャンプ。ただし同じファイルより外部ファイルとのマッチを優先 x 定義場所を別 window で開く。ただし同じファイルより外部ファイルとのマッチを優先 l クイックルック。定義をツールチップ表示する b 最後にジャンプされた場所に戻る。今は既に obsolute 扱い </description>
     </item>
     <item>
+      <title>el-get</title>
+      <link>https://mugijiru.github.io/.emacs.d/el-get/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mugijiru.github.io/.emacs.d/el-get/</guid>
+      <description>概要 el-get は結構昔からあるパッケージ管理系のものの1つ。自前で recipe を書いてあっちこっちから入れられるので気に入ってずっと使っている&#xA;インストール まず el-get がインストールされるディレクトリを load-path に放り込んでいる。&#xA;(add-to-list &amp;#39;load-path (concat user-emacs-directory &amp;#34;el-get/el-get&amp;#34;)) そして el-get が見つからない時はインストールするようにしている&#xA;(unless (require &amp;#39;el-get nil &amp;#39;noerror) (with-current-buffer (url-retrieve-synchronously &amp;#34;https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el&amp;#34;) (goto-char (point-max)) (eval-print-last-sexp))) このあたりの記述は公式の README に書かれてるやつと一緒だと思う。大分前に設定しているから今は違うかもしれんけど&#xA;レシピのフォルダ指定 自前のレシピをいくつか用意しているのでそのフォルダを el-get で読めるようにしている&#xA;(add-to-list &amp;#39;el-get-recipe-path (concat user-emacs-directory &amp;#34;recipes&amp;#34;)) </description>
+    </item>
+    <item>
+      <title>el-get 関係の自前関数</title>
+      <link>https://mugijiru.github.io/.emacs.d/el-get-functions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mugijiru.github.io/.emacs.d/el-get-functions/</guid>
+      <description>el-get と el-get-lock を使った関数を用意している&#xA;説明は面倒なので今のところはとりあえず tangle するコードだけ置いとくね&#xA;(defun my/el-get-auto-update (package) (let ((el-get-default-process-sync t) (old-checksum (my/el-get-lock-checksum package))) (el-get-lock-checkout &amp;#34;el-get&amp;#34;) (sit-for 10) ;; el-get がなんか読み込まれてるので待ってみる (el-get-lock-checkout package) (el-get-update package) (let ((new-checksum (my/el-get-lock-checksum package))) (unless (string= old-checksum new-checksum) (let* ((compare (concat old-checksum &amp;#34;...&amp;#34; new-checksum)) (recipe (ignore-errors (el-get-package-def package))) (type (plist-get recipe :type)) (pkgname (plist-get recipe :pkgname)) (url (plist-get recipe :url)) (title (concat &amp;#34;Update &amp;#34; package)) (body (cond ((eq type &amp;#39;github) (concat &amp;#34;https://github.com/&amp;#34; pkgname &amp;#34;/compare/&amp;#34; compare)) ((string-match (concat &amp;#34;^&amp;#34; &amp;#34;https://codeberg.</description>
+    </item>
+    <item>
+      <title>el-get-lock</title>
+      <link>https://mugijiru.github.io/.emacs.d/el-get-lock/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mugijiru.github.io/.emacs.d/el-get-lock/</guid>
+      <description>概要 el-get-lock は el-get にバージョンロック機構を追加するパッケージ。随分メンテされてないのでいつ動かなくなってもおかしくないけど私のパッケージ管理はこいつが要になってるので動き続けて欲しい&#xA;インストール こいつは el-get-bundle で入れている。 GitHub で管理されているし master ブランチを使っているし依存関係も el-get だけなのでレシピも作らずにインストールしている&#xA;;; el-get のバージョンロック機構の導入 (el-get-bundle tarao/el-get-lock) 初期化 とりあえず起動時に初期化する必要があるので初期化している。その際に cl パッケージを require しないといけないのでそれも合わせてやっている&#xA;(require &amp;#39;cl) (el-get-lock) </description>
+    </item>
+    <item>
       <title>emacs-kibela</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/emacs-kibela/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -538,6 +559,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://mugijiru.github.io/.emacs.d/ui/keypression/</guid>
       <description>概要 keypression は Emacs 上でのキー操作を可視化してくれるツール。操作したキーを右下とかにダダダッと表示してくれるのでデモ動画を撮る時なんかに使うと便利なやつ&#xA;インストール el-get にはレシピがないので自前で用意している&#xA;(:name keypression :website &amp;#34;https://github.com/chuntaro/emacs-keypression&amp;#34; :description &amp;#34;Keystroke visualizer for GUI version Emacs&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;chuntaro/emacs-keypression&amp;#34;) そしてそれを el-get-bundle でインストールしている&#xA;(el-get-bundle keypression) 設定 あまり設定は弄っていないが、とりあえず child frame を使うようにしている&#xA;(custom-set-variables &amp;#39;(keypression-use-child-frame t)) </description>
+    </item>
+    <item>
+      <title>leaf.el</title>
+      <link>https://mugijiru.github.io/.emacs.d/leaf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mugijiru.github.io/.emacs.d/leaf/</guid>
+      <description>概要 leaf.el は日本の Emacs 界隈でよく使われている設定管理ユーティリティ。 Yet another use-package なのだけど、それの歯痒いところに対応しているとか。&#xA;個人的には el-get に対応しているので使っていきたい。&#xA;インストール/初期化 el-get 本体にはレシピがないので自前で用意している。&#xA;(:name leaf :website &amp;#34;https://github.com/conao3/leaf.el&amp;#34; :description &amp;#34;Yet another package manager for Emacs&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;conao3/leaf.el&amp;#34;) そして :el-get キーワードを使いたいので leaf-keywords.el のレシピも用意している&#xA;(:name leaf-keywords :website &amp;#34;https://github.com/conao3/leaf-keywords.el&amp;#34; :description &amp;#34;Add additional keywords for leaf.el&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;conao3/leaf-keywords.el&amp;#34;) そして他のパッケージと同様にそれら el-get-bundle でインストールしている。インストールと同時に初期化も行っている。&#xA;(el-get-bundle leaf) (el-get-bundle leaf-keywords) (leaf-keywords-init) このあたりは el-get が入ってる前提で設定しているので公式 README とは異なる方法を採用している</description>
     </item>
     <item>
       <title>load-path</title>
@@ -965,6 +993,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://mugijiru.github.io/.emacs.d/others/</guid>
       <description>ファイルパスをコピーするコマンド 単にファイルパスをコピーしたい時があるので適当にそういうコマンドを用意している&#xA;(defun my/copy-file-path () &amp;#34;Copy the current buffer file path to the clipboard.&amp;#34; (interactive) (when buffer-file-name (kill-new buffer-file-name) (message &amp;#34;Copied buffer file path &amp;#39;%s&amp;#39; to the clipboard.&amp;#34; buffer-file-name))) </description>
+    </item>
+    <item>
+      <title>パッケージインストール周りの設定</title>
+      <link>https://mugijiru.github.io/.emacs.d/package-install/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mugijiru.github.io/.emacs.d/package-install/</guid>
+      <description>el-get 概要 el-get は結構昔からあるパッケージ管理系のものの1つ。自前で recipe を書いてあっちこっちから入れられるので気に入ってずっと使っている&#xA;インストール まず el-get がインストールされるディレクトリを load-path に放り込んでいる。&#xA;(add-to-list &amp;#39;load-path (concat user-emacs-directory &amp;#34;el-get/el-get&amp;#34;)) そして el-get が見つからない時はインストールするようにしている&#xA;(unless (require &amp;#39;el-get nil &amp;#39;noerror) (with-current-buffer (url-retrieve-synchronously &amp;#34;https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el&amp;#34;) (goto-char (point-max)) (eval-print-last-sexp))) このあたりの記述は公式の README に書かれてるやつと一緒だと思う。大分前に設定しているから今は違うかもしれんけど&#xA;レシピのフォルダ指定 自前のレシピをいくつか用意しているのでそのフォルダを el-get で読めるようにしている&#xA;(add-to-list &amp;#39;el-get-recipe-path (concat user-emacs-directory &amp;#34;recipes&amp;#34;)) el-get-lock 概要 el-get-lock は el-get にバージョンロック機構を追加するパッケージ。随分メンテされてないのでいつ動かなくなってもおかしくないけど私のパッケージ管理はこいつが要になってるので動き続けて欲しい&#xA;インストール こいつは el-get-bundle で入れている。 GitHub で管理されているし master ブランチを使っているし依存関係も el-get だけなのでレシピも作らずにインストールしている&#xA;(el-get-bundle tarao/el-get-lock) 初期化 とりあえず起動時に初期化する必要があるので初期化している。その際に cl パッケージを require しないといけないのでそれも合わせてやっている&#xA;(require &amp;#39;cl) (el-get-lock) leaf.</description>
     </item>
     <item>
       <title>ブラウザ設定</title>

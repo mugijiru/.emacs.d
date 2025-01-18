@@ -392,6 +392,27 @@
 	"content": "概要 dumb-jump は関数とかの定義されてる場所にお手軽にジャンプできるようにするパッケージ。めっちゃ色々な言語をサポートしている。\nインストール いつも通り el-get でインストールしている。\n(el-get-bundle dumb-jump) 設定 デフォルトプロジェクトの変更 デフォルトだと ~/ がデフォルトプロジェクトらしいがそんなに上の階層から調べられてもしょうがない気がするのでソースコードを置いているフォルダを指定している。\n(setq dumb-jump-default-project \u0026#34;~/projects\u0026#34;) 複数マッチした時に使う絞り込み 最近はできるだけ ivy を使うようにしているので dumb-jump でも ivy を使うように指定している。\n(setq dumb-jump-selector \u0026#39;ivy) キーバインド README に書いている hydra の設定をほぼパクってるけど pretty-hydra を使ってキーを定義している\n(with-eval-after-load \u0026#39;pretty-hydra (pretty-hydra-define dumb-jump-pretty-hydra (:foreign-keys warn :title \u0026#34;Dumb jump\u0026#34; :quit-key \u0026#34;q\u0026#34; :color blue :separator \u0026#34;-\u0026#34;) (\u0026#34;Go\u0026#34; ((\u0026#34;j\u0026#34; dumb-jump-go \u0026#34;Jump\u0026#34;) (\u0026#34;o\u0026#34; dumb-jump-go-other-window \u0026#34;Other window\u0026#34;)) \u0026#34;External\u0026#34; ((\u0026#34;e\u0026#34; dumb-jump-go-prefer-external \u0026#34;Go external\u0026#34;) (\u0026#34;x\u0026#34; dumb-jump-go-prefer-external-other-window \u0026#34;Go external other window\u0026#34;)) \u0026#34;Lock\u0026#34; ((\u0026#34;l\u0026#34; dumb-jump-quick-look \u0026#34;Quick look\u0026#34;)) \u0026#34;Other\u0026#34; ((\u0026#34;b\u0026#34; dumb-jump-back \u0026#34;Back\u0026#34;))))) Key 効果 j 定義場所にジャンプ o 定義場所を別 window で開く e 定義場所にジャンプ。ただし同じファイルより外部ファイルとのマッチを優先 x 定義場所を別 window で開く。ただし同じファイルより外部ファイルとのマッチを優先 l クイックルック。定義をツールチップ表示する b 最後にジャンプされた場所に戻る。今は既に obsolute 扱い "
 },
 {
+	"uri": "https://mugijiru.github.io/.emacs.d/el-get/",
+	"title": "el-get",
+	"tags": [],
+	"description": "",
+	"content": "概要 el-get は結構昔からあるパッケージ管理系のものの1つ。自前で recipe を書いてあっちこっちから入れられるので気に入ってずっと使っている\nインストール まず el-get がインストールされるディレクトリを load-path に放り込んでいる。\n(add-to-list \u0026#39;load-path (concat user-emacs-directory \u0026#34;el-get/el-get\u0026#34;)) そして el-get が見つからない時はインストールするようにしている\n(unless (require \u0026#39;el-get nil \u0026#39;noerror) (with-current-buffer (url-retrieve-synchronously \u0026#34;https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el\u0026#34;) (goto-char (point-max)) (eval-print-last-sexp))) このあたりの記述は公式の README に書かれてるやつと一緒だと思う。大分前に設定しているから今は違うかもしれんけど\nレシピのフォルダ指定 自前のレシピをいくつか用意しているのでそのフォルダを el-get で読めるようにしている\n(add-to-list \u0026#39;el-get-recipe-path (concat user-emacs-directory \u0026#34;recipes\u0026#34;)) "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/el-get-functions/",
+	"title": "el-get 関係の自前関数",
+	"tags": [],
+	"description": "",
+	"content": "el-get と el-get-lock を使った関数を用意している\n説明は面倒なので今のところはとりあえず tangle するコードだけ置いとくね\n(defun my/el-get-auto-update (package) (let ((el-get-default-process-sync t) (old-checksum (my/el-get-lock-checksum package))) (el-get-lock-checkout \u0026#34;el-get\u0026#34;) (sit-for 10) ;; el-get がなんか読み込まれてるので待ってみる (el-get-lock-checkout package) (el-get-update package) (let ((new-checksum (my/el-get-lock-checksum package))) (unless (string= old-checksum new-checksum) (let* ((compare (concat old-checksum \u0026#34;...\u0026#34; new-checksum)) (recipe (ignore-errors (el-get-package-def package))) (type (plist-get recipe :type)) (pkgname (plist-get recipe :pkgname)) (url (plist-get recipe :url)) (title (concat \u0026#34;Update \u0026#34; package)) (body (cond ((eq type \u0026#39;github) (concat \u0026#34;https://github.com/\u0026#34; pkgname \u0026#34;/compare/\u0026#34; compare)) ((string-match (concat \u0026#34;^\u0026#34; \u0026#34;https://codeberg.org/\u0026#34;) url) (concat (substring url 0 (- (length url) 4)) \u0026#34;/compare/\u0026#34; compare)) (t (concat \u0026#34;compare: \u0026#34; compare)))) (commit-message (concat title \u0026#34;\\n\\n\u0026#34; body))) (write-region commit-message nil \u0026#34;/tmp/commit-message.txt\u0026#34;)))))) (defun my/el-get-lock-checksum (package) (let ((versions (cdr el-get-lock-package-versions)) (package-sym (intern package))) (cadr (alist-get package-sym (cdr el-get-lock-package-versions))))) "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/el-get-lock/",
+	"title": "el-get-lock",
+	"tags": [],
+	"description": "",
+	"content": "概要 el-get-lock は el-get にバージョンロック機構を追加するパッケージ。随分メンテされてないのでいつ動かなくなってもおかしくないけど私のパッケージ管理はこいつが要になってるので動き続けて欲しい\nインストール こいつは el-get-bundle で入れている。 GitHub で管理されているし master ブランチを使っているし依存関係も el-get だけなのでレシピも作らずにインストールしている\n;; el-get のバージョンロック機構の導入 (el-get-bundle tarao/el-get-lock) 初期化 とりあえず起動時に初期化する必要があるので初期化している。その際に cl パッケージを require しないといけないのでそれも合わせてやっている\n(require \u0026#39;cl) (el-get-lock) "
+},
+{
 	"uri": "https://mugijiru.github.io/.emacs.d/external-tool/emacs-kibela/",
 	"title": "emacs-kibela",
 	"tags": [],
@@ -628,6 +649,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 keypression は Emacs 上でのキー操作を可視化してくれるツール。操作したキーを右下とかにダダダッと表示してくれるのでデモ動画を撮る時なんかに使うと便利なやつ\nインストール el-get にはレシピがないので自前で用意している\n(:name keypression :website \u0026#34;https://github.com/chuntaro/emacs-keypression\u0026#34; :description \u0026#34;Keystroke visualizer for GUI version Emacs\u0026#34; :type github :branch \u0026#34;master\u0026#34; :pkgname \u0026#34;chuntaro/emacs-keypression\u0026#34;) そしてそれを el-get-bundle でインストールしている\n(el-get-bundle keypression) 設定 あまり設定は弄っていないが、とりあえず child frame を使うようにしている\n(custom-set-variables \u0026#39;(keypression-use-child-frame t)) "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/leaf/",
+	"title": "leaf.el",
+	"tags": [],
+	"description": "",
+	"content": "概要 leaf.el は日本の Emacs 界隈でよく使われている設定管理ユーティリティ。 Yet another use-package なのだけど、それの歯痒いところに対応しているとか。\n個人的には el-get に対応しているので使っていきたい。\nインストール/初期化 el-get 本体にはレシピがないので自前で用意している。\n(:name leaf :website \u0026#34;https://github.com/conao3/leaf.el\u0026#34; :description \u0026#34;Yet another package manager for Emacs\u0026#34; :type github :branch \u0026#34;master\u0026#34; :pkgname \u0026#34;conao3/leaf.el\u0026#34;) そして :el-get キーワードを使いたいので leaf-keywords.el のレシピも用意している\n(:name leaf-keywords :website \u0026#34;https://github.com/conao3/leaf-keywords.el\u0026#34; :description \u0026#34;Add additional keywords for leaf.el\u0026#34; :type github :branch \u0026#34;master\u0026#34; :pkgname \u0026#34;conao3/leaf-keywords.el\u0026#34;) そして他のパッケージと同様にそれら el-get-bundle でインストールしている。インストールと同時に初期化も行っている。\n(el-get-bundle leaf) (el-get-bundle leaf-keywords) (leaf-keywords-init) このあたりは el-get が入ってる前提で設定しているので公式 README とは異なる方法を採用している\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/basics/load-path/",
@@ -1076,6 +1104,13 @@
 	"tags": [],
 	"description": "",
 	"content": "ファイルパスをコピーするコマンド 単にファイルパスをコピーしたい時があるので適当にそういうコマンドを用意している\n(defun my/copy-file-path () \u0026#34;Copy the current buffer file path to the clipboard.\u0026#34; (interactive) (when buffer-file-name (kill-new buffer-file-name) (message \u0026#34;Copied buffer file path \u0026#39;%s\u0026#39; to the clipboard.\u0026#34; buffer-file-name))) "
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/package-install/",
+	"title": "パッケージインストール周りの設定",
+	"tags": [],
+	"description": "",
+	"content": "el-get 概要 el-get は結構昔からあるパッケージ管理系のものの1つ。自前で recipe を書いてあっちこっちから入れられるので気に入ってずっと使っている\nインストール まず el-get がインストールされるディレクトリを load-path に放り込んでいる。\n(add-to-list \u0026#39;load-path (concat user-emacs-directory \u0026#34;el-get/el-get\u0026#34;)) そして el-get が見つからない時はインストールするようにしている\n(unless (require \u0026#39;el-get nil \u0026#39;noerror) (with-current-buffer (url-retrieve-synchronously \u0026#34;https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el\u0026#34;) (goto-char (point-max)) (eval-print-last-sexp))) このあたりの記述は公式の README に書かれてるやつと一緒だと思う。大分前に設定しているから今は違うかもしれんけど\nレシピのフォルダ指定 自前のレシピをいくつか用意しているのでそのフォルダを el-get で読めるようにしている\n(add-to-list \u0026#39;el-get-recipe-path (concat user-emacs-directory \u0026#34;recipes\u0026#34;)) el-get-lock 概要 el-get-lock は el-get にバージョンロック機構を追加するパッケージ。随分メンテされてないのでいつ動かなくなってもおかしくないけど私のパッケージ管理はこいつが要になってるので動き続けて欲しい\nインストール こいつは el-get-bundle で入れている。 GitHub で管理されているし master ブランチを使っているし依存関係も el-get だけなのでレシピも作らずにインストールしている\n(el-get-bundle tarao/el-get-lock) 初期化 とりあえず起動時に初期化する必要があるので初期化している。その際に cl パッケージを require しないといけないのでそれも合わせてやっている\n(require \u0026#39;cl) (el-get-lock) leaf.el 概要 leaf.el は日本の Emacs 界隈でよく使われている設定管理ユーティリティ。 Yet another use-package なのだけど、それの歯痒いところに対応しているとか。\n個人的には el-get に対応しているので使っていきたい。\nインストール/初期化 el-get 本体にはレシピがないので自前で用意している。\n(:name leaf :website \u0026#34;https://github.com/conao3/leaf.el\u0026#34; :description \u0026#34;Yet another package manager for Emacs\u0026#34; :type github :branch \u0026#34;master\u0026#34; :pkgname \u0026#34;conao3/leaf.el\u0026#34;) そして :el-get キーワードを使いたいので leaf-keywords.el のレシピも用意している\n(:name leaf-keywords :website \u0026#34;https://github.com/conao3/leaf-keywords.el\u0026#34; :description \u0026#34;Add additional keywords for leaf.el\u0026#34; :type github :branch \u0026#34;master\u0026#34; :pkgname \u0026#34;conao3/leaf-keywords.el\u0026#34;) そして他のパッケージと同様にそれら el-get-bundle でインストールしている。インストールと同時に初期化も行っている。\n(el-get-bundle leaf) (el-get-bundle leaf-keywords) (leaf-keywords-init) このあたりは el-get が入ってる前提で設定しているので公式 README とは異なる方法を採用している\nel-get 関係の自前関数 el-get と el-get-lock を使った関数を用意している\n説明は面倒なので今のところはとりあえず tangle するコードだけ置いとくね\n(defun my/el-get-auto-update (package) (let ((el-get-default-process-sync t) (old-checksum (my/el-get-lock-checksum package))) (el-get-lock-checkout \u0026#34;el-get\u0026#34;) (sit-for 10) ;; el-get がなんか読み込まれてるので待ってみる (el-get-lock-checkout package) (el-get-update package) (let ((new-checksum (my/el-get-lock-checksum package))) (unless (string= old-checksum new-checksum) (let* ((compare (concat old-checksum \u0026#34;...\u0026#34; new-checksum)) (recipe (ignore-errors (el-get-package-def package))) (type (plist-get recipe :type)) (pkgname (plist-get recipe :pkgname)) (url (plist-get recipe :url)) (title (concat \u0026#34;Update \u0026#34; package)) (body (cond ((eq type \u0026#39;github) (concat \u0026#34;https://github.com/\u0026#34; pkgname \u0026#34;/compare/\u0026#34; compare)) ((string-match (concat \u0026#34;^\u0026#34; \u0026#34;https://codeberg.org/\u0026#34;) url) (concat (substring url 0 (- (length url) 4)) \u0026#34;/compare/\u0026#34; compare)) (t (concat \u0026#34;compare: \u0026#34; compare)))) (commit-message (concat title \u0026#34;\\n\\n\u0026#34; body))) (write-region commit-message nil \u0026#34;/tmp/commit-message.txt\u0026#34;)))))) (defun my/el-get-lock-checksum (package) (let ((versions (cdr el-get-lock-package-versions)) (package-sym (intern package))) (cadr (alist-get package-sym (cdr el-get-lock-package-versions))))) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/external-tool/browse-url/",
