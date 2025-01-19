@@ -13,6 +13,8 @@ backup
 persist
 request
 tree-sitter
+.cask
+.local
 
 # auto generated files
 .authinfo.gpg
@@ -34,3 +36,7 @@ projectile.cache
 places
 history
 rake.cache
+forge-database*.sqlite
+oauth2-auto.plist
+org-roam.db
+projects
