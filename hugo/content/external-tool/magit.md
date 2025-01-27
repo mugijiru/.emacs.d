@@ -103,7 +103,7 @@ build されるとリポジトリに差分が発生して update ができなく
        :minimum-emacs-version "25.1"
        ;; The package.el dependency is on `emacsql-sqlite', but el-get
        ;; provides that via `emacsql'.
-       :depends (compat closql dash emacsql ghub let-alist magit markdown-mode
+       :depends (compat closql llama emacsql ghub let-alist magit markdown-mode
                         seq transient yaml)
        :info "docs"
        :load-path "lisp/"
