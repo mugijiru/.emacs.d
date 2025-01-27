@@ -7,7 +7,7 @@ draft = false
 
 [magit](https://github.com/magit/magit) は Emacs の上で Git の色々な操作ができるやつ。結構使いやすいのでオススメなやつ。
 
-[forge]({{< relref "forge" >}}) を使うと GitHub や GitLab とも連携できてさらに便利、なはず。
+[forge](https://github.com/magit/forge) を使うと GitHub や GitLab とも連携できてさらに便利、なはず。
 
 
 ## インストール {#インストール}
@@ -139,7 +139,7 @@ ghub は compat に依存するようになったのでとりあえず自前で 
        :type github
        :description "Minuscule client for the Github API"
        :pkgname "magit/ghub"
-       :depends (let-alist treepy compat)
+       :depends (let-alist treepy compat llama)
        :branch "main"
        :info "docs"
        :load-path "lisp/"
@@ -149,6 +149,18 @@ ghub は compat に依存するようになったのでとりあえず自前で 
        :build `(("make" ,(format "EMACS=%s" el-get-emacs) "info"))
        :build/berkeley-unix `(("gmake" ,(format "EMACS=%s" el-get-emacs)
                                "info")))
+```
+
+さらに ghub が [llama](https://github.com/tarsius/llama) というパッケージに依存するようになったのでそれ用のレシピも用意している
+
+```emacs-lisp
+(:name llama
+       :website "https://github.com/tarsius/llama"
+       :description "Compact syntax for short lambda"
+       :type github
+       :pkgname "tarsius/llama"
+       :minimum-emacs-version "26.1"
+       :depends (compat))
 ```
 
 
