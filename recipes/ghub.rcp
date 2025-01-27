@@ -2,7 +2,7 @@
        :type github
        :description "Minuscule client for the Github API"
        :pkgname "magit/ghub"
-       :depends (let-alist treepy compat)
+       :depends (let-alist treepy compat llama)
        :branch "main"
        :info "docs"
        :load-path "lisp/"

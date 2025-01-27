@@ -7929,6 +7929,7 @@ w3m-filter の機能を使ってそれらの表示を抑制している。
 ** forge
 :PROPERTIES:
 :EXPORT_FILE_NAME: forge
+:ID:       c01f3fef-7ac0-4f80-946d-3d74647defd9
 :END:
 *** 概要
 [[https://github.com/magit/forge][forge]] は magit と github を連携させるやつ。
@@ -8161,7 +8162,7 @@ popup.el に依存しているのでそれが読まれた後に require しな�
 [[https://github.com/magit/magit][magit]] は Emacs の上で Git の色々な操作ができるやつ。
 結構使いやすいのでオススメなやつ。
 
-[[*forge][forge]] を使うと GitHub や GitLab とも連携できてさらに便利、なはず。
+[[https://github.com/magit/forge][forge]] を使うと GitHub や GitLab とも連携できてさらに便利、なはず。
 *** インストール
 :PROPERTIES:
 :ID:       bc64daf9-c6ca-4b41-939d-a7885854b267
@@ -8296,7 +8297,7 @@ ghub は compat に依存するようになったのでとりあえず自前で 
        :type github
        :description "Minuscule client for the Github API"
        :pkgname "magit/ghub"
-       :depends (let-alist treepy compat)
+       :depends (let-alist treepy compat llama)
        :branch "main"
        :info "docs"
        :load-path "lisp/"
@@ -8307,6 +8308,20 @@ ghub は compat に依存するようになったのでとりあえず自前で 
        :build/berkeley-unix `(("gmake" ,(format "EMACS=%s" el-get-emacs)
                                "info")))
 #+end_src
+
+さらに ghub が [[https://github.com/tarsius/llama][llama]] というパッケージに依存するようになったので
+それ用のレシピも用意している
+
+#+begin_src emacs-lisp :tangle recipes/llama.rcp
+(:name llama
+       :website "https://github.com/tarsius/llama"
+       :description "Compact syntax for short lambda"
+       :type github
+       :pkgname "tarsius/llama"
+       :minimum-emacs-version "26.1"
+       :depends (compat))
+#+end_src
+
 *** 使い方
 Git 管理されてるファイルを開いている時に
 ~M-x magit~ とかすると Git 管理用のバッファが出て来るし
