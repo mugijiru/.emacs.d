@@ -1911,7 +1911,7 @@ el-get 本体にはレシピがないので自前で用意している。
        :description "This plugin allows you to chat with github copilot."
        :type github
        :pkgname "chep/copilot-chat.el"
-       :depends (request markdown-mode chatgpt-shell magit))
+       :depends (request markdown-mode chatgpt-shell magit transient org-mode shell-maker))
 #+end_src
 
 そして ~el-get-bundle~ でインストールしている
