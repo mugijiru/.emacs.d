@@ -159,6 +159,7 @@ ghub は compat に依存するようになったのでとりあえず自前で 
        :description "Compact syntax for short lambda"
        :type github
        :pkgname "tarsius/llama"
+       :branch "main"
        :minimum-emacs-version "26.1"
        :depends (compat))
 ```
