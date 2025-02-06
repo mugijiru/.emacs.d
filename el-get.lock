@@ -1,5 +1,5 @@
 (setq el-get-lock-package-versions
-      '((llama :checksum "0b6d79826f2cdc78fd7a0dcc4e59a4baca8c025b")
+      '((llama :checksum "9802c215a3eea748d9d7f81a1465850388006897")
         (leaf-keywords :checksum "82ec27e3441900daedeaaebca509181f964da81f")
         (leaf :checksum "69c9b057cdeee560450c1d04a9a058235ecff0f7")
         (yaml-pro :checksum "f7706ea170de98d29b7cdd5a4f189bd038b1e27b")
