@@ -4,11 +4,11 @@
        :pkgname "magit/ghub"
        :depends (let-alist treepy compat llama)
        :branch "main"
-       :info "docs"
+       ;; :info "docs"
        :load-path "lisp/"
        :compile "lisp/"
        ;; Use the Makefile to produce the info manual, el-get can
        ;; handle compilation and autoloads on its own.
-       :build `(("make" ,(format "EMACS=%s" el-get-emacs) "info"))
+       ;; :build `(("make" ,(format "EMACS=%s" el-get-emacs) "info"))
        :build/berkeley-unix `(("gmake" ,(format "EMACS=%s" el-get-emacs)
                                "info")))

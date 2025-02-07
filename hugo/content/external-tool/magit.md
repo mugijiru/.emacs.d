@@ -80,13 +80,13 @@ build されるとリポジトリに差分が発生して update ができなく
        :pkgname "magit/transient"
        :branch "main"
        :minimum-emacs-version "25.1"
-       :info "docs"
+       ;; :info "docs"
        :load-path "lisp/"
        :compile "lisp/"
        ;; Use the Makefile to produce the info manual, el-get can
        ;; handle compilation and autoloads on its own.
-       :build `(("make" ,(format "EMACS=%s" el-get-emacs) "info")
-                ("git" "checkout" "docs/transient.texi")) ;; fix: Revert docs/transient.texi changes
+       ;; :build `(("make" ,(format "EMACS=%s" el-get-emacs) "info")
+       ;;          ("git" "checkout" "docs/transient.texi")) ;; fix: Revert docs/transient.texi changes
        :build/berkeley-unix `(("gmake" ,(format "EMACS=%s" el-get-emacs)
                                "info"))
        ;; Assume windows lacks a build environment.
@@ -105,13 +105,13 @@ build されるとリポジトリに差分が発生して update ができなく
        ;; provides that via `emacsql'.
        :depends (compat closql llama emacsql ghub let-alist magit markdown-mode
                         seq transient yaml)
-       :info "docs"
+       ;; :info "docs"
        :load-path "lisp/"
        :compile "lisp/"
        ;; Use the Makefile to produce the info manual, el-get can
        ;; handle compilation and autoloads on its own.
-       :build `(("make" ,(format "EMACS=%s" el-get-emacs) "info")
-                ("git" "checkout" "docs/forge.texi")) ;; fix: Revert docs/forge.texi changes
+       ;; :build `(("make" ,(format "EMACS=%s" el-get-emacs) "info")
+       ;;          ("git" "checkout" "docs/forge.texi")) ;; fix: Revert docs/forge.texi changes
        :build/berkeley-unix `(("gmake" ,(format "EMACS=%s" el-get-emacs)
                                "info")))
 ```
@@ -141,12 +141,12 @@ ghub は compat に依存するようになったのでとりあえず自前で 
        :pkgname "magit/ghub"
        :depends (let-alist treepy compat llama)
        :branch "main"
-       :info "docs"
+       ;; :info "docs"
        :load-path "lisp/"
        :compile "lisp/"
        ;; Use the Makefile to produce the info manual, el-get can
        ;; handle compilation and autoloads on its own.
-       :build `(("make" ,(format "EMACS=%s" el-get-emacs) "info"))
+       ;; :build `(("make" ,(format "EMACS=%s" el-get-emacs) "info"))
        :build/berkeley-unix `(("gmake" ,(format "EMACS=%s" el-get-emacs)
                                "info")))
 ```

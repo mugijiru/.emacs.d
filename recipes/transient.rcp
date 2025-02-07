@@ -5,13 +5,13 @@
        :pkgname "magit/transient"
        :branch "main"
        :minimum-emacs-version "25.1"
-       :info "docs"
+       ;; :info "docs"
        :load-path "lisp/"
        :compile "lisp/"
        ;; Use the Makefile to produce the info manual, el-get can
        ;; handle compilation and autoloads on its own.
-       :build `(("make" ,(format "EMACS=%s" el-get-emacs) "info")
-                ("git" "checkout" "docs/transient.texi")) ;; fix: Revert docs/transient.texi changes
+       ;; :build `(("make" ,(format "EMACS=%s" el-get-emacs) "info")
+       ;;          ("git" "checkout" "docs/transient.texi")) ;; fix: Revert docs/transient.texi changes
        :build/berkeley-unix `(("gmake" ,(format "EMACS=%s" el-get-emacs)
                                "info"))
        ;; Assume windows lacks a build environment.
