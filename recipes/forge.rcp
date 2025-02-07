@@ -9,12 +9,12 @@
        ;; provides that via `emacsql'.
        :depends (compat closql llama emacsql ghub let-alist magit markdown-mode
                         seq transient yaml)
-       :info "docs"
+       ;; :info "docs"
        :load-path "lisp/"
        :compile "lisp/"
        ;; Use the Makefile to produce the info manual, el-get can
        ;; handle compilation and autoloads on its own.
-       :build `(("make" ,(format "EMACS=%s" el-get-emacs) "info")
-                ("git" "checkout" "docs/forge.texi")) ;; fix: Revert docs/forge.texi changes
+       ;; :build `(("make" ,(format "EMACS=%s" el-get-emacs) "info")
+       ;;          ("git" "checkout" "docs/forge.texi")) ;; fix: Revert docs/forge.texi changes
        :build/berkeley-unix `(("gmake" ,(format "EMACS=%s" el-get-emacs)
                                "info")))
