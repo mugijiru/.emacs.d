@@ -7679,7 +7679,7 @@ el-get 本体にはレシピがないので自前で用意している。
 authinfo に登録した API キーを引っ張り出して使っている
 
 #+begin_src emacs-lisp :tangle inits/20-chatgpt-shell.el
-(setopt chatgpt-shell-model-version "gemini-2.0-flash-latest")
+(setopt chatgpt-shell-model-version "gemini-2.0-flash")
 (setopt chatgpt-shell-google-key
         (funcall (plist-get (nth 0 (auth-source-search :host "gemini" :max 1)) :secret)))
 #+end_src
