@@ -18,7 +18,7 @@
         (bundler :checksum "43efb6be4ed118b06d787ce7fbcffd68a31732a7")
         (dmacro :checksum "c714fcdbac3ae57fcc8ff3db94b0e5aededc7468")
         (ruby-refactor :checksum "e6b7125878a08518bffec6942df0c606f748e9ee")
-        (pg :checksum "a945e203f4f2ca734ddebeaf96b0382c8770a383")
+        (pg :checksum "05dae28aa6d6418a3dd7fe8129cddf953ab627ac")
         (nerd-icons-dired :checksum "c0b0cda2b92f831d0f764a7e8c0c6728d6a27774")
         (rails-i18n :checksum "8e87e4e48e31902b8259ded28a208c2e7efea6e9")
         (yard-mode :checksum "de1701753a64544c3376b015805f3661136d8038")
