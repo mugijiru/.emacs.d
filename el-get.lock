@@ -24,7 +24,7 @@
         (yard-mode :checksum "de1701753a64544c3376b015805f3661136d8038")
         (org-download :checksum "c8be2611786d1d8d666b7b4f73582de1093f25ac")
         (engine-mode :checksum "e7f317f1b284853b6df4dfd37ab7715b248e0ebd")
-        (mistty :checksum "2ba72e06f432e584afb18119d6d61723a37899b3")
+        (mistty :checksum "05e018d4fffc45327bf3cd920dc7db7d73f29b10")
         (key-chord :checksum "fc75b1451759121601110da8ddfadcf5156318af")
         (minimap :checksum "8bc9a65825925a7c58b83ad389f07a93f22d60f3")
         (org-protocol-capture-html :checksum "08a2aed1bbeb935ef62b2ebc06037202fd8ddcb1")
