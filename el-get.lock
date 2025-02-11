@@ -169,7 +169,7 @@
         (markdown-mode :checksum "7659bc470d096e7a53285fa246cbabcb07d66a33")
         (memoize :checksum "51b075935ca7070f62fae1d69fe0ff7d8fa56fdd")
         (migemo :checksum "7d78901773da3b503e5c0d5fa14a53ad6060c97f")
-        (multiple-cursors :checksum "dd10cf2334333838e4550f091a75695448e26765")
+        (multiple-cursors :checksum "89f1a8df9b1fc721b1672b4c7b6d3ab451e7e3ef")
         (ob-async :checksum "9aac486073f5c356ada20e716571be33a350a982")
         (org-gcal :checksum "9f9d93e4f0d5863b1318e9e702e1ee6e841c2649")
         (pkg-info :checksum "76ba7415480687d05a4353b27fea2ae02b8d9d61")
