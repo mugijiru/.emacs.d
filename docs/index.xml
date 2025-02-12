@@ -820,6 +820,13 @@
       <description>概要 指定したキーを2回叩いたら Control が押されてるような状態にしてくれるプラグイン。&#xA;その2回の間隔はデフォルトだと 0.5 秒以内となっている。そのため、そのキーを押して 0.5 秒が経過したら、普通にそのキーが押されたことになる&#xA;さらに sticky-control-shortcuts に指定されてる一部のキーについては sticky 用のキーを押した直後に shortcuts のキーを押すと Control を押している状態でそのキーを押したことになる。&#xA;例えば私は , を sticky 用のキーにしていて shortcuts に c を入れているので ,c と素早くタイプをすればそれだけで C-c が押された状態になる。&#xA;インストール まずは el-get-bundle でインストール。&#xA;(el-get-bundle sticky-control) ちなみにレシピは公式ではなかったのでとりあえず自分の環境で使えるように自作レシピを置いている。&#xA;(:name sticky-control :description &amp;#34;save your left little finger&amp;#34; :type http :url &amp;#34;https://raw.githubusercontent.com/martialboniou/emacs-revival/master/sticky-control.el&amp;#34; :features &amp;#34;sticky-control&amp;#34;) 元々は http://www.cs.toronto.edu/~ryanjohn/sticky-control.el にあったのだけど最近そこからは取得できなくなったので https://github.com/martialboniou/emacs-revival/blob/master/sticky-control.el から取得して利用している&#xA;設定 まずは「2回叩いたら Control を押している状態になる」キーを指定する。&#xA;(sticky-control-set-key &amp;#39;sticky-control-key ?,) 私は , を sticky-control のキーにしているのでこの指定。&#xA;そして次に sticky-control-shortuts の指定。ここに指定しておくと、例えば ,c と素早くタイプすることで C-c が入力された状態とすることができる。</description>
     </item>
     <item>
+      <title>Svelte</title>
+      <link>https://mugijiru.github.io/.emacs.d/programming/svelte/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mugijiru.github.io/.emacs.d/programming/svelte/</guid>
+      <description>概要 svelte-mode は Svelte を書く時に使う major-mode&#xA;インストール el-get 本体にはレシピがないので自前で用意している。&#xA;(:name svelte-mode :website &amp;#34;https://github.com/leafOfTree/svelte-mode&amp;#34; :description &amp;#34;Emacs major mode for .svelte files.&amp;#34; :type github :pkgname &amp;#34;leafOfTree/svelte-mode&amp;#34; :branch &amp;#34;master&amp;#34; :minimum-emacs-version &amp;#34;26.1&amp;#34;) これを使って el-get-bundle でインストールしている&#xA;(el-get-bundle svelte-mode) 設定 使い始めでまだ何も設定していない</description>
+    </item>
+    <item>
       <title>TailwindCSS</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/tailwind/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

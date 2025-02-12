@@ -917,6 +917,13 @@
 	"content": "概要 指定したキーを2回叩いたら Control が押されてるような状態にしてくれるプラグイン。\nその2回の間隔はデフォルトだと 0.5 秒以内となっている。そのため、そのキーを押して 0.5 秒が経過したら、普通にそのキーが押されたことになる\nさらに sticky-control-shortcuts に指定されてる一部のキーについては sticky 用のキーを押した直後に shortcuts のキーを押すと Control を押している状態でそのキーを押したことになる。\n例えば私は , を sticky 用のキーにしていて shortcuts に c を入れているので ,c と素早くタイプをすればそれだけで C-c が押された状態になる。\nインストール まずは el-get-bundle でインストール。\n(el-get-bundle sticky-control) ちなみにレシピは公式ではなかったのでとりあえず自分の環境で使えるように自作レシピを置いている。\n(:name sticky-control :description \u0026#34;save your left little finger\u0026#34; :type http :url \u0026#34;https://raw.githubusercontent.com/martialboniou/emacs-revival/master/sticky-control.el\u0026#34; :features \u0026#34;sticky-control\u0026#34;) 元々は http://www.cs.toronto.edu/~ryanjohn/sticky-control.el にあったのだけど最近そこからは取得できなくなったので https://github.com/martialboniou/emacs-revival/blob/master/sticky-control.el から取得して利用している\n設定 まずは「2回叩いたら Control を押している状態になる」キーを指定する。\n(sticky-control-set-key \u0026#39;sticky-control-key ?,) 私は , を sticky-control のキーにしているのでこの指定。\nそして次に sticky-control-shortuts の指定。ここに指定しておくと、例えば ,c と素早くタイプすることで C-c が入力された状態とすることができる。\n(setq sticky-control-shortcuts \u0026#39;((?c . \u0026#34;\\C-c\u0026#34;) (?g . \u0026#34;\\C-g\u0026#34;) (?k . \u0026#34;\\C-k\u0026#34;) (?a . \u0026#34;\\C-a\u0026#34;) (?e . \u0026#34;\\C-e\u0026#34;) (?n . \u0026#34;\\C-n\u0026#34;) (?o . \u0026#34;\\C-o\u0026#34;) (?p . \u0026#34;\\C-p\u0026#34;) (?j . \u0026#34;\\C-j\u0026#34;) (?f . \u0026#34;\\C-f\u0026#34;) (?b . \u0026#34;\\C-b\u0026#34;) (?x . \u0026#34;\\C-x\u0026#34;) (?r . \u0026#34;\\C-r\u0026#34;) (?s . \u0026#34;\\C-s\u0026#34;))) 結構な数を指定しているけど、普段そんなに使えているわけでもない。まあ、大体 Control を押しながら使いそうなところは押さえてあるので何も考えずとも使えるようにしてある。\n有効化 最後に有効化\n(sticky-control-mode) "
 },
 {
+	"uri": "https://mugijiru.github.io/.emacs.d/programming/svelte/",
+	"title": "Svelte",
+	"tags": [],
+	"description": "",
+	"content": "概要 svelte-mode は Svelte を書く時に使う major-mode\nインストール el-get 本体にはレシピがないので自前で用意している。\n(:name svelte-mode :website \u0026#34;https://github.com/leafOfTree/svelte-mode\u0026#34; :description \u0026#34;Emacs major mode for .svelte files.\u0026#34; :type github :pkgname \u0026#34;leafOfTree/svelte-mode\u0026#34; :branch \u0026#34;master\u0026#34; :minimum-emacs-version \u0026#34;26.1\u0026#34;) これを使って el-get-bundle でインストールしている\n(el-get-bundle svelte-mode) 設定 使い始めでまだ何も設定していない\n"
+},
+{
 	"uri": "https://mugijiru.github.io/.emacs.d/tags/",
 	"title": "Tags",
 	"tags": [],

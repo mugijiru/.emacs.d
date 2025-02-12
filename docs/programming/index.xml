@@ -141,6 +141,13 @@
       <description>概要 たまには SQL を書くこともあるのでそのための設定を書いておく。とはいえ大体 org-mode の中で書くのだけれども。&#xA;sqlformat sqlformat は SQL コードのフォーマットをしてくれるパッケージです。フォーマットの方法は外部ツールに任せる感じなので、各自お気に入りの formatter を利用できます&#xA;インストール el-get 本体にレシピがないので自前で用意しています。&#xA;(:name sqlformat :website &amp;#34;https://github.com/purcell/sqlformat&amp;#34; :description &amp;#34;Easily reformatting SQL using any one of several popular SQL formatters&amp;#34; :type github :pkgname &amp;#34;purcell/sqlformat&amp;#34; :depends (reformatter)) そして el-get-bundle でインストールしています&#xA;(el-get-bundle sqlformat) 設定 普段 PostgreSQL を使うことが多いことと manjaro の extra リポジトリにあったからという理由で pgformatter を利用しています。&#xA;というわけで Emacs からもそれを使って format するように設定しています&#xA;(setopt sqlformat-command &amp;#39;pgformatter) </description>
     </item>
     <item>
+      <title>Svelte</title>
+      <link>https://mugijiru.github.io/.emacs.d/programming/svelte/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mugijiru.github.io/.emacs.d/programming/svelte/</guid>
+      <description>概要 svelte-mode は Svelte を書く時に使う major-mode&#xA;インストール el-get 本体にはレシピがないので自前で用意している。&#xA;(:name svelte-mode :website &amp;#34;https://github.com/leafOfTree/svelte-mode&amp;#34; :description &amp;#34;Emacs major mode for .svelte files.&amp;#34; :type github :pkgname &amp;#34;leafOfTree/svelte-mode&amp;#34; :branch &amp;#34;master&amp;#34; :minimum-emacs-version &amp;#34;26.1&amp;#34;) これを使って el-get-bundle でインストールしている&#xA;(el-get-bundle svelte-mode) 設定 使い始めでまだ何も設定していない</description>
+    </item>
+    <item>
       <title>TailwindCSS</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/tailwind/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

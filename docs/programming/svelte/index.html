@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>highlight-indent-guides :: 麦汁&#39;s Emacs Config</title>
+    <title>Svelte :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1739335715" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/ui/highlight-indent-guides/">
+  <body class="" data-url="/.emacs.d/programming/svelte/">
     <nav id="sidebar" class="">
 
 
@@ -1055,7 +1055,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        parent
+        
         
         
         ">
@@ -1270,7 +1270,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/highlight-indent-guides/" title="highlight-indent-guides" class="dd-item active">
+      <li data-nav-id="/.emacs.d/ui/highlight-indent-guides/" title="highlight-indent-guides" class="dd-item ">
         <a href="/.emacs.d/ui/highlight-indent-guides/">
         highlight-indent-guides
         
@@ -1732,7 +1732,7 @@
   
     
     <li data-nav-id="/.emacs.d/programming/" title="プログラミング関係の設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -2157,7 +2157,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/programming/svelte/" title="Svelte" class="dd-item ">
+      <li data-nav-id="/.emacs.d/programming/svelte/" title="Svelte" class="dd-item active">
         <a href="/.emacs.d/programming/svelte/">
         Svelte
         
@@ -3455,7 +3455,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > highlight-indent-guides
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/programming/'>プログラミング関係の設定</a> > Svelte
           
         
           
@@ -3472,7 +3472,7 @@
   <ul>
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
-    <li><a href="#設定">設定 <span class="tag"><span class="improvement">improvement</span></span></a></li>
+    <li><a href="#設定">設定</a></li>
   </ul>
 </nav>
     </div>
@@ -3490,7 +3490,7 @@
           
             <h1>
               
-              highlight-indent-guides
+              Svelte
             </h1>
           
 
@@ -3498,24 +3498,20 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/DarthFennec/highlight-indent-guides">highlight-indent-guides</a> はインデント毎にラインを引いたりして見易くしてくれるパッケージ。通常のプログラムを書く時にも便利だけど、
-YAML などのインデントがそのまま構造になるような言語を弄る時にとても便利。</p>
+<p><a href="https://github.com/leafOfTree/svelte-mode">svelte-mode</a> は <a href="https://svelte.jp/">Svelte</a> を書く時に使う major-mode</p>
 <h2 id="インストール">インストール</h2>
-<p>これもいつも通り el-get でインストールしている。
-GitHub にあるのでそこを直接指定してインストールもできるのだけど
-el-get.lock からアップデートをチェックする都合上、レシピを用意してそれを使ってインストールしている</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name highlight-indent-guides
-</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/DarthFennec/highlight-indent-guides&#34;</span>
-</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;This minor mode highlights indentation levels via font-lock&#34;</span>
+<p>el-get 本体にはレシピがないので自前で用意している。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name svelte-mode
+</span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/leafOfTree/svelte-mode&#34;</span>
+</span></span><span style="display:flex;"><span>       :description <span style="color:#e6db74">&#34;Emacs major mode for .svelte files.&#34;</span>
 </span></span><span style="display:flex;"><span>       :type github
-</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;DarthFennec/highlight-indent-guides&#34;</span>)
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle highlight-indent-guides)
-</span></span></code></pre></div><h2 id="設定">設定 <span class="tag"><span class="improvement">improvement</span></span></h2>
-<p>今いる行がどのインデントにいるのかをわかりやすくするために
-responsive モードを有効にしている。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq highlight-indent-guides-responsive <span style="color:#e6db74">&#34;stack&#34;</span>)
-</span></span></code></pre></div><p>defcustom で定義されてる変数なので
-custom-set-variables で設定した方がいいかもしれない。</p>
+</span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;leafOfTree/svelte-mode&#34;</span>
+</span></span><span style="display:flex;"><span>       :branch <span style="color:#e6db74">&#34;master&#34;</span>
+</span></span><span style="display:flex;"><span>       :minimum-emacs-version <span style="color:#e6db74">&#34;26.1&#34;</span>)
+</span></span></code></pre></div><p>これを使って <code>el-get-bundle</code> でインストールしている</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle svelte-mode)
+</span></span></code></pre></div><h2 id="設定">設定</h2>
+<p>使い始めでまだ何も設定していない</p>
 
 
 <footer class="footline">
@@ -4244,510 +4240,6 @@ custom-set-variables で設定した方がいいかもしれない。</p>
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                 
                 
 
@@ -5080,6 +4572,510 @@ custom-set-variables で設定した方がいいかもしれない。</p>
             
             
                 
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -5968,10 +5964,10 @@ custom-set-variables で設定した方がいいかもしれない。</p>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/ui/helm-posframe/" title="helm-posframe"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/programming/sql/" title="sql"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/ui/hydra/" title="hydra" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/programming/tailwind/" title="TailwindCSS" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
