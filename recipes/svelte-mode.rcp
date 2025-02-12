@@ -1,0 +1,7 @@
+(:name svelte-mode
+       :website "https://github.com/leafOfTree/svelte-mode"
+       :description "Emacs major mode for .svelte files."
+       :type github
+       :pkgname "leafOfTree/svelte-mode"
+       :branch "master"
+       :minimum-emacs-version "26.1")

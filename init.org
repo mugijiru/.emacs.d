@@ -6912,6 +6912,32 @@ manjaro の extra リポジトリにあったからという理由で
 #+begin_src emacs-lisp :tangle inits/40-sql.el
 (setopt sqlformat-command 'pgformatter)
 #+end_src
+** Svelte
+:PROPERTIES:
+:EXPORT_FILE_NAME: svelte
+:END:
+*** 概要
+[[https://github.com/leafOfTree/svelte-mode][svelte-mode]] は [[https://svelte.jp/][Svelte]] を書く時に使う major-mode
+*** インストール
+el-get 本体にはレシピがないので自前で用意している。
+
+#+begin_src emacs-lisp :tangle recipes/svelte-mode.rcp
+(:name svelte-mode
+       :website "https://github.com/leafOfTree/svelte-mode"
+       :description "Emacs major mode for .svelte files."
+       :type github
+       :pkgname "leafOfTree/svelte-mode"
+       :branch "master"
+       :minimum-emacs-version "26.1")
+#+end_src
+
+これを使って ~el-get-bundle~ でインストールしている
+
+#+begin_src emacs-lisp :tangle inits/40-svelte.el
+(el-get-bundle svelte-mode)
+#+end_src
+*** 設定
+使い始めでまだ何も設定していない
 ** TailwindCSS
 :PROPERTIES:
 :ID:       e4d88a9f-2bfc-4e3e-b5fc-3ccd477f3566
