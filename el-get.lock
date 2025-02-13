@@ -121,7 +121,7 @@
         (edit-indirect :checksum "82a28d8a85277cfe453af464603ea330eae41c05")
         (vue-html-mode :checksum "1514939804bad558584feeb6298b38d22eadf64e")
         (emacs-pug-mode :checksum "73f8c2f95eba695f701df20c8436f49abadebdc1")
-        (zoom :checksum "f5f635e1fc5a8f606b7386286546bb6439e7124c")
+        (zoom :checksum "950ff02112a1440093764d78b78ed95b855075ce")
         (request :checksum "01e338c335c07e4407239619e57361944a82cb8a")
         (avy :checksum "933d1f36cca0f71e4acb5fac707e9ae26c536264")
         (all-the-icons :checksum "39ef44f810c34e8900978788467cc675870bcd19")
