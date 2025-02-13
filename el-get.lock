@@ -36,7 +36,7 @@
         (color-moccur :checksum "4f1c59ffd1ccc2ab1a171cd6b721e8cb9e002fb7")
         (esxml :checksum "225693096a587492d76bf696d1f0c25c61f7d531")
         (kv :checksum "721148475bce38a70e0b678ba8aa923652e8900e")
-        (calibredb :checksum "bb9cfb5e5f9c2bb45386c1a9d1273a7832f8c28b")
+        (calibredb :checksum "7e8cfe928688d6a43ed48d6c3fbcb96083154ff0")
         (git-modes :checksum "f99010bbeb8b6d8a0819fac0195a2ef0159d08f0")
         (ob-graphql :checksum "7c35419f9eec5dc44967cbcfa13c7135b9a96bfc")
         (corfu :checksum "2c476b442ccfda9935e472b26d9cd60d45726560")
