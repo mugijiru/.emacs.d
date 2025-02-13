@@ -175,7 +175,7 @@
         (org-gcal :checksum "9f9d93e4f0d5863b1318e9e702e1ee6e841c2649")
         (pkg-info :checksum "76ba7415480687d05a4353b27fea2ae02b8d9d61")
         (plantuml-mode :checksum "ea45a13707abd2a70df183f1aec6447197fc9ccc")
-        (popup :checksum "7a05700a37aae66d2b24f0cd8851f65383a5cf96")
+        (popup :checksum "4b35c57ec88428233eecf27537854fc1f5f802ff")
         (posframe :checksum "12f540c9ad5da09673b2bca1132b41f94c134e82")
         (prescient.el :checksum "7dd5b53886146a507f1388e0b61990f9820f9eb1")
         (projectile :checksum "48d0a30137dc4dfecc261e66f2a5f75156232d85")
