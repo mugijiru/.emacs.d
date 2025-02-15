@@ -18,7 +18,7 @@ el-get 本体にはレシピがないので自前で用意している。なお�
        :description "This plugin allows you to chat with github copilot."
        :type github
        :pkgname "chep/copilot-chat.el"
-       :depends (request markdown-mode chatgpt-shell magit transient org-mode shell-maker))
+       :depends (request markdown-mode magit transient org-mode polymode))
 ```
 
 そして `el-get-bundle` でインストールしている
@@ -41,7 +41,7 @@ GitHub Copilot Chat を有効にするための認証コードとメッセージ
 色々使っていると frontend は `shell-maker` の方が使いやすいっぽいのでそれを指定している
 
 ```emacs-lisp
-(setopt copilot-chat-frontend 'shell-maker)
+(setopt copilot-chat-frontend 'org)
 ```
 
 また出力は日本語の方が日本人には嬉しいのでひとまず `copilot-chat-prompt` の末尾に日本語を出力するように指定している。
