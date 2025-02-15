@@ -3,4 +3,4 @@
        :description "This plugin allows you to chat with github copilot."
        :type github
        :pkgname "chep/copilot-chat.el"
-       :depends (request markdown-mode chatgpt-shell magit transient org-mode shell-maker))
+       :depends (request markdown-mode chatgpt-shell magit transient org-mode shell-maker polymode))
