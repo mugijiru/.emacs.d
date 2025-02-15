@@ -19,7 +19,7 @@
 
 (el-get-bundle copilot-chat)
 
-(setopt copilot-chat-frontend 'shell-maker)
+(setopt copilot-chat-frontend 'org)
 
 (with-eval-after-load 'copilot-chat-common
   (setq my/copilot-chat-prompt-original copilot-chat-prompt)

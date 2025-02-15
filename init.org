@@ -1930,7 +1930,7 @@ GitHub Copilot Chat を有効にするための認証コードとメッセージ
 色々使っていると frontend は ~shell-maker~ の方が使いやすいっぽいのでそれを指定している
 
 #+begin_src emacs-lisp :tangle inits/30-copilot.el
-(setopt copilot-chat-frontend 'shell-maker)
+(setopt copilot-chat-frontend 'org)
 #+end_src
 
 また出力は日本語の方が日本人には嬉しいので
