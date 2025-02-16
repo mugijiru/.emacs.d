@@ -10,7 +10,7 @@ draft = false
 
 ### インストール {#インストール}
 
-el-get 本体にはレシピがないので自前で用意している。なお依存している [chatgpt-shell](https://github.com/xenodium/chatgpt-shell) などのレシピは [chatgpt-shell の設定ページ]({{< relref "chatgpt-shell" >}}) に置いてある
+el-get 本体にはレシピがないので自前で用意している。なお依存している [shell-maker](https://github.com/xenodium/shell-maker) などのレシピは [chatgpt-shell の設定ページ]({{< relref "chatgpt-shell" >}}) に置いてある
 
 ```emacs-lisp
 (:name copilot-chat
@@ -18,7 +18,7 @@ el-get 本体にはレシピがないので自前で用意している。なお�
        :description "This plugin allows you to chat with github copilot."
        :type github
        :pkgname "chep/copilot-chat.el"
-       :depends (request markdown-mode magit transient org-mode polymode))
+       :depends (request markdown-mode magit transient org-mode polymode shell-maker))
 ```
 
 そして `el-get-bundle` でインストールしている

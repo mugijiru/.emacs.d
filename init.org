@@ -1903,7 +1903,7 @@ Warning (copilot): .loaddefs.el size exceeds 'copilot-max-char' (100000), copilo
 [[https://github.com/chep/copilot-chat.el][copilot-chat.el]] は Emacs から GitHub Copilot Chat を使えるようにするパッケージ。
 **** インストール
 el-get 本体にはレシピがないので自前で用意している。
-なお依存している [[https://github.com/xenodium/chatgpt-shell][chatgpt-shell]] などのレシピは [[id:93c58f71-7db1-40d7-b706-dd5868c29da0][chatgpt-shell の設定ページ]] に置いてある
+なお依存している [[https://github.com/xenodium/shell-maker][shell-maker]] などのレシピは [[id:93c58f71-7db1-40d7-b706-dd5868c29da0][chatgpt-shell の設定ページ]] に置いてある
 
 #+begin_src emacs-lisp :tangle recipes/copilot-chat.rcp
 (:name copilot-chat
@@ -1911,7 +1911,7 @@ el-get 本体にはレシピがないので自前で用意している。
        :description "This plugin allows you to chat with github copilot."
        :type github
        :pkgname "chep/copilot-chat.el"
-       :depends (request markdown-mode magit transient org-mode polymode))
+       :depends (request markdown-mode magit transient org-mode polymode shell-maker))
 #+end_src
 
 そして ~el-get-bundle~ でインストールしている
