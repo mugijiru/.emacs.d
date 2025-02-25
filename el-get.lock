@@ -73,7 +73,7 @@
         (pdf-tools :checksum "30b50544e55b8dbf683c2d932d5c33ac73323a16")
         (tablist :checksum "faab7a035ef2258cc4ea2182f67e3aedab7e2af9")
         (git-messenger :checksum "eade986ef529aa2dac6944ad61b18de55cee0b76")
-        (lsp-docker :checksum "3b2d61dde896bfd484fb9805a66e544e535ea5b6")
+        (lsp-docker :checksum "b4210f5e82f5dc678d51738d9a6985cdf14804e1")
         (ivy-kibela :checksum "bd48bfa2ba2e655b435cf9acd6f09d835afe9b14")
         (graphql :checksum "67237f284f2dfb94f3cfba672ff64a37e1cb860f")
         (tomelr :checksum "670e0a08f625175fd80137cf69e799619bf8a381")
