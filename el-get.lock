@@ -56,7 +56,7 @@
         (editorconfig :checksum "24f5b2b1cd4e37adc245fb59f7edeb6872a707a4")
         (emacs-sqlite3-api :checksum "a601c9965e4d0178705a64b7d4f88709ca9aea66")
         (org-roam :checksum "0037daaf3eb2d1c3a1c215efb4d38a32db140224")
-        (emacs-openai :checksum "5cf6a719b6e86e46783180494e6e46d78e115277")
+        (emacs-openai :checksum "c70a978c3a0e4b43f2a826faaf56525c1dc35574")
         (tblui :checksum "62ab5f62982c061a902fd3e54d94a68a4706572c")
         (magit-popup :checksum "d8585fa39f88956963d877b921322530257ba9f5")
         (keypression :checksum "e85e3fd9ce216a370be221cf9de1503777ef0088")
