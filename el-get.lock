@@ -8,7 +8,7 @@
         (lsp-tailwindcss :checksum "ca5e611d2a38fea8802a365bcdd6fdc73e3d79af")
         (flycheck-eask :checksum "a0fb9fab8c4ba00539bfe143e93a033abfe062bc")
         (eask-mode :checksum "ad8f049ce3a4ea833abce9dc1c4a8e1c74b438cc")
-        (eask :checksum "970bc8e3848f97b27bb2da7dec059423f7e2a21e")
+        (eask :checksum "8d831ff25d085634e288b35d4774f8c4a48a4d76")
         (shell-maker :checksum "72ce76bb3059e6c715b2471856851aac21198ac7")
         (copilot-chat :checksum "8a0049cb2eaab4f1aa62a074728f1ed5832a42c7")
         (chatgpt-shell :checksum "ad5e510a83e2cdb2edd9c4fbeb10ca3d5fb13868")
