@@ -88,7 +88,7 @@
         (yaml :checksum "09e46d563f1f3ff948852e08360c7d3c76e2acba")
         (web-mode :checksum "be2d59c8fa02b1a45ae54ce4079e502e659cefe6")
         (dap-mode :checksum "91d8a91ac7cc3c08252e6af18b1adb069df4ccce")
-        (lsp-treemacs :checksum "c4e30c6a8018429880c5f6e8310f0e07fd58f6d0")
+        (lsp-treemacs :checksum "2495abd9df2f19335b4a280d9db641e02e2ddcfa")
         (treemacs :checksum "32bb3dd02ddfca85661614b3b227e770fab821e2")
         (pfuture :checksum "19b53aebbc0f2da31de6326c495038901bffb73c")
         (bui :checksum "f3a137628e112a91910fd33c0cff0948fa58d470")
