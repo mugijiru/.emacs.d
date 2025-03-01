@@ -170,7 +170,7 @@
         (magit :checksum "4a01405bf1b6cdcaafabcbf7692a1ad0f67ea7b5")
         (markdown-mode :checksum "0a522bf682c977b39f449b0edc63ebf1db14aa04")
         (memoize :checksum "51b075935ca7070f62fae1d69fe0ff7d8fa56fdd")
-        (migemo :checksum "7d78901773da3b503e5c0d5fa14a53ad6060c97f")
+        (migemo :checksum "fbc16b57eace9bf25bcb325032c59c50b186b9d7")
         (multiple-cursors :checksum "89f1a8df9b1fc721b1672b4c7b6d3ab451e7e3ef")
         (ob-async :checksum "9aac486073f5c356ada20e716571be33a350a982")
         (org-gcal :checksum "9f9d93e4f0d5863b1318e9e702e1ee6e841c2649")
