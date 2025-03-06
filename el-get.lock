@@ -10,7 +10,7 @@
         (eask-mode :checksum "ad8f049ce3a4ea833abce9dc1c4a8e1c74b438cc")
         (eask :checksum "b3233fb813858f94baf6f8d514960fb5b5a733c8")
         (shell-maker :checksum "72ce76bb3059e6c715b2471856851aac21198ac7")
-        (copilot-chat :checksum "6045032ca62a6c9b10227529a82b916593187dd0")
+        (copilot-chat :checksum "8a00deeeea9fdd897d3e31840c03a778eb775c7f")
         (chatgpt-shell :checksum "73dc47ebdde0dc7ac828758c79e593d9b4347e29")
         (sqlformat :checksum "69ef8bec3ac8c9ce4a60f20a9721e4d7a592a84d")
         (reformatter :checksum "f2cb59466b1c3f85a8c960f7d4b7b7ead015bedc")
