@@ -15,7 +15,7 @@
                    "ad8f049ce3a4ea833abce9dc1c4a8e1c74b438cc")
         (eask :checksum "b3233fb813858f94baf6f8d514960fb5b5a733c8")
         (shell-maker :checksum
-                     "72ce76bb3059e6c715b2471856851aac21198ac7")
+                     "98780ec0a8ac4fe1d6be9e2f8047195cdfad5f70")
         (copilot-chat :checksum
                       "8a00deeeea9fdd897d3e31840c03a778eb775c7f")
         (chatgpt-shell :checksum
@@ -154,7 +154,7 @@
         (mocker.el :checksum
                    "e455599f48bad7d73fd445e70a3acf4b44c2f5c1")
         (with-simulated-input :checksum
-          "0f43fe46d4ab098c18a90b9df18cb96bab8e4a35")
+                              "0f43fe46d4ab098c18a90b9df18cb96bab8e4a35")
         (flycheck-pos-tip :checksum
                           "dc57beac0e59669926ad720c7af38b27c3a30467")
         (pos-tip :checksum "4889e08cf9077c8589ea6fea4e2ce558614dfcde")
