@@ -44,7 +44,7 @@
                       "c8be2611786d1d8d666b7b4f73582de1093f25ac")
         (engine-mode :checksum
                      "e7f317f1b284853b6df4dfd37ab7715b248e0ebd")
-        (mistty :checksum "62c3ea4bd770df070cc11dc47e6addbd1fc22fab")
+        (mistty :checksum "7c21fd2aaf810de90a5716a1d3457ef7b6afb178")
         (key-chord :checksum
                    "fc75b1451759121601110da8ddfadcf5156318af")
         (minimap :checksum "8bc9a65825925a7c58b83ad389f07a93f22d60f3")
@@ -154,7 +154,7 @@
         (mocker.el :checksum
                    "e455599f48bad7d73fd445e70a3acf4b44c2f5c1")
         (with-simulated-input :checksum
-          "0f43fe46d4ab098c18a90b9df18cb96bab8e4a35")
+                              "0f43fe46d4ab098c18a90b9df18cb96bab8e4a35")
         (flycheck-pos-tip :checksum
                           "dc57beac0e59669926ad720c7af38b27c3a30467")
         (pos-tip :checksum "4889e08cf9077c8589ea6fea4e2ce558614dfcde")
