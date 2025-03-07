@@ -154,7 +154,7 @@
         (mocker.el :checksum
                    "e455599f48bad7d73fd445e70a3acf4b44c2f5c1")
         (with-simulated-input :checksum
-          "0f43fe46d4ab098c18a90b9df18cb96bab8e4a35")
+                              "0f43fe46d4ab098c18a90b9df18cb96bab8e4a35")
         (flycheck-pos-tip :checksum
                           "dc57beac0e59669926ad720c7af38b27c3a30467")
         (pos-tip :checksum "4889e08cf9077c8589ea6fea4e2ce558614dfcde")
@@ -296,7 +296,7 @@
         (spinner :checksum "d4647ae87fb0cd24bc9081a3d287c860ff061c21")
         (swiper :checksum "db61f55bc281c28beb723ef17cfe74f59580d2f4")
         (transient :checksum
-                   "24d4283e20a9d0b140dc96f6ffc8f0bed732abbf")
+                   "4030862396130b3dcfedabe509a4fc6cb218c49f")
         (treepy :checksum "651e2634f01f346da9ec8a64613c51f54b444bc3")
         (twittering-mode :checksum
                          "114891e8fdb4f06b1326a6cf795e49c205cf9e29")
