@@ -182,7 +182,7 @@
         (ivy-posframe :checksum
                       "660c773f559ac37f29ccf626af0103817c8d5e30")
         (dumb-jump :checksum
-                   "f65725420114215330ab01456c034f3e6ee25cd6")
+                   "737267a6139a988369cb95ecd365b2db95e05db0")
         (ember-mode :checksum
                     "38145ad189000c58860594c05523e42bacb3d246")
         (emacs-hide-mode-line :checksum
