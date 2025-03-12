@@ -2,7 +2,7 @@
       '((polymode :checksum "74ba75d4bcfbea959ccc9080a95ab9ef759849f2")
         (svelte-mode :checksum
                      "5b136e224e01b0358dd0dca68c57b0d0c93099b5")
-        (llama :checksum "4d3141aceb70a1c672d1f4e9394037e2407d3a90")
+        (llama :checksum "ff77af7c5df678041aebb48497418ff8af0acefc")
         (leaf-keywords :checksum
                        "82ec27e3441900daedeaaebca509181f964da81f")
         (leaf :checksum "69c9b057cdeee560450c1d04a9a058235ecff0f7")
