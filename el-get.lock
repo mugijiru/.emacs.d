@@ -213,7 +213,7 @@
                       "8d599ebc8a9aca27c0a6157aeb31c5b7f05ed0a3")
         (counsel-projectile :checksum
                             "40d1e1d4bb70acb00fddd6f4df9778bf2c52734b")
-        (dash :checksum "1de9dcb83eacfb162b6d9a118a4770b1281bcd84")
+        (dash :checksum "fcb5d831fc08a43f984242c7509870f30983c27c")
         (ddskk :checksum "f81ed803e617ccd8175d4bf57a3062bc5ffe1945")
         (ddskk-posframe.el :checksum
                            "88ca3858dad69ffb19a6aff48111ae4bb67c8980")
