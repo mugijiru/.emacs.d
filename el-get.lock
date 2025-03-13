@@ -257,7 +257,7 @@
                         "142a04dd588af6c725e331863c3ca7bd5dda13ec")
         (inf-ruby :checksum "b8076aad10dfb0ba1e3a8b0d39c2b370dbe96ab0")
         (init-loader :checksum
-                     "c4842b1f6695ce77daf94fd085456aeb37ed37e1")
+                     "1837769c872b6453c7c02490f50a6eb322156c2c")
         (japanese-holidays :checksum
                            "324b6bf2f55ec050bef49e001caedaabaf4fa35d")
         (js2-mode :checksum "e0c302872de4d26a9c1614fac8d6b94112b96307")
