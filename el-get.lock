@@ -262,7 +262,7 @@
                            "324b6bf2f55ec050bef49e001caedaabaf4fa35d")
         (js2-mode :checksum "e0c302872de4d26a9c1614fac8d6b94112b96307")
         (jump :checksum "55caa66a7cc6e0b1a76143fd40eff38416928941")
-        (lsp-mode :checksum "ac71048270a7845ec89998516d9f7908e915a57c")
+        (lsp-mode :checksum "c4ec868242be17885597585962b9d562a698f1a7")
         (lsp-ui :checksum "09d40806429fadc01a12d9a1841b49430f58adb5")
         (major-mode-hydra.el :checksum
                              "d0a5dadee97c3752fcdef113cf2ba1923972a480")
