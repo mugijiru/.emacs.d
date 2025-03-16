@@ -866,7 +866,7 @@
       <link>https://mugijiru.github.io/.emacs.d/ui/toolbar/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://mugijiru.github.io/.emacs.d/ui/toolbar/</guid>
-      <description>概要 Emacs 標準の toolbar の設定。麦汁さんは使わないし幅を取るので隠す派。&#xA;設定 単に無効にして隠している&#xA;(tool-bar-mode -1) </description>
+      <description>概要 Emacs 標準の toolbar の設定。麦汁さんは使わないし幅を取るので隠す派。&#xA;設定 単に無効にして隠している&#xA;(tool-bar-mode -1) あと設定ファイルを増やすのだだるかったのでここでついでに menu-bar も無効にしている。手抜き……。&#xA;(menu-bar-mode -1) </description>
     </item>
     <item>
       <title>tree-sitter</title>

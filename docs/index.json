@@ -970,7 +970,7 @@
 	"title": "toolbar",
 	"tags": [],
 	"description": "",
-	"content": "概要 Emacs 標準の toolbar の設定。麦汁さんは使わないし幅を取るので隠す派。\n設定 単に無効にして隠している\n(tool-bar-mode -1) "
+	"content": "概要 Emacs 標準の toolbar の設定。麦汁さんは使わないし幅を取るので隠す派。\n設定 単に無効にして隠している\n(tool-bar-mode -1) あと設定ファイルを増やすのだだるかったのでここでついでに menu-bar も無効にしている。手抜き……。\n(menu-bar-mode -1) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/programming/tree-sitter/",
