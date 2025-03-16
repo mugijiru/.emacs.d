@@ -3,6 +3,8 @@
 (custom-set-variables
  '(calibredb-root-dir "~/calibre-library"))
 
+(setopt calibredb-format-nerd-icons t)
+
 (with-eval-after-load 'pretty-hydra
   (pretty-hydra-define calibredb-filter-hydra (:separator "-" :exit t :quit-key "q" :title (concat (all-the-icons-material "filter_list") " calibredb filter"))
     ("by"
