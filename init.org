@@ -4566,6 +4566,13 @@ Emacs 標準の toolbar の設定。
 (tool-bar-mode -1)
 #+end_src
 
+あと設定ファイルを増やすのだだるかったのでここでついでに menu-bar も無効にしている。手抜き……。
+
+#+begin_src emacs-lisp :tangle inits/90-toolbar.el
+(menu-bar-mode -1)
+#+end_src
+
+
 ** uniquify
 :PROPERTIES:
 :EXPORT_FILE_NAME: uniquify
