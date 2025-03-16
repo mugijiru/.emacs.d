@@ -32,11 +32,17 @@ el-get 本体にはレシピがないので自前で用意。
 
 ## 設定 {#設定}
 
-とりあえず Calibre のライブラリのパスだけを指定している。
+まず Calibre のライブラリのパスを指定している。
 
 ```emacs-lisp
 (custom-set-variables
  '(calibredb-root-dir "~/calibre-library"))
+```
+
+また nerd-icons 対応になったのでその設定も加えている
+
+```emacs-lisp
+(setopt calibredb-format-nerd-icons t)
 ```
 
 
