@@ -79,7 +79,7 @@
         (jest-test-mode :checksum
                         "a397507d8bb41e4aa6b97994f1d7512e78d3dee3")
         (dockerfile-mode :checksum
-                         "7ce17e054eca4d56ca8bc1e4a6a0dbf58efd8d52")
+                         "8135740bfc6ad96ab82d39d9fe68dbce56180f4c")
         (origami :checksum "2a882820f3f3925c3d9e6eb91ab5ee5dea082a57")
         (company-posframe :checksum
                           "18d6641bba72cba3c00018cee737ea8b454f64a8")
