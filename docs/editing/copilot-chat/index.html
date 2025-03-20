@@ -12,20 +12,20 @@
     <title>copilot-chat :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1742097282" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1742097282" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1742097282" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1742097282" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1742097282" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1742097282" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1742097282" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1742097282" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1742097282" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1742097282" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1742433267" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1742433267" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1742433267" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1742433267" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1742433267" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1742433267" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1742433267" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1742433267" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1742433267" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1742433267" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1742097282"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1742433267"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1742097282"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1742097282"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1742433267"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1742433267"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1742097282"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1742433267"></script>
 
     
   </div>
@@ -3470,14 +3470,11 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#概要">概要</a>
-      <ul>
-        <li><a href="#インストール">インストール</a></li>
-        <li><a href="#最初の起動">最初の起動</a></li>
-        <li><a href="#設定">設定</a></li>
-        <li><a href="#キーバインド">キーバインド</a></li>
-      </ul>
-    </li>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#インストール">インストール</a></li>
+    <li><a href="#最初の起動">最初の起動</a></li>
+    <li><a href="#設定">設定</a></li>
+    <li><a href="#キーバインド">キーバインド</a></li>
   </ul>
 </nav>
     </div>
@@ -3504,7 +3501,7 @@
 
 <h2 id="概要">概要</h2>
 <p><a href="https://github.com/chep/copilot-chat.el">copilot-chat.el</a> は Emacs から GitHub Copilot Chat を使えるようにするパッケージ。</p>
-<h3 id="インストール">インストール</h3>
+<h2 id="インストール">インストール</h2>
 <p>el-get 本体にはレシピがないので自前で用意している。なお依存している <a href="https://github.com/xenodium/shell-maker">shell-maker</a> などのレシピは <a href="/.emacs.d/external-tool/chatgpt-shell/">chatgpt-shell の設定ページ</a> に置いてある</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(:name copilot-chat
 </span></span><span style="display:flex;"><span>       :website <span style="color:#e6db74">&#34;https://github.com/chep/copilot-chat.el&#34;</span>
@@ -3514,11 +3511,11 @@
 </span></span><span style="display:flex;"><span>       :depends (request markdown-mode magit transient org-mode polymode shell-maker))
 </span></span></code></pre></div><p>そして <code>el-get-bundle</code> でインストールしている</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle copilot-chat)
-</span></span></code></pre></div><h3 id="最初の起動">最初の起動</h3>
+</span></span></code></pre></div><h2 id="最初の起動">最初の起動</h2>
 <p>とりあえず <code>M-x copilot-chat-display</code> で起動する。</p>
 <p>最初の起動の時は適当なメッセージを <code>C-c C-c</code> で送信すると
 GitHub Copilot Chat を有効にするための認証コードとメッセージが minibuffer に表示されるのでその認証コードをコピーして Enter を叩いたら Web ブラウザに認証コードを入れる画面が表示されるのであとは画面に従って動かしましょう</p>
-<h3 id="設定">設定</h3>
+<h2 id="設定">設定</h2>
 <p>色々使っていると frontend は <code>shell-maker</code> の方が使いやすいっぽいのでそれを指定している</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setopt copilot-chat-frontend <span style="color:#e6db74">&#39;org</span>)
 </span></span></code></pre></div><p>また出力は日本語の方が日本人には嬉しいのでひとまず <code>copilot-chat-prompt</code> の末尾に日本語を出力するように指定している。</p>
@@ -3526,7 +3523,7 @@ GitHub Copilot Chat を有効にするための認証コードとメッセージ
 <code>with-eval-after-load</code> の中に閉じ込めている。まあこのエラーになる問題は 2025/03 のリファクタで解消しているかもしれないけど。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;copilot-chat-common</span>
 </span></span><span style="display:flex;"><span>  (setopt copilot-chat-prompt-suffix <span style="color:#e6db74">&#34;\n出力には日本語を用います&#34;</span>))
-</span></span></code></pre></div><h3 id="キーバインド">キーバインド</h3>
+</span></span></code></pre></div><h2 id="キーバインド">キーバインド</h2>
 <p>色々な起動コマンドがあるので <code>pretty-hydra</code> を使って Hydra の定義をしてる。使うのは偏るかもしれないけど、とりあえずこれで行ってみる</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
 </span></span><span style="display:flex;"><span>  (pretty-hydra-define copilot-chat-hydra
@@ -3546,7 +3543,19 @@ GitHub Copilot Chat を有効にするための認証コードとメッセージ
 </span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;f&#34;</span> copilot-chat-explain-defun          <span style="color:#e6db74">&#34;Function&#34;</span>))
 </span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Commit message&#34;</span>
 </span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;I&#34;</span> copilot-chat-insert-commit-message <span style="color:#e6db74">&#34;Insert&#34;</span>)))))
-</span></span></code></pre></div>
+</span></span></code></pre></div><p>transient も標準で定義されているのでそれを各 prompt-mode で <a href="/.emacs.d/ui/hydra/#major-mode-hydra-のインストール">major-mode-hydra</a> 経由で起動できるようにしている。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;major-mode-hydra</span>
+</span></span><span style="display:flex;"><span>  (major-mode-hydra-define copilot-chat-org-prompt-mode (:separator <span style="color:#e6db74">&#34;-&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :title (<span style="color:#a6e22e">concat</span> (nerd-icons-mdicon <span style="color:#e6db74">&#34;nf-md-robot&#34;</span>) <span style="color:#e6db74">&#34; Copilot Chat Org Prompt&#34;</span>))
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;Common&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;m&#34;</span> copilot-chat-transient <span style="color:#e6db74">&#34;Menu&#34;</span>))))
+</span></span><span style="display:flex;"><span>  (major-mode-hydra-define copilot-chat-markdown-prompt-mode (:separator <span style="color:#e6db74">&#34;-&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :title (<span style="color:#a6e22e">concat</span> (nerd-icons-mdicon <span style="color:#e6db74">&#34;nf-md-robot&#34;</span>) <span style="color:#e6db74">&#34; Copilot Chat Markdown Prompt&#34;</span>))
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;Common&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;m&#34;</span> copilot-chat-transient <span style="color:#e6db74">&#34;Menu&#34;</span>))))
+</span></span><span style="display:flex;"><span>  (major-mode-hydra-define copilot-chat-shell-mode (:separator <span style="color:#e6db74">&#34;-&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :title (<span style="color:#a6e22e">concat</span> (nerd-icons-mdicon <span style="color:#e6db74">&#34;nf-md-robot&#34;</span>) <span style="color:#e6db74">&#34; Copilot Chat Shell Prompt&#34;</span>))
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;Common&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;m&#34;</span> copilot-chat-transient <span style="color:#e6db74">&#34;Menu&#34;</span>)))))
+</span></span></code></pre></div><p>まあ pretty-hydra で定義されているやつを移植したりしても良さそうだけど一旦ミニマムに対応。頑張るのも面倒なので。</p>
+
 
 <footer class="footline">
 	
@@ -6011,19 +6020,19 @@ GitHub Copilot Chat を有効にするための認証コードとメッセージ
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1742097282"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1742097282"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1742097282"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1742097282"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1742097282"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1742097282"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1742433267"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1742433267"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1742433267"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1742433267"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1742433267"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1742433267"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1742097282"></script>
-    <script src="/.emacs.d/js/learn.js?1742097282"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1742097282"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1742433267"></script>
+    <script src="/.emacs.d/js/learn.js?1742433267"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1742433267"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1742097282"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1742433267"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
