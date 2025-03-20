@@ -42,3 +42,14 @@
       ("f" copilot-chat-explain-defun          "Function"))
      "Commit message"
      (("I" copilot-chat-insert-commit-message "Insert")))))
+
+(with-eval-after-load 'major-mode-hydra
+  (major-mode-hydra-define copilot-chat-org-prompt-mode (:separator "-" :quit-key "q" :title (concat (nerd-icons-mdicon "nf-md-robot") " Copilot Chat Org Prompt"))
+    ("Common"
+     (("m" copilot-chat-transient "Menu"))))
+  (major-mode-hydra-define copilot-chat-markdown-prompt-mode (:separator "-" :quit-key "q" :title (concat (nerd-icons-mdicon "nf-md-robot") " Copilot Chat Markdown Prompt"))
+    ("Common"
+     (("m" copilot-chat-transient "Menu"))))
+  (major-mode-hydra-define copilot-chat-shell-mode (:separator "-" :quit-key "q" :title (concat (nerd-icons-mdicon "nf-md-robot") " Copilot Chat Shell Prompt"))
+    ("Common"
+     (("m" copilot-chat-transient "Menu")))))
