@@ -23,7 +23,7 @@
         (sqlformat :checksum
                    "69ef8bec3ac8c9ce4a60f20a9721e4d7a592a84d")
         (reformatter :checksum
-                     "f2cb59466b1c3f85a8c960f7d4b7b7ead015bedc")
+                     "6ac08cebafb9e04b825ed22d82269ff69cc5f87f")
         (emacs-oauth2-auto :checksum
                            "ff9a45e27621aad5b1a2e12a09b01f3e4eaecf96")
         (docker :checksum "46b597a711492e1c19d1260951f39372450278f5")
