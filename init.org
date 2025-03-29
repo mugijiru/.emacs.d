@@ -4333,6 +4333,20 @@ doom-modeline で見た目をカッコよくしているのでこっちに設定
 (display-battery-mode 1)
 #+end_src
 
+**** copilot-chat との相性問題回避
+copilot-chat を使っていると mode-line が readonly 扱いにされるっぽくて
+そのせいで doom-modeline の表示がうまくいかないので
+一時的にテキストの readonly mode を無効にすることで
+mode-line の表示がされなくなる問題を回避している
+
+#+begin_src emacs-lisp :tangle inits/91-doom-modeline.el
+(defun my/inhibit-read-only (orig-fun &rest args)
+  "Temporarily disable read-only mode."
+  (let ((inhibit-read-only t))
+    (apply orig-fun args)))
+
+(advice-add 'doom-modeline-string-pixel-width :around #'my/inhibit-read-only)
+#+end_src
 **** アイコン表示
 [[https://github.com/rainstormstudio/nerd-icons.el][nerd-icons]] に依存しているのでそれの設定もここに書いておく
 
