@@ -237,7 +237,7 @@
                               "4896a797252fbfdac32fb77508500ac7d220f717")
         (f :checksum "931b6d0667fe03e7bf1c6c282d6d8d7006143c52")
         (flycheck :checksum "b9db1379dcc3e59238dc1fdd7db368c66e8734ba")
-        (forge :checksum "bd0c5eb05dcd0e20dc525f036c174215357ac6bd")
+        (forge :checksum "1a27d246b4b2b9c62214186e1976202253a4b6a5")
         (fringe-helper :checksum
                        "ef4a9c023bae18ec1ddd7265f1f2d6d2e775efdd")
         (ghub :checksum "97c80a20f1a3fa05384de1fec1b26a99b70c1448")
