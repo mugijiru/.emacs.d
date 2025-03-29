@@ -47,11 +47,15 @@ GitHub Copilot Chat を有効にするための認証コードとメッセージ
 また出力は日本語の方が日本人には嬉しいのでひとまず `copilot-chat-prompt` の末尾に日本語を出力するように指定している。
 
 その際 `copilot-chat-common` の読み込み後に設定しないと変数がないというエラーになるので
-`with-eval-after-load` の中に閉じ込めている。まあこのエラーになる問題は 2025/03 のリファクタで解消しているかもしれないけど。
+`with-eval-after-load` の中に閉じ込めている。まあこのエラーになる問題は 2025/03 の本体のリファクタで解消しているかもしれないけど。
 
 ```emacs-lisp
-(with-eval-after-load 'copilot-chat-common
-  (setopt copilot-chat-prompt-suffix "\n出力には日本語を用います"))
+(with-eval-after-load 'copilot-chat-prompts
+  (setq my/copilot-chat-org-prompt-original copilot-chat-org-prompt)
+  (setopt copilot-chat-org-prompt (concat my/copilot-chat-org-prompt-original "\n出力には日本語を用います"))
+
+  (setq my/copilot-chat-markdown-prompt-original copilot-chat-markdown-prompt)
+  (setopt copilot-chat-markdown-prompt (concat my/copilot-chat-markdown-prompt-original "\n出力には日本語を用います")))
 ```
 
 

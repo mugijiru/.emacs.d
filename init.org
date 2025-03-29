@@ -1938,11 +1938,15 @@ GitHub Copilot Chat を有効にするための認証コードとメッセージ
 
 その際 ~copilot-chat-common~ の読み込み後に設定しないと変数がないというエラーになるので
 ~with-eval-after-load~ の中に閉じ込めている。
-まあこのエラーになる問題は 2025/03 のリファクタで解消しているかもしれないけど。
+まあこのエラーになる問題は 2025/03 の本体のリファクタで解消しているかもしれないけど。
 
 #+begin_src emacs-lisp :tangle inits/30-copilot.el
-(with-eval-after-load 'copilot-chat-common
-  (setopt copilot-chat-prompt-suffix "\n出力には日本語を用います"))
+(with-eval-after-load 'copilot-chat-prompts
+  (setq my/copilot-chat-org-prompt-original copilot-chat-org-prompt)
+  (setopt copilot-chat-org-prompt (concat my/copilot-chat-org-prompt-original "\n出力には日本語を用います"))
+
+  (setq my/copilot-chat-markdown-prompt-original copilot-chat-markdown-prompt)
+  (setopt copilot-chat-markdown-prompt (concat my/copilot-chat-markdown-prompt-original "\n出力には日本語を用います")))
 #+end_src
 *** キーバインド
 色々な起動コマンドがあるので ~pretty-hydra~ を使って Hydra の定義をしてる。

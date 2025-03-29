@@ -21,8 +21,12 @@
 
 (setopt copilot-chat-frontend 'org)
 
-(with-eval-after-load 'copilot-chat-common
-  (setopt copilot-chat-prompt-suffix "\n出力には日本語を用います"))
+(with-eval-after-load 'copilot-chat-prompts
+  (setq my/copilot-chat-org-prompt-original copilot-chat-org-prompt)
+  (setopt copilot-chat-org-prompt (concat my/copilot-chat-org-prompt-original "\n出力には日本語を用います"))
+
+  (setq my/copilot-chat-markdown-prompt-original copilot-chat-markdown-prompt)
+  (setopt copilot-chat-markdown-prompt (concat my/copilot-chat-markdown-prompt-original "\n出力には日本語を用います")))
 
 (with-eval-after-load 'pretty-hydra
   (pretty-hydra-define copilot-chat-hydra
