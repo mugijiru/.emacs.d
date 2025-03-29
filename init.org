@@ -4742,15 +4742,16 @@ GitHub から直接取得するように設定している。
 
 ここではカーソル移動やファイル移動などのナビゲーション系の設定を記載していく
 
-- [[*ace-window][ace-window]] :: 3つ以上にウインドウを分割している際のウインドウ切替を楽にしてくれるパッケージ
-- [[*avy][avy]] :: 表示されてるところの好きな場所にさくっとジャンプするためのパッケージ
-- [[*browse-at-remote][browse-at-remote]] :: 表示している行の GitHub などのサービス上の位置でブラウザで開いてくれるパッケージ
-- [[*dumb-jump][dumb-jump]] :: カーソル下の関数とかの定義場所にジャンプしてくれるパッケージ
-- [[*projectile][projectile]] :: プロジェクト内のファイルなどを開いたりするのに便利なパッケージ
+- [[id:1049f5b1-827f-445d-abe1-d45c05a792cd][ace-window]] :: 3つ以上にウインドウを分割している際のウインドウ切替を楽にしてくれるパッケージ
+- [[id:78f84004-9a76-46ce-9176-6b0c0721b05e][avy]] :: 表示されてるところの好きな場所にさくっとジャンプするためのパッケージ
+- [[id:b2f7eac2-2438-46fb-94e3-b8ff3ec23691][browse-at-remote]] :: 表示している行の GitHub などのサービス上の位置でブラウザで開いてくれるパッケージ
+- [[id:dd88faa0-4266-4552-8d37-f38597eaf83f][dumb-jump]] :: カーソル下の関数とかの定義場所にジャンプしてくれるパッケージ
+- [[id:5db31aa2-759b-48c6-853c-6dceddfcfc8a][projectile]] :: プロジェクト内のファイルなどを開いたりするのに便利なパッケージ
 
 ** ace-window
 :PROPERTIES:
 :EXPORT_FILE_NAME: ace-window
+:ID:       1049f5b1-827f-445d-abe1-d45c05a792cd
 :END:
 
 *** 概要
@@ -4800,6 +4801,7 @@ ace-window-posfrme-mode を有効にしている
 ** avy
 :PROPERTIES:
 :EXPORT_FILE_NAME: avy
+:ID:       78f84004-9a76-46ce-9176-6b0c0721b05e
 :END:
 
 *** 概要
@@ -4872,6 +4874,7 @@ el-get で普通にインストールしている
 ** browse-at-remote
 :PROPERTIES:
 :EXPORT_FILE_NAME: browse-at-remote
+:ID:       b2f7eac2-2438-46fb-94e3-b8ff3ec23691
 :END:
 
 *** 概要
@@ -4907,6 +4910,7 @@ Hydra でいつでも使えるようにキーバインドを割り当ててい�
 ** dumb-jump
 :PROPERTIES:
 :EXPORT_FILE_NAME: dumb-jump
+:ID:       dd88faa0-4266-4552-8d37-f38597eaf83f
 :END:
 
 *** 概要
@@ -4993,6 +4997,7 @@ pretty-hydra を使ってキーを定義している
 ** projectile
 :PROPERTIES:
 :EXPORT_FILE_NAME: projectile
+:ID:       5db31aa2-759b-48c6-853c-6dceddfcfc8a
 :END:
 
 *** 概要
@@ -6102,7 +6107,7 @@ Rails 開発関係だけど Ruby 開発とはちょっと違う設定をここ�
 :ID:       838c6d03-297f-409f-a18a-549d564f6819
 :END:
 テンプレートエンジンには haml を使っているので [[https://github.com/nex3/haml-mode][haml-mode]] を入れていて
-ファイルナビゲーションには [[*projectile][projectile]] の拡張である [[https://github.com/asok/projectile-rails][projectile-rails]] を利用している。
+ファイルナビゲーションには [[id:5db31aa2-759b-48c6-853c-6dceddfcfc8a][projectile]] の拡張である [[https://github.com/asok/projectile-rails][projectile-rails]] を利用している。
 
 #+begin_src emacs-lisp :tangle inits/41-rails.el
 (el-get-bundle rails-i18n)
