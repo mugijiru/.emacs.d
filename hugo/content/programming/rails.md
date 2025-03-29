@@ -66,6 +66,22 @@ projectile-rails の実装を参考にコマンドを追加している
 ```
 
 
+### FactoryBot files Finder {#factorybot-files-finder}
+
+`spec/factories` に格納している FactoryBot の factory を検索するコマンド。
+FactoryBot はよく使うので用意した
+
+```emacs-lisp
+(defun my/projectile-rails-find-factory ()
+  "Find a FactoryBot file."
+  (interactive)
+  (projectile-rails-find-resource
+   "Factory: "
+   '(("spec/factories/" "\\(.+\\)\\.rb$"))
+   "spec/factories/${filename}.rb"))
+```
+
+
 ### その他 {#その他}
 
 一部公開してない finder は別ファイルに格納しているのでそれを load するようにしている
@@ -120,6 +136,7 @@ projectile-rails の実装を参考にコマンドを追加している
       ("i" projectile-rails-find-initializer "Initializer")
       ("l" projectile-rails-find-lib         "Lib")
       ("p" projectile-rails-find-spec        "Spec")
+      ("F" my/projectile-rails-find-factory  "Factory")
       ("t" projectile-rails-find-locale      "Translation"))
 
      "Single Files"
@@ -163,6 +180,7 @@ projectile-rails の実装を参考にコマンドを追加している
 | i   | config/initializers 以下のファイルを検索する |                                                                                               |
 | l   | lib 以下のファイルを検索する     |                                                                                               |
 | p   | rspec ファイルを検索する         |                                                                                               |
+| F   | FactoryBot の factory ファイルを検索する |                                                                                               |
 | t   | I18n の翻訳ファイルを検索する    |                                                                                               |
 | R   | routes.rb を開く                 |                                                                                               |
 | G   | Gemfile を開く                   |                                                                                               |

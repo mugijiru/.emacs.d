@@ -19,6 +19,14 @@
    '(("app/decorators/" "\\(.+\\.rb\\)$"))
    "app/decorators/${filename}"))
 
+(defun my/projectile-rails-find-factory ()
+  "Find a FactoryBot file."
+  (interactive)
+  (projectile-rails-find-resource
+   "Factory: "
+   '(("spec/factories/" "\\(.+\\)\\.rb$"))
+   "spec/factories/${filename}.rb"))
+
 (my/load-config "projectile-finders")
 
 (with-eval-after-load 'pretty-hydra
@@ -58,6 +66,7 @@
       ("i" projectile-rails-find-initializer "Initializer")
       ("l" projectile-rails-find-lib         "Lib")
       ("p" projectile-rails-find-spec        "Spec")
+      ("F" my/projectile-rails-find-factory  "Factory")
       ("t" projectile-rails-find-locale      "Translation"))
 
      "Single Files"
