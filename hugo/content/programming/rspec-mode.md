@@ -35,3 +35,28 @@ C-c C-c で開いている rspec ファイルのカーソルがある行のテ�
 ```
 
 他にも色々な機能があるのだけどキーバインド未設定なのでこれだけしか使ってない。
+
+
+## lsp-mode の imenu の override を無視する {#lsp-mode-の-imenu-の-override-を無視する}
+
+lsp-mode が有効だと
+`lsp--imenu-create-index` が `imenu-default-create-index-function` を override してしまうため
+rspec-mode で用意されている `imenu-generic-expression` が使われなくなってしまい、
+RSpec のファイルを開いて imenu を表示しようとしても
+context とか describe とかが表示されない。
+
+というわけでその override を無視するようにしている
+
+```emacs-lisp
+(defun my/rspec-imenu-create-index (_symbols)
+  "Ignore LSP mode imenu create index function."
+  (remove-function (local 'imenu-create-index-function) #'lsp--imenu-create-index)
+  (funcall 'imenu-create-index-function)
+  (advice-add 'imenu-create-index-function :override 'lsp--imenu-create-index))
+
+(defun my/rspec-mode-hook ()
+  "set rspec mode hook."
+  (setq-local lsp-imenu-index-function 'my/rspec-imenu-create-index))
+
+(add-hook 'rspec-mode-hook 'my/rspec-mode-hook)
+```
