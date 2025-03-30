@@ -152,6 +152,7 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
     ("B" blamer-mode               "Blamer"         :toggle blamer-mode)
     ("L" display-line-numbers-mode "Line Number"    :toggle display-line-numbers-mode)
     ("M" minimap-mode              "Minimap"        :toggle minimap-mode)
+    ("T" treemacs                  "Treemacs"       :toggle (eq (treemacs-current-visibility) 'visible))
     ("N" neotree-toggle            "Neotree"        :toggle (if (fboundp 'neo-global--window-exists-p) (neo-global--window-exists-p) nil)))
 
    "Mode Line"
@@ -177,6 +178,7 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
 | B   | コード横にそのコードのコミットメッセージを表示するやつを toggle できるようにしている   |
 | L   | 行番号表示の切替。邪魔になる時もあるので ON/OFF 切り替えている                         |
 | M   | minimap の表示切替。普段使ってないから存在忘れるな〜                                   |
+| T   | Treemacs の表示切替。たまには使おうかなって                                            |
 | N   | [Neotree]({{< relref "neotree" >}}) の表示切替。普段は邪魔なので OFF にしている        |
 | w   | 関数名の表示が邪魔になることもありそうなので toggle できるようにしている               |
 | b   | バッテリー表示モードの切替。OFF にしたことないな……                                   |
@@ -297,7 +299,7 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
 
 | Key | 効果                                                                       |
 |-----|--------------------------------------------------------------------------|
-| p   | [Projectile]({{< relref "projectile" >}}) 用の Hydra 起動                  |
+| p   | [projectile]({{< relref "projectile" >}}) 用の Hydra 起動                  |
 | f   | counsel でファイルを開く                                                   |
 | d   | counsel でフォルダ開く                                                     |
 | r   | counsel で最近使ったファイルを開く                                         |
