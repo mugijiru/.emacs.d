@@ -33,6 +33,7 @@
 
      "UI"
      (("M" lsp-ui-imenu                      "imenu")
+      ("E" lsp-treemacs-errors-list          "errors")
       ("V" lsp-ui-flycheck-list              "flycheck list")
       ("X" lsp-ui-peek-find-definitions      "def")
       ("R" lsp-ui-peek-find-references       "refs")
