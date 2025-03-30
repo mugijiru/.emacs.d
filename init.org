@@ -6460,7 +6460,6 @@ lsp-mode から eslint を使うことでやりたいことの対応ができる
 :PROPERTIES:
 :EXPORT_FILE_NAME: rspec-mode
 :END:
-
 *** 概要
 [[https://github.com/pezra/rspec-mode][rspec-mode]] は Emacs で RSpec を実行したりする時に便利なパッケージ。
 といいつつ麦汁さんはちゃんと使いこなしていない……
@@ -6494,6 +6493,28 @@ C-c C-c で開いている rspec ファイルのカーソルがある行のテ�
 (define-key rspec-mode-map (kbd "C-c C-c") 'rspec-verify-single)
 #+end_src
 他にも色々な機能があるのだけどキーバインド未設定なのでこれだけしか使ってない。
+*** lsp-mode の imenu の override を無視する
+lsp-mode が有効だと
+~lsp--imenu-create-index~ が ~imenu-default-create-index-function~ を override してしまうため
+rspec-mode で用意されている ~imenu-generic-expression~ が使われなくなってしまい、
+RSpec のファイルを開いて imenu を表示しようとしても
+context とか describe とかが表示されない。
+
+というわけでその override を無視するようにしている
+
+#+begin_src emacs-lisp :tangle inits/42-rspec.el
+(defun my/rspec-imenu-create-index (_symbols)
+  "Ignore LSP mode imenu create index function."
+  (remove-function (local 'imenu-create-index-function) #'lsp--imenu-create-index)
+  (funcall 'imenu-create-index-function)
+  (advice-add 'imenu-create-index-function :override 'lsp--imenu-create-index))
+
+(defun my/rspec-mode-hook ()
+  "set rspec mode hook."
+  (setq-local lsp-imenu-index-function 'my/rspec-imenu-create-index))
+
+(add-hook 'rspec-mode-hook 'my/rspec-mode-hook)
+#+end_src
 ** ruby
 :PROPERTIES:
 :EXPORT_FILE_NAME: ruby
