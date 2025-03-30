@@ -3391,6 +3391,7 @@ el-get の Hydra はここで定義してしまっている。
     ("B" blamer-mode               "Blamer"         :toggle blamer-mode)
     ("L" display-line-numbers-mode "Line Number"    :toggle display-line-numbers-mode)
     ("M" minimap-mode              "Minimap"        :toggle minimap-mode)
+    ("T" treemacs                  "Treemacs"       :toggle (eq (treemacs-current-visibility) 'visible))
     ("N" neotree-toggle            "Neotree"        :toggle (if (fboundp 'neo-global--window-exists-p) (neo-global--window-exists-p) nil)))
 
    "Mode Line"
@@ -3416,6 +3417,7 @@ el-get の Hydra はここで定義してしまっている。
 | L   | 行番号表示の切替。邪魔になる時もあるので ON/OFF 切り替えている                                    |
 | M   | minimap の表示切替。普段使ってないから存在忘れるな〜                                              |
 | N   | [[*Neotree][Neotree]] の表示切替。普段は邪魔なので OFF にしている                                               |
+| T   | Treemacs の表示切替。たまには使おうかなって                                                       |
 | w   | 関数名の表示が邪魔になることもありそうなので toggle できるようにしている                          |
 | b   | バッテリー表示モードの切替。OFF にしたことないな……                                              |
 | S   | Slack 通知の切替。org-clock-in とかのタイミングで Slack に通知を飛ばしているが切る時もある        |
