@@ -299,7 +299,7 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
 
 | Key | 効果                                                                       |
 |-----|--------------------------------------------------------------------------|
-| p   | [Projectile]({{< relref "projectile" >}}) 用の Hydra 起動                  |
+| p   | [projectile]({{< relref "projectile" >}}) 用の Hydra 起動                  |
 | f   | counsel でファイルを開く                                                   |
 | d   | counsel でフォルダ開く                                                     |
 | r   | counsel で最近使ったファイルを開く                                         |

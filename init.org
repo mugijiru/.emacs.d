@@ -1119,6 +1119,7 @@ el-get と el-get-lock を使った関数を用意している
 ** key-chord
 :PROPERTIES:
 :EXPORT_FILE_NAME: key-chord
+:ID:       d161fd26-199b-4b3c-8c38-43766ef4fab9
 :END:
 *** 概要
 [[https://github.com/emacsorphanage/key-chord][key-chord]] はキーを同時に押した時にコマンドを発動させるということができるようにしてくれるパッケージ。
@@ -2638,6 +2639,7 @@ See URL `https://textlint.github.io/'."
 ** yasnippet
    :PROPERTIES:
    :EXPORT_FILE_NAME: yasnippet
+   :ID:       75c2737a-e8e6-4048-8ebd-9722dd110e41
    :END:
 
 *** 概要
@@ -3410,14 +3412,14 @@ el-get の Hydra はここで定義してしまっている。
 #+end_src
 
 | Key | 効果                                                                                              |
-| z   | [[*zoom][zoom-mode]] のON/OFF切替。狭いディスプレイの時は ON にするが、大きいディスプレイだと OFF にしている |
+| z   | [[id:db6fac56-d7ca-44d6-ac4a-580fd8e069cd][zoom-mode]] のON/OFF切替。狭いディスプレイの時は ON にするが、大きいディスプレイだと OFF にしている |
 | Z   | フルスクリーンの切替。狭いディスプレイの時は ON にするが、大きいディスプレイだと OFF にしている   |
 | e   | 常に絵文字に変換されると厳しい時があるので toggle できるようにしている                            |
 | B   | コード横にそのコードのコミットメッセージを表示するやつを toggle できるようにしている              |
 | L   | 行番号表示の切替。邪魔になる時もあるので ON/OFF 切り替えている                                    |
 | M   | minimap の表示切替。普段使ってないから存在忘れるな〜                                              |
-| N   | [[*Neotree][Neotree]] の表示切替。普段は邪魔なので OFF にしている                                               |
 | T   | Treemacs の表示切替。たまには使おうかなって                                                       |
+| N   | [[id:860d480d-a254-4814-bc93-0e530abf4523][Neotree]] の表示切替。普段は邪魔なので OFF にしている                                               |
 | w   | 関数名の表示が邪魔になることもありそうなので toggle できるようにしている                          |
 | b   | バッテリー表示モードの切替。OFF にしたことないな……                                              |
 | S   | Slack 通知の切替。org-clock-in とかのタイミングで Slack に通知を飛ばしているが切る時もある        |
@@ -3491,7 +3493,7 @@ el-get の Hydra はここで定義してしまっている。
 :ID:       befaa52b-d054-43bd-9445-fca7f5bd8be5
 :END:
 よく使うコマンドをまとめたやつ。
-[[*key-chord][key-chord]] を使って ~jk~ 同時押しで起動できるようにしている。
+[[id:d161fd26-199b-4b3c-8c38-43766ef4fab9][key-chord]] を使って ~jk~ 同時押しで起動できるようにしている。
 
 #+begin_src emacs-lisp :tangle inits/81-hydra.el
 (pretty-hydra-define pretty-hydra-usefull-commands (:separator "-" :color teal :foreign-key warn :title (concat (all-the-icons-material "build") " Usefull commands") :quit-key "q")
@@ -3538,7 +3540,7 @@ el-get の Hydra はここで定義してしまっている。
 #+end_src
 
 | Key | 効果                                                                      |
-| p   | [[*projectile][Projectile]] 用の Hydra 起動                                                |
+| p   | [[id:5db31aa2-759b-48c6-853c-6dceddfcfc8a][projectile]] 用の Hydra 起動                                                |
 | f   | counsel でファイルを開く                                                  |
 | d   | counsel でフォルダ開く                                                    |
 | r   | counsel で最近使ったファイルを開く                                        |
@@ -3546,12 +3548,12 @@ el-get の Hydra はここで定義してしまっている。
 | a   | 正規表現に基いて整形                                                      |
 | ;   | コメント挿入。 M-; を使ってるから要らないかも                             |
 | G   | projectile 内の検索。関係ないのがかかる時もあるので調整必要               |
-| j   | [[*dumb-jump][dumb-jump]] 用の Hydra 起動                                                 |
-| g   | 画面上の好きな位置にジャンプする [[*avy][avy]] の起動                               |
+| j   | [[id:dd88faa0-4266-4552-8d37-f38597eaf83f][dumb-jump]] 用の Hydra 起動                                                 |
+| g   | 画面上の好きな位置にジャンプする [[id:78f84004-9a76-46ce-9176-6b0c0721b05e][avy]] の起動                               |
 | i   | counsel-imenu 起動。使ってない気がする                                    |
-| y   | [[*yasnippet][yasnippet]] 用の Hydra 起動                                                 |
-| B   | [[*browse-at-remote][browse-at-remote]] で GitHub などのコード位置を開く                         |
-| m   | [[*magit][magit]] を起動                                                              |
+| y   | [[id:75c2737a-e8e6-4048-8ebd-9722dd110e41][yasnippet]] 用の Hydra 起動                                                 |
+| B   | [[id:b2f7eac2-2438-46fb-94e3-b8ff3ec23691][browse-at-remote]] で GitHub などのコード位置を開く                         |
+| m   | [[id:8e0d3e97-c1b6-4e23-bd9d-9bc5c1c9b99c][magit]] を起動                                                              |
 | D   | 他の Window を消す                                                        |
 | W   | フレームサイズや位置を弄るための Hydra を起動。ほぼ使ってない             |
 | +   | [[*Text Scale][文字サイズ変更用 Hydra]] の起動                                             |
@@ -4390,6 +4392,7 @@ nerd-icons をインストールしていない場合は ~nerd-icons-install-fon
 ** Neotree                                                      :replacement:
 :PROPERTIES:
 :EXPORT_FILE_NAME: neotree
+:ID:       860d480d-a254-4814-bc93-0e530abf4523
 :END:
 
 *** 概要
@@ -4677,6 +4680,7 @@ Emacs に標準で入ってるので require するだけで有効にできる
 ** zoom
 :PROPERTIES:
 :EXPORT_FILE_NAME: zoom
+:ID:       db6fac56-d7ca-44d6-ac4a-580fd8e069cd
 :END:
 
 *** 概要
@@ -8278,6 +8282,7 @@ popup.el に依存しているのでそれが読まれた後に require しな�
 ** magit
 :PROPERTIES:
 :EXPORT_FILE_NAME: magit
+:ID:       8e0d3e97-c1b6-4e23-bd9d-9bc5c1c9b99c
 :END:
 *** 概要
 [[https://github.com/magit/magit][magit]] は Emacs の上で Git の色々な操作ができるやつ。
