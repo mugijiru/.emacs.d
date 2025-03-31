@@ -29,6 +29,9 @@ disableToc = true
 [git-gutter-fringe]({{< relref "git-gutter-fringe" >}})
 : 最後のコミットからどう弄ったかを fringe 領域に表示してくれるやつ
 
+[keypression]({{< relref "keypression" >}})
+: Emacs 上でのキー操作を可視化してくれるツール。
+
 [highlight-indent-guides]({{< relref "highlight-indent-guides" >}})
 : インデント毎にラインを引いたりして見易くしてくれるやつ
 

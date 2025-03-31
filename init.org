@@ -2724,6 +2724,7 @@ See URL `https://textlint.github.io/'."
 - [[id:fc2448fa-20f2-4cae-a0e6-863c1a4f03b7][frame-cmds]] :: フレーム移動や拡縮などの操作をするコマンド群
 - [[id:98f8106a-30a2-495e-8163-a9800547e58f][fullscreen]] :: 起動時のフルスクリーン設定
 - [[id:6ca20e1f-41bd-42a1-8f7d-7b43649f39a5][git-gutter-fringe]] :: 最後のコミットからどう弄ったかを fringe 領域に表示してくれるやつ
+- [[id:8851fab1-125b-48fc-861f-279cd87a86b0][keypression]] :: Emacs 上でのキー操作を可視化してくれるツール。
 - [[id:2f778f3d-4bdc-4966-8180-5002d23ba36c][highlight-indent-guides]] :: インデント毎にラインを引いたりして見易くしてくれるやつ
 - [[id:816021af-8b84-477d-a30f-4f65ae511756][hydra]] :: サブコマンドをビジュアル的に表示してくれるメニューを提供してくれるやつ
 - [[id:fcfad299-40f5-4a6f-b3e1-7babc4dc00f5][ido-mode]] :: Emacs 標準添付の補完インターフェース
@@ -3155,6 +3156,7 @@ git-gutter ほどではないけど多少のカスタマイズはできるはず
 ** keypression
 :PROPERTIES:
 :EXPORT_FILE_NAME: keypression
+:ID:       8851fab1-125b-48fc-861f-279cd87a86b0
 :END:
 *** 概要
 [[https://github.com/chuntaro/emacs-keypression][keypression]] は Emacs 上でのキー操作を可視化してくれるツール。
