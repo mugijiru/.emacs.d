@@ -12,20 +12,20 @@
     <title>UI :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1743304034" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1743304034" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1743304034" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1743304034" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1743304034" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1743304034" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1743304034" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1743304034" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1743304034" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1743304034" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1743415024" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1743415024" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1743415024" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1743415024" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1743415024" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1743415024" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1743415024" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1743415024" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1743415024" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1743415024" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1743304034"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1743415024"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1743304034"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1743304034"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1743415024"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1743415024"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1743304034"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1743415024"></script>
 
     
   </div>
@@ -3487,12 +3487,16 @@
 <dd>ダークグレーベースのカラーテーマ</dd>
 <dt><a href="/.emacs.d/ui/dashboard/">dashboard</a></dt>
 <dd>Emacs 起動時の表示を便利にしてくれるパッケージ</dd>
+<dt><a href="#embark">embark</a></dt>
+<dd>コンテキストに応じて選択できるコマンドを良い感じに提案するっぽいやつ</dd>
 <dt><a href="/.emacs.d/ui/frame-cmds/">frame-cmds</a></dt>
 <dd>フレーム移動や拡縮などの操作をするコマンド群</dd>
 <dt><a href="/.emacs.d/ui/fullscreen/">fullscreen</a></dt>
 <dd>起動時のフルスクリーン設定</dd>
 <dt><a href="/.emacs.d/ui/git-gutter-fringe/">git-gutter-fringe</a></dt>
 <dd>最後のコミットからどう弄ったかを fringe 領域に表示してくれるやつ</dd>
+<dt><a href="/.emacs.d/ui/keypression/">keypression</a></dt>
+<dd>Emacs 上でのキー操作を可視化してくれるツール。</dd>
 <dt><a href="/.emacs.d/ui/highlight-indent-guides/">highlight-indent-guides</a></dt>
 <dd>インデント毎にラインを引いたりして見易くしてくれるやつ</dd>
 <dt><a href="/.emacs.d/ui/hydra/">hydra</a></dt>
@@ -3501,7 +3505,7 @@
 <dd>Emacs 標準添付の補完インターフェース</dd>
 <dt><a href="/.emacs.d/ui/ivy/">ivy</a></dt>
 <dd>絞り込みインターフェーズを提供してくれるやつ。</dd>
-<dt><a href="#minimap">minimap</a></dt>
+<dt><a href="/.emacs.d/ui/minimap/">minimap</a></dt>
 <dd>ソースコード全体を俯瞰するためのやつ</dd>
 <dt><a href="/.emacs.d/ui/mode-line/">mode-line</a></dt>
 <dd>モードラインに関する設定をここにまとめている</dd>
@@ -5986,19 +5990,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1743304034"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1743304034"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1743304034"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1743304034"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1743304034"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1743304034"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1743415024"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1743415024"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1743415024"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1743415024"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1743415024"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1743415024"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1743304034"></script>
-    <script src="/.emacs.d/js/learn.js?1743304034"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1743304034"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1743415024"></script>
+    <script src="/.emacs.d/js/learn.js?1743415024"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1743415024"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1743304034"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1743415024"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
