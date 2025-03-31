@@ -1,0 +1,6 @@
+( :name emberk
+  :website "https://github.com/oantolin/embark"
+  :description "Conveniently act on minibuffer completions"
+  :type github
+  :pkgname "oantolin/embark"
+  :depends (compat))
