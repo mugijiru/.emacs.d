@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((polymode :checksum "74ba75d4bcfbea959ccc9080a95ab9ef759849f2")
+      '((embark :checksum "d5df0eff182b014ab49328a4dbb1d69eb7faafbd")
+        (polymode :checksum "74ba75d4bcfbea959ccc9080a95ab9ef759849f2")
         (svelte-mode :checksum
                      "5b136e224e01b0358dd0dca68c57b0d0c93099b5")
         (llama :checksum "48e5bc4919a4a29665362832d59ade8e248b0c3e")

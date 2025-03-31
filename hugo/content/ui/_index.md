@@ -20,6 +20,9 @@ disableToc = true
 [dashboard]({{< relref "dashboard" >}})
 : Emacs 起動時の表示を便利にしてくれるパッケージ
 
+[embark]({{< relref "#embark" >}})
+: コンテキストに応じて選択できるコマンドを良い感じに提案するっぽいやつ
+
 [frame-cmds]({{< relref "frame-cmds" >}})
 : フレーム移動や拡縮などの操作をするコマンド群
 
@@ -28,6 +31,9 @@ disableToc = true
 
 [git-gutter-fringe]({{< relref "git-gutter-fringe" >}})
 : 最後のコミットからどう弄ったかを fringe 領域に表示してくれるやつ
+
+[keypression]({{< relref "keypression" >}})
+: Emacs 上でのキー操作を可視化してくれるツール。
 
 [highlight-indent-guides]({{< relref "highlight-indent-guides" >}})
 : インデント毎にラインを引いたりして見易くしてくれるやつ
@@ -41,7 +47,7 @@ disableToc = true
 [ivy]({{< relref "ivy" >}})
 : 絞り込みインターフェーズを提供してくれるやつ。
 
-[minimap]({{< relref "#minimap" >}})
+[minimap]({{< relref "minimap" >}})
 : ソースコード全体を俯瞰するためのやつ
 
 [mode-line]({{< relref "mode-line" >}})
