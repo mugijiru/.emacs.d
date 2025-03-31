@@ -41,7 +41,7 @@ disableToc = true
 [ivy]({{< relref "ivy" >}})
 : 絞り込みインターフェーズを提供してくれるやつ。
 
-[minimap]({{< relref "#minimap" >}})
+[minimap]({{< relref "minimap" >}})
 : ソースコード全体を俯瞰するためのやつ
 
 [mode-line]({{< relref "mode-line" >}})

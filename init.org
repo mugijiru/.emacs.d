@@ -2717,30 +2717,31 @@ See URL `https://textlint.github.io/'."
 
 ここでは Emacs の UI を変更するようなものを載せている
 
-- [[*alert][alert]] :: 共通インターフェースで色々な通知機能と連携して通知するやつ
-- [[*all-the-icons][all-the-icons]] :: Emacs で様々なアイコンを表示できるようにするやつ
-- [[*color-theme-molokai][color-theme-molokai]] :: ダークグレーベースのカラーテーマ
-- [[*dashboard][dashboard]] :: Emacs 起動時の表示を便利にしてくれるパッケージ
-- [[*frame-cmds][frame-cmds]] :: フレーム移動や拡縮などの操作をするコマンド群
-- [[*fullscreen][fullscreen]] :: 起動時のフルスクリーン設定
-- [[*git-gutter-fringe][git-gutter-fringe]] :: 最後のコミットからどう弄ったかを fringe 領域に表示してくれるやつ
-- [[*highlight-indent-guides][highlight-indent-guides]] :: インデント毎にラインを引いたりして見易くしてくれるやつ
-- [[*hydra][hydra]] :: サブコマンドをビジュアル的に表示してくれるメニューを提供してくれるやつ
-- [[*ido-mode][ido-mode]] :: Emacs 標準添付の補完インターフェース
-- [[*ivy][ivy]] :: 絞り込みインターフェーズを提供してくれるやつ。
+- [[id:39a74b47-abe6-4b70-bf3d-e0bc9b5c8699][alert]] :: 共通インターフェースで色々な通知機能と連携して通知するやつ
+- [[id:7a4f961b-905c-43ab-8650-db5c07af522b][all-the-icons]] :: Emacs で様々なアイコンを表示できるようにするやつ
+- [[id:db648851-b38a-412b-958e-f19cb0387ad2][color-theme-molokai]] :: ダークグレーベースのカラーテーマ
+- [[id:82501484-284a-4bf9-8281-e70fa5b70ac9][dashboard]] :: Emacs 起動時の表示を便利にしてくれるパッケージ
+- [[id:fc2448fa-20f2-4cae-a0e6-863c1a4f03b7][frame-cmds]] :: フレーム移動や拡縮などの操作をするコマンド群
+- [[id:98f8106a-30a2-495e-8163-a9800547e58f][fullscreen]] :: 起動時のフルスクリーン設定
+- [[id:6ca20e1f-41bd-42a1-8f7d-7b43649f39a5][git-gutter-fringe]] :: 最後のコミットからどう弄ったかを fringe 領域に表示してくれるやつ
+- [[id:2f778f3d-4bdc-4966-8180-5002d23ba36c][highlight-indent-guides]] :: インデント毎にラインを引いたりして見易くしてくれるやつ
+- [[id:816021af-8b84-477d-a30f-4f65ae511756][hydra]] :: サブコマンドをビジュアル的に表示してくれるメニューを提供してくれるやつ
+- [[id:fcfad299-40f5-4a6f-b3e1-7babc4dc00f5][ido-mode]] :: Emacs 標準添付の補完インターフェース
+- [[id:6d6a67b2-b18f-4253-98ae-fc5fca740525][ivy]] :: 絞り込みインターフェーズを提供してくれるやつ。
 - [[id:909f18fe-b48d-41cd-b328-3675fbf66f7c][minimap]] :: ソースコード全体を俯瞰するためのやつ
-- [[*mode-line][mode-line]] :: モードラインに関する設定をここにまとめている
-- [[*Neotree][Neotree]] :: フォルダ構造を IDE みたいにツリー表示するやつ
-- [[*posframe][posframe]] :: いい感じの位置に child frame を表示する機能を提供するやつ
-- [[*show-paren-mode][show-paren-mode]] :: 対応するカッコとコッカをハイライトしてくれたりするやつ
-- [[*toolbar][toolbar]] :: Emacs 標準のボタンなどの UI 部分の設定
-- [[*uniquify][uniquify]] :: 同名ファイルを開いている時にどこのファイルかまで表示してくれるやつ
-- [[*yascroll][yascroll]] :: 主張の大人しいスクロールバーを表示してくれるやつ
-- [[*zoom][zoom]] :: フォーカスが当たってるウインドウを大きく表示してくれるやつ
-- [[*zoom-window][zoom-window]] :: 見ている window を最大化したり戻したりしてくれるやつ
+- [[id:25611c17-8657-4004-b321-568824e05a7e][mode-line]] :: モードラインに関する設定をここにまとめている
+- [[id:860d480d-a254-4814-bc93-0e530abf4523][Neotree]] :: フォルダ構造を IDE みたいにツリー表示するやつ
+- [[id:3418dc21-9630-4710-8a5c-5b6bc0910ddd][posframe]] :: いい感じの位置に child frame を表示する機能を提供するやつ
+- [[id:8c48a9a5-1946-4f08-9127-47747fc6affa][show-paren-mode]] :: 対応するカッコとコッカをハイライトしてくれたりするやつ
+- [[id:dc3d4551-9b49-4ccd-b80e-6c2d41e5488e][toolbar]] :: Emacs 標準のボタンなどの UI 部分の設定
+- [[id:62f97971-f5f5-4901-b9a6-6383cb5734f2][uniquify]] :: 同名ファイルを開いている時にどこのファイルかまで表示してくれるやつ
+- [[id:f34dd82d-4824-40ea-beb4-7cf0ca9a1969][yascroll]] :: 主張の大人しいスクロールバーを表示してくれるやつ
+- [[id:db6fac56-d7ca-44d6-ac4a-580fd8e069cd][zoom]] :: フォーカスが当たってるウインドウを大きく表示してくれるやつ
+- [[id:0c97de56-7c3d-4755-81fe-050118187e7a][zoom-window]] :: 見ている window を最大化したり戻したりしてくれるやつ
 ** alert
 :PROPERTIES:
 :EXPORT_FILE_NAME: alert
+:ID:       39a74b47-abe6-4b70-bf3d-e0bc9b5c8699
 :END:
 *** 概要
 [[https://github.com/jwiegley/alert][alert]] は色々な通知システムに対応した通知を飛ばせるパッケージ。
@@ -2781,6 +2782,7 @@ Linux だと libnotify だったりを使って
 ** all-the-icons
 :PROPERTIES:
 :EXPORT_FILE_NAME: all-the-icons
+:ID:       7a4f961b-905c-43ab-8650-db5c07af522b
 :END:
 
 *** 概要
@@ -2850,6 +2852,7 @@ pretty-hydra を使って all-the-icons 用の Hydra を用意している。
 ** color-theme-molokai
 :PROPERTIES:
 :EXPORT_FILE_NAME: color-theme-molokai
+:ID:       db648851-b38a-412b-958e-f19cb0387ad2
 :END:
 *** 概要
 [[https://github.com/sonatard/color-theme-molokai][color-theme-molokai]] は
@@ -2906,6 +2909,7 @@ el-get のレシピを自前で用意している
 ** dashboard
 :PROPERTIES:
 :EXPORT_FILE_NAME: dashboard
+:ID:       82501484-284a-4bf9-8281-e70fa5b70ac9
 :END:
 *** 概要
 [[https://github.com/emacs-dashboard/emacs-dashboard][emacs-dashboard]] は
@@ -2996,6 +3000,7 @@ agenda などは表示する内容を絞ったりした方が dashboard とし�
 ** frame-cmds
 :PROPERTIES:
 :EXPORT_FILE_NAME: frame-cmds
+:ID:       fc2448fa-20f2-4cae-a0e6-863c1a4f03b7
 :END:
 *** 概要
 [[https://www.emacswiki.org/emacs/frame-cmds.el][frame-cmds]] は Emacs のフレーム操作に関するコマンド集。
@@ -3066,6 +3071,7 @@ agenda などは表示する内容を絞ったりした方が dashboard とし�
 ** fullscreen
 :PROPERTIES:
 :EXPORT_FILE_NAME: fullscreen
+:ID:       98f8106a-30a2-495e-8163-a9800547e58f
 :END:
 *** 概要
 起動時にフルスクリーンにする設定はここにまとめている
@@ -3105,6 +3111,7 @@ https://w.atwiki.jp/ntemacs/pages/69.html
 ** git-gutter-fringe                                            :improvement:
 :PROPERTIES:
 :EXPORT_FILE_NAME: git-gutter-fringe
+:ID:       6ca20e1f-41bd-42a1-8f7d-7b43649f39a5
 :END:
 
 *** 概要
@@ -3234,6 +3241,7 @@ custom-set-variables で設定した方がいいかもしれない。
 ** hydra
 :PROPERTIES:
 :EXPORT_FILE_NAME: hydra
+:ID:       816021af-8b84-477d-a30f-4f65ae511756
 :END:
 
 *** 概要
@@ -3571,6 +3579,7 @@ el-get の Hydra はここで定義してしまっている。
 ** ido-mode
 :PROPERTIES:
 :EXPORT_FILE_NAME: ido-mode
+:ID:       fcfad299-40f5-4a6f-b3e1-7babc4dc00f5
 :END:
 *** 概要
 Emacs に標準添付の補完インターフェース。
@@ -3607,6 +3616,7 @@ https://qiita.com/tadsan/items/33ebb8db2271897a462b に書いていることだ�
 ** ivy
 :PROPERTIES:
 :EXPORT_FILE_NAME: ivy
+:ID:       6d6a67b2-b18f-4253-98ae-fc5fca740525
 :END:
 *** 概要
 *** インストール
@@ -4115,6 +4125,7 @@ el-get 本体にレシピが存在するのでそのまま ~el-get-bundle~ で�
 ** mode-line
 :PROPERTIES:
 :EXPORT_FILE_NAME: mode-line
+:ID:       25611c17-8657-4004-b321-568824e05a7e
 :END:
 *** 概要
 Emacs のバッファ下部に表示されるモードライン関連の設定をここにまとめている。
@@ -4524,6 +4535,7 @@ all-the-icons の設定で上書きしている気がするので要確認
 ** posframe
 :PROPERTIES:
 :EXPORT_FILE_NAME: posframe
+:ID:       3418dc21-9630-4710-8a5c-5b6bc0910ddd
 :END:
 *** 概要
 
@@ -4557,6 +4569,7 @@ ivy なんかを使う時に [[https://github.com/tumashu/ivy-posframe][ivy-posf
 ** show-paren-mode
 :PROPERTIES:
 :EXPORT_FILE_NAME: show-paren-mode
+:ID:       8c48a9a5-1946-4f08-9127-47747fc6affa
 :END:
 
 *** 概要
@@ -4590,6 +4603,7 @@ Emacs 標準機能の方が軽そうなのでとりあえずこのままにす�
 ** toolbar
 :PROPERTIES:
 :EXPORT_FILE_NAME: toolbar
+:ID:       dc3d4551-9b49-4ccd-b80e-6c2d41e5488e
 :END:
 
 *** 概要
@@ -4614,10 +4628,10 @@ Emacs 標準の toolbar の設定。
 (menu-bar-mode -1)
 #+end_src
 
-
 ** uniquify
 :PROPERTIES:
 :EXPORT_FILE_NAME: uniquify
+:ID:       62f97971-f5f5-4901-b9a6-6383cb5734f2
 :END:
 
 *** 概要
@@ -4653,6 +4667,7 @@ Emacs に標準で入ってるので require するだけで有効にできる
 ** yascroll
 :PROPERTIES:
 :EXPORT_FILE_NAME: yascroll
+:ID:       f34dd82d-4824-40ea-beb4-7cf0ca9a1969
 :END:
 *** 概要
 [[https://github.com/emacsorphanage/yascroll][yascroll]] は標準のスクロールバーとは異なるスクロールバーを表示するやつ。
@@ -4728,6 +4743,7 @@ GitHub から直接取得するように設定している。
 ** zoom-window
 :PROPERTIES:
 :EXPORT_FILE_NAME: zoom-window
+:ID:       0c97de56-7c3d-4755-81fe-050118187e7a
 :END:
 
 *** 概要
