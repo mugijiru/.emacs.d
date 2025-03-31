@@ -2721,6 +2721,7 @@ See URL `https://textlint.github.io/'."
 - [[id:7a4f961b-905c-43ab-8650-db5c07af522b][all-the-icons]] :: Emacs で様々なアイコンを表示できるようにするやつ
 - [[id:db648851-b38a-412b-958e-f19cb0387ad2][color-theme-molokai]] :: ダークグレーベースのカラーテーマ
 - [[id:82501484-284a-4bf9-8281-e70fa5b70ac9][dashboard]] :: Emacs 起動時の表示を便利にしてくれるパッケージ
+- [[id:4c2cc27d-e423-4056-b7d2-fdaef852ccc6][embark]] :: コンテキストに応じて選択できるコマンドを良い感じに提案するっぽいやつ
 - [[id:fc2448fa-20f2-4cae-a0e6-863c1a4f03b7][frame-cmds]] :: フレーム移動や拡縮などの操作をするコマンド群
 - [[id:98f8106a-30a2-495e-8163-a9800547e58f][fullscreen]] :: 起動時のフルスクリーン設定
 - [[id:6ca20e1f-41bd-42a1-8f7d-7b43649f39a5][git-gutter-fringe]] :: 最後のコミットからどう弄ったかを fringe 領域に表示してくれるやつ
@@ -2997,7 +2998,44 @@ Emacs の bookmarks と register は使ってない(使えてない)のでコメ
 *** その他
 agenda などは表示する内容を絞ったりした方が dashboard として使い勝手が良さそう。
 今日の会議何があるとかが出ると便利かもね。
+** embark
+:PROPERTIES:
+:ID:       4c2cc27d-e423-4056-b7d2-fdaef852ccc6
+:EXPORT_FILE_NAME: embark
+:END:
+*** 概要
+[[https://github.com/oantolin/embark][Embark]] は操作コンテキストに応じたコマンドを教えてくれるツール。
+また expand-region のように選択しているコンテキストを広げてくれる機能もある
+*** インストール
+el-get にはレシピがないので自前で定義している
 
+#+begin_src emacs-lisp :tangle recipes/embark.rcp
+( :name emberk
+  :website "https://github.com/oantolin/embark"
+  :description "Conveniently act on minibuffer completions"
+  :type github
+  :pkgname "oantolin/embark"
+  :depends (compat))
+#+end_src
+
+依存関係が少なくて良いですね。
+
+で、これを ~el-get-bundle~ でインストールしている
+#+begin_src emacs-lisp :tangle inits/50-embark.el
+(el-get-bundle embark)
+#+end_src
+
+*** 設定
+
+ひとまず Embark が起動している時に ~?~ を叩いたら
+help が出るようにしている。
+というか ivy を導入しているので、これで ivy の絞り込みインターフェースが起動するようになっている。
+
+#+begin_src emacs-lisp :tangle inits/50-embark.el
+(setopt embark-help-key "?")
+#+end_src
+
+まだ導入して試している段階なのでこれ以上は設定していない
 ** frame-cmds
 :PROPERTIES:
 :EXPORT_FILE_NAME: frame-cmds

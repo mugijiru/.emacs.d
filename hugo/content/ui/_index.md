@@ -20,6 +20,9 @@ disableToc = true
 [dashboard]({{< relref "dashboard" >}})
 : Emacs 起動時の表示を便利にしてくれるパッケージ
 
+[embark]({{< relref "#embark" >}})
+: コンテキストに応じて選択できるコマンドを良い感じに提案するっぽいやつ
+
 [frame-cmds]({{< relref "frame-cmds" >}})
 : フレーム移動や拡縮などの操作をするコマンド群
 
