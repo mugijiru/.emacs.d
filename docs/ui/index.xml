@@ -36,6 +36,13 @@
       <description>概要 emacs-dashboard は Emacs の起動時に色々な情報を表示してくれるパッケージ。&#xA;インストール el-get のレシピは自前で用意している&#xA;(:name dashboard :type github :description &amp;#34;A startup screen extracted from Spacemacs&amp;#34; :pkgname &amp;#34;emacs-dashboard/emacs-dashboard&amp;#34; :depends (page-break-lines) :minimum-emacs-version (25 3)) そして el-get-bundle で入れている&#xA;(el-get-bundle dashboard) 表示するアイコンをロゴに変更 ロゴ、画像にした方がカッコいいよねってことで logo に変更している&#xA;(setq dashboard-startup-banner &amp;#39;logo) なお CUI で起動すると自動でテキストでの表示になる&#xA;表示する情報の設定 dashboard-items を弄ることで表示する情報を設定している&#xA;(setq dashboard-items &amp;#39;((recents . 5) ;; (bookmarks . 5) ;; bookmarks は使ってない (projects . 5) (agenda . 5) ;; (registers . 5) ;; registers は使ってない )) Emacs の bookmarks と register は使ってない(使えてない)のでコメントアウトしている。</description>
     </item>
     <item>
+      <title>embark</title>
+      <link>https://mugijiru.github.io/.emacs.d/ui/embark/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mugijiru.github.io/.emacs.d/ui/embark/</guid>
+      <description>概要 Embark は操作コンテキストに応じたコマンドを教えてくれるツール。また expand-region のように選択しているコンテキストを広げてくれる機能もある&#xA;インストール el-get にはレシピがないので自前で定義している&#xA;( :name emberk :website &amp;#34;https://github.com/oantolin/embark&amp;#34; :description &amp;#34;Conveniently act on minibuffer completions&amp;#34; :type github :pkgname &amp;#34;oantolin/embark&amp;#34; :depends (compat)) 依存関係が少なくて良いですね。&#xA;で、これを el-get-bundle でインストールしている&#xA;(el-get-bundle embark) 設定 ひとまず Embark が起動している時に ? を叩いたら help が出るようにしている。というか ivy を導入しているので、これで ivy の絞り込みインターフェースが起動するようになっている。&#xA;(setopt embark-help-key &amp;#34;?&amp;#34;) まだ導入して試している段階なのでこれ以上は設定していない</description>
+    </item>
+    <item>
       <title>frame-cmds</title>
       <link>https://mugijiru.github.io/.emacs.d/ui/frame-cmds/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

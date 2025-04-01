@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>Unused :: 麦汁&#39;s Emacs Config</title>
+    <title>embark :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1743487920" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/tags/unused/">
+  <body class="" data-url="/.emacs.d/ui/embark/">
     <nav id="sidebar" class="">
 
 
@@ -1055,7 +1055,7 @@
   
     
     <li data-nav-id="/.emacs.d/ui/" title="UI" class="dd-item
-        
+        parent
         
         
         ">
@@ -1165,7 +1165,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/ui/embark/" title="embark" class="dd-item ">
+      <li data-nav-id="/.emacs.d/ui/embark/" title="embark" class="dd-item active">
         <a href="/.emacs.d/ui/embark/">
         embark
         
@@ -3476,7 +3476,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/tags/'>Tags</a> > Unused
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/ui/'>UI</a> > embark
           
         
           
@@ -3489,7 +3489,13 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a></li>
+    <li><a href="#インストール">インストール</a></li>
+    <li><a href="#設定">設定</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -3505,32 +3511,34 @@
           
             <h1>
               
-                tag ::
-              
-              Unused
+              embark
             </h1>
           
 
         
 
 
+<h2 id="概要">概要</h2>
+<p><a href="https://github.com/oantolin/embark">Embark</a> は操作コンテキストに応じたコマンドを教えてくれるツール。また expand-region のように選択しているコンテキストを広げてくれる機能もある</p>
+<h2 id="インストール">インストール</h2>
+<p>el-get にはレシピがないので自前で定義している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>( :name emberk
+</span></span><span style="display:flex;"><span>  :website <span style="color:#e6db74">&#34;https://github.com/oantolin/embark&#34;</span>
+</span></span><span style="display:flex;"><span>  :description <span style="color:#e6db74">&#34;Conveniently act on minibuffer completions&#34;</span>
+</span></span><span style="display:flex;"><span>  :type github
+</span></span><span style="display:flex;"><span>  :pkgname <span style="color:#e6db74">&#34;oantolin/embark&#34;</span>
+</span></span><span style="display:flex;"><span>  :depends (compat))
+</span></span></code></pre></div><p>依存関係が少なくて良いですね。</p>
+<p>で、これを <code>el-get-bundle</code> でインストールしている</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle embark)
+</span></span></code></pre></div><h2 id="設定">設定</h2>
+<p>ひとまず Embark が起動している時に <code>?</code> を叩いたら
+help が出るようにしている。というか ivy を導入しているので、これで ivy の絞り込みインターフェースが起動するようになっている。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setopt embark-help-key <span style="color:#e6db74">&#34;?&#34;</span>)
+</span></span></code></pre></div><p>まだ導入して試している段階なのでこれ以上は設定していない</p>
 
 
-
-<ul>
-	
-		<li><a href="/.emacs.d/testing-tool/mocker-el/">mocker.el</a></li>
-	
-		<li><a href="/.emacs.d/org-mode/org-ql/">org-ql</a></li>
-	
-		<li><a href="/.emacs.d/org-mode/nippou/">日報用の設定(旧)</a></li>
-	
-		<li><a href="/.emacs.d/external-tool/browse-url/">ブラウザ設定</a></li>
-	
-</ul>
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -4256,6 +4264,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -4268,6 +4277,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -4333,6 +4345,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -4348,6 +4361,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -5988,8 +6004,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/.emacs.d/ui/dashboard/" title="dashboard"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/.emacs.d/basics/" title="基本設定" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/.emacs.d/ui/frame-cmds/" title="frame-cmds" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -6021,3 +6039,4 @@
 
   </body>
 </html>
+

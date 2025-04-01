@@ -351,6 +351,13 @@
       <description>概要 w3m という和製のテキストブラウザを Emacs 上で使うためのパッケージ。つまり w3m 自体もインストールしておく必要がある。&#xA;インストール emacs-w3m は el-get で入れられるので以下のようにして入れている&#xA;(el-get-bundle emacs-w3m) フィルタ emacs-w3m には w3m-filter という機能がある。これは表示するページの HTML を加工してくれるフィルタでつまり余計な要素を削除したり、別の HTML 要素に置き換えたりできる機能。&#xA;一般的なウェブページはテキストブラウザで見ると画面上部の方にメニュー類が大量に表示されてコンテンツ本体に辿り着くまでにたくさんスクロールするハメになるのでそういう部分をさくっと消したりするのに使うと便利。&#xA;といいつつ、私が今のところ自前で設定しているのは るりまサーチ の検索結果ページぐらいですが。&#xA;まず、るりまサーチの検索結果ページのフィルタを関数として定義しているその際 w3m-filter-delete-regions や w3m-filter-replace-regex といった便利なマクロが用意されているのでそれを活用している&#xA;以下はいくつかのメニュー項目を非表示にするフィルタである&#xA;(defun w3m-filter-rurema (url) (goto-char (point-min)) (let ((deletions &amp;#39;((&amp;#34;&amp;lt;div class=\&amp;#34;description\&amp;#34;&amp;gt;&amp;#34; . &amp;#34;&amp;lt;/div&amp;gt;&amp;#34;) (&amp;#34;&amp;lt;div class=\&amp;#34;version-select\&amp;#34;&amp;gt;&amp;#34; . &amp;#34;&amp;lt;/div&amp;gt;&amp;#34;) (&amp;#34;&amp;lt;div class=\&amp;#34;topic-path\&amp;#34;&amp;gt;&amp;#34; . &amp;#34;&amp;lt;/div&amp;gt;&amp;#34;) (&amp;#34;&amp;lt;div class=\&amp;#34;drilldown list-box\&amp;#34;&amp;gt;&amp;#34; . &amp;#34;&amp;lt;/div&amp;gt;&amp;#34;)))) (dolist (deletion deletions) (let ((begin-regex (car deletion)) (end-regex (cdr deletion))) (w3m-filter-delete-regions url begin-regex end-regex))))) そしてそれを以下のように w3m-filter-configuration に追加している</description>
     </item>
     <item>
+      <title>embark</title>
+      <link>https://mugijiru.github.io/.emacs.d/ui/embark/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mugijiru.github.io/.emacs.d/ui/embark/</guid>
+      <description>概要 Embark は操作コンテキストに応じたコマンドを教えてくれるツール。また expand-region のように選択しているコンテキストを広げてくれる機能もある&#xA;インストール el-get にはレシピがないので自前で定義している&#xA;( :name emberk :website &amp;#34;https://github.com/oantolin/embark&amp;#34; :description &amp;#34;Conveniently act on minibuffer completions&amp;#34; :type github :pkgname &amp;#34;oantolin/embark&amp;#34; :depends (compat)) 依存関係が少なくて良いですね。&#xA;で、これを el-get-bundle でインストールしている&#xA;(el-get-bundle embark) 設定 ひとまず Embark が起動している時に ? を叩いたら help が出るようにしている。というか ivy を導入しているので、これで ivy の絞り込みインターフェースが起動するようになっている。&#xA;(setopt embark-help-key &amp;#34;?&amp;#34;) まだ導入して試している段階なのでこれ以上は設定していない</description>
+    </item>
+    <item>
       <title>Ember.js</title>
       <link>https://mugijiru.github.io/.emacs.d/programming/ember-js/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
