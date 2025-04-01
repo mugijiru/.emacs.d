@@ -47,7 +47,7 @@
                      "e7f317f1b284853b6df4dfd37ab7715b248e0ebd")
         (mistty :checksum "9730f84cde9a6d7f553a72a075727fcba8145b89")
         (key-chord :checksum
-                   "fc75b1451759121601110da8ddfadcf5156318af")
+                   "cb646e815c61f253ad9fdfbe058049dda4e2b32b")
         (minimap :checksum "8bc9a65825925a7c58b83ad389f07a93f22d60f3")
         (org-protocol-capture-html :checksum
                                    "08a2aed1bbeb935ef62b2ebc06037202fd8ddcb1")
