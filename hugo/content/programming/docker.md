@@ -18,7 +18,18 @@ Docker の管理をしたり Dockerfile を書いたりするための設定を�
 
 ### インストール {#インストール}
 
-el-get 本体にレシピがあるので `el-get-bundle` でインストール
+el-get 本体にレシピがあるけどブランチ指定がされていなくて私が使ってる自動更新 PR を作る仕組みとは相性が悪いので自前で recipe を用意している
+
+```emacs-lisp
+(:name docker
+       :description "Manage docker images & containers from Emacs"
+       :type github
+       :pkgname "Silex/docker.el"
+       :minimum-emacs-version "26.1"
+       :depends (emacs-aio dash s tablist transient))
+```
+
+そしてそれを `el-get-bundle` でインストールしている
 
 ```emacs-lisp
 (el-get-bundle docker)
