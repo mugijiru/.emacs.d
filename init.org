@@ -5354,6 +5354,7 @@ el-get 本体にレシピがあるけどブランチ指定がされていなく�
        :description "Manage docker images & containers from Emacs"
        :type github
        :pkgname "Silex/docker.el"
+       :branch "main"
        :minimum-emacs-version "26.1"
        :depends (emacs-aio dash s tablist transient))
 #+end_src
