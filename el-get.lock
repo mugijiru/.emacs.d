@@ -247,7 +247,7 @@
         (git-gutter-fringe :checksum
                            "648cb5b57faec55711803cdc9434e55a733c3eba")
         (google-this :checksum
-                     "8a2e3ca5da6a8c89bfe99a21486c6c7db125dc84")
+                     "abdcb565503844e2146de42ab5ba898e90a2bb09")
         (haml-mode :checksum
                    "a64d58df8f098f858c6c11fa1629a90969f9c7e8")
         (handlebars-mode :checksum
