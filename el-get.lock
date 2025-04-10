@@ -81,7 +81,7 @@
                         "a397507d8bb41e4aa6b97994f1d7512e78d3dee3")
         (dockerfile-mode :checksum
                          "8135740bfc6ad96ab82d39d9fe68dbce56180f4c")
-        (origami :checksum "2a882820f3f3925c3d9e6eb91ab5ee5dea082a57")
+        (origami :checksum "878b55c0071d14de9e01b132026759c853f783d5")
         (company-posframe :checksum
                           "18d6641bba72cba3c00018cee737ea8b454f64a8")
         (nerd-icons :checksum
