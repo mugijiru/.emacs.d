@@ -29,7 +29,7 @@
                      "6ac08cebafb9e04b825ed22d82269ff69cc5f87f")
         (emacs-oauth2-auto :checksum
                            "ff9a45e27621aad5b1a2e12a09b01f3e4eaecf96")
-        (docker :checksum "46b597a711492e1c19d1260951f39372450278f5")
+        (docker :checksum "3bea08f1d221ef9aefd9c05954423175a42d8a7e")
         (emacs-aio :checksum
                    "da93523e235529fa97d6f251319d9e1d6fc24a41")
         (bundler :checksum "43efb6be4ed118b06d787ce7fbcffd68a31732a7")
