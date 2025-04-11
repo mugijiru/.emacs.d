@@ -8,6 +8,13 @@
     <language>ja-JP</language>
     <atom:link href="https://mugijiru.github.io/.emacs.d/external-tool/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>aidermacs</title>
+      <link>https://mugijiru.github.io/.emacs.d/external-tool/aidermacs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mugijiru.github.io/.emacs.d/external-tool/aidermacs/</guid>
+      <description>概要 aidermacs は Emacs 上で Aider とやりとりするためのパッケージ。 Aider は AI ペアプロをするためのツールで、それとのやりとりを Emacs 上でできるようにしてくれるやつ&#xA;インストール el-get にはレシピがないので自前で用意している&#xA;( :name aidermacs :website &amp;#34;https://github.com/MatthewZMD/aidermacs&amp;#34; :description &amp;#34;AI Pair Programming in Emacs&amp;#34; :type github :pkgname &amp;#34;MatthewZMD/aidermacs&amp;#34; :branch &amp;#34;main&amp;#34;) そして el-get-bundle でインストールしている&#xA;(el-get-bundle aidermacs) 設定 今はひとまず Gemini を使っているので環境変数に Gemini の API キーをセットしつつモデルの指定を行っている&#xA;(setenv &amp;#34;GEMINI_API_KEY&amp;#34; (funcall (plist-get (nth 0 (auth-source-search :host &amp;#34;gemini&amp;#34; :max 1)) :secret))) (setopt aidermacs-default-model &amp;#34;gemini-2.5-pro&amp;#34;) </description>
+    </item>
+    <item>
       <title>blamer.el</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/blamer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

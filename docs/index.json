@@ -231,6 +231,13 @@
 	"content": "概要 Window 間の移動を ace-jump や avy のように表示されてる文字の Window に移動するやつ。\nWindow が2分割の時は文字も出ないで別の Window に移動してくれる。\nC-x o にデフォルトで設定されている other-window は別の window に順番に移動するコマンドなので大量に分割していると移動がしんどいのだが ace-window を使うと起動して 1 ストロークで移動できるので C-x o をデフォルトの other-window から ace-window そのまま置き換えても便利に使える。\nインストール いつも通り el-get でインストールしている。\n(el-get-bundle ace-window) 設定 キーバインドは別の箇所で定義しているが C-x o で ace-window が起動するようにしている。\nまた Hydra からは ace-swap-window が起動できるようにしている。\nace-window には色々な機能があるからそれ用の Hydra を別途定義してもいいかもしれない。\nace-window 起動時に選択可能な数字が各 buffer の中央にいい感じに表示されるようにするため ace-window-posfrme-mode を有効にしている\n(with-eval-after-load \u0026#39;ace-window (ace-window-posframe-mode t)) "
 },
 {
+	"uri": "https://mugijiru.github.io/.emacs.d/external-tool/aidermacs/",
+	"title": "aidermacs",
+	"tags": [],
+	"description": "",
+	"content": "概要 aidermacs は Emacs 上で Aider とやりとりするためのパッケージ。 Aider は AI ペアプロをするためのツールで、それとのやりとりを Emacs 上でできるようにしてくれるやつ\nインストール el-get にはレシピがないので自前で用意している\n( :name aidermacs :website \u0026#34;https://github.com/MatthewZMD/aidermacs\u0026#34; :description \u0026#34;AI Pair Programming in Emacs\u0026#34; :type github :pkgname \u0026#34;MatthewZMD/aidermacs\u0026#34; :branch \u0026#34;main\u0026#34;) そして el-get-bundle でインストールしている\n(el-get-bundle aidermacs) 設定 今はひとまず Gemini を使っているので環境変数に Gemini の API キーをセットしつつモデルの指定を行っている\n(setenv \u0026#34;GEMINI_API_KEY\u0026#34; (funcall (plist-get (nth 0 (auth-source-search :host \u0026#34;gemini\u0026#34; :max 1)) :secret))) (setopt aidermacs-default-model \u0026#34;gemini-2.5-pro\u0026#34;) "
+},
+{
 	"uri": "https://mugijiru.github.io/.emacs.d/ui/alert/",
 	"title": "alert",
 	"tags": [],
