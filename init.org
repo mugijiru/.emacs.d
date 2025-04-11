@@ -7650,6 +7650,7 @@ yaml-ts-mode はインデント周りの挙動が気に入らないので
 
 ここでは外部のサービスや外部コマンド連携するようなやつをまとめています
 
+- [[id:f4971222-a485-42ab-9035-26c5724a64ff][aidermacs]] :: AI とのペアプロをするためのツールと連携するやつ
 - [[id:448067b2-3791-4cf7-b3bc-016efb494569][blamer.el]] :: 最後のコミット情報を表示してくれる便利なやつ
 - [[id:3bede284-b3db-45ad-9f49-ce31ec47ce6f][calibredb]] :: 電子書籍管理ツール [[https://calibre-ebook.com/][Calibre]] のデータを Emacs から操作するためのパッケージ
 - [[id:93c58f71-7db1-40d7-b706-dd5868c29da0][chatgpt-shell]] :: OpenAI の ChatGPT とか Google の Gemini とかとやりとりするためのパッケージ
@@ -7671,6 +7672,42 @@ yaml-ts-mode はインデント周りの挙動が気に入らないので
 - [[*twmode][twmode]] :: Emacs 上で動く Twitter クライアント
 - [[id:9c9bff02-7627-44ae-9868-e1310ff19294][wakatime-mode]] :: Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ
 - [[*ブラウザ設定][ブラウザ設定]] :: ブラウザ連携周りの設定
+** aidermacs
+:PROPERTIES:
+:ID:       f4971222-a485-42ab-9035-26c5724a64ff
+:EXPORT_FILE_NAME: aidermacs
+:END:
+*** 概要
+[[https://github.com/MatthewZMD/aidermacs][aidermacs]] は Emacs 上で [[https://github.com/Aider-AI/aider][Aider]] とやりとりするためのパッケージ。
+Aider は AI ペアプロをするためのツールで、それとのやりとりを Emacs 上でできるようにしてくれるやつ
+*** インストール
+el-get にはレシピがないので自前で用意している
+
+#+begin_src emacs-lisp :tangle recipes/aidermacs.rcp
+( :name aidermacs
+  :website "https://github.com/MatthewZMD/aidermacs"
+  :description "AI Pair Programming in Emacs"
+  :type github
+  :pkgname "MatthewZMD/aidermacs"
+  :branch "main")
+#+end_src
+
+そして ~el-get-bundle~ でインストールしている
+
+#+begin_src emacs-lisp :tangle inits/50-aidermacs.el
+(el-get-bundle aidermacs)
+#+end_src
+*** 設定
+今はひとまず Gemini を使っているので
+環境変数に Gemini の API キーをセットしつつ
+モデルの指定を行っている
+
+#+begin_src emacs-lisp :tangle inits/50-aidermacs.el
+(setenv "GEMINI_API_KEY"
+        (funcall (plist-get (nth 0 (auth-source-search :host "gemini" :max 1)) :secret)))
+
+(setopt aidermacs-default-model "gemini-2.5-pro")
+#+end_src
 ** blamer.el
 :PROPERTIES:
 :EXPORT_FILE_NAME: blamer

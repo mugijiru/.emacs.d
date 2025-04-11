@@ -1,0 +1,6 @@
+( :name aidermacs
+  :website "https://github.com/MatthewZMD/aidermacs"
+  :description "AI Pair Programming in Emacs"
+  :type github
+  :pkgname "MatthewZMD/aidermacs"
+  :branch "main")
