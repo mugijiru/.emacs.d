@@ -12,14 +12,14 @@ React.js を書くための設定をここにまとめている
 
 Debug Adapter Protocol をサポートするモード。入れておいた方がきっとデバッグしやすいんだろうということで入れている。
 
-その際に el-get のレシピは自前で用意している。また 2025/03/15 現在はエラーが発生するので fork 版を利用している。
+その際に el-get のレシピは自前で用意している
 
 ```emacs-lisp
 (:name dap-mode
        :description "Debug Adapter Protocol mode"
        :website "https://github.com/emacs-lsp/dap-mode"
        :type github
-       :pkgname "Gleek/dap-mode"
+       :pkgname "emacs-lsp/dap-mode"
        :depends (bui dash f lsp-mode lsp-treemacs tree-mode posframe s lsp-docker))
 ```
 
