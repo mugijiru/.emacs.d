@@ -63,7 +63,7 @@
         (esxml :checksum "225693096a587492d76bf696d1f0c25c61f7d531")
         (kv :checksum "721148475bce38a70e0b678ba8aa923652e8900e")
         (calibredb :checksum
-                   "64c211a461177e675b01be2eeb28526e50a8df6f")
+                   "40a16be1391e526c0a96e6eda3ba6bd44778e5d8")
         (git-modes :checksum
                    "f99010bbeb8b6d8a0819fac0195a2ef0159d08f0")
         (ob-graphql :checksum
