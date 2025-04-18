@@ -19,6 +19,7 @@ MELPA には登録してないし el-get にもレシピを登録していない
        :type github
        :branch "main"
        :pkgname "mugijiru/emacs-kibela"
+       :compile "\\.el$"
        :depends (graphql request markdown-mode))
 ```
 
@@ -36,11 +37,11 @@ MELPA には登録してないし el-get にもレシピを登録していない
 ```emacs-lisp
 (custom-set-variables
  '(kibela-auth-list `(("Work"
-                        ,(plist-get (nth 0 (auth-source-search :host "emacs-kibela-work")) :team)
-                        ,(funcall (plist-get (nth 0 (auth-source-search :host "emacs-kibela-work" :max 1)) :secret)))
-                       ("Private"
-                        ,(plist-get (nth 0 (auth-source-search :host "emacs-kibela-private")) :team)
-                        ,(funcall (plist-get (nth 0 (auth-source-search :host "emacs-kibela-private" :max 1)) :secret))))))
+                       ,(plist-get (nth 0 (auth-source-search :host "emacs-kibela-work")) :team)
+                       ,(funcall (plist-get (nth 0 (auth-source-search :host "emacs-kibela-work" :max 1)) :secret)))
+                      ("Private"
+                       ,(plist-get (nth 0 (auth-source-search :host "emacs-kibela-private")) :team)
+                       ,(funcall (plist-get (nth 0 (auth-source-search :host "emacs-kibela-private" :max 1)) :secret))))))
 ```
 
 
@@ -58,9 +59,9 @@ ivy-kibela-recent で最近投稿された記事を拾って
 kibela-note-show でバッファを開く"
   (interactive)
   (ivy-kibela-recent (lambda (title)
-                     (let ((id (get-text-property 0 'id title)))
-                       (if id
-                           (kibela-note-show id))))))
+                       (let ((id (get-text-property 0 'id title)))
+                         (if id
+                             (kibela-note-show id))))))
 ```
 
 
