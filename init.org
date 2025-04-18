@@ -7936,6 +7936,7 @@ MELPA には登録してないし el-get にもレシピを登録していない
        :type github
        :branch "main"
        :pkgname "mugijiru/emacs-kibela"
+       :compile "\\.el$"
        :depends (graphql request markdown-mode))
 #+end_src
 
