@@ -12,20 +12,20 @@
     <title>emacs-kibela :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1744520074" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1744520074" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1744520074" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1744520074" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1744520074" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1744520074" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1744520074" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1744520074" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1744520074" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1744520074" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1744937367" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1744937367" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1744937367" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1744937367" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1744937367" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1744937367" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1744937367" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1744937367" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1744937367" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1744937367" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1744520074"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1744937367"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1744520074"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1744520074"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1744937367"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1744937367"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1744520074"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1744937367"></script>
 
     
   </div>
@@ -3551,6 +3551,7 @@
 </span></span><span style="display:flex;"><span>       :type github
 </span></span><span style="display:flex;"><span>       :branch <span style="color:#e6db74">&#34;main&#34;</span>
 </span></span><span style="display:flex;"><span>       :pkgname <span style="color:#e6db74">&#34;mugijiru/emacs-kibela&#34;</span>
+</span></span><span style="display:flex;"><span>       :compile <span style="color:#e6db74">&#34;\\.el$&#34;</span>
 </span></span><span style="display:flex;"><span>       :depends (graphql request markdown-mode))
 </span></span></code></pre></div><p>そして <code>el-get-bundle</code> でインストールしている</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle emacs-kibela)
@@ -3558,11 +3559,11 @@
 <p>.authinfo.gpg に認証情報を突っ込んでいるのでそこから認証情報を拾って来て set している</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(custom-set-variables
 </span></span><span style="display:flex;"><span> <span style="color:#f92672">&#39;</span>(kibela-auth-list <span style="color:#f92672">`</span>((<span style="color:#e6db74">&#34;Work&#34;</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">,</span>(<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;emacs-kibela-work&#34;</span>)) :team)
-</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">,</span>(<span style="color:#a6e22e">funcall</span> (<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;emacs-kibela-work&#34;</span> :max <span style="color:#ae81ff">1</span>)) :secret)))
-</span></span><span style="display:flex;"><span>                       (<span style="color:#e6db74">&#34;Private&#34;</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">,</span>(<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;emacs-kibela-private&#34;</span>)) :team)
-</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">,</span>(<span style="color:#a6e22e">funcall</span> (<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;emacs-kibela-private&#34;</span> :max <span style="color:#ae81ff">1</span>)) :secret))))))
+</span></span><span style="display:flex;"><span>                       <span style="color:#f92672">,</span>(<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;emacs-kibela-work&#34;</span>)) :team)
+</span></span><span style="display:flex;"><span>                       <span style="color:#f92672">,</span>(<span style="color:#a6e22e">funcall</span> (<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;emacs-kibela-work&#34;</span> :max <span style="color:#ae81ff">1</span>)) :secret)))
+</span></span><span style="display:flex;"><span>                      (<span style="color:#e6db74">&#34;Private&#34;</span>
+</span></span><span style="display:flex;"><span>                       <span style="color:#f92672">,</span>(<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;emacs-kibela-private&#34;</span>)) :team)
+</span></span><span style="display:flex;"><span>                       <span style="color:#f92672">,</span>(<span style="color:#a6e22e">funcall</span> (<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;emacs-kibela-private&#34;</span> :max <span style="color:#ae81ff">1</span>)) :secret))))))
 </span></span></code></pre></div><h2 id="自前の関数">自前の関数</h2>
 <p><a href="https://github.com/mugijiru/ivy-kibela/">ivy-kibela</a> と連携して、最近投稿された記事を Emacs の中で開くためのコマンドを用意している。</p>
 <p>もしかしたら emacs-kibela か ivy-kibela のどちらかで
@@ -3573,9 +3574,9 @@ featurep を使って有効無効を切り分けて実装すべきかも</p>
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">kibela-note-show でバッファを開く&#34;</span>
 </span></span><span style="display:flex;"><span>  (interactive)
 </span></span><span style="display:flex;"><span>  (ivy-kibela-recent (lambda (title)
-</span></span><span style="display:flex;"><span>                     (let ((id (<span style="color:#a6e22e">get-text-property</span> <span style="color:#ae81ff">0</span> <span style="color:#e6db74">&#39;id</span> title)))
-</span></span><span style="display:flex;"><span>                       (if id
-</span></span><span style="display:flex;"><span>                           (kibela-note-show id))))))
+</span></span><span style="display:flex;"><span>                       (let ((id (<span style="color:#a6e22e">get-text-property</span> <span style="color:#ae81ff">0</span> <span style="color:#e6db74">&#39;id</span> title)))
+</span></span><span style="display:flex;"><span>                         (if id
+</span></span><span style="display:flex;"><span>                             (kibela-note-show id))))))
 </span></span></code></pre></div><h2 id="キーバインド">キーバインド</h2>
 <p>各コマンドは Hydra で起動するように設定している。しれっと ivy-kibela のコマンドも混ぜちゃってるけど、使う分にはこの方がやりやすい。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(pretty-hydra-define kibela-hydra (:separator <span style="color:#e6db74">&#34;-&#34;</span> :title <span style="color:#e6db74">&#34;Kibela&#34;</span> :foreign-key <span style="color:#a6e22e">warn</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :exit <span style="color:#66d9ef">t</span>)
@@ -6088,19 +6089,19 @@ featurep を使って有効無効を切り分けて実装すべきかも</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1744520074"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1744520074"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1744520074"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1744520074"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1744520074"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1744520074"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1744937367"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1744937367"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1744937367"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1744937367"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1744937367"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1744937367"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1744520074"></script>
-    <script src="/.emacs.d/js/learn.js?1744520074"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1744520074"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1744937367"></script>
+    <script src="/.emacs.d/js/learn.js?1744937367"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1744937367"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1744520074"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1744937367"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
