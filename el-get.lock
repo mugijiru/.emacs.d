@@ -222,7 +222,7 @@
                            "88ca3858dad69ffb19a6aff48111ae4bb67c8980")
         (deferred :checksum "2239671d94b38d92e9b28d4e12fd79814cfb9c16")
         (doom-modeline :checksum
-                       "2a359eba37036341f236537da4eb3e587bda2834")
+                       "75dc662c5c2183bf25e47c6c5268ddbb819e1b40")
         (el-get-lock :checksum
                      "df8cfe55441695865a64b97946750b6413a40425")
         (eldoc-eval :checksum
