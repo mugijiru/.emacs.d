@@ -12,20 +12,20 @@
     <title>org-mode 関係の keybinds :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1745280814" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1745280814" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1745280814" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1745280814" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1745280814" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1745280814" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1745280814" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1745280814" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1745280814" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1745280814" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1745282407" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1745282407" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1745282407" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1745282407" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1745282407" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1745282407" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1745282407" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1745282407" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1745282407" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1745282407" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1745280814"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1745282407"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1745280814"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1745280814"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1745282407"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1745282407"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1745280814"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1745282407"></script>
 
     
   </div>
@@ -3548,7 +3548,9 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;major-mode-hydra</span>
 </span></span><span style="display:flex;"><span>  (major-mode-hydra-define org-mode (:separator <span style="color:#e6db74">&#34;-&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :title (<span style="color:#a6e22e">concat</span> (all-the-icons-fileicon <span style="color:#e6db74">&#34;org&#34;</span>) <span style="color:#e6db74">&#34; Org commands&#34;</span>))
 </span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;Navigation&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;H&#34;</span> counsel-outline <span style="color:#e6db74">&#34;Outline&#34;</span>))
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;H&#34;</span> counsel-outline        <span style="color:#e6db74">&#34;Outline&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;B&#34;</span> org-mark-ring-goto     <span style="color:#e6db74">&#34;Back link&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;,&#34;</span> org-cycle-agenda-files <span style="color:#e6db74">&#34;Agenda Cycle&#34;</span>))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Insert&#34;</span>
 </span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;l&#34;</span> org-insert-link                     <span style="color:#e6db74">&#34;Link&#34;</span>)
@@ -3562,26 +3564,25 @@
 </span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Edit&#34;</span>
 </span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;a&#34;</span> org-archive-subtree  <span style="color:#e6db74">&#34;Archive&#34;</span>)
 </span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;r&#34;</span> org-refile           <span style="color:#e6db74">&#34;Refile&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;e&#34;</span> org-edit-special     <span style="color:#e6db74">&#34;Edit&#34;</span>)
 </span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;Q&#34;</span> org-set-tags-command <span style="color:#e6db74">&#34;Tag&#34;</span>))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;View&#34;</span>
 </span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;N&#34;</span> org-toggle-narrow-to-subtree <span style="color:#e6db74">&#34;Toggle Subtree&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;C&#34;</span> org-columns <span style="color:#e6db74">&#34;Columns&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;O&#34;</span> org-global-cycle <span style="color:#e6db74">&#34;Toggle open&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;C&#34;</span> org-columns                  <span style="color:#e6db74">&#34;Columns&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;O&#34;</span> org-global-cycle             <span style="color:#e6db74">&#34;Toggle open&#34;</span>)
 </span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;D&#34;</span> my/org-clock-toggle-display  <span style="color:#e6db74">&#34;Toggle Display&#34;</span>))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Task&#34;</span>
 </span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;s&#34;</span> org-schedule         <span style="color:#e6db74">&#34;Schedule&#34;</span>)
 </span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;d&#34;</span> org-deadline         <span style="color:#e6db74">&#34;Deadline&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;t&#34;</span> my/org-todo          <span style="color:#e6db74">&#34;Change state&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;c&#34;</span> org-toggle-checkbox  <span style="color:#e6db74">&#34;Toggle checkbox&#34;</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Clock&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;i&#34;</span> org-clock-in      <span style="color:#e6db74">&#34;In&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;o&#34;</span> org-clock-out     <span style="color:#e6db74">&#34;Out&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;E&#34;</span> org-set-effort    <span style="color:#e6db74">&#34;Effort&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;R&#34;</span> org-clock-report  <span style="color:#e6db74">&#34;Report&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;p&#34;</span> org-pomodoro      <span style="color:#e6db74">&#34;Pomodoro&#34;</span>))
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;t&#34;</span> my/org-todo          <span style="color:#e6db74">&#34;TODO state&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;c&#34;</span> org-toggle-checkbox  <span style="color:#e6db74">&#34;Toggle checkbox&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;I&#34;</span> org-clock-in         <span style="color:#e6db74">&#34;Clock In&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;O&#34;</span> org-clock-out        <span style="color:#e6db74">&#34;Clock Out&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;E&#34;</span> org-set-effort       <span style="color:#e6db74">&#34;Effort&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;R&#34;</span> org-clock-report     <span style="color:#e6db74">&#34;Report&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;p&#34;</span> org-pomodoro         <span style="color:#e6db74">&#34;Pomodoro&#34;</span>))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Babel&#34;</span>
 </span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;e&#34;</span> org-babel-confirm-evaluate <span style="color:#e6db74">&#34;Eval&#34;</span>)
@@ -3591,10 +3592,7 @@
 </span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;K&#34;</span> org-trello-mode <span style="color:#e6db74">&#34;On/Off&#34;</span> :toggle org-trello-mode)
 </span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;k&#34;</span> (if org-trello-mode
 </span></span><span style="display:flex;"><span>               (org-trello-hydra/body)
-</span></span><span style="display:flex;"><span>             (<span style="color:#a6e22e">message</span> <span style="color:#e6db74">&#34;org-trello-mode is not enabled&#34;</span>)) <span style="color:#e6db74">&#34;Menu&#34;</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Agenda&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;,&#34;</span> org-cycle-agenda-files <span style="color:#e6db74">&#34;Cycle&#34;</span>))))
+</span></span><span style="display:flex;"><span>             (<span style="color:#a6e22e">message</span> <span style="color:#e6db74">&#34;org-trello-mode is not enabled&#34;</span>)) <span style="color:#e6db74">&#34;Menu&#34;</span>))))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  (major-mode-hydra-define org-agenda-mode (:separator <span style="color:#e6db74">&#34;-&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :title (<span style="color:#a6e22e">concat</span> (all-the-icons-octicon <span style="color:#e6db74">&#34;calendar&#34;</span>) <span style="color:#e6db74">&#34; Agenda commands&#34;</span>))
 </span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;Edit&#34;</span>
@@ -3625,153 +3623,7 @@
 </span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;e&#34;</span> org-agenda-set-effort   <span style="color:#e6db74">&#34;Set Effort&#34;</span>)
 </span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;g&#34;</span> org-agenda-clock-goto   <span style="color:#e6db74">&#34;Go to&#34;</span>)
 </span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;x&#34;</span> org-agenda-clock-cancel <span style="color:#e6db74">&#34;Cancel&#34;</span>)))))
-</span></span></code></pre></div><table>
-<thead>
-<tr>
-<th>Key</th>
-<th>効果</th>
-<th>使用頻度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>l</td>
-<td>リンク挿入</td>
-<td>C-c C-l で手が馴染んでるのでたまに使う程度</td>
-</tr>
-<tr>
-<td>T</td>
-<td>TODO ヘッドライン挿入</td>
-<td>なんかあまり使わない</td>
-</tr>
-<tr>
-<td>h</td>
-<td>ヘッドライン挿入</td>
-<td>これも C-RET で慣れてるので使ってない</td>
-</tr>
-<tr>
-<td>P</td>
-<td>プロパティ設定</td>
-<td>よく使う</td>
-</tr>
-<tr>
-<td>.</td>
-<td>タイムスタンプ挿入</td>
-<td>使ってない。使い慣れると便利かも</td>
-</tr>
-<tr>
-<td>!</td>
-<td>アジェンダのエントリに反映されないタイムスタンプ挿入</td>
-<td>使ってない。こっちも慣れると便利かも?</td>
-</tr>
-<tr>
-<td>S</td>
-<td>&lt;s TAB とかのテンプレートの挿入</td>
-<td>使ってないなあ。慣れたら便利かも</td>
-</tr>
-<tr>
-<td>a</td>
-<td>サブツリーをアーカイブ</td>
-<td>よく使う</td>
-</tr>
-<tr>
-<td>r</td>
-<td>サブツリーの移動(refile)</td>
-<td>よく使う</td>
-</tr>
-<tr>
-<td>Q</td>
-<td>タグ設定</td>
-<td>時々使う。C-c C-q の方が使うか</td>
-</tr>
-<tr>
-<td>N</td>
-<td>カーソル位置のサブツリーのみ表示</td>
-<td>使ってない。そのツリーだけに集中することがないのかも</td>
-</tr>
-<tr>
-<td>C</td>
-<td>カラム表示。ツリー内の時間などを合計して表示できる</td>
-<td>たまに使う。</td>
-</tr>
-<tr>
-<td>D</td>
-<td>各ツリーでそれぞれの掛かった時間を表示</td>
-<td>使ってない。存在忘れてた</td>
-</tr>
-<tr>
-<td>s</td>
-<td>スケジュール設定</td>
-<td>C-c C-s をよく使う</td>
-</tr>
-<tr>
-<td>d</td>
-<td>締め切り設定</td>
-<td>C-c C-d をよく使う</td>
-</tr>
-<tr>
-<td>t</td>
-<td>TODO ステータス変更</td>
-<td>同じ効果である C-c C-t と同じぐらい使う</td>
-</tr>
-<tr>
-<td>c</td>
-<td>チェックボックスの切替</td>
-<td>使うけどチェックボックスの行だけ使えればいいよなとか思う</td>
-</tr>
-<tr>
-<td>i</td>
-<td>Clock In</td>
-<td>よく使う。標準的なキーバインドは忘れた。</td>
-</tr>
-<tr>
-<td>o</td>
-<td>Clock Out</td>
-<td>よく使う。標準的なキーバインドは忘れた。</td>
-</tr>
-<tr>
-<td>E</td>
-<td>見積時間の挿入</td>
-<td>まあまあ使う。設定して予実差の確認はできてない</td>
-</tr>
-<tr>
-<td>R</td>
-<td>org-clock のレポート挿入</td>
-<td>一応毎日の稼動をこれで記録している</td>
-</tr>
-<tr>
-<td>p</td>
-<td>ポモドーロタイマーの開始</td>
-<td>ポモドーロテクニック使えてないでござる</td>
-</tr>
-<tr>
-<td>e</td>
-<td>org-babel のコード片を実行</td>
-<td>C-c C-c しか使ってない気がするお</td>
-</tr>
-<tr>
-<td>x</td>
-<td>tangle でファイル出力</td>
-<td>最近多用している</td>
-</tr>
-<tr>
-<td>K</td>
-<td>org-trello-mode の切替</td>
-<td>最近使ってない。trello 連携してないバッファでは要らんしな</td>
-</tr>
-<tr>
-<td>k</td>
-<td>org-trello-mode 用の Hydra 起動</td>
-<td>同上</td>
-</tr>
-<tr>
-<td>,</td>
-<td>agenda ファイルの移動</td>
-<td>いつも固定のファイルを見てるので使ってない。Cycle より直で飛ぶし</td>
-</tr>
-</tbody>
-</table>
-<p>合わせて agenda 用の major-mode-hydra も定義しているが、こちらは情報をまだまとめていない……。</p>
+</span></span></code></pre></div><p>合わせて agenda 用の major-mode-hydra も定義しているが、こちらは情報をまだまとめていない……。</p>
 <h2 id="global-な-hydra">Global な Hydra</h2>
 <p>pretty-hydra を使って Global に使える org-mode のコマンドを叩けるようにしている</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
@@ -6391,19 +6243,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1745280814"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1745280814"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1745280814"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1745280814"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1745280814"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1745280814"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1745282407"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1745282407"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1745282407"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1745282407"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1745282407"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1745282407"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1745280814"></script>
-    <script src="/.emacs.d/js/learn.js?1745280814"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1745280814"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1745282407"></script>
+    <script src="/.emacs.d/js/learn.js?1745282407"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1745282407"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1745280814"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1745282407"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
