@@ -17,6 +17,7 @@
      "Edit"
      (("a" org-archive-subtree  "Archive")
       ("r" org-refile           "Refile")
+      ("e" org-edit-special     "Edit")
       ("Q" org-set-tags-command "Tag"))
 
      "View"
