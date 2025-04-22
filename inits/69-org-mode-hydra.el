@@ -19,8 +19,8 @@
 
      "View"
      (("N" org-toggle-narrow-to-subtree "Toggle Subtree")
-      ("C" org-columns "Columns")
-      ("O" org-global-cycle "Toggle open")
+      ("C" org-columns                  "Columns")
+      ("O" org-global-cycle             "Toggle open")
       ("D" my/org-clock-toggle-display  "Toggle Display"))
 
      "Task"
