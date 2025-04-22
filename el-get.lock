@@ -170,7 +170,7 @@
                         "25e15e41174725600626b8dc13852aced691bd3b")
         (org-pomodoro :checksum
                       "3f5bcfb80d61556d35fc29e5ddb09750df962cc6")
-        (org-ql :checksum "98c62ab0a6c084ae4132110e24d9fe1ace91d363")
+        (org-ql :checksum "4b8330a683c43bb4a2c64ccce8cd5a90c8b174ca")
         (org-super-agenda :checksum
                           "70940f07d80951fa03c17fa6c1131c5ef0a484f6")
         (ts :checksum "552936017cfdec89f7fc20c254ae6b37c3f22c5b")
