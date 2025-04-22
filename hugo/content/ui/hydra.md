@@ -325,3 +325,59 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
 | o   | org-mode 用の Hydra を起動する                                             |
 | e   | el-get 用の Hydra を起動する                                               |
 | t   | [第一階層には入れてないけどまあまあ便利なコマンドを詰めた Hydra](#sub-tools) を起動する |
+
+
+### selecting-hydras {#selecting-hydras}
+
+テキストを選択している時に使うための Hydra を定義している
+
+今のところ org-mode 専用の物と、それ以外の major-mode で使うための物を用意している。
+org-mode 専用のやつは後者のやつに decoration 用のコマンドを追加しているだけである
+
+```emacs-lisp
+(let ((common-heads '("Operation"
+                      (("x" kill-region                       "Cut")
+                       ("w" kill-ring-save                    "Copy")
+                       ("/" google-this-region                "Google")
+                       ("t" google-translate-at-point         "EN => JP")
+                       ("T" google-translate-at-point-reverse "JP => EN"))
+                      "Other"
+                      ((";" pretty-hydra-usefull-commands/body "Usefull commands")
+                       ("M" major-mode-hydra "Major mode")
+                       ("P" projectile-hydra/body "Projectile")))))
+  (eval
+   `(pretty-hydra-define selecting-hydra (:separator "-" :title "Selecting" :quit-key "q" :exit t)
+      (,@common-heads)))
+  (eval `(pretty-hydra-define org-selecting-hydra (:separator "-" :title "Selecting" :quit-key "q" :exit t)
+           (,@(append '("Decoration"
+                        (("*" (org-emphasize ?*)  "Bold")
+                         ("/" (org-emphasize ?/)  "Italic")
+                         ("~" (org-emphasize ?~)  "Code")
+                         ("_" (org-emphasize ?_)  "Underline")
+                         ("=" (org-emphasize ?=)  "Highlight")
+                         ("+" (org-emphasize ?+)  "Strike-through")
+                         ("z" (org-emphasize ?\s) "Remove")))
+                      common-heads)))))
+```
+
+そして人間がどの major-mode かを意識せずに起動できるようにするため
+major-mode を見て自動で判断して起動するコマンドを定義している。
+
+```emacs-lisp
+(defun my/dynamic-selecting-hydra ()
+  (interactive)
+  (cl-case major-mode
+    ('org-mode (org-selecting-hydra/body))
+    ('org-journal-mode (org-selecting-hydra/body))
+    (t (selecting-hydra/body))))
+```
+
+最後に、選択範囲があるかないかでこれを起動するかどうかを判断して切り替えるコマンドを用意している
+
+```emacs-lisp
+(defun my/context-hydra ()
+  (interactive)
+  (if (use-region-p)
+      (my/dynamic-selecting-hydra)
+    (pretty-hydra-usefull-commands/body)))
+```
