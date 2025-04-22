@@ -1602,7 +1602,7 @@ keycohrd は2つのキーを同時押しというキーバインドを実現す�
 めっちゃ使ってる。便利。
 
 #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
-(key-chord-define-global "jk" 'pretty-hydra-usefull-commands/body)
+(key-chord-define-global "jk" 'my/context-hydra)
 #+end_src
 *** yes or no ではなく y or n で質問する
 :PROPERTIES:
@@ -3616,6 +3616,59 @@ el-get の Hydra はここで定義してしまっている。
 | /   | [[*Google 連携][Google 連携用 Hydra]] を起動する                                            |
 | t   | [[*Sub Tools][第一階層には入れてないけどまあまあ便利なコマンドを詰めた Hydra]] を起動する |
 
+**** selecting-hydras
+テキストを選択している時に使うための Hydra を定義している
+
+今のところ org-mode 専用の物と、それ以外の major-mode で使うための物を用意している。
+org-mode 専用のやつは後者のやつに decoration 用のコマンドを追加しているだけである
+
+#+begin_src emacs-lisp :tangle inits/81-hydra.el
+(let ((common-heads '("Operation"
+                      (("x" kill-region                       "Cut")
+                       ("w" kill-ring-save                    "Copy")
+                       ("/" google-this-region                "Google")
+                       ("t" google-translate-at-point         "EN => JP")
+                       ("T" google-translate-at-point-reverse "JP => EN"))
+                      "Other"
+                      ((";" pretty-hydra-usefull-commands/body "Usefull commands")
+                       ("M" major-mode-hydra "Major mode")
+                       ("P" projectile-hydra/body "Projectile")))))
+  (eval
+   `(pretty-hydra-define selecting-hydra (:separator "-" :title "Selecting" :quit-key "q" :exit t)
+      (,@common-heads)))
+  (eval `(pretty-hydra-define org-selecting-hydra (:separator "-" :title "Selecting" :quit-key "q" :exit t)
+           (,@(append '("Decoration"
+                        (("*" (org-emphasize ?*)  "Bold")
+                         ("/" (org-emphasize ?/)  "Italic")
+                         ("~" (org-emphasize ?~)  "Code")
+                         ("_" (org-emphasize ?_)  "Underline")
+                         ("=" (org-emphasize ?=)  "Highlight")
+                         ("+" (org-emphasize ?+)  "Strike-through")
+                         ("z" (org-emphasize ?\s) "Remove")))
+                      common-heads)))))
+#+end_src
+
+そして人間がどの major-mode かを意識せずに起動できるようにするため
+major-mode を見て自動で判断して起動するコマンドを定義している。
+
+#+begin_src emacs-lisp :tangle inits/81-hydra.el
+(defun my/dynamic-selecting-hydra ()
+  (interactive)
+  (cl-case major-mode
+    ('org-mode (org-selecting-hydra/body))
+    ('org-journal-mode (org-selecting-hydra/body))
+    (t (selecting-hydra/body))))
+#+end_src
+
+最後に、選択範囲があるかないかでこれを起動するかどうかを判断して切り替えるコマンドを用意している
+
+#+begin_src emacs-lisp :tangle inits/81-hydra.el
+(defun my/context-hydra ()
+  (interactive)
+  (if (use-region-p)
+      (my/dynamic-selecting-hydra)
+    (pretty-hydra-usefull-commands/body)))
+#+end_src
 ** ido-mode
 :PROPERTIES:
 :EXPORT_FILE_NAME: ido-mode

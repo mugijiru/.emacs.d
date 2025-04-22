@@ -195,7 +195,7 @@ keycohrd は2つのキーを同時押しというキーバインドを実現す�
 とりあえず jk を入力するとグローバルに使いたいコマンドを載せた Hydra が起動するようにしている。めっちゃ使ってる。便利。
 
 ```emacs-lisp
-(key-chord-define-global "jk" 'pretty-hydra-usefull-commands/body)
+(key-chord-define-global "jk" 'my/context-hydra)
 ```
 
 

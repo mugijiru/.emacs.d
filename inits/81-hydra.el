@@ -126,3 +126,40 @@
     ("k"   kibela-hydra/body        "Kibela")
     ("/"   google-pretty-hydra/body "Google")
     ("t"   subtools-hydra/body      "Sub Tools"))))
+
+(let ((common-heads '("Operation"
+                      (("x" kill-region                       "Cut")
+                       ("w" kill-ring-save                    "Copy")
+                       ("/" google-this-region                "Google")
+                       ("t" google-translate-at-point         "EN => JP")
+                       ("T" google-translate-at-point-reverse "JP => EN"))
+                      "Other"
+                      ((";" pretty-hydra-usefull-commands/body "Usefull commands")
+                       ("M" major-mode-hydra "Major mode")
+                       ("P" projectile-hydra/body "Projectile")))))
+  (eval
+   `(pretty-hydra-define selecting-hydra (:separator "-" :title "Selecting" :quit-key "q" :exit t)
+      (,@common-heads)))
+  (eval `(pretty-hydra-define org-selecting-hydra (:separator "-" :title "Selecting" :quit-key "q" :exit t)
+           (,@(append '("Decoration"
+                        (("*" (org-emphasize ?*)  "Bold")
+                         ("/" (org-emphasize ?/)  "Italic")
+                         ("~" (org-emphasize ?~)  "Code")
+                         ("_" (org-emphasize ?_)  "Underline")
+                         ("=" (org-emphasize ?=)  "Highlight")
+                         ("+" (org-emphasize ?+)  "Strike-through")
+                         ("z" (org-emphasize ?\s) "Remove")))
+                      common-heads)))))
+
+(defun my/dynamic-selecting-hydra ()
+  (interactive)
+  (cl-case major-mode
+    ('org-mode (org-selecting-hydra/body))
+    ('org-journal-mode (org-selecting-hydra/body))
+    (t (selecting-hydra/body))))
+
+(defun my/context-hydra ()
+  (interactive)
+  (if (use-region-p)
+      (my/dynamic-selecting-hydra)
+    (pretty-hydra-usefull-commands/body)))
