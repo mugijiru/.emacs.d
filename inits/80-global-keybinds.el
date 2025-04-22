@@ -44,7 +44,7 @@
 (keymap-global-set (concat my/org-mode-prefix-key "c") 'org-capture)
 (keymap-global-set (concat my/org-mode-prefix-key "l") 'org-store-link)
 
-(key-chord-define-global "jk" 'pretty-hydra-usefull-commands/body)
+(key-chord-define-global "jk" 'my/context-hydra)
 
 ;; Don't ask yes or no.
 (defalias 'yes-or-no-p 'y-or-n-p)
