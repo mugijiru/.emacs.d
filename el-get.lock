@@ -103,7 +103,7 @@
                      "e85e3fd9ce216a370be221cf9de1503777ef0088")
         (noflet :checksum "7ae84dc3257637af7334101456dafe1759c6b68a")
         (emacs-kibela :checksum
-                      "77d543cd0e83cef181fb229fe05c3bcdd37ab91d")
+                      "55dd3259984b7f41517d30101849381f62f5611c")
         (which-key :checksum
                    "38d4308d1143b61e4004b6e7a940686784e51500")
         (company-quickhelp :checksum
