@@ -2,6 +2,7 @@
   (major-mode-hydra-define org-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-fileicon "org") " Org commands"))
     ("Navigation"
      (("H" counsel-outline        "Outline")
+      ("B" org-mark-ring-goto     "Back link")
       ("," org-cycle-agenda-files "Agenda Cycle"))
 
      "Insert"
