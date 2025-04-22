@@ -1,7 +1,8 @@
 (with-eval-after-load 'major-mode-hydra
   (major-mode-hydra-define org-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-fileicon "org") " Org commands"))
     ("Navigation"
-     (("H" counsel-outline "Outline"))
+     (("H" counsel-outline        "Outline")
+      ("," org-cycle-agenda-files "Agenda Cycle"))
 
      "Insert"
      (("l" org-insert-link                     "Link")
@@ -42,10 +43,7 @@
      (("K" org-trello-mode "On/Off" :toggle org-trello-mode)
       ("k" (if org-trello-mode
                (org-trello-hydra/body)
-             (message "org-trello-mode is not enabled")) "Menu"))
-
-     "Agenda"
-     (("," org-cycle-agenda-files "Cycle"))))
+             (message "org-trello-mode is not enabled")) "Menu"))))
 
   (major-mode-hydra-define org-agenda-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-octicon "calendar") " Agenda commands"))
     ("Edit"
