@@ -26,15 +26,13 @@
      "Task"
      (("s" org-schedule         "Schedule")
       ("d" org-deadline         "Deadline")
-      ("t" my/org-todo          "Change state")
-      ("c" org-toggle-checkbox  "Toggle checkbox"))
-
-     "Clock"
-     (("i" org-clock-in      "In")
-      ("o" org-clock-out     "Out")
-      ("E" org-set-effort    "Effort")
-      ("R" org-clock-report  "Report")
-      ("p" org-pomodoro      "Pomodoro"))
+      ("t" my/org-todo          "TODO state")
+      ("c" org-toggle-checkbox  "Toggle checkbox")
+      ("I" org-clock-in         "Clock In")
+      ("O" org-clock-out        "Clock Out")
+      ("E" org-set-effort       "Effort")
+      ("R" org-clock-report     "Report")
+      ("p" org-pomodoro         "Pomodoro"))
 
      "Babel"
      (("e" org-babel-confirm-evaluate "Eval")
