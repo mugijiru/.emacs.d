@@ -1,7 +1,9 @@
 (with-eval-after-load 'major-mode-hydra
   (major-mode-hydra-define org-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-fileicon "org") " Org commands"))
     ("Navigation"
-     (("H" counsel-outline "Outline"))
+     (("H" counsel-outline        "Outline")
+      ("B" org-mark-ring-goto     "Back link")
+      ("," org-cycle-agenda-files "Agenda Cycle"))
 
      "Insert"
      (("l" org-insert-link                     "Link")
@@ -15,26 +17,25 @@
      "Edit"
      (("a" org-archive-subtree  "Archive")
       ("r" org-refile           "Refile")
+      ("e" org-edit-special     "Edit")
       ("Q" org-set-tags-command "Tag"))
 
      "View"
      (("N" org-toggle-narrow-to-subtree "Toggle Subtree")
-      ("C" org-columns "Columns")
-      ("O" org-global-cycle "Toggle open")
+      ("C" org-columns                  "Columns")
+      ("O" org-global-cycle             "Toggle open")
       ("D" my/org-clock-toggle-display  "Toggle Display"))
 
      "Task"
      (("s" org-schedule         "Schedule")
       ("d" org-deadline         "Deadline")
-      ("t" my/org-todo          "Change state")
-      ("c" org-toggle-checkbox  "Toggle checkbox"))
-
-     "Clock"
-     (("i" org-clock-in      "In")
-      ("o" org-clock-out     "Out")
-      ("E" org-set-effort    "Effort")
-      ("R" org-clock-report  "Report")
-      ("p" org-pomodoro      "Pomodoro"))
+      ("t" my/org-todo          "TODO state")
+      ("c" org-toggle-checkbox  "Toggle checkbox")
+      ("I" org-clock-in         "Clock In")
+      ("O" org-clock-out        "Clock Out")
+      ("E" org-set-effort       "Effort")
+      ("R" org-clock-report     "Report")
+      ("p" org-pomodoro         "Pomodoro"))
 
      "Babel"
      (("e" org-babel-confirm-evaluate "Eval")
@@ -44,10 +45,7 @@
      (("K" org-trello-mode "On/Off" :toggle org-trello-mode)
       ("k" (if org-trello-mode
                (org-trello-hydra/body)
-             (message "org-trello-mode is not enabled")) "Menu"))
-
-     "Agenda"
-     (("," org-cycle-agenda-files "Cycle"))))
+             (message "org-trello-mode is not enabled")) "Menu"))))
 
   (major-mode-hydra-define org-agenda-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-octicon "calendar") " Agenda commands"))
     ("Edit"

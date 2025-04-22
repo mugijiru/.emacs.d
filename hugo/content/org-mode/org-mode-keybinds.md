@@ -19,7 +19,9 @@ major-mode-hydra で、org-mode のファイルを開いている時によく使
 (with-eval-after-load 'major-mode-hydra
   (major-mode-hydra-define org-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-fileicon "org") " Org commands"))
     ("Navigation"
-     (("H" counsel-outline "Outline"))
+     (("H" counsel-outline        "Outline")
+      ("B" org-mark-ring-goto     "Back link")
+      ("," org-cycle-agenda-files "Agenda Cycle"))
 
      "Insert"
      (("l" org-insert-link                     "Link")
@@ -33,26 +35,25 @@ major-mode-hydra で、org-mode のファイルを開いている時によく使
      "Edit"
      (("a" org-archive-subtree  "Archive")
       ("r" org-refile           "Refile")
+      ("e" org-edit-special     "Edit")
       ("Q" org-set-tags-command "Tag"))
 
      "View"
      (("N" org-toggle-narrow-to-subtree "Toggle Subtree")
-      ("C" org-columns "Columns")
-      ("O" org-global-cycle "Toggle open")
+      ("C" org-columns                  "Columns")
+      ("O" org-global-cycle             "Toggle open")
       ("D" my/org-clock-toggle-display  "Toggle Display"))
 
      "Task"
      (("s" org-schedule         "Schedule")
       ("d" org-deadline         "Deadline")
-      ("t" my/org-todo          "Change state")
-      ("c" org-toggle-checkbox  "Toggle checkbox"))
-
-     "Clock"
-     (("i" org-clock-in      "In")
-      ("o" org-clock-out     "Out")
-      ("E" org-set-effort    "Effort")
-      ("R" org-clock-report  "Report")
-      ("p" org-pomodoro      "Pomodoro"))
+      ("t" my/org-todo          "TODO state")
+      ("c" org-toggle-checkbox  "Toggle checkbox")
+      ("I" org-clock-in         "Clock In")
+      ("O" org-clock-out        "Clock Out")
+      ("E" org-set-effort       "Effort")
+      ("R" org-clock-report     "Report")
+      ("p" org-pomodoro         "Pomodoro"))
 
      "Babel"
      (("e" org-babel-confirm-evaluate "Eval")
@@ -62,10 +63,7 @@ major-mode-hydra で、org-mode のファイルを開いている時によく使
      (("K" org-trello-mode "On/Off" :toggle org-trello-mode)
       ("k" (if org-trello-mode
                (org-trello-hydra/body)
-             (message "org-trello-mode is not enabled")) "Menu"))
-
-     "Agenda"
-     (("," org-cycle-agenda-files "Cycle"))))
+             (message "org-trello-mode is not enabled")) "Menu"))))
 
   (major-mode-hydra-define org-agenda-mode (:separator "-" :quit-key "q" :title (concat (all-the-icons-octicon "calendar") " Agenda commands"))
     ("Edit"
@@ -97,36 +95,6 @@ major-mode-hydra で、org-mode のファイルを開いている時によく使
       ("g" org-agenda-clock-goto   "Go to")
       ("x" org-agenda-clock-cancel "Cancel")))))
 ```
-
-| Key | 効果                        | 使用頻度                            |
-|-----|---------------------------|---------------------------------|
-| l   | リンク挿入                  | C-c C-l で手が馴染んでるのでたまに使う程度 |
-| T   | TODO ヘッドライン挿入       | なんかあまり使わない                |
-| h   | ヘッドライン挿入            | これも C-RET で慣れてるので使ってない |
-| P   | プロパティ設定              | よく使う                            |
-| .   | タイムスタンプ挿入          | 使ってない。使い慣れると便利かも    |
-| !   | アジェンダのエントリに反映されないタイムスタンプ挿入 | 使ってない。こっちも慣れると便利かも? |
-| S   | &lt;s TAB とかのテンプレートの挿入 | 使ってないなあ。慣れたら便利かも    |
-| a   | サブツリーをアーカイブ      | よく使う                            |
-| r   | サブツリーの移動(refile)    | よく使う                            |
-| Q   | タグ設定                    | 時々使う。C-c C-q の方が使うか      |
-| N   | カーソル位置のサブツリーのみ表示 | 使ってない。そのツリーだけに集中することがないのかも |
-| C   | カラム表示。ツリー内の時間などを合計して表示できる | たまに使う。                        |
-| D   | 各ツリーでそれぞれの掛かった時間を表示 | 使ってない。存在忘れてた            |
-| s   | スケジュール設定            | C-c C-s をよく使う                  |
-| d   | 締め切り設定                | C-c C-d をよく使う                  |
-| t   | TODO ステータス変更         | 同じ効果である C-c C-t と同じぐらい使う |
-| c   | チェックボックスの切替      | 使うけどチェックボックスの行だけ使えればいいよなとか思う |
-| i   | Clock In                    | よく使う。標準的なキーバインドは忘れた。 |
-| o   | Clock Out                   | よく使う。標準的なキーバインドは忘れた。 |
-| E   | 見積時間の挿入              | まあまあ使う。設定して予実差の確認はできてない |
-| R   | org-clock のレポート挿入    | 一応毎日の稼動をこれで記録している  |
-| p   | ポモドーロタイマーの開始    | ポモドーロテクニック使えてないでござる |
-| e   | org-babel のコード片を実行  | C-c C-c しか使ってない気がするお    |
-| x   | tangle でファイル出力       | 最近多用している                    |
-| K   | org-trello-mode の切替      | 最近使ってない。trello 連携してないバッファでは要らんしな |
-| k   | org-trello-mode 用の Hydra 起動 | 同上                                |
-| ,   | agenda ファイルの移動       | いつも固定のファイルを見てるので使ってない。Cycle より直で飛ぶし |
 
 合わせて agenda 用の major-mode-hydra も定義しているが、こちらは情報をまだまとめていない……。
 
