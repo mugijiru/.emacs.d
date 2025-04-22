@@ -12,20 +12,20 @@
     <title>hydra :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1744937367" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1744937367" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1744937367" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1744937367" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1744937367" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1744937367" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1744937367" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1744937367" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1744937367" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1744937367" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1745280815" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1745280815" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1745280815" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1745280815" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1745280815" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1745280815" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1745280815" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1745280815" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1745280815" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1745280815" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1744937367"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1745280815"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1744937367"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1744937367"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1745280815"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1745280815"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1744937367"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1745280815"></script>
 
     
   </div>
@@ -3527,6 +3527,7 @@
         <li><a href="#sub-tools">Sub Tools</a></li>
         <li><a href="#text-scale">Text Scale</a></li>
         <li><a href="#main">Main</a></li>
+        <li><a href="#selecting-hydras">selecting-hydras</a></li>
       </ul>
     </li>
   </ul>
@@ -4028,7 +4029,48 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
 </tr>
 </tbody>
 </table>
-
+<h3 id="selecting-hydras">selecting-hydras</h3>
+<p>テキストを選択している時に使うための Hydra を定義している</p>
+<p>今のところ org-mode 専用の物と、それ以外の major-mode で使うための物を用意している。
+org-mode 専用のやつは後者のやつに decoration 用のコマンドを追加しているだけである</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(let ((common-heads <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;Operation&#34;</span>
+</span></span><span style="display:flex;"><span>                      ((<span style="color:#e6db74">&#34;x&#34;</span> kill-region                       <span style="color:#e6db74">&#34;Cut&#34;</span>)
+</span></span><span style="display:flex;"><span>                       (<span style="color:#e6db74">&#34;w&#34;</span> kill-ring-save                    <span style="color:#e6db74">&#34;Copy&#34;</span>)
+</span></span><span style="display:flex;"><span>                       (<span style="color:#e6db74">&#34;/&#34;</span> google-this-region                <span style="color:#e6db74">&#34;Google&#34;</span>)
+</span></span><span style="display:flex;"><span>                       (<span style="color:#e6db74">&#34;t&#34;</span> google-translate-at-point         <span style="color:#e6db74">&#34;EN =&gt; JP&#34;</span>)
+</span></span><span style="display:flex;"><span>                       (<span style="color:#e6db74">&#34;T&#34;</span> google-translate-at-point-reverse <span style="color:#e6db74">&#34;JP =&gt; EN&#34;</span>))
+</span></span><span style="display:flex;"><span>                      <span style="color:#e6db74">&#34;Other&#34;</span>
+</span></span><span style="display:flex;"><span>                      ((<span style="color:#e6db74">&#34;;&#34;</span> pretty-hydra-usefull-commands/body <span style="color:#e6db74">&#34;Usefull commands&#34;</span>)
+</span></span><span style="display:flex;"><span>                       (<span style="color:#e6db74">&#34;M&#34;</span> major-mode-hydra <span style="color:#e6db74">&#34;Major mode&#34;</span>)
+</span></span><span style="display:flex;"><span>                       (<span style="color:#e6db74">&#34;P&#34;</span> projectile-hydra/body <span style="color:#e6db74">&#34;Projectile&#34;</span>)))))
+</span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">eval</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#f92672">`</span>(pretty-hydra-define selecting-hydra (:separator <span style="color:#e6db74">&#34;-&#34;</span> :title <span style="color:#e6db74">&#34;Selecting&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :exit <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#f92672">,@</span>common-heads)))
+</span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">eval</span> <span style="color:#f92672">`</span>(pretty-hydra-define org-selecting-hydra (:separator <span style="color:#e6db74">&#34;-&#34;</span> :title <span style="color:#e6db74">&#34;Selecting&#34;</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :exit <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>           (<span style="color:#f92672">,@</span>(<span style="color:#a6e22e">append</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;Decoration&#34;</span>
+</span></span><span style="display:flex;"><span>                        ((<span style="color:#e6db74">&#34;*&#34;</span> (org-emphasize <span style="color:#e6db74">?*</span>)  <span style="color:#e6db74">&#34;Bold&#34;</span>)
+</span></span><span style="display:flex;"><span>                         (<span style="color:#e6db74">&#34;/&#34;</span> (org-emphasize <span style="color:#e6db74">?/</span>)  <span style="color:#e6db74">&#34;Italic&#34;</span>)
+</span></span><span style="display:flex;"><span>                         (<span style="color:#e6db74">&#34;~&#34;</span> (org-emphasize <span style="color:#e6db74">?~</span>)  <span style="color:#e6db74">&#34;Code&#34;</span>)
+</span></span><span style="display:flex;"><span>                         (<span style="color:#e6db74">&#34;_&#34;</span> (org-emphasize <span style="color:#e6db74">?_</span>)  <span style="color:#e6db74">&#34;Underline&#34;</span>)
+</span></span><span style="display:flex;"><span>                         (<span style="color:#e6db74">&#34;=&#34;</span> (org-emphasize <span style="color:#e6db74">?=</span>)  <span style="color:#e6db74">&#34;Highlight&#34;</span>)
+</span></span><span style="display:flex;"><span>                         (<span style="color:#e6db74">&#34;+&#34;</span> (org-emphasize <span style="color:#e6db74">?+</span>)  <span style="color:#e6db74">&#34;Strike-through&#34;</span>)
+</span></span><span style="display:flex;"><span>                         (<span style="color:#e6db74">&#34;z&#34;</span> (org-emphasize <span style="color:#e6db74">?\s</span>) <span style="color:#e6db74">&#34;Remove&#34;</span>)))
+</span></span><span style="display:flex;"><span>                      common-heads)))))
+</span></span></code></pre></div><p>そして人間がどの major-mode かを意識せずに起動できるようにするため
+major-mode を見て自動で判断して起動するコマンドを定義している。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/dynamic-selecting-hydra ()
+</span></span><span style="display:flex;"><span>  (interactive)
+</span></span><span style="display:flex;"><span>  (cl-case major-mode
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#39;org-mode</span> (org-selecting-hydra/body))
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#39;org-journal-mode</span> (org-selecting-hydra/body))
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">t</span> (selecting-hydra/body))))
+</span></span></code></pre></div><p>最後に、選択範囲があるかないかでこれを起動するかどうかを判断して切り替えるコマンドを用意している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/context-hydra ()
+</span></span><span style="display:flex;"><span>  (interactive)
+</span></span><span style="display:flex;"><span>  (if (use-region-p)
+</span></span><span style="display:flex;"><span>      (my/dynamic-selecting-hydra)
+</span></span><span style="display:flex;"><span>    (pretty-hydra-usefull-commands/body)))
+</span></span></code></pre></div>
 
 <footer class="footline">
 	
@@ -6525,19 +6567,19 @@ el-get の Hydra はここで定義してしまっている。その内 el-get �
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1744937367"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1744937367"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1744937367"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1744937367"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1744937367"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1744937367"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1745280815"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1745280815"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1745280815"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1745280815"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1745280815"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1745280815"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1744937367"></script>
-    <script src="/.emacs.d/js/learn.js?1744937367"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1744937367"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1745280815"></script>
+    <script src="/.emacs.d/js/learn.js?1745280815"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1745280815"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1744937367"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1745280815"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
