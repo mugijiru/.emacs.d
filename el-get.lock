@@ -15,7 +15,7 @@
         (flycheck-eask :checksum
                        "8a7f847466935b5937e93f5ccbd4711812d962a3")
         (eask-mode :checksum
-                   "ad8f049ce3a4ea833abce9dc1c4a8e1c74b438cc")
+                   "490f6c8445bf06a98d139d8c5fbeb4b8e38faca3")
         (eask :checksum "538641281c03e962abffa208df307f0fb85fe824")
         (shell-maker :checksum
                      "db0c2726922657e0891e224ca4a5523be01e55c1")
