@@ -125,7 +125,7 @@
         (git-messenger :checksum
                        "eade986ef529aa2dac6944ad61b18de55cee0b76")
         (lsp-docker :checksum
-                    "3960c73349e5658220f0f48587894ac098e62b97")
+                    "ff41f4a76b640d39dc238bacba7f654c297827fa")
         (ivy-kibela :checksum
                     "bd48bfa2ba2e655b435cf9acd6f09d835afe9b14")
         (graphql :checksum "67237f284f2dfb94f3cfba672ff64a37e1cb860f")
