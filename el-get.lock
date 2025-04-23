@@ -245,7 +245,7 @@
                        "ef4a9c023bae18ec1ddd7265f1f2d6d2e775efdd")
         (ghub :checksum "7467c905cd11199538e96403d1c58ae3b268d852")
         (git-gutter :checksum
-                    "0d8ab98892ee26e2f976883603464d6822189103")
+                    "21b171923baf8d4ae6f662548ebe11b527cf2e7e")
         (git-gutter-fringe :checksum
                            "648cb5b57faec55711803cdc9434e55a733c3eba")
         (google-this :checksum
