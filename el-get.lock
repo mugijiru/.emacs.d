@@ -191,7 +191,7 @@
         (emacs-hide-mode-line :checksum
                               "ddd154f1e04d666cd004bf8212ead8684429350d")
         (highlight-indent-guides :checksum
-                                 "981d5bf904eb444784e0fa3f9b8f256409df5ed8")
+                                 "d3969faba28b942ae3c13e89277c292213813b89")
         (scratch-log :checksum
                      "1168f7f16d36ca0f4ddf2bb98881f8db62cc5dc0")
         (vue-mode :checksum "4853d97ea8d7b2fab7d331d3a8aad18d02b792ad")
