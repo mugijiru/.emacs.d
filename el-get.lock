@@ -172,7 +172,7 @@
                       "3f5bcfb80d61556d35fc29e5ddb09750df962cc6")
         (org-ql :checksum "4b8330a683c43bb4a2c64ccce8cd5a90c8b174ca")
         (org-super-agenda :checksum
-                          "70940f07d80951fa03c17fa6c1131c5ef0a484f6")
+                          "fb20ad9c8a9705aa05d40751682beae2d094e0fe")
         (ts :checksum "552936017cfdec89f7fc20c254ae6b37c3f22c5b")
         (ov :checksum "e2971ad986b6ac441e9849031d34c56c980cf40b")
         (ivy-rich :checksum "aff9b6bd53e0fdcf350ab83c90e64e651b47dba4")
