@@ -12,20 +12,20 @@
     <title>aidermacs :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1745847551" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1745847551" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1745847551" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1745847551" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1745847551" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1745847551" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1745847551" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1745847551" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1745847551" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1745847551" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1745848106" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1745848106" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1745848106" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1745848106" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1745848106" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1745848106" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1745848106" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1745848106" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1745848106" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1745848106" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1745847551"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1745848106"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1745847551"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1745847551"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1745848106"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1745848106"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1745847551"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1745848106"></script>
 
     
   </div>
@@ -3553,9 +3553,13 @@ Aider は AI ペアプロをするためのツールで、それとのやりと�
 </span></span></code></pre></div><p>そして <code>el-get-bundle</code> でインストールしている</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle aidermacs)
 </span></span></code></pre></div><h2 id="設定">設定</h2>
-<p>今はひとまず Gemini を使っているので環境変数に Gemini の API キーをセットしつつモデルの指定を行っている</p>
+<p>今はひとまず Gemini を使っているので環境変数に Gemini や Groq, OpenRouter の API キーを設定してあとデフォルトで使うモデルの指定を行っている。まあモデルはプロジェクト内の .aider.conf.yml でも結局指定するんだけども</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setenv <span style="color:#e6db74">&#34;GEMINI_API_KEY&#34;</span>
 </span></span><span style="display:flex;"><span>        (<span style="color:#a6e22e">funcall</span> (<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;gemini&#34;</span> :max <span style="color:#ae81ff">1</span>)) :secret)))
+</span></span><span style="display:flex;"><span>(setenv <span style="color:#e6db74">&#34;GROQ_API_KEY&#34;</span>
+</span></span><span style="display:flex;"><span>        (<span style="color:#a6e22e">funcall</span> (<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;groqcloud&#34;</span> :max <span style="color:#ae81ff">1</span>)) :secret)))
+</span></span><span style="display:flex;"><span>(setenv <span style="color:#e6db74">&#34;OPENROUTER_API_KEY&#34;</span>
+</span></span><span style="display:flex;"><span>        (<span style="color:#a6e22e">funcall</span> (<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;openrouter&#34;</span> :max <span style="color:#ae81ff">1</span>)) :secret)))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>(setopt aidermacs-default-model <span style="color:#e6db74">&#34;gemini-2.5-pro&#34;</span>)
 </span></span></code></pre></div>
@@ -6052,19 +6056,19 @@ Aider は AI ペアプロをするためのツールで、それとのやりと�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1745847551"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1745847551"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1745847551"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1745847551"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1745847551"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1745847551"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1745848106"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1745848106"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1745848106"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1745848106"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1745848106"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1745848106"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1745847551"></script>
-    <script src="/.emacs.d/js/learn.js?1745847551"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1745847551"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1745848106"></script>
+    <script src="/.emacs.d/js/learn.js?1745848106"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1745848106"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1745847551"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1745848106"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
