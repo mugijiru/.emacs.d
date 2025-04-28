@@ -48,5 +48,7 @@
 
 (key-chord-define-global "jk" 'my/context-hydra)
 
+(key-chord-define-global "mn" 'major-mode-hydra)
+
 ;; Don't ask yes or no.
 (defalias 'yes-or-no-p 'y-or-n-p)

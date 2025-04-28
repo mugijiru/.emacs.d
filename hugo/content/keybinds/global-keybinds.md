@@ -203,6 +203,13 @@ keycohrd は2つのキーを同時押しというキーバインドを実現す�
 (key-chord-define-global "jk" 'my/context-hydra)
 ```
 
+あとは major-mode-hydra もすぐ起動できるようにするために
+`mn` を叩くと起動するようにしている
+
+```emacs-lisp
+(key-chord-define-global "mn" 'major-mode-hydra)
+```
+
 
 ## yes or no ではなく y or n で質問する {#yes-or-no-ではなく-y-or-n-で質問する}
 
