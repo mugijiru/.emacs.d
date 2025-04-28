@@ -31,11 +31,15 @@ el-get にはレシピがないので自前で用意している
 
 ## 設定 {#設定}
 
-今はひとまず Gemini を使っているので環境変数に Gemini の API キーをセットしつつモデルの指定を行っている
+今はひとまず Gemini を使っているので環境変数に Gemini や Groq, OpenRouter の API キーを設定してあとデフォルトで使うモデルの指定を行っている。まあモデルはプロジェクト内の .aider.conf.yml でも結局指定するんだけども
 
 ```emacs-lisp
 (setenv "GEMINI_API_KEY"
         (funcall (plist-get (nth 0 (auth-source-search :host "gemini" :max 1)) :secret)))
+(setenv "GROQ_API_KEY"
+        (funcall (plist-get (nth 0 (auth-source-search :host "groqcloud" :max 1)) :secret)))
+(setenv "OPENROUTER_API_KEY"
+        (funcall (plist-get (nth 0 (auth-source-search :host "openrouter" :max 1)) :secret)))
 
 (setopt aidermacs-default-model "gemini-2.5-pro")
 ```
