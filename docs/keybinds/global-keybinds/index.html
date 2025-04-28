@@ -12,20 +12,20 @@
     <title>グローバルキーバインド :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1745846585" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1745846585" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1745846585" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1745846585" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1745846585" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1745846585" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1745846585" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1745846585" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1745846585" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1745846585" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1745847551" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1745847551" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1745847551" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1745847551" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1745847551" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1745847551" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1745847551" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1745847551" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1745847551" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1745847551" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1745846585"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1745847551"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1745846585"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1745846585"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1745847551"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1745847551"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1745846585"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1745847551"></script>
 
     
   </div>
@@ -3530,6 +3530,7 @@
     <li><a href="#ivy">Ivy</a></li>
     <li><a href="#zoom-window">zoom-window <span class="tag"><span class="unused">unused</span></span></a></li>
     <li><a href="#neotree">neotree <span class="tag"><span class="unused">unused</span></span></a></li>
+    <li><a href="#embark">embark</a></li>
     <li><a href="#org-mode">org-mode <span class="tag"><span class="unused">unused</span></span></a></li>
     <li><a href="#keychord">keychord</a></li>
     <li><a href="#yes-or-no-ではなく-y-or-n-で質問する">yes or no ではなく y or n で質問する</a></li>
@@ -3652,11 +3653,14 @@ window を移動できるようにしている</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(keymap-global-set <span style="color:#e6db74">&#34;C-x 1&#34;</span> <span style="color:#e6db74">&#39;zoom-window-zoom</span>)
 </span></span></code></pre></div><p>実は戻すことがあんまりないので、このキーバインドは戻してもいいかもしれないなと思っていたりする。</p>
 <h2 id="neotree">neotree <span class="tag"><span class="unused">unused</span></span></h2>
-<p>Neotree]] は IDE みたいにファイルツリーを表示を表示するパッケージ。有効にしているとちょっぴりモダンな雰囲気になるぞい。</p>
+<p>Neotree は IDE みたいにファイルツリーを表示を表示するパッケージ。有効にしているとちょっぴりモダンな雰囲気になるぞい。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(keymap-global-set <span style="color:#e6db74">&#34;&lt;f8&gt;&#34;</span> <span style="color:#e6db74">&#39;neotree-toggle</span>)
 </span></span></code></pre></div><p>f8 にバインドしているけど
 Helm でも起動できるようにしているので、こっちの設定は外してもいいかもなとか思っている。</p>
-<h2 id="org-mode">org-mode <span class="tag"><span class="unused">unused</span></span></h2>
+<h2 id="embark">embark</h2>
+<p>まだ活用できてないが Embark 用に <code>C-;</code> を bind した。かつて Helm あたりで使っていたキーバインドだね、なつかしいね。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(keymap-global-set <span style="color:#e6db74">&#34;C-;&#34;</span> <span style="color:#e6db74">&#39;embark-act</span>)
+</span></span></code></pre></div><h2 id="org-mode">org-mode <span class="tag"><span class="unused">unused</span></span></h2>
 <p>みんな大好き org-mode 用にもキーバインドを設定している。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq my/org-mode-prefix-key <span style="color:#e6db74">&#34;C-c o &#34;</span>)
 </span></span><span style="display:flex;"><span>(keymap-global-set (<span style="color:#a6e22e">concat</span> my/org-mode-prefix-key <span style="color:#e6db74">&#34;a&#34;</span>) <span style="color:#e6db74">&#39;org-agenda</span>)
@@ -3667,6 +3671,9 @@ Helm でも起動できるようにしているので、こっちの設定は外
 <p>keycohrd は2つのキーを同時押しというキーバインドを実現するパッケージ。</p>
 <p>とりあえず jk を入力するとグローバルに使いたいコマンドを載せた Hydra が起動するようにしている。めっちゃ使ってる。便利。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(key-chord-define-global <span style="color:#e6db74">&#34;jk&#34;</span> <span style="color:#e6db74">&#39;my/context-hydra</span>)
+</span></span></code></pre></div><p>あとは major-mode-hydra もすぐ起動できるようにするために
+<code>mn</code> を叩くと起動するようにしている</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(key-chord-define-global <span style="color:#e6db74">&#34;mn&#34;</span> <span style="color:#e6db74">&#39;major-mode-hydra</span>)
 </span></span></code></pre></div><h2 id="yes-or-no-ではなく-y-or-n-で質問する">yes or no ではなく y or n で質問する</h2>
 <p>何か質問された時に yes とか入力するのがだるいので
 y だけで済ませられるようにしている。</p>
@@ -6170,19 +6177,19 @@ y だけで済ませられるようにしている。</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1745846585"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1745846585"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1745846585"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1745846585"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1745846585"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1745846585"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1745847551"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1745847551"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1745847551"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1745847551"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1745847551"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1745847551"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1745846585"></script>
-    <script src="/.emacs.d/js/learn.js?1745846585"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1745846585"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1745847551"></script>
+    <script src="/.emacs.d/js/learn.js?1745847551"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1745847551"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1745846585"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1745847551"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
