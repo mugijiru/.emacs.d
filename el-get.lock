@@ -243,7 +243,7 @@
         (forge :checksum "90151ad9310d07f33449fb80800eb628330cdebf")
         (fringe-helper :checksum
                        "ef4a9c023bae18ec1ddd7265f1f2d6d2e775efdd")
-        (ghub :checksum "7467c905cd11199538e96403d1c58ae3b268d852")
+        (ghub :checksum "214a14627f463449e8ad01d1beb172917120e816")
         (git-gutter :checksum
                     "21b171923baf8d4ae6f662548ebe11b527cf2e7e")
         (git-gutter-fringe :checksum
