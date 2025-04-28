@@ -445,7 +445,7 @@
 	"title": "embark",
 	"tags": [],
 	"description": "",
-	"content": "概要 Embark は操作コンテキストに応じたコマンドを教えてくれるツール。また expand-region のように選択しているコンテキストを広げてくれる機能もある\nインストール el-get にはレシピがないので自前で定義している\n( :name emberk :website \u0026#34;https://github.com/oantolin/embark\u0026#34; :description \u0026#34;Conveniently act on minibuffer completions\u0026#34; :type github :pkgname \u0026#34;oantolin/embark\u0026#34; :depends (compat)) 依存関係が少なくて良いですね。\nで、これを el-get-bundle でインストールしている\n(el-get-bundle embark) 設定 ひとまず Embark が起動している時に ? を叩いたら help が出るようにしている。というか ivy を導入しているので、これで ivy の絞り込みインターフェースが起動するようになっている。\n(setopt embark-help-key \u0026#34;?\u0026#34;) まだ導入して試している段階なのでこれ以上は設定していない\n"
+	"content": "概要 Embark は操作コンテキストに応じたコマンドを教えてくれるツール。また expand-region のように選択しているコンテキストを広げてくれる機能もある\nインストール el-get にはレシピがないので自前で定義している\n( :name embark :website \u0026#34;https://github.com/oantolin/embark\u0026#34; :description \u0026#34;Conveniently act on minibuffer completions\u0026#34; :type github :pkgname \u0026#34;oantolin/embark\u0026#34; :depends (compat)) 依存関係が少なくて良いですね。\nで、これを el-get-bundle でインストールしている\n(el-get-bundle embark) 設定 ひとまず Embark が起動している時に ? を叩いたら help が出るようにしている。というか ivy を導入しているので、これで ivy の絞り込みインターフェースが起動するようになっている。\n(setopt embark-help-key \u0026#34;?\u0026#34;) まだ導入して試している段階なのでこれ以上は設定していない\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/programming/ember-js/",
