@@ -1567,7 +1567,7 @@ Helm から乗り換えて今はこちらをメインで使っている。
 :PROPERTIES:
 :ID:       6e2189a7-8dad-4d50-b609-d6a1c29c2d10
 :END:
-Neotree]] は IDE みたいにファイルツリーを表示を表示するパッケージ。
+Neotree は IDE みたいにファイルツリーを表示を表示するパッケージ。
 有効にしているとちょっぴりモダンな雰囲気になるぞい。
 
 #+begin_src emacs-lisp :tangle inits/80-global-keybinds.el

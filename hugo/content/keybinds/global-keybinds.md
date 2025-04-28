@@ -164,7 +164,7 @@ Helm から乗り換えて今はこちらをメインで使っている。基本
 
 ## neotree <span class="tag"><span class="unused">unused</span></span> {#neotree}
 
-Neotree]] は IDE みたいにファイルツリーを表示を表示するパッケージ。有効にしているとちょっぴりモダンな雰囲気になるぞい。
+Neotree は IDE みたいにファイルツリーを表示を表示するパッケージ。有効にしているとちょっぴりモダンな雰囲気になるぞい。
 
 ```emacs-lisp
 (keymap-global-set "<f8>" 'neotree-toggle)
