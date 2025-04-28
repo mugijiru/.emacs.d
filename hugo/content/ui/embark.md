@@ -13,7 +13,7 @@ draft = false
 el-get にはレシピがないので自前で定義している
 
 ```emacs-lisp
-( :name emberk
+( :name embark
   :website "https://github.com/oantolin/embark"
   :description "Conveniently act on minibuffer completions"
   :type github

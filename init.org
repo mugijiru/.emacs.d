@@ -3024,7 +3024,7 @@ agenda などは表示する内容を絞ったりした方が dashboard とし�
 el-get にはレシピがないので自前で定義している
 
 #+begin_src emacs-lisp :tangle recipes/embark.rcp
-( :name emberk
+( :name embark
   :website "https://github.com/oantolin/embark"
   :description "Conveniently act on minibuffer completions"
   :type github
