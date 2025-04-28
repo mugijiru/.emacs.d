@@ -174,6 +174,11 @@ f8 にバインドしているけど
 Helm でも起動できるようにしているので、こっちの設定は外してもいいかもなとか思っている。
 
 
+## embark {#embark}
+
+まだ活用できてないが Embark 用に `C-;` を bind した。かつて Helm あたりで使っていたキーバインドだね、なつかしいね。
+
+
 ## org-mode <span class="tag"><span class="unused">unused</span></span> {#org-mode}
 
 みんな大好き org-mode 用にもキーバインドを設定している。

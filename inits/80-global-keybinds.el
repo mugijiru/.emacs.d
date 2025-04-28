@@ -39,6 +39,8 @@
 
 (keymap-global-set "<f8>" 'neotree-toggle)
 
+(keymap-global-set "C-;" 'embark-act)
+
 (setq my/org-mode-prefix-key "C-c o ")
 (keymap-global-set (concat my/org-mode-prefix-key "a") 'org-agenda)
 (keymap-global-set (concat my/org-mode-prefix-key "c") 'org-capture)
