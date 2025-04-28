@@ -1579,6 +1579,10 @@ Helm でも起動できるようにしているので、こっちの設定は外
 *** embark
 まだ活用できてないが Embark 用に ~C-;~ を bind した。
 かつて Helm あたりで使っていたキーバインドだね、なつかしいね。
+
+#+begin_src emacs-lisp :tangle inits/80-global-keybinds.el
+(keymap-global-set "C-;" 'embark-act)
+#+end_src
 *** org-mode                                                         :unused:
 :PROPERTIES:
 :ID:       b01cfab2-09ed-48c0-80c6-303e8bca0458

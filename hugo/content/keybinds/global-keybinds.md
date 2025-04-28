@@ -178,6 +178,10 @@ Helm でも起動できるようにしているので、こっちの設定は外
 
 まだ活用できてないが Embark 用に `C-;` を bind した。かつて Helm あたりで使っていたキーバインドだね、なつかしいね。
 
+```emacs-lisp
+(keymap-global-set "C-;" 'embark-act)
+```
+
 
 ## org-mode <span class="tag"><span class="unused">unused</span></span> {#org-mode}
 
