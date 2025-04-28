@@ -1,4 +1,4 @@
-( :name emberk
+( :name embark
   :website "https://github.com/oantolin/embark"
   :description "Conveniently act on minibuffer completions"
   :type github
