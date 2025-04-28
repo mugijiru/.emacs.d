@@ -39,12 +39,16 @@
 
 (keymap-global-set "<f8>" 'neotree-toggle)
 
+(keymap-global-set "C-;" 'embark-act)
+
 (setq my/org-mode-prefix-key "C-c o ")
 (keymap-global-set (concat my/org-mode-prefix-key "a") 'org-agenda)
 (keymap-global-set (concat my/org-mode-prefix-key "c") 'org-capture)
 (keymap-global-set (concat my/org-mode-prefix-key "l") 'org-store-link)
 
 (key-chord-define-global "jk" 'my/context-hydra)
+
+(key-chord-define-global "mn" 'major-mode-hydra)
 
 ;; Don't ask yes or no.
 (defalias 'yes-or-no-p 'y-or-n-p)

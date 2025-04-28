@@ -164,7 +164,7 @@ Helm から乗り換えて今はこちらをメインで使っている。基本
 
 ## neotree <span class="tag"><span class="unused">unused</span></span> {#neotree}
 
-Neotree]] は IDE みたいにファイルツリーを表示を表示するパッケージ。有効にしているとちょっぴりモダンな雰囲気になるぞい。
+Neotree は IDE みたいにファイルツリーを表示を表示するパッケージ。有効にしているとちょっぴりモダンな雰囲気になるぞい。
 
 ```emacs-lisp
 (keymap-global-set "<f8>" 'neotree-toggle)
@@ -172,6 +172,15 @@ Neotree]] は IDE みたいにファイルツリーを表示を表示するパ�
 
 f8 にバインドしているけど
 Helm でも起動できるようにしているので、こっちの設定は外してもいいかもなとか思っている。
+
+
+## embark {#embark}
+
+まだ活用できてないが Embark 用に `C-;` を bind した。かつて Helm あたりで使っていたキーバインドだね、なつかしいね。
+
+```emacs-lisp
+(keymap-global-set "C-;" 'embark-act)
+```
 
 
 ## org-mode <span class="tag"><span class="unused">unused</span></span> {#org-mode}
@@ -196,6 +205,13 @@ keycohrd は2つのキーを同時押しというキーバインドを実現す�
 
 ```emacs-lisp
 (key-chord-define-global "jk" 'my/context-hydra)
+```
+
+あとは major-mode-hydra もすぐ起動できるようにするために
+`mn` を叩くと起動するようにしている
+
+```emacs-lisp
+(key-chord-define-global "mn" 'major-mode-hydra)
 ```
 
 
