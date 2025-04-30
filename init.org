@@ -11621,7 +11621,30 @@ major-mode-hydra で、org-mode のファイルを開いている時によく使
 
 合わせて agenda 用の major-mode-hydra も定義しているが、
 こちらは情報をまだまとめていない……。
+*** 検索用 Hydra
+:PROPERTIES:
+:ID:       71a3d529-c616-466f-aa6f-0245a20ff2e7
+:END:
+pretty-hydra を使って org のドキュメントを検索するための各コマンドを叩けるようにしている。
+これは後述の ~global-org-hydra~ から呼び出す想定である
 
+#+begin_src emacs-lisp :tangle inits/69-org-mode-hydra.el
+(with-eval-after-load 'pretty-hydra
+  (pretty-hydra-define
+    org-search-hydra
+    ( :separator "-"
+      :color teal
+      :foreign-key warn
+      :title (concat (nerd-icons-mdicon "nf-md-note_search") " Org Search")
+      :quit-key "q")
+    ("Heading"
+     (("h" org-search-view                  "Heading")
+      ("o" counsel-org-goto-all             "Outline"))
+     "RipGrep"
+     (("j" my/org-search-string-in-journals "Journal")
+      ("/" my/org-search-string             "All")
+      ("P" my/org-search-in-pointers        "Pointers")))))
+#+end_src
 *** Global な Hydra
 :PROPERTIES:
 :ID:       85c76d3b-7cdd-435b-839f-53693e69fa1b
@@ -11643,7 +11666,8 @@ pretty-hydra を使って Global に使える org-mode のコマンドを叩け�
       ("l" org-store-link             "Store link")
       ("J" org-journal-new-entry      "Journal")
       ("R" my/org-reviews-execute     "Review")
-      ("t" my/org-tags-view-only-todo "Tagged Todo"))
+      ("t" my/org-tags-view-only-todo "Tagged Todo")
+      ("/" org-search-hydra/body      "Search"))
 
      "Calendar"
      (("F" org-gcal-fetch "Fetch Calendar")
@@ -11657,33 +11681,12 @@ pretty-hydra を使って Global に使える org-mode のコマンドを叩け�
       ("x" org-clock-cancel   "Cancel")
       ("j" org-clock-goto     "Goto"))
 
-     "Search"
-     (("H" org-search-view "Heading")
-      ("O" counsel-org-goto-all "Outline"))
-
      "Roam"
      ((";" org-roam-hydra/body "Menu"))
 
      "Pomodoro"
      (("p" org-pomodoro "Pomodoro")))))
 #+end_src
-
-| Key | 効果                                    | 使用頻度                                                                            |
-|-----+-----------------------------------------+-------------------------------------------------------------------------------------|
-| a   | Agenda 選択                             | よく使う                                                                            |
-| c   | Capture                                 | よく使う                                                                            |
-| l   | その場所へのリンクを保存                | 使ってない                                                                          |
-| t   | 選択したタグが付与された TODO のみ表示  | 使ってない。使うと便利かもなあ                                                      |
-| F   | Google Calendar の情報取得              | 平日は毎日使っている                                                                |
-| C   | カレンダーを calfw で開く               | 最近使ってない                                                                      |
-| A   | org-gcal で拾って来た情報を appt に登録 | appt.el 経由で通知できるようにしている                                              |
-| i   | Clock In                                | 使ってないというか major-mode-hydra の方があれば良い                                |
-| o   | Clock Out                               | 使ってない。使ってもいい気がする                                                    |
-| r   | 最後に Clock In したやつを再開          | 使ってない。大体常に Clock しているから最後がいつも切り替わってるので使う機会がない |
-| x   | Clock Cancel                            | 作業は発生しているからキャンセルしないで普通に Clock out しているなあ               |
-| j   | 最後に Clock In したやつの場所に移動    | ちょくちょく使う。便利                                                              |
-| H   | Heading の検索                          | 使ってない。インクリメンタルに検索できればいいのに                                  |
-| p   | ポモドーロタイマー                      | これも major-mode-hydra にあれば十分かな                                            |
 
 *** その他
 org-agenda 用の Hydra も用意しておいた方が良さそうだなというのが最近の実感。

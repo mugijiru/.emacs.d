@@ -79,6 +79,22 @@
 
 (with-eval-after-load 'pretty-hydra
   (pretty-hydra-define
+    org-search-hydra
+    ( :separator "-"
+      :color teal
+      :foreign-key warn
+      :title (concat (nerd-icons-mdicon "nf-md-note_search") " Org Search")
+      :quit-key "q")
+    ("Heading"
+     (("h" org-search-view                  "Heading")
+      ("o" counsel-org-goto-all             "Outline"))
+     "RipGrep"
+     (("j" my/org-search-string-in-journals "Journal")
+      ("/" my/org-search-string             "All")
+      ("P" my/org-search-in-pointers        "Pointers")))))
+
+(with-eval-after-load 'pretty-hydra
+  (pretty-hydra-define
     global-org-hydra
     (:separator "-"
                 :color teal
@@ -91,7 +107,8 @@
       ("l" org-store-link             "Store link")
       ("J" org-journal-new-entry      "Journal")
       ("R" my/org-reviews-execute     "Review")
-      ("t" my/org-tags-view-only-todo "Tagged Todo"))
+      ("t" my/org-tags-view-only-todo "Tagged Todo")
+      ("/" org-search-hydra/body      "Search"))
 
      "Calendar"
      (("F" org-gcal-fetch "Fetch Calendar")
@@ -104,10 +121,6 @@
       ("r" org-clock-in-last  "Restart")
       ("x" org-clock-cancel   "Cancel")
       ("j" org-clock-goto     "Goto"))
-
-     "Search"
-     (("H" org-search-view "Heading")
-      ("O" counsel-org-goto-all "Outline"))
 
      "Roam"
      ((";" org-roam-hydra/body "Menu"))
