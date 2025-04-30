@@ -49,7 +49,8 @@ org-clock-report では前日分も target に入れてほしいのでそれの 
          (yesterday (time-add (current-time) 24-hours-ago))
          (yesterday-string (format-time-string "%Y%m%d" yesterday))
          (yesterday-journal-file-path (concat org-journal-dir yesterday-string ".org"))
-         (files (append `(,yesterday-journal-file-path) agenda-files)))
+         (today-journal-file-path (org-journal--get-entry-path))
+         (files (append `(,yesterday-journal-file-path ,today-journal-file-path) agenda-files)))
     (org-add-archive-files files)))
 ```
 
