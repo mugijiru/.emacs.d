@@ -150,3 +150,44 @@ org-clock-report の対象にしたくて org-agenda-files をいい感じにす
       (setq org-agenda-files
             (cl-pushnew (org-journal--get-entry-path) tmp)))))
 ```
+
+
+## org ドキュメントを rg で検索する {#org-ドキュメントを-rg-で検索する}
+
+現状 org-mode で書いた文書は基本溜め込んだままになっていてそれを引っ張り出して活用する方法が限られているという課題がある。
+
+Agenda を活用して良い感じに引っ張り出したり
+org-roam で検索したりするという手はあるのだけれどあまりそれもうまくいっていない。
+
+具体的には、Agenda だとタグとかカテゴリとかで絞り込んで抽出する感じだけど、それよりも「このキーワードの情報が欲しい」ということがある。
+org-roam は heading の内容で検索してくれるが
+journal ファイルだと heading 工夫しないし、文章をガーッと書く感じなのでそれも役に立たない。
+
+つまり本文をカジュアルに検索したいわけ。
+
+というわけで org ファイルを rg で検索するためのコマンドを用意した。
+
+```emacs-lisp
+(defun my/org-search-string (string)
+  (interactive "sSearch string: ")
+  (rg string "*.org" my/org-document-dir))
+```
+
+これを使えば Org の document を収めてるディレクトリ以下の org ファイルを rg でさくっと検索できるってわけ。
+
+更に、資料を突っ込んでる pointers.org から検索するコマンドや
+journal ファイルから検索するコマンドも別途用意した。
+
+```emacs-lisp
+(defun my/org-search-string-in-pointers (string)
+  (interactive "sSearch string: ")
+  (rg string "pointers.org" my/org-document-dir))
+```
+
+```emacs-lisp
+(defun my/org-search-string-in-journals (string)
+  (interactive "sSearch string: ")
+  (rg string "*.org" (concat my/org-document-dir "roam/journal")))
+```
+
+これで過去に突っ込んだ情報の取り出しがうまくいくようになることを願う。
