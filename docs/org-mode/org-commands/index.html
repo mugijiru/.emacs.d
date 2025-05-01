@@ -12,20 +12,20 @@
     <title>org-mode 用の独自コマンド :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1746022174" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1746022174" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1746022174" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1746022174" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1746022174" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1746022174" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1746022174" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1746022174" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1746022174" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1746022174" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1746058007" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1746058007" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1746058007" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1746058007" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1746058007" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1746058007" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1746058007" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1746058007" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1746058007" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1746058007" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1746022174"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1746058007"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1746022174"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1746022174"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1746058007"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1746058007"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1746022174"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1746058007"></script>
 
     
   </div>
@@ -3522,6 +3522,7 @@
     <li><a href="#calfw-で選択したカレンダーを表示">calfw で選択したカレンダーを表示</a></li>
     <li><a href="#レビュー依頼がされてる-pr-を取得してバッファに挿入">レビュー依頼がされてる PR を取得してバッファに挿入</a></li>
     <li><a href="#org-agenda-files-にその日の-journal-ファイルを加えて-reset-する">org-agenda-files にその日の journal ファイルを加えて reset する</a></li>
+    <li><a href="#org-ドキュメントを-rg-で検索する">org ドキュメントを rg で検索する</a></li>
   </ul>
 </nav>
     </div>
@@ -3633,7 +3634,29 @@ org-clock-report の対象にしたくて org-agenda-files をいい感じにす
 </span></span><span style="display:flex;"><span>    (let ((tmp my/org-agenda-files--original))
 </span></span><span style="display:flex;"><span>      (setq org-agenda-files
 </span></span><span style="display:flex;"><span>            (cl-pushnew (org-journal--get-entry-path) tmp)))))
-</span></span></code></pre></div>
+</span></span></code></pre></div><h2 id="org-ドキュメントを-rg-で検索する">org ドキュメントを rg で検索する</h2>
+<p>現状 org-mode で書いた文書は基本溜め込んだままになっていてそれを引っ張り出して活用する方法が限られているという課題がある。</p>
+<p>Agenda を活用して良い感じに引っ張り出したり
+org-roam で検索したりするという手はあるのだけれどあまりそれもうまくいっていない。</p>
+<p>具体的には、Agenda だとタグとかカテゴリとかで絞り込んで抽出する感じだけど、それよりも「このキーワードの情報が欲しい」ということがある。
+org-roam は heading の内容で検索してくれるが
+journal ファイルだと heading 工夫しないし、文章をガーッと書く感じなのでそれも役に立たない。</p>
+<p>つまり本文をカジュアルに検索したいわけ。</p>
+<p>というわけで org ファイルを rg で検索するためのコマンドを用意した。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/org-search-string (<span style="color:#a6e22e">string</span>)
+</span></span><span style="display:flex;"><span>  (interactive <span style="color:#e6db74">&#34;sSearch string: &#34;</span>)
+</span></span><span style="display:flex;"><span>  (rg <span style="color:#a6e22e">string</span> <span style="color:#e6db74">&#34;*.org&#34;</span> my/org-document-dir))
+</span></span></code></pre></div><p>これを使えば Org の document を収めてるディレクトリ以下の org ファイルを rg でさくっと検索できるってわけ。</p>
+<p>更に、資料を突っ込んでる pointers.org から検索するコマンドや
+journal ファイルから検索するコマンドも別途用意した。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/org-search-string-in-pointers (<span style="color:#a6e22e">string</span>)
+</span></span><span style="display:flex;"><span>  (interactive <span style="color:#e6db74">&#34;sSearch string: &#34;</span>)
+</span></span><span style="display:flex;"><span>  (rg <span style="color:#a6e22e">string</span> <span style="color:#e6db74">&#34;pointers.org&#34;</span> my/org-document-dir))
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/org-search-string-in-journals (<span style="color:#a6e22e">string</span>)
+</span></span><span style="display:flex;"><span>  (interactive <span style="color:#e6db74">&#34;sSearch string: &#34;</span>)
+</span></span><span style="display:flex;"><span>  (rg <span style="color:#a6e22e">string</span> <span style="color:#e6db74">&#34;*.org&#34;</span> (<span style="color:#a6e22e">concat</span> my/org-document-dir <span style="color:#e6db74">&#34;roam/journal&#34;</span>)))
+</span></span></code></pre></div><p>これで過去に突っ込んだ情報の取り出しがうまくいくようになることを願う。</p>
+
 
 <footer class="footline">
 	
@@ -6130,19 +6153,19 @@ org-clock-report の対象にしたくて org-agenda-files をいい感じにす
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1746022174"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1746022174"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1746022174"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1746022174"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1746022174"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1746022174"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1746058007"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1746058007"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1746058007"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1746058007"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1746058007"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1746058007"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1746022174"></script>
-    <script src="/.emacs.d/js/learn.js?1746022174"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1746022174"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1746058007"></script>
+    <script src="/.emacs.d/js/learn.js?1746058007"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1746058007"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1746022174"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1746058007"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

@@ -12,20 +12,20 @@
     <title>org-mode 関係の keybinds :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1746022174" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1746022174" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1746022174" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1746022174" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1746022174" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1746022174" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1746022174" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1746022174" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1746022174" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1746022174" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1746058007" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1746058007" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1746058007" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1746058007" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1746058007" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1746058007" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1746058007" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1746058007" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1746058007" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1746058007" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1746022174"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1746058007"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1746022174"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1746022174"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1746058007"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1746058007"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1746022174"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1746058007"></script>
 
     
   </div>
@@ -3514,6 +3514,7 @@
   <ul>
     <li><a href="#概要">概要</a></li>
     <li><a href="#major-mode-hydra">major-mode-hydra</a></li>
+    <li><a href="#検索用-hydra">検索用 Hydra</a></li>
     <li><a href="#global-な-hydra">Global な Hydra</a></li>
     <li><a href="#その他">その他</a></li>
   </ul>
@@ -3624,7 +3625,24 @@
 </span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;g&#34;</span> org-agenda-clock-goto   <span style="color:#e6db74">&#34;Go to&#34;</span>)
 </span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;x&#34;</span> org-agenda-clock-cancel <span style="color:#e6db74">&#34;Cancel&#34;</span>)))))
 </span></span></code></pre></div><p>合わせて agenda 用の major-mode-hydra も定義しているが、こちらは情報をまだまとめていない……。</p>
-<h2 id="global-な-hydra">Global な Hydra</h2>
+<h2 id="検索用-hydra">検索用 Hydra</h2>
+<p>pretty-hydra を使って org のドキュメントを検索するための各コマンドを叩けるようにしている。これは後述の <code>global-org-hydra</code> から呼び出す想定である</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
+</span></span><span style="display:flex;"><span>  (pretty-hydra-define
+</span></span><span style="display:flex;"><span>    org-search-hydra
+</span></span><span style="display:flex;"><span>    ( :separator <span style="color:#e6db74">&#34;-&#34;</span>
+</span></span><span style="display:flex;"><span>      :color teal
+</span></span><span style="display:flex;"><span>      :foreign-key <span style="color:#a6e22e">warn</span>
+</span></span><span style="display:flex;"><span>      :title (<span style="color:#a6e22e">concat</span> (nerd-icons-mdicon <span style="color:#e6db74">&#34;nf-md-note_search&#34;</span>) <span style="color:#e6db74">&#34; Org Search&#34;</span>)
+</span></span><span style="display:flex;"><span>      :quit-key <span style="color:#e6db74">&#34;q&#34;</span>)
+</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;Heading&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;h&#34;</span> org-search-view                  <span style="color:#e6db74">&#34;Heading&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;o&#34;</span> counsel-org-goto-all             <span style="color:#e6db74">&#34;Outline&#34;</span>))
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;RipGrep&#34;</span>
+</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;j&#34;</span> my/org-search-string-in-journals <span style="color:#e6db74">&#34;Journal&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;/&#34;</span> my/org-search-string             <span style="color:#e6db74">&#34;All&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;P&#34;</span> my/org-search-in-pointers        <span style="color:#e6db74">&#34;Pointers&#34;</span>)))))
+</span></span></code></pre></div><h2 id="global-な-hydra">Global な Hydra</h2>
 <p>pretty-hydra を使って Global に使える org-mode のコマンドを叩けるようにしている</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
 </span></span><span style="display:flex;"><span>  (pretty-hydra-define
@@ -3640,7 +3658,8 @@
 </span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;l&#34;</span> org-store-link             <span style="color:#e6db74">&#34;Store link&#34;</span>)
 </span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;J&#34;</span> org-journal-new-entry      <span style="color:#e6db74">&#34;Journal&#34;</span>)
 </span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;R&#34;</span> my/org-reviews-execute     <span style="color:#e6db74">&#34;Review&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;t&#34;</span> my/org-tags-view-only-todo <span style="color:#e6db74">&#34;Tagged Todo&#34;</span>))
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;t&#34;</span> my/org-tags-view-only-todo <span style="color:#e6db74">&#34;Tagged Todo&#34;</span>)
+</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;/&#34;</span> org-search-hydra/body      <span style="color:#e6db74">&#34;Search&#34;</span>))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Calendar&#34;</span>
 </span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;F&#34;</span> org-gcal-fetch <span style="color:#e6db74">&#34;Fetch Calendar&#34;</span>)
@@ -3654,97 +3673,12 @@
 </span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;x&#34;</span> org-clock-cancel   <span style="color:#e6db74">&#34;Cancel&#34;</span>)
 </span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;j&#34;</span> org-clock-goto     <span style="color:#e6db74">&#34;Goto&#34;</span>))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Search&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;H&#34;</span> org-search-view <span style="color:#e6db74">&#34;Heading&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;O&#34;</span> counsel-org-goto-all <span style="color:#e6db74">&#34;Outline&#34;</span>))
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Roam&#34;</span>
 </span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;;&#34;</span> org-roam-hydra/body <span style="color:#e6db74">&#34;Menu&#34;</span>))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Pomodoro&#34;</span>
 </span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;p&#34;</span> org-pomodoro <span style="color:#e6db74">&#34;Pomodoro&#34;</span>)))))
-</span></span></code></pre></div><table>
-<thead>
-<tr>
-<th>Key</th>
-<th>効果</th>
-<th>使用頻度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>a</td>
-<td>Agenda 選択</td>
-<td>よく使う</td>
-</tr>
-<tr>
-<td>c</td>
-<td>Capture</td>
-<td>よく使う</td>
-</tr>
-<tr>
-<td>l</td>
-<td>その場所へのリンクを保存</td>
-<td>使ってない</td>
-</tr>
-<tr>
-<td>t</td>
-<td>選択したタグが付与された TODO のみ表示</td>
-<td>使ってない。使うと便利かもなあ</td>
-</tr>
-<tr>
-<td>F</td>
-<td>Google Calendar の情報取得</td>
-<td>平日は毎日使っている</td>
-</tr>
-<tr>
-<td>C</td>
-<td>カレンダーを calfw で開く</td>
-<td>最近使ってない</td>
-</tr>
-<tr>
-<td>A</td>
-<td>org-gcal で拾って来た情報を appt に登録</td>
-<td>appt.el 経由で通知できるようにしている</td>
-</tr>
-<tr>
-<td>i</td>
-<td>Clock In</td>
-<td>使ってないというか major-mode-hydra の方があれば良い</td>
-</tr>
-<tr>
-<td>o</td>
-<td>Clock Out</td>
-<td>使ってない。使ってもいい気がする</td>
-</tr>
-<tr>
-<td>r</td>
-<td>最後に Clock In したやつを再開</td>
-<td>使ってない。大体常に Clock しているから最後がいつも切り替わってるので使う機会がない</td>
-</tr>
-<tr>
-<td>x</td>
-<td>Clock Cancel</td>
-<td>作業は発生しているからキャンセルしないで普通に Clock out しているなあ</td>
-</tr>
-<tr>
-<td>j</td>
-<td>最後に Clock In したやつの場所に移動</td>
-<td>ちょくちょく使う。便利</td>
-</tr>
-<tr>
-<td>H</td>
-<td>Heading の検索</td>
-<td>使ってない。インクリメンタルに検索できればいいのに</td>
-</tr>
-<tr>
-<td>p</td>
-<td>ポモドーロタイマー</td>
-<td>これも major-mode-hydra にあれば十分かな</td>
-</tr>
-</tbody>
-</table>
-<h2 id="その他">その他</h2>
+</span></span></code></pre></div><h2 id="その他">その他</h2>
 <p>org-agenda 用の Hydra も用意しておいた方が良さそうだなというのが最近の実感。同じコマンド体系で操作できるようにしておいたら考えることが減って楽。</p>
 
 
@@ -6243,19 +6177,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1746022174"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1746022174"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1746022174"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1746022174"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1746022174"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1746022174"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1746058008"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1746058008"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1746058008"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1746058008"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1746058008"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1746058008"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1746022174"></script>
-    <script src="/.emacs.d/js/learn.js?1746022174"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1746022174"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1746058008"></script>
+    <script src="/.emacs.d/js/learn.js?1746058008"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1746058008"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1746022174"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1746058008"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
