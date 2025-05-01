@@ -64,3 +64,15 @@ Hydra から利用するために定義している。"
     (let ((tmp my/org-agenda-files--original))
       (setq org-agenda-files
             (cl-pushnew (org-journal--get-entry-path) tmp)))))
+
+(defun my/org-search-string (string)
+  (interactive "sSearch string: ")
+  (rg string "*.org" my/org-document-dir))
+
+(defun my/org-search-string-in-pointers (string)
+  (interactive "sSearch string: ")
+  (rg string "pointers.org" my/org-document-dir))
+
+(defun my/org-search-string-in-journals (string)
+  (interactive "sSearch string: ")
+  (rg string "*.org" (concat my/org-document-dir "roam/journal")))
