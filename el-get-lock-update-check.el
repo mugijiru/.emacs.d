@@ -120,3 +120,9 @@
       (el-get-lock-update-check-print-list "emacswiki" (alist-get 'emacswiki lists))
       (el-get-lock-update-check-print-list "cannot-get-url" (alist-get 'cannot-get-url lists)))
     ))
+
+;; HACK
+;; Define macros similar to those loaded in the real environment
+;; to avoid indentation deviations between Ci and real environments
+(defmacro with-simulated-input (keys & rest body))
+(defmacro with-editor (&rest body))
