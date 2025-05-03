@@ -65,7 +65,7 @@
       '(emacswiki-packages . "cannot get url because install from emacswiki")
     '(cannot-get-url-packages . "cannot get url.")))
 
-(defun el-get-lock-update-check-process-installed-package (package)
+(defun el-get-lock-update-check-process-installed-package (package checksum)
   (let* ((recipe (ignore-errors (el-get-package-def package)))
          (type (plist-get recipe :type))
          (pkgname (plist-get recipe :pkgname))
@@ -76,9 +76,9 @@
         (el-get-lock-update-check-process-hash recipe url checksum)
       (el-get-lock-update-check-process-maybe-emacswiki))))
 
-(defun el-get-lock-update-check-process-single-package (package check-installed)
+(defun el-get-lock-update-check-process-single-package (package check-installed checksum)
   (if (or (not check-installed) (el-get-package-installed-p package))
-      (el-get-lock-update-check-process-installed-package package)
+      (el-get-lock-update-check-process-installed-package package checksum)
     '(not-installed-packages . "not installed.")))
 
 (defun el-get-lock-update-check-assemble-lists (check-installed)
@@ -97,7 +97,7 @@
             (package (replace-regexp-in-string "\\\\\\\." "\\\." (symbol-name (car version))))
             (checksum (plist-get (cdr version) :checksum)))
         (el-get-lock-update-check-verbose-print (concat package " checking..."))
-        (let ((list-name-and-message (el-get-lock-update-check-process-single-package package check-installed)))
+        (let ((list-name-and-message (el-get-lock-update-check-process-single-package package check-installed checksum)))
           (setq list-name (car list-name-and-message))
           (setq message (cdr list-name-and-message)))
         (if list-name (add-to-list list-name package))
