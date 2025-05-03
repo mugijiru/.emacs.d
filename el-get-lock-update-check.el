@@ -90,7 +90,7 @@
         (cannot-get-hash-packages '())
         (not-installed-packages '())
         (el-get-default-process-sync t)
-        (versions (cdr el-get-lock-package-versions)))
+        (versions el-get-lock-package-versions))
     (dolist (version versions)
       (let (list-name
             message
@@ -107,8 +107,7 @@
       (cannot-get-url . ,cannot-get-url-packages)
       (emacswiki . ,emacswiki-packages)
       (cannot-get-hash . ,cannot-get-hash-packages)
-      (not-installed . ,not-installed-packages)))
-  )
+      (not-installed . ,not-installed-packages))))
 
 (defun el-get-lock-update-check-execute (&optional only-obsolute-count)
   (let ((lists (el-get-lock-update-check-assemble-lists t)))
@@ -118,8 +117,7 @@
       (el-get-lock-update-check-print-list "not installed" (alist-get 'not-installed lists))
       (el-get-lock-update-check-print-list "cannot get hash" (alist-get 'cannot-get-hash lists))
       (el-get-lock-update-check-print-list "emacswiki" (alist-get 'emacswiki lists))
-      (el-get-lock-update-check-print-list "cannot-get-url" (alist-get 'cannot-get-url lists)))
-    ))
+      (el-get-lock-update-check-print-list "cannot-get-url" (alist-get 'cannot-get-url lists)))))
 
 ;; HACK
 ;; Define macros similar to those loaded in the real environment
