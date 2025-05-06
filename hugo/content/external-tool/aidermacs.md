@@ -19,6 +19,7 @@ el-get にはレシピがないので自前で用意している
   :description "AI Pair Programming in Emacs"
   :type github
   :pkgname "MatthewZMD/aidermacs"
+  :depends (compat transient markdown-mode)
   :branch "main")
 ```
 
