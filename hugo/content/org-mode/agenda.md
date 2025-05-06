@@ -231,9 +231,9 @@ org-agenda では `org-agenda-prefix-format` に `%s` を指定することで�
 
 2番目には、その日の journal ファイルやレビュー対象の PR を載せているファイルのタスクを抽出している。今のところ TODO をネストさせているとそれも全部表示されるのが気に入らないけどそれはまだ直していない。あと良く見ると意味もなく habits.org を参照しているのでそれは後で消しておきたいですね。
 
-3番目には、とりあえずタスクを放り込んでおく projects.org から予定や締切を設定している仕事用のタスクを抽出している。仕事用のタスクというのは agenda-group で指定している。締切とか予定が過ぎているのを上の方に出したり、その日予定のものをだけをまとめていたり、今後1週間の予定に入っているものを並べたりとちょっと工夫している。
+3番目には毎日やってるルーチンワークを並べている。出勤打刻とかね。ほら TODO リストにないと結構忘れちゃうので……。
 
-4番目には毎日やってるルーチンワークを並べている。出勤打刻とかね。ほら TODO リストにないと結構忘れちゃうので……。
+4番目には、とりあえずタスクを放り込んでおく projects.org から予定や締切を設定している仕事用のタスクを抽出している。仕事用のタスクというのは agenda-group で指定している。締切とか予定が過ぎているのを上の方に出したり、その日予定のものをだけをまとめていたり、今後1週間の予定に入っているものを並べたりとちょっと工夫している。
 
 最後に、特に予定や締切を設定していない仕事用のタスクを並べている。いつかやりたいね〜系のものがここに並ぶ感じ。大体ローカルの環境設定をより良い感じにしたいとかが入って来る
 
@@ -257,6 +257,14 @@ org-agenda では `org-agenda-prefix-format` に `%s` を指定することで�
                                               (:name "レビュー待ち" :todo "WAIT" :property ("agenda-group" "journal-task"))
                                               (:name "修正待ち" :todo "WAIT" :category "レビュー")
                                               (:discard (:anything t))))))
+       (tags-todo "Weekday-Start-Finish|Daily"
+                  ((org-agenda-overriding-header "習慣")
+                   (org-agenda-prefix-format "  ")
+                   (org-habit-show-habits t)
+                   (org-agenda-files '("~/Documents/org/tasks/habits.org"))
+                   (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+                                              (:name "今日予定" :scheduled today)
+                                              (:discard (:anything t))))))
        (alltodo ""
                 ((org-agenda-prefix-format " ")
                  (org-agenda-overriding-header "予定業務")
@@ -272,15 +280,7 @@ org-agenda では `org-agenda-prefix-format` に `%s` を指定することで�
                                                                               (:scheduled (before ,(format-time-string "%Y-%m-%d" (time-add (current-time) (days-to-time 7))))
                                                                                           :scheduled (after ,(format-time-string "%Y-%m-%d" (current-time))))
                                                                               :property ("agenda-group" "1. Work")))
-                                            (:discard (:anything t))))))
-       (tags-todo "Weekday-Start-Finish|Daily"
-                  ((org-agenda-overriding-header "習慣")
-                   (org-agenda-prefix-format "  ")
-                   (org-habit-show-habits t)
-                   (org-agenda-files '("~/Documents/org/tasks/habits.org"))
-                   (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
-                                              (:name "今日予定" :scheduled today)
-                                              (:discard (:anything t))))))))
+                                            (:discard (:anything t))))))))
 ```
 
 
@@ -316,6 +316,13 @@ Emacs 以外も設定を弄りたいのはいっぱいあるからね。i3wm と
                                               (:name "TODO"       :and (:todo "TODO"  :not (:property ("agenda-group" "1. Work"))))
                                               (:name "待ち"       :and (:todo "WAIT"  :not (:property ("agenda-group" "1. Work"))))
                                               (:discard (:anything t))))))
+       (tags-todo "Holiday|Weekend|Daily"
+                  ((org-agenda-overriding-header "習慣")
+                   (org-agenda-prefix-format "  ")
+                   (org-agenda-files '("~/Documents/org/tasks/habits.org"))
+                   (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+                                              (:name "今日予定の作業" :scheduled today)
+                                              (:discard (:anything t))))))
        (alltodo ""
                 ((org-agenda-prefix-format " ")
                  (org-agenda-overriding-header "予定作業")
@@ -332,13 +339,6 @@ Emacs 以外も設定を弄りたいのはいっぱいあるからね。i3wm と
                                                                                           :scheduled (after ,(format-time-string "%Y-%m-%d" (current-time))))
                                                                               :not (:property ("agenda-group" "1. Work"))))
                                             (:discard (:anything t))))))
-       (tags-todo "Holiday|Weekend|Daily"
-                  ((org-agenda-overriding-header "習慣")
-                   (org-agenda-prefix-format "  ")
-                   (org-agenda-files '("~/Documents/org/tasks/habits.org"))
-                   (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
-                                              (:name "今日予定の作業" :scheduled today)
-                                              (:discard (:anything t))))))
        (tags-todo "LEVEL=2"
                   ((org-agenda-files '("~/Documents/org/tasks/projects.org"))
                    (org-agenda-overriding-header "Private")

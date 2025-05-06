@@ -83,6 +83,14 @@
                                               (:name "レビュー待ち" :todo "WAIT" :property ("agenda-group" "journal-task"))
                                               (:name "修正待ち" :todo "WAIT" :category "レビュー")
                                               (:discard (:anything t))))))
+       (tags-todo "Weekday-Start-Finish|Daily"
+                  ((org-agenda-overriding-header "習慣")
+                   (org-agenda-prefix-format "  ")
+                   (org-habit-show-habits t)
+                   (org-agenda-files '("~/Documents/org/tasks/habits.org"))
+                   (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+                                              (:name "今日予定" :scheduled today)
+                                              (:discard (:anything t))))))
        (alltodo ""
                 ((org-agenda-prefix-format " ")
                  (org-agenda-overriding-header "予定業務")
@@ -98,15 +106,7 @@
                                                                               (:scheduled (before ,(format-time-string "%Y-%m-%d" (time-add (current-time) (days-to-time 7))))
                                                                                           :scheduled (after ,(format-time-string "%Y-%m-%d" (current-time))))
                                                                               :property ("agenda-group" "1. Work")))
-                                            (:discard (:anything t))))))
-       (tags-todo "Weekday-Start-Finish|Daily"
-                  ((org-agenda-overriding-header "習慣")
-                   (org-agenda-prefix-format "  ")
-                   (org-habit-show-habits t)
-                   (org-agenda-files '("~/Documents/org/tasks/habits.org"))
-                   (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
-                                              (:name "今日予定" :scheduled today)
-                                              (:discard (:anything t))))))))
+                                            (:discard (:anything t))))))))
 
      ("D" "Holiday"
       ((tags-todo "-Weekday-Daily-Holiday-Weekly-Weekend&LEVEL=3"
@@ -119,6 +119,13 @@
                    (org-super-agenda-groups '((:name "仕掛かり中" :and (:todo "DOING" :not (:property ("agenda-group" "1. Work"))))
                                               (:name "TODO"       :and (:todo "TODO"  :not (:property ("agenda-group" "1. Work"))))
                                               (:name "待ち"       :and (:todo "WAIT"  :not (:property ("agenda-group" "1. Work"))))
+                                              (:discard (:anything t))))))
+       (tags-todo "Holiday|Weekend|Daily"
+                  ((org-agenda-overriding-header "習慣")
+                   (org-agenda-prefix-format "  ")
+                   (org-agenda-files '("~/Documents/org/tasks/habits.org"))
+                   (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+                                              (:name "今日予定の作業" :scheduled today)
                                               (:discard (:anything t))))))
        (alltodo ""
                 ((org-agenda-prefix-format " ")
@@ -136,13 +143,6 @@
                                                                                           :scheduled (after ,(format-time-string "%Y-%m-%d" (current-time))))
                                                                               :not (:property ("agenda-group" "1. Work"))))
                                             (:discard (:anything t))))))
-       (tags-todo "Holiday|Weekend|Daily"
-                  ((org-agenda-overriding-header "習慣")
-                   (org-agenda-prefix-format "  ")
-                   (org-agenda-files '("~/Documents/org/tasks/habits.org"))
-                   (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
-                                              (:name "今日予定の作業" :scheduled today)
-                                              (:discard (:anything t))))))
        (tags-todo "LEVEL=2"
                   ((org-agenda-files '("~/Documents/org/tasks/projects.org"))
                    (org-agenda-overriding-header "Private")
