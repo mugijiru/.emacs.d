@@ -3,4 +3,5 @@
   :description "AI Pair Programming in Emacs"
   :type github
   :pkgname "MatthewZMD/aidermacs"
+  :depends (compat transient markdown-mode)
   :branch "main")
