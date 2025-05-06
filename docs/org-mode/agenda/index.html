@@ -12,20 +12,20 @@
     <title>Agenda 関係の設定 :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1746058007" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1746058007" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1746058007" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1746058007" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1746058007" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1746058007" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1746058007" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1746058007" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1746058007" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1746058007" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1746504157" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1746504157" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1746504157" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1746504157" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1746504157" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1746504157" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1746504157" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1746504157" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1746504157" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1746504157" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1746058007"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1746504157"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1746058007"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1746058007"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1746504157"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1746504157"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1746058007"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1746504157"></script>
 
     
   </div>
@@ -3680,8 +3680,8 @@ nil にして表示しないようにしている。</p>
 <p>平日仕事する時に眺めるために用意した agenda なんだけど実際そんなに見てないので見直しが必要かも。</p>
 <p>とりあえず Google Calendar に登録されている予定を一番上に表示している。</p>
 <p>2番目には、その日の journal ファイルやレビュー対象の PR を載せているファイルのタスクを抽出している。今のところ TODO をネストさせているとそれも全部表示されるのが気に入らないけどそれはまだ直していない。あと良く見ると意味もなく habits.org を参照しているのでそれは後で消しておきたいですね。</p>
-<p>3番目には、とりあえずタスクを放り込んでおく projects.org から予定や締切を設定している仕事用のタスクを抽出している。仕事用のタスクというのは agenda-group で指定している。締切とか予定が過ぎているのを上の方に出したり、その日予定のものをだけをまとめていたり、今後1週間の予定に入っているものを並べたりとちょっと工夫している。</p>
-<p>4番目には毎日やってるルーチンワークを並べている。出勤打刻とかね。ほら TODO リストにないと結構忘れちゃうので……。</p>
+<p>3番目には毎日やってるルーチンワークを並べている。出勤打刻とかね。ほら TODO リストにないと結構忘れちゃうので……。</p>
+<p>4番目には、とりあえずタスクを放り込んでおく projects.org から予定や締切を設定している仕事用のタスクを抽出している。仕事用のタスクというのは agenda-group で指定している。締切とか予定が過ぎているのを上の方に出したり、その日予定のものをだけをまとめていたり、今後1週間の予定に入っているものを並べたりとちょっと工夫している。</p>
 <p>最後に、特に予定や締切を設定していない仕事用のタスクを並べている。いつかやりたいね〜系のものがここに並ぶ感じ。大体ローカルの環境設定をより良い感じにしたいとかが入って来る</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>     (<span style="color:#e6db74">&#34;d&#34;</span> <span style="color:#e6db74">&#34;Today&#34;</span>
 </span></span><span style="display:flex;"><span>      ((agenda <span style="color:#e6db74">&#34;会議など&#34;</span>
@@ -3702,6 +3702,14 @@ nil にして表示しないようにしている。</p>
 </span></span><span style="display:flex;"><span>                                              (:name <span style="color:#e6db74">&#34;レビュー待ち&#34;</span> :todo <span style="color:#e6db74">&#34;WAIT&#34;</span> :property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;journal-task&#34;</span>))
 </span></span><span style="display:flex;"><span>                                              (:name <span style="color:#e6db74">&#34;修正待ち&#34;</span> :todo <span style="color:#e6db74">&#34;WAIT&#34;</span> :category <span style="color:#e6db74">&#34;レビュー&#34;</span>)
 </span></span><span style="display:flex;"><span>                                              (:discard (:anything <span style="color:#66d9ef">t</span>))))))
+</span></span><span style="display:flex;"><span>       (tags-todo <span style="color:#e6db74">&#34;Weekday-Start-Finish|Daily&#34;</span>
+</span></span><span style="display:flex;"><span>                  ((org-agenda-overriding-header <span style="color:#e6db74">&#34;習慣&#34;</span>)
+</span></span><span style="display:flex;"><span>                   (org-agenda-prefix-format <span style="color:#e6db74">&#34;  &#34;</span>)
+</span></span><span style="display:flex;"><span>                   (org-habit-show-habits <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>                   (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/habits.org&#34;</span>))
+</span></span><span style="display:flex;"><span>                   (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
+</span></span><span style="display:flex;"><span>                                              (:name <span style="color:#e6db74">&#34;今日予定&#34;</span> :scheduled today)
+</span></span><span style="display:flex;"><span>                                              (:discard (:anything <span style="color:#66d9ef">t</span>))))))
 </span></span><span style="display:flex;"><span>       (alltodo <span style="color:#e6db74">&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>                ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
 </span></span><span style="display:flex;"><span>                 (org-agenda-overriding-header <span style="color:#e6db74">&#34;予定業務&#34;</span>)
@@ -3717,15 +3725,7 @@ nil にして表示しないようにしている。</p>
 </span></span><span style="display:flex;"><span>                                                                              (:scheduled (before <span style="color:#f92672">,</span>(<span style="color:#a6e22e">format-time-string</span> <span style="color:#e6db74">&#34;%Y-%m-%d&#34;</span> (<span style="color:#a6e22e">time-add</span> (<span style="color:#a6e22e">current-time</span>) (days-to-time <span style="color:#ae81ff">7</span>))))
 </span></span><span style="display:flex;"><span>                                                                                          :scheduled (after <span style="color:#f92672">,</span>(<span style="color:#a6e22e">format-time-string</span> <span style="color:#e6db74">&#34;%Y-%m-%d&#34;</span> (<span style="color:#a6e22e">current-time</span>))))
 </span></span><span style="display:flex;"><span>                                                                              :property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>)))
-</span></span><span style="display:flex;"><span>                                            (:discard (:anything <span style="color:#66d9ef">t</span>))))))
-</span></span><span style="display:flex;"><span>       (tags-todo <span style="color:#e6db74">&#34;Weekday-Start-Finish|Daily&#34;</span>
-</span></span><span style="display:flex;"><span>                  ((org-agenda-overriding-header <span style="color:#e6db74">&#34;習慣&#34;</span>)
-</span></span><span style="display:flex;"><span>                   (org-agenda-prefix-format <span style="color:#e6db74">&#34;  &#34;</span>)
-</span></span><span style="display:flex;"><span>                   (org-habit-show-habits <span style="color:#66d9ef">t</span>)
-</span></span><span style="display:flex;"><span>                   (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/habits.org&#34;</span>))
-</span></span><span style="display:flex;"><span>                   (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
-</span></span><span style="display:flex;"><span>                                              (:name <span style="color:#e6db74">&#34;今日予定&#34;</span> :scheduled today)
-</span></span><span style="display:flex;"><span>                                              (:discard (:anything <span style="color:#66d9ef">t</span>))))))))
+</span></span><span style="display:flex;"><span>                                            (:discard (:anything <span style="color:#66d9ef">t</span>))))))))
 </span></span></code></pre></div><h4 id="休日用-agenda">休日用 agenda</h4>
 <p>休日にやることは平日とは異なるので別の agenda custom command を用意している。</p>
 <p>まず最初に表示するのは journal ファイルに登録されている仕事以外のタスクの抽出。まあここで制御しなくても、仕事のタスクは休日の journal ファイルから projects.org に追い出すんだけどね。見たくないし。</p>
@@ -3748,6 +3748,13 @@ Emacs 以外も設定を弄りたいのはいっぱいあるからね。i3wm と
 </span></span><span style="display:flex;"><span>                                              (:name <span style="color:#e6db74">&#34;TODO&#34;</span>       :and (:todo <span style="color:#e6db74">&#34;TODO&#34;</span>  :not (:property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>))))
 </span></span><span style="display:flex;"><span>                                              (:name <span style="color:#e6db74">&#34;待ち&#34;</span>       :and (:todo <span style="color:#e6db74">&#34;WAIT&#34;</span>  :not (:property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>))))
 </span></span><span style="display:flex;"><span>                                              (:discard (:anything <span style="color:#66d9ef">t</span>))))))
+</span></span><span style="display:flex;"><span>       (tags-todo <span style="color:#e6db74">&#34;Holiday|Weekend|Daily&#34;</span>
+</span></span><span style="display:flex;"><span>                  ((org-agenda-overriding-header <span style="color:#e6db74">&#34;習慣&#34;</span>)
+</span></span><span style="display:flex;"><span>                   (org-agenda-prefix-format <span style="color:#e6db74">&#34;  &#34;</span>)
+</span></span><span style="display:flex;"><span>                   (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/habits.org&#34;</span>))
+</span></span><span style="display:flex;"><span>                   (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
+</span></span><span style="display:flex;"><span>                                              (:name <span style="color:#e6db74">&#34;今日予定の作業&#34;</span> :scheduled today)
+</span></span><span style="display:flex;"><span>                                              (:discard (:anything <span style="color:#66d9ef">t</span>))))))
 </span></span><span style="display:flex;"><span>       (alltodo <span style="color:#e6db74">&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>                ((org-agenda-prefix-format <span style="color:#e6db74">&#34; &#34;</span>)
 </span></span><span style="display:flex;"><span>                 (org-agenda-overriding-header <span style="color:#e6db74">&#34;予定作業&#34;</span>)
@@ -3764,13 +3771,6 @@ Emacs 以外も設定を弄りたいのはいっぱいあるからね。i3wm と
 </span></span><span style="display:flex;"><span>                                                                                          :scheduled (after <span style="color:#f92672">,</span>(<span style="color:#a6e22e">format-time-string</span> <span style="color:#e6db74">&#34;%Y-%m-%d&#34;</span> (<span style="color:#a6e22e">current-time</span>))))
 </span></span><span style="display:flex;"><span>                                                                              :not (:property (<span style="color:#e6db74">&#34;agenda-group&#34;</span> <span style="color:#e6db74">&#34;1. Work&#34;</span>))))
 </span></span><span style="display:flex;"><span>                                            (:discard (:anything <span style="color:#66d9ef">t</span>))))))
-</span></span><span style="display:flex;"><span>       (tags-todo <span style="color:#e6db74">&#34;Holiday|Weekend|Daily&#34;</span>
-</span></span><span style="display:flex;"><span>                  ((org-agenda-overriding-header <span style="color:#e6db74">&#34;習慣&#34;</span>)
-</span></span><span style="display:flex;"><span>                   (org-agenda-prefix-format <span style="color:#e6db74">&#34;  &#34;</span>)
-</span></span><span style="display:flex;"><span>                   (org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/habits.org&#34;</span>))
-</span></span><span style="display:flex;"><span>                   (org-super-agenda-groups <span style="color:#f92672">&#39;</span>((:name <span style="color:#e6db74">&#34;予定が過ぎてる作業&#34;</span> :scheduled past)
-</span></span><span style="display:flex;"><span>                                              (:name <span style="color:#e6db74">&#34;今日予定の作業&#34;</span> :scheduled today)
-</span></span><span style="display:flex;"><span>                                              (:discard (:anything <span style="color:#66d9ef">t</span>))))))
 </span></span><span style="display:flex;"><span>       (tags-todo <span style="color:#e6db74">&#34;LEVEL=2&#34;</span>
 </span></span><span style="display:flex;"><span>                  ((org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Documents/org/tasks/projects.org&#34;</span>))
 </span></span><span style="display:flex;"><span>                   (org-agenda-overriding-header <span style="color:#e6db74">&#34;Private&#34;</span>)
@@ -6550,19 +6550,19 @@ Emacs 以外も設定を弄りたいのはいっぱいあるからね。i3wm と
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1746058007"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1746058007"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1746058007"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1746058007"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1746058007"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1746058007"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1746504157"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1746504157"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1746504157"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1746504157"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1746504157"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1746504157"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1746058007"></script>
-    <script src="/.emacs.d/js/learn.js?1746058007"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1746058007"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1746504157"></script>
+    <script src="/.emacs.d/js/learn.js?1746504157"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1746504157"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1746058007"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1746504157"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
