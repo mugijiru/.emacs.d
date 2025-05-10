@@ -71,7 +71,7 @@
         (corfu :checksum "2e05fe8244fff22c3c3d2af4334b1850250212a9")
         (treesit-auto :checksum
                       "016bd286a1ba4628f833a626f8b9d497882ecdf3")
-        (org-mode :checksum "5a4686915e568ace469f490c0606d2a016c1101c")
+        (org-mode :checksum "d1f528e830e32185a4b270100cf77961fe6025a2")
         (org-journal :checksum
                      "17b34ce8df9649a73b715c13698220bde1628668")
         (company-terraform :checksum
