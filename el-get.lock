@@ -306,7 +306,7 @@
         (wakatime-mode :checksum
                        "1c5b2254dd72f2ff504d6a6189a8c10be03a98d1")
         (with-editor :checksum
-                     "ca902ae02972bdd6919a902be2593d8cb6bd991b")
+                     "cc86ac08bdea5bbe2503ac1df3506b5e81330e16")
         (yaml-mode :checksum
                    "d91f878729312a6beed77e6637c60497c5786efa")
         (yascroll :checksum "786f192794874f9c188ee8f9dc63951f11e9a33f")
