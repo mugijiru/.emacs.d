@@ -17,7 +17,7 @@ Emacs に標準で入っている org-mode は古かったりするのでとり�
 (el-get-bundle org-mode)
 ```
 
-とりあえず今は 9.6 系を入れておいている。バージョンを固定するために el-get についているレシピをコピーして書き換えて使っている。
+9.7 系のタグで固定している。バージョンを固定するために el-get についているレシピをコピーして書き換えて使っている。
 
 ```emacs-lisp
 (:name org-mode
@@ -25,7 +25,7 @@ Emacs に標準で入っている org-mode は古かったりするのでとり�
        :description "Org-mode is for keeping notes, maintaining ToDo lists, doing project planning, and authoring with a fast and effective plain-text system."
        :type git
        :url "https://git.savannah.gnu.org/git/emacs/org-mode.git"
-       :checkout "release_9.7.19"
+       :checkout "release_9.7.21"
        :info "doc"
        :build/berkeley-unix `,(mapcar
                                (lambda (target)
@@ -39,8 +39,17 @@ Emacs に標準で入っている org-mode は古かったりするのでとり�
        :load ("lisp/org-loaddefs.el"))
 ```
 
-<span class="timestamp-wrapper"><span class="timestamp">[2023-10-30 月] </span></span> に main ブランチのものを入れたら agenda が動かなくなって焦ったし
-<span class="timestamp-wrapper"><span class="timestamp">[2024-08-22 木] </span></span> に 9.7 系を入れたら ox-hugo や org-gcal が動かなくなったのでとりあえず 9.6 系を使う運用にしている
+
+### 更新手順 {#更新手順}
+
+バージョンを固定しているからかアップデートが面倒になっている。直近の更新では以下の手順で行った
+
+1.  レシピ上の :checkout を更新
+2.  指定したタグの checksum を取得
+3.  el-get.lock の org-mode の checksum を 2 で取得したものに更新
+4.  Emacs を再起動。レシピの再読み込みさせて org-mode を更新する目的
+
+その時の PR は <https://github.com/mugijiru/.emacs.d/pull/7795>
 
 
 ## org 用ディレクトリの指定 {#org-用ディレクトリの指定}
