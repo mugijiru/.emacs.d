@@ -56,11 +56,13 @@ el-get 本体ではレシピを提供していないのでとりあえず自前�
 ## 設定 {#設定}
 
 既存の org ファイル全てを対象にすると最初の DB 構築で無限に時間がかかるので
-org フォルダの下に roam というフォルダを掘ってその中だけを対象としている
+org フォルダの下に roam というフォルダを掘ってその中だけを対象としている。
+
+また node を検索する時にデフォルト設定だと情報が足らないのでファイル名やタグも検索できるように調整している
 
 ```emacs-lisp
-(custom-set-variables
- '(org-roam-directory (file-truename (concat org-directory "roam/"))))
+(setopt org-roam-directory (file-truename (concat org-directory "roam/")))
+(setopt org-roam-node-display-template "${file}/${title} ${tags}")
 ```
 
 そして自動的に SQLite3 と同期するように自動同期の設定を入れている
