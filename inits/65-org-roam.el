@@ -1,7 +1,6 @@
 (el-get-bundle org-roam)
 
-(custom-set-variables
- '(org-roam-directory (file-truename (concat org-directory "roam/"))))
+(setopt org-roam-directory (file-truename (concat org-directory "roam/")))
 
 (org-roam-db-autosync-mode 1)
 
