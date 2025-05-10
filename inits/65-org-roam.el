@@ -1,6 +1,7 @@
 (el-get-bundle org-roam)
 
 (setopt org-roam-directory (file-truename (concat org-directory "roam/")))
+(setopt org-roam-node-display-template "${file}/${title} ${tags}")
 
 (org-roam-db-autosync-mode 1)
 
