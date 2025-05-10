@@ -211,7 +211,7 @@
                        "39ef44f810c34e8900978788467cc675870bcd19")
         (alert :checksum "7774b5fd2feb98d4910ff06435d08c19fba93e26")
         (calfw :checksum "03abce97620a4a7f7ec5f911e669da9031ab9088")
-        (closql :checksum "dc7924c1d206483a2555a98470c96fadf419f32d")
+        (closql :checksum "c90bb6536307d26943442a69137d6f03675aa2d7")
         (company-mode :checksum
                       "41f07c7d401c1374a76f3004a3448d3d36bdf347")
         (counsel-projectile :checksum
