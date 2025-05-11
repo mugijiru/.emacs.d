@@ -247,6 +247,7 @@ nerd-icons をインストールしていない場合は `nerd-icons-install-fon
        :description "Use nerd-icons for Dired"
        :type github
        :pkgname "rainstormstudio/nerd-icons-dired"
+       :branch "main"
        :depends (nerd-icons))
 ```
 

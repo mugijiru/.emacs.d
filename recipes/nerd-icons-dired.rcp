@@ -3,4 +3,5 @@
        :description "Use nerd-icons for Dired"
        :type github
        :pkgname "rainstormstudio/nerd-icons-dired"
+       :branch "main"
        :depends (nerd-icons))
