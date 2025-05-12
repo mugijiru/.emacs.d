@@ -1,6 +1,6 @@
 (setq el-get-lock-package-versions
       '((aidermacs :checksum
-                   "658eca5aaf63ab0f2ec732dc0b87f64f9e88a05d")
+                   "43780ca542083e43041ba73b9c04a3a7dee9aea2")
         (embark :checksum "923d0ec52e2e3e0ae44e497c31c7888e87d08a8f")
         (polymode :checksum "cea7415de4aab7590b7ba51de2a61e2934b3baa5")
         (svelte-mode :checksum
