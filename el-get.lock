@@ -153,7 +153,7 @@
         (pfuture :checksum "19b53aebbc0f2da31de6326c495038901bffb73c")
         (bui :checksum "f3a137628e112a91910fd33c0cff0948fa58d470")
         (smartparens :checksum
-                     "b0d935c11813bcd40f8d35bae8800e0741334c29")
+                     "603325ab3d1186fb10da5c2a7ec1afb88018d792")
         (mocker.el :checksum
                    "e455599f48bad7d73fd445e70a3acf4b44c2f5c1")
         (with-simulated-input :checksum
