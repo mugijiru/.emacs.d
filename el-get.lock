@@ -87,7 +87,7 @@
         (company-posframe :checksum
                           "18d6641bba72cba3c00018cee737ea8b454f64a8")
         (nerd-icons :checksum
-                    "1cb883d928ec046358d2b65db0bb898a1dfffd0a")
+                    "d972dee349395ffae8fceae790d22fedc8fe08e8")
         (copilot :checksum "fe3f51b636dea1c9ac55a0d5dc5d7df02dcbaa48")
         (editorconfig :checksum
                       "d2beb3ec2e7f84505818594124a7202d5d6d0185")
