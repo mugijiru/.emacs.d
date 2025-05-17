@@ -44,7 +44,7 @@ GitHub Copilot Chat を有効にするための認証コードとメッセージ
 (setopt copilot-chat-frontend 'org)
 ```
 
-また出力は日本語の方が日本人には嬉しいのでひとまず `copilot-chat-prompt` の末尾に日本語を出力するように指定している。
+また出力は日本語の方が日本人には嬉しいのでひとまず `copilot-chat-org-prompt` 及び `copilot-chat-markdown-prompt` の末尾に日本語を出力するように指定している。またコミットメッセージの生成もカスタマイズしている。
 
 その際 `copilot-chat-common` の読み込み後に設定しないと変数がないというエラーになるので
 `with-eval-after-load` の中に閉じ込めている。まあこのエラーになる問題は 2025/03 の本体のリファクタで解消しているかもしれないけど。
@@ -55,7 +55,10 @@ GitHub Copilot Chat を有効にするための認証コードとメッセージ
   (setopt copilot-chat-org-prompt (concat my/copilot-chat-org-prompt-original "\n出力には日本語を用います"))
 
   (setq my/copilot-chat-markdown-prompt-original copilot-chat-markdown-prompt)
-  (setopt copilot-chat-markdown-prompt (concat my/copilot-chat-markdown-prompt-original "\n出力には日本語を用います")))
+  (setopt copilot-chat-markdown-prompt (concat my/copilot-chat-markdown-prompt-original "\n出力には日本語を用います"))
+
+  (setq my/copilot-chat-commit-prompt-original copilot-chat-commit-prompt)
+  (setopt copilot-chat-commit-prompt (concat "description には英語 body には日本語を用いる。また1行は66文字以内に収めること。ただし日本語は1文字を2文字換算とする\n" my/copilot-chat-commit-prompt-original)))
 ```
 
 
