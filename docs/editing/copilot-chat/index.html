@@ -12,20 +12,20 @@
     <title>copilot-chat :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1747007356" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1747007356" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1747007356" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1747007356" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1747007356" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1747007356" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1747007356" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1747007356" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1747007356" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1747007356" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1747492003" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1747492003" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1747492003" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1747492003" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1747492003" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1747492003" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1747492003" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1747492003" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1747492003" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1747492003" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1747007356"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1747492003"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1747007356"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1747007356"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1747492003"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1747492003"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1747007356"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1747492003"></script>
 
     
   </div>
@@ -3560,7 +3560,7 @@ GitHub Copilot Chat を有効にするための認証コードとメッセージ
 <h2 id="設定">設定</h2>
 <p>色々使っていると frontend は <code>shell-maker</code> の方が使いやすいっぽいのでそれを指定している</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setopt copilot-chat-frontend <span style="color:#e6db74">&#39;org</span>)
-</span></span></code></pre></div><p>また出力は日本語の方が日本人には嬉しいのでひとまず <code>copilot-chat-prompt</code> の末尾に日本語を出力するように指定している。</p>
+</span></span></code></pre></div><p>また出力は日本語の方が日本人には嬉しいのでひとまず <code>copilot-chat-org-prompt</code> 及び <code>copilot-chat-markdown-prompt</code> の末尾に日本語を出力するように指定している。またコミットメッセージの生成もカスタマイズしている。</p>
 <p>その際 <code>copilot-chat-common</code> の読み込み後に設定しないと変数がないというエラーになるので
 <code>with-eval-after-load</code> の中に閉じ込めている。まあこのエラーになる問題は 2025/03 の本体のリファクタで解消しているかもしれないけど。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;copilot-chat-prompts</span>
@@ -3568,7 +3568,10 @@ GitHub Copilot Chat を有効にするための認証コードとメッセージ
 </span></span><span style="display:flex;"><span>  (setopt copilot-chat-org-prompt (<span style="color:#a6e22e">concat</span> my/copilot-chat-org-prompt-original <span style="color:#e6db74">&#34;\n出力には日本語を用います&#34;</span>))
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  (setq my/copilot-chat-markdown-prompt-original copilot-chat-markdown-prompt)
-</span></span><span style="display:flex;"><span>  (setopt copilot-chat-markdown-prompt (<span style="color:#a6e22e">concat</span> my/copilot-chat-markdown-prompt-original <span style="color:#e6db74">&#34;\n出力には日本語を用います&#34;</span>)))
+</span></span><span style="display:flex;"><span>  (setopt copilot-chat-markdown-prompt (<span style="color:#a6e22e">concat</span> my/copilot-chat-markdown-prompt-original <span style="color:#e6db74">&#34;\n出力には日本語を用います&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  (setq my/copilot-chat-commit-prompt-original copilot-chat-commit-prompt)
+</span></span><span style="display:flex;"><span>  (setopt copilot-chat-commit-prompt (<span style="color:#a6e22e">concat</span> <span style="color:#e6db74">&#34;description には英語 body には日本語を用いる。また1行は66文字以内に収めること。ただし日本語は1文字を2文字換算とする\n&#34;</span> my/copilot-chat-commit-prompt-original)))
 </span></span></code></pre></div><h2 id="キーバインド">キーバインド</h2>
 <p>色々な起動コマンドがあるので <code>pretty-hydra</code> を使って Hydra の定義をしてる。使うのは偏るかもしれないけど、とりあえずこれで行ってみる</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
@@ -6098,19 +6101,19 @@ GitHub Copilot Chat を有効にするための認証コードとメッセージ
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/.emacs.d/js/clipboard.min.js?1747007356"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1747007356"></script>
-    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1747007356"></script>
-    <script src="/.emacs.d/js/jquery.sticky.js?1747007356"></script>
-    <script src="/.emacs.d/js/featherlight.min.js?1747007356"></script>
-    <script src="/.emacs.d/js/highlight.pack.js?1747007356"></script>
+    <script src="/.emacs.d/js/clipboard.min.js?1747492003"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.min.js?1747492003"></script>
+    <script src="/.emacs.d/js/perfect-scrollbar.jquery.min.js?1747492003"></script>
+    <script src="/.emacs.d/js/jquery.sticky.js?1747492003"></script>
+    <script src="/.emacs.d/js/featherlight.min.js?1747492003"></script>
+    <script src="/.emacs.d/js/highlight.pack.js?1747492003"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1747007356"></script>
-    <script src="/.emacs.d/js/learn.js?1747007356"></script>
-    <script src="/.emacs.d/js/hugo-learn.js?1747007356"></script>
+    <script src="/.emacs.d/js/modernizr.custom-3.6.0.js?1747492003"></script>
+    <script src="/.emacs.d/js/learn.js?1747492003"></script>
+    <script src="/.emacs.d/js/hugo-learn.js?1747492003"></script>
     
         
-            <script src="/.emacs.d/mermaid/mermaid.js?1747007356"></script>
+            <script src="/.emacs.d/mermaid/mermaid.js?1747492003"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
