@@ -26,7 +26,10 @@
   (setopt copilot-chat-org-prompt (concat my/copilot-chat-org-prompt-original "\n出力には日本語を用います"))
 
   (setq my/copilot-chat-markdown-prompt-original copilot-chat-markdown-prompt)
-  (setopt copilot-chat-markdown-prompt (concat my/copilot-chat-markdown-prompt-original "\n出力には日本語を用います")))
+  (setopt copilot-chat-markdown-prompt (concat my/copilot-chat-markdown-prompt-original "\n出力には日本語を用います"))
+
+  (setq my/copilot-chat-commit-prompt-original copilot-chat-commit-prompt)
+  (setopt copilot-chat-commit-prompt (concat "description には英語 body には日本語を用いる。また1行は66文字以内に収めること。ただし日本語は1文字を2文字換算とする\n" my/copilot-chat-commit-prompt-original)))
 
 (with-eval-after-load 'pretty-hydra
   (pretty-hydra-define copilot-chat-hydra
