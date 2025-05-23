@@ -213,7 +213,7 @@
         (calfw :checksum "03abce97620a4a7f7ec5f911e669da9031ab9088")
         (closql :checksum "c90bb6536307d26943442a69137d6f03675aa2d7")
         (company-mode :checksum
-                      "41f07c7d401c1374a76f3004a3448d3d36bdf347")
+                      "1924eabfa7438974da0500e85fff5fb32c27282c")
         (counsel-projectile :checksum
                             "40d1e1d4bb70acb00fddd6f4df9778bf2c52734b")
         (dash :checksum "fcb5d831fc08a43f984242c7509870f30983c27c")
