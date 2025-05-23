@@ -297,7 +297,7 @@
         (shrink-path :checksum
                      "c14882c8599aec79a6e8ef2d06454254bb3e1e41")
         (spinner :checksum "d4647ae87fb0cd24bc9081a3d287c860ff061c21")
-        (swiper :checksum "2529a23f9f510a94efa6c088bd14217aa764dafb")
+        (swiper :checksum "2257a9d0519e18f5ce7a7fafda8a1a8e5023628e")
         (transient :checksum
                    "cb6550d5b111b7815feec97b236ecb051de70dbe")
         (treepy :checksum "651e2634f01f346da9ec8a64613c51f54b444bc3")
