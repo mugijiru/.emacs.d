@@ -18,7 +18,7 @@
                    "490f6c8445bf06a98d139d8c5fbeb4b8e38faca3")
         (eask :checksum "72eb1a1cd6af4577ecbc390d62511f981b59b3ff")
         (shell-maker :checksum
-                     "9920a316bf59639c5a1a24d40e230100c78cf2ed")
+                     "b55e2e8d28f1c0ecac1d45b4a299ddddc42f479f")
         (copilot-chat :checksum
                       "d16b1d22f22c0b5cb4ea8e73c758d0459c5bca3f")
         (chatgpt-shell :checksum
