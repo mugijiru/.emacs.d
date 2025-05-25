@@ -2,7 +2,7 @@
       '((aidermacs :checksum
                    "727498e375e8320723f8adb3814163ce22e23c34")
         (embark :checksum "923d0ec52e2e3e0ae44e497c31c7888e87d08a8f")
-        (polymode :checksum "cea7415de4aab7590b7ba51de2a61e2934b3baa5")
+        (polymode :checksum "e87bf5b4da2934875fae643cb5d74b66c5b45711")
         (svelte-mode :checksum
                      "ac8fba901dc790976f9893e338c8ad1241b897c6")
         (llama :checksum "7de288e79329bfb3e2b4a2f9b574cf834bd371dd")
