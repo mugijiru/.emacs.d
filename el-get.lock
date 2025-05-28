@@ -68,7 +68,7 @@
                    "2b2d02e935ee6aa649afa99e9ebc77054a9974b9")
         (ob-graphql :checksum
                     "7c35419f9eec5dc44967cbcfa13c7135b9a96bfc")
-        (corfu :checksum "10e24c8bdbdd4e6d3145878f3ce4357c3753b0a1")
+        (corfu :checksum "52045e7168dadb00d374db557c44e6fcbcf8c762")
         (treesit-auto :checksum
                       "016bd286a1ba4628f833a626f8b9d497882ecdf3")
         (org-mode :checksum "d1f528e830e32185a4b270100cf77961fe6025a2")
