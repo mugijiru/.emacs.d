@@ -77,7 +77,7 @@
         (company-terraform :checksum
                            "8d5a16d1bbeeb18ca49a8fd57b5d8cd30c8b8dc7")
         (terraform-mode :checksum
-                        "5bdd734a87f67f6574664f63eb4d02a0bc74c0d0")
+                        "80383ff42bd0047cde6e3a1dfb87bdb9e0340da3")
         (hcl-mode :checksum "ec27736c4c16fbf7f1ecab0210ec3c71ac2406fa")
         (jest-test-mode :checksum
                         "a397507d8bb41e4aa6b97994f1d7512e78d3dee3")
