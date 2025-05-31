@@ -47,7 +47,7 @@
                       "c8be2611786d1d8d666b7b4f73582de1093f25ac")
         (engine-mode :checksum
                      "e7f317f1b284853b6df4dfd37ab7715b248e0ebd")
-        (mistty :checksum "8f4ca3224fca36179e8182b9d3e19ebbf58b6d62")
+        (mistty :checksum "ae459ded6fdf69c8222056a4a829d2de6c00fc0d")
         (key-chord :checksum
                    "cb646e815c61f253ad9fdfbe058049dda4e2b32b")
         (minimap :checksum "8bc9a65825925a7c58b83ad389f07a93f22d60f3")
