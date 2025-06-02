@@ -311,7 +311,7 @@
                    "d91f878729312a6beed77e6637c60497c5786efa")
         (yascroll :checksum "786f192794874f9c188ee8f9dc63951f11e9a33f")
         (yasnippet :checksum
-                   "2384fe1655c60e803521ba59a34c0a7e48a25d06")
+                   "dd570a6b22364212fff9769cbf4376bdbd7a63c5")
         (zoom-window :checksum
                      "486d59eeb1dcc5c6779738e329b51e6d31ff2717")
         (ace-window :checksum
