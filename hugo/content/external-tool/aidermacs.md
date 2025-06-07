@@ -44,3 +44,18 @@ el-get にはレシピがないので自前で用意している
 
 (setopt aidermacs-default-model "gemini-2.5-pro")
 ```
+
+
+## キーバインド {#キーバインド}
+
+ひとまず major-mode-hydra で aidermacs の transient menu を表示できるようにしている。
+
+```emacs-lisp
+(with-eval-after-load 'major-mode-hydra
+  (major-mode-hydra-define aidermacs-comint-mode
+    (:foreign-keys warn :title "Aidermacs" :quit-key "q" :color blue :separator "-")
+    ("Common"
+     (("m" aidermacs-transient-menu "Menu")))))
+```
+
+直接 transient menu を出せるとその方が良さそうだけど、今はこれでお茶を濁す
