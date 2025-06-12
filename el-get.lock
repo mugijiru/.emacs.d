@@ -280,7 +280,7 @@
         (org-gcal :checksum "9f9d93e4f0d5863b1318e9e702e1ee6e841c2649")
         (pkg-info :checksum "76ba7415480687d05a4353b27fea2ae02b8d9d61")
         (plantuml-mode :checksum
-                       "5e6b505c0695f75666a571b9e6fe1d52fa3ec34d")
+                       "a067d2d15984fca338ca65ed8c88bb2f4f5c608b")
         (popup :checksum "24dd22186403a6566c26ce4996cdb1eedb1cc5cd")
         (posframe :checksum "12f540c9ad5da09673b2bca1132b41f94c134e82")
         (prescient.el :checksum
