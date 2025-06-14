@@ -232,7 +232,7 @@
         (emacsql :checksum "ced062890061b6e4fbe4d00c0617f7ff84fff25c")
         (emojify :checksum "1b726412f19896abf5e4857d4c32220e33400b55")
         (enh-ruby-mode :checksum
-                       "b9cea578ef6738ce675243296c3abf91b9323e11")
+                       "77ae0f5e0e0b655539d0c2fce09582adf732fdcc")
         (epl :checksum "78ab7a85c08222cd15582a298a364774e3282ce6")
         (esa :checksum "417e0ac55abe9b17e0b7165d0df26bc018aff42e")
         (esqlite :checksum "08a779a821f8d32c1a1985d8d9eb6cf21646ce2e")
