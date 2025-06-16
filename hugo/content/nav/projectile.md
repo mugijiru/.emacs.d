@@ -87,9 +87,9 @@ counsel-projectile はいくつかの絞り込み処理を提供してくれて�
 
      "Jump"
      (("l" projectile-edit-dir-locals "dir-locals")
-      ("d" my/projectile-goto-docker-file "Dockerfile")
-      ("c" my/projectile-goto-circleci-config "CircleCI Config")
-      ("r" my/projectile-goto-rubocop-config ".rubocop.yml"))
+      ("D" my/projectile-goto-docker-file "Dockerfile")
+      ("C" my/projectile-goto-circleci-config "CircleCI Config")
+      ("c" my/projectile-goto-rubocop-config ".rubocop.yml"))
 
      "Search"
      (("g" counsel-projectile-rg "RipGrep(Counsel)")
@@ -97,7 +97,7 @@ counsel-projectile はいくつかの絞り込み処理を提供してくれて�
 
      "Other"
      (("p" (counsel-projectile-switch-project 'counsel-projectile-switch-project-action-vc) "Switch Project")
-      ("c" counsel-projectile-org-capture "Capture")
+      ("o" counsel-projectile-org-capture "Capture")
       ("SPC" my/project-hydra "Hydra")))))
 ```
 
@@ -108,14 +108,13 @@ counsel-projectile はいくつかの絞り込み処理を提供してくれて�
 | r   | プロジェクト内で最近触ったファイルのリスト表示 |
 | R   | 一括置換する                   |
 | l   | .dir-locals.el を開く          |
-| d   | Dockerfile を開く              |
-| c   | .circieci/config.yml を開く    |
-| r   | .rubocop.yml を開く            |
-| d   | Dockerfile を開く              |
+| D   | Dockerfile を開く              |
+| C   | .circieci/config.yml を開く    |
+| c   | .rubocop.yml を開く            |
 | g   | RipGrep で検索し counsel で結果を表示 |
 | G   | RipGrep で検索し rg.el のバッファで結果を表示 |
 | p   | 別のプロジェクトに切り替え     |
-| c   | プロジェクト用に org-capture でメモを取る |
+| o   | プロジェクト用に org-capture でメモを取る |
 | SPC | プロジェクト固有の Hydra を起動する |
 
 -   `projectile-find-implementation-or-test`
