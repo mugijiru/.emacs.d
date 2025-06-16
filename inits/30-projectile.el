@@ -30,9 +30,9 @@
 
      "Jump"
      (("l" projectile-edit-dir-locals "dir-locals")
-      ("d" my/projectile-goto-docker-file "Dockerfile")
-      ("c" my/projectile-goto-circleci-config "CircleCI Config")
-      ("r" my/projectile-goto-rubocop-config ".rubocop.yml"))
+      ("D" my/projectile-goto-docker-file "Dockerfile")
+      ("C" my/projectile-goto-circleci-config "CircleCI Config")
+      ("c" my/projectile-goto-rubocop-config ".rubocop.yml"))
 
      "Search"
      (("g" counsel-projectile-rg "RipGrep(Counsel)")
@@ -40,7 +40,7 @@
 
      "Other"
      (("p" (counsel-projectile-switch-project 'counsel-projectile-switch-project-action-vc) "Switch Project")
-      ("c" counsel-projectile-org-capture "Capture")
+      ("o" counsel-projectile-org-capture "Capture")
       ("SPC" my/project-hydra "Hydra")))))
 
 (defun my/project-hydra ()
