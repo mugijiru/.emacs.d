@@ -7728,23 +7728,23 @@ yaml-ts-mode はインデント周りの挙動が気に入らないので
 - [[id:93c58f71-7db1-40d7-b706-dd5868c29da0][chatgpt-shell]] :: OpenAI の ChatGPT とか Google の Gemini とかとやりとりするためのパッケージ
 - [[id:ee19947b-da94-424b-8844-74ca5185a452][claude-code.el]] :: ClaudeCode と連携するためのパッケージ
 - [[id:69f9c15d-05f9-4efc-8ff8-5cacccce75a8][emacs-kibela]] :: Emacs から Kibela に記事を書いたりするためのパッケージ
-- [[*emacs-w3m][emacs-w3m]] :: 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ
+- [[id:e141c62d-fbdc-4129-ac55-043366632213][emacs-w3m]] :: 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ
 - [[id:6cdbff91-2870-4630-962c-6a35906a9db7][engine-mode]] :: Emacs からささっと色々な検索エンジンで検索できるようにするパッケージ
-- [[*esa.el][esa.el]] :: [[https://esa.io/][esa.io]] と連携するためのパッケージ
-- [[*forge][forge]] :: [[*magit][magit]] と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ
+- [[id:13087648-d09a-4754-bf5d-27359c0863f3][esa.el]] ::  [[https://esa.io/][esa.io]] と連携するためのパッケージ
+- [[id:c01f3fef-7ac0-4f80-946d-3d74647defd9][forge]] :: [[*magit][magit]] と GitHub を連携して Emacs 上で PR を眺めたりできるようにするパッケージ
 - [[id:ce83e9b8-ef96-4a27-bcfb-a2b437ca5a28][git-messenger]] :: 現在の行の最終コミットの情報を表示してくれるパッケージ
-- [[*google-this][google-this]] :: Google 検索機能を提供してくれるパッケージ
-- [[*google-translate][google-translate]] :: Emacs から Google 翻訳するためのパッケージ
-- [[*magit][magit]] :: Emacs 上で Git の操作をするのにとても便利なパッケージ
+- [[id:ce8bc262-0fd2-4a0f-aa19-da7ad3f15894][google-this]] :: Google 検索機能を提供してくれるパッケージ
+- [[id:0416ccf6-f302-4713-8465-6bed9c38b839][google-translate]] :: Emacs から Google 翻訳するためのパッケージ
+- [[id:8e0d3e97-c1b6-4e23-bd9d-9bc5c1c9b99c][magit]] :: Emacs 上で Git の操作をするのにとても便利なパッケージ
 - [[id:4ae25e08-de4a-42c0-90e6-f39cc7cd0cb2][mistty]] :: Emacs 上で動く terminal の一種
-- [[*notify-slack][notify-slack]] :: Emacs から外部コマンドを通じて Slack に通知するための関数周りの事を書いている
+- [[id:b8f02a8e-f6f8-4c44-b821-392ff4cb1f7d][notify-slack]] :: Emacs から外部コマンドを通じて Slack に通知するための関数周りの事を書いている
 - [[id:b2277ecd-038a-4dfd-a510-6e2382f2350f][openai]] :: Emacs から [[https://openai.com/blog/openai-api][OpenAI API]] を利用するためのライブラリ
 - [[id:db428e03-5074-4b94-b775-8a49c4f65350][pdf-tools]] :: PDF を見るのに便利なやつ
 - [[id:502cd8c0-a87a-4ff6-a332-e46b6bb1e938][rg]] :: [[https://github.com/BurntSushi/ripgrep][ripgrep]] を使って高速に検索するためのパッケージ
-- [[*todoist][todoist]] :: Todoist と連携して org-mode で扱えるようにするパッケージ
-- [[*twmode][twmode]] :: Emacs 上で動く Twitter クライアント
+- [[id:ff301b66-6de6-4b70-9abb-5776f2e1a646][todoist]] :: Todoist と連携して org-mode で扱えるようにするパッケージ
+- [[id:e0a77ea3-429c-4f0d-8caf-7fde52a3b3a3][twmode]] :: Emacs 上で動く Twitter クライアント
 - [[id:9c9bff02-7627-44ae-9868-e1310ff19294][wakatime-mode]] :: Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ
-- [[*ブラウザ設定][ブラウザ設定]] :: ブラウザ連携周りの設定
+- [[id:0b6e71ab-1fa2-4566-90b1-949842726f22][ブラウザ設定]] :: ブラウザ連携周りの設定
 ** aidermacs
 :PROPERTIES:
 :ID:       f4971222-a485-42ab-9035-26c5724a64ff
@@ -8271,6 +8271,7 @@ w3m-filter の機能を使ってそれらの表示を抑制している。
 ** esa.el
 :PROPERTIES:
 :EXPORT_FILE_NAME: esa.el
+:ID:       13087648-d09a-4754-bf5d-27359c0863f3
 :END:
 *** 概要
 [[https://github.com/nabinno/esa.el][esa.el]] は [[https://esa.io/][esa.io]] と連携するためのパッケージ。
@@ -8399,6 +8400,7 @@ https://github.com/emacsorphanage/git-messenger#key-bindings
 ** google-this
 :PROPERTIES:
 :EXPORT_FILE_NAME: google-this
+:ID:       ce8bc262-0fd2-4a0f-aa19-da7ad3f15894
 :END:
 *** 概要
 [[https://github.com/Malabarba/emacs-google-this][google-this]] は Google 検索を Emacs の中から行えるやつ。
@@ -8431,6 +8433,7 @@ https://github.com/emacsorphanage/git-messenger#key-bindings
 ** google-translate
 :PROPERTIES:
 :EXPORT_FILE_NAME: google-translate
+:ID:       0416ccf6-f302-4713-8465-6bed9c38b839
 :END:
 *** 概要
 [[https://github.com/atykhonov/google-translate][google-translate]] は Google 翻訳する機能を提供するパッケージ。
@@ -8740,6 +8743,7 @@ el-get 本体にレシピはないので自前で用意。
 ** notify-slack
 :PROPERTIES:
 :EXPORT_FILE_NAME: notify-slack
+:ID:       b8f02a8e-f6f8-4c44-b821-392ff4cb1f7d
 :END:
 *** 概要
 Emacs から Slack に通知するための自作関数。
@@ -9008,6 +9012,7 @@ transient があるのでほぼ用意する必要はないけど
 ** todoist
 :PROPERTIES:
 :EXPORT_FILE_NAME: todoist
+:ID:       ff301b66-6de6-4b70-9abb-5776f2e1a646
 :END:
 *** 概要
 [[https://github.com/abrochard/emacs-todoist][emacs-todoist]] は Todo 管理サービスである Todoist と連携するためのパッケージ。
@@ -9047,6 +9052,7 @@ API キーを設定するので別ファイルに分離している。
 ** twmode
 :PROPERTIES:
 :EXPORT_FILE_NAME: twmode
+:ID:       e0a77ea3-429c-4f0d-8caf-7fde52a3b3a3
 :END:
 *** 概要
 [[https://github.com/hayamiz/twittering-mode][twmode]] は Emacs 上で動く Twitter クライアント。
