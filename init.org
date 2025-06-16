@@ -7726,6 +7726,7 @@ yaml-ts-mode はインデント周りの挙動が気に入らないので
 - [[id:448067b2-3791-4cf7-b3bc-016efb494569][blamer.el]] :: 最後のコミット情報を表示してくれる便利なやつ
 - [[id:3bede284-b3db-45ad-9f49-ce31ec47ce6f][calibredb]] :: 電子書籍管理ツール [[https://calibre-ebook.com/][Calibre]] のデータを Emacs から操作するためのパッケージ
 - [[id:93c58f71-7db1-40d7-b706-dd5868c29da0][chatgpt-shell]] :: OpenAI の ChatGPT とか Google の Gemini とかとやりとりするためのパッケージ
+- [[id:ee19947b-da94-424b-8844-74ca5185a452][claude-code.el]] :: ClaudeCode と連携するためのパッケージ
 - [[id:69f9c15d-05f9-4efc-8ff8-5cacccce75a8][emacs-kibela]] :: Emacs から Kibela に記事を書いたりするためのパッケージ
 - [[*emacs-w3m][emacs-w3m]] :: 和製テキストブラウザである w3m を Emacs で使えるようにするパッケージ
 - [[id:6cdbff91-2870-4630-962c-6a35906a9db7][engine-mode]] :: Emacs からささっと色々な検索エンジンで検索できるようにするパッケージ
@@ -8004,6 +8005,56 @@ authinfo に登録した API キーを引っ張り出して使っている
 (setopt chatgpt-shell-model-version "gemini-2.0-flash")
 (setopt chatgpt-shell-google-key
         (funcall (plist-get (nth 0 (auth-source-search :host "gemini" :max 1)) :secret)))
+#+end_src
+** claude-code.el
+:PROPERTIES:
+:EXPORT_FILE_NAME: claude-code
+:ID:       ee19947b-da94-424b-8844-74ca5185a452
+:END:
+*** 概要
+[[https://github.com/stevemolitor/claude-code.el][claude-code.el]] は [[https://docs.anthropic.com/en/docs/claude-code/overview][Claude Code]] と連携するためのパッケージ。
+
+今のところ入れてみたもののまともに動かないので、困っているけど、
+一応設定は書いておく
+**** インストール
+まず recipe は el-get 本体にはないので自前で用意している。
+その際に依存している emacs-eat というパッケージの recipe も自前で用意した
+
+#+begin_src emacs-lisp :tangle recipes/emacs-eat.rcp
+( :name emacs-eat
+  :website "https://elpa.nongnu.org/nongnu-devel/doc/eat.html"
+  :description "Eat (Emulate A Terminal) is a terminal emulator for Emacs."
+  :type git
+  :url "https://codeberg.org/akib/emacs-eat.git"
+  :depends (compat)
+  :branch "master")
+#+end_src
+
+#+begin_src emacs-lisp :tangle recipes/claude-code.rcp
+( :name claude-code
+  :website "https://github.com/stevemolitor/claude-code.el"
+  :description "An Emacs interface for Claude Code CLI"
+  :type github
+  :pkgname "stevemolitor/claude-code.el"
+  :depends (emacs-eat transient)
+  :branch "main")
+#+end_src
+
+そして ~el-get-bundle~ でインストールしている
+
+#+begin_src emacs-lisp :tangle inits/50-claude-code.el
+(el-get-bundle claude-code)
+#+end_src
+**** 設定
+#+begin_src bash
+$ claude migrate-installer
+#+end_src
+
+で ~$HOME/.claude/local/claude~ にインストールしたので
+インストール先としてその PATH を指定している
+
+#+begin_src emacs-lisp :tangle inits/50-claude-code.el
+(setopt claude-code-program (expand-file-name "~/.claude/local/claude"))
 #+end_src
 ** emacs-kibela
 :PROPERTIES:
