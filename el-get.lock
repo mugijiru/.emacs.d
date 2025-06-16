@@ -1,5 +1,9 @@
 (setq el-get-lock-package-versions
-      '((aidermacs :checksum
+      '((claude-code :checksum
+                     "d0adbd994111ba57c3d2da368a60e5e7f96101a0")
+        (emacs-eat :checksum
+                   "c8d54d649872bfe7b2b9f49ae5c2addbf12d3b99")
+        (aidermacs :checksum
                    "727498e375e8320723f8adb3814163ce22e23c34")
         (embark :checksum "2941f2ea36d61c1a84c3f79ebe47d604c9a92b5d")
         (polymode :checksum "a8ad41fa00c6d58ad730026785665c074dd7fe16")

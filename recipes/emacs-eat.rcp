@@ -1,0 +1,7 @@
+( :name emacs-eat
+  :website "https://elpa.nongnu.org/nongnu-devel/doc/eat.html"
+  :description "Eat (Emulate A Terminal) is a terminal emulator for Emacs."
+  :type git
+  :url "https://codeberg.org/akib/emacs-eat.git"
+  :depends (compat)
+  :branch "master")
