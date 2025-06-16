@@ -1,0 +1,7 @@
+( :name claude-code
+  :website "https://github.com/stevemolitor/claude-code.el"
+  :description "An Emacs interface for Claude Code CLI"
+  :type github
+  :pkgname "stevemolitor/claude-code.el"
+  :depends (emacs-eat transient)
+  :branch "main")
