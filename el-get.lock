@@ -213,7 +213,7 @@
         (avy :checksum "933d1f36cca0f71e4acb5fac707e9ae26c536264")
         (all-the-icons :checksum
                        "4778632b29c8c8d2b7cd9ce69535d0be01d846f9")
-        (alert :checksum "7774b5fd2feb98d4910ff06435d08c19fba93e26")
+        (alert :checksum "d17ad05ade019fd3560c78f8ed57a352034797e8")
         (calfw :checksum "03abce97620a4a7f7ec5f911e669da9031ab9088")
         (closql :checksum "05a2b048fd4e5c90aa971479cb9e71cf9aeba2bf")
         (company-mode :checksum
