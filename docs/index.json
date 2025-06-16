@@ -322,6 +322,13 @@
 	"content": "概要 chatgpt-shell は OpenAI の ChatGPT とか Google の Gemini とかとチャットできるようにするパッケージ\nインストール el-get 本体にはレシピがないので自前で用意している。依存パッケージである shell-maker のレシピも自前で用意している。\n(:name shell-maker :website \u0026#34;https://github.com/xenodium/shell-maker\u0026#34; :description \u0026#34;shell-maker is a convenience wrapper around comint mode.\u0026#34; :type github :pkgname \u0026#34;xenodium/shell-maker\u0026#34; :branch \u0026#34;main\u0026#34; :minimum-emacs-version \u0026#34;27.1\u0026#34;) (:name chatgpt-shell :description \u0026#34;Interaction mode for ChatGPT\u0026#34; :type github :pkgname \u0026#34;xenodium/chatgpt-shell\u0026#34; :branch \u0026#34;main\u0026#34; :minimum-emacs-version \u0026#34;28.1\u0026#34; :depends (shell-maker)) そして el-get-bundle でインストールしている。\n(el-get-bundle chatgpt-shell) 設定 とりあえず Gemini を指定した上で authinfo に登録した API キーを引っ張り出して使っている\n(setopt chatgpt-shell-model-version \u0026#34;gemini-2.0-flash\u0026#34;) (setopt chatgpt-shell-google-key (funcall (plist-get (nth 0 (auth-source-search :host \u0026#34;gemini\u0026#34; :max 1)) :secret))) "
 },
 {
+	"uri": "https://mugijiru.github.io/.emacs.d/external-tool/claude-code/",
+	"title": "claude-code.el",
+	"tags": [],
+	"description": "",
+	"content": "概要 claude-code.el は Claude Code と連携するためのパッケージ。\n今のところ入れてみたもののまともに動かないので、困っているけど、一応設定は書いておく\nインストール まず recipe は el-get 本体にはないので自前で用意している。その際に依存している emacs-eat というパッケージの recipe も自前で用意した\n( :name emacs-eat :website \u0026#34;https://elpa.nongnu.org/nongnu-devel/doc/eat.html\u0026#34; :description \u0026#34;Eat (Emulate A Terminal) is a terminal emulator for Emacs.\u0026#34; :type git :url \u0026#34;https://codeberg.org/akib/emacs-eat.git\u0026#34; :depends (compat) :branch \u0026#34;master\u0026#34;) ( :name claude-code :website \u0026#34;https://github.com/stevemolitor/claude-code.el\u0026#34; :description \u0026#34;An Emacs interface for Claude Code CLI\u0026#34; :type github :pkgname \u0026#34;stevemolitor/claude-code.el\u0026#34; :depends (emacs-eat transient) :branch \u0026#34;main\u0026#34;) そして el-get-bundle でインストールしている\n(el-get-bundle claude-code) 設定 $ claude migrate-installer で $HOME/.claude/local/claude にインストールしたのでインストール先としてその PATH を指定している\n(setopt claude-code-program (expand-file-name \u0026#34;~/.claude/local/claude\u0026#34;)) "
+},
+{
 	"uri": "https://mugijiru.github.io/.emacs.d/ui/color-theme-molokai/",
 	"title": "color-theme-molokai",
 	"tags": [],

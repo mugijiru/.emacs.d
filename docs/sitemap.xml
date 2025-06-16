@@ -94,6 +94,8 @@
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/external-tool/chatgpt-shell/</loc>
   </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/external-tool/claude-code/</loc>
+  </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/ui/color-theme-molokai/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/editing/company-mode/</loc>
