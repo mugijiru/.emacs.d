@@ -50,6 +50,41 @@
                              repos-prs)))
     (cl-reduce (lambda (result prs) (append result prs)) nested-prs)))
 
+(defun my/org-reviews-fetch-by-ghub (repositories)
+  "ghub を使ってレビュー依頼されている PR を取得する"
+  (let* ((repo-str (mapconcat (lambda (repo) (concat "repo:" repo)) repositories " "))
+         (result (ghub-get "search/issues"
+                        `((per_page . 100)
+                          (sort . "created")
+                          (q . ,(concat repo-str " is:open is:pr draft:false -author:app/dependabot -author:app/renovate -author:mugijiru"))
+                          (order . "desc"))
+                        :auth 'org-reviews)))
+    (assoc-default 'items result)))
+
+(defun my/org-reviews-format-from-ghub (pr)
+  "ghub から取得した PR を emacs lisp の list に変換する"
+  (let* ((number (assoc-default 'number pr))
+         (todo-keyword "TODO")
+         (title (assoc-default 'title pr))
+         (text (assoc-default 'url pr))
+         (labels (assoc-default 'labels pr))
+         (tags (mapcar (lambda (label) (assoc-default 'name label)) labels)))
+    `( :number ,number
+       :todo-keyword ,todo-keyword
+       :title ,title
+       :text ,text
+       :tags ,tags)))
+
+(defun my/org-reviews-prs-by-ghub ()
+  "レビュー依頼されている PR を ghub で取得する"
+  (let* ((repositories (mapcar (lambda (repo)
+                                 (concat my/org-reviews-organization "/" repo))
+                               my/org-reviews-repositories))
+         (prs (my/org-reviews-fetch-by-ghub repositories)))
+    (mapcar (lambda (pr)
+              (my/org-reviews-format-from-ghub pr))
+            prs)))
+
 (defun my/org-reviews-convert-pull-request-to-list (pr org repo)
   "PR から list に変換"
   (let* ((number (gethash "number" pr))
@@ -162,7 +197,8 @@
   (interactive)
   (find-file-other-window my/org-reviews-file)
   (let* ((saved-prs (my/org-reviews-pr-headlines))
-         (fetched-prs (my/org-reviews-prs))
+         ;; (fetched-prs (my/org-reviews-prs))
+         (fetched-prs (my/org-reviews-prs-by-ghub))
          (merged-prs (my/org-reviews-merge-prs saved-prs fetched-prs))
          (headlines (mapcar #'my/org-reviews-list-item-to-org-headline merged-prs))
          (root (apply #'org-element-create
