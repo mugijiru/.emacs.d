@@ -5,7 +5,7 @@
                    "c8d54d649872bfe7b2b9f49ae5c2addbf12d3b99")
         (aidermacs :checksum
                    "16c971f288ea18c83a012be385f1f8fb1f5048d0")
-        (embark :checksum "2941f2ea36d61c1a84c3f79ebe47d604c9a92b5d")
+        (embark :checksum "e1bec660d10974b80a74b9e3dbf95899dccdaeac")
         (polymode :checksum "25ba9463a443f0e904147138f226284e437248d3")
         (svelte-mode :checksum
                      "ac8fba901dc790976f9893e338c8ad1241b897c6")
