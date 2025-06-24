@@ -30,6 +30,7 @@
   (ruby-refactor-mode 1)
   (yard-mode 1)
   (eldoc-mode 1)
+  (setq-local lsp-enable-indentation nil)
   (turn-on-smartparens-strict-mode)
   (display-line-numbers-mode 1))
 
