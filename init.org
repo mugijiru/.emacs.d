@@ -6816,6 +6816,7 @@ hook 用の関数で補完などの機能を有効にしている
   (ruby-refactor-mode 1)
   (yard-mode 1)
   (eldoc-mode 1)
+  (setq-local lsp-enable-indentation nil)
   (turn-on-smartparens-strict-mode)
   (display-line-numbers-mode 1))
 #+end_src
@@ -6828,6 +6829,8 @@ hook 用の関数で補完などの機能を有効にしている
 - リファクタリング用に ruby-refactor-mode の有効化
 - yard 形式のコメントも良い感じにハイライトされると便利なので yard-mode を有効化
   - 更に eldoc-mode を有効にしていると yard コメントを書く時に文法を minibuffer に表示してくれるのでこちらも有効化
+- ruby-lsp-ls のインデントは syntax tree gem が必要なようで動いてくれなうて面倒なので無効化
+  - 無効にするとデフォルトのインデント処理が動く
 - 開きカッコと閉じカッコの組み合わせがズレないように smartparens-strict-mode を有効にしている
 - 行番号も表示されている方が便利なので display-line-numbers-mode を有効にしている
 - lsp-mode に関してはプロジェクト毎にごにゃごにゃしたいので ~.dir-locals.el~ に任せる方針にしている
