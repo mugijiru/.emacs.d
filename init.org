@@ -9227,9 +9227,10 @@ org-mode だけでも書くことが多いからね……。
 12. [[id:72eb002f-ce8c-4a80-ad68-edfc9681864e][org-trello]]
 13. [[id:917c0e2f-5091-4fb3-bf22-cfa2c071f709][ox-hugo]]
 14. [[id:e2943058-f0e2-4e6f-ba27-89ab3ec6f05e][org-roam]]
-15. [[id:c96e37d7-2c93-48f6-a612-04f8b1001b0e][org-mode 用の独自コマンド]]
-16. [[id:b4575c67-6d15-40ad-9624-a18854ea2c4e][org-mode 関係の keybinds]]
-17. [[id:8efc5c01-6d70-4ce5-b363-7449c6da6bae][日報用の設定(旧)]]
+15. [[id:24451bfc-9576-49aa-9631-90f068618580][ox-nippou]]
+16. [[id:c96e37d7-2c93-48f6-a612-04f8b1001b0e][org-mode 用の独自コマンド]]
+17. [[id:b4575c67-6d15-40ad-9624-a18854ea2c4e][org-mode 関係の keybinds]]
+18. [[id:8efc5c01-6d70-4ce5-b363-7449c6da6bae][日報用の設定(旧)]]
 ** 基本設定
 :PROPERTIES:
 :EXPORT_FILE_NAME: base
@@ -11451,6 +11452,45 @@ org フォルダの下に roam というフォルダを掘ってその中だけ�
  '(my/org-reviews-repositories
    (split-string (plist-get (nth 0 (auth-source-search :host my/org-reviews-token-host)) :repositories) ",")))
 
+#+end_src
+** ox-nippou
+:PROPERTIES:
+:ID:       24451bfc-9576-49aa-9631-90f068618580
+:EXPORT_FILE_NAME: ox-nippou
+:END:
+*** 概要
+[[https://github.com/mugijiru/ox-nippou][ox-nippou]] は org-mode のファイルから日報を出力するための自作パッケージです。
+*** インストール
+自作パッケージなので自前で el-get 用にレシピを用意している
+
+#+begin_src emacs-lisp :tangle recipes/ox-nippou.rcp
+( :name ox-nippou
+  :website "https://github.com/mugijiru/ox-nippou"
+  :description "ox-nippou is a tool for generating daily reports from Org-mode files."
+  :type github
+  :pkgname "mugijiru/ox-nippou"
+  :depends (org-mode markdown-mode)
+  :branch "main")
+#+end_src
+
+そしてそれを ~el-get-bundle~ でインストールしている
+
+#+begin_src emacs-lisp :tangle inits/66-ox-nippou.el
+(el-get-bundle ox-nippou)
+#+end_src
+*** カスタマイズ
+- 変換元ファイルの格納先の指定
+- 対象タスクがない時の表示
+- TODO state と日報との対応
+
+をカスタム変数で設定している
+
+#+begin_src emacs-lisp :tangle inits/66-ox-nippou.el
+(setopt ox-nippou-journal-directory (expand-file-name "journal" org-roam-directory))
+(setopt ox-nippou-no-tasks-string ":pear:")
+(setopt ox-nippou-todo-state-mapping '(("todo" . ("TODO"))
+                                       ("doing" . ("DOING" "WAIT"))
+                                       ("done" . ("DONE"))))
 #+end_src
 ** org-mode 用の独自コマンド
 :PROPERTIES:
