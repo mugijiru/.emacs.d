@@ -158,7 +158,7 @@
 	"title": "org-mode",
 	"tags": [],
 	"description": "",
-	"content": "ここでは org-mode 周りの設定をまとめている。 org-mode だけでも書くことが多いからね……。\n基本設定 org-babel 予定のカレンダー表示 Agenda 関係の設定 org-capture org-clock org-export org-gcal org-ql org-refile org-trello ox-hugo org-mode 用の独自コマンド org-mode 関係の keybinds 日報用の設定(旧) "
+	"content": "ここでは org-mode 周りの設定をまとめている。 org-mode だけでも書くことが多いからね……。\n基本設定 org-babel 予定のカレンダー表示 Agenda 関係の設定 org-capture org-protocol-capture-html org-clock org-export org-gcal org-ql org-refile org-trello ox-hugo org-roam ox-nippou org-mode 用の独自コマンド org-mode 関係の keybinds 日報用の設定(旧) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/org-ql/",
@@ -810,6 +810,13 @@
 	"tags": [],
 	"description": "",
 	"content": "概要 origami はコードの折り畳み機能を提供するやつ。メジャーな言語は大体サポートしている感じ。大きいファイルを見る時に便利。\nインストール el-get 公式にはレシピがないので自前でレシピを用意している。\n(:name origami :website \u0026#34;https://github.com/elp-revive/origami.el\u0026#34; :description \u0026#34;A text folding minor mode for Emacs.\u0026#34; :type github :pkgname \u0026#34;elp-revive/origami.el\u0026#34; :depends (s dash)) そしてそれを使ってインストール\n(el-get-bundle origami) キーバインド origami-mode-map では以下のように動くように設定している。\nKey 効果 \u0026lt;backtab\u0026gt; 再帰的に折り畳んだり開いたりするやつ。org-mode の fold と似た感じ M-\u0026lt;backtab\u0026gt; そのノードだけ表示する (with-eval-after-load \u0026#39;origami (define-key origami-mode-map (kbd \u0026#34;\u0026lt;backtab\u0026gt;\u0026#34;) \u0026#39;origami-recursively-toggle-node) (define-key origami-mode-map (kbd \u0026#34;M-\u0026lt;backtab\u0026gt;\u0026#34;) \u0026#39;origami-show-only-node)) ただこれだけだと多分足りないので Hydra で色々定義している。\n(with-eval-after-load \u0026#39;pretty-hydra (pretty-hydra-define origami-hydra (:separator \u0026#34;-\u0026#34; :quit-key \u0026#34;q\u0026#34; :title \u0026#34;Origami\u0026#34;) (\u0026#34;Node\u0026#34; ((\u0026#34;o\u0026#34; origami-open-node \u0026#34;Open\u0026#34;) (\u0026#34;c\u0026#34; origami-close-node \u0026#34;Close\u0026#34;) (\u0026#34;s\u0026#34; origami-show-node \u0026#34;Show\u0026#34;) (\u0026#34;t\u0026#34; origami-toggle-node \u0026#34;Toggle\u0026#34;) (\u0026#34;S\u0026#34; origami-forward-toggle-node \u0026#34;Foward toggle\u0026#34;) (\u0026#34;r\u0026#34; origami-recursively-toggle-node \u0026#34;Recursive toggle\u0026#34;)) \u0026#34;All\u0026#34; ((\u0026#34;O\u0026#34; origami-open-all-nodes \u0026#34;Open\u0026#34;) (\u0026#34;C\u0026#34; origami-close-all-nodes \u0026#34;Close\u0026#34;) (\u0026#34;T\u0026#34; origami-toggle-all-nodes \u0026#34;Toggle\u0026#34;)) \u0026#34;Move\u0026#34; ((\u0026#34;n\u0026#34; origami-next-fold \u0026#34;Next\u0026#34;) (\u0026#34;p\u0026#34; origami-previous-fold \u0026#34;Previous\u0026#34;)) \u0026#34;Undo/Redo\u0026#34; ((\u0026#34;/\u0026#34; origami-undo \u0026#34;Undo\u0026#34;) (\u0026#34;?\u0026#34; origami-redo \u0026#34;Redo\u0026#34;) (\u0026#34;X\u0026#34; origami-reset \u0026#34;Reset\u0026#34;))))) この設定は jk で起動する Hydra から呼び出せるようにしている\n"
+},
+{
+	"uri": "https://mugijiru.github.io/.emacs.d/org-mode/ox-nippou/",
+	"title": "ox-nippou",
+	"tags": [],
+	"description": "",
+	"content": "概要 ox-nippou は org-mode のファイルから日報を出力するための自作パッケージです。\nインストール 自作パッケージなので自前で el-get 用にレシピを用意している\n( :name ox-nippou :website \u0026#34;https://github.com/mugijiru/ox-nippou\u0026#34; :description \u0026#34;ox-nippou is a tool for generating daily reports from Org-mode files.\u0026#34; :type github :pkgname \u0026#34;mugijiru/ox-nippou\u0026#34; :depends (org-mode markdown-mode) :branch \u0026#34;main\u0026#34;) そしてそれを el-get-bundle でインストールしている\n(el-get-bundle ox-nippou) カスタマイズ 変換元ファイルの格納先の指定 対象タスクがない時の表示 TODO state と日報との対応 をカスタム変数で設定している\n(setopt ox-nippou-journal-directory (expand-file-name \u0026#34;journal\u0026#34; org-roam-directory)) (setopt ox-nippou-no-tasks-string \u0026#34;:pear:\u0026#34;) (setopt ox-nippou-todo-state-mapping \u0026#39;((\u0026#34;todo\u0026#34; . (\u0026#34;TODO\u0026#34;)) (\u0026#34;doing\u0026#34; . (\u0026#34;DOING\u0026#34; \u0026#34;WAIT\u0026#34;)) (\u0026#34;done\u0026#34; . (\u0026#34;DONE\u0026#34;)))) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/external-tool/pdf-tools/",

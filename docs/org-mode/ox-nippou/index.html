@@ -9,23 +9,23 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>view-mode :: 麦汁&#39;s Emacs Config</title>
+    <title>ox-nippou :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1750727127" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1750727127" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1750727127" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1750727127" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1750727127" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1750727127" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1750727127" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1750727127" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1750727127" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1750727127" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1750727128" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1750727128" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1750727128" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1750727128" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1750727128" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1750727128" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1750727128" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1750727128" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1750727128" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1750727128" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1750727127"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1750727128"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/editing/view-mode/">
+  <body class="" data-url="/.emacs.d/org-mode/ox-nippou/">
     <nav id="sidebar" class="">
 
 
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1750727127"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1750727127"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1750727128"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1750727128"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1750727127"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1750727128"></script>
 
     
   </div>
@@ -622,7 +622,7 @@
   
     
     <li data-nav-id="/.emacs.d/editing/" title="ファイル編集/入力補助" class="dd-item
-        parent
+        
         
         
         ">
@@ -963,7 +963,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/editing/view-mode/" title="view-mode" class="dd-item active">
+      <li data-nav-id="/.emacs.d/editing/view-mode/" title="view-mode" class="dd-item ">
         <a href="/.emacs.d/editing/view-mode/">
         view-mode
         
@@ -2850,7 +2850,7 @@
   
     
     <li data-nav-id="/.emacs.d/org-mode/" title="org-mode" class="dd-item
-        
+        parent
         
         
         ">
@@ -3254,7 +3254,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/org-mode/ox-nippou/" title="ox-nippou" class="dd-item ">
+      <li data-nav-id="/.emacs.d/org-mode/ox-nippou/" title="ox-nippou" class="dd-item active">
         <a href="/.emacs.d/org-mode/ox-nippou/">
         ox-nippou
         
@@ -3539,7 +3539,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/editing/'>ファイル編集/入力補助</a> > view-mode
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/org-mode/'>org-mode</a> > ox-nippou
           
         
           
@@ -3555,9 +3555,8 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#キーバインド">キーバインド</a></li>
-    <li><a href="#hook">hook</a></li>
-    <li><a href="#toggle-するコマンド">Toggle するコマンド</a></li>
+    <li><a href="#インストール">インストール</a></li>
+    <li><a href="#カスタマイズ">カスタマイズ</a></li>
   </ul>
 </nav>
     </div>
@@ -3575,7 +3574,7 @@
           
             <h1>
               
-              view-mode
+              ox-nippou
             </h1>
           
 
@@ -3583,94 +3582,30 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://www.emacswiki.org/emacs/ViewMode">view-mode</a> は Emacs に標準で組込まれているモードで、バッファを閲覧専用にする機能を提供してくれるやつ。コードを眺めたい時などに使っている。</p>
-<h2 id="キーバインド">キーバインド</h2>
-<p>view-mode の時は文字入力をする必要がないので通常のモードの時とは違うキーバインドが使えるようにしている。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/setup-view-mode-keymap ()
-</span></span><span style="display:flex;"><span>    (let ((keymap view-mode-map))
-</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">define-key</span> keymap (kbd <span style="color:#e6db74">&#34;h&#34;</span>) <span style="color:#e6db74">&#39;backward-char</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">define-key</span> keymap (kbd <span style="color:#e6db74">&#34;j&#34;</span>) <span style="color:#e6db74">&#39;next-line</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">define-key</span> keymap (kbd <span style="color:#e6db74">&#34;k&#34;</span>) <span style="color:#e6db74">&#39;previous-line</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">define-key</span> keymap (kbd <span style="color:#e6db74">&#34;l&#34;</span>) <span style="color:#e6db74">&#39;forward-char</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">define-key</span> keymap (kbd <span style="color:#e6db74">&#34;e&#34;</span>) <span style="color:#e6db74">&#39;forward-word</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">define-key</span> keymap (kbd <span style="color:#e6db74">&#34;b&#34;</span>)   <span style="color:#e6db74">&#39;scroll-down</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">define-key</span> keymap (kbd <span style="color:#e6db74">&#34;SPC&#34;</span>) <span style="color:#e6db74">&#39;scroll-up</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">define-key</span> keymap (kbd <span style="color:#e6db74">&#34;g&#34;</span>) <span style="color:#e6db74">&#39;beginning-of-buffer</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">define-key</span> keymap (kbd <span style="color:#e6db74">&#34;G&#34;</span>) <span style="color:#e6db74">&#39;end-of-buffer</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">define-key</span> keymap (kbd <span style="color:#e6db74">&#34;&lt;&#34;</span>) <span style="color:#e6db74">&#39;beginning-of-buffer</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">define-key</span> keymap (kbd <span style="color:#e6db74">&#34;&gt;&#34;</span>) <span style="color:#e6db74">&#39;end-of-buffer</span>)))
-</span></span></code></pre></div><table>
-<thead>
-<tr>
-<th>Key</th>
-<th>効果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>h</td>
-<td>1文字戻る</td>
-</tr>
-<tr>
-<td>j</td>
-<td>1行下がる</td>
-</tr>
-<tr>
-<td>k</td>
-<td>1行上がる</td>
-</tr>
-<tr>
-<td>l</td>
-<td>1文字進む</td>
-</tr>
-<tr>
-<td>e</td>
-<td>単語の直後に移動</td>
-</tr>
-<tr>
-<td>b</td>
-<td>1スクロール戻る</td>
-</tr>
-<tr>
-<td>SPC</td>
-<td>1スクロール進む</td>
-</tr>
-<tr>
-<td>g, &lt;</td>
-<td>バッファの先頭に移動</td>
-</tr>
-<tr>
-<td>G, &gt;</td>
-<td>バッファの末尾に移動</td>
-</tr>
-</tbody>
-</table>
-<p>適当だけど Vim の通常モードの時みたいな操作ができるようにしている。</p>
-<p>これで不要に左手小指を痛める可能性が下がるであろう。</p>
-<h2 id="hook">hook</h2>
-<p>上でキーバインドを設定できる関数を用意してあるので
-view-mode が有効になる時にそれを hook して設定されるようにしている。</p>
-<p>が、 hook する必要あるのか疑問ではあるな。ま、動いているからとりあえずいいけど。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/view-mode-hook ()
-</span></span><span style="display:flex;"><span>  (my/setup-view-mode-keymap))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;view-mode-hook</span> <span style="color:#e6db74">&#39;my/view-mode-hook</span>)
-</span></span></code></pre></div><h2 id="toggle-するコマンド">Toggle するコマンド</h2>
-<p>view-mode にしたり戻したりするコマンドを用意している。</p>
-<p>view-mode を有効にする時には hl-line-mode も有効にしているのでその時眺めている行がハイライトされるようになっている。普段はそれがあるかどうかでどっちもモードかざっくり判断している。</p>
-<p>他にも mode-line の色を変更するなどの技があるようだがひとまず今の設定でそう困ってないのでいいかな。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/toggle-view-mode ()
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;view-mode と通常モードの切り替えコマンド&#34;</span>
-</span></span><span style="display:flex;"><span>  (interactive)
-</span></span><span style="display:flex;"><span>  (cond (view-mode
-</span></span><span style="display:flex;"><span>         (hl-line-mode <span style="color:#ae81ff">-1</span>)
-</span></span><span style="display:flex;"><span>         (view-mode <span style="color:#ae81ff">-1</span>))
-</span></span><span style="display:flex;"><span>        (<span style="color:#66d9ef">t</span>
-</span></span><span style="display:flex;"><span>         (hl-line-mode <span style="color:#ae81ff">1</span>)
-</span></span><span style="display:flex;"><span>         (view-mode <span style="color:#ae81ff">1</span>))))
+<p><a href="https://github.com/mugijiru/ox-nippou">ox-nippou</a> は org-mode のファイルから日報を出力するための自作パッケージです。</p>
+<h2 id="インストール">インストール</h2>
+<p>自作パッケージなので自前で el-get 用にレシピを用意している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>( :name ox-nippou
+</span></span><span style="display:flex;"><span>  :website <span style="color:#e6db74">&#34;https://github.com/mugijiru/ox-nippou&#34;</span>
+</span></span><span style="display:flex;"><span>  :description <span style="color:#e6db74">&#34;ox-nippou is a tool for generating daily reports from Org-mode files.&#34;</span>
+</span></span><span style="display:flex;"><span>  :type github
+</span></span><span style="display:flex;"><span>  :pkgname <span style="color:#e6db74">&#34;mugijiru/ox-nippou&#34;</span>
+</span></span><span style="display:flex;"><span>  :depends (org-mode markdown-mode)
+</span></span><span style="display:flex;"><span>  :branch <span style="color:#e6db74">&#34;main&#34;</span>)
+</span></span></code></pre></div><p>そしてそれを <code>el-get-bundle</code> でインストールしている</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle ox-nippou)
+</span></span></code></pre></div><h2 id="カスタマイズ">カスタマイズ</h2>
+<ul>
+<li>変換元ファイルの格納先の指定</li>
+<li>対象タスクがない時の表示</li>
+<li>TODO state と日報との対応</li>
+</ul>
+<p>をカスタム変数で設定している</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setopt ox-nippou-journal-directory (<span style="color:#a6e22e">expand-file-name</span> <span style="color:#e6db74">&#34;journal&#34;</span> org-roam-directory))
+</span></span><span style="display:flex;"><span>(setopt ox-nippou-no-tasks-string <span style="color:#e6db74">&#34;:pear:&#34;</span>)
+</span></span><span style="display:flex;"><span>(setopt ox-nippou-todo-state-mapping <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;todo&#34;</span> <span style="color:#f92672">.</span> (<span style="color:#e6db74">&#34;TODO&#34;</span>))
+</span></span><span style="display:flex;"><span>                                       (<span style="color:#e6db74">&#34;doing&#34;</span> <span style="color:#f92672">.</span> (<span style="color:#e6db74">&#34;DOING&#34;</span> <span style="color:#e6db74">&#34;WAIT&#34;</span>))
+</span></span><span style="display:flex;"><span>                                       (<span style="color:#e6db74">&#34;done&#34;</span> <span style="color:#f92672">.</span> (<span style="color:#e6db74">&#34;DONE&#34;</span>))))
 </span></span></code></pre></div>
 
 <footer class="footline">
@@ -4079,7 +4014,6 @@ view-mode が有効になる時にそれを hook して設定されるように�
             
                 
                     
-                    
                 
                 
 
@@ -4092,9 +4026,6 @@ view-mode が有効になる時にそれを hook して設定されるように�
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -4336,7 +4267,6 @@ view-mode が有効になる時にそれを hook して設定されるように�
             
                 
                     
-                    
                 
                 
 
@@ -4352,9 +4282,6 @@ view-mode が有効になる時にそれを hook して設定されるように�
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -5735,6 +5662,7 @@ view-mode が有効になる時にそれを hook して設定されるように�
             
                 
                     
+                    
                 
                 
 
@@ -5747,6 +5675,9 @@ view-mode が有効になる時にそれを hook して設定されるように�
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -6036,6 +5967,7 @@ view-mode が有効になる時にそれを hook して設定されるように�
             
                 
                     
+                    
                 
                 
 
@@ -6054,6 +5986,9 @@ view-mode が有効になる時にそれを hook して設定されるように�
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -6187,10 +6122,10 @@ view-mode が有効になる時にそれを hook して設定されるように�
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/editing/undo-fu/" title="undo-fu"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/org-mode/org-roam/" title="org-roam"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/editing/wgrep/" title="wgrep" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/testing-tool/" title="テスト用ツール" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

@@ -133,5 +133,12 @@
       <guid>https://mugijiru.github.io/.emacs.d/org-mode/org-roam/</guid>
       <description>概要 org-roam は記事同士のリンク周りを強化して、検索機能を提供したり繋がりを可視化したりしてくれるやつ。繋がりを可視化することでアイデア同士の結び付きを見つけたりとかに使えるっぽい&#xA;内部的には SQLite を使ってリンクを cache しているっぽい。&#xA;インストール el-get 本体ではレシピを提供していないのでとりあえず自前で用意している&#xA;(:name org-roam :website &amp;#34;https://www.orgroam.com/&amp;#34; :description &amp;#34;A plain-text knowledge management system.&amp;#34; :type github :branch &amp;#34;main&amp;#34; :pkgname &amp;#34;org-roam/org-roam&amp;#34; :depends (dash emacsql magit org-mode)) 依存関係として emacsql と pg が必要だがそれらのレシピは古かったりするので自前で用意している&#xA;(:name emacsql :description &amp;#34;High-level SQL database front-end.&amp;#34; :type github :branch &amp;#34;main&amp;#34; :pkgname &amp;#34;magit/emacsql&amp;#34; :depends (pg) :minimum-emacs-version &amp;#34;26.1&amp;#34;) (:name pg :description &amp;#34;Emacs Lisp socket-level interface to the PostgreSQL RDBMS&amp;#34; :type github :branch &amp;#34;main&amp;#34; :pkgname &amp;#34;emarsden/pg-el&amp;#34; :depends (peg) :features pg) そしてそれを el-get-bundle でインストールしている</description>
     </item>
+    <item>
+      <title>ox-nippou</title>
+      <link>https://mugijiru.github.io/.emacs.d/org-mode/ox-nippou/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mugijiru.github.io/.emacs.d/org-mode/ox-nippou/</guid>
+      <description>概要 ox-nippou は org-mode のファイルから日報を出力するための自作パッケージです。&#xA;インストール 自作パッケージなので自前で el-get 用にレシピを用意している&#xA;( :name ox-nippou :website &amp;#34;https://github.com/mugijiru/ox-nippou&amp;#34; :description &amp;#34;ox-nippou is a tool for generating daily reports from Org-mode files.&amp;#34; :type github :pkgname &amp;#34;mugijiru/ox-nippou&amp;#34; :depends (org-mode markdown-mode) :branch &amp;#34;main&amp;#34;) そしてそれを el-get-bundle でインストールしている&#xA;(el-get-bundle ox-nippou) カスタマイズ 変換元ファイルの格納先の指定 対象タスクがない時の表示 TODO state と日報との対応 をカスタム変数で設定している&#xA;(setopt ox-nippou-journal-directory (expand-file-name &amp;#34;journal&amp;#34; org-roam-directory)) (setopt ox-nippou-no-tasks-string &amp;#34;:pear:&amp;#34;) (setopt ox-nippou-todo-state-mapping &amp;#39;((&amp;#34;todo&amp;#34; . (&amp;#34;TODO&amp;#34;)) (&amp;#34;doing&amp;#34; . (&amp;#34;DOING&amp;#34; &amp;#34;WAIT&amp;#34;)) (&amp;#34;done&amp;#34; . (&amp;#34;DONE&amp;#34;)))) </description>
+    </item>
   </channel>
 </rss>
