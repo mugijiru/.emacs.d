@@ -1,0 +1,7 @@
+( :name ox-nippou
+  :website "https://github.com/mugijiru/ox-nippou"
+  :description "ox-nippou is a tool for generating daily reports from Org-mode files."
+  :type github
+  :pkgname "mugijiru/ox-nippou"
+  :depends (org-mode markdown-mode)
+  :branch "main")
