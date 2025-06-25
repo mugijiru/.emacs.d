@@ -85,6 +85,20 @@ js2-mode 用の Hydra などを定義できて便利。
        :pkgname "jerrypnz/major-mode-hydra.el")
 ```
 
+また major-mode-hydra の定義用に snippet も用意している
+
+```emacs-lisp
+# -*- mode: snippet -*-
+# name: define-major-mode-hydra
+# key: defhydram
+# --
+
+(with-eval-after-load 'major-mode-hydra
+  (major-mode-hydra-define $1-mode (:separator "-" :quit-key "q" :title $1-mode)
+  ("${2:type}"
+   (("${3:key}" ${4:command} "${5:name}")))))
+```
+
 
 ## キーバインド {#キーバインド}
 

@@ -3391,6 +3391,20 @@ js2-mode 用の Hydra などを定義できて便利。
        :pkgname "jerrypnz/major-mode-hydra.el")
 #+end_src
 
+また major-mode-hydra の定義用に snippet も用意している
+
+#+begin_src emacs-lisp :tangle snippets/emacs-lisp-mode/define-major-mode-hydra
+# -*- mode: snippet -*-
+# name: define-major-mode-hydra
+# key: defhydram
+# --
+
+(with-eval-after-load 'major-mode-hydra
+  (major-mode-hydra-define $1-mode (:separator "-" :quit-key "q" :title $1-mode)
+  ("${2:type}"
+   (("${3:key}" ${4:command} "${5:name}")))))
+#+end_src
+
 *** キーバインド
 Hydra でいくつかのキーバインドを設定していて
 他の機能に属さないものはここでまとめてキーバインドを定義している。

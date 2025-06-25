@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: define-major-mode-hydra
+# key: defhydram
+# --
+
+(with-eval-after-load 'major-mode-hydra
+  (major-mode-hydra-define $1-mode (:separator "-" :quit-key "q" :title $1-mode)
+  ("${2:type}"
+   (("${3:key}" ${4:command} "${5:name}")))))
