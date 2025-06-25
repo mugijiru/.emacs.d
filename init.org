@@ -7740,6 +7740,7 @@ yaml-ts-mode はインデント周りの挙動が気に入らないので
 - [[id:0416ccf6-f302-4713-8465-6bed9c38b839][google-translate]] :: Emacs から Google 翻訳するためのパッケージ
 - [[id:8e0d3e97-c1b6-4e23-bd9d-9bc5c1c9b99c][magit]] :: Emacs 上で Git の操作をするのにとても便利なパッケージ
 - [[id:4ae25e08-de4a-42c0-90e6-f39cc7cd0cb2][mistty]] :: Emacs 上で動く terminal の一種
+- [[id:fb57863f-227d-4c8a-86d9-9547ec92ca17][mu4e]] :: Emacs 上で動くメーラー
 - [[id:b8f02a8e-f6f8-4c44-b821-392ff4cb1f7d][notify-slack]] :: Emacs から外部コマンドを通じて Slack に通知するための関数周りの事を書いている
 - [[id:b2277ecd-038a-4dfd-a510-6e2382f2350f][openai]] :: Emacs から [[https://openai.com/blog/openai-api][OpenAI API]] を利用するためのライブラリ
 - [[id:db428e03-5074-4b94-b775-8a49c4f65350][pdf-tools]] :: PDF を見るのに便利なやつ
@@ -8743,6 +8744,167 @@ el-get 本体にレシピはないので自前で用意。
 #+end_src
 
 なお mistty そのものは fish との相性が一番良いっぽい
+** mu4e
+:PROPERTIES:
+:ID:       fb57863f-227d-4c8a-86d9-9547ec92ca17
+:EXPORT_FILE_NAME: mu4e
+:END:
+*** 概要
+mu4e は [[https://github.com/djcb/mu][mu]] の一部で、一緒に使うことで Emacs でメールを扱えるようになるパッケージです。
+*** インストール
+こちらは aur にある mu をインストールして
+そこにある mu4e の path を通して利用しています。
+
+というわけでインストールは
+
+#+begin_example
+$ yay -S mu
+#+end_example
+
+で入れました。
+これで ~/usr/share/emacs/site-lisp/mu4e~ に mu4e が入るので load-path も問題なく通っていました
+*** 設定
+**** 読み込み
+load-path は通っているので require するだけで OK
+
+#+begin_src emacs-lisp :tangle inits/70-mu4e.el
+(require 'mu4e)
+#+end_src
+**** username/password 取得用の関数定義
+mu/mu4e で使うメールアカウント情報は設定ファイルには書きたくないので
+authinfo に保存して取得用のコマンドを用意しました
+
+#+begin_src emacs-lisp :tangle inits/70-mu4e.el
+(defun offlineimap-get-username (host)
+  (plist-get (nth 0 (auth-source-search :host host)) :user))
+
+(defun offlineimap-get-password (host)
+  (funcall (plist-get (nth 0 (auth-source-search :host host :max 1)) :secret)))
+#+end_src
+
+これらのコマンドは emacsclient 経由で mu から呼び出します。
+**** 基本的な設定
+ここでは基本的な設定をまとめて書いています。
+
+- mu4e-root-maildir :: メールの保存先ディレクトリ
+- mu4e-get-mail-command :: offlineimap のコマンド。mu4e はメールの取得に offlineimap を使うのでそれを指定する。
+- mu4e-update-interval :: 10分ごとにメールを取得するように設定
+- mu4e-notification-support :: 新着メールがあれば通知されるように設定
+
+#+begin_src emacs-lisp :tangle inits/70-mu4e.el
+(setopt mu4e-root-maildir "~/Maildir")
+(setopt mu4e-get-mail-command "offlineimap")
+(setopt mu4e-update-interval 600) ; 10 minutes
+(setopt mu4e-notification-support t)
+#+end_src
+**** メールアカウントの設定
+いくつかメールアカウントを使っているのでそれらを設定している。
+
+#+begin_src emacs-lisp :tangle inits/70-mu4e.el
+(setopt mu4e-contexts
+        (list
+         (make-mu4e-context
+          :name "prov"
+          :enter-func(lambda () (mu4e-message "Switch to the Provider context"))
+          :leave-func (lambda () (mu4e-message "Leaving the Provider context"))
+          :match-func (lambda (msg)
+                        (when msg
+                          (string-prefix-p "/prov" (mu4e-message-field msg :maildir))))
+          :vars `((user-mail-address . ,(offlineimap-get-username "offlineimap-prov"))
+                  (user-full-name . ,(plist-get (nth 0 (auth-source-search :host "offlineimap-prov")) :fullname))
+                  (mu4e-sent-folder . "/prov/Sent")
+                  (mu4e-drafts-folder . "/prov/Drafts")
+                  (mu4e-trash-folder . "/prov/Trash")
+                  (mu4e-compose-signature . ,(concat (plist-get (nth 0 (auth-source-search :host "offlineimap-prov")) :fullname) "\n"))
+                  (mu4e-maildir-shortcuts . (("/prov/INBOX" . ?i)
+                                             ("/prov/Sent" . ?s)
+                                             ("/prov/Drafts" . ?d)
+                                             ("/prov/Trash" . ?t)))))
+         (make-mu4e-context
+          :name "bj"
+          :enter-func(lambda () (mu4e-message "Switch to the Bj context"))
+          :leave-func (lambda () (mu4e-message "Leaving the Bj context"))
+          :match-func (lambda (msg)
+                        (when msg
+                          (string-prefix-p "/bj" (mu4e-message-field msg :maildir))))
+          :vars `((user-mail-address . ,(offlineimap-get-username "offlineimap-bj"))
+                  (user-full-name . ,(plist-get (nth 0 (auth-source-search :host "offlineimap-bj")) :fullname))
+                  (mu4e-sent-folder . "/bj/[Gmail].送信済みメール")
+                  (mu4e-drafts-folder . "/bj/[Gmail].下書き")
+                  (mu4e-trash-folder . "/bj/[Gmail].ゴミ箱")
+                  (mu4e-refile-folder . "/bj/[Gmail].すべてのメール")
+                  (mu4e-compose-signature . ,(concat (plist-get (nth 0 (auth-source-search :host "offlineimap-bj")) :fullname) "\n"))
+                  (mu4e-maildir-shortcuts . ((:maildir "/bj/INBOX"                  :key ?i :name "INBOX")
+                                             (:maildir "/bj/[Gmail].送信済みメール" :key ?s :name "送信済み")
+                                             (:maildir "/bj/[Gmail].すべてのメール" :key ?a :name "すべてのメール")
+                                             (:maildir "/bj/[Gmail].下書き"         :key ?d :name "下書き")
+                                             (:maildir "/bj/[Gmail].ゴミ箱"         :key ?t :name "ゴミ箱")
+                                             ))))
+         (make-mu4e-context
+          :name "main"
+          :enter-func(lambda () (mu4e-message "Switch to the Main context"))
+          :leave-func (lambda () (mu4e-message "Leaving the Main context"))
+          :match-func (lambda (msg)
+                        (when msg
+                          (string-prefix-p "/main" (mu4e-message-field msg :maildir))))
+          :vars `((user-mail-address . ,(offlineimap-get-username "offlineimap-main"))
+                  (user-full-name . ,(plist-get (nth 0 (auth-source-search :host "offlineimap-main")) :fullname))
+                  (mu4e-sent-folder . "/main/[Gmail].送信済みメール")
+                  (mu4e-drafts-folder . "/main/[Gmail].下書き")
+                  (mu4e-trash-folder . "/main/[Gmail].ゴミ箱")
+                  (mu4e-refile-folder . "/main/[Gmail].すべてのメール")
+                  (mu4e-compose-signature . ,(concat (plist-get (nth 0 (auth-source-search :host "offlineimap-main")) :fullname) "\n"))
+                  (mu4e-maildir-shortcuts . ((:maildir "/main/INBOX"                  :key ?i :name "INBOX")
+                                             (:maildir "/main/[Gmail].送信済みメール" :key ?s :name "送信済み")
+                                             (:maildir "/main/[Gmail].すべてのメール" :key ?a :name "すべてのメール")
+                                             (:maildir "/main/[Gmail].下書き"         :key ?d :name "下書き")
+                                             (:maildir "/main/[Gmail].ゴミ箱"         :key ?t :name "ゴミ箱")
+                                             ))))
+         (make-mu4e-context
+          :name "dev"
+          :enter-func(lambda () (mu4e-message "Switch to the Dev context"))
+          :leave-func (lambda () (mu4e-message "Leaving the Dev context"))
+          :match-func (lambda (msg)
+                        (when msg
+                          (string-prefix-p "/dev" (mu4e-message-field msg :maildir))))
+          :vars `((user-mail-address . ,(offlineimap-get-username "offlineimap-dev"))
+                  (user-full-name . ,(plist-get (nth 0 (auth-source-search :host "offlineimap-dev")) :fullname))
+                  (mu4e-sent-folder . "/dev/[Gmail].送信済みメール")
+                  (mu4e-drafts-folder . "/dev/[Gmail].下書き")
+                  (mu4e-trash-folder . "/dev/[Gmail].ゴミ箱")
+                  (mu4e-refile-folder . "/dev/[Gmail].すべてのメール")
+                  (mu4e-compose-signature . ,(concat (plist-get (nth 0 (auth-source-search :host "offlineimap-dev")) :fullname) "\n"))
+                  (mu4e-maildir-shortcuts . ((:maildir "/dev/INBOX"                  :key ?i :name "INBOX")
+                                             (:maildir "/dev/[Gmail].送信済みメール" :key ?s :name "送信済み")
+                                             (:maildir "/dev/[Gmail].すべてのメール" :key ?a :name "すべてのメール")
+                                             (:maildir "/dev/[Gmail].下書き"         :key ?d :name "下書き")
+                                             (:maildir "/dev/[Gmail].ゴミ箱"         :key ?t :name "ゴミ箱")
+                                             ))))
+         (make-mu4e-context
+          :name "nue"
+          :enter-func(lambda () (mu4e-message "Switch to the Nue context"))
+          :leave-func (lambda () (mu4e-message "Leaving the Nue context"))
+          :match-func (lambda (msg)
+                        (when msg
+                          (string-prefix-p "/nue" (mu4e-message-field msg :maildir))))
+          :vars `((user-mail-address . ,(offlineimap-get-username "offlineimap-nue"))
+                  (user-full-name . ,(plist-get (nth 0 (auth-source-search :host "offlineimap-nue")) :fullname))
+                  (mu4e-sent-folder . "/nue/[Gmail].送信済みメール")
+                  (mu4e-drafts-folder . "/nue/[Gmail].下書き")
+                  (mu4e-trash-folder . "/nue/[Gmail].ゴミ箱")
+                  (mu4e-refile-folder . "/nue/[Gmail].すべてのメール")
+                  (mu4e-compose-signature . ,(concat (plist-get (nth 0 (auth-source-search :host "offlineimap-nue")) :fullname) "\n"))
+                  (mu4e-maildir-shortcuts . ((:maildir "/nue/INBOX"                  :key ?i :name "INBOX")
+                                             (:maildir "/nue/[Gmail].送信済みメール" :key ?s :name "送信済み")
+                                             (:maildir "/nue/[Gmail].すべてのメール" :key ?a :name "すべてのメール")
+                                             (:maildir "/nue/[Gmail].下書き"         :key ?d :name "下書き")
+                                             (:maildir "/nue/[Gmail].ゴミ箱"         :key ?t :name "ゴミ箱")
+                                             ))))))
+#+end_src
+**** その他
+mu や offlineimap も含めた設定方法は
+https://mugijiru.github.io/posts/offlineimap-and-mu4e/
+に書いているのでそちらを参照してください。
 ** notify-slack
 :PROPERTIES:
 :EXPORT_FILE_NAME: notify-slack
