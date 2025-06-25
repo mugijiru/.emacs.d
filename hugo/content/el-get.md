@@ -37,3 +37,21 @@ draft = false
 ```emacs-lisp
 (add-to-list 'el-get-recipe-path (concat user-emacs-directory "recipes"))
 ```
+
+
+## snippet {#snippet}
+
+レシピを自前で書くことがよくあるのでそれ用に snippet を用意している
+
+```emacs-lisp
+# -*- mode: snippet -*-
+# name: recipe
+# key: recipe
+# --
+
+(:name $0
+       :website "$1"
+       :description "$2"
+       :type $3
+       :pkgname "$4")
+```
