@@ -9,23 +9,23 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>font-config :: 麦汁&#39;s Emacs Config</title>
+    <title>mu4e :: 麦汁&#39;s Emacs Config</title>
 
     
-    <link href="/.emacs.d/css/nucleus.css?1750865130" rel="stylesheet">
-    <link href="/.emacs.d/css/fontawesome-all.min.css?1750865130" rel="stylesheet">
-    <link href="/.emacs.d/css/hybrid.css?1750865130" rel="stylesheet">
-    <link href="/.emacs.d/css/featherlight.min.css?1750865130" rel="stylesheet">
-    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1750865130" rel="stylesheet">
-    <link href="/.emacs.d/css/auto-complete.css?1750865130" rel="stylesheet">
-    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1750865130" rel="stylesheet">
-    <link href="/.emacs.d/css/theme.css?1750865130" rel="stylesheet">
-    <link href="/.emacs.d/css/tabs.css?1750865130" rel="stylesheet">
-    <link href="/.emacs.d/css/hugo-theme.css?1750865130" rel="stylesheet">
+    <link href="/.emacs.d/css/nucleus.css?1750865131" rel="stylesheet">
+    <link href="/.emacs.d/css/fontawesome-all.min.css?1750865131" rel="stylesheet">
+    <link href="/.emacs.d/css/hybrid.css?1750865131" rel="stylesheet">
+    <link href="/.emacs.d/css/featherlight.min.css?1750865131" rel="stylesheet">
+    <link href="/.emacs.d/css/perfect-scrollbar.min.css?1750865131" rel="stylesheet">
+    <link href="/.emacs.d/css/auto-complete.css?1750865131" rel="stylesheet">
+    <link href="/.emacs.d/css/atom-one-dark-reasonable.css?1750865131" rel="stylesheet">
+    <link href="/.emacs.d/css/theme.css?1750865131" rel="stylesheet">
+    <link href="/.emacs.d/css/tabs.css?1750865131" rel="stylesheet">
+    <link href="/.emacs.d/css/hugo-theme.css?1750865131" rel="stylesheet">
     
     
 
-    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1750865130"></script>
+    <script src="/.emacs.d/js/jquery-3.3.1.min.js?1750865131"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/basics/font-config/">
+  <body class="" data-url="/.emacs.d/external-tool/mu4e/">
     <nav id="sidebar" class="">
 
 
@@ -65,14 +65,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1750865130"></script>
-<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1750865130"></script>
+<script type="text/javascript" src="/.emacs.d/js/lunr.min.js?1750865131"></script>
+<script type="text/javascript" src="/.emacs.d/js/auto-complete.js?1750865131"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/mugijiru.github.io\/.emacs.d\/";
     
 </script>
-<script type="text/javascript" src="/.emacs.d/js/search.js?1750865130"></script>
+<script type="text/javascript" src="/.emacs.d/js/search.js?1750865131"></script>
 
     
   </div>
@@ -100,7 +100,7 @@
   
     
     <li data-nav-id="/.emacs.d/basics/" title="基本設定" class="dd-item
-        parent
+        
         
         
         ">
@@ -252,7 +252,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/basics/font-config/" title="font-config" class="dd-item active">
+      <li data-nav-id="/.emacs.d/basics/font-config/" title="font-config" class="dd-item ">
         <a href="/.emacs.d/basics/font-config/">
         font-config
         
@@ -2333,7 +2333,7 @@
   
     
     <li data-nav-id="/.emacs.d/external-tool/" title="外部連携ツール設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -2674,7 +2674,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/external-tool/mu4e/" title="mu4e" class="dd-item ">
+      <li data-nav-id="/.emacs.d/external-tool/mu4e/" title="mu4e" class="dd-item active">
         <a href="/.emacs.d/external-tool/mu4e/">
         mu4e
         
@@ -3560,7 +3560,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/basics/'>基本設定</a> > font-config
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/external-tool/'>外部連携ツール設定</a> > mu4e
           
         
           
@@ -3576,7 +3576,16 @@
 <nav id="TableOfContents">
   <ul>
     <li><a href="#概要">概要</a></li>
-    <li><a href="#設定">設定</a></li>
+    <li><a href="#インストール">インストール</a></li>
+    <li><a href="#設定">設定</a>
+      <ul>
+        <li><a href="#読み込み">読み込み</a></li>
+        <li><a href="#username-password-取得用の関数定義">username/password 取得用の関数定義</a></li>
+        <li><a href="#基本的な設定">基本的な設定</a></li>
+        <li><a href="#メールアカウントの設定">メールアカウントの設定</a></li>
+        <li><a href="#その他">その他</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
     </div>
@@ -3594,7 +3603,7 @@
           
             <h1>
               
-              font-config
+              mu4e
             </h1>
           
 
@@ -3602,31 +3611,147 @@
 
 
 <h2 id="概要">概要</h2>
-<p>Emacs で利用するフォントの設定。それなりの設定をしないとガタついたりするので通常あまり手を入れないで済ませている。</p>
+<p>mu4e は <a href="https://github.com/djcb/mu">mu</a> の一部で、一緒に使うことで Emacs でメールを扱えるようになるパッケージです。</p>
+<h2 id="インストール">インストール</h2>
+<p>こちらは aur にある mu をインストールしてそこにある mu4e の path を通して利用しています。</p>
+<p>というわけでインストールは</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$ yay -S mu
+</span></span></code></pre></div><p>で入れました。これで <code>/usr/share/emacs/site-lisp/mu4e</code> に mu4e が入るので load-path も問題なく通っていました</p>
 <h2 id="設定">設定</h2>
-<p>Mac では 14, それ以外(Linux) では 18 を基準としている。</p>
-<p>Mac と Linux で基準のサイズを変えているがなぜかこの方がガタガタもしないし大き過ぎもしないしでいい感じになる。</p>
-<p>といいつつ元々 Linux の方は WSL2 環境に合わせて 12 にしていたが
-Manjaro 環境に合わせて 18 に変更しているのでまたその内 WSL2 でも Manjaro でもどっちいい感じに使えるように調整するかもしれない</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/set-font-size (size)
-</span></span><span style="display:flex;"><span>  (let* ((asciifont <span style="color:#e6db74">&#34;Ricty Diminished&#34;</span>)      <span style="color:#75715e">; ASCII fonts</span>
-</span></span><span style="display:flex;"><span>         (jpfont <span style="color:#e6db74">&#34;Ricty Diminished&#34;</span>)         <span style="color:#75715e">; Japanese fonts</span>
-</span></span><span style="display:flex;"><span>         (h (<span style="color:#a6e22e">*</span> size <span style="color:#ae81ff">10</span>))
-</span></span><span style="display:flex;"><span>         (fontspec (<span style="color:#a6e22e">font-spec</span> :family asciifont))
-</span></span><span style="display:flex;"><span>         (jp-fontspec (<span style="color:#a6e22e">font-spec</span> :family jpfont)))
-</span></span><span style="display:flex;"><span>    (set-face-attribute <span style="color:#e6db74">&#39;default</span> <span style="color:#66d9ef">nil</span> :family asciifont :height h)
-</span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">set-fontset-font</span> <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;japanese-jisx0213.2004-1</span> jp-fontspec)
-</span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">set-fontset-font</span> <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;japanese-jisx0213-2</span> jp-fontspec)
-</span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">set-fontset-font</span> <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;katakana-jisx0201</span> jp-fontspec)
-</span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">set-fontset-font</span> <span style="color:#66d9ef">nil</span> <span style="color:#f92672">&#39;</span>(<span style="color:#ae81ff">#x0080</span> <span style="color:#f92672">.</span> <span style="color:#ae81ff">#x024F</span>) fontspec)
-</span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">set-fontset-font</span> <span style="color:#66d9ef">nil</span> <span style="color:#f92672">&#39;</span>(<span style="color:#ae81ff">#x0370</span> <span style="color:#f92672">.</span> <span style="color:#ae81ff">#x03FF</span>) fontspec)))
+<h3 id="読み込み">読み込み</h3>
+<p>load-path は通っているので require するだけで OK</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(require <span style="color:#e6db74">&#39;mu4e</span>)
+</span></span></code></pre></div><h3 id="username-password-取得用の関数定義">username/password 取得用の関数定義</h3>
+<p>mu/mu4e で使うメールアカウント情報は設定ファイルには書きたくないので
+authinfo に保存して取得用のコマンドを用意しました</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun offlineimap-get-username (host)
+</span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host host)) :user))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>(if (or (<span style="color:#a6e22e">eq</span> <span style="color:#a6e22e">window-system</span> <span style="color:#e6db74">&#39;ns</span>) (<span style="color:#a6e22e">eq</span> <span style="color:#a6e22e">window-system</span> <span style="color:#e6db74">&#39;mac</span>))
-</span></span><span style="display:flex;"><span>    (my/set-font-size <span style="color:#ae81ff">14</span>)
-</span></span><span style="display:flex;"><span>  (my/set-font-size <span style="color:#ae81ff">18</span>))
-</span></span></code></pre></div><p>フォントの設定する処理は関数に切り出しているので全体的にフォントを大きくしたい時は</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(my/set-font-size <span style="color:#ae81ff">24</span>)
-</span></span></code></pre></div><p>のようにさくっと変更できるようにしている</p>
+</span></span><span style="display:flex;"><span>(defun offlineimap-get-password (host)
+</span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">funcall</span> (<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host host :max <span style="color:#ae81ff">1</span>)) :secret)))
+</span></span></code></pre></div><p>これらのコマンドは emacsclient 経由で mu から呼び出します。</p>
+<h3 id="基本的な設定">基本的な設定</h3>
+<p>ここでは基本的な設定をまとめて書いています。</p>
+<dl>
+<dt>mu4e-root-maildir</dt>
+<dd>メールの保存先ディレクトリ</dd>
+<dt>mu4e-get-mail-command</dt>
+<dd>offlineimap のコマンド。mu4e はメールの取得に offlineimap を使うのでそれを指定する。</dd>
+<dt>mu4e-update-interval</dt>
+<dd>10分ごとにメールを取得するように設定</dd>
+<dt>mu4e-notification-support</dt>
+<dd>新着メールがあれば通知されるように設定</dd>
+</dl>
+<!--listend-->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setopt mu4e-root-maildir <span style="color:#e6db74">&#34;~/Maildir&#34;</span>)
+</span></span><span style="display:flex;"><span>(setopt mu4e-get-mail-command <span style="color:#e6db74">&#34;offlineimap&#34;</span>)
+</span></span><span style="display:flex;"><span>(setopt mu4e-update-interval <span style="color:#ae81ff">600</span>) <span style="color:#75715e">; 10 minutes</span>
+</span></span><span style="display:flex;"><span>(setopt mu4e-notification-support <span style="color:#66d9ef">t</span>)
+</span></span></code></pre></div><h3 id="メールアカウントの設定">メールアカウントの設定</h3>
+<p>いくつかメールアカウントを使っているのでそれらを設定している。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setopt mu4e-contexts
+</span></span><span style="display:flex;"><span>        (<span style="color:#a6e22e">list</span>
+</span></span><span style="display:flex;"><span>         (make-mu4e-context
+</span></span><span style="display:flex;"><span>          :name <span style="color:#e6db74">&#34;prov&#34;</span>
+</span></span><span style="display:flex;"><span>          :enter-func(lambda () (mu4e-message <span style="color:#e6db74">&#34;Switch to the Provider context&#34;</span>))
+</span></span><span style="display:flex;"><span>          :leave-func (lambda () (mu4e-message <span style="color:#e6db74">&#34;Leaving the Provider context&#34;</span>))
+</span></span><span style="display:flex;"><span>          :match-func (lambda (msg)
+</span></span><span style="display:flex;"><span>                        (when msg
+</span></span><span style="display:flex;"><span>                          (string-prefix-p <span style="color:#e6db74">&#34;/prov&#34;</span> (mu4e-message-field msg :maildir))))
+</span></span><span style="display:flex;"><span>          :vars <span style="color:#f92672">`</span>((user-mail-address <span style="color:#f92672">.</span> <span style="color:#f92672">,</span>(offlineimap-get-username <span style="color:#e6db74">&#34;offlineimap-prov&#34;</span>))
+</span></span><span style="display:flex;"><span>                  (<span style="color:#a6e22e">user-full-name</span> <span style="color:#f92672">.</span> <span style="color:#f92672">,</span>(<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;offlineimap-prov&#34;</span>)) :fullname))
+</span></span><span style="display:flex;"><span>                  (mu4e-sent-folder <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/prov/Sent&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (mu4e-drafts-folder <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/prov/Drafts&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (mu4e-trash-folder <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/prov/Trash&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (mu4e-compose-signature <span style="color:#f92672">.</span> <span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> (<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;offlineimap-prov&#34;</span>)) :fullname) <span style="color:#e6db74">&#34;\n&#34;</span>))
+</span></span><span style="display:flex;"><span>                  (mu4e-maildir-shortcuts <span style="color:#f92672">.</span> ((<span style="color:#e6db74">&#34;/prov/INBOX&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?i</span>)
+</span></span><span style="display:flex;"><span>                                             (<span style="color:#e6db74">&#34;/prov/Sent&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?s</span>)
+</span></span><span style="display:flex;"><span>                                             (<span style="color:#e6db74">&#34;/prov/Drafts&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?d</span>)
+</span></span><span style="display:flex;"><span>                                             (<span style="color:#e6db74">&#34;/prov/Trash&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?t</span>)))))
+</span></span><span style="display:flex;"><span>         (make-mu4e-context
+</span></span><span style="display:flex;"><span>          :name <span style="color:#e6db74">&#34;bj&#34;</span>
+</span></span><span style="display:flex;"><span>          :enter-func(lambda () (mu4e-message <span style="color:#e6db74">&#34;Switch to the Bj context&#34;</span>))
+</span></span><span style="display:flex;"><span>          :leave-func (lambda () (mu4e-message <span style="color:#e6db74">&#34;Leaving the Bj context&#34;</span>))
+</span></span><span style="display:flex;"><span>          :match-func (lambda (msg)
+</span></span><span style="display:flex;"><span>                        (when msg
+</span></span><span style="display:flex;"><span>                          (string-prefix-p <span style="color:#e6db74">&#34;/bj&#34;</span> (mu4e-message-field msg :maildir))))
+</span></span><span style="display:flex;"><span>          :vars <span style="color:#f92672">`</span>((user-mail-address <span style="color:#f92672">.</span> <span style="color:#f92672">,</span>(offlineimap-get-username <span style="color:#e6db74">&#34;offlineimap-bj&#34;</span>))
+</span></span><span style="display:flex;"><span>                  (<span style="color:#a6e22e">user-full-name</span> <span style="color:#f92672">.</span> <span style="color:#f92672">,</span>(<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;offlineimap-bj&#34;</span>)) :fullname))
+</span></span><span style="display:flex;"><span>                  (mu4e-sent-folder <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/bj/[Gmail].送信済みメール&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (mu4e-drafts-folder <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/bj/[Gmail].下書き&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (mu4e-trash-folder <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/bj/[Gmail].ゴミ箱&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (mu4e-refile-folder <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/bj/[Gmail].すべてのメール&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (mu4e-compose-signature <span style="color:#f92672">.</span> <span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> (<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;offlineimap-bj&#34;</span>)) :fullname) <span style="color:#e6db74">&#34;\n&#34;</span>))
+</span></span><span style="display:flex;"><span>                  (mu4e-maildir-shortcuts <span style="color:#f92672">.</span> ((:maildir <span style="color:#e6db74">&#34;/bj/INBOX&#34;</span>                  :key <span style="color:#e6db74">?i</span> :name <span style="color:#e6db74">&#34;INBOX&#34;</span>)
+</span></span><span style="display:flex;"><span>                                             (:maildir <span style="color:#e6db74">&#34;/bj/[Gmail].送信済みメール&#34;</span> :key <span style="color:#e6db74">?s</span> :name <span style="color:#e6db74">&#34;送信済み&#34;</span>)
+</span></span><span style="display:flex;"><span>                                             (:maildir <span style="color:#e6db74">&#34;/bj/[Gmail].すべてのメール&#34;</span> :key <span style="color:#e6db74">?a</span> :name <span style="color:#e6db74">&#34;すべてのメール&#34;</span>)
+</span></span><span style="display:flex;"><span>                                             (:maildir <span style="color:#e6db74">&#34;/bj/[Gmail].下書き&#34;</span>         :key <span style="color:#e6db74">?d</span> :name <span style="color:#e6db74">&#34;下書き&#34;</span>)
+</span></span><span style="display:flex;"><span>                                             (:maildir <span style="color:#e6db74">&#34;/bj/[Gmail].ゴミ箱&#34;</span>         :key <span style="color:#e6db74">?t</span> :name <span style="color:#e6db74">&#34;ゴミ箱&#34;</span>)
+</span></span><span style="display:flex;"><span>                                             ))))
+</span></span><span style="display:flex;"><span>         (make-mu4e-context
+</span></span><span style="display:flex;"><span>          :name <span style="color:#e6db74">&#34;main&#34;</span>
+</span></span><span style="display:flex;"><span>          :enter-func(lambda () (mu4e-message <span style="color:#e6db74">&#34;Switch to the Main context&#34;</span>))
+</span></span><span style="display:flex;"><span>          :leave-func (lambda () (mu4e-message <span style="color:#e6db74">&#34;Leaving the Main context&#34;</span>))
+</span></span><span style="display:flex;"><span>          :match-func (lambda (msg)
+</span></span><span style="display:flex;"><span>                        (when msg
+</span></span><span style="display:flex;"><span>                          (string-prefix-p <span style="color:#e6db74">&#34;/main&#34;</span> (mu4e-message-field msg :maildir))))
+</span></span><span style="display:flex;"><span>          :vars <span style="color:#f92672">`</span>((user-mail-address <span style="color:#f92672">.</span> <span style="color:#f92672">,</span>(offlineimap-get-username <span style="color:#e6db74">&#34;offlineimap-main&#34;</span>))
+</span></span><span style="display:flex;"><span>                  (<span style="color:#a6e22e">user-full-name</span> <span style="color:#f92672">.</span> <span style="color:#f92672">,</span>(<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;offlineimap-main&#34;</span>)) :fullname))
+</span></span><span style="display:flex;"><span>                  (mu4e-sent-folder <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/main/[Gmail].送信済みメール&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (mu4e-drafts-folder <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/main/[Gmail].下書き&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (mu4e-trash-folder <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/main/[Gmail].ゴミ箱&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (mu4e-refile-folder <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/main/[Gmail].すべてのメール&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (mu4e-compose-signature <span style="color:#f92672">.</span> <span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> (<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;offlineimap-main&#34;</span>)) :fullname) <span style="color:#e6db74">&#34;\n&#34;</span>))
+</span></span><span style="display:flex;"><span>                  (mu4e-maildir-shortcuts <span style="color:#f92672">.</span> ((:maildir <span style="color:#e6db74">&#34;/main/INBOX&#34;</span>                  :key <span style="color:#e6db74">?i</span> :name <span style="color:#e6db74">&#34;INBOX&#34;</span>)
+</span></span><span style="display:flex;"><span>                                             (:maildir <span style="color:#e6db74">&#34;/main/[Gmail].送信済みメール&#34;</span> :key <span style="color:#e6db74">?s</span> :name <span style="color:#e6db74">&#34;送信済み&#34;</span>)
+</span></span><span style="display:flex;"><span>                                             (:maildir <span style="color:#e6db74">&#34;/main/[Gmail].すべてのメール&#34;</span> :key <span style="color:#e6db74">?a</span> :name <span style="color:#e6db74">&#34;すべてのメール&#34;</span>)
+</span></span><span style="display:flex;"><span>                                             (:maildir <span style="color:#e6db74">&#34;/main/[Gmail].下書き&#34;</span>         :key <span style="color:#e6db74">?d</span> :name <span style="color:#e6db74">&#34;下書き&#34;</span>)
+</span></span><span style="display:flex;"><span>                                             (:maildir <span style="color:#e6db74">&#34;/main/[Gmail].ゴミ箱&#34;</span>         :key <span style="color:#e6db74">?t</span> :name <span style="color:#e6db74">&#34;ゴミ箱&#34;</span>)
+</span></span><span style="display:flex;"><span>                                             ))))
+</span></span><span style="display:flex;"><span>         (make-mu4e-context
+</span></span><span style="display:flex;"><span>          :name <span style="color:#e6db74">&#34;dev&#34;</span>
+</span></span><span style="display:flex;"><span>          :enter-func(lambda () (mu4e-message <span style="color:#e6db74">&#34;Switch to the Dev context&#34;</span>))
+</span></span><span style="display:flex;"><span>          :leave-func (lambda () (mu4e-message <span style="color:#e6db74">&#34;Leaving the Dev context&#34;</span>))
+</span></span><span style="display:flex;"><span>          :match-func (lambda (msg)
+</span></span><span style="display:flex;"><span>                        (when msg
+</span></span><span style="display:flex;"><span>                          (string-prefix-p <span style="color:#e6db74">&#34;/dev&#34;</span> (mu4e-message-field msg :maildir))))
+</span></span><span style="display:flex;"><span>          :vars <span style="color:#f92672">`</span>((user-mail-address <span style="color:#f92672">.</span> <span style="color:#f92672">,</span>(offlineimap-get-username <span style="color:#e6db74">&#34;offlineimap-dev&#34;</span>))
+</span></span><span style="display:flex;"><span>                  (<span style="color:#a6e22e">user-full-name</span> <span style="color:#f92672">.</span> <span style="color:#f92672">,</span>(<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;offlineimap-dev&#34;</span>)) :fullname))
+</span></span><span style="display:flex;"><span>                  (mu4e-sent-folder <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/dev/[Gmail].送信済みメール&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (mu4e-drafts-folder <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/dev/[Gmail].下書き&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (mu4e-trash-folder <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/dev/[Gmail].ゴミ箱&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (mu4e-refile-folder <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/dev/[Gmail].すべてのメール&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (mu4e-compose-signature <span style="color:#f92672">.</span> <span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> (<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;offlineimap-dev&#34;</span>)) :fullname) <span style="color:#e6db74">&#34;\n&#34;</span>))
+</span></span><span style="display:flex;"><span>                  (mu4e-maildir-shortcuts <span style="color:#f92672">.</span> ((:maildir <span style="color:#e6db74">&#34;/dev/INBOX&#34;</span>                  :key <span style="color:#e6db74">?i</span> :name <span style="color:#e6db74">&#34;INBOX&#34;</span>)
+</span></span><span style="display:flex;"><span>                                             (:maildir <span style="color:#e6db74">&#34;/dev/[Gmail].送信済みメール&#34;</span> :key <span style="color:#e6db74">?s</span> :name <span style="color:#e6db74">&#34;送信済み&#34;</span>)
+</span></span><span style="display:flex;"><span>                                             (:maildir <span style="color:#e6db74">&#34;/dev/[Gmail].すべてのメール&#34;</span> :key <span style="color:#e6db74">?a</span> :name <span style="color:#e6db74">&#34;すべてのメール&#34;</span>)
+</span></span><span style="display:flex;"><span>                                             (:maildir <span style="color:#e6db74">&#34;/dev/[Gmail].下書き&#34;</span>         :key <span style="color:#e6db74">?d</span> :name <span style="color:#e6db74">&#34;下書き&#34;</span>)
+</span></span><span style="display:flex;"><span>                                             (:maildir <span style="color:#e6db74">&#34;/dev/[Gmail].ゴミ箱&#34;</span>         :key <span style="color:#e6db74">?t</span> :name <span style="color:#e6db74">&#34;ゴミ箱&#34;</span>)
+</span></span><span style="display:flex;"><span>                                             ))))
+</span></span><span style="display:flex;"><span>         (make-mu4e-context
+</span></span><span style="display:flex;"><span>          :name <span style="color:#e6db74">&#34;nue&#34;</span>
+</span></span><span style="display:flex;"><span>          :enter-func(lambda () (mu4e-message <span style="color:#e6db74">&#34;Switch to the Nue context&#34;</span>))
+</span></span><span style="display:flex;"><span>          :leave-func (lambda () (mu4e-message <span style="color:#e6db74">&#34;Leaving the Nue context&#34;</span>))
+</span></span><span style="display:flex;"><span>          :match-func (lambda (msg)
+</span></span><span style="display:flex;"><span>                        (when msg
+</span></span><span style="display:flex;"><span>                          (string-prefix-p <span style="color:#e6db74">&#34;/nue&#34;</span> (mu4e-message-field msg :maildir))))
+</span></span><span style="display:flex;"><span>          :vars <span style="color:#f92672">`</span>((user-mail-address <span style="color:#f92672">.</span> <span style="color:#f92672">,</span>(offlineimap-get-username <span style="color:#e6db74">&#34;offlineimap-nue&#34;</span>))
+</span></span><span style="display:flex;"><span>                  (<span style="color:#a6e22e">user-full-name</span> <span style="color:#f92672">.</span> <span style="color:#f92672">,</span>(<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;offlineimap-nue&#34;</span>)) :fullname))
+</span></span><span style="display:flex;"><span>                  (mu4e-sent-folder <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/nue/[Gmail].送信済みメール&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (mu4e-drafts-folder <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/nue/[Gmail].下書き&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (mu4e-trash-folder <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/nue/[Gmail].ゴミ箱&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (mu4e-refile-folder <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/nue/[Gmail].すべてのメール&#34;</span>)
+</span></span><span style="display:flex;"><span>                  (mu4e-compose-signature <span style="color:#f92672">.</span> <span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> (<span style="color:#a6e22e">plist-get</span> (<span style="color:#a6e22e">nth</span> <span style="color:#ae81ff">0</span> (auth-source-search :host <span style="color:#e6db74">&#34;offlineimap-nue&#34;</span>)) :fullname) <span style="color:#e6db74">&#34;\n&#34;</span>))
+</span></span><span style="display:flex;"><span>                  (mu4e-maildir-shortcuts <span style="color:#f92672">.</span> ((:maildir <span style="color:#e6db74">&#34;/nue/INBOX&#34;</span>                  :key <span style="color:#e6db74">?i</span> :name <span style="color:#e6db74">&#34;INBOX&#34;</span>)
+</span></span><span style="display:flex;"><span>                                             (:maildir <span style="color:#e6db74">&#34;/nue/[Gmail].送信済みメール&#34;</span> :key <span style="color:#e6db74">?s</span> :name <span style="color:#e6db74">&#34;送信済み&#34;</span>)
+</span></span><span style="display:flex;"><span>                                             (:maildir <span style="color:#e6db74">&#34;/nue/[Gmail].すべてのメール&#34;</span> :key <span style="color:#e6db74">?a</span> :name <span style="color:#e6db74">&#34;すべてのメール&#34;</span>)
+</span></span><span style="display:flex;"><span>                                             (:maildir <span style="color:#e6db74">&#34;/nue/[Gmail].下書き&#34;</span>         :key <span style="color:#e6db74">?d</span> :name <span style="color:#e6db74">&#34;下書き&#34;</span>)
+</span></span><span style="display:flex;"><span>                                             (:maildir <span style="color:#e6db74">&#34;/nue/[Gmail].ゴミ箱&#34;</span>         :key <span style="color:#e6db74">?t</span> :name <span style="color:#e6db74">&#34;ゴミ箱&#34;</span>)
+</span></span><span style="display:flex;"><span>                                             ))))))
+</span></span></code></pre></div><h3 id="その他">その他</h3>
+<p>mu や offlineimap も含めた設定方法は
+<a href="https://mugijiru.github.io/posts/offlineimap-and-mu4e/">https://mugijiru.github.io/posts/offlineimap-and-mu4e/</a>
+に書いているのでそちらを参照してください。</p>
 
 
 <footer class="footline">
@@ -3664,6 +3789,8 @@ Manjaro 環境に合わせて 18 に変更しているのでまたその内 WSL2
             
                 
                     
+                        
+                        
                     
                 
                 
@@ -3677,9 +3804,6 @@ Manjaro 環境に合わせて 18 に変更しているのでまたその内 WSL2
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -3776,7 +3900,6 @@ Manjaro 環境に合わせて 18 に変更しているのでまたその内 WSL2
             
             
                 
-                    
                     
                 
                 
@@ -3793,9 +3916,6 @@ Manjaro 環境に合わせて 18 に変更しているのでまたその内 WSL2
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -5303,6 +5423,7 @@ Manjaro 環境に合わせて 18 に変更しているのでまたその内 WSL2
             
             
                 
+                    
                     
                 
                 
@@ -5316,6 +5437,9 @@ Manjaro 環境に合わせて 18 に変更しているのでまたその内 WSL2
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -5556,6 +5680,7 @@ Manjaro 環境に合わせて 18 に変更しているのでまたその内 WSL2
             
             
                 
+                    
                     
                 
                 
@@ -5572,6 +5697,9 @@ Manjaro 環境に合わせて 18 に変更しているのでまたその内 WSL2
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -6156,10 +6284,10 @@ Manjaro 環境に合わせて 18 に変更しているのでまたその内 WSL2
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/basics/exec-path/" title="exec-path"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/external-tool/mistty/" title="mistty"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/basics/load-path/" title="load-path" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/external-tool/notify-slack/" title="notify-slack" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

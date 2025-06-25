@@ -113,6 +113,13 @@
       <description>概要 mistty は Emacs 上で動く terminal の一種。表示されるやつが全部編集可能らしい。便利げ。&#xA;ちょっと fzf とは相性が悪いっぽい。&#xA;インストール el-get 本体にレシピはないので自前で用意。&#xA;(:name mistty :website &amp;#34;https://github.com/szermatt/mistty&amp;#34; :description &amp;#34;shell/comint alternative with a fully functional terminal&amp;#34; :type github :branch &amp;#34;master&amp;#34; :pkgname &amp;#34;szermatt/mistty&amp;#34;) そして el-get-bundle でインストールしている&#xA;(el-get-bundle mistty) 設定 とりあえず普段 zsh を使っているのでそれで起動するように調整している。&#xA;(setopt explicit-shell-file-name &amp;#34;/usr/bin/zsh&amp;#34;) なお mistty そのものは fish との相性が一番良いっぽい</description>
     </item>
     <item>
+      <title>mu4e</title>
+      <link>https://mugijiru.github.io/.emacs.d/external-tool/mu4e/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mugijiru.github.io/.emacs.d/external-tool/mu4e/</guid>
+      <description>概要 mu4e は mu の一部で、一緒に使うことで Emacs でメールを扱えるようになるパッケージです。&#xA;インストール こちらは aur にある mu をインストールしてそこにある mu4e の path を通して利用しています。&#xA;というわけでインストールは&#xA;$ yay -S mu で入れました。これで /usr/share/emacs/site-lisp/mu4e に mu4e が入るので load-path も問題なく通っていました&#xA;設定 読み込み load-path は通っているので require するだけで OK&#xA;(require &amp;#39;mu4e) username/password 取得用の関数定義 mu/mu4e で使うメールアカウント情報は設定ファイルには書きたくないので authinfo に保存して取得用のコマンドを用意しました&#xA;(defun offlineimap-get-username (host) (plist-get (nth 0 (auth-source-search :host host)) :user)) (defun offlineimap-get-password (host) (funcall (plist-get (nth 0 (auth-source-search :host host :max 1)) :secret))) これらのコマンドは emacsclient 経由で mu から呼び出します。</description>
+    </item>
+    <item>
       <title>notify-slack</title>
       <link>https://mugijiru.github.io/.emacs.d/external-tool/notify-slack/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

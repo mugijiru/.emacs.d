@@ -216,6 +216,8 @@
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/ui/mode-line/</loc>
   </url><url>
+    <loc>https://mugijiru.github.io/.emacs.d/external-tool/mu4e/</loc>
+  </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/editing/multiple-cursors/</loc>
   </url><url>
     <loc>https://mugijiru.github.io/.emacs.d/ui/neotree/</loc>
