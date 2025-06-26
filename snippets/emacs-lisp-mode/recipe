@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: recipe
+# key: recipe
+# --
+
+(:name $0
+       :website "$1"
+       :description "$2"
+       :type $3
+       :pkgname "$4")

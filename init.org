@@ -72,6 +72,21 @@
 #+begin_src emacs-lisp :tangle init-el-get.el
 (add-to-list 'el-get-recipe-path (concat user-emacs-directory "recipes"))
 #+end_src
+*** snippet
+レシピを自前で書くことがよくあるのでそれ用に snippet を用意している
+
+#+begin_src emacs-lisp :tangle snippets/emacs-lisp-mode/recipe
+# -*- mode: snippet -*-
+# name: recipe
+# key: recipe
+# --
+
+(:name $0
+       :website "$1"
+       :description "$2"
+       :type $3
+       :pkgname "$4")
+#+end_src
 ** el-get-lock
 :PROPERTIES:
 :EXPORT_FILE_NAME: el-get-lock
@@ -143,6 +158,7 @@ el-get 本体にはレシピがないので自前で用意している。
 ** el-get 関係の自前関数
 :PROPERTIES:
 :EXPORT_FILE_NAME: el-get-functions
+:ID:       3fcc6b51-b849-43c0-91c6-772aa1019b3d
 :END:
 el-get と el-get-lock を使った関数を用意している
 
