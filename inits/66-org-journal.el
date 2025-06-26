@@ -18,5 +18,10 @@
 (setopt org-journal-enable-agenda-integration nil)
 (setopt org-journal-carryover-items "TODO={TODO\\|DOING\\|WAIT}")
 
+(defun my/org-journal-mode-hooks ()
+  "Set org-journal mode hooks."
+  (my/reset-org-agenda-files)
+  (my/reset-org-refile-targets))
+
 (with-eval-after-load 'org-journal
-  (add-to-list 'org-journal-after-header-create-hook 'my/reset-org-refile-targets))
+  (add-to-list 'org-journal-after-header-create-hook 'my/org-journal-mode-hooks))
