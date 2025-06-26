@@ -68,10 +68,16 @@ org-clock-report では前日分も target に入れてほしいのでそれの 
 
 ## hook {#hook}
 
-org-journal ファイルを新しく作る度にそのファイルを refile target で扱って欲しいので
-hook で org-refile-targets を設定し直すようにしている
+org-journal ファイルを新しく作る度にそのファイルを refile target で扱って欲しいのと
+org-agenda-files も同様に扱って欲しいので
+hook でそれらを設定し直すようにしている
 
 ```emacs-lisp
+(defun my/org-journal-mode-hooks ()
+  "Set org-journal mode hooks."
+  (my/reset-org-agenda-files)
+  (my/reset-org-refile-targets))
+
 (with-eval-after-load 'org-journal
-  (add-to-list 'org-journal-after-header-create-hook 'my/reset-org-refile-targets))
+  (add-to-list 'org-journal-after-header-create-hook 'my/org-journal-mode-hooks))
 ```
