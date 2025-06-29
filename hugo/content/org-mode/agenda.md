@@ -185,7 +185,37 @@ org-agenda では `org-agenda-prefix-format` に `%s` を指定することで�
 
     ```emacs-lisp
          ("hf" "Weekday Finish"
-          ((tags "Weekday&Finish"
+          ((tags "Weekday&Finish|Daily&Finish"
+                 ((org-agenda-prefix-format "  ")
+                  (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+                                             (:name "今日の作業" :scheduled today)
+                                             (:discard (:anything t))))))))
+    ```
+
+<!--list-separator-->
+
+-  休日開始用 agenda
+
+    [休日の定例用 agenda](#休日の定例用-agenda) でまとめて出て来るのが嫌になったので休日の最初に見る agenda を分離してみた。
+
+    ```emacs-lisp
+         ("hS" "Holiday Start"
+          ((tags "Holiday&Start|Daily&Start"
+                 ((org-agenda-prefix-format "  ")
+                  (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+                                             (:name "今日の作業" :scheduled today)
+                                             (:discard (:anything t))))))))
+    ```
+
+<!--list-separator-->
+
+-  休日終了用 agenda
+
+    休日開始用 agenda と同様に分離してみた。あまり活用されるイメージはないけど……
+
+    ```emacs-lisp
+         ("hF" "Holiday Finish"
+          ((tags "Holiday&Finish|Daily&Finish"
                  ((org-agenda-prefix-format "  ")
                   (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                              (:name "今日の作業" :scheduled today)

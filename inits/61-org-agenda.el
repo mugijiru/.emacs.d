@@ -44,7 +44,21 @@
                                          (:discard (:anything t))))))))
 
      ("hf" "Weekday Finish"
-      ((tags "Weekday&Finish"
+      ((tags "Weekday&Finish|Daily&Finish"
+             ((org-agenda-prefix-format "  ")
+              (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+                                         (:name "今日の作業" :scheduled today)
+                                         (:discard (:anything t))))))))
+
+     ("hS" "Holiday Start"
+      ((tags "Holiday&Start|Daily&Start"
+             ((org-agenda-prefix-format "  ")
+              (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
+                                         (:name "今日の作業" :scheduled today)
+                                         (:discard (:anything t))))))))
+
+     ("hF" "Holiday Finish"
+      ((tags "Holiday&Finish|Daily&Finish"
              ((org-agenda-prefix-format "  ")
               (org-super-agenda-groups '((:name "予定が過ぎてる作業" :scheduled past)
                                          (:name "今日の作業" :scheduled today)
