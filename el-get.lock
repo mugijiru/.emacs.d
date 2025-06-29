@@ -6,7 +6,7 @@
         (emacs-eat :checksum
                    "c8d54d649872bfe7b2b9f49ae5c2addbf12d3b99")
         (aidermacs :checksum
-                   "7719001b57618aa06d0f31b3ff52406f2f7494ef")
+                   "fcdbd6c5845c0dfe5a7ddd753598e26e8c508bd3")
         (embark :checksum "e1bec660d10974b80a74b9e3dbf95899dccdaeac")
         (polymode :checksum "25ba9463a443f0e904147138f226284e437248d3")
         (svelte-mode :checksum
