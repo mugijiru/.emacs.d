@@ -275,7 +275,7 @@
         (lsp-ui :checksum "a0dde8b52b4411cbac2eb053ef1515635ea0b7ed")
         (major-mode-hydra.el :checksum
                              "d0a5dadee97c3752fcdef113cf2ba1923972a480")
-        (magit :checksum "a4f73fb2fb55f7644a80b4442379ef43840ec5e9")
+        (magit :checksum "725efbd24964819cce3f09ab1aec0eb318a326eb")
         (markdown-mode :checksum
                        "7c51a2167c5a1330e0ab52fe5b2d03c1ead122ca")
         (memoize :checksum "51b075935ca7070f62fae1d69fe0ff7d8fa56fdd")
