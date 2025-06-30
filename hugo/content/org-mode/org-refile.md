@@ -45,7 +45,8 @@ nil だと移動先候補PATHの最後の部分しか表示されないのでど
   (setq org-refile-targets `((,(org-journal--get-entry-path) :regexp . "Tasks")
                              (,(concat org-directory "tasks/projects.org") :level . 1)
                              (,(concat org-directory "tasks/pointers.org") :level . 1)
-                             (,(concat org-directory "tasks/someday.org") :level . 1))))
+                             (,(concat org-directory "tasks/someday.org") :level . 1)
+                             (,(concat org-directory "roam/stocks.org") :level . 1))))
 
 (my/reset-org-refile-targets)
 ```
@@ -55,3 +56,5 @@ nil だと移動先候補PATHの最後の部分しか表示されないのでど
 | org-journal--get-entry-path | その日の journal ファイルに、その日やるつもりのタスクを放り込むため。 |
 | projects.org                | とりあえずその内やるタスクを放り込むところ。Work, Private の階層を設けているので `:level 2` としている |
 | pointers.org                | 読物を突っ込むところとしている。                                 |
+| someday.org                 | 遠い将来やるかもしれないリスト。放り込んで忘れるためにあるところ |
+| stocks.org                  | pointers で読んだけど置いておきたい資料                          |
