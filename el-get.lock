@@ -99,7 +99,7 @@
                       "d2beb3ec2e7f84505818594124a7202d5d6d0185")
         (emacs-sqlite3-api :checksum
                            "a601c9965e4d0178705a64b7d4f88709ca9aea66")
-        (org-roam :checksum "1958e035fc185e45f2f0855093ae2ff57e1a510e")
+        (org-roam :checksum "fc8638759b9d8e1725ff58a2b5f983679be0cf3d")
         (emacs-openai :checksum
                       "91115cd20781b2db9febadadc4ae89c35a9a6df5")
         (tblui :checksum "62ab5f62982c061a902fd3e54d94a68a4706572c")
