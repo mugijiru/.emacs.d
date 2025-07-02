@@ -3,7 +3,8 @@
 (setq my/tempbuf-ignore-files '("~/Documents/org/tasks/reviews.org"
                                 "~/Documents/org/tasks/interrupted.org"
                                 "~/Documents/org/tasks/habits.org"
-                                ))
+                                "~/Documents/org/tasks/projects.org"
+                                "~/Documents/org/gcals/mugijiru.org"))
 
 (defun my/find-file-tempbuf-hook ()
   (cond

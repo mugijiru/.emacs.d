@@ -28,7 +28,8 @@ kill されると org-clock が狂って面倒なことになるのでそれら�
 (setq my/tempbuf-ignore-files '("~/Documents/org/tasks/reviews.org"
                                 "~/Documents/org/tasks/interrupted.org"
                                 "~/Documents/org/tasks/habits.org"
-                                ))
+                                "~/Documents/org/tasks/projects.org"
+                                "~/Documents/org/gcals/mugijiru.org"))
 ```
 
 

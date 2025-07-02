@@ -1060,19 +1060,20 @@ el-get と el-get-lock を使った関数を用意している
 (el-get-bundle tempbuf-mode)
     #+end_src
 *** 勝手に kill させないファイルの指定
-    :PROPERTIES:
-    :ID:       dff6b4e8-53a3-4c2a-ae60-1e86809991ec
-    :END:
-    org-clock を使うようなファイルは
-    kill されると org-clock が狂って面倒なことになるので
-    それらのファイルは勝手に kill されないように ignore リストに突っ込んでいる
+:PROPERTIES:
+:ID:       dff6b4e8-53a3-4c2a-ae60-1e86809991ec
+:END:
+org-clock を使うようなファイルは
+kill されると org-clock が狂って面倒なことになるので
+それらのファイルは勝手に kill されないように ignore リストに突っ込んでいる
 
-    #+begin_src emacs-lisp :tangle inits/70-tempbuf.el
+#+begin_src emacs-lisp :tangle inits/70-tempbuf.el
 (setq my/tempbuf-ignore-files '("~/Documents/org/tasks/reviews.org"
                                 "~/Documents/org/tasks/interrupted.org"
                                 "~/Documents/org/tasks/habits.org"
-                                ))
-    #+end_src
+                                "~/Documents/org/tasks/projects.org"
+                                "~/Documents/org/gcals/mugijiru.org"))
+#+end_src
 *** find-file への hook
     :PROPERTIES:
     :ID:       953c5640-86e4-40fb-b403-0451bb249cea
