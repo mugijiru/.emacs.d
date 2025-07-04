@@ -11,7 +11,7 @@
         (polymode :checksum "25ba9463a443f0e904147138f226284e437248d3")
         (svelte-mode :checksum
                      "ac8fba901dc790976f9893e338c8ad1241b897c6")
-        (llama :checksum "6a67e4253cc02aa9ce85ef96290c95198b65d913")
+        (llama :checksum "0cc2daffded18eea7f00a318cfa3e216977ffe50")
         (leaf-keywords :checksum
                        "82ec27e3441900daedeaaebca509181f964da81f")
         (leaf :checksum "69c9b057cdeee560450c1d04a9a058235ecff0f7")
