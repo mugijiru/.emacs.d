@@ -9929,8 +9929,7 @@ nil にして表示しないようにしている。
 と思いつつ、多分 zoom-mode とかでバッファの幅が切り替わる時に邪魔になるから固定でいいか。
 
 #+begin_src emacs-lisp :tangle inits/61-org-agenda.el
-(custom-set-variables
- '(org-agenda-block-separator "------------------------------"))
+(setopt org-agenda-block-separator "------------------------------")
 #+end_src
 **** org-super-agnda-mode の有効化
 :PROPERTIES:
