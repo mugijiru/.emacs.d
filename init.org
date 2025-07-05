@@ -10891,6 +10891,20 @@ org-gcal が依存しているので [[https://elpa.gnu.org/packages/persist.htm
 (el-get-bundle persist)
 #+end_src
 
+また oauth2-auto も依存しているので入れているが
+自動更新の仕組みが el-get 本体のレシピだとエラーになるので
+コピーしてブランチのみ指定している
+
+#+begin_src emacs-lisp :tangle recipes/emacs-oauth2-auto.rcp
+( :name emacs-oauth2-auto
+  :description "Automatically stored and configured OAuth2 for Emacs"
+  :type github
+  :pkgname "telotortium/emacs-oauth2-auto"
+  :branch "main"
+  :depends (emacs-aio alert dash)
+  :minimum-emacs-version "26.1")
+#+end_src
+
 あとは当然 org-gcal 本体を入れないと動かない
 
 #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
@@ -10948,12 +10962,11 @@ window 通知を使う設定にしている。
 
 これだけだと、通知する時間になったらピョコッと window が生えて来るのだけど、
 後の方で、この設定の時に使う関数を差し替えている
-
 **** 通知用関数の定義
 :PROPERTIES:
 :ID:       b0716a8e-35da-49c8-bf14-675831e5602b
 :END:
-通知には [[*alert][alert.el]] を使いたいので自前で関数を定義。
+通知には [[id:39a74b47-abe6-4b70-bf3d-e0bc9b5c8699][alert]] を使いたいので自前で関数を定義。
 alert.el は別のところで設定していて
 そこで dunst を使って通知するようにしている。
 
@@ -10975,11 +10988,6 @@ alert.el は別のところで設定していて
 #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
 (advice-add #'org-gcal--sync-unlock :after #'my/org-refresh-appt)
 #+end_src
-
-*** その他
-[[https://github.com/misohena/gcal][gcal-org]] に乗り換えようかと思ってるが
-そっちの中身もよくわからないので躊躇している。
-自分の用途に合うのだろうか?
 
 ** org-ql                                                            :unused:
 :PROPERTIES:

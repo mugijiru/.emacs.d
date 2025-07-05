@@ -21,6 +21,18 @@ org-gcal が依存しているので [parsist](https://elpa.gnu.org/packages/per
 (el-get-bundle persist)
 ```
 
+また oauth2-auto も依存しているので入れているが自動更新の仕組みが el-get 本体のレシピだとエラーになるのでコピーしてブランチのみ指定している
+
+```emacs-lisp
+( :name emacs-oauth2-auto
+  :description "Automatically stored and configured OAuth2 for Emacs"
+  :type github
+  :pkgname "telotortium/emacs-oauth2-auto"
+  :branch "main"
+  :depends (emacs-aio alert dash)
+  :minimum-emacs-version "26.1")
+```
+
 あとは当然 org-gcal 本体を入れないと動かない
 
 ```emacs-lisp
@@ -80,7 +92,7 @@ window 通知を使う設定にしている。
 
 ### 通知用関数の定義 {#通知用関数の定義}
 
-通知には [alert.el]({{< relref "alert" >}}) を使いたいので自前で関数を定義。
+通知には [alert]({{< relref "alert" >}}) を使いたいので自前で関数を定義。
 alert.el は別のところで設定していてそこで dunst を使って通知するようにしている。
 
 ```emacs-lisp
@@ -101,8 +113,3 @@ alert.el は別のところで設定していてそこで dunst を使って通�
 ```emacs-lisp
 (advice-add #'org-gcal--sync-unlock :after #'my/org-refresh-appt)
 ```
-
-
-## その他 {#その他}
-
-[gcal-org](https://github.com/misohena/gcal) に乗り換えようかと思ってるがそっちの中身もよくわからないので躊躇している。自分の用途に合うのだろうか?
