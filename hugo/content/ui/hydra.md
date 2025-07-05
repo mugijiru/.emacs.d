@@ -72,7 +72,7 @@ js2-mode 用の Hydra などを定義できて便利。
 `pretty-hydra-default-title-body-format-spec` を使うようにしている
 
 ```emacs-lisp
-(custom-set-variables '(pretty-hydra-default-title-body-format-spec "%s\n%s"))
+(setopt pretty-hydra-default-title-body-format-spec "%s\n%s")
 ```
 
 なおレシピは自前で用意している

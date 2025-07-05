@@ -3394,7 +3394,7 @@ js2-mode 用の Hydra などを定義できて便利。
 ~pretty-hydra-default-title-body-format-spec~ を使うようにしている
 
 #+begin_src emacs-lisp :tangle inits/81-hydra.el
-(custom-set-variables '(pretty-hydra-default-title-body-format-spec "%s\n%s"))
+(setopt pretty-hydra-default-title-body-format-spec "%s\n%s")
 #+end_src
 
 なおレシピは自前で用意している
