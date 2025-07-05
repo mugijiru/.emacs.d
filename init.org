@@ -4822,7 +4822,6 @@ Emacs に標準で入ってるので require するだけで有効にできる
 [[https://m2ym.hatenadiary.org/entry/20110401/1301617991][主張しないスクロールバーモード、yascroll.elをリリースしました - Functional Emacser]]
 にある。
 タイトル通り、あまり主張しない感じで良い。
-
 *** インストール
 :PROPERTIES:
 :ID:       6181571d-4b9c-43c9-b539-f736e6c9e8d2
@@ -4832,8 +4831,12 @@ Emacs に標準で入ってるので require するだけで有効にできる
 #+begin_src emacs-lisp :tangle inits/70-yascroll.el
 (el-get-bundle yascroll)
 #+end_src
+*** 設定
+#+begin_src emacs-lisp :tangle inits/70-yascroll.el
+(setopt global-yascroll-bar-mode t)
+#+end_src
 
-これだけで大体いい感じに表示されるので便利。
+これで大体いい感じに表示されるので便利。
 たまに表示されなくなることもあるが、まあそこまで重要なやつでもないのであまり気にしていない
 ** zoom
 :PROPERTIES:
