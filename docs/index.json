@@ -1103,7 +1103,7 @@
 	"title": "yascroll",
 	"tags": [],
 	"description": "",
-	"content": "概要 yascroll は標準のスクロールバーとは異なるスクロールバーを表示するやつ。\nデフォルトだと右側の fringe 領域に表示するのであまり邪魔にならないし表示領域を必要以上に狭めないので気に入っている。\n最初に作られたっぽい記事は 主張しないスクロールバーモード、yascroll.elをリリースしました - Functional Emacser にある。タイトル通り、あまり主張しない感じで良い。\nインストール いつも通り el-get でインストールしている\n(el-get-bundle yascroll) これだけで大体いい感じに表示されるので便利。たまに表示されなくなることもあるが、まあそこまで重要なやつでもないのであまり気にしていない\n"
+	"content": "概要 yascroll は標準のスクロールバーとは異なるスクロールバーを表示するやつ。\nデフォルトだと右側の fringe 領域に表示するのであまり邪魔にならないし表示領域を必要以上に狭めないので気に入っている。\n最初に作られたっぽい記事は 主張しないスクロールバーモード、yascroll.elをリリースしました - Functional Emacser にある。タイトル通り、あまり主張しない感じで良い。\nインストール いつも通り el-get でインストールしている\n(el-get-bundle yascroll) 設定 (setopt global-yascroll-bar-mode t) これで大体いい感じに表示されるので便利。たまに表示されなくなることもあるが、まあそこまで重要なやつでもないのであまり気にしていない\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/editing/yasnippet/",
