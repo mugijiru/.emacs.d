@@ -27,6 +27,7 @@ eln-cache
 .org-id-locations
 .dap-breakpoints
 bookmarks
+custom.el
 forge-database.sqlite
 ido.last
 recentf
