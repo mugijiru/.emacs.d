@@ -415,42 +415,41 @@ el-get と el-get-lock を使った関数を用意している
      また [[https://github.com/bbatsov/super-save][super-save]] というやつを使って実ファイルに自動保存したりしたらこれも不要になると思われる。
 
 ** custom-file
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: custom-file
-   :END:
+:PROPERTIES:
+:EXPORT_FILE_NAME: custom-file
+:END:
 *** 概要
-    Emacs では customize 機能などで設定したファイルを
-    標準だと init.el の末尾に追記したりするが
-    自動吐き出しされるものがあるとバージョン管理が難しくなるので
-    別ファイルに出力するようにするなどの調整をしている。
-
+Emacs では customize 機能などで設定したファイルを
+標準だと init.el の末尾に追記したりするが
+自動吐き出しされるものがあるとバージョン管理が難しくなるので
+別ファイルに出力するようにするなどの調整をしている。
 *** 出力先の設定
-    :PROPERTIES:
-    :ID:       a56f67b4-a61f-4c2e-b78d-cf8de6df652c
-    :END:
-    .emacs.d の中に閉じ込めておく方が管理が楽なので
-    出力先として ~~/.emacs.d/custom.el~ を指定している。
+:PROPERTIES:
+:ID:       a56f67b4-a61f-4c2e-b78d-cf8de6df652c
+:END:
+.emacs.d の中に閉じ込めておく方が管理が楽なので
+出力先として ~~/.emacs.d/custom.el~ を指定している。
 
 #+begin_src emacs-lisp :tangle inits/99-custom-file.el
 (setq custom-file (expand-file-name "~/.emacs.d/custom.el"))
 #+end_src
 *** カスタム設定の読み込み
-    :PROPERTIES:
-    :ID:       621d1b63-fb86-4266-9008-8f6101eec200
-    :END:
-    起動時に、設定が入っているファイルが読み込まれないと
-    保存した設定が有効にならないので load を使って読んでいる。
+:PROPERTIES:
+:ID:       621d1b63-fb86-4266-9008-8f6101eec200
+:END:
+起動時に、設定が入っているファイルが読み込まれないと
+保存した設定が有効にならないので load を使って読んでいる。
 
 #+begin_src emacs-lisp :tangle inits/99-custom-file.el
 (load custom-file)
 #+end_src
 *** その他
-    カスタムファイルは終盤で読み込む方がいいかと思って
-    init-loader では 99 という最後の方で読まれる番号を振っている。
+カスタムファイルは終盤で読み込む方がいいかと思って
+init-loader では 99 という最後の方で読まれる番号を振っている。
 
-    このあたりの設定を個別のパッケージの設定の方に移動したら
-    このファイルは空にできるんじゃないかなとも思っているが、
-    それはゆっくり対応していくつもり
+このあたりの設定を個別のパッケージの設定の方に移動したら
+このファイルは空にできるんじゃないかなとも思っているが、
+それはゆっくり対応していくつもり
 ** ddskk
    :PROPERTIES:
    :EXPORT_FILE_NAME: ddskk
