@@ -16,7 +16,7 @@ Emacs の設定は .emacs.d の中に閉じ込めたいので
 auto-insert のテンプレートも `~/.emacs.d/insert` に閉じ込める設定にしている。
 
 ```emacs-lisp
-(custom-set-variables '(auto-insert-directory "~/.emacs.d/insert/"))
+(setopt auto-insert-directory "~/.emacs.d/insert/")
 ```
 
 
