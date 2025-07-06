@@ -256,7 +256,7 @@
 	"title": "auth-source",
 	"tags": [],
 	"description": "",
-	"content": "概要 auth-source は Emacs でパスワードのような秘匿情報を扱うための仕組み。 Emacs の各パッケージが認証情報を要求する時にこいつ経由で取得できるようにしておくと秘匿もできて便利っぽい。\nパスワードの保存先はデフォルトだと (\u0026quot;~/.authinfo\u0026quot; \u0026quot;~/.authinfo.gpg\u0026quot; \u0026quot;~/.netrc\u0026quot;) となっている。\n拡張子が gpg だと EagyPG Assistant で保存時に暗号化されるので便利。\nファイル指定 自分は Emacs でしか使わないであろう情報ということで /.emacs.d/.authinfo.gpg を指定している。\n(custom-set-variables \u0026#39;(auth-sources (quote (\u0026#34;~/.emacs.d/.authinfo.gpg\u0026#34;)))) "
+	"content": "概要 auth-source は Emacs でパスワードのような秘匿情報を扱うための仕組み。 Emacs の各パッケージが認証情報を要求する時にこいつ経由で取得できるようにしておくと秘匿もできて便利っぽい。\nパスワードの保存先はデフォルトだと (\u0026quot;~/.authinfo\u0026quot; \u0026quot;~/.authinfo.gpg\u0026quot; \u0026quot;~/.netrc\u0026quot;) となっている。\n拡張子が gpg だと EagyPG Assistant で保存時に暗号化されるので便利。\nファイル指定 自分は Emacs でしか使わないであろう情報ということで /.emacs.d/.authinfo.gpg を指定している。\n(setopt auth-sources \u0026#39;(\u0026#34;~/.emacs.d/.authinfo.gpg\u0026#34;)) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/basics/auto-format/",
