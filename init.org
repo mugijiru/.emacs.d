@@ -225,29 +225,28 @@ el-get と el-get-lock を使った関数を用意している
    - [[*ライブラリの読み込み][ライブラリの読み込み]] :: Emacs Lisp を書く上で便利なライブラリの読み込み
 
 ** auth-source
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: auth-source
-   :END:
+:PROPERTIES:
+:EXPORT_FILE_NAME: auth-source
+:END:
 *** 概要
-    [[https://www.gnu.org/software/emacs/manual/html_mono/auth.html][auth-source]] は Emacs でパスワードのような秘匿情報を扱うための仕組み。
-    Emacs の各パッケージが認証情報を要求する時に
-    こいつ経由で取得できるようにしておくと秘匿もできて便利っぽい。
+[[https://www.gnu.org/software/emacs/manual/html_mono/auth.html][auth-source]] は Emacs でパスワードのような秘匿情報を扱うための仕組み。
+Emacs の各パッケージが認証情報を要求する時に
+こいつ経由で取得できるようにしておくと秘匿もできて便利っぽい。
 
-    パスワードの保存先はデフォルトだと
-    ~("~/.authinfo" "~/.authinfo.gpg" "~/.netrc")~
-    となっている。
+パスワードの保存先はデフォルトだと
+~("~/.authinfo" "~/.authinfo.gpg" "~/.netrc")~
+となっている。
 
-    拡張子が gpg だと [[https://www.gnu.org/software/emacs/manual/html_mono/epa.html][EagyPG Assistant]] で保存時に暗号化されるので便利。
-
+拡張子が gpg だと [[https://www.gnu.org/software/emacs/manual/html_mono/epa.html][EagyPG Assistant]] で保存時に暗号化されるので便利。
 *** ファイル指定
-    :PROPERTIES:
-    :ID:       13698179-030c-4c4c-974b-2ebc1ea1dbc5
-    :END:
-    自分は Emacs でしか使わないであろう情報ということで
-    ~/.emacs.d/.authinfo.gpg~ を指定している。
+:PROPERTIES:
+:ID:       13698179-030c-4c4c-974b-2ebc1ea1dbc5
+:END:
+自分は Emacs でしか使わないであろう情報ということで
+~/.emacs.d/.authinfo.gpg~ を指定している。
 
 #+begin_src emacs-lisp :tangle inits/00-authinfo.el
-(custom-set-variables '(auth-sources (quote ("~/.emacs.d/.authinfo.gpg"))))
+(setopt auth-sources '("~/.emacs.d/.authinfo.gpg"))
 #+end_src
 ** auto-format
    :PROPERTIES:
