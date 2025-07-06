@@ -21,5 +21,5 @@ Emacs の各パッケージが認証情報を要求する時にこいつ経由�
 `/.emacs.d/.authinfo.gpg` を指定している。
 
 ```emacs-lisp
-(custom-set-variables '(auth-sources (quote ("~/.emacs.d/.authinfo.gpg"))))
+(setopt auth-sources '("~/.emacs.d/.authinfo.gpg"))
 ```

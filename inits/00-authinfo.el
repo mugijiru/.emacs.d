@@ -1,1 +1,1 @@
-(custom-set-variables '(auth-sources (quote ("~/.emacs.d/.authinfo.gpg"))))
+(setopt auth-sources '("~/.emacs.d/.authinfo.gpg"))
