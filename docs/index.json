@@ -270,7 +270,7 @@
 	"title": "auto-insert",
 	"tags": [],
 	"description": "",
-	"content": "概要 auto-insert はファイルを新規作成した時にファイル名に応じたテンプレートを挿入する機能。\nEmacs が標準で持ってるライブラリなのでインストールは不要\n設定 Emacs の設定は .emacs.d の中に閉じ込めたいので auto-insert のテンプレートも ~/.emacs.d/insert に閉じ込める設定にしている。\n(custom-set-variables \u0026#39;(auto-insert-directory \u0026#34;~/.emacs.d/insert/\u0026#34;)) 有効化 あとは単に有効化している。\n(auto-insert-mode 1) 他の設定 ファイル名を正規表現でマッチさせてテンプレートが選択されるので各言語やフレームワーク毎に設定を入れることにしている。\n実際は今のところ inits/41-vue.el でのみ追加設定を入れている。\n"
+	"content": "概要 auto-insert はファイルを新規作成した時にファイル名に応じたテンプレートを挿入する機能。\nEmacs が標準で持ってるライブラリなのでインストールは不要\n設定 Emacs の設定は .emacs.d の中に閉じ込めたいので auto-insert のテンプレートも ~/.emacs.d/insert に閉じ込める設定にしている。\n(setopt auto-insert-directory \u0026#34;~/.emacs.d/insert/\u0026#34;) 有効化 あとは単に有効化している。\n(auto-insert-mode 1) 他の設定 ファイル名を正規表現でマッチさせてテンプレートが選択されるので各言語やフレームワーク毎に設定を入れることにしている。\n実際は今のところ inits/41-vue.el でのみ追加設定を入れている。\n"
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/basics/auto-save/",
