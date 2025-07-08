@@ -28,7 +28,7 @@
         (copilot-chat :checksum
                       "434ac0c08f0aff04251a2e2ae37262e8d360ab67")
         (chatgpt-shell :checksum
-                       "d5a6c91d80de7bbf9958fc6782bcdd0a852d8963")
+                       "b5599b9e2db63e148b60a3a2f361558c3b34fbae")
         (sqlformat :checksum
                    "69ef8bec3ac8c9ce4a60f20a9721e4d7a592a84d")
         (reformatter :checksum
