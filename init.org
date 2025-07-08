@@ -11459,7 +11459,7 @@ org フォルダの下に roam というフォルダを掘ってその中だけ�
   (let* ((number (assoc-default 'number pr))
          (todo-keyword "TODO")
          (title (assoc-default 'title pr))
-         (text (assoc-default 'url pr))
+         (text (assoc-default 'html_url pr))
          (labels (assoc-default 'labels pr))
          (tags (mapcar (lambda (label) (assoc-default 'name label)) labels)))
     `( :number ,number
