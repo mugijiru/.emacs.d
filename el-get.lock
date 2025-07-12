@@ -101,7 +101,7 @@
                            "a601c9965e4d0178705a64b7d4f88709ca9aea66")
         (org-roam :checksum "89dfaef38b6caa3027f20f96a551dc8f194ac533")
         (emacs-openai :checksum
-                      "91115cd20781b2db9febadadc4ae89c35a9a6df5")
+                      "1d3905e074621e0ca7c52bac0106fc66ad5b8a22")
         (tblui :checksum "62ab5f62982c061a902fd3e54d94a68a4706572c")
         (magit-popup :checksum
                      "d8585fa39f88956963d877b921322530257ba9f5")
