@@ -257,7 +257,7 @@
         (google-this :checksum
                      "abdcb565503844e2146de42ab5ba898e90a2bb09")
         (haml-mode :checksum
-                   "a64d58df8f098f858c6c11fa1629a90969f9c7e8")
+                   "3bb4a96535eb5c81dbe6a43bfa8d67a778d449c0")
         (handlebars-mode :checksum
                          "81f6b73fea8f397807781a1b51568397af21a6ef")
         (ht :checksum "1c49aad1c820c86f7ee35bf9fff8429502f60fef")
