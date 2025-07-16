@@ -16,6 +16,7 @@ el-get と el-get-lock を使った関数を用意している
     (el-get-lock-checkout package)
     (el-get-update package)
     (let ((new-checksum (my/el-get-lock-checksum package)))
+      (message "debug: %s -> %s" old-checksum new-checksum)
       (unless (string= old-checksum new-checksum)
         (let* ((compare (concat old-checksum "..." new-checksum))
                (recipe (ignore-errors (el-get-package-def package)))
