@@ -32,7 +32,7 @@ jobs:
         emacs -Q --batch --eval "(setq user-emacs-directory \"$(pwd)/\")" \
           --eval '(setq el-get-git-install-url "https://github.com/mugijiru/el-get.git")' \
           --eval '(setq el-get-install-branch "fix-install-for-emacs29")' \
-          --eval '(setq byte-compiler-warnings nil)` \
+          --eval '(setq byte-compiler-warnings nil)' \
           -l ./init-el-get.el \
           --eval "(my/el-get-auto-update \"$PACKAGE\")"
 
