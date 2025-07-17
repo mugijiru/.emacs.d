@@ -5,3 +5,4 @@
 (setopt ox-nippou-todo-state-mapping '(("todo" . ("TODO"))
                                        ("doing" . ("DOING" "WAIT"))
                                        ("done" . ("DONE"))))
+(setopt ox-nippou-gcal-file (expand-file-name "~/Documents/org/gcals/mugijiru.org"))

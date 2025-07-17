@@ -34,6 +34,7 @@ draft = false
 -   変換元ファイルの格納先の指定
 -   対象タスクがない時の表示
 -   TODO state と日報との対応
+-   gcal ファイルの指定
 
 をカスタム変数で設定している
 
@@ -43,4 +44,5 @@ draft = false
 (setopt ox-nippou-todo-state-mapping '(("todo" . ("TODO"))
                                        ("doing" . ("DOING" "WAIT"))
                                        ("done" . ("DONE"))))
+(setopt ox-nippou-gcal-file (expand-file-name "~/Documents/org/gcals/mugijiru.org"))
 ```
