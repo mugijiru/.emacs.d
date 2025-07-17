@@ -46,6 +46,6 @@
           (write-region commit-message nil "/tmp/commit-message.txt"))))))
 
 (defun my/el-get-lock-checksum (package)
-  (let ((versions (cdr el-get-lock-package-versions))
+  (let ((versions el-get-lock-package-versions)
         (package-sym (intern package)))
-    (cadr (alist-get package-sym (cdr el-get-lock-package-versions)))))
+    (cadr (alist-get package-sym versions))))
