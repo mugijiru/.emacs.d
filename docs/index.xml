@@ -614,7 +614,7 @@
       <link>https://mugijiru.github.io/.emacs.d/programming/markdown/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://mugijiru.github.io/.emacs.d/programming/markdown/</guid>
-      <description>概要 Markdown を書くための設定。といいつつ markdown-mode を入れてるだけだけども。&#xA;手元でテキストドキュメントを弄るのは org-mode が多いからなあ……&#xA;インストール いつも通り el-get で入れている。&#xA;(el-get-bundle markdown-mode) </description>
+      <description>概要 Markdown を書くための設定。といいつつ markdown-mode を入れてるだけだけども。&#xA;手元でテキストドキュメントを弄るのは org-mode が多いからなあ……&#xA;インストール いつも通り el-get で入れている。&#xA;(el-get-bundle markdown-mode) 設定 今のところは行番号が表示されるようにしているだけ&#xA;(defun my/markdown-mode-hook() (display-line-numbers-mode 1)) (add-hook &amp;#39;markdown-mode-hook &amp;#39;my/markdown-mode-hook) </description>
     </item>
     <item>
       <title>migemo</title>

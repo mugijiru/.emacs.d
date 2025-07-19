@@ -704,7 +704,7 @@
 	"title": "markdown",
 	"tags": [],
 	"description": "",
-	"content": "概要 Markdown を書くための設定。といいつつ markdown-mode を入れてるだけだけども。\n手元でテキストドキュメントを弄るのは org-mode が多いからなあ……\nインストール いつも通り el-get で入れている。\n(el-get-bundle markdown-mode) "
+	"content": "概要 Markdown を書くための設定。といいつつ markdown-mode を入れてるだけだけども。\n手元でテキストドキュメントを弄るのは org-mode が多いからなあ……\nインストール いつも通り el-get で入れている。\n(el-get-bundle markdown-mode) 設定 今のところは行番号が表示されるようにしているだけ\n(defun my/markdown-mode-hook() (display-line-numbers-mode 1)) (add-hook \u0026#39;markdown-mode-hook \u0026#39;my/markdown-mode-hook) "
 },
 {
 	"uri": "https://mugijiru.github.io/.emacs.d/basics/migemo/",
