@@ -1,6 +1,6 @@
 (setq el-get-lock-package-versions
       '((ox-nippou :checksum
-                   "37f4f414963a36d82cb25e190ff0f7a3f79d42c5")
+                   "7c1cc689bb3c7eee7ecc5fc49b52062bdc94d5bc")
         (claude-code :checksum
                      "4939a2e77fab0601396824c441c2c8f185cc2bbf")
         (emacs-eat :checksum
