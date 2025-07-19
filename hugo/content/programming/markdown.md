@@ -17,3 +17,15 @@ Markdown を書くための設定。といいつつ markdown-mode を入れて�
 ```emacs-lisp
 (el-get-bundle markdown-mode)
 ```
+
+
+## 設定 {#設定}
+
+今のところは行番号が表示されるようにしているだけ
+
+```emacs-lisp
+(defun my/markdown-mode-hook()
+  (display-line-numbers-mode 1))
+
+(add-hook 'markdown-mode-hook 'my/markdown-mode-hook)
+```
