@@ -3,7 +3,7 @@
         (ox-nippou :checksum
                    "7c1cc689bb3c7eee7ecc5fc49b52062bdc94d5bc")
         (claude-code :checksum
-                     "f1fccf05c8b7350aa53ff8d77652db9422f34fcc")
+                     "75ba814df64165f6ed9a55dd2740771cc552237f")
         (emacs-eat :checksum
                    "c8d54d649872bfe7b2b9f49ae5c2addbf12d3b99")
         (aidermacs :checksum
