@@ -7780,6 +7780,7 @@ yaml-ts-mode はインデント周りの挙動が気に入らないので
 - [[id:502cd8c0-a87a-4ff6-a332-e46b6bb1e938][rg]] :: [[https://github.com/BurntSushi/ripgrep][ripgrep]] を使って高速に検索するためのパッケージ
 - [[id:ff301b66-6de6-4b70-9abb-5776f2e1a646][todoist]] :: Todoist と連携して org-mode で扱えるようにするパッケージ
 - [[id:e0a77ea3-429c-4f0d-8caf-7fde52a3b3a3][twmode]] :: Emacs 上で動く Twitter クライアント
+- [[id:642d7e7c-a353-4233-b62a-2ee4d7d91127][vterm]] :: Emacs 上で libvterm を動かすためのパッケージ
 - [[id:9c9bff02-7627-44ae-9868-e1310ff19294][wakatime-mode]] :: Emacs と WakaTime を連携してどのプロジェクトの作業をどのぐらいしてたかを計測するパッケージ
 - [[id:0b6e71ab-1fa2-4566-90b1-949842726f22][ブラウザ設定]] :: ブラウザ連携周りの設定
 ** aidermacs
@@ -9328,6 +9329,19 @@ API キーを設定するので別ファイルに分離している。
 | C-c ]   | アンフォロー             |
 |---------+--------------------------|
 
+** vterm
+:PROPERTIES:
+:ID:       642d7e7c-a353-4233-b62a-2ee4d7d91127
+:EXPORT_FILE_NAME: vterm
+:END:
+*** 概要
+[[https://github.com/akermu/emacs-libvterm][vterm]] は Emacs 上で libvterm をベースにした端末エミュレータ。
+*** インストール
+el-get 本体にレシピがあるのでそれを使って ~el-get-bundle~ でインストールしている
+
+#+begin_src emacs-lisp :tangle inits/40-vterm.el
+(el-get-bundle vterm)
+#+end_src
 ** wakatime-mode
 :PROPERTIES:
 :EXPORT_FILE_NAME: wakatime-mode
