@@ -52,3 +52,10 @@ $ claude migrate-installer
 ```emacs-lisp
 (setopt claude-code-program (expand-file-name "~/.claude/local/claude"))
 ```
+
+また、デフォルトの ert だと僕の環境だと描画が遅過ぎて使い物にならなかったので
+vterm を使うように設定している
+
+```emacs-lisp
+(setopt claude-code-terminal-backend 'vterm)
+```
