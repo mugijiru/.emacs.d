@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/.emacs.d/images/favicon.png" type="image/png">
 
-    <title>projectile :: 麦汁&#39;s Emacs Config</title>
+    <title>vterm :: 麦汁&#39;s Emacs Config</title>
 
     
     <link href="/.emacs.d/css/nucleus.css?1752936978" rel="stylesheet">
@@ -46,7 +46,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2857297565325683" crossorigin="anonymous"></script>
 
   </head>
-  <body class="" data-url="/.emacs.d/nav/projectile/">
+  <body class="" data-url="/.emacs.d/external-tool/vterm/">
     <nav id="sidebar" class="">
 
 
@@ -1614,7 +1614,7 @@
   
     
     <li data-nav-id="/.emacs.d/nav/" title="ナビゲーション" class="dd-item
-        parent
+        
         
         
         ">
@@ -1724,7 +1724,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/nav/projectile/" title="projectile" class="dd-item active">
+      <li data-nav-id="/.emacs.d/nav/projectile/" title="projectile" class="dd-item ">
         <a href="/.emacs.d/nav/projectile/">
         projectile
         
@@ -2333,7 +2333,7 @@
   
     
     <li data-nav-id="/.emacs.d/external-tool/" title="外部連携ツール設定" class="dd-item
-        
+        parent
         
         
         ">
@@ -2821,7 +2821,7 @@
  
   
     
-      <li data-nav-id="/.emacs.d/external-tool/vterm/" title="vterm" class="dd-item ">
+      <li data-nav-id="/.emacs.d/external-tool/vterm/" title="vterm" class="dd-item active">
         <a href="/.emacs.d/external-tool/vterm/">
         vterm
         
@@ -3581,7 +3581,7 @@
             
           
           
-            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/nav/'>ナビゲーション</a> > projectile
+            <a href='/.emacs.d/'>麦汁's Emacs Config</a> > <a href='/.emacs.d/external-tool/'>外部連携ツール設定</a> > vterm
           
         
           
@@ -3598,27 +3598,6 @@
   <ul>
     <li><a href="#概要">概要</a></li>
     <li><a href="#インストール">インストール</a></li>
-    <li><a href="#有効化">有効化</a></li>
-    <li><a href="#無視リスト">無視リスト</a>
-      <ul>
-        <li><a href="#無視するディレクトリ">無視するディレクトリ</a></li>
-        <li><a href="#無視するファイル">無視するファイル</a></li>
-      </ul>
-    </li>
-    <li><a href="#ivy-counsel-との連携">ivy/counsel との連携</a></li>
-    <li><a href="#キーバインド">キーバインド</a></li>
-    <li><a href="#projectile-用のコマンド-ヘルパー関数">projectile 用のコマンド/ヘルパー関数</a>
-      <ul>
-        <li><a href="#プロジェクト固有の-hydra-呼び出し">プロジェクト固有の Hydra 呼び出し</a></li>
-        <li><a href="#プロジェクト内のファイルを開く">プロジェクト内のファイルを開く</a></li>
-        <li><a href="#プロジェクト内の指定フォルダのファイルを検索">プロジェクト内の指定フォルダのファイルを検索</a></li>
-        <li><a href="#dockerfile-を開く">Dockerfile を開く</a></li>
-        <li><a href="#dot-circleci-config-dot-yml-を開く">.circleci/config.yml を開く</a></li>
-        <li><a href="#gemfile-を開く">Gemfile を開く</a></li>
-        <li><a href="#dot-rubocop-dot-yml-を開く">.rubocop.yml を開く</a></li>
-      </ul>
-    </li>
-    <li><a href="#counsel-projectile-org-capture-の設定">counsel-projectile-org-capture の設定</a></li>
   </ul>
 </nav>
     </div>
@@ -3636,7 +3615,7 @@
           
             <h1>
               
-              projectile
+              vterm
             </h1>
           
 
@@ -3644,193 +3623,10 @@
 
 
 <h2 id="概要">概要</h2>
-<p><a href="https://github.com/bbatsov/projectile">projectile</a> はプロジェクト内のファイルを検索したりするのに便利なパッケージ</p>
+<p><a href="https://github.com/akermu/emacs-libvterm">vterm</a> は Emacs 上で libvterm をベースにした端末エミュレータ。</p>
 <h2 id="インストール">インストール</h2>
-<p>いつも通り el-get からインストールする</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle projectile)
-</span></span></code></pre></div><h2 id="有効化">有効化</h2>
-<p>このあたりで有効化しておいている。この順序に意味があったかは忘れた……。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(projectile-mode)
-</span></span></code></pre></div><h2 id="無視リスト">無視リスト</h2>
-<p>普段 Rails ばっかりやってるのでそれ関係のものを無視リストに入れている。けどあんまりメンテしてない。</p>
-<h3 id="無視するディレクトリ">無視するディレクトリ</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-directories</span> <span style="color:#e6db74">&#34;tmp&#34;</span>)
-</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-directories</span> <span style="color:#e6db74">&#34;.tmp&#34;</span>)
-</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-directories</span> <span style="color:#e6db74">&#34;vendor&#34;</span>)
-</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-directories</span> <span style="color:#e6db74">&#34;.sass-cache&#34;</span>)
-</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-directories</span> <span style="color:#e6db74">&#34;coverage&#34;</span>)
-</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-directories</span> <span style="color:#e6db74">&#34;cache&#34;</span>)
-</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-directories</span> <span style="color:#e6db74">&#34;log&#34;</span>)
-</span></span></code></pre></div><p>node_modules もここに突っ込んでも良いかもしれない。</p>
-<h3 id="無視するファイル">無視するファイル</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-files</span> <span style="color:#e6db74">&#34;gems.tags&#34;</span>)
-</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-files</span> <span style="color:#e6db74">&#34;project.tags&#34;</span>)
-</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;projectile-globally-ignored-files</span> <span style="color:#e6db74">&#34;manifest.json&#34;</span>)
-</span></span></code></pre></div><p>tags ファイルは昔は使っていたけど、最近は dumb-jump が優秀なのと、面倒で使ってないのでそろそろ gems.tags と project.tags は不要かもしれない。</p>
-<h2 id="ivy-counsel-との連携">ivy/counsel との連携</h2>
-<p>上の方で helm との連携処理を入れていたが今は大体 ivy に乗り換えているので ivy 連携もしている。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq projectile-completion-system <span style="color:#e6db74">&#39;ivy</span>)
-</span></span><span style="display:flex;"><span>(el-get-bundle counsel-projectile)
-</span></span></code></pre></div><p>counsel-projectile はいくつかの絞り込み処理を提供してくれて便利。それでも足りなかったら自前で何か作ることになるのかなと思っている。</p>
-<h2 id="キーバインド">キーバインド</h2>
-<p>デフォルトでいくつかのキーバインドが用意されてるようだけどそんなものさっぱり覚えられないのでとりあえずいくつかを Hydra で叩けるようにしている</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(with-eval-after-load <span style="color:#e6db74">&#39;pretty-hydra</span>
-</span></span><span style="display:flex;"><span>  (pretty-hydra-define
-</span></span><span style="display:flex;"><span>    projectile-hydra (:separator <span style="color:#e6db74">&#34;-&#34;</span> :title (<span style="color:#a6e22e">concat</span> (nerd-icons-mdicon <span style="color:#e6db74">&#34;nf-md-rocket_launch&#34;</span>) <span style="color:#e6db74">&#34; Projectile&#34;</span>) :foreign-key <span style="color:#a6e22e">warn</span> :quit-key <span style="color:#e6db74">&#34;q&#34;</span> :exit <span style="color:#66d9ef">t</span>)
-</span></span><span style="display:flex;"><span>    (<span style="color:#e6db74">&#34;Find&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;f&#34;</span> counsel-projectile-find-file <span style="color:#e6db74">&#34;Find File&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;d&#34;</span> counsel-projectile-find-dir <span style="color:#e6db74">&#34;Find Dir&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;r&#34;</span> projectile-recentf <span style="color:#e6db74">&#34;Recentf&#34;</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Edit&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;R&#34;</span> projectile-replace <span style="color:#e6db74">&#34;Replace&#34;</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Jump&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;l&#34;</span> projectile-edit-dir-locals <span style="color:#e6db74">&#34;dir-locals&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;D&#34;</span> my/projectile-goto-docker-file <span style="color:#e6db74">&#34;Dockerfile&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;C&#34;</span> my/projectile-goto-circleci-config <span style="color:#e6db74">&#34;CircleCI Config&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;c&#34;</span> my/projectile-goto-rubocop-config <span style="color:#e6db74">&#34;.rubocop.yml&#34;</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Search&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;g&#34;</span> counsel-projectile-rg <span style="color:#e6db74">&#34;RipGrep(Counsel)&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;G&#34;</span> projectile-ripgrep    <span style="color:#e6db74">&#34;RipGrep&#34;</span>))
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;Other&#34;</span>
-</span></span><span style="display:flex;"><span>     ((<span style="color:#e6db74">&#34;p&#34;</span> (counsel-projectile-switch-project <span style="color:#e6db74">&#39;counsel-projectile-switch-project-action-vc</span>) <span style="color:#e6db74">&#34;Switch Project&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;o&#34;</span> counsel-projectile-org-capture <span style="color:#e6db74">&#34;Capture&#34;</span>)
-</span></span><span style="display:flex;"><span>      (<span style="color:#e6db74">&#34;SPC&#34;</span> my/project-hydra <span style="color:#e6db74">&#34;Hydra&#34;</span>)))))
-</span></span></code></pre></div><table>
-<thead>
-<tr>
-<th>Key</th>
-<th>効果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>f</td>
-<td>プロジェクト内のファイルを検索</td>
-</tr>
-<tr>
-<td>d</td>
-<td>プロジェクト内のフォルダを検索</td>
-</tr>
-<tr>
-<td>r</td>
-<td>プロジェクト内で最近触ったファイルのリスト表示</td>
-</tr>
-<tr>
-<td>R</td>
-<td>一括置換する</td>
-</tr>
-<tr>
-<td>l</td>
-<td>.dir-locals.el を開く</td>
-</tr>
-<tr>
-<td>D</td>
-<td>Dockerfile を開く</td>
-</tr>
-<tr>
-<td>C</td>
-<td>.circieci/config.yml を開く</td>
-</tr>
-<tr>
-<td>c</td>
-<td>.rubocop.yml を開く</td>
-</tr>
-<tr>
-<td>g</td>
-<td>RipGrep で検索し counsel で結果を表示</td>
-</tr>
-<tr>
-<td>G</td>
-<td>RipGrep で検索し rg.el のバッファで結果を表示</td>
-</tr>
-<tr>
-<td>p</td>
-<td>別のプロジェクトに切り替え</td>
-</tr>
-<tr>
-<td>o</td>
-<td>プロジェクト用に org-capture でメモを取る</td>
-</tr>
-<tr>
-<td>SPC</td>
-<td>プロジェクト固有の Hydra を起動する</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><code>projectile-find-implementation-or-test</code></li>
-<li><code>projectile-replace-regexp</code></li>
-</ul>
-<p>あたりも使えるようにするともしかしたら便利かもしれない。</p>
-<h2 id="projectile-用のコマンド-ヘルパー関数">projectile 用のコマンド/ヘルパー関数</h2>
-<h3 id="プロジェクト固有の-hydra-呼び出し">プロジェクト固有の Hydra 呼び出し</h3>
-<p>プロジェクト固有の Hydra を <code>{project-dir-name}-hydra</code> のように定義しておけばプロジェクトのディレクトリ名を用いてそれ用の Hydra を呼び出す関数。</p>
-<p>プロジェクト固有の Hydra は .dir-locals で定義することを念頭に置いているが、
-Emacs の設定ファイルに直接埋め込んでいても特に問題はないはず。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/project-hydra ()
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Call the project specific hydra.&#34;</span>
-</span></span><span style="display:flex;"><span>  (interactive)
-</span></span><span style="display:flex;"><span>  (let* ((project-path (<span style="color:#a6e22e">directory-file-name</span> (projectile-acquire-root)))
-</span></span><span style="display:flex;"><span>         (project-dir-name (file-name-base project-path))
-</span></span><span style="display:flex;"><span>         (hydra-body (<span style="color:#a6e22e">intern</span> (<span style="color:#a6e22e">concat</span> project-dir-name <span style="color:#e6db74">&#34;-hydra/body&#34;</span>))))
-</span></span><span style="display:flex;"><span>    (cond
-</span></span><span style="display:flex;"><span>     ((<span style="color:#a6e22e">fboundp</span> hydra-body)
-</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">funcall</span> hydra-body))
-</span></span><span style="display:flex;"><span>     (<span style="color:#66d9ef">t</span>
-</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">user-error</span> <span style="color:#e6db74">&#34;project hydra is not defined on %s.&#34;</span> project-dir-name)))))
-</span></span></code></pre></div><h3 id="プロジェクト内のファイルを開く">プロジェクト内のファイルを開く</h3>
-<p>プロジェクト内に1つしかないようなファイルは completing-read で絞り込む必要がないのでぱぱっと開けるようにするためのコマンドを用意した。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/projectile-goto-file (file-path)
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Go to the file path&#34;</span>
-</span></span><span style="display:flex;"><span>  (let ((path (<span style="color:#a6e22e">concat</span> (projectile-acquire-root) file-path)))
-</span></span><span style="display:flex;"><span>    (cond
-</span></span><span style="display:flex;"><span>     ((<span style="color:#a6e22e">file-exists-p</span> path)
-</span></span><span style="display:flex;"><span>      (find-file path))
-</span></span><span style="display:flex;"><span>     (<span style="color:#66d9ef">t</span>
-</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">user-error</span> <span style="color:#e6db74">&#34;%s is not found.&#34;</span> file-path)))))
-</span></span></code></pre></div><h3 id="プロジェクト内の指定フォルダのファイルを検索">プロジェクト内の指定フォルダのファイルを検索</h3>
-<p>実装ファイルなどは特定のフォルダ以下に複数存在するのが一般形なので指定したフォルダ以下のファイルを completing-read で絞り込めるようにしている。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/projectile-find-file-in-dir (dir-path)
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Find the file path&#34;</span>
-</span></span><span style="display:flex;"><span>  (interactive)
-</span></span><span style="display:flex;"><span>  (let ((path (<span style="color:#a6e22e">concat</span> (projectile-acquire-root) dir-path)))
-</span></span><span style="display:flex;"><span>    (cond
-</span></span><span style="display:flex;"><span>     ((and (<span style="color:#a6e22e">file-exists-p</span> path) (<span style="color:#a6e22e">file-directory-p</span> path))
-</span></span><span style="display:flex;"><span>      (projectile-find-file-in-directory path))
-</span></span><span style="display:flex;"><span>     (<span style="color:#66d9ef">t</span>
-</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">user-error</span> <span style="color:#e6db74">&#34;%s is not directory.&#34;</span> dir-path)))))
-</span></span></code></pre></div><h3 id="dockerfile-を開く">Dockerfile を開く</h3>
-<p>今時は Docker がよく使われているので Dockerfile を開くコマンドを用意した。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/projectile-goto-dockerfile ()
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Find the Dockerfile&#34;</span>
-</span></span><span style="display:flex;"><span>  (interactive)
-</span></span><span style="display:flex;"><span>  (my/projectile-goto-file <span style="color:#e6db74">&#34;Dockerfile&#34;</span>))
-</span></span></code></pre></div><h3 id="dot-circleci-config-dot-yml-を開く">.circleci/config.yml を開く</h3>
-<p><code>.circleci/config.yml</code> も時々開くよねってことで追加した</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/projectile-goto-circleci-config ()
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Find the CircleCI config.yml&#34;</span>
-</span></span><span style="display:flex;"><span>  (interactive)
-</span></span><span style="display:flex;"><span>  (my/projectile-goto-file <span style="color:#e6db74">&#34;.circleci/config.yml&#34;</span>))
-</span></span></code></pre></div><h3 id="gemfile-を開く">Gemfile を開く</h3>
-<p>Ruby 書いているとお馴染の Gemfile もぱぱっと開きたいので追加</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/projectile-goto-gemfile ()
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Find the Gemfile&#34;</span>
-</span></span><span style="display:flex;"><span>  (interactive)
-</span></span><span style="display:flex;"><span>  (my/projectile-goto-file <span style="color:#e6db74">&#34;Gemfile&#34;</span>))
-</span></span></code></pre></div><h3 id="dot-rubocop-dot-yml-を開く">.rubocop.yml を開く</h3>
-<p>Ruby 書いていたら大体 rubocop も使うので追加</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(defun my/projectile-goto-rubocop-config ()
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Find the .rubocop.yml&#34;</span>
-</span></span><span style="display:flex;"><span>  (interactive)
-</span></span><span style="display:flex;"><span>  (my/projectile-goto-file <span style="color:#e6db74">&#34;.rubocop.yml&#34;</span>))
-</span></span></code></pre></div><h2 id="counsel-projectile-org-capture-の設定">counsel-projectile-org-capture の設定</h2>
-<p>デフォルト設定は妙なインデントが入って来るのでそれを取り除いているだけ</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setopt counsel-projectile-org-capture-templates
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;t&#34;</span> <span style="color:#e6db74">&#34;[${name}] Task&#34;</span> entry (file+headline <span style="color:#e6db74">&#34;${root}/notes.org&#34;</span> <span style="color:#e6db74">&#34;Tasks&#34;</span>) <span style="color:#e6db74">&#34;* TODO %?\n%u\n%a&#34;</span>)))
+<p>el-get 本体にレシピがあるのでそれを使って <code>el-get-bundle</code> でインストールしている</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(el-get-bundle vterm)
 </span></span></code></pre></div>
 
 <footer class="footline">
@@ -4975,7 +4771,6 @@ Emacs の設定ファイルに直接埋め込んでいても特に問題はな�
             
                 
                     
-                    
                 
                 
 
@@ -4983,445 +4778,6 @@ Emacs の設定ファイルに直接埋め込んでいても特に問題はな�
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -5891,6 +5247,446 @@ Emacs の設定ファイルに直接埋め込んでいても特に問題はな�
             
             
                 
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -6379,10 +6175,10 @@ Emacs の設定ファイルに直接埋め込んでいても特に問題はな�
 	 
 	 
 		
-			<a class="nav nav-prev" href="/.emacs.d/nav/dumb-jump/" title="dumb-jump"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/.emacs.d/external-tool/twmode/" title="twmode"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/.emacs.d/programming/" title="プログラミング関係の設定" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/.emacs.d/external-tool/wakatime-mode/" title="wakatime-mode" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
