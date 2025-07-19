@@ -6195,7 +6195,15 @@ Markdown を書くための設定。
 #+begin_src emacs-lisp :tangle inits/40-markdown.el
 (el-get-bundle markdown-mode)
 #+end_src
+*** 設定
+今のところは行番号が表示されるようにしているだけ
 
+#+begin_src emacs-lisp :tangle inits/40-markdown.el
+(defun my/markdown-mode-hook()
+  (display-line-numbers-mode 1))
+
+(add-hook 'markdown-mode-hook 'my/markdown-mode-hook)
+#+end_src
 ** Mocha                                                         :Deprecated:
 :PROPERTIES:
 :EXPORT_FILE_NAME: mocha
