@@ -8102,6 +8102,13 @@ $ claude migrate-installer
 #+begin_src emacs-lisp :tangle inits/50-claude-code.el
 (setopt claude-code-program (expand-file-name "~/.claude/local/claude"))
 #+end_src
+
+また、デフォルトの ert だと僕の環境だと描画が遅過ぎて使い物にならなかったので
+vterm を使うように設定している
+
+#+begin_src emacs-lisp :tangle inits/50-claude-code.el
+(setopt claude-code-terminal-backend 'vterm)
+#+end_src
 ** emacs-kibela
 :PROPERTIES:
 :EXPORT_FILE_NAME: emacs-kibela
