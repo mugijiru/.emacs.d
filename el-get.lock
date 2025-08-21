@@ -16,7 +16,7 @@
         (leaf-keywords :checksum
                        "82ec27e3441900daedeaaebca509181f964da81f")
         (leaf :checksum "69c9b057cdeee560450c1d04a9a058235ecff0f7")
-        (yaml-pro :checksum "8dce99ba3e5fcb5e2c3de360c4ee658055051f33")
+        (yaml-pro :checksum "9b9509188e5b88bb933e98ab36ab992519b9554b")
         (lsp-tailwindcss :checksum
                          "8574cb3ad2e669eebb34b4d57c3cdef5a424a9b5")
         (flycheck-eask :checksum
