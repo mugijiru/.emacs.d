@@ -153,7 +153,7 @@
                          "481df3ad2cdf569d8e6697679669ff6206fbd2f9")
         (yaml :checksum "f99ef76c80e6fc3fcf650c4fe34e10726594a4c4")
         (web-mode :checksum "f1f22bc9ce8cc80d7eb00e63d62b78140fae1e54")
-        (dap-mode :checksum "b97756665709bea37b9ffe262c5fa9196f1b4577")
+        (dap-mode :checksum "c81014ccc390e8994b061bd2d9f8b5dd84498a3d")
         (lsp-treemacs :checksum
                       "3e5550f278db74f15ebe34add0138b138207ec08")
         (treemacs :checksum "5fa84199501fd43e5573b1277a2b1699c7473cc1")
