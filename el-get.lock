@@ -23,7 +23,7 @@
                        "13e83796f05e82f270d6982dd85834a26a69ef3b")
         (eask-mode :checksum
                    "d44b616a2c6feecd82e1669b8d36a14a828b0420")
-        (eask :checksum "9ff97da71714d2fa3451a7cee330cfc91dcd67a5")
+        (eask :checksum "c5f086fd505db9356e3fc3986724580605133f48")
         (shell-maker :checksum
                      "b33eed1f939d107c01d4c1f7cfd50d76078f715e")
         (copilot-chat :checksum
