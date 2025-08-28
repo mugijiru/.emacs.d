@@ -145,7 +145,7 @@
         (tree-mode :checksum
                    "b06078826d5875d74b0e7b7ac47b0d0917610534")
         (frame-fns :checksum
-                   "b675ee568c0133709c2c39a125395486cdf1c610")
+                   "2e2466cffea1640f2ba3499df9d1edbc9600497c")
         (tempbuf-mode :checksum
                       "17a005da886436090d3812899d553deb7bdbebb2")
         (auto-fix :checksum "783e78f601d0ca42792aff40d6a72434be167900")
