@@ -45,7 +45,7 @@
                        "e6b7125878a08518bffec6942df0c606f748e9ee")
         (pg :checksum "991bd9429d30b05a351fe2d46e628569ce6b661c")
         (nerd-icons-dired :checksum
-                          "5df0dd57022d0b3f565e05c5d9b3a8a723236676")
+                          "adf9a2bb5f3f13be7a676923639337f3fcc5d8c3")
         (rails-i18n :checksum
                     "8e87e4e48e31902b8259ded28a208c2e7efea6e9")
         (yard-mode :checksum
