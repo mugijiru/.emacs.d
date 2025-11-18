@@ -124,7 +124,7 @@
         (json-reformat :checksum
                        "9120ab67c5379c44bc7a7a07ca858670cea4f32f")
         (org-contrib :checksum
-                     "f1f6b6ec812803ff99693255555a82960fb3545a")
+                     "90e1d6bd6288615233dae273f0525a43a9d8779d")
         (mocha :checksum "6a72fa20e7be6e55c09b1bc9887ee09c5df28e45")
         (pdf-tools :checksum
                    "30b50544e55b8dbf683c2d932d5c33ac73323a16")
