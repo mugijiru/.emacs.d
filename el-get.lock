@@ -116,7 +116,7 @@
         (company-quickhelp :checksum
                            "5bda859577582cc42d16fc0eaf5f7c8bedfd9e69")
         (graphql-mode :checksum
-                      "ee49531935ede7a2c9597713e13a4c9d33ef2220")
+                      "ccec811d0f1cb13e63e330234e408d56ba0f4d8e")
         (json-mode :checksum
                    "466d5b563721bbeffac3f610aefaac15a39d90a9")
         (json-snatcher :checksum
