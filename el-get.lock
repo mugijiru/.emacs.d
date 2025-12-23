@@ -288,7 +288,7 @@
         (pkg-info :checksum "76ba7415480687d05a4353b27fea2ae02b8d9d61")
         (plantuml-mode :checksum
                        "348e83ff193051d5ad332642100dd704f6e2a6d2")
-        (popup :checksum "b189a4e8ccf18356395878c3d38a23df834d3898")
+        (popup :checksum "161cac18945f9b91df26e52c57d68ae27d38d3fb")
         (posframe :checksum "12f540c9ad5da09673b2bca1132b41f94c134e82")
         (prescient.el :checksum
                       "87e2d2f2ddf24f591a5f70cc90d2afb4537caa18")
