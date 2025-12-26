@@ -18,7 +18,7 @@
         (leaf :checksum "69c9b057cdeee560450c1d04a9a058235ecff0f7")
         (yaml-pro :checksum "9b9509188e5b88bb933e98ab36ab992519b9554b")
         (lsp-tailwindcss :checksum
-                         "8574cb3ad2e669eebb34b4d57c3cdef5a424a9b5")
+                         "cdd0325a6a571e51f6c7d1cbc198c7a7ea4a194a")
         (flycheck-eask :checksum
                        "13e83796f05e82f270d6982dd85834a26a69ef3b")
         (eask-mode :checksum
