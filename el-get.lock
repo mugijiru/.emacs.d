@@ -316,7 +316,7 @@
                      "7787e19764c1089390584ac17a80129ef9afaa14")
         (yaml-mode :checksum
                    "d91f878729312a6beed77e6637c60497c5786efa")
-        (yascroll :checksum "aa28a021117efb7a9e38225ae4d4f18d0feb1afe")
+        (yascroll :checksum "c0a302e6a44169c290564174c48298572f418f62")
         (yasnippet :checksum
                    "c1e6ff23e9af16b856c88dfaab9d3ad7b746ad37")
         (zoom-window :checksum
