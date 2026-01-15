@@ -97,7 +97,7 @@
                     "203a5e8f45a2874228031c8c5726363cd98d3292")
         (copilot :checksum "6a2ad80489b8a0d021df95293eb7ac370aea140b")
         (editorconfig :checksum
-                      "4af10445fcdf1c9dfa7af4f9e5bec59e8a759d6f")
+                      "646c31b4b7b0bd8805cf2914239ac9aa1cd6d962")
         (emacs-sqlite3-api :checksum
                            "a601c9965e4d0178705a64b7d4f88709ca9aea66")
         (org-roam :checksum "89dfaef38b6caa3027f20f96a551dc8f194ac533")
