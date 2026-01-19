@@ -328,7 +328,7 @@
                           "e84599df7c70870b33dd6c902b527d7f78310815")
         (el-get :checksum "8d3edab760ff84baf4ce36c0b33bfb8668c6d212")
         (dashboard :checksum
-                   "e5fc08e78223487aa0da12539be1a23356c09ec7")
+                   "49de4c16624f6a86a5beb1196f68f02636a74d1b")
         (page-break-lines :checksum
                           "84b872a056404f11cacbf3fc2b0788aa7feac635")
         (org-trello :checksum
