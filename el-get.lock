@@ -217,7 +217,7 @@
         (all-the-icons :checksum
                        "4778632b29c8c8d2b7cd9ce69535d0be01d846f9")
         (alert :checksum "79f6936ab4d85227530959811143429347a6971b")
-        (calfw :checksum "03abce97620a4a7f7ec5f911e669da9031ab9088")
+        (calfw :checksum "36846cdca91794cf38fa171d5a3ac291d3ebc060")
         (closql :checksum "08194fb97deb3a83863da7731cb316aa62058f22")
         (company-mode :checksum
                       "ca045bc54411f274779057d94a1807efe7f8d2a6")
