@@ -162,7 +162,7 @@
         (smartparens :checksum
                      "b629b4e893ba21ba5a381f6c0054bb72f8e96df2")
         (mocker.el :checksum
-                   "e455599f48bad7d73fd445e70a3acf4b44c2f5c1")
+                   "3c6e51a579a4711d0efcb1ab3495388ac4de7328")
         (with-simulated-input :checksum
                               "0f43fe46d4ab098c18a90b9df18cb96bab8e4a35")
         (flycheck-pos-tip :checksum
