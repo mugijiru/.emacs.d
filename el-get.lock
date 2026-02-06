@@ -236,7 +236,7 @@
                     "e91800503c90cb75dc70abe42f1d6ae499346cc1")
         (emacs-async :checksum
                      "ca7f126d41d47b853839c964d248cd258cbfb63b")
-        (emacsql :checksum "bc6713fb763388f43111ba1488df9263d5dc505b")
+        (emacsql :checksum "6ef7473248fce048c7daa00c3b2ae75af987c89c")
         (emojify :checksum "1b726412f19896abf5e4857d4c32220e33400b55")
         (enh-ruby-mode :checksum
                        "b82e155bcf6b232192f3e24eba38b454868b455f")
