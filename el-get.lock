@@ -172,7 +172,7 @@
                    "7945f3bbd52288e671bfb4d0bee30d908ae0289b")
         (browse-at-remote :checksum
                           "76aa27dfd469fcae75ed7031bb73830831aaccbf")
-        (ox-hugo :checksum "a907ea95145fd1abee608028796cd079a925eb02")
+        (ox-hugo :checksum "b7dc44dc28911b9d8e3055a18deac16c3b560b03")
         (sticky-control :checksum
                         "25e15e41174725600626b8dc13852aced691bd3b")
         (org-pomodoro :checksum
