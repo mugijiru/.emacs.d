@@ -265,7 +265,7 @@
         (hydra :checksum "59a2a45a35027948476d1d7751b0f0215b1e61aa")
         (hydra-posframe :checksum
                         "142a04dd588af6c725e331863c3ca7bd5dda13ec")
-        (inf-ruby :checksum "b8076aad10dfb0ba1e3a8b0d39c2b370dbe96ab0")
+        (inf-ruby :checksum "274398a24288a7db430a656b580ffbf889ca02aa")
         (init-loader :checksum
                      "1837769c872b6453c7c02490f50a6eb322156c2c")
         (japanese-holidays :checksum
