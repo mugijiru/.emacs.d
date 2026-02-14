@@ -135,7 +135,7 @@
                     "ff41f4a76b640d39dc238bacba7f654c297827fa")
         (ivy-kibela :checksum
                     "bd48bfa2ba2e655b435cf9acd6f09d835afe9b14")
-        (graphql :checksum "67237f284f2dfb94f3cfba672ff64a37e1cb860f")
+        (graphql :checksum "9b3151b1de67c8a127906f11bc5c71116c12f5b5")
         (tomelr :checksum "670e0a08f625175fd80137cf69e799619bf8a381")
         (ivy-migemo :checksum
                     "6022b24e72f073a7b5599f2dea611da3a1282378")
