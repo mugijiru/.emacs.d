@@ -293,7 +293,7 @@
         (prescient.el :checksum
                       "87e2d2f2ddf24f591a5f70cc90d2afb4537caa18")
         (projectile :checksum
-                    "9325c45e0fd96d5421e75ad901a91ee5353e10ad")
+                    "18116c346e9a2b60f39507bde3c897be5660185c")
         (projectile-rails :checksum
                           "701784df7befe17b861f1b53fe9cbc59d0b94b9f")
         (rake :checksum "452ea0caca33376487103c64177c295ed2960cca")
