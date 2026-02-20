@@ -188,7 +188,7 @@
         (color-theme-molokai :checksum
                              "cc53e997e7eff93b58ad16a376a292c1dd66044b")
         (gnuplot-mode :checksum
-                      "43e9674b869475b1c2a32f045c167673eb2faae0")
+                      "01081d62e8c67fe19a554b74a448d5d58931c0ec")
         (ivy-posframe :checksum
                       "660c773f559ac37f29ccf626af0103817c8d5e30")
         (dumb-jump :checksum
