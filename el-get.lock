@@ -22,7 +22,7 @@
         (flycheck-eask :checksum
                        "13e83796f05e82f270d6982dd85834a26a69ef3b")
         (eask-mode :checksum
-                   "d44b616a2c6feecd82e1669b8d36a14a828b0420")
+                   "0970dc6f4f8008d58261e36b9b824a0ffa6b9882")
         (eask :checksum "c5f086fd505db9356e3fc3986724580605133f48")
         (shell-maker :checksum
                      "82dae7acab575a6454e1ff19654248982ee2c9e1")
