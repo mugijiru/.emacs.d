@@ -190,7 +190,7 @@
         (gnuplot-mode :checksum
                       "43e9674b869475b1c2a32f045c167673eb2faae0")
         (ivy-posframe :checksum
-                      "660c773f559ac37f29ccf626af0103817c8d5e30")
+                      "ede7b2121f176ab543ce6b73fd96e3eafd6d1505")
         (dumb-jump :checksum
                    "21545d3b8637b38f1930176f1c4782943ce3c0bd")
         (ember-mode :checksum
