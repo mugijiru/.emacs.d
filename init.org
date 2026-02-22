@@ -3035,9 +3035,10 @@ Emacs の bookmarks と register は使ってない(使えてない)のでコメ
 :ID:       e2458374-18b7-4e3c-8118-966b43d7c331
 :END:
 多分設定を反映するための関数だと思ってる。
+そして今はエラーになるので一時的に無効化している
 
 #+begin_src emacs-lisp :tangle inits/92-dashboard.el
-(dashboard-setup-startup-hook)
+;; (dashboard-setup-startup-hook)
 #+end_src
 *** その他
 agenda などは表示する内容を絞ったりした方が dashboard として使い勝手が良さそう。
