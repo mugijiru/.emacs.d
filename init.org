@@ -1942,7 +1942,17 @@ el-get 本体にはレシピがないので自前で用意している。
        :description "This plugin allows you to chat with github copilot."
        :type github
        :pkgname "chep/copilot-chat.el"
-       :depends (request markdown-mode magit transient org-mode polymode shell-maker))
+       :depends (request markdown-mode magit transient org-mode polymode shell-maker mcp))
+#+end_src
+
+依存関係にある mcp.el のレシピも追加している
+
+#+begin_src emacs-lisp :tangle recipes/mcp.rcp
+(:name mcp
+       :website "https://github.com/lizqwerscott/mcp.el"
+       :description "Model Context Protocol for Emacs"
+       :type github
+       :pkgname "lizqwerscott/mcp.el")
 #+end_src
 
 そして ~el-get-bundle~ でインストールしている
