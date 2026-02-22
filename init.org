@@ -5010,10 +5010,12 @@ Vimium の f とかに似てる。
 :ID:       29eee71f-bcdd-44e3-a4e0-1a341e9e8d00
 :END:
 
-el-get で普通にインストールしている
+el-get で普通にインストールしている。
+そして明示的に require しないとうまく動かなくなったので仕方なく require している。
 
 #+begin_src emacs-lisp :tangle inits/50-avy.el
 (el-get-bundle avy)
+(require 'avy)
 #+end_src
 
 *** 設定
