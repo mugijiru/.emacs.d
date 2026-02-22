@@ -1703,7 +1703,7 @@ y だけで済ませられるようにしている。
 最近の開発スタイルではインデントにタブを混ぜないスタイルなので
 そのように設定している。
 #+begin_src emacs-lisp :tangle inits/80-edit.el
-(setq indent-tabs-mode nil)
+(setopt indent-tabs-mode nil)
 #+end_src
 *** 以前に開いていた位置を保存/復元する
 :PROPERTIES:
