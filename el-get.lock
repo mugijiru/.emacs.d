@@ -1,5 +1,7 @@
 (setq el-get-lock-package-versions
-      '((vterm :checksum "056ad74653704bc353d8ec8ab52ac75267b7d373")
+      '((mcp :checksum "963b4af6ce743fbb6224f61bb61f05de1c37f511")
+        (gcmh :checksum "0089f9c3a6d4e9a310d0791cf6fa8f35642ecfd9")
+        (vterm :checksum "056ad74653704bc353d8ec8ab52ac75267b7d373")
         (ox-nippou :checksum
                    "7c1cc689bb3c7eee7ecc5fc49b52062bdc94d5bc")
         (claude-code :checksum
