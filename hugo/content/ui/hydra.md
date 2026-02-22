@@ -273,6 +273,22 @@ el-get の Hydra はここで定義してしまっている。
 | 0   | 文字サイズを元に戻す |
 
 
+### tab-bar-mode {#tab-bar-mode}
+
+まだ利用してないけど今後利用するつもりで tab-bar-mode 用にも定義している
+
+```emacs-lisp
+(pretty-hydra-define tab-bar-hydra (:separator "-" :title (concat (all-the-icons-material "tab") " Tab Bar") :exit t :quit-key "q")
+  ("Tab"
+   (("n" tab-bar-new-tab        "New Tab")
+    ("r" tab-bar-rename-tab     "Rename Tab")
+    ("k" tab-bar-close-tab      "Close Tab")
+    ("m" tab-bar-move-tab-to "Move to New Window")
+    ("s" tab-bar-switch-to-next-tab "Next Tab")
+    ("S" tab-bar-switch-to-prev-tab "Prev Tab"))))
+```
+
+
 ### Main {#main}
 
 よく使うコマンドをまとめたやつ。

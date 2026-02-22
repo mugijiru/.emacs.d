@@ -3605,6 +3605,24 @@ el-get の Hydra はここで定義してしまっている。
 | -   | 文字サイズを小さくする |
 | 0   | 文字サイズを元に戻す   |
 
+**** tab-bar-mode
+:PROPERTIES:
+:ID:       df394c80-2a39-4bd2-9fba-73d55983fefd
+:END:
+
+まだ利用してないけど今後利用するつもりで tab-bar-mode 用にも定義している
+
+#+begin_src emacs-lisp :tangle inits/81-hydra.el
+(pretty-hydra-define tab-bar-hydra (:separator "-" :title (concat (all-the-icons-material "tab") " Tab Bar") :exit t :quit-key "q")
+  ("Tab"
+   (("n" tab-bar-new-tab        "New Tab")
+    ("r" tab-bar-rename-tab     "Rename Tab")
+    ("k" tab-bar-close-tab      "Close Tab")
+    ("m" tab-bar-move-tab-to "Move to New Window")
+    ("s" tab-bar-switch-to-next-tab "Next Tab")
+    ("S" tab-bar-switch-to-prev-tab "Prev Tab"))))
+#+end_src
+
 **** Main
 :PROPERTIES:
 :ID:       befaa52b-d054-43bd-9445-fca7f5bd8be5

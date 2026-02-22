@@ -86,6 +86,15 @@
     ("-" text-scale-decrease "Decrease")
     ("0" text-scale-adjust   "Adjust"))))
 
+(pretty-hydra-define tab-bar-hydra (:separator "-" :title (concat (all-the-icons-material "tab") " Tab Bar") :exit t :quit-key "q")
+  ("Tab"
+   (("n" tab-bar-new-tab        "New Tab")
+    ("r" tab-bar-rename-tab     "Rename Tab")
+    ("k" tab-bar-close-tab      "Close Tab")
+    ("m" tab-bar-move-tab-to "Move to New Window")
+    ("s" tab-bar-switch-to-next-tab "Next Tab")
+    ("S" tab-bar-switch-to-prev-tab "Prev Tab"))))
+
 (pretty-hydra-define pretty-hydra-usefull-commands (:separator "-" :color teal :foreign-key warn :title (concat (all-the-icons-material "build") " Usefull commands") :quit-key "q")
   ("File"
    (("p" projectile-hydra/body "Projectile")
