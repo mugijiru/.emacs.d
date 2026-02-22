@@ -9405,9 +9405,10 @@ APIキーは .authinfo.gpg に保存しているので
 :END:
 Emacs を使っている間は常に有効になっていて欲しいので
 global-wakatime-mode を有効にしている。
+のだけど今は一時的に無効化している
 
 #+begin_src emacs-lisp :tangle inits/80-wakatime.el
-(global-wakatime-mode 1)
+;; (global-wakatime-mode 1)
 #+end_src
 
 APIキーが取れてない時はやたらエラーを吐くので
