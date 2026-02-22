@@ -1,0 +1,5 @@
+(:name mcp
+       :website "https://github.com/lizqwerscott/mcp.el"
+       :description "Model Context Protocol for Emacs"
+       :type github
+       :pkgname "lizqwerscott/mcp.el")
