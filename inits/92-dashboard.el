@@ -13,4 +13,4 @@
 
 (setq dashboard-set-file-icons t)
 
-(dashboard-setup-startup-hook)
+;; (dashboard-setup-startup-hook)
