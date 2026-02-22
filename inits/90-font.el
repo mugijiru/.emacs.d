@@ -1,6 +1,6 @@
 (defun my/set-font-size (size)
-  (let* ((asciifont "Ricty Diminished")      ; ASCII fonts
-         (jpfont "Ricty Diminished")         ; Japanese fonts
+  (let* ((asciifont "HackGen Console NF")      ; ASCII fonts
+         (jpfont "HackGen Console NF")         ; Japanese fonts
          (h (* size 10))
          (fontspec (font-spec :family asciifont))
          (jp-fontspec (font-spec :family jpfont)))

@@ -5,22 +5,26 @@ draft = false
 
 ## 概要 {#概要}
 
-Emacs で利用するフォントの設定。それなりの設定をしないとガタついたりするので通常あまり手を入れないで済ませている。
+Emacs で利用するフォントの設定。
+それなりの設定をしないとガタついたりするので
+通常あまり手を入れないで済ませている。
 
 
 ## 設定 {#設定}
 
 Mac では 14, それ以外(Linux) では 18 を基準としている。
 
-Mac と Linux で基準のサイズを変えているがなぜかこの方がガタガタもしないし大き過ぎもしないしでいい感じになる。
+Mac と Linux で基準のサイズを変えているが
+なぜかこの方がガタガタもしないし大き過ぎもしないしでいい感じになる。
 
 といいつつ元々 Linux の方は WSL2 環境に合わせて 12 にしていたが
-Manjaro 環境に合わせて 18 に変更しているのでまたその内 WSL2 でも Manjaro でもどっちいい感じに使えるように調整するかもしれない
+Manjaro 環境に合わせて 18 に変更しているので
+またその内 WSL2 でも Manjaro でもどっちいい感じに使えるように調整するかもしれない
 
 ```emacs-lisp
 (defun my/set-font-size (size)
-  (let* ((asciifont "Ricty Diminished")      ; ASCII fonts
-         (jpfont "Ricty Diminished")         ; Japanese fonts
+  (let* ((asciifont "HackGen Console NF")      ; ASCII fonts
+         (jpfont "HackGen Console NF")         ; Japanese fonts
          (h (* size 10))
          (fontspec (font-spec :family asciifont))
          (jp-fontspec (font-spec :family jpfont)))
@@ -36,7 +40,8 @@ Manjaro 環境に合わせて 18 に変更しているのでまたその内 WSL2
   (my/set-font-size 18))
 ```
 
-フォントの設定する処理は関数に切り出しているので全体的にフォントを大きくしたい時は
+フォントの設定する処理は関数に切り出しているので
+全体的にフォントを大きくしたい時は
 
 ```emacs-lisp
 (my/set-font-size 24)
