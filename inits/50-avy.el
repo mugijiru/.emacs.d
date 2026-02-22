@@ -1,4 +1,5 @@
 (el-get-bundle avy)
+(require 'avy)
 
 (setq avy-style 'pre)
 
