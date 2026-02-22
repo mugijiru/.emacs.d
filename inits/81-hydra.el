@@ -131,6 +131,7 @@
 (let ((common-heads '("Operation"
                       (("x" kill-region                       "Cut")
                        ("w" kill-ring-save                    "Copy")
+                       ("a" align-regexp                      "Align Regexp")
                        ("/" google-this-region                "Google")
                        ("t" google-translate-at-point         "EN => JP")
                        ("T" google-translate-at-point-reverse "JP => EN"))
