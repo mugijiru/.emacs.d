@@ -102,7 +102,7 @@
                       "b18fcf7fdea1ce84b7fdc60360ad8016b5c00d79")
         (emacs-sqlite3-api :checksum
                            "615cc1cb021384291cec39a2048a3a36859e8cb9")
-        (org-roam :checksum "89dfaef38b6caa3027f20f96a551dc8f194ac533")
+        (org-roam :checksum "b4857fd7a140361883dfb95e1193ee42698a4afb")
         (emacs-openai :checksum
                       "5a0b72399d5f69db83db3095f2bdb15d1a32f5fa")
         (tblui :checksum "62ab5f62982c061a902fd3e54d94a68a4706572c")
