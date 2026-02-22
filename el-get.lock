@@ -173,7 +173,7 @@
         (emacs-w3m :checksum
                    "ec18c21418bf7c1be159bd3cf7e79a370d4be1f3")
         (browse-at-remote :checksum
-                          "76aa27dfd469fcae75ed7031bb73830831aaccbf")
+                          "38e5ffd77493c17c821fd88f938dbf42705a5158")
         (ox-hugo :checksum "b7dc44dc28911b9d8e3055a18deac16c3b560b03")
         (sticky-control :checksum
                         "25e15e41174725600626b8dc13852aced691bd3b")
