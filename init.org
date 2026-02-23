@@ -8745,6 +8745,17 @@ build されるとリポジトリに差分が発生して update ができなく
                                "info")))
 #+end_src
 
+cond-let も transient や magit などの依存に入って来るのでレシピを用意してある
+
+#+begin_src emacs-lisp :tangle recipes/cond-let.rcp
+(:name cond-let
+       :description "Additional and improved binding conditionals"
+       :type github
+       :branch "main"
+       :pkgname "tarsius/cond-let"
+       :minimum-emacs-version "28.1")
+#+end_src
+
 そして ~el-get-bundle~ でインストールしている
 
 #+begin_src emacs-lisp :tangle inits/35-magit.el
