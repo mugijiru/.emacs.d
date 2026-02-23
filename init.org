@@ -8655,7 +8655,7 @@ ref: https://github.com/mugijiru/.emacs.d/pull/2992
        :minimum-emacs-version "26.1"
        ;; Note: `git-commit' is shipped with `magit' code itself.
        ;; Note: `magit-section' is shipped with `magit' code itself.
-       :depends (llama transient with-editor compat seq)
+       :depends (llama transient with-editor compat seq cond-let)
        ;; :info "docs"
        :load-path "lisp/"
        :compile "lisp/"
@@ -8709,6 +8709,7 @@ build されるとリポジトリに差分が発生して update ができなく
        :pkgname "magit/transient"
        :branch "main"
        :minimum-emacs-version "25.1"
+       :depends (cond-let)
        ;; :info "docs"
        :load-path "lisp/"
        :compile "lisp/"
@@ -8733,7 +8734,7 @@ build されるとリポジトリに差分が発生して update ができなく
        ;; The package.el dependency is on `emacsql-sqlite', but el-get
        ;; provides that via `emacsql'.
        :depends (compat closql llama emacsql ghub let-alist magit markdown-mode
-                        seq transient yaml)
+                        seq transient yaml cond-let)
        ;; :info "docs"
        :load-path "lisp/"
        :compile "lisp/"
@@ -8780,7 +8781,7 @@ ghub は compat に依存するようになったのでとりあえず自前で 
        :type github
        :description "Minuscule client for the Github API"
        :pkgname "magit/ghub"
-       :depends (let-alist treepy compat llama)
+       :depends (let-alist treepy compat llama cond-let)
        :branch "main"
        ;; :info "docs"
        :load-path "lisp/"

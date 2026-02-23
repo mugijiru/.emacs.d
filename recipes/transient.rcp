@@ -5,6 +5,7 @@
        :pkgname "magit/transient"
        :branch "main"
        :minimum-emacs-version "25.1"
+       :depends (cond-let)
        ;; :info "docs"
        :load-path "lisp/"
        :compile "lisp/"
