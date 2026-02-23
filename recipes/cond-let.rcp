@@ -1,0 +1,6 @@
+(:name cond-let
+       :description "Additional and improved binding conditionals"
+       :type github
+       :branch "main"
+       :pkgname "tarsius/cond-let"
+       :minimum-emacs-version "28.1")
