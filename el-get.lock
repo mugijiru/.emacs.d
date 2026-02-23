@@ -1,5 +1,5 @@
 (setq el-get-lock-package-versions
-      '((mcp :checksum "963b4af6ce743fbb6224f61bb61f05de1c37f511")
+      '((mcp :checksum "5c105a8db470eb9777fdbd26251548dec42c03f0")
         (gcmh :checksum "0089f9c3a6d4e9a310d0791cf6fa8f35642ecfd9")
         (vterm :checksum "056ad74653704bc353d8ec8ab52ac75267b7d373")
         (ox-nippou :checksum
@@ -10,11 +10,11 @@
                    "c8d54d649872bfe7b2b9f49ae5c2addbf12d3b99")
         (aidermacs :checksum
                    "6d0c41d1cfd24821fb32933edf8c0c2a9bb8c847")
-        (embark :checksum "1371a1e33e3a3d96557beb28dccf1fa762f6ae22")
+        (embark :checksum "cf0f0f0c29e7f30df23693b6380072a3b6733841")
         (polymode :checksum "14b1fd8d2a183f11b123f62e02801dc1139da9c1")
         (svelte-mode :checksum
                      "ac8fba901dc790976f9893e338c8ad1241b897c6")
-        (llama :checksum "5990ae7b5cba3425252f64b9377352c9a01690d5")
+        (llama :checksum "de61773fc378d40f478f8daf67543a51889ecded")
         (leaf-keywords :checksum
                        "82ec27e3441900daedeaaebca509181f964da81f")
         (leaf :checksum "69c9b057cdeee560450c1d04a9a058235ecff0f7")
@@ -24,30 +24,30 @@
         (flycheck-eask :checksum
                        "9141ad6b9ec2f2572a4dcddf54247825516c93b2")
         (eask-mode :checksum
-                   "d44b616a2c6feecd82e1669b8d36a14a828b0420")
+                   "0970dc6f4f8008d58261e36b9b824a0ffa6b9882")
         (eask :checksum "c5f086fd505db9356e3fc3986724580605133f48")
         (shell-maker :checksum
-                     "82dae7acab575a6454e1ff19654248982ee2c9e1")
+                     "a7ff78f8cd29fba9a694b8d7bbee448c7a51472d")
         (copilot-chat :checksum
-                      "15cf30010274f48a18fbacdc79062c06901a227e")
+                      "753ebc4ae466c8716be8de0d169393f730c999f6")
         (chatgpt-shell :checksum
-                       "32bf4bf930d7226bc9df876805b80a936813efe5")
+                       "cbad6ffc9cbde1962a7317cf6d1d4d50ac1c1ac2")
         (sqlformat :checksum
                    "69ef8bec3ac8c9ce4a60f20a9721e4d7a592a84d")
         (reformatter :checksum
                      "c0ddac04b7b937ed56d6bf97e4bfcc4eccfa501a")
         (emacs-oauth2-auto :checksum
                            "20b3153d9cfb7aafe68a0168647a17373adf5e22")
-        (docker :checksum "91233a7c559d87c47de6193a64913732756f0799")
+        (docker :checksum "916686b86e83a3bd2281fbc5e6f98962aa747429")
         (emacs-aio :checksum
-                   "da93523e235529fa97d6f251319d9e1d6fc24a41")
+                   "0e94a06bb035953cbbb4242568b38ca15443ad4c")
         (bundler :checksum "43efb6be4ed118b06d787ce7fbcffd68a31732a7")
         (dmacro :checksum "c714fcdbac3ae57fcc8ff3db94b0e5aededc7468")
         (ruby-refactor :checksum
                        "e6b7125878a08518bffec6942df0c606f748e9ee")
-        (pg :checksum "25bcb7822c2a4017a5afe681f2555512249c3ab2")
+        (pg :checksum "52888cb6120407654f248877b2a78a75f7df0d99")
         (nerd-icons-dired :checksum
-                          "adf9a2bb5f3f13be7a676923639337f3fcc5d8c3")
+                          "929b62f01b93d30a3f42cc507fc45c84a2457b3f")
         (rails-i18n :checksum
                     "8e87e4e48e31902b8259ded28a208c2e7efea6e9")
         (yard-mode :checksum
@@ -56,13 +56,13 @@
                       "c8be2611786d1d8d666b7b4f73582de1093f25ac")
         (engine-mode :checksum
                      "e7f317f1b284853b6df4dfd37ab7715b248e0ebd")
-        (mistty :checksum "bfb17611cff6c845270050a0756a38489cdf4ed6")
+        (mistty :checksum "1752970d1d303fae173527fbcdb3458e865197bb")
         (key-chord :checksum
                    "cb646e815c61f253ad9fdfbe058049dda4e2b32b")
         (minimap :checksum "8bc9a65825925a7c58b83ad389f07a93f22d60f3")
         (org-protocol-capture-html :checksum
                                    "08a2aed1bbeb935ef62b2ebc06037202fd8ddcb1")
-        (blamer :checksum "8a79c1f370f7c5f041c980e0b727960462c192ba")
+        (blamer :checksum "aa9b22d4e847d15a5c4659c0407aa8bf4242cc94")
         (rg :checksum "a614e7d7709c7bf5c5accff4003d351c3f28ee98")
         (wgrep :checksum "49f09ab9b706d2312cab1199e1eeb1bcd3f27f6f")
         (moccur-edit :checksum
@@ -77,9 +77,9 @@
                    "c3faeeea1982786f78d8c38397dec0f078eaec84")
         (ob-graphql :checksum
                     "7c35419f9eec5dc44967cbcfa13c7135b9a96bfc")
-        (corfu :checksum "6b1ceef882e9809083e660c10d669d132746b975")
+        (corfu :checksum "abfe0003d71b61ffdcf23fc6e546643486daeb69")
         (treesit-auto :checksum
-                      "016bd286a1ba4628f833a626f8b9d497882ecdf3")
+                      "31466e4ccfd4f896ce3145c95c4c1f8b59d4bfdf")
         (org-mode :checksum "d1f528e830e32185a4b270100cf77961fe6025a2")
         (org-journal :checksum
                      "17b34ce8df9649a73b715c13698220bde1628668")
@@ -96,15 +96,15 @@
         (company-posframe :checksum
                           "18d6641bba72cba3c00018cee737ea8b454f64a8")
         (nerd-icons :checksum
-                    "203a5e8f45a2874228031c8c5726363cd98d3292")
+                    "9a7f44db9a53567f04603bc88d05402cad49c64c")
         (copilot :checksum "6a2ad80489b8a0d021df95293eb7ac370aea140b")
         (editorconfig :checksum
                       "b18fcf7fdea1ce84b7fdc60360ad8016b5c00d79")
         (emacs-sqlite3-api :checksum
                            "615cc1cb021384291cec39a2048a3a36859e8cb9")
-        (org-roam :checksum "89dfaef38b6caa3027f20f96a551dc8f194ac533")
+        (org-roam :checksum "b4857fd7a140361883dfb95e1193ee42698a4afb")
         (emacs-openai :checksum
-                      "5a0b72399d5f69db83db3095f2bdb15d1a32f5fa")
+                      "f5439fff3a32c9f76338f79e0654473ff6096a63")
         (tblui :checksum "62ab5f62982c061a902fd3e54d94a68a4706572c")
         (magit-popup :checksum
                      "d8585fa39f88956963d877b921322530257ba9f5")
@@ -118,7 +118,7 @@
         (company-quickhelp :checksum
                            "5bda859577582cc42d16fc0eaf5f7c8bedfd9e69")
         (graphql-mode :checksum
-                      "ee49531935ede7a2c9597713e13a4c9d33ef2220")
+                      "d7f105a4bfcffa54bdc6a6f3d6eb740c561355c2")
         (json-mode :checksum
                    "466d5b563721bbeffac3f610aefaac15a39d90a9")
         (json-snatcher :checksum
@@ -137,7 +137,7 @@
                     "ff41f4a76b640d39dc238bacba7f654c297827fa")
         (ivy-kibela :checksum
                     "bd48bfa2ba2e655b435cf9acd6f09d835afe9b14")
-        (graphql :checksum "67237f284f2dfb94f3cfba672ff64a37e1cb860f")
+        (graphql :checksum "9b3151b1de67c8a127906f11bc5c71116c12f5b5")
         (tomelr :checksum "670e0a08f625175fd80137cf69e799619bf8a381")
         (ivy-migemo :checksum
                     "6022b24e72f073a7b5599f2dea611da3a1282378")
@@ -152,13 +152,13 @@
                       "17a005da886436090d3812899d553deb7bdbebb2")
         (auto-fix :checksum "783e78f601d0ca42792aff40d6a72434be167900")
         (typescript-mode :checksum
-                         "481df3ad2cdf569d8e6697679669ff6206fbd2f9")
+                         "2535780bdb318d86761b9bd21b0347ca6a89628f")
         (yaml :checksum "f2369fb4985ed054be47ae111760ff2075dff72a")
-        (web-mode :checksum "1eb0abb1a9bffbb33db7bbfc6efe5b48bf416d57")
+        (web-mode :checksum "1e7694aee87722f9e51b6e39c35d175d83a1fb2c")
         (dap-mode :checksum "b77d9bdb15d89e354b8a20906bebe7789e19fc9b")
         (lsp-treemacs :checksum
                       "49df7292c521b4bac058985ceeaf006607b497dd")
-        (treemacs :checksum "05333cc23ca4349cd839cf1c18e1eaef1f6b70ec")
+        (treemacs :checksum "2ab5a3c89fa01bbbd99de9b8986908b2bc5a7b49")
         (pfuture :checksum "19b53aebbc0f2da31de6326c495038901bffb73c")
         (bui :checksum "f3a137628e112a91910fd33c0cff0948fa58d470")
         (smartparens :checksum
@@ -173,7 +173,7 @@
         (emacs-w3m :checksum
                    "ec18c21418bf7c1be159bd3cf7e79a370d4be1f3")
         (browse-at-remote :checksum
-                          "76aa27dfd469fcae75ed7031bb73830831aaccbf")
+                          "38e5ffd77493c17c821fd88f938dbf42705a5158")
         (ox-hugo :checksum "b7dc44dc28911b9d8e3055a18deac16c3b560b03")
         (sticky-control :checksum
                         "25e15e41174725600626b8dc13852aced691bd3b")
@@ -194,7 +194,7 @@
         (ivy-posframe :checksum
                       "ede7b2121f176ab543ce6b73fd96e3eafd6d1505")
         (dumb-jump :checksum
-                   "21545d3b8637b38f1930176f1c4782943ce3c0bd")
+                   "04b9ad6866bc316078f044d9f3fe32682b1ead77")
         (ember-mode :checksum
                     "38145ad189000c58860594c05523e42bacb3d246")
         (emacs-hide-mode-line :checksum
@@ -220,7 +220,7 @@
                        "4778632b29c8c8d2b7cd9ce69535d0be01d846f9")
         (alert :checksum "79f6936ab4d85227530959811143429347a6971b")
         (calfw :checksum "03abce97620a4a7f7ec5f911e669da9031ab9088")
-        (closql :checksum "08194fb97deb3a83863da7731cb316aa62058f22")
+        (closql :checksum "947426d0c93e5ad5374c464b2f121c36cdaf2132")
         (company-mode :checksum
                       "42d3897308a992cd2268ba2d4e2ec013fc6c961e")
         (counsel-projectile :checksum
@@ -231,14 +231,14 @@
                            "d8da8ca3e2cb646f4711f3b8e4ed1f8b7224085e")
         (deferred :checksum "2239671d94b38d92e9b28d4e12fd79814cfb9c16")
         (doom-modeline :checksum
-                       "7182b612d97cd4b72d814f709abfd96bb8e62700")
+                       "313beafeabb79ae01ad88eb09918f09309e267c1")
         (el-get-lock :checksum
                      "df8cfe55441695865a64b97946750b6413a40425")
         (eldoc-eval :checksum
                     "e91800503c90cb75dc70abe42f1d6ae499346cc1")
         (emacs-async :checksum
                      "31cb2fea8f4bc7a593acd76187a89075d8075500")
-        (emacsql :checksum "bc6713fb763388f43111ba1488df9263d5dc505b")
+        (emacsql :checksum "6ef7473248fce048c7daa00c3b2ae75af987c89c")
         (emojify :checksum "1b726412f19896abf5e4857d4c32220e33400b55")
         (enh-ruby-mode :checksum
                        "1a3a93a6ba51798baa7364589136d974b19fd8d8")
@@ -248,11 +248,11 @@
         (exec-path-from-shell :checksum
                               "7552abf032a383ff761e7d90e6b5cbb4658a728a")
         (f :checksum "931b6d0667fe03e7bf1c6c282d6d8d7006143c52")
-        (flycheck :checksum "8c0dbfaa463e69efb41ef2cda9c4e89b99e266a0")
+        (flycheck :checksum "ce489d8973b49828466020a3640e00b4b04753dd")
         (forge :checksum "5c005c085dda7258696aded59983482e228654a3")
         (fringe-helper :checksum
                        "ef4a9c023bae18ec1ddd7265f1f2d6d2e775efdd")
-        (ghub :checksum "8d6f6e5d949f0afdd56c61f6f88936b68e976786")
+        (ghub :checksum "f87acd5c01f20d3d67ef5926b5e7230726ced835")
         (git-gutter :checksum
                     "101b1e29ec4f4609b29a17877990f95993452188")
         (git-gutter-fringe :checksum
@@ -274,11 +274,11 @@
                            "324b6bf2f55ec050bef49e001caedaabaf4fa35d")
         (js2-mode :checksum "e0c302872de4d26a9c1614fac8d6b94112b96307")
         (jump :checksum "55caa66a7cc6e0b1a76143fd40eff38416928941")
-        (lsp-mode :checksum "11f7b17625b6f22a3900ebb55e0c506e59ef280c")
+        (lsp-mode :checksum "0e53347d767b2fa28958328125da82ee3881b0c8")
         (lsp-ui :checksum "ff349658ed69086bd18c336c8a071ba15f7fd574")
         (major-mode-hydra.el :checksum
                              "d0a5dadee97c3752fcdef113cf2ba1923972a480")
-        (magit :checksum "78334faa219e937855cd4bf7d9c2ab44d51b2dfa")
+        (magit :checksum "0376b01d7d2036666dc3e0bc318a235fd88a2686")
         (markdown-mode :checksum
                        "9de2df5a9f2f864c82ec112d3369154767a2bb49")
         (memoize :checksum "51b075935ca7070f62fae1d69fe0ff7d8fa56fdd")
@@ -291,11 +291,11 @@
         (plantuml-mode :checksum
                        "348e83ff193051d5ad332642100dd704f6e2a6d2")
         (popup :checksum "45a0b759076ce4139aba36dde0a2904136282e73")
-        (posframe :checksum "12f540c9ad5da09673b2bca1132b41f94c134e82")
+        (posframe :checksum "4fc893c3c9ea3f6b5099ac1b369abb3c6da40b1e")
         (prescient.el :checksum
                       "87e2d2f2ddf24f591a5f70cc90d2afb4537caa18")
         (projectile :checksum
-                    "9325c45e0fd96d5421e75ad901a91ee5353e10ad")
+                    "f12fdae30a36e3614fa6944969bf37dec9998301")
         (projectile-rails :checksum
                           "701784df7befe17b861f1b53fe9cbc59d0b94b9f")
         (rake :checksum "452ea0caca33376487103c64177c295ed2960cca")
@@ -308,14 +308,14 @@
         (spinner :checksum "d4647ae87fb0cd24bc9081a3d287c860ff061c21")
         (swiper :checksum "2257a9d0519e18f5ce7a7fafda8a1a8e5023628e")
         (transient :checksum
-                   "07a104aa73b5d5e3168ba6e202ebfb60188af6ed")
+                   "bda7c2e0772deaee8e36a217d15c14784e8c6800")
         (treepy :checksum "651e2634f01f346da9ec8a64613c51f54b444bc3")
         (twittering-mode :checksum
                          "114891e8fdb4f06b1326a6cf795e49c205cf9e29")
         (wakatime-mode :checksum
                        "1c5b2254dd72f2ff504d6a6189a8c10be03a98d1")
         (with-editor :checksum
-                     "7787e19764c1089390584ac17a80129ef9afaa14")
+                     "902b4d572af2c2f36060da01e3c33d194cdec32b")
         (yaml-mode :checksum
                    "d91f878729312a6beed77e6637c60497c5786efa")
         (yascroll :checksum "c0a302e6a44169c290564174c48298572f418f62")
@@ -328,9 +328,9 @@
         (pcsv :checksum "fe0044198330c7e20dc5d0e0e33f638350a7f062")
         (google-translate :checksum
                           "e84599df7c70870b33dd6c902b527d7f78310815")
-        (el-get :checksum "8d3edab760ff84baf4ce36c0b33bfb8668c6d212")
+        (el-get :checksum "0a926aa106f677d6c27275bb8d95a5be0acf4612")
         (dashboard :checksum
-                   "e5fc08e78223487aa0da12539be1a23356c09ec7")
+                   "13fa459e8d60b83ff6134486d44888e3bdcf291a")
         (page-break-lines :checksum
                           "f54aa2b96f6ed249e103346cdb872c97c3c98054")
         (org-trello :checksum

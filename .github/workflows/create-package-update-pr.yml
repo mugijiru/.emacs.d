@@ -22,7 +22,7 @@ jobs:
       with:
         version: 30.1
 
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
 
     - name: Ignore compiled files
       run: |
@@ -69,7 +69,7 @@ jobs:
 
     - if: env.found_update == 1
       name: Create PR
-      uses: peter-evans/create-pull-request@v7
+      uses: peter-evans/create-pull-request@v8
       env:
         BRANCH_NAME: update-${{ env.PACKAGE }}-${{ env.UPDATE_TIMESTAMP }}
         PR_TITLE: Update ${{ env.PACKAGE }}

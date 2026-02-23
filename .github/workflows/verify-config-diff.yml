@@ -11,7 +11,7 @@ jobs:
         with:
           version: 30.1
 
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Remove files
         run: |

@@ -5,7 +5,8 @@ draft = false
 
 ## 概要 {#概要}
 
-[magit](https://github.com/magit/magit) は Emacs の上で Git の色々な操作ができるやつ。結構使いやすいのでオススメなやつ。
+[magit](https://github.com/magit/magit) は Emacs の上で Git の色々な操作ができるやつ。
+結構使いやすいのでオススメなやつ。
 
 [forge](https://github.com/magit/forge) を使うと GitHub や GitLab とも連携できてさらに便利、なはず。
 
@@ -70,7 +71,8 @@ ref: <https://github.com/mugijiru/.emacs.d/pull/2992>
 ```
 
 transient や forge は el-get にあるレシピでは info を build するようになっているが
-build されるとリポジトリに差分が発生して update ができなくなるのでその差分はなかったことにするようにしている
+build されるとリポジトリに差分が発生して update ができなくなるので
+その差分はなかったことにするようにしている
 
 ```emacs-lisp
 (:name transient
@@ -116,6 +118,17 @@ build されるとリポジトリに差分が発生して update ができなく
                                "info")))
 ```
 
+cond-let も transient や magit などの依存に入って来るのでレシピを用意してある
+
+```emacs-lisp
+(:name cond-let
+       :description "Additional and improved binding conditionals"
+       :type github
+       :branch "main"
+       :pkgname "tarsius/cond-let"
+       :minimum-emacs-version "28.1")
+```
+
 そして `el-get-bundle` でインストールしている
 
 ```emacs-lisp
@@ -151,7 +164,8 @@ ghub は compat に依存するようになったのでとりあえず自前で 
                                "info")))
 ```
 
-さらに ghub が [llama](https://github.com/tarsius/llama) というパッケージに依存するようになったのでそれ用のレシピも用意している
+さらに ghub が [llama](https://github.com/tarsius/llama) というパッケージに依存するようになったので
+それ用のレシピも用意している
 
 ```emacs-lisp
 (:name llama
@@ -168,4 +182,5 @@ ghub は compat に依存するようになったのでとりあえず自前で 
 ## 使い方 {#使い方}
 
 Git 管理されてるファイルを開いている時に
-`M-x magit` とかすると Git 管理用のバッファが出て来るしそこで `?` を叩いたらどういうコマンドが使えるのか教えてくれるよ(雑)
+`M-x magit` とかすると Git 管理用のバッファが出て来るし
+そこで `?` を叩いたらどういうコマンドが使えるのか教えてくれるよ(雑)
