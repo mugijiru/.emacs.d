@@ -1,11 +1,12 @@
 (setq el-get-lock-package-versions
-      '((mcp :checksum "5c105a8db470eb9777fdbd26251548dec42c03f0")
+      '((cond-let :checksum "8bf87d45e169ebc091103b2aae325aece3aa804d")
+        (mcp :checksum "5c105a8db470eb9777fdbd26251548dec42c03f0")
         (gcmh :checksum "0089f9c3a6d4e9a310d0791cf6fa8f35642ecfd9")
         (vterm :checksum "056ad74653704bc353d8ec8ab52ac75267b7d373")
         (ox-nippou :checksum
                    "7c1cc689bb3c7eee7ecc5fc49b52062bdc94d5bc")
         (claude-code :checksum
-                     "41423459aa929460770c93e5ab6082439921f1d4")
+                     "4a9914bd4161eb43f489820f9174c62390e5adc8")
         (emacs-eat :checksum
                    "c8d54d649872bfe7b2b9f49ae5c2addbf12d3b99")
         (aidermacs :checksum
