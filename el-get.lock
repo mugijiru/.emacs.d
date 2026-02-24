@@ -1,5 +1,6 @@
 (setq el-get-lock-package-versions
-      '((mcp :checksum "5c105a8db470eb9777fdbd26251548dec42c03f0")
+      '((cond-let :checksum "8bf87d45e169ebc091103b2aae325aece3aa804d")
+        (mcp :checksum "5c105a8db470eb9777fdbd26251548dec42c03f0")
         (gcmh :checksum "0089f9c3a6d4e9a310d0791cf6fa8f35642ecfd9")
         (vterm :checksum "056ad74653704bc353d8ec8ab52ac75267b7d373")
         (ox-nippou :checksum
@@ -102,7 +103,7 @@
                       "b18fcf7fdea1ce84b7fdc60360ad8016b5c00d79")
         (emacs-sqlite3-api :checksum
                            "615cc1cb021384291cec39a2048a3a36859e8cb9")
-        (org-roam :checksum "b4857fd7a140361883dfb95e1193ee42698a4afb")
+        (org-roam :checksum "7cd906b6f8b18a21766228f074aff24586770934")
         (emacs-openai :checksum
                       "f5439fff3a32c9f76338f79e0654473ff6096a63")
         (tblui :checksum "62ab5f62982c061a902fd3e54d94a68a4706572c")
