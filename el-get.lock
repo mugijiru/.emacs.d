@@ -292,7 +292,7 @@
         (plantuml-mode :checksum
                        "348e83ff193051d5ad332642100dd704f6e2a6d2")
         (popup :checksum "45a0b759076ce4139aba36dde0a2904136282e73")
-        (posframe :checksum "4fc893c3c9ea3f6b5099ac1b369abb3c6da40b1e")
+        (posframe :checksum "41cc4def6190f100ba50dca51457c38f4f90dfb1")
         (prescient.el :checksum
                       "87e2d2f2ddf24f591a5f70cc90d2afb4537caa18")
         (projectile :checksum
