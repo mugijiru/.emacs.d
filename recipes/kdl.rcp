@@ -1,0 +1,6 @@
+(:name kdl-mode
+       :website "https://github.com/emacsmirror/kdl-mode"
+       :description "Emacs major mode for editing the KDL document language"
+       :type github
+       :pkgname "emacsmirror/kdl-mode"
+       :branch "main")
