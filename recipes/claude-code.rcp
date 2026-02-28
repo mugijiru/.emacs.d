@@ -3,5 +3,5 @@
   :description "An Emacs interface for Claude Code CLI"
   :type github
   :pkgname "stevemolitor/claude-code.el"
-  :depends (emacs-eat transient)
+  :depends (emacs-eat transient inheritenv)
   :branch "main")

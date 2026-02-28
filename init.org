@@ -8126,13 +8126,25 @@ authinfo に登録した API キーを引っ張り出して使っている
   :branch "master")
 #+end_src
 
+更に inheritoenv というパッケージの recipe も用意している
+
+#+begin_src emacs-lisp :tangle recipes/inheritenv.rcp
+(:name inheritenv
+       :website "https://github.com/purcell/inheritenv"
+       :description "Make Emacs temp buffers inherit buffer-local environment variables."
+       :type github
+       :branch "main"
+       :pkgname "purcell/inheritenv"
+       :minimum-emacs-version "24.4")
+#+end_src
+
 #+begin_src emacs-lisp :tangle recipes/claude-code.rcp
 ( :name claude-code
   :website "https://github.com/stevemolitor/claude-code.el"
   :description "An Emacs interface for Claude Code CLI"
   :type github
   :pkgname "stevemolitor/claude-code.el"
-  :depends (emacs-eat transient)
+  :depends (emacs-eat transient inheritenv)
   :branch "main")
 #+end_src
 
