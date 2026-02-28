@@ -5,12 +5,15 @@ draft = false
 
 ## 概要 {#概要}
 
-[Copilot.el](https://github.com/zerolfx/copilot.el) は [GitHub Copilot](https://github.com/features/copilot) を Emacs で使えるようにするパッケージ。これ自体は非公式なプラグインで、動かすために Vim で動く公式プラグインのバイナリを利用して動いている
+[Copilot.el](https://github.com/zerolfx/copilot.el) は [GitHub Copilot](https://github.com/features/copilot) を Emacs で使えるようにするパッケージ。
+これ自体は非公式なプラグインで、
+動かすために Vim で動く公式プラグインのバイナリを利用して動いている
 
 
 ## インストール {#インストール}
 
-最近出て来たパッケージなので el-get には登録されていない。というわけでとりあえず自前でレシピを用意している
+最近出て来たパッケージなので el-get には登録されていない。
+というわけでとりあえず自前でレシピを用意している
 
 ```emacs-lisp
 (:name copilot
@@ -19,7 +22,7 @@ draft = false
        :type github
        :branch "main"
        :pkgname "copilot-emacs/copilot.el"
-       :depends (s dash editorconfig jsonrpc))
+       :depends (editorconfig jsonrpc track-changes compat))
 ```
 
 依存している editorconig も自前でレシピを用意している
@@ -33,6 +36,15 @@ draft = false
        :pkgname "editorconfig/editorconfig-emacs")
 ```
 
+track-changes も依存関係に追加されたのでレシピを用意している
+
+```emacs-lisp
+(:name track-changes
+       :website "https://elpa.gnu.org/packages/track-changes.html"
+       :description "API to react to buffer modifications"
+       :type elpa)
+```
+
 そして `el-get-bundle` でインストール
 
 ```emacs-lisp
@@ -42,14 +54,16 @@ draft = false
 
 ## 設定 {#設定}
 
-とりあえずプログラミング系の mode で有効になるようにしていた。けど今はちょっと無効にしている
+とりあえずプログラミング系の mode で有効になるようにしていた。
+けど今はちょっと無効にしている
 
 ```emacs-lisp
 ;; (add-hook 'prog-mode-hook 'copilot-mode)
 ```
 
 あとは company-mode と組み合わせてもそれなりに動くようにするため
-inline preview を無効にするような設定を入れている。なおこの設定は[公式の README の中のコード](https://github.com/copilot-emacs/copilot.el#example-for-spacemacs)を使っている
+inline preview を無効にするような設定を入れている。
+なおこの設定は[公式の README の中のコード](https://github.com/copilot-emacs/copilot.el#example-for-spacemacs)を使っている
 
 ```emacs-lisp
 (with-eval-after-load 'company
@@ -86,7 +100,8 @@ Warning (copilot): .loaddefs.el size exceeds 'copilot-max-char' (100000), copilo
 (setopt copilot-max-char-warning-disable t)
 ```
 
-またデフォルトだと indent offset は設定が見つからない時に warning を出すようになっているが結構邪魔なのでとりあえずオフにしている
+またデフォルトだと indent offset は設定が見つからない時に warning を出すようになっているが
+結構邪魔なのでとりあえずオフにしている
 
 ```emacs-lisp
 (setopt copilot-indent-offset-warning-disable t)

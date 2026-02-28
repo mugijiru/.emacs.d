@@ -4,4 +4,4 @@
        :type github
        :branch "main"
        :pkgname "copilot-emacs/copilot.el"
-       :depends (s dash editorconfig jsonrpc))
+       :depends (editorconfig jsonrpc track-changes compat))
