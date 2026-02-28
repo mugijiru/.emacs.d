@@ -1,0 +1,5 @@
+(:name el-get-lock
+       :website "https://github.com/tarao/el-get-lock"
+       :description "Lock El-Get package repository versions"
+       :type github
+       :pkgname "tarao/el-get-lock")

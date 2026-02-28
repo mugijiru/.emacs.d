@@ -10,7 +10,7 @@
 (add-to-list 'el-get-recipe-path (concat user-emacs-directory "recipes"))
 
 ;; el-get のバージョンロック機構の導入
-(el-get-bundle tarao/el-get-lock)
+(el-get-bundle el-get-lock)
 
 (require 'cl)
 (el-get-lock)
