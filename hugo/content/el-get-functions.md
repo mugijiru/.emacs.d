@@ -13,6 +13,7 @@ el-get と el-get-lock を使った関数を用意している
         (old-checksum (my/el-get-lock-checksum package)))
     (el-get-lock-checkout "el-get")
     (sit-for 10) ;; el-get がなんか読み込まれてるので待ってみる
+    (el-get-elpa-build-local-recipes)
     (el-get-lock-checkout package)
     (el-get-update package)
     (let ((new-checksum (my/el-get-lock-checksum package)))
