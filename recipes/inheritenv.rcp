@@ -1,0 +1,7 @@
+(:name inheritenv
+       :website "https://github.com/purcell/inheritenv"
+       :description "Make Emacs temp buffers inherit buffer-local environment variables."
+       :type github
+       :branch "main"
+       :pkgname "purcell/inheritenv"
+       :minimum-emacs-version "24.4")

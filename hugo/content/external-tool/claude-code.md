@@ -7,12 +7,14 @@ draft = false
 
 [claude-code.el](https://github.com/stevemolitor/claude-code.el) は [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) と連携するためのパッケージ。
 
-今のところ入れてみたもののまともに動かないので、困っているけど、一応設定は書いておく
+今のところ入れてみたもののまともに動かないので、困っているけど、
+一応設定は書いておく
 
 
 ### インストール {#インストール}
 
-まず recipe は el-get 本体にはないので自前で用意している。その際に依存している emacs-eat というパッケージの recipe も自前で用意した
+まず recipe は el-get 本体にはないので自前で用意している。
+その際に依存している emacs-eat というパッケージの recipe も自前で用意した
 
 ```emacs-lisp
 ( :name emacs-eat
@@ -24,13 +26,25 @@ draft = false
   :branch "master")
 ```
 
+更に inheritoenv というパッケージの recipe も用意している
+
+```emacs-lisp
+(:name inheritenv
+       :website "https://github.com/purcell/inheritenv"
+       :description "Make Emacs temp buffers inherit buffer-local environment variables."
+       :type github
+       :branch "main"
+       :pkgname "purcell/inheritenv"
+       :minimum-emacs-version "24.4")
+```
+
 ```emacs-lisp
 ( :name claude-code
   :website "https://github.com/stevemolitor/claude-code.el"
   :description "An Emacs interface for Claude Code CLI"
   :type github
   :pkgname "stevemolitor/claude-code.el"
-  :depends (emacs-eat transient)
+  :depends (emacs-eat transient inheritenv)
   :branch "main")
 ```
 
@@ -47,7 +61,8 @@ draft = false
 $ claude migrate-installer
 ```
 
-で `$HOME/.claude/local/claude` にインストールしたのでインストール先としてその PATH を指定している
+で `$HOME/.claude/local/claude` にインストールしたので
+インストール先としてその PATH を指定している
 
 ```emacs-lisp
 (setopt claude-code-program (expand-file-name "~/.claude/local/claude"))
