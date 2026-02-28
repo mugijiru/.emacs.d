@@ -97,12 +97,19 @@
 私のパッケージ管理はこいつが要になってるので動き続けて欲しい
 *** インストール
 こいつは ~el-get-bundle~ で入れている。
-GitHub で管理されているし master ブランチを使っているし依存関係も el-get だけなので
-レシピも作らずにインストールしている
+レシピなくても入れられるのだけど他に合わせてレシピを用意している
+
+#+begin_src emacs-lisp :tangle recipes/el-get-lock.rcp
+(:name el-get-lock
+       :website "https://github.com/tarao/el-get-lock"
+       :description "Lock El-Get package repository versions"
+       :type github
+       :pkgname "tarao/el-get-lock")
+#+end_src
 
 #+begin_src emacs-lisp :tangle init-el-get.el
 ;; el-get のバージョンロック機構の導入
-(el-get-bundle tarao/el-get-lock)
+(el-get-bundle el-get-lock)
 #+end_src
 *** 初期化
 とりあえず起動時に初期化する必要があるので初期化している。
