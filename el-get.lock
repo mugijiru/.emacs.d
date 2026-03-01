@@ -98,7 +98,7 @@
                           "18d6641bba72cba3c00018cee737ea8b454f64a8")
         (nerd-icons :checksum
                     "9a7f44db9a53567f04603bc88d05402cad49c64c")
-        (copilot :checksum "3b086696fb1bb97518b7b30ce1b184ebb8c085b1")
+        (copilot :checksum "734fdf35cdf56d0f050409fa98a6bbec645f9c32")
         (editorconfig :checksum
                       "b18fcf7fdea1ce84b7fdc60360ad8016b5c00d79")
         (emacs-sqlite3-api :checksum
