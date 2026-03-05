@@ -12361,6 +12361,22 @@ org-ql は使いこなすと色々なことができそうではあるが
       (kill-new buffer-file-name)
       (message "Copied buffer file path '%s' to the clipboard." buffer-file-name)))
 #+end_src
+** Wayland + pgtk Emacs のクリップボード連携バグの回避策
+どうやら Wayland + pgtk Emacs だとクリップボード取得周りに不具合があるみたい。
+それを回避するために ~interprogram-cut-function~ と ~interprogram-cut-function~ を書き換えている。
+
+#+begin_src emacs-lisp :tangle inits/90-clipboard.el
+(setq interprogram-cut-function
+      (lambda (text &optional push)
+        (let ((process-connection-type nil))
+          (call-process-region text nil "wl-copy"))))
+
+(setq interprogram-paste-function
+      (lambda ()
+        (shell-command-to-string "wl-paste -n")))
+#+end_src
+
+Emacs 30.2 に上げたら発生するようになった気がするので 30.3 になったら一度外してみようと思う
 * テスト用ツール
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: testing-tool
