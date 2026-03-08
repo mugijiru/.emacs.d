@@ -12,7 +12,7 @@
         (aidermacs :checksum
                    "6d0c41d1cfd24821fb32933edf8c0c2a9bb8c847")
         (embark :checksum "e0238889b1c946514fd967d21d70599af9c4e887")
-        (polymode :checksum "14b1fd8d2a183f11b123f62e02801dc1139da9c1")
+        (polymode :checksum "4604f55cc020c75562526fb76b723e5e242c97c0")
         (svelte-mode :checksum
                      "ac8fba901dc790976f9893e338c8ad1241b897c6")
         (llama :checksum "de61773fc378d40f478f8daf67543a51889ecded")
