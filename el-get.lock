@@ -309,7 +309,7 @@
         (spinner :checksum "d4647ae87fb0cd24bc9081a3d287c860ff061c21")
         (swiper :checksum "ee79f68215ae7e2b8a38ba6bf7f82b3fe57dc16c")
         (transient :checksum
-                   "6e7c07a7f6363195707b2eee478fc4626211d5d7")
+                   "c8e4251fd165acd32e014e6310f2219991bea357")
         (treepy :checksum "651e2634f01f346da9ec8a64613c51f54b444bc3")
         (twittering-mode :checksum
                          "114891e8fdb4f06b1326a6cf795e49c205cf9e29")
