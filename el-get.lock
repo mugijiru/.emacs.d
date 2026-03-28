@@ -281,7 +281,7 @@
                              "d0a5dadee97c3752fcdef113cf2ba1923972a480")
         (magit :checksum "b9f19bae4d5e5c485d2d8d7bf52364eeb7d22a6b")
         (markdown-mode :checksum
-                       "3933f282d0dbce79355d47c97226ab641028d1c0")
+                       "182640f79c3ed66f82f0419f130dffc173ee9464")
         (memoize :checksum "51b075935ca7070f62fae1d69fe0ff7d8fa56fdd")
         (migemo :checksum "c0d84b4092ddade01110ba875559bfd454862ac2")
         (multiple-cursors :checksum
