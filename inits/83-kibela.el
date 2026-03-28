@@ -1,12 +1,11 @@
 (el-get-bundle emacs-kibela)
 
-(custom-set-variables
- '(kibela-auth-list `(("Work"
-                       ,(plist-get (nth 0 (auth-source-search :host "emacs-kibela-work")) :team)
-                       ,(funcall (plist-get (nth 0 (auth-source-search :host "emacs-kibela-work" :max 1)) :secret)))
-                      ("Private"
-                       ,(plist-get (nth 0 (auth-source-search :host "emacs-kibela-private")) :team)
-                       ,(funcall (plist-get (nth 0 (auth-source-search :host "emacs-kibela-private" :max 1)) :secret))))))
+(setopt kibela-auth-list `(("Work"
+                            ,(plist-get (nth 0 (auth-source-search :host "emacs-kibela-work")) :team)
+                            ,(funcall (plist-get (nth 0 (auth-source-search :host "emacs-kibela-work" :max 1)) :secret)))
+                           ("Private"
+                            ,(plist-get (nth 0 (auth-source-search :host "emacs-kibela-private")) :team)
+                            ,(funcall (plist-get (nth 0 (auth-source-search :host "emacs-kibela-private" :max 1)) :secret)))))
 
 (defun my/kibela-show-recent-note ()
   "最近投稿された記事を見るためのコマンド
