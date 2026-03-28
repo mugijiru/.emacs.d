@@ -17,7 +17,7 @@ el-get のレシピは自前で用意している
 (:name dashboard
        :type github
        :description "A startup screen extracted from Spacemacs"
-       :pkgname "emacs-dashboard/emacs-dashboard"
+       :pkgname "emacs-dashboard/dashboard"
        :depends (page-break-lines)
        :minimum-emacs-version (25 3))
 ```
