@@ -291,7 +291,5 @@
 
 ;;; 設定の読み込み
 
-(custom-set-variables
- '(my/org-reviews-organization (plist-get (nth 0 (auth-source-search :host my/org-reviews-token-host)) :organization))
- '(my/org-reviews-repositories
-   (split-string (plist-get (nth 0 (auth-source-search :host my/org-reviews-token-host)) :repositories) ",")))
+(setopt my/org-reviews-organization (plist-get (nth 0 (auth-source-search :host my/org-reviews-token-host)) :organization))
+(setopt my/org-reviews-repositories (split-string (plist-get (nth 0 (auth-source-search :host my/org-reviews-token-host)) :repositories) ","))

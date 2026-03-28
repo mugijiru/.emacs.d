@@ -5,12 +5,14 @@ draft = false
 
 ## 概要 {#概要}
 
-[emacs-kibela](https://github.com/mugijiru/emacs-kibela/) は Emacs で Kibela を操作するための自作のパッケージ。あまり機能は実装されていないけど、テンプレートから記事を書いたりする程度のことはできる
+[emacs-kibela](https://github.com/mugijiru/emacs-kibela/) は Emacs で Kibela を操作するための自作のパッケージ。
+あまり機能は実装されていないけど、テンプレートから記事を書いたりする程度のことはできる
 
 
 ## インストール {#インストール}
 
-MELPA には登録してないし el-get にもレシピを登録していないので自前で el-get の recipe を用意している
+MELPA には登録してないし el-get にもレシピを登録していないので
+自前で el-get の recipe を用意している
 
 ```emacs-lisp
 (:name emacs-kibela
@@ -32,16 +34,16 @@ MELPA には登録してないし el-get にもレシピを登録していない
 
 ## 設定 {#設定}
 
-.authinfo.gpg に認証情報を突っ込んでいるのでそこから認証情報を拾って来て set している
+.authinfo.gpg に認証情報を突っ込んでいるので
+そこから認証情報を拾って来て set している
 
 ```emacs-lisp
-(custom-set-variables
- '(kibela-auth-list `(("Work"
-                       ,(plist-get (nth 0 (auth-source-search :host "emacs-kibela-work")) :team)
-                       ,(funcall (plist-get (nth 0 (auth-source-search :host "emacs-kibela-work" :max 1)) :secret)))
-                      ("Private"
-                       ,(plist-get (nth 0 (auth-source-search :host "emacs-kibela-private")) :team)
-                       ,(funcall (plist-get (nth 0 (auth-source-search :host "emacs-kibela-private" :max 1)) :secret))))))
+(setopt kibela-auth-list `(("Work"
+                            ,(plist-get (nth 0 (auth-source-search :host "emacs-kibela-work")) :team)
+                            ,(funcall (plist-get (nth 0 (auth-source-search :host "emacs-kibela-work" :max 1)) :secret)))
+                           ("Private"
+                            ,(plist-get (nth 0 (auth-source-search :host "emacs-kibela-private")) :team)
+                            ,(funcall (plist-get (nth 0 (auth-source-search :host "emacs-kibela-private" :max 1)) :secret)))))
 ```
 
 
@@ -67,7 +69,9 @@ kibela-note-show でバッファを開く"
 
 ## キーバインド {#キーバインド}
 
-各コマンドは Hydra で起動するように設定している。しれっと ivy-kibela のコマンドも混ぜちゃってるけど、使う分にはこの方がやりやすい。
+各コマンドは Hydra で起動するように設定している。
+しれっと ivy-kibela のコマンドも混ぜちゃってるけど、
+使う分にはこの方がやりやすい。
 
 ```emacs-lisp
 (pretty-hydra-define kibela-hydra (:separator "-" :title "Kibela" :foreign-key warn :quit-key "q" :exit t)
