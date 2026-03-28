@@ -2,9 +2,8 @@
 
 (el-get-bundle org-gcal)
 
-(custom-set-variables
- '(org-gcal-client-id (plist-get (nth 0 (auth-source-search :host "googleusercontent.com")) :client))
- '(org-gcal-client-secret (funcall (plist-get (nth 0 (auth-source-search :host "googleusercontent.com" :max 1)) :secret))))
+(setopt org-gcal-client-id (plist-get (nth 0 (auth-source-search :host "googleusercontent.com")) :client))
+(setopt org-gcal-client-secret (funcall (plist-get (nth 0 (auth-source-search :host "googleusercontent.com" :max 1)) :secret)))
 
 (require 'org-gcal)
 

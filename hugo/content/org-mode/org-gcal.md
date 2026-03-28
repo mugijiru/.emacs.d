@@ -9,7 +9,8 @@ weight = 8
 
 [org-gcal](https://github.com/kidd/org-gcal.el) は org-mode と Google Calendar を連携させるためのパッケージ。
 
-オリジナルは <https://github.com/myuhe/org-gcal.el> なのだけど今は fork されてるやつが MELPA にも登録されていて
+オリジナルは <https://github.com/myuhe/org-gcal.el> なのだけど
+今は fork されてるやつが MELPA にも登録されていて
 el-get のレシピもそっちを見ている。
 
 
@@ -21,7 +22,9 @@ org-gcal が依存しているので [parsist](https://elpa.gnu.org/packages/per
 (el-get-bundle persist)
 ```
 
-また oauth2-auto も依存しているので入れているが自動更新の仕組みが el-get 本体のレシピだとエラーになるのでコピーしてブランチのみ指定している
+また oauth2-auto も依存しているので入れているが
+自動更新の仕組みが el-get 本体のレシピだとエラーになるので
+コピーしてブランチのみ指定している
 
 ```emacs-lisp
 ( :name emacs-oauth2-auto
@@ -45,9 +48,8 @@ org-gcal が依存しているので [parsist](https://elpa.gnu.org/packages/per
 まずは org-gcal の設定が authinfo から読み込まれるようにする
 
 ```emacs-lisp
-(custom-set-variables
- '(org-gcal-client-id (plist-get (nth 0 (auth-source-search :host "googleusercontent.com")) :client))
- '(org-gcal-client-secret (funcall (plist-get (nth 0 (auth-source-search :host "googleusercontent.com" :max 1)) :secret))))
+(setopt org-gcal-client-id (plist-get (nth 0 (auth-source-search :host "googleusercontent.com")) :client))
+(setopt org-gcal-client-secret (funcall (plist-get (nth 0 (auth-source-search :host "googleusercontent.com" :max 1)) :secret)))
 ```
 
 そして org-gcal 本体を require する。
@@ -57,7 +59,9 @@ org-gcal が依存しているので [parsist](https://elpa.gnu.org/packages/per
 ```
 
 OAuth token の保存には GPG で暗号化するようにするため
-plstore-encrypt-to にその鍵 ID を設定している。こうするとパスフレーズを何度も入力する必要がないので便利。鍵 ID 自体もリポジトリには登録したくなかったので authinfo から取り出すようにしている。
+plstore-encrypt-to にその鍵 ID を設定している。
+こうするとパスフレーズを何度も入力する必要がないので便利。
+鍵 ID 自体もリポジトリには登録したくなかったので authinfo から取り出すようにしている。
 
 ```emacs-lisp
 (add-to-list 'plstore-encrypt-to (funcall (plist-get (nth 0 (auth-source-search :host "org-gcal-plstore" :max 1)) :secret)))
@@ -87,13 +91,15 @@ window 通知を使う設定にしている。
 (setq appt-display-format 'window)
 ```
 
-これだけだと、通知する時間になったらピョコッと window が生えて来るのだけど、後の方で、この設定の時に使う関数を差し替えている
+これだけだと、通知する時間になったらピョコッと window が生えて来るのだけど、
+後の方で、この設定の時に使う関数を差し替えている
 
 
 ### 通知用関数の定義 {#通知用関数の定義}
 
 通知には [alert]({{< relref "alert" >}}) を使いたいので自前で関数を定義。
-alert.el は別のところで設定していてそこで dunst を使って通知するようにしている。
+alert.el は別のところで設定していて
+そこで dunst を使って通知するようにしている。
 
 ```emacs-lisp
 (defun my/appt-alert (min-to-app _new-time msg)

@@ -11075,10 +11075,9 @@ org-gcal が依存しているので [[https://elpa.gnu.org/packages/persist.htm
 まずは org-gcal の設定が authinfo から読み込まれるようにする
 
 #+begin_src emacs-lisp :tangle inits/61-org-gcal.el
-(custom-set-variables
- '(org-gcal-client-id (plist-get (nth 0 (auth-source-search :host "googleusercontent.com")) :client))
- '(org-gcal-client-secret (funcall (plist-get (nth 0 (auth-source-search :host "googleusercontent.com" :max 1)) :secret))))
-#+end_src
+(setopt org-gcal-client-id (plist-get (nth 0 (auth-source-search :host "googleusercontent.com")) :client))
+(setopt org-gcal-client-secret (funcall (plist-get (nth 0 (auth-source-search :host "googleusercontent.com" :max 1)) :secret)))
+ #+end_src
 
 そして org-gcal 本体を require する。
 
