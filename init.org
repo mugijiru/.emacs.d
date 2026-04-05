@@ -4927,7 +4927,7 @@ GitHub から直接取得するように設定している。
 
 設定は最低限で
 
-- 起動時に有効化 :: 1画面しか使えない時は必須なので
+- 起動時は無効 :: あまり有効にしないことの方が多いので
 - 比率を黄金比に変更 :: この方が使いやすいっぽい。
 
 という設定をしている。
@@ -4937,7 +4937,7 @@ GitHub から直接取得するように設定している。
   :url "https://github.com/cyrus-and/zoom"
   :el-get cyrus-and/zoom
   :custom
-  (zoom-mode . t)
+  (zoom-mode . nil)
   (zoom-size . '(0.618 . 0.618)))
 #+end_src
 
