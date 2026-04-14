@@ -174,7 +174,7 @@
                           "dc57beac0e59669926ad720c7af38b27c3a30467")
         (pos-tip :checksum "4889e08cf9077c8589ea6fea4e2ce558614dfcde")
         (emacs-w3m :checksum
-                   "ec18c21418bf7c1be159bd3cf7e79a370d4be1f3")
+                   "ac4aeb3f7bf6d5a32127062b0ae311785fbc36ff")
         (browse-at-remote :checksum
                           "38e5ffd77493c17c821fd88f938dbf42705a5158")
         (ox-hugo :checksum "b7dc44dc28911b9d8e3055a18deac16c3b560b03")
