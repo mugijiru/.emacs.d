@@ -331,7 +331,7 @@
         (pcsv :checksum "fe0044198330c7e20dc5d0e0e33f638350a7f062")
         (google-translate :checksum
                           "e84599df7c70870b33dd6c902b527d7f78310815")
-        (el-get :checksum "8d3edab760ff84baf4ce36c0b33bfb8668c6d212")
+        (el-get :checksum "b966060fd99c2bdf1aae76be190f2e26473cb298")
         (dashboard :checksum
                    "f28b8e1c5f895c1dbf908a0550303a1de37fa259")
         (page-break-lines :checksum
