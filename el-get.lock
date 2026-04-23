@@ -75,7 +75,7 @@
         (esxml :checksum "affada143fed7e2da08f2b3d927a027f26ad4a8f")
         (kv :checksum "721148475bce38a70e0b678ba8aa923652e8900e")
         (calibredb :checksum
-                   "99a234167a092bc0017d11c814f0b8c0da53a107")
+                   "af6fc49edf72f0ebc42d9d3983ad00c268541092")
         (git-modes :checksum
                    "c3faeeea1982786f78d8c38397dec0f078eaec84")
         (ob-graphql :checksum
