@@ -320,7 +320,7 @@
         (with-editor :checksum
                      "ea444a03030efe5a56a5f17c7d464cf37bac6031")
         (yaml-mode :checksum
-                   "d91f878729312a6beed77e6637c60497c5786efa")
+                   "96ef0201101a7cd591febd5886633154dae8834c")
         (yascroll :checksum "c0a302e6a44169c290564174c48298572f418f62")
         (yasnippet :checksum
                    "c1e6ff23e9af16b856c88dfaab9d3ad7b746ad37")
