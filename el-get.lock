@@ -222,7 +222,7 @@
         (all-the-icons :checksum
                        "4778632b29c8c8d2b7cd9ce69535d0be01d846f9")
         (alert :checksum "31fc56855289d0846e73d7ca9b84b628aeac16a0")
-        (calfw :checksum "36846cdca91794cf38fa171d5a3ac291d3ebc060")
+        (calfw :checksum "24fa167af96a6e677aea7c6b9385f669b550ee2f")
         (closql :checksum "947426d0c93e5ad5374c464b2f121c36cdaf2132")
         (company-mode :checksum
                       "7a636925bf37bc7aabaed70ad9188ab427a9db2a")
