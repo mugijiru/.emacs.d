@@ -216,7 +216,7 @@
                        "1514939804bad558584feeb6298b38d22eadf64e")
         (emacs-pug-mode :checksum
                         "73f8c2f95eba695f701df20c8436f49abadebdc1")
-        (zoom :checksum "36f9db90941b10d34bac976aee35dfe25242cd03")
+        (zoom :checksum "5e524d98c7f2b4dd6ed41d95573b29b263632eb2")
         (request :checksum "c22e3c23a6dd90f64be536e176ea0ed6113a5ba6")
         (avy :checksum "933d1f36cca0f71e4acb5fac707e9ae26c536264")
         (all-the-icons :checksum
