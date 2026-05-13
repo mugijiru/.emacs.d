@@ -20,7 +20,7 @@
         (llama :checksum "d430d48e0b5afd2a34b5531f103dcb110c3539c4")
         (leaf-keywords :checksum
                        "82ec27e3441900daedeaaebca509181f964da81f")
-        (leaf :checksum "b49e68613b8efba89c702141f49ad9b4460a7204")
+        (leaf :checksum "1e363fe114310a6af5f3f770be795657307ad3d1")
         (yaml-pro :checksum "9b9509188e5b88bb933e98ab36ab992519b9554b")
         (lsp-tailwindcss :checksum
                          "cdd0325a6a571e51f6c7d1cbc198c7a7ea4a194a")
