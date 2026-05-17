@@ -163,7 +163,7 @@
                       "3519ac907ea391e18d9599375b116aeeb6f8a38a")
         (treemacs :checksum "2ab5a3c89fa01bbbd99de9b8986908b2bc5a7b49")
         (pfuture :checksum "19b53aebbc0f2da31de6326c495038901bffb73c")
-        (bui :checksum "f3a137628e112a91910fd33c0cff0948fa58d470")
+        (bui :checksum "4319e1bf3ff94ff0568eed280ac1f980a4b68679")
         (smartparens :checksum
                      "82d2cf084a19b0c2c3812e0550721f8a61996056")
         (mocker.el :checksum
