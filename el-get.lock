@@ -80,7 +80,7 @@
                    "9fc447e409ad78dd11ae7f9c5436ee1631380b3f")
         (ob-graphql :checksum
                     "7c35419f9eec5dc44967cbcfa13c7135b9a96bfc")
-        (corfu :checksum "856171ac98c3aaa629caa011be7cd3a9405e6e0f")
+        (corfu :checksum "ee4bd2e9bb9ebbb65a10f74ef7840caa3e1fd952")
         (treesit-auto :checksum
                       "31466e4ccfd4f896ce3145c95c4c1f8b59d4bfdf")
         (org-mode :checksum "d1f528e830e32185a4b270100cf77961fe6025a2")
