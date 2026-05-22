@@ -316,7 +316,7 @@
         (twittering-mode :checksum
                          "114891e8fdb4f06b1326a6cf795e49c205cf9e29")
         (wakatime-mode :checksum
-                       "1c5b2254dd72f2ff504d6a6189a8c10be03a98d1")
+                       "14c6e5f9e45be9276c1deaaac8f375fb1472408f")
         (with-editor :checksum
                      "d05405dbac95c9ca808d1b02066135df762d7e23")
         (yaml-mode :checksum
