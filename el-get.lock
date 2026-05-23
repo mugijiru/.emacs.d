@@ -129,7 +129,7 @@
         (json-reformat :checksum
                        "9120ab67c5379c44bc7a7a07ca858670cea4f32f")
         (org-contrib :checksum
-                     "b840bdabd1867f9d51ee36bef7bac4be7073288c")
+                     "82f94c5612c20286d234613f0ce0d92eac2c0845")
         (mocha :checksum "6a72fa20e7be6e55c09b1bc9887ee09c5df28e45")
         (pdf-tools :checksum
                    "365f88238f46f9b1425685562105881800f10386")
