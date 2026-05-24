@@ -305,7 +305,7 @@
         (rbenv :checksum "4afe1dc6bd76efdbf2e54b58ea76a05837553575")
         (rspec-mode :checksum
                     "29df3d081c6a1cbdf840cd13d45ea1c100c5bbaa")
-        (s :checksum "dda84d38fffdaf0c9b12837b504b402af910d01d")
+        (s :checksum "7393fa6fa305403e628058c0ec78c35d610fab05")
         (shrink-path :checksum
                      "c14882c8599aec79a6e8ef2d06454254bb3e1e41")
         (spinner :checksum "d4647ae87fb0cd24bc9081a3d287c860ff061c21")
