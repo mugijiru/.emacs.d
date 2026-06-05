@@ -251,7 +251,7 @@
         (exec-path-from-shell :checksum
                               "7552abf032a383ff761e7d90e6b5cbb4658a728a")
         (f :checksum "931b6d0667fe03e7bf1c6c282d6d8d7006143c52")
-        (flycheck :checksum "0e5eb8300d32fd562724216c19eaf199ee1451ab")
+        (flycheck :checksum "96f1852c7e352c969393e6e66176178177e933be")
         (forge :checksum "c18e00c83eeea0ba6e16b3275ac9a5bf7f7c6077")
         (fringe-helper :checksum
                        "ef4a9c023bae18ec1ddd7265f1f2d6d2e775efdd")
