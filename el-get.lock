@@ -156,7 +156,7 @@
         (auto-fix :checksum "783e78f601d0ca42792aff40d6a72434be167900")
         (typescript-mode :checksum
                          "2535780bdb318d86761b9bd21b0347ca6a89628f")
-        (yaml :checksum "f2369fb4985ed054be47ae111760ff2075dff72a")
+        (yaml :checksum "5546f36bde24a9a8c1934e0f6ce205cd41d72537")
         (web-mode :checksum "e93b3fb89fd6345a5ff59795bed712abd486200a")
         (dap-mode :checksum "fc78b2a1db5f30e65875653b4807b801c0ef23bc")
         (lsp-treemacs :checksum
