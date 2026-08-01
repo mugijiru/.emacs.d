@@ -1,5 +1,8 @@
 (add-to-list 'load-path (concat user-emacs-directory "el-get/el-get"))
 
+(defvar el-get-install-no-shallow-clone t
+  "Avoid a shallow clone when a non-default el-get branch is requested.")
+
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
       (url-retrieve-synchronously
