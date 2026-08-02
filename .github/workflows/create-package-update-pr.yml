@@ -37,6 +37,46 @@ jobs:
           -l ./init-el-get.el \
           --eval "(my/el-get-auto-update \"$PACKAGE\")"
 
+    - if: failure() && env.PACKAGE == 'vterm'
+      name: Diagnose vterm module build
+      run: |
+        set -u
+
+        vterm_dir="$GITHUB_WORKSPACE/el-get/vterm"
+        module_suffix=$(emacs -Q --batch --eval '(princ module-file-suffix)' || true)
+        echo "vterm directory: ${vterm_dir}"
+        echo "Emacs module suffix: ${module_suffix}"
+
+        if [ ! -d "$vterm_dir" ]; then
+          echo 'vterm source directory is unavailable after the failed update.'
+          exit 0
+        fi
+
+        echo 'vterm module artifacts:'
+        find "$vterm_dir" -maxdepth 2 -type f -name 'vterm-module*' -printf '%p\n' || true
+
+        module_path=$(find "$vterm_dir" -maxdepth 2 -type f -name "vterm-module${module_suffix}" -print -quit)
+        if [ -n "$module_path" ]; then
+          echo "module path: ${module_path}"
+          file "$module_path" || true
+          ldd "$module_path" || true
+          readelf -d "$module_path" || true
+        else
+          echo 'vterm-module shared object was not found.'
+        fi
+
+        echo 'CMake cache:'
+        if [ -f "$vterm_dir/build/CMakeCache.txt" ]; then
+          rg -n 'CMAKE_(C_COMPILER|BUILD_TYPE)|LIBVTERM|USE_SYSTEM_LIBVTERM' "$vterm_dir/build/CMakeCache.txt" || true
+        else
+          echo 'CMakeCache.txt was not found.'
+        fi
+
+        echo 'Loading vterm-module directly:'
+        emacs -Q --batch -L "$vterm_dir" \
+          --eval '(princ (format "locate-library: %S\n" (locate-library "vterm-module")))' \
+          --eval "(require 'vterm-module)" || true
+
     - name: Detect el-get.lock diff
       run: |
         git diff --exit-code --quiet el-get.lock || git add el-get.lock && echo 'found_update=1' >> $GITHUB_ENV
