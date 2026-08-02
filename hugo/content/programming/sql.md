@@ -22,8 +22,20 @@ el-get 本体にレシピがないので自前で用意しています。
        :website "https://github.com/purcell/sqlformat"
        :description "Easily reformatting SQL using any one of several popular SQL formatters"
        :type github
+       :branch "main"
        :pkgname "purcell/sqlformat"
        :depends (reformatter))
+```
+
+依存している reformatter もレシピを自前で用意している
+
+```emacs-lisp
+(:name reformatter
+       :website "https://github.com/purcell/reformatter.el"
+       :description "Major mode for Elm"
+       :type github
+       :branch "main"
+       :pkgname "purcell/reformatter.el")
 ```
 
 そして `el-get-bundle` でインストールしています

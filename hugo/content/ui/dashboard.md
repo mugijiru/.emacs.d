@@ -22,6 +22,17 @@ el-get のレシピは自前で用意している
        :minimum-emacs-version (25 3))
 ```
 
+page-break-lines も自前でレシピを用意している
+
+```emacs-lisp
+(:name page-break-lines
+       :website "https://github.com/purcell/page-break-lines"
+       :description "A global mode which displays ugly form feed characters as tidy horizontal rules"
+       :type github
+       :branch "main"
+       :pkgname "purcell/page-break-lines")
+```
+
 そして `el-get-bundle` で入れている
 
 ```emacs-lisp
@@ -55,8 +66,7 @@ dashboard-items を弄ることで表示する情報を設定している
 
 Emacs の bookmarks と register は使ってない(使えてない)のでコメントアウトしている。
 
-あとは最近開いたファイルとプロジェクトとagendaを表示するようにしているが
-イマイチ活用できてないので色々設定を詰める必要がありそう
+あとは最近開いたファイルとプロジェクトとagendaを表示するようにしているがイマイチ活用できてないので色々設定を詰める必要がありそう
 
 
 ## 各セクションのタイトル部の先頭にアイコンを表示 {#各セクションのタイトル部の先頭にアイコンを表示}
@@ -70,8 +80,7 @@ Emacs の bookmarks と register は使ってない(使えてない)のでコメ
 
 ## 各ファイルの先頭にアイコンを表示 {#各ファイルの先頭にアイコンを表示}
 
-これも見た目をちょっとだエカッコよくするために all-the-icons で装飾するための設定。
-だけどファイルの種類がアイコンでわかるので便利。
+これも見た目をちょっとだエカッコよくするために all-the-icons で装飾するための設定。だけどファイルの種類がアイコンでわかるので便利。
 
 ```emacs-lisp
 (setq dashboard-set-file-icons t)
@@ -80,8 +89,7 @@ Emacs の bookmarks と register は使ってない(使えてない)のでコメ
 
 ## 最後に設定を反映 {#最後に設定を反映}
 
-多分設定を反映するための関数だと思ってる。
-そして今はエラーになるので一時的に無効化している
+多分設定を反映するための関数だと思ってる。そして今はエラーになるので一時的に無効化している
 
 ```emacs-lisp
 ;; (dashboard-setup-startup-hook)
@@ -90,5 +98,4 @@ Emacs の bookmarks と register は使ってない(使えてない)のでコメ
 
 ## その他 {#その他}
 
-agenda などは表示する内容を絞ったりした方が dashboard として使い勝手が良さそう。
-今日の会議何があるとかが出ると便利かもね。
+agenda などは表示する内容を絞ったりした方が dashboard として使い勝手が良さそう。今日の会議何があるとかが出ると便利かもね。

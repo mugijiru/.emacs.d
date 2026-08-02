@@ -620,7 +620,18 @@ Emacs が見える PATH 環境変数をシェルが見てる PATH 環境変数�
 :ID:       31b08655-ece4-4250-bc51-b4caec3f4264
 :END:
 
-いつも通り el-get からインストールしている
+レシピは自前で用意している
+
+#+begin_src emacs-lisp :tangle recipes/exec-path-from-shell.rcp
+(:name exec-path-from-shell
+       :website "https://github.com/purcell/exec-path-from-shell"
+       :description "Emacs plugin for dynamic PATH loading"
+       :type github
+       :branch "main"
+       :pkgname "purcell/exec-path-from-shell")
+#+end_src
+
+そしていつも通り el-get からインストールしている
 
 #+begin_src emacs-lisp :tangle inits/00-exec-path.el
 (el-get-bundle exec-path-from-shell)
@@ -3003,6 +3014,17 @@ el-get のレシピは自前で用意している
        :pkgname "emacs-dashboard/dashboard"
        :depends (page-break-lines)
        :minimum-emacs-version (25 3))
+#+end_src
+
+page-break-lines も自前でレシピを用意している
+
+#+begin_src emacs-lisp :tangle recipes/page-break-lines.rcp
+(:name page-break-lines
+       :website "https://github.com/purcell/page-break-lines"
+       :description "A global mode which displays ugly form feed characters as tidy horizontal rules"
+       :type github
+       :branch "main"
+       :pkgname "purcell/page-break-lines")
 #+end_src
 
 そして ~el-get-bundle~ で入れている
@@ -7306,8 +7328,20 @@ el-get 本体にレシピがないので自前で用意しています。
        :website "https://github.com/purcell/sqlformat"
        :description "Easily reformatting SQL using any one of several popular SQL formatters"
        :type github
+       :branch "main"
        :pkgname "purcell/sqlformat"
        :depends (reformatter))
+#+end_src
+
+依存している reformatter もレシピを自前で用意している
+
+#+begin_src emacs-lisp :tangle recipes/reformatter.rcp
+(:name reformatter
+       :website "https://github.com/purcell/reformatter.el"
+       :description "Major mode for Elm"
+       :type github
+       :branch "main"
+       :pkgname "purcell/reformatter.el")
 #+end_src
 
 そして ~el-get-bundle~ でインストールしています
