@@ -278,7 +278,7 @@
                      "1837769c872b6453c7c02490f50a6eb322156c2c")
         (japanese-holidays :checksum
                            "324b6bf2f55ec050bef49e001caedaabaf4fa35d")
-        (js2-mode :checksum "e0c302872de4d26a9c1614fac8d6b94112b96307")
+        (js2-mode :checksum "41d0e7f5ef51109c682016baa6fc6846e03e8517")
         (jump :checksum "55caa66a7cc6e0b1a76143fd40eff38416928941")
         (lsp-mode :checksum "aae3bcaf6155640a3410a7c248c1f698aa600f15")
         (lsp-ui :checksum "8d888a3ab1ba9e46bd4711398c57d39d0b709a45")
