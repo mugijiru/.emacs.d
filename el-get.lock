@@ -1,5 +1,8 @@
 (setq el-get-lock-package-versions
-      '((inheritenv :checksum
+      '((protobuf-mode :checksum
+                       "2438c835d265ae81f23e96e2d14b56995890bbd4")
+        (go-mode :checksum "3a71d28ab47df685e54ca6046a7a3dd3e28b682c")
+        (inheritenv :checksum
                     "b9e67cc20c069539698a9ac54d0e6cc11e616c6f")
         (cond-let :checksum "c05079b0a5dd74eda1f986e40600745144deafea")
         (mcp :checksum "f10768e16f94f65527a0ea657ec91ab2eeaf244d")
