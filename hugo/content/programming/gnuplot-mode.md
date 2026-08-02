@@ -21,6 +21,7 @@ Syntax Highlight や 補完機能 などを提供する。
        :type github
        :pkgname "emacs-gnuplot/gnuplot"
        :branch "main"
+       :depends (compat)
        :build `(("make" ,(concat "EMACS=" el-get-emacs))))
 ```
 
