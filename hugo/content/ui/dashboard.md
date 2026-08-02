@@ -35,9 +35,9 @@ page-break-lines も自前でレシピを用意している
 
 そして `el-get-bundle` で入れている
 
-,#+begin_src emacs-lisp :tangle inits/92-dashboard.el
+```emacs-lisp
 (el-get-bundle dashboard)
-\#+end_src
+```
 
 
 ## 表示するアイコンをロゴに変更 {#表示するアイコンをロゴに変更}
