@@ -324,7 +324,7 @@
                      "e1ab360024404fe6548505ab76616cfc42edf0cc")
         (yaml-mode :checksum
                    "96ef0201101a7cd591febd5886633154dae8834c")
-        (yascroll :checksum "95e24b79ee6b9e1d069670902cd526ba1d8e4ac2")
+        (yascroll :checksum "b6d7c792a01411401a34ca61c82ebfb4d9fc1d04")
         (yasnippet :checksum
                    "c1e6ff23e9af16b856c88dfaab9d3ad7b746ad37")
         (zoom-window :checksum
