@@ -58,7 +58,7 @@ org-mode 用に定義したコマンドや関数のテストコード
 ivy-read を使った機能のテストをするので読み込んでいる。
 
 ```emacs-lisp
-(el-get-bundle swiper)
+(el-get-bundle abo-abo/swiper)
 ```
 
 

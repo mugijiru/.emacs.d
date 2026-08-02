@@ -6,7 +6,7 @@
 ;; 入力シミュレート用のプラグイン
 (load (expand-file-name (concat user-emacs-directory "/inits/99-with-simulated-input")))
 
-(el-get-bundle swiper)
+(el-get-bundle abo-abo/swiper)
 
 ;; テスト対象の読み込み
 (load (expand-file-name (concat user-emacs-directory "/inits/68-my-org-commands.el")))

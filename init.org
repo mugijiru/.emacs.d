@@ -12695,7 +12695,7 @@ org-mode 用に定義したコマンドや関数のテストコード
 ivy-read を使った機能のテストをするので読み込んでいる。
 
 #+begin_src emacs-lisp :tangle inits/test/68-my-org-commands-test.el
-(el-get-bundle swiper)
+(el-get-bundle abo-abo/swiper)
 #+end_src
 
 **** テスト対象の読み込み
