@@ -3005,9 +3005,20 @@ el-get のレシピは自前で用意している
        :minimum-emacs-version (25 3))
 #+end_src
 
+page-break-lines も自前でレシピを用意している
+
+#+begin_src emacs-lisp :tangle recipes/page-break-lines.rcp
+(:name page-break-lines
+       :website "https://github.com/purcell/page-break-lines"
+       :description "A global mode which displays ugly form feed characters as tidy horizontal rules"
+       :type github
+       :branch "main"
+       :pkgname "purcell/page-break-lines")
+#+end_src
+
 そして ~el-get-bundle~ で入れている
 
-#+begin_src emacs-lisp :tangle inits/92-dashboard.el
+,#+begin_src emacs-lisp :tangle inits/92-dashboard.el
 (el-get-bundle dashboard)
 #+end_src
 *** 表示するアイコンをロゴに変更
