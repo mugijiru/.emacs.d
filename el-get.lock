@@ -43,7 +43,7 @@
         (reformatter :checksum
                      "c0ddac04b7b937ed56d6bf97e4bfcc4eccfa501a")
         (emacs-oauth2-auto :checksum
-                           "20b3153d9cfb7aafe68a0168647a17373adf5e22")
+                           "1f046222a51a1650f48895437996c8f83940bc31")
         (docker :checksum "f32940100035438934d626adb99cfc63036de490")
         (emacs-aio :checksum
                    "0e94a06bb035953cbbb4242568b38ca15443ad4c")
