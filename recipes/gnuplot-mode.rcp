@@ -3,4 +3,5 @@
        :type github
        :pkgname "emacs-gnuplot/gnuplot"
        :branch "main"
+       :depends (compat)
        :build `(("make" ,(concat "EMACS=" el-get-emacs))))

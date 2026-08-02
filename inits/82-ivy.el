@@ -1,4 +1,4 @@
-(el-get-bundle abo-abo/swiper) ;; ivy, swiper, counsel が同時に入って来る
+(el-get-bundle swiper) ;; ivy, swiper, counsel が同時に入って来る
 
 (when (require 'ivy nil t)
   ;; M-o を ivy-dispatching-done-hydra に割り当てる．
