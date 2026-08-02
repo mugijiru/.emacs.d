@@ -5,7 +5,7 @@
         (inheritenv :checksum
                     "b9e67cc20c069539698a9ac54d0e6cc11e616c6f")
         (cond-let :checksum "c05079b0a5dd74eda1f986e40600745144deafea")
-        (mcp :checksum "f10768e16f94f65527a0ea657ec91ab2eeaf244d")
+        (mcp :checksum "2d172809cbdb2a40d86b28ad73bd65547cefe0e1")
         (gcmh :checksum "0089f9c3a6d4e9a310d0791cf6fa8f35642ecfd9")
         (vterm :checksum "056ad74653704bc353d8ec8ab52ac75267b7d373")
         (ox-nippou :checksum
