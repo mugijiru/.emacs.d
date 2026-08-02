@@ -5962,6 +5962,21 @@ Syntax Highlight や 補完機能 などを提供する。
 *** その他
 org-mode から使ってた記憶があるのでそっちの方で何か設定があるかもしれない
 
+** Go言語
+:PROPERTIES:
+:ID:       633b7e2c-2920-4614-aeee-e4c3f56ac59e
+:EXPORT_FILE_NAME: golang
+:END:
+*** go-mode
+**** 概要
+[[https://github.com/dominikh/go-mode.el][go-mode]] はGo言語の記述を補助するメジャーモード
+**** インストール
+el-get 本体にレシピがあるのでそれをそのまま利用して
+el-get-bundle でインストールしている
+
+#+begin_src emacs-lisp :tangle inits/40-go.el
+(el-get-bundle go-mode)
+#+end_src
 ** GraphQL
 :PROPERTIES:
 :EXPORT_FILE_NAME: graphql
@@ -6404,7 +6419,20 @@ plantuml-mode と同じディレクトリに設置して
 *** その他
 最新の develop ブランチだとインデントを調整できる機能が入っているので乗り換えたいけど
 そのためには el-get のレシピを書いてあげる必要がありそうで放置している。
+** protobuf
+:PROPERTIES:
+:EXPORT_FILE_NAME: protobuf
+:END:
+*** protobuf-mode
+**** 概要
+[[https://github.com/emacsmirror/protobuf-mode][protobuf-mode]] は protobuf のファイルを編集する時用のメジャーモード
+**** インストール
+el-get 本体にレシピがあるのでそれをそのまま利用して
+el-get-bundle でインストールしている
 
+#+begin_src emacs-lisp :tangle inits/40-protobuf.el
+(el-get-bundle protobuf-mode)
+#+end_src
 ** rails
 :PROPERTIES:
 :EXPORT_FILE_NAME: rails
