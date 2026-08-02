@@ -19,44 +19,44 @@
 
 (el-get-bundle copilot-chat)
 
-(setopt copilot-chat-frontend 'org)
+(setopt gh-copilot-chat-frontend 'org)
 
 (with-eval-after-load 'copilot-chat-prompts
-  (setq my/copilot-chat-org-prompt-original copilot-chat-org-prompt)
-  (setopt copilot-chat-org-prompt (concat my/copilot-chat-org-prompt-original "\n出力には日本語を用います"))
+  (setq my/gh-copilot-chat-org-prompt-original gh-copilot-chat-org-prompt)
+  (setopt gh-copilot-chat-org-prompt (concat my/gh-copilot-chat-org-prompt-original "\n出力には日本語を用います"))
 
-  (setq my/copilot-chat-markdown-prompt-original copilot-chat-markdown-prompt)
-  (setopt copilot-chat-markdown-prompt (concat my/copilot-chat-markdown-prompt-original "\n出力には日本語を用います"))
+  (setq my/gh-copilot-chat-markdown-prompt-original gh-copilot-chat-markdown-prompt)
+  (setopt gh-copilot-chat-markdown-prompt (concat my/gh-copilot-chat-markdown-prompt-original "\n出力には日本語を用います"))
 
-  (setq my/copilot-chat-commit-prompt-original copilot-chat-commit-prompt)
-  (setopt copilot-chat-commit-prompt (concat "description には英語 body には日本語を用いる。また1行は66文字以内に収めること。ただし日本語は1文字を2文字換算とする\n" my/copilot-chat-commit-prompt-original)))
+  (setq my/gh-copilot-chat-commit-prompt-original gh-copilot-chat-commit-prompt)
+  (setopt gh-copilot-chat-commit-prompt (concat "description には英語 body には日本語を用いる。また1行は66文字以内に収めること。ただし日本語は1文字を2文字換算とする\n" my/gh-copilot-chat-commit-prompt-original)))
 
 (with-eval-after-load 'pretty-hydra
   (pretty-hydra-define copilot-chat-hydra
     (:separator "-" :color teal :foreign-key warn :title (concat (nerd-icons-mdicon "nf-md-robot") " Copilot Chat") :quit-key "q")
     ("Launch"
-     (("c" copilot-chat-display             "Chat")
-      ("S" copilot-chat-switch-to-buffer    "Switch")
-      ("d" copilot-chat-doc                 "Doc")
-      ("r" copilot-chat-review-whole-buffer "Review")
-      ("f" copilot-chat-fix                 "Fix")
-      ("C" copilot-chat-ask-and-insert      "Insert")
-      ("o" copilot-chat-optimize            "Optimize")
-      ("t" copilot-chat-test                "Write test"))
+     (("c" gh-copilot-chat-display             "Chat")
+      ("S" gh-copilot-chat-switch-to-buffer    "Switch")
+      ("d" gh-copilot-chat-doc                 "Doc")
+      ("r" gh-copilot-chat-review-whole-buffer "Review")
+      ("f" gh-copilot-chat-fix                 "Fix")
+      ("C" gh-copilot-chat-ask-and-insert      "Insert")
+      ("o" gh-copilot-chat-optimize            "Optimize")
+      ("t" gh-copilot-chat-test                "Write test"))
      "Explain"
-     (("e" copilot-chat-explain                "Selected")
-      ("s" copilot-chat-explain-symbol-at-line "Symbol at line")
-      ("f" copilot-chat-explain-defun          "Function"))
+     (("e" gh-copilot-chat-explain                "Selected")
+      ("s" gh-copilot-chat-explain-symbol-at-line "Symbol at line")
+      ("f" gh-copilot-chat-explain-defun          "Function"))
      "Commit message"
-     (("I" copilot-chat-insert-commit-message "Insert")))))
+     (("I" gh-copilot-chat-insert-commit-message "Insert")))))
 
 (with-eval-after-load 'major-mode-hydra
   (major-mode-hydra-define copilot-chat-org-prompt-mode (:separator "-" :quit-key "q" :title (concat (nerd-icons-mdicon "nf-md-robot") " Copilot Chat Org Prompt"))
     ("Common"
-     (("m" copilot-chat-transient "Menu"))))
+     (("m" gh-copilot-chat-transient "Menu"))))
   (major-mode-hydra-define copilot-chat-markdown-prompt-mode (:separator "-" :quit-key "q" :title (concat (nerd-icons-mdicon "nf-md-robot") " Copilot Chat Markdown Prompt"))
     ("Common"
-     (("m" copilot-chat-transient "Menu"))))
+     (("m" gh-copilot-chat-transient "Menu"))))
   (major-mode-hydra-define copilot-chat-shell-mode (:separator "-" :quit-key "q" :title (concat (nerd-icons-mdicon "nf-md-robot") " Copilot Chat Shell Prompt"))
     ("Common"
-     (("m" copilot-chat-transient "Menu")))))
+     (("m" gh-copilot-chat-transient "Menu")))))
