@@ -22,6 +22,7 @@ el-get 本体にレシピがないので自前で用意しています。
        :website "https://github.com/purcell/sqlformat"
        :description "Easily reformatting SQL using any one of several popular SQL formatters"
        :type github
+       :branch "main"
        :pkgname "purcell/sqlformat"
        :depends (reformatter))
 ```
