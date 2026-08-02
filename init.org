@@ -68,7 +68,15 @@
 #+end_src
 
 このあたりの記述は公式の README に書かれてるやつと一緒だと思う。
-大分前に設定しているから今は違うかもしれんけど
+大分前に設定しているから今は違うかもしれんけど。
+
+更に明示的に ~el-get-bundle~ を require している。
+これは2026年5月以降、autoload されなくなったことへの対応
+
+#+begin_src emacs-lisp :tangle init-el-get.el
+(require 'el-get-bundle)
+#+end_src
+
 *** レシピのフォルダ指定
 自前のレシピをいくつか用意しているのでそのフォルダを el-get で読めるようにしている
 

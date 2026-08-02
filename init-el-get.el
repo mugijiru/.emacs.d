@@ -10,6 +10,8 @@
     (goto-char (point-max))
     (eval-print-last-sexp)))
 
+(require 'el-get-bundle)
+
 (add-to-list 'el-get-recipe-path (concat user-emacs-directory "recipes"))
 
 ;; el-get のバージョンロック機構の導入
