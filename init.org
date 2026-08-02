@@ -3858,7 +3858,7 @@ el-get を使って GitHub のリポジトリから直で入れている。
 
 
 #+begin_src emacs-lisp :tangle inits/82-ivy.el
-(el-get-bundle abo-abo/swiper) ;; ivy, swiper, counsel が同時に入って来る
+(el-get-bundle swiper) ;; ivy, swiper, counsel が同時に入って来る
 #+end_src
 
 MELPA 経由だと org-mode 関係のパッケージ周りでハマったことがあるので
@@ -12694,7 +12694,7 @@ org-mode 用に定義したコマンドや関数のテストコード
 ivy-read を使った機能のテストをするので読み込んでいる。
 
 #+begin_src emacs-lisp :tangle inits/test/68-my-org-commands-test.el
-(el-get-bundle abo-abo/swiper)
+(el-get-bundle swiper)
 #+end_src
 
 **** テスト対象の読み込み

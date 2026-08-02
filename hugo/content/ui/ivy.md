@@ -11,7 +11,7 @@ draft = false
 el-get を使って GitHub のリポジトリから直で入れている。
 
 ```emacs-lisp
-(el-get-bundle abo-abo/swiper) ;; ivy, swiper, counsel が同時に入って来る
+(el-get-bundle swiper) ;; ivy, swiper, counsel が同時に入って来る
 ```
 
 MELPA 経由だと org-mode 関係のパッケージ周りでハマったことがあるので
