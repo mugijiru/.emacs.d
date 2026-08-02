@@ -7,8 +7,7 @@ draft = false
 
 Emacs は通常最小限の環境変数しか利用しないようになっている。
 
-が、それだと普段使う上で「ああ、このコマンドが使えなくてもどかしい……!」
-と感じてしまう。
+が、それだと普段使う上で「ああ、このコマンドが使えなくてもどかしい……!」と感じてしまう。
 
 そこで [exec-path-from-shell](https://github.com/purcell/exec-path-from-shell) というのを使って
 Emacs が見える PATH 環境変数をシェルが見てる PATH 環境変数と揃うようにしている。
@@ -16,7 +15,18 @@ Emacs が見える PATH 環境変数をシェルが見てる PATH 環境変数�
 
 ## インストール {#インストール}
 
-いつも通り el-get からインストールしている
+レシピは自前で用意している
+
+```emacs-lisp
+(:name exec-path-from-shell
+       :website "https://github.com/purcell/exec-path-from-shell"
+       :description "Emacs plugin for dynamic PATH loading"
+       :type github
+       :branch "main"
+       :pkgname "purcell/exec-path-from-shell")
+```
+
+そしていつも通り el-get からインストールしている
 
 ```emacs-lisp
 (el-get-bundle exec-path-from-shell)
@@ -48,8 +58,7 @@ Mac と Pure GTK 環境で有効化している。
 
 ## その他 {#その他}
 
-なぜか以下のようなコメントを書いていた。
-普段使っている zsh で持ってる PATH は使わないのだろうか? :thinking_face:
+なぜか以下のようなコメントを書いていた。普段使っている zsh で持ってる PATH は使わないのだろうか? :thinking_face:
 
 ```emacs-lisp
 ;; for exec path
