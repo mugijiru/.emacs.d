@@ -39,7 +39,7 @@
         (chatgpt-shell :checksum
                        "49827c8d0746a2f3e1bc68f5f3d73363b7db3db6")
         (sqlformat :checksum
-                   "69ef8bec3ac8c9ce4a60f20a9721e4d7a592a84d")
+                   "0387e61b693f137a8df0dd7b5237f47cad5fa0b6")
         (reformatter :checksum
                      "2bd8818f3f2119a3876e574a437495214c87bc81")
         (emacs-oauth2-auto :checksum
