@@ -5,7 +5,7 @@
 			 ("melpa" . "https://melpa.org/packages/")))
 ;; (package-initialize)
 
-(load "~/.emacs.d/init-el-get.el")
+(load (expand-file-name "init-el-get.el" user-emacs-directory))
 
 (el-get-bundle init-loader)
 (init-loader-load)
