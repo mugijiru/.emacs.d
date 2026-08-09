@@ -28,7 +28,7 @@
         (lsp-tailwindcss :checksum
                          "c90c3fece5eaf8725fa957ada8aafae9c461ad2b")
         (flycheck-eask :checksum
-                       "9141ad6b9ec2f2572a4dcddf54247825516c93b2")
+                       "8f90809e2392e8a07ca6cddaeec845b6eb341e74")
         (eask-mode :checksum
                    "d8f2188d993e64a9c7e0432445e63294a2f48788")
         (eask :checksum "a9dd17667c3df0b7eadef0cb5510452f0e1a41ba")
