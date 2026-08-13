@@ -51,7 +51,7 @@
         (dmacro :checksum "c714fcdbac3ae57fcc8ff3db94b0e5aededc7468")
         (ruby-refactor :checksum
                        "e6b7125878a08518bffec6942df0c606f748e9ee")
-        (pg :checksum "ced3f1e4fa9bb8d3d33150f43d0dc357e4917636")
+        (pg :checksum "17e82d7557cc8d86abdf0679c6a54be3bc25cf5f")
         (nerd-icons-dired :checksum
                           "104acd8879528b8115589f35f1bbcbe231ad732f")
         (rails-i18n :checksum
