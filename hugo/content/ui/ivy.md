@@ -8,16 +8,43 @@ draft = false
 
 ## インストール {#インストール}
 
-el-get を使って GitHub のリポジトリから直で入れている。
+el-get-bundle を使って GitHub のリポジトリから直で入れている。
 
 ```emacs-lisp
 (el-get-bundle swiper) ;; ivy, swiper, counsel が同時に入って来る
 ```
 
+その際 el-get 本体のレシピだとうまく更新できないので
+自前でレシピを用意している
+
+```emacs-lisp
+(:name swiper
+       :description "Gives you an overview as you search for a regex."
+       :type github
+       :pkgname "abo-abo/swiper"
+       :depends (cl-lib avy hydra)
+       ;; swiper's optional files are byte-compiled in child Emacs
+       ;; processes.  Pass the dependency directories to those processes;
+       ;; the parent Emacs' load-path is not inherited by them.
+       :build `(("make"
+                 ,(format "EMACS=%s -L %s -L %s"
+                          el-get-emacs
+                          (expand-file-name "avy" el-get-dir)
+                          (expand-file-name "hydra" el-get-dir))
+                 "compile")
+                ("makeinfo" "-o" "doc/ivy.info" "doc/ivy.texi"))
+       :build/berkeley-unix `(("gmake"
+                               ,(format "EMACS=%s -L %s -L %s"
+                                        el-get-emacs
+                                        (expand-file-name "avy" el-get-dir)
+                                        (expand-file-name "hydra" el-get-dir))
+                               "compile")
+                              ("gmakeinfo" "-o" "doc/ivy.info" "doc/ivy.texi"))
+       :info "doc/ivy.info")
+```
+
 MELPA 経由だと org-mode 関係のパッケージ周りでハマったことがあるので
 GitHub から直で入れる運用にしている。
-
-が、やっぱり MELPA とかに寄せるべきかなって気になってきているところだったりもする。
 
 
 ## なんか設定 {#なんか設定}
