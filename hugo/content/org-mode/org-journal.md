@@ -8,9 +8,13 @@ draft = false
 [org-journal](https://github.com/bastibe/org-journal) は org-mode で日記を書くためのモードっぽい。
 
 デフォルトに近い設定だと
-\`M-x org-journal-new-entry\` でその日の日記ファイルを生成してその時刻を Headline を用意するようになってる。
+\`M-x org-journal-new-entry\` でその日の日記ファイルを生成して
+その時刻を Headline を用意するようになってる。
 
-一度書いた後にまた同じコマンドを叩くと以前に書いた記事を開いて新しい時刻の Headline を用意するのでなんか書きたくなったら雑に書いておくと、時系列順に並んでいくので便利かもしれない。まだ使ってないから本当に便利かは分からない
+一度書いた後にまた同じコマンドを叩くと以前に書いた記事を開いて
+新しい時刻の Headline を用意するので
+なんか書きたくなったら雑に書いておくと、時系列順に並んでいくので便利かもしれない。
+まだ使ってないから本当に便利かは分からない
 
 
 ## インストール {#インストール}
@@ -31,7 +35,9 @@ draft = false
 (el-get-bundle org-journal)
 ```
 
-また [refile 先の候補設定]({{< relref "org-refile#refile-先の候補設定" >}}) で `org-journal--get-entry-path` という内部関数を使ってしまっていてそれが読み込まれていないと困るので、ここで require まで行っている
+また [refile 先の候補設定]({{< relref "init.md#refile-先の候補設定" >}}) で `org-journal--get-entry-path` という内部関数を使ってしまっていて
+それが読み込まれていないと困るので、
+ここで require まで行っている
 
 ```emacs-lisp
 (require 'org-journal)
@@ -40,7 +46,8 @@ draft = false
 
 ## agenda のスコープ設定用関数 {#agenda-のスコープ設定用関数}
 
-org-clock-report では前日分も target に入れてほしいのでそれの `:scope` に指定するための関数を自前で用意している
+org-clock-report では前日分も target に入れてほしいので
+それの `:scope` に指定するための関数を自前で用意している
 
 ```emacs-lisp
 (defun my/org-agenda-scope-with-yesterday-journal ()
@@ -48,7 +55,7 @@ org-clock-report では前日分も target に入れてほしいのでそれの 
          (24-hours-ago (* -60 60 24))
          (yesterday (time-add (current-time) 24-hours-ago))
          (yesterday-string (format-time-string "%Y%m%d" yesterday))
-         (yesterday-journal-file-path (concat org-journal-dir yesterday-string ".org"))
+         (yesterday-journal-file-path (concat org-journal-dir yesterday-string ".org.gpg"))
          (today-journal-file-path (org-journal--get-entry-path))
          (files (append `(,yesterday-journal-file-path ,today-journal-file-path) agenda-files)))
     (org-add-archive-files files)))
@@ -59,7 +66,7 @@ org-clock-report では前日分も target に入れてほしいのでそれの 
 
 ```emacs-lisp
 (setopt org-journal-dir (concat org-roam-directory "journal/"))
-(setopt org-journal-file-format "%Y%m%d.org")
+(setopt org-journal-file-format "%Y%m%d.org.gpg")
 (setopt org-journal-date-format "%d日(%a)")
 (setopt org-journal-enable-agenda-integration nil)
 (setopt org-journal-carryover-items "TODO={TODO\\|DOING\\|WAIT}")
