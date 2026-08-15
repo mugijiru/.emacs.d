@@ -43,8 +43,11 @@ jobs:
         set -u
 
         vterm_dir="$GITHUB_WORKSPACE/el-get/vterm"
+        emacs_path=$(command -v emacs || true)
         module_suffix=$(emacs -Q --batch --eval '(princ module-file-suffix)' || true)
         echo "vterm directory: ${vterm_dir}"
+        echo "Emacs executable: ${emacs_path}"
+        emacs --version | sed -n '1p' || true
         echo "Emacs module suffix: ${module_suffix}"
 
         if [ ! -d "$vterm_dir" ]; then
@@ -53,9 +56,9 @@ jobs:
         fi
 
         echo 'vterm module artifacts:'
-        find "$vterm_dir" -maxdepth 2 -type f -name 'vterm-module*' -printf '%p\n' || true
+        find "$vterm_dir" -type f -name 'vterm-module*' -print || true
 
-        module_path=$(find "$vterm_dir" -maxdepth 2 -type f -name "vterm-module${module_suffix}" -print -quit)
+        module_path=$(find "$vterm_dir" -type f -name "vterm-module${module_suffix}" -print -quit)
         if [ -n "$module_path" ]; then
           echo "module path: ${module_path}"
           file "$module_path" || true
@@ -65,12 +68,22 @@ jobs:
           echo 'vterm-module shared object was not found.'
         fi
 
-        echo 'CMake cache:'
-        if [ -f "$vterm_dir/build/CMakeCache.txt" ]; then
-          rg -n 'CMAKE_(C_COMPILER|BUILD_TYPE)|LIBVTERM|USE_SYSTEM_LIBVTERM' "$vterm_dir/build/CMakeCache.txt" || true
-        else
+        echo 'CMake files:'
+        cmake_cache_count=0
+        while IFS= read -r cmake_cache; do
+          cmake_cache_count=$((cmake_cache_count + 1))
+          echo "CMake cache: ${cmake_cache}"
+          grep -nE 'CMAKE_(C_COMPILER|CXX_COMPILER|BUILD_TYPE)|LIBVTERM|USE_SYSTEM_LIBVTERM|CMAKE_(RUNTIME|LIBRARY|ARCHIVE)_OUTPUT_DIRECTORY' "$cmake_cache" || true
+        done < <(find "$vterm_dir" -type f -name 'CMakeCache.txt' -print)
+        if [ "$cmake_cache_count" -eq 0 ]; then
           echo 'CMakeCache.txt was not found.'
         fi
+
+        echo 'Build metadata:'
+        find "$vterm_dir" -type f \( -name 'build.ninja' -o -name 'Makefile' -o -name '*.log' \) -print | while IFS= read -r build_file; do
+          echo "Build file: ${build_file}"
+          grep -nE 'vterm-module|libvterm|CMAKE_|OUTPUT' "$build_file" | head -80 || true
+        done
 
         echo 'Loading vterm-module directly:'
         emacs -Q --batch -L "$vterm_dir" \
