@@ -100,12 +100,27 @@ jobs:
       id: remove-old-branches
       name: Remove old branches
       run: |
-        git fetch
+        git fetch --prune
 
         branches=($(git branch -r --format='%(refname:short)' | sed 's|^origin/||' | grep "^update-${PACKAGE}" || true))
         for branch in "${branches[@]}"; do
           echo "Remove remote branch: ${branch}"
-          git push origin --delete $branch
+          if git push origin --delete "${branch}"; then
+            continue
+          fi
+
+          # Another package-update job may have deleted the branch first.
+          # Continue only when the branch is verifiably gone; preserve real
+          # deletion failures.
+          if remote_ref=$(git ls-remote --heads origin "refs/heads/${branch}"); then
+            if [ -z "${remote_ref}" ]; then
+              echo "Remote branch already deleted: ${branch}"
+              continue
+            fi
+          fi
+
+          echo "Failed to remove remote branch: ${branch}" >&2
+          exit 1
         done
 
     - if: env.found_update == 1
