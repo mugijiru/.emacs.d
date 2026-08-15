@@ -1,0 +1,23 @@
+(:name swiper
+       :description "Gives you an overview as you search for a regex."
+       :type github
+       :pkgname "abo-abo/swiper"
+       :depends (cl-lib avy hydra)
+       ;; swiper's optional files are byte-compiled in child Emacs
+       ;; processes.  Pass the dependency directories to those processes;
+       ;; the parent Emacs' load-path is not inherited by them.
+       :build `(("make"
+                 ,(format "EMACS=%s -L %s -L %s"
+                          el-get-emacs
+                          (expand-file-name "avy" el-get-dir)
+                          (expand-file-name "hydra" el-get-dir))
+                 "compile")
+                ("makeinfo" "-o" "doc/ivy.info" "doc/ivy.texi"))
+       :build/berkeley-unix `(("gmake"
+                               ,(format "EMACS=%s -L %s -L %s"
+                                        el-get-emacs
+                                        (expand-file-name "avy" el-get-dir)
+                                        (expand-file-name "hydra" el-get-dir))
+                               "compile")
+                              ("gmakeinfo" "-o" "doc/ivy.info" "doc/ivy.texi"))
+       :info "doc/ivy.info")
