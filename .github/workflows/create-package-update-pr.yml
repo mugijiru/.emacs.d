@@ -77,6 +77,32 @@ jobs:
           --eval '(princ (format "locate-library: %S\n" (locate-library "vterm-module")))' \
           --eval "(require 'vterm-module)" || true
 
+    - if: failure() && env.PACKAGE == 'swiper'
+      name: Diagnose swiper build
+      run: |
+        set -u
+
+        swiper_dir="$GITHUB_WORKSPACE/el-get/swiper"
+        avy_dir="$GITHUB_WORKSPACE/el-get/avy"
+        hydra_dir="$GITHUB_WORKSPACE/el-get/hydra"
+
+        echo "Emacs: $(emacs --version | sed -n '1p')"
+        echo "el-get directory: $GITHUB_WORKSPACE/el-get"
+        echo "swiper directory: $swiper_dir"
+        echo "avy directory: $avy_dir"
+        echo "hydra directory: $hydra_dir"
+        echo "dependency files:"
+        find "$avy_dir" "$hydra_dir" -maxdepth 2 -type f \
+          \( -name 'avy.el' -o -name 'hydra-examples.el' \) -print 2>/dev/null || true
+
+        echo 'Stored swiper recipe:'
+        grep -n -A14 -B2 '^(swiper status' "$GITHUB_WORKSPACE/el-get/.status.el" || true
+        echo 'Effective swiper recipe source:'
+        grep -n -A24 -B2 '(:name swiper' "$GITHUB_WORKSPACE/recipes/swiper.rcp" || true
+        echo 'Makefile compile commands:'
+        make -C "$swiper_dir" -B -n \
+          EMACS="emacs -Q -batch -L $avy_dir -L $hydra_dir" compile || true
+
     - name: Detect el-get.lock diff
       run: |
         git diff --exit-code --quiet el-get.lock || git add el-get.lock && echo 'found_update=1' >> $GITHUB_ENV
