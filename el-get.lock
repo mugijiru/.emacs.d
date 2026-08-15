@@ -323,7 +323,7 @@
         (with-editor :checksum
                      "a1f92a26e53033ec58e1d2ce9b132da7ebae816e")
         (yaml-mode :checksum
-                   "96ef0201101a7cd591febd5886633154dae8834c")
+                   "5d7347519c94eac1c9383a3b9bebe218d3e43318")
         (yascroll :checksum "b6d7c792a01411401a34ca61c82ebfb4d9fc1d04")
         (yasnippet :checksum
                    "c1e6ff23e9af16b856c88dfaab9d3ad7b746ad37")
