@@ -27,6 +27,12 @@ jobs:
     - name: Ignore compiled files
       run: |
         echo "*.elc" >> ~/.gitignore
+    - if: inputs.package == 'vterm'
+      name: Install vterm build dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install --no-install-recommends -y libtool libtool-bin
+        libtool --version
     - name: Update package
       run: |
         emacs -Q --batch --eval "(setq user-emacs-directory \"$(pwd)/\")" \
