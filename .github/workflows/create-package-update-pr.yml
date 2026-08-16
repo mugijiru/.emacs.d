@@ -85,6 +85,31 @@ jobs:
           grep -nE 'vterm-module|libvterm|CMAKE_|OUTPUT' "$build_file" | head -80 || true
         done
 
+        echo 'Reproducing vterm build with vendored libvterm:'
+        probe_dir=$(mktemp -d)
+        configure_log="$probe_dir/cmake.log"
+        build_log="$probe_dir/build.log"
+        echo "Probe build directory: ${probe_dir}"
+
+        cmake -S "$vterm_dir" -B "$probe_dir" -G 'Unix Makefiles' \
+          -DUSE_SYSTEM_LIBVTERM=Off >"$configure_log" 2>&1
+        configure_status=$?
+        echo "CMake configure exit status: ${configure_status}"
+        sed -n '1,240p' "$configure_log" || true
+
+        build_status=not-run
+        if [ "$configure_status" -eq 0 ]; then
+          cmake --build "$probe_dir" >"$build_log" 2>&1
+          build_status=$?
+          echo "CMake build exit status: ${build_status}"
+          sed -n '1,320p' "$build_log" || true
+        fi
+
+        echo 'Probe build files and artifacts:'
+        find "$probe_dir" -maxdepth 5 -type f \
+          \( -name 'vterm-module*' -o -name 'CMakeCache.txt' -o -name 'Makefile' \
+             -o -name 'link.txt' -o -name 'build.make' \) -print || true
+
         echo 'Loading vterm-module directly:'
         emacs -Q --batch -L "$vterm_dir" \
           --eval '(princ (format "locate-library: %S\n" (locate-library "vterm-module")))' \
