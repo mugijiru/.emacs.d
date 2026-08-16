@@ -91,6 +91,7 @@ jobs:
         build_log="$probe_dir/build.log"
         echo "Probe build directory: ${probe_dir}"
 
+        set +e
         cmake -S "$vterm_dir" -B "$probe_dir" -G 'Unix Makefiles' \
           -DUSE_SYSTEM_LIBVTERM=Off >"$configure_log" 2>&1
         configure_status=$?
@@ -104,6 +105,7 @@ jobs:
           echo "CMake build exit status: ${build_status}"
           sed -n '1,320p' "$build_log" || true
         fi
+        set -e
 
         echo 'Probe build files and artifacts:'
         find "$probe_dir" -maxdepth 5 -type f \
