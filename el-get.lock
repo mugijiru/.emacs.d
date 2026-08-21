@@ -292,7 +292,7 @@
         (multiple-cursors :checksum
                           "94b8b07a4bab87f803123723b68227565429dfa1")
         (ob-async :checksum "9aac486073f5c356ada20e716571be33a350a982")
-        (org-gcal :checksum "0f46c08f60355729526e970e370defe624e84956")
+        (org-gcal :checksum "7304b592c283944db54ac83201d7be6f13a1f447")
         (pkg-info :checksum "76ba7415480687d05a4353b27fea2ae02b8d9d61")
         (plantuml-mode :checksum
                        "a4a63efa4a3980bfbd825bfb3a263c6664401e79")
