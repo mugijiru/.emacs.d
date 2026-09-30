@@ -303,7 +303,7 @@
         (projectile :checksum
                     "10fa39917aa3a5c7f64aae31da49b4dfd9f6eb55")
         (projectile-rails :checksum
-                          "701784df7befe17b861f1b53fe9cbc59d0b94b9f")
+                          "131444202a3c94bb4014ea53db247964e66a26f2")
         (rake :checksum "452ea0caca33376487103c64177c295ed2960cca")
         (rbenv :checksum "4afe1dc6bd76efdbf2e54b58ea76a05837553575")
         (rspec-mode :checksum
