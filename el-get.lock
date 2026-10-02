@@ -46,7 +46,7 @@
                            "1f046222a51a1650f48895437996c8f83940bc31")
         (docker :checksum "8a51aee19a7931bc16aa63cf076b109cdd6a1c62")
         (emacs-aio :checksum
-                   "0e94a06bb035953cbbb4242568b38ca15443ad4c")
+                   "a20c99aafef021b77b0a00735659142d4cf49682")
         (bundler :checksum "43efb6be4ed118b06d787ce7fbcffd68a31732a7")
         (dmacro :checksum "c714fcdbac3ae57fcc8ff3db94b0e5aededc7468")
         (ruby-refactor :checksum
