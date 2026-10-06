@@ -230,7 +230,7 @@
         (company-mode :checksum
                       "1cc907ac9e46ae4209eb5a341131787e0c678406")
         (counsel-projectile :checksum
-                            "40d1e1d4bb70acb00fddd6f4df9778bf2c52734b")
+                            "283352a5bd6d7df9f69974000323123845f894bb")
         (dash :checksum "d746dd9edcb67a108818beb0cdc78dc1cb466832")
         (ddskk :checksum "e8bf68b27021c29781dbfa6a8ef7b770565bdb5b")
         (ddskk-posframe.el :checksum
