@@ -124,7 +124,7 @@
         (company-quickhelp :checksum
                            "5bda859577582cc42d16fc0eaf5f7c8bedfd9e69")
         (graphql-mode :checksum
-                      "560f002d2c6cdc7191f497df6d7412669c9a0d09")
+                      "96bddee439e1409fc31a79e7e28c9ba79de443b2")
         (json-mode :checksum
                    "466d5b563721bbeffac3f610aefaac15a39d90a9")
         (json-snatcher :checksum
