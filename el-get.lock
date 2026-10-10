@@ -80,7 +80,7 @@
         (calibredb :checksum
                    "18d146481d0176935fde1baebec6d1a65151cff6")
         (git-modes :checksum
-                   "f291a4cc4a8b02a25d5cf93b4ab6af29e6f060d9")
+                   "f8a453725586c8225e47afca4c8cbc2c5585bf33")
         (ob-graphql :checksum
                     "7c35419f9eec5dc44967cbcfa13c7135b9a96bfc")
         (corfu :checksum "6477aac54fa1ea4865b23d7562e48b83a082a1e4")
