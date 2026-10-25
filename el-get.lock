@@ -19,7 +19,7 @@
         (embark :checksum "87e53827cf6659dcc4ac4e54be9af34aeca44f6e")
         (polymode :checksum "8cb72fa5dcc0d98746c680043dc121edc7621e3a")
         (svelte-mode :checksum
-                     "ac8fba901dc790976f9893e338c8ad1241b897c6")
+                     "3002fc9839f4c28aa233d0bbbdb45157274fa0b8")
         (llama :checksum "6850d0c91b629da14fdff2300c222289d1a0029a")
         (leaf-keywords :checksum
                        "36efb8c94071c0fd98b6534866297f2238b78630")
