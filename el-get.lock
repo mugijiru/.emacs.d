@@ -69,7 +69,7 @@
         (org-protocol-capture-html :checksum
                                    "08a2aed1bbeb935ef62b2ebc06037202fd8ddcb1")
         (blamer :checksum "aa9b22d4e847d15a5c4659c0407aa8bf4242cc94")
-        (rg :checksum "7d4839686031754ff86e4ad3ab76da108777edb3")
+        (rg :checksum "039ac6214b7cc6bec42f728df87ee0acb4bf9153")
         (wgrep :checksum "49f09ab9b706d2312cab1199e1eeb1bcd3f27f6f")
         (moccur-edit :checksum
                      "026f5dd4159bd1b68c430ab385757157ba01a361")
