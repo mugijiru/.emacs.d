@@ -22,7 +22,7 @@
                      "ac8fba901dc790976f9893e338c8ad1241b897c6")
         (llama :checksum "6850d0c91b629da14fdff2300c222289d1a0029a")
         (leaf-keywords :checksum
-                       "36efb8c94071c0fd98b6534866297f2238b78630")
+                       "8a094d9b9f75e8fcca55a74b3de57a169026a1ce")
         (leaf :checksum "1e363fe114310a6af5f3f770be795657307ad3d1")
         (yaml-pro :checksum "9b9509188e5b88bb933e98ab36ab992519b9554b")
         (lsp-tailwindcss :checksum
