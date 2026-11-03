@@ -297,7 +297,7 @@
         (plantuml-mode :checksum
                        "a4a63efa4a3980bfbd825bfb3a263c6664401e79")
         (popup :checksum "3afe431e9aa2e271aaf0412cbb50c733387e8ea4")
-        (posframe :checksum "45450ee132d060d297550b7c43f3d72ba77df3c7")
+        (posframe :checksum "1a6a25c58559ef43821a071c43b23de5cbc3cc3a")
         (prescient.el :checksum
                       "ae52777d6b6b856b54c85441c7a713949f1720de")
         (projectile :checksum
