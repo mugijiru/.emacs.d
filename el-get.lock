@@ -299,7 +299,7 @@
         (popup :checksum "3afe431e9aa2e271aaf0412cbb50c733387e8ea4")
         (posframe :checksum "45450ee132d060d297550b7c43f3d72ba77df3c7")
         (prescient.el :checksum
-                      "ae52777d6b6b856b54c85441c7a713949f1720de")
+                      "a380704dbdd9e18844432561214654d844186d8f")
         (projectile :checksum
                     "4d2be8680fe445c4ca88177f0ed838051cadfe58")
         (projectile-rails :checksum
