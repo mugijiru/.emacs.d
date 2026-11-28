@@ -204,7 +204,7 @@
         (ember-mode :checksum
                     "38145ad189000c58860594c05523e42bacb3d246")
         (emacs-hide-mode-line :checksum
-                              "ddd154f1e04d666cd004bf8212ead8684429350d")
+                              "2325a2caf51b0978569add201b3e84815b5b7973")
         (highlight-indent-guides :checksum
                                  "08a0859d4af2d0ce95be2a1e9aa5d1fd5ac42792")
         (scratch-log :checksum
